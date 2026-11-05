@@ -10,11 +10,11 @@
    "O": 0,
    "pass": 13,
    "noc": {
-    "CHN": 2,
     "IND": 3,
     "JPN": 1,
-    "KOR": 2,
-    "USA": 8
+    "CHN": 2,
+    "USA": 8,
+    "KOR": 2
    }
   },
   "Artistic Swimming": {
@@ -54,9 +54,9 @@
    "O": 0,
    "pass": 3,
    "noc": {
-    "DOM": 24,
     "USA": 24,
-    "VEN": 24
+    "VEN": 24,
+    "DOM": 24
    }
   },
   "Basketball": {
@@ -90,9 +90,9 @@
    "pass": 8,
    "noc": {
     "AUS": 4,
-    "BRA": 4,
     "MAR": 2,
     "NGR": 2,
+    "BRA": 4,
     "NED": 2,
     "SWE": 2
    }
@@ -132,10 +132,10 @@
    "O": 0,
    "pass": 5,
    "noc": {
-    "AUS": 15,
-    "GBR": 15,
     "IND": 15,
+    "AUS": 15,
     "USA": 15,
+    "GBR": 15,
     "RSA": 15
    }
   },
@@ -175,18 +175,18 @@
    "pass": 24,
    "noc": {
     "AUS": 3,
+    "USA": 9,
+    "NZL": 3,
+    "ITA": 3,
+    "GBR": 9,
+    "FRA": 3,
+    "NED": 3,
     "BEL": 9,
     "SUI": 6,
-    "GER": 9,
-    "DEN": 3,
-    "FRA": 3,
-    "GBR": 9,
     "IRL": 6,
-    "ITA": 3,
-    "NED": 3,
-    "NZL": 3,
+    "GER": 9,
     "SWE": 6,
-    "USA": 9
+    "DEN": 3
    }
   },
   "Fencing": {
@@ -206,10 +206,10 @@
    "O": 0,
    "pass": 6,
    "noc": {
-    "CAN": 20,
-    "ITA": 10,
+    "USA": 20,
     "MEX": 10,
-    "USA": 20
+    "CAN": 20,
+    "ITA": 10
    }
   },
   "Football": {
@@ -220,10 +220,10 @@
    "O": 0,
    "pass": 5,
    "noc": {
+    "USA": 36,
     "BRA": 18,
-    "COL": 18,
     "MEX": 18,
-    "USA": 36
+    "COL": 18
    }
   },
   "Golf": {
@@ -243,8 +243,8 @@
    "O": 0,
    "pass": 6,
    "noc": {
-    "CHN": 10,
     "JPN": 10,
+    "CHN": 10,
     "RUS": 5,
     "USA": 5
    }
@@ -257,10 +257,10 @@
    "O": 0,
    "pass": 4,
    "noc": {
-    "BUL": 1,
-    "GER": 1,
+    "USA": 5,
     "ITA": 1,
-    "USA": 5
+    "GER": 1,
+    "BUL": 1
    }
   },
   "Handball": {
@@ -282,10 +282,10 @@
    "O": 0,
    "pass": 6,
    "noc": {
-    "BEL": 16,
     "IND": 32,
+    "USA": 32,
     "NED": 16,
-    "USA": 32
+    "BEL": 16
    }
   },
   "Judo": {
@@ -365,28 +365,29 @@
    "O": 0,
    "pass": 7,
    "noc": {
-    "KOR": 1,
     "THA": 1,
-    "USA": 5
+    "USA": 5,
+    "KOR": 1
    }
   },
   "Shooting": {
    "quota": 340,
-   "atleti": 12,
-   "M": 6,
+   "atleti": 15,
+   "M": 9,
    "W": 6,
    "O": 0,
-   "pass": 12,
+   "pass": 15,
    "noc": {
-    "CHN": 3,
-    "CZE": 1,
-    "GER": 1,
+    "CZE": 2,
+    "IND": 1,
+    "CHN": 4,
+    "KOR": 1,
     "FRA": 2,
-    "CRO": 1,
+    "GER": 1,
     "HUN": 1,
     "IRI": 1,
-    "KOR": 1,
-    "SVK": 1
+    "SVK": 1,
+    "CRO": 1
    }
   },
   "Skateboarding": {
@@ -428,8 +429,8 @@
    "O": 0,
    "pass": 3,
    "noc": {
-    "MAS": 2,
-    "USA": 1
+    "USA": 1,
+    "MAS": 2
    }
   },
   "Surfing": {
@@ -498,10 +499,10 @@
    "O": 0,
    "pass": 4,
    "noc": {
-    "CHN": 1,
-    "FRA": 4,
     "JPN": 1,
-    "USA": 4
+    "CHN": 1,
+    "USA": 4,
+    "FRA": 4
    }
   },
   "Volleyball": {
@@ -512,16 +513,16 @@
    "O": 0,
    "pass": 12,
    "noc": {
-    "BRA": 24,
-    "CAN": 12,
+    "THA": 12,
+    "JPN": 12,
+    "TUN": 12,
     "CUB": 12,
     "EGY": 12,
-    "JPN": 12,
-    "POL": 12,
-    "THA": 12,
-    "TUN": 12,
+    "USA": 24,
+    "BRA": 24,
+    "CAN": 12,
     "TUR": 12,
-    "USA": 24
+    "POL": 12
    }
   },
   "Water Polo": {
@@ -555,8 +556,8 @@
   }
  },
  "totali": {
-  "atleti": 865,
-  "pass": 137,
+  "atleti": 868,
+  "pass": 140,
   "noc": 40
  },
  "noc": {
@@ -1409,8 +1410,8 @@
   },
   "IND": {
    "nome": "India",
-   "atleti": 50,
-   "pass": 5,
+   "atleti": 51,
+   "pass": 6,
    "righe": [
     {
      "nome": "Chikitha TANIPARTHI/Sahil Rajesh JADHAV",
@@ -1509,6 +1510,26 @@
      },
      "atleti": 16,
      "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Jaypal MALVIYA",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's 10m Air Pistol"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's 10m Air Pistol": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
      "ospitante": false,
      "nota": ""
     }
@@ -2293,8 +2314,8 @@
   },
   "CHN": {
    "nome": "Cina",
-   "atleti": 16,
-   "pass": 9,
+   "atleti": 17,
+   "pass": 10,
    "righe": [
     {
      "nome": "CHN Recurve Mixed",
@@ -2412,6 +2433,26 @@
      "gare": {
       "Women's 10m Air Rifle": "W",
       "Women's 50m Rifle 3 Positions": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "HU Kai",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's 10m Air Pistol"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's 10m Air Pistol": "M"
      },
      "atleti": 1,
      "squadra": false,
@@ -3319,6 +3360,53 @@
     }
    ]
   },
+  "CZE": {
+   "nome": "Cechia",
+   "atleti": 2,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "Jindrich DUBOVY",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's 10m Air Pistol"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's 10m Air Pistol": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Matej RAMPULA",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's 25m Rapid Fire Pistol"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's 25m Rapid Fire Pistol": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
   "MAR": {
    "nome": "Marocco",
    "atleti": 2,
@@ -3466,33 +3554,6 @@
      },
      "gare": {
       "Men's 10m Air Rifle": "M"
-     },
-     "atleti": 1,
-     "squadra": false,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
-  "CZE": {
-   "nome": "Cechia",
-   "atleti": 1,
-   "pass": 1,
-   "righe": [
-    {
-     "nome": "Matej RAMPULA",
-     "sport": "Shooting",
-     "card": "Shooting",
-     "discipline": [
-      "Men's 25m Rapid Fire Pistol"
-     ],
-     "genere": {
-      "M": 1,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "Men's 25m Rapid Fire Pistol": "M"
      },
      "atleti": 1,
      "squadra": false,

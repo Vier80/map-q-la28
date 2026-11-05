@@ -1,0 +1,1802 @@
+{
+ "aggiornato": "2026-11-05",
+ "totali": {
+  "atleti": 867,
+  "pass": 137,
+  "noc": 40
+ },
+ "noc": {
+  "USA": {
+   "nome": "Stati Uniti",
+   "atleti": 341,
+   "pass": 42,
+   "righe": [
+    {
+     "nome": "Alexis RUIZ/Stephan HANSEN",
+     "sport": "Archery",
+     "discipline": [
+      "Compound Mixed Team"
+     ],
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Men's Recurve",
+     "sport": "Archery",
+     "discipline": [
+      "Men's Recurve Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Recurve Mixed",
+     "sport": "Archery",
+     "discipline": [
+      "Recurve Mixed team"
+     ],
+     "atleti": 0,
+     "squadra": true,
+     "ospitante": true,
+     "nota": "atleti già contati nel recurve"
+    },
+    {
+     "nome": "USA Women's Recurve",
+     "sport": "Archery",
+     "discipline": [
+      "Women's Recurve Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "Beiwen ZHANG",
+     "sport": "Badminton",
+     "discipline": [
+      "🏸Women's Singles"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Baseball",
+     "sport": "Baseball",
+     "discipline": [
+      "Baseball"
+     ],
+     "atleti": 24,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Men's 3x3",
+     "sport": "Basketball",
+     "discipline": [
+      "Men's 3x3"
+     ],
+     "atleti": 4,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Men's 🏀",
+     "sport": "Basketball",
+     "discipline": [
+      "Men's Basketball"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Women's 3x3",
+     "sport": "Basketball",
+     "discipline": [
+      "Women's 3x3"
+     ],
+     "atleti": 4,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Women's 🏀",
+     "sport": "Basketball",
+     "discipline": [
+      "Women's Basketball"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Men's Cricket",
+     "sport": "Cricket",
+     "discipline": [
+      "Men's Cricket T20"
+     ],
+     "atleti": 15,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Dressage Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Dressage Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Eventing Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Eventing Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Jumping Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Jumping Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Men's Flag",
+     "sport": "Flag Football",
+     "discipline": [
+      "Men's Flag"
+     ],
+     "atleti": 10,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Women's Flag",
+     "sport": "Flag Football",
+     "discipline": [
+      "Women's Flag"
+     ],
+     "atleti": 10,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Men's ⚽️",
+     "sport": "Football",
+     "discipline": [
+      "Men's Football"
+     ],
+     "atleti": 18,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Women's ⚽️",
+     "sport": "Football",
+     "discipline": [
+      "Women's Football"
+     ],
+     "atleti": 18,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA WAG Team",
+     "sport": "Gym Artistic",
+     "discipline": [
+      "WAG Team"
+     ],
+     "atleti": 5,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "USA RGI Group",
+     "sport": "Gym Rhythmic",
+     "discipline": [
+      "Group All-Around"
+     ],
+     "atleti": 5,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Men's Handball",
+     "sport": "Handball",
+     "discipline": [
+      "Men's Handball"
+     ],
+     "atleti": 14,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Women's Handball",
+     "sport": "Handball",
+     "discipline": [
+      "Women's Handball"
+     ],
+     "atleti": 14,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Men's Team",
+     "sport": "Hockey Field",
+     "discipline": [
+      "Men's Hockey Field"
+     ],
+     "atleti": 16,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Women's Team",
+     "sport": "Hockey Field",
+     "discipline": [
+      "Women's Hockey Field"
+     ],
+     "atleti": 16,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Men's Lacrosse",
+     "sport": "Lacrosse Sixes",
+     "discipline": [
+      "Men's Lacrosse"
+     ],
+     "atleti": 11,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Women's Lacrosse",
+     "sport": "Lacrosse Sixes",
+     "discipline": [
+      "Women's Lacrosse"
+     ],
+     "atleti": 11,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Team Rugby7",
+     "sport": "Rugby Sevens",
+     "discipline": [
+      "Men's Rugby Seevens"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Women's Rugby7",
+     "sport": "Rugby Sevens",
+     "discipline": [
+      "Women's Rugby Sevens"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "Charlotte ROSE",
+     "sport": "Sailing",
+     "discipline": [
+      "Women's Laser Radial ILCA 6"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "Daniela MOROZ",
+     "sport": "Sailing",
+     "discipline": [
+      "Women's Kite"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "Dominique STATER",
+     "sport": "Sailing",
+     "discipline": [
+      "Women's iQFOIL"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "Noah LYONS",
+     "sport": "Sailing",
+     "discipline": [
+      "Men's iQFOIL"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "Noah RUNCIMAN",
+     "sport": "Sailing",
+     "discipline": [
+      "Men's Kite"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Softball",
+     "sport": "Softball",
+     "discipline": [
+      "Softball"
+     ],
+     "atleti": 15,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "Colin DUFFY",
+     "sport": "Sport Climbing",
+     "discipline": [
+      "Men's Boulder"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "Timothy BROWNELL",
+     "sport": "Squash",
+     "discipline": [
+      "Men's Squash"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Mixed Team",
+     "sport": "Table Tennis",
+     "discipline": [
+      "🏓MixedTeam"
+     ],
+     "atleti": 6,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "Team USA",
+     "sport": "Triathlon",
+     "discipline": [
+      "3️⃣MixedRelay"
+     ],
+     "atleti": 4,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Men's 🏐",
+     "sport": "Volleyball",
+     "discipline": [
+      "Men's Volley"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Women's 🏐",
+     "sport": "Volleyball",
+     "discipline": [
+      "Women's Volley"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Men's Water Polo",
+     "sport": "Water Polo",
+     "discipline": [
+      "Men's Water Polo"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "USA Women's Water Polo",
+     "sport": "Water Polo",
+     "discipline": [
+      "Women's Water Polo"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": true,
+     "nota": ""
+    }
+   ]
+  },
+  "IND": {
+   "nome": "India",
+   "atleti": 50,
+   "pass": 5,
+   "righe": [
+    {
+     "nome": "Chikitha TANIPARTHI/Sahil Rajesh JADHAV",
+     "sport": "Archery",
+     "discipline": [
+      "Compound Mixed Team"
+     ],
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Kumkum Anil MOHOD",
+     "sport": "Archery",
+     "discipline": [
+      "Women's Recurve Individual"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "IND Women's Cricket",
+     "sport": "Cricket",
+     "discipline": [
+      "Women's Cricket T20"
+     ],
+     "atleti": 15,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "IND Men's Team",
+     "sport": "Hockey Field",
+     "discipline": [
+      "Men's Hockey Field"
+     ],
+     "atleti": 16,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "IND Women's Team",
+     "sport": "Hockey Field",
+     "discipline": [
+      "Women's Hockey Field"
+     ],
+     "atleti": 16,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "BRA": {
+   "nome": "Brasile",
+   "atleti": 46,
+   "pass": 5,
+   "righe": [
+    {
+     "nome": "Andre STEIN/RENATO de Carvalho",
+     "sport": "Beachvolley",
+     "discipline": [
+      "Beach Volley Men's"
+     ],
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "THAMELA Coradello/VICTORIA Lopes Pereira",
+     "sport": "Beachvolley",
+     "discipline": [
+      "Beach Volley Women's"
+     ],
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "BRA Women's ⚽️",
+     "sport": "Football",
+     "discipline": [
+      "Women's Football"
+     ],
+     "atleti": 18,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "BRA Men's 🏐",
+     "sport": "Volleyball",
+     "discipline": [
+      "Men's Volley"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "BRA Women's 🏐",
+     "sport": "Volleyball",
+     "discipline": [
+      "Women's Volley"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "CAN": {
+   "nome": "Canada",
+   "atleti": 32,
+   "pass": 3,
+   "righe": [
+    {
+     "nome": "CAN Men's Flag",
+     "sport": "Flag Football",
+     "discipline": [
+      "Men's Flag"
+     ],
+     "atleti": 10,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "CAN Women's Flag",
+     "sport": "Flag Football",
+     "discipline": [
+      "Women's Flag"
+     ],
+     "atleti": 10,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "CAN Women's 🏐",
+     "sport": "Volleyball",
+     "discipline": [
+      "Women's Volley"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "MEX": {
+   "nome": "Messico",
+   "atleti": 28,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "MEX Women's Flag",
+     "sport": "Flag Football",
+     "discipline": [
+      "Women's Flag"
+     ],
+     "atleti": 10,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "MEX Men's ⚽️",
+     "sport": "Football",
+     "discipline": [
+      "Men's Football"
+     ],
+     "atleti": 18,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "JPN": {
+   "nome": "Giappone",
+   "atleti": 26,
+   "pass": 7,
+   "righe": [
+    {
+     "nome": "Junya NAKANISHI",
+     "sport": "Archery",
+     "discipline": [
+      "Men's Recurve Individual"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "JPN MAG Team",
+     "sport": "Gym Artistic",
+     "discipline": [
+      "MAG Team"
+     ],
+     "atleti": 5,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "JPN WAG Team",
+     "sport": "Gym Artistic",
+     "discipline": [
+      "WAG Team"
+     ],
+     "atleti": 5,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Kanoa IGARASHI",
+     "sport": "Surfing",
+     "discipline": [
+      "Men's Surfing"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Mirai IKEDA",
+     "sport": "Surfing",
+     "discipline": [
+      "Women's Surfing"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Takumi HOJO",
+     "sport": "Triathlon",
+     "discipline": [
+      "Men's Triathlon"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "JPN Men's 🏐",
+     "sport": "Volleyball",
+     "discipline": [
+      "Men's Volley"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "BEL": {
+   "nome": "Belgio",
+   "atleti": 25,
+   "pass": 4,
+   "righe": [
+    {
+     "nome": "BEL Dressage Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Dressage Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "BEL Eventing Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Eventing Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "BEL Jumping Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Jumping Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "BEL Men's Team",
+     "sport": "Hockey Field",
+     "discipline": [
+      "Men's Hockey Field"
+     ],
+     "atleti": 16,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "DOM": {
+   "nome": "Repubblica Dominicana",
+   "atleti": 24,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "DOM Baseball",
+     "sport": "Baseball",
+     "discipline": [
+      "Baseball"
+     ],
+     "atleti": 24,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "GBR": {
+   "nome": "Regno Unito",
+   "atleti": 24,
+   "pass": 4,
+   "righe": [
+    {
+     "nome": "GBR Women's Cricket",
+     "sport": "Cricket",
+     "discipline": [
+      "Women's Cricket T20"
+     ],
+     "atleti": 15,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "GBR Dressage Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Dressage Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "GBR Eventing Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Eventing Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "GBR Jumping Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Jumping Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "VEN": {
+   "nome": "Venezuela",
+   "atleti": 24,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "VEN Baseball",
+     "sport": "Baseball",
+     "discipline": [
+      "Baseball"
+     ],
+     "atleti": 24,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "AUS": {
+   "nome": "Australia",
+   "atleti": 22,
+   "pass": 4,
+   "righe": [
+    {
+     "nome": "Mark NICOLAIDIS/Izac CARRACHER",
+     "sport": "Beachvolley",
+     "discipline": [
+      "Beach Volley Men's"
+     ],
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Stefanie FEJES/Taliqua CLANCY",
+     "sport": "Beachvolley",
+     "discipline": [
+      "Beach Volley Women's"
+     ],
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "AUS Women's Cricket",
+     "sport": "Cricket",
+     "discipline": [
+      "Women's Cricket T20"
+     ],
+     "atleti": 15,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "AUS Dressage Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Dressage Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "NED": {
+   "nome": "Paesi Bassi",
+   "atleti": 21,
+   "pass": 3,
+   "righe": [
+    {
+     "nome": "Katja STAM/Raisa SCHOON",
+     "sport": "Beachvolley",
+     "discipline": [
+      "Beach Volley Women's"
+     ],
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "NED Dressage Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Dressage Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "NED Women's Team",
+     "sport": "Hockey Field",
+     "discipline": [
+      "Women's Hockey Field"
+     ],
+     "atleti": 16,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "COL": {
+   "nome": "Colombia",
+   "atleti": 18,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "COL Women's ⚽️",
+     "sport": "Football",
+     "discipline": [
+      "Women's Football"
+     ],
+     "atleti": 18,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "CHN": {
+   "nome": "Cina",
+   "atleti": 16,
+   "pass": 9,
+   "righe": [
+    {
+     "nome": "CHN Recurve Mixed",
+     "sport": "Archery",
+     "discipline": [
+      "Recurve Mixed team"
+     ],
+     "atleti": 0,
+     "squadra": true,
+     "ospitante": false,
+     "nota": "atleti già contati nel recurve"
+    },
+    {
+     "nome": "LI Mengqi",
+     "sport": "Archery",
+     "discipline": [
+      "Men's Recurve Individual"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "ZHU Jingyi",
+     "sport": "Archery",
+     "discipline": [
+      "Women's Recurve Individual"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "CHN MAG Team",
+     "sport": "Gym Artistic",
+     "discipline": [
+      "MAG Team"
+     ],
+     "atleti": 5,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "CHN WAG Team",
+     "sport": "Gym Artistic",
+     "discipline": [
+      "WAG Team"
+     ],
+     "atleti": 5,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "HAN Jiayu",
+     "sport": "Shooting",
+     "discipline": [
+      "Women's 10m Air Rifle",
+      "Women's 50m Rifle 3 Positions"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "JIANG Ranxin",
+     "sport": "Shooting",
+     "discipline": [
+      "Women's 10m Air Pistol"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "SHENG Lihao",
+     "sport": "Shooting",
+     "discipline": [
+      "Men's 10m Air Rifle"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "LIN Xinyu",
+     "sport": "Triathlon",
+     "discipline": [
+      "Women's Triathlon"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "RSA": {
+   "nome": "Sudafrica",
+   "atleti": 15,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "RSA Women's Cricket",
+     "sport": "Cricket",
+     "discipline": [
+      "Women's Cricket T20"
+     ],
+     "atleti": 15,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "ITA": {
+   "nome": "Italia",
+   "atleti": 14,
+   "pass": 3,
+   "righe": [
+    {
+     "nome": "ITA Jumping Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Jumping Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "ITA Men's Flag",
+     "sport": "Flag Football",
+     "discipline": [
+      "Men's Flag"
+     ],
+     "atleti": 10,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Sofia RAFFAELI",
+     "sport": "Gym Rhythmic",
+     "discipline": [
+      "Individual All-Around"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "THA": {
+   "nome": "Thailandia",
+   "atleti": 13,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "Sophia MONTGOMERY",
+     "sport": "Sailing",
+     "discipline": [
+      "Women's Laser Radial ILCA 6"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "THA Women's 🏐",
+     "sport": "Volleyball",
+     "discipline": [
+      "Women's Volley"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "CUB": {
+   "nome": "Cuba",
+   "atleti": 12,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "CUB Men's 🏐",
+     "sport": "Volleyball",
+     "discipline": [
+      "Men's Volley"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "EGY": {
+   "nome": "Egitto",
+   "atleti": 12,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "EGY Women's 🏐",
+     "sport": "Volleyball",
+     "discipline": [
+      "Women's Volley"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "POL": {
+   "nome": "Polonia",
+   "atleti": 12,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "POL Men's 🏐",
+     "sport": "Volleyball",
+     "discipline": [
+      "Men's Volley"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "TUN": {
+   "nome": "Tunisia",
+   "atleti": 12,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "TUN Men's 🏐",
+     "sport": "Volleyball",
+     "discipline": [
+      "Men's Volley"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "TUR": {
+   "nome": "Turchia",
+   "atleti": 12,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "TUR Women's 🏐",
+     "sport": "Volleyball",
+     "discipline": [
+      "Women's Volley"
+     ],
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "GER": {
+   "nome": "Germania",
+   "atleti": 11,
+   "pass": 5,
+   "righe": [
+    {
+     "nome": "GER Dressage Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Dressage Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "GER Eventing Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Eventing Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "GER Jumping Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Jumping Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Darja VARFOLOMEEV",
+     "sport": "Gym Rhythmic",
+     "discipline": [
+      "Individual All-Around"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Florian PETER",
+     "sport": "Shooting",
+     "discipline": [
+      "Men's 25m Rapid Fire Pistol"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "FRA": {
+   "nome": "Francia",
+   "atleti": 9,
+   "pass": 4,
+   "righe": [
+    {
+     "nome": "FRA Jumping Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Jumping Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Clement BESSAGUET",
+     "sport": "Shooting",
+     "discipline": [
+      "Men's 25m Rapid Fire Pistol"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Oceanne MULLER",
+     "sport": "Shooting",
+     "discipline": [
+      "Women's 10m Air Rifle"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Team FRA",
+     "sport": "Triathlon",
+     "discipline": [
+      "3️⃣MixedRelay"
+     ],
+     "atleti": 4,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "SWE": {
+   "nome": "Svezia",
+   "atleti": 8,
+   "pass": 3,
+   "righe": [
+    {
+     "nome": "Jacob HOLTING N/Elmer ANDERSSON",
+     "sport": "Beachvolley",
+     "discipline": [
+      "Beach Volley Men's"
+     ],
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "SWE Dressage Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Dressage Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "SWE Eventing Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Eventing Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "IRL": {
+   "nome": "Irlanda",
+   "atleti": 6,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "IRL Eventing Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Eventing Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "IRL Jumping Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Jumping Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "RUS": {
+   "nome": "Russia",
+   "atleti": 6,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "RUS MAG Team",
+     "sport": "Gym Artistic",
+     "discipline": [
+      "MAG Team"
+     ],
+     "atleti": 5,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Inal TASOEV",
+     "sport": "Judo",
+     "discipline": [
+      "Men's +100kg"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "SUI": {
+   "nome": "Svizzera",
+   "atleti": 6,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "SUI Eventing Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Eventing Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "SUI Jumping Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Jumping Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "KOR": {
+   "nome": "Corea del Sud",
+   "atleti": 4,
+   "pass": 5,
+   "righe": [
+    {
+     "nome": "KOR Recurve Mixed",
+     "sport": "Archery",
+     "discipline": [
+      "Recurve Mixed team"
+     ],
+     "atleti": 0,
+     "squadra": true,
+     "ospitante": false,
+     "nota": "atleti già contati nel recurve"
+    },
+    {
+     "nome": "LEE Woo-seok",
+     "sport": "Archery",
+     "discipline": [
+      "Men's Recurve Individual"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "OH Yejin",
+     "sport": "Archery",
+     "discipline": [
+      "Women's Recurve Individual"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "HA Jeemin",
+     "sport": "Sailing",
+     "discipline": [
+      "Men's Laser ILCA 7"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "BAN Hyojin",
+     "sport": "Shooting",
+     "discipline": [
+      "Women's 10m Air Rifle"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "DEN": {
+   "nome": "Danimarca",
+   "atleti": 3,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "DEN Dressage Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Dressage Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "NZL": {
+   "nome": "Nuova Zelanda",
+   "atleti": 3,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "NZL Eventing Team",
+     "sport": "Equestrian",
+     "discipline": [
+      "Eventing Team"
+     ],
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "MAR": {
+   "nome": "Marocco",
+   "atleti": 2,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Zouheir ELGRAOUI/Soufiane EL GHAROUTI",
+     "sport": "Beachvolley",
+     "discipline": [
+      "Beach Volley Men's"
+     ],
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "MAS": {
+   "nome": "Malaysia",
+   "atleti": 2,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "NG Eain Yow",
+     "sport": "Squash",
+     "discipline": [
+      "Men's Squash"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Sivasangari SUBRAMANIAM",
+     "sport": "Squash",
+     "discipline": [
+      "Women's Squash"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "NGR": {
+   "nome": "Nigeria",
+   "atleti": 2,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Esther MBAH/Pamela BAWA",
+     "sport": "Beachvolley",
+     "discipline": [
+      "Beach Volley Women's"
+     ],
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "BUL": {
+   "nome": "Bulgaria",
+   "atleti": 1,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Stiliana NIKOLOVA",
+     "sport": "Gym Rhythmic",
+     "discipline": [
+      "Individual All-Around"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "CRO": {
+   "nome": "Croazia",
+   "atleti": 1,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Miran MARICIC",
+     "sport": "Shooting",
+     "discipline": [
+      "Men's 10m Air Rifle"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "CZE": {
+   "nome": "Cechia",
+   "atleti": 1,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Matej RAMPULA",
+     "sport": "Shooting",
+     "discipline": [
+      "Men's 25m Rapid Fire Pistol"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "HUN": {
+   "nome": "Ungheria",
+   "atleti": 1,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Veronika MAJOR",
+     "sport": "Shooting",
+     "discipline": [
+      "Women's 10m Air Pistol",
+      "Women's 25m Pistol"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "IRI": {
+   "nome": "Iran",
+   "atleti": 1,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Haniyeh ROSTAMIYAN",
+     "sport": "Shooting",
+     "discipline": [
+      "Women's 25m Pistol",
+      "Women's 10m Air Pistol"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "SVK": {
+   "nome": "Slovacchia",
+   "atleti": 1,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Patrik JANY",
+     "sport": "Shooting",
+     "discipline": [
+      "Men's 50m Rifle 3 Positions",
+      "Men's 10m Air Rifle"
+     ],
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  }
+ },
+ "senza_mappa": []
+}

@@ -189,6 +189,7 @@ h1 { font: 600 2.1rem/1.2 var(--font); text-wrap: balance }
       const li = el("li"), a = el("a", "", `${n} ${v}`); a.href = "scheda.html#" + n; li.append(a); ul.append(li);
     });
     box.append(ul);
+    if (s.nome === "Wrestling") { const a = el("a", "vai", ""); a.href = "wrestling.html"; a.style.marginTop = "10px"; a.append(el("b", "", "🤼 Previsioni oro LA28"), el("span", "", "Favoriti di ogni categoria"), el("i", "", "›")); box.append(a); }
   }
 
   function carta(s) {

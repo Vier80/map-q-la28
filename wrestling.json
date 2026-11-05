@@ -1,0 +1,2580 @@
+{
+ "aggiornato": "2026-11-05",
+ "simulazioni": 5000,
+ "incontri": 1489,
+ "categorie": {
+  "FS 57kg": {
+   "stile": "FS",
+   "nome_stile": "Libera",
+   "kg": 57,
+   "atleti": [
+    {
+     "nome": "Spencer Richard LEE",
+     "noc": "USA",
+     "rank": 1,
+     "oro": 0.4266,
+     "medaglia": 0.8794,
+     "qualifica": 1.0,
+     "via": "Mondiali 2027",
+     "rating": 2318,
+     "bilancio": "5V-0S",
+     "eta": 30,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Ahmad Masoud MOHAMMADNEZHADJAVAN",
+     "noc": "IRI",
+     "rank": 2,
+     "oro": 0.3582,
+     "medaglia": 0.8434,
+     "qualifica": 0.9956,
+     "via": "Mondiali 2027",
+     "rating": 2273,
+     "bilancio": "4V-0S",
+     "eta": 25,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Abubakar MUTALIEV",
+     "noc": "RUS",
+     "rank": 3,
+     "oro": 0.0914,
+     "medaglia": 0.5294,
+     "qualifica": 0.9424,
+     "via": "Mondiali 2027",
+     "rating": 2070,
+     "bilancio": "4V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Roman Guillermo BRAVO YOUNG",
+     "noc": "MEX",
+     "rank": 4,
+     "oro": 0.0366,
+     "medaglia": 0.379,
+     "qualifica": 0.9712,
+     "via": "UWW Ranking",
+     "rating": 1979,
+     "bilancio": "4V-1S",
+     "eta": 30,
+     "titoli": []
+    },
+    {
+     "nome": "Aman AMAN",
+     "noc": "IND",
+     "rank": 5,
+     "oro": 0.0228,
+     "medaglia": 0.2368,
+     "qualifica": 0.7404,
+     "via": "Torneo continentale 2028",
+     "rating": 1912,
+     "bilancio": "4V-0S",
+     "eta": 22,
+     "titoli": []
+    },
+    {
+     "nome": "Assyl AITAKYN",
+     "noc": "KAZ",
+     "rank": 6,
+     "oro": 0.0192,
+     "medaglia": 0.235,
+     "qualifica": 0.7776,
+     "via": "Torneo continentale 2028",
+     "rating": 1903,
+     "bilancio": "6V-2S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Chong Song HAN",
+     "noc": "PRK",
+     "rank": 7,
+     "oro": 0.0168,
+     "medaglia": 0.2094,
+     "qualifica": 0.7532,
+     "via": "Torneo continentale 2028",
+     "rating": 1889,
+     "bilancio": "4V-1S",
+     "eta": 26,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Tolga OZBEK",
+     "noc": "TUR",
+     "rank": 8,
+     "oro": 0.0058,
+     "medaglia": 0.1008,
+     "qualifica": 0.4738,
+     "via": "Torneo continentale 2028",
+     "rating": 1752,
+     "bilancio": "2V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Munkh Erdene BATKHUYAG",
+     "noc": "MGL",
+     "rank": 9,
+     "oro": 0.005,
+     "medaglia": 0.0846,
+     "qualifica": 0.5084,
+     "via": "Torneo continentale 2028",
+     "rating": 1760,
+     "bilancio": "3V-2S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Islam BAZARGANOV",
+     "noc": "AZE",
+     "rank": 10,
+     "oro": 0.0046,
+     "medaglia": 0.0876,
+     "qualifica": 0.5438,
+     "via": "Torneo continentale 2028",
+     "rating": 1782,
+     "bilancio": "5V-4S",
+     "eta": 30,
+     "titoli": []
+    }
+   ]
+  },
+  "FS 65kg": {
+   "stile": "FS",
+   "nome_stile": "Libera",
+   "kg": 65,
+   "atleti": [
+    {
+     "nome": "Bowen William BASSETT",
+     "noc": "USA",
+     "rank": 1,
+     "oro": 0.4246,
+     "medaglia": 0.8724,
+     "qualifica": 0.9992,
+     "via": "Mondiali 2027",
+     "rating": 2269,
+     "bilancio": "5V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Ibragim Sharaputtinovich IBRAGIMOV",
+     "noc": "RUS",
+     "rank": 2,
+     "oro": 0.3402,
+     "medaglia": 0.8446,
+     "qualifica": 0.9962,
+     "via": "Mondiali 2027",
+     "rating": 2234,
+     "bilancio": "5V-0S",
+     "eta": 27,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Vazgen TEVANYAN",
+     "noc": "ARM",
+     "rank": 3,
+     "oro": 0.0962,
+     "medaglia": 0.533,
+     "qualifica": 0.9454,
+     "via": "Mondiali 2027",
+     "rating": 2028,
+     "bilancio": "4V-1S",
+     "eta": 29,
+     "titoli": []
+    },
+    {
+     "nome": "Rahman Mousa AMOUZADKHALILI",
+     "noc": "IRI",
+     "rank": 4,
+     "oro": 0.0576,
+     "medaglia": 0.4538,
+     "qualifica": 0.9082,
+     "via": "Mondiali 2027",
+     "rating": 1980,
+     "bilancio": "4V-1S",
+     "eta": 26,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Shamil Alievich MAMEDOV",
+     "noc": "BUL",
+     "rank": 5,
+     "oro": 0.0204,
+     "medaglia": 0.2772,
+     "qualifica": 0.847,
+     "via": "Torneo continentale 2028",
+     "rating": 1895,
+     "bilancio": "8V-2S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Musa AGHAYEV",
+     "noc": "AZE",
+     "rank": 6,
+     "oro": 0.0108,
+     "medaglia": 0.0848,
+     "qualifica": 0.3592,
+     "via": "Torneo continentale 2028",
+     "rating": 1581,
+     "bilancio": "0V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Kotaro KIYOOKA",
+     "noc": "JPN",
+     "rank": 7,
+     "oro": 0.0102,
+     "medaglia": 0.0744,
+     "qualifica": 0.2902,
+     "via": "Torneo continentale 2028",
+     "rating": 1547,
+     "bilancio": "0V-0S",
+     "eta": 27,
+     "titoli": [
+      "🥇Olympic"
+     ]
+    },
+    {
+     "nome": "Kwang Myong KIM",
+     "noc": "PRK",
+     "rank": 8,
+     "oro": 0.0098,
+     "medaglia": 0.1708,
+     "qualifica": 0.6972,
+     "via": "Torneo continentale 2028",
+     "rating": 1810,
+     "bilancio": "3V-1S",
+     "eta": 30,
+     "titoli": []
+    },
+    {
+     "nome": "Abdulmazhid KUDIEV",
+     "noc": "TJK",
+     "rank": 9,
+     "oro": 0.0092,
+     "medaglia": 0.1442,
+     "qualifica": 0.7842,
+     "via": "Torneo continentale 2028",
+     "rating": 1787,
+     "bilancio": "3V-2S",
+     "eta": 28,
+     "titoli": []
+    },
+    {
+     "nome": "Nachyn KUULAR",
+     "noc": "KAZ",
+     "rank": 10,
+     "oro": 0.0054,
+     "medaglia": 0.0978,
+     "qualifica": 0.5396,
+     "via": "Torneo continentale 2028",
+     "rating": 1770,
+     "bilancio": "4V-1S",
+     "eta": 33,
+     "titoli": []
+    }
+   ]
+  },
+  "FS 74kg": {
+   "stile": "FS",
+   "nome_stile": "Libera",
+   "kg": 74,
+   "atleti": [
+    {
+     "nome": "Inalbek SHERIEV",
+     "noc": "RUS",
+     "rank": 1,
+     "oro": 0.4214,
+     "medaglia": 0.8692,
+     "qualifica": 0.9974,
+     "via": "Mondiali 2027",
+     "rating": 2323,
+     "bilancio": "6V-0S",
+     "eta": 26,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Levi David HAINES",
+     "noc": "USA",
+     "rank": 2,
+     "oro": 0.3762,
+     "medaglia": 0.8544,
+     "qualifica": 0.9988,
+     "via": "Mondiali 2027",
+     "rating": 2306,
+     "bilancio": "5V-0S",
+     "eta": 24,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Amirmohammad Babak YAZDANICHERATI",
+     "noc": "IRI",
+     "rank": 3,
+     "oro": 0.0738,
+     "medaglia": 0.4674,
+     "qualifica": 0.8942,
+     "via": "Mondiali 2027",
+     "rating": 2053,
+     "bilancio": "4V-1S",
+     "eta": 28,
+     "titoli": []
+    },
+    {
+     "nome": "Ernazar Kubatbekovich AKMATALIEV",
+     "noc": "KGZ",
+     "rank": 4,
+     "oro": 0.042,
+     "medaglia": 0.3458,
+     "qualifica": 0.8244,
+     "via": "Mondiali 2027",
+     "rating": 1991,
+     "bilancio": "3V-1S",
+     "eta": 30,
+     "titoli": []
+    },
+    {
+     "nome": "Nurkozha KAIPANOV",
+     "noc": "KAZ",
+     "rank": 5,
+     "oro": 0.0248,
+     "medaglia": 0.3062,
+     "qualifica": 0.8118,
+     "via": "Mondiali 2027",
+     "rating": 1973,
+     "bilancio": "7V-2S",
+     "eta": 30,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Yoshinosuke AOYAGI",
+     "noc": "JPN",
+     "rank": 6,
+     "oro": 0.013,
+     "medaglia": 0.1772,
+     "qualifica": 0.659,
+     "via": "Torneo continentale 2028",
+     "rating": 1883,
+     "bilancio": "4V-1S",
+     "eta": 26,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Tulga TUMUR OCHIR",
+     "noc": "MGL",
+     "rank": 7,
+     "oro": 0.0124,
+     "medaglia": 0.1746,
+     "qualifica": 0.6602,
+     "via": "Torneo continentale 2028",
+     "rating": 1881,
+     "bilancio": "6V-2S",
+     "eta": 30,
+     "titoli": []
+    },
+    {
+     "nome": "Mahamedkhabib KADZIMAHAMEDAU",
+     "noc": "BLR",
+     "rank": 8,
+     "oro": 0.0062,
+     "medaglia": 0.0828,
+     "qualifica": 0.4536,
+     "via": "Torneo continentale 2028",
+     "rating": 1856,
+     "bilancio": "5V-1S",
+     "eta": 34,
+     "titoli": []
+    },
+    {
+     "nome": "Tajmuraz Mairbekovic SALKAZANOV",
+     "noc": "SVK",
+     "rank": 9,
+     "oro": 0.0036,
+     "medaglia": 0.0908,
+     "qualifica": 0.5448,
+     "via": "Torneo continentale 2028",
+     "rating": 1805,
+     "bilancio": "3V-2S",
+     "eta": 32,
+     "titoli": []
+    },
+    {
+     "nome": "Dzhabrail GADZHIEV",
+     "noc": "AZE",
+     "rank": 10,
+     "oro": 0.003,
+     "medaglia": 0.0472,
+     "qualifica": 0.338,
+     "via": "Torneo continentale 2028",
+     "rating": 1753,
+     "bilancio": "4V-3S",
+     "eta": 26,
+     "titoli": []
+    }
+   ]
+  },
+  "FS 86kg": {
+   "stile": "FS",
+   "nome_stile": "Libera",
+   "kg": 86,
+   "atleti": [
+    {
+     "nome": "Kyle DAKE",
+     "noc": "USA",
+     "rank": 1,
+     "oro": 0.4218,
+     "medaglia": 0.8168,
+     "qualifica": 0.9982,
+     "via": "Mondiali 2027",
+     "rating": 2306,
+     "bilancio": "6V-0S",
+     "eta": 37,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Mohammad Ashghar NOKHODILARIMI",
+     "noc": "IRI",
+     "rank": 2,
+     "oro": 0.1468,
+     "medaglia": 0.555,
+     "qualifica": 0.9432,
+     "via": "Mondiali 2027",
+     "rating": 2038,
+     "bilancio": "4V-1S",
+     "eta": 27,
+     "titoli": []
+    },
+    {
+     "nome": "Malik SHAVAEV",
+     "noc": "KGZ",
+     "rank": 3,
+     "oro": 0.1196,
+     "medaglia": 0.5202,
+     "qualifica": 0.9412,
+     "via": "Mondiali 2027",
+     "rating": 2040,
+     "bilancio": "5V-1S",
+     "eta": 32,
+     "titoli": []
+    },
+    {
+     "nome": "Vladimeri GAMKRELIDZE",
+     "noc": "GEO",
+     "rank": 4,
+     "oro": 0.0938,
+     "medaglia": 0.4534,
+     "qualifica": 0.8714,
+     "via": "Mondiali 2027",
+     "rating": 1993,
+     "bilancio": "8V-1S",
+     "eta": 27,
+     "titoli": []
+    },
+    {
+     "nome": "Ali Magomedovitch TCOKAEV",
+     "noc": "AZE",
+     "rank": 5,
+     "oro": 0.0814,
+     "medaglia": 0.4074,
+     "qualifica": 0.8358,
+     "via": "Mondiali 2027",
+     "rating": 1982,
+     "bilancio": "5V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Ibragim KADIEV",
+     "noc": "RUS",
+     "rank": 6,
+     "oro": 0.0536,
+     "medaglia": 0.3018,
+     "qualifica": 0.751,
+     "via": "Mondiali 2027",
+     "rating": 1922,
+     "bilancio": "3V-2S",
+     "eta": 24,
+     "titoli": []
+    },
+    {
+     "nome": "Rakhim MAGAMADOV",
+     "noc": "FRA",
+     "rank": 7,
+     "oro": 0.0204,
+     "medaglia": 0.1756,
+     "qualifica": 0.6518,
+     "via": "Torneo continentale 2028",
+     "rating": 1834,
+     "bilancio": "4V-1S",
+     "eta": 25,
+     "titoli": []
+    },
+    {
+     "nome": "Georgios KOUGIOUMTSIDIS",
+     "noc": "GRE",
+     "rank": 8,
+     "oro": 0.0104,
+     "medaglia": 0.1246,
+     "qualifica": 0.659,
+     "via": "Torneo continentale 2028",
+     "rating": 1771,
+     "bilancio": "3V-2S",
+     "eta": 27,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Batbilguun NAADAMBAT",
+     "noc": "MGL",
+     "rank": 9,
+     "oro": 0.0062,
+     "medaglia": 0.0866,
+     "qualifica": 0.5276,
+     "via": "Torneo continentale 2028",
+     "rating": 1723,
+     "bilancio": "2V-2S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Nestor TAFUR BARRIOS",
+     "noc": "COL",
+     "rank": 10,
+     "oro": 0.0048,
+     "medaglia": 0.0288,
+     "qualifica": 0.3672,
+     "via": "Torneo continentale 2028",
+     "rating": 1400,
+     "bilancio": "0V-0S",
+     "eta": null,
+     "titoli": []
+    }
+   ]
+  },
+  "FS 97kg": {
+   "stile": "FS",
+   "nome_stile": "Libera",
+   "kg": 97,
+   "atleti": [
+    {
+     "nome": "Kyle SNYDER",
+     "noc": "USA",
+     "rank": 1,
+     "oro": 0.5132,
+     "medaglia": 0.9058,
+     "qualifica": 1.0,
+     "via": "Mondiali 2027",
+     "rating": 2368,
+     "bilancio": "4V-0S",
+     "eta": 33,
+     "titoli": [
+      "🦄Legend",
+      "🥇Olympic",
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Amanula GADZHIMAGOMEDOV",
+     "noc": "RUS",
+     "rank": 2,
+     "oro": 0.265,
+     "medaglia": 0.7942,
+     "qualifica": 0.9876,
+     "via": "Mondiali 2027",
+     "rating": 2238,
+     "bilancio": "4V-0S",
+     "eta": 33,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Arash YOSHIDA",
+     "noc": "JPN",
+     "rank": 3,
+     "oro": 0.1108,
+     "medaglia": 0.6024,
+     "qualifica": 0.9646,
+     "via": "Mondiali 2027",
+     "rating": 2081,
+     "bilancio": "3V-1S",
+     "eta": 25,
+     "titoli": []
+    },
+    {
+     "nome": "Hassan YAZDANI",
+     "noc": "IRI",
+     "rank": 4,
+     "oro": 0.0522,
+     "medaglia": 0.4446,
+     "qualifica": 0.9162,
+     "via": "Mondiali 2027",
+     "rating": 2026,
+     "bilancio": "3V-1S",
+     "eta": 34,
+     "titoli": [
+      "🦄Legend",
+      "🥇Olympic",
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Akhmed Magomed O TAZHUDINOV",
+     "noc": "BRN",
+     "rank": 5,
+     "oro": 0.0234,
+     "medaglia": 0.3008,
+     "qualifica": 0.8738,
+     "via": "Mondiali 2027",
+     "rating": 1911,
+     "bilancio": "6V-2S",
+     "eta": 26,
+     "titoli": [
+      "🥇Olympic",
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Rizabek AITMUKHAN",
+     "noc": "KAZ",
+     "rank": 6,
+     "oro": 0.0092,
+     "medaglia": 0.1446,
+     "qualifica": 0.6514,
+     "via": "Torneo continentale 2028",
+     "rating": 1788,
+     "bilancio": "2V-1S",
+     "eta": 24,
+     "titoli": []
+    },
+    {
+     "nome": "Magomedkhan Magomedovitch MAGOMEDOV",
+     "noc": "AZE",
+     "rank": 7,
+     "oro": 0.004,
+     "medaglia": 0.0848,
+     "qualifica": 0.4326,
+     "via": "Torneo continentale 2028",
+     "rating": 1738,
+     "bilancio": "2V-1S",
+     "eta": 31,
+     "titoli": []
+    },
+    {
+     "nome": "Batyrbek TSAKULOV",
+     "noc": "SVK",
+     "rank": 8,
+     "oro": 0.0036,
+     "medaglia": 0.095,
+     "qualifica": 0.5844,
+     "via": "Torneo continentale 2028",
+     "rating": 1742,
+     "bilancio": "3V-2S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Muhammad GULZAR",
+     "noc": "PAK",
+     "rank": 9,
+     "oro": 0.0026,
+     "medaglia": 0.0344,
+     "qualifica": 0.4626,
+     "via": "Torneo mondiale 2028",
+     "rating": 1400,
+     "bilancio": "0V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Zbigniew Mateusz BARANOWSKI",
+     "noc": "POL",
+     "rank": 10,
+     "oro": 0.0024,
+     "medaglia": 0.0748,
+     "qualifica": 0.4424,
+     "via": "Torneo continentale 2028",
+     "rating": 1840,
+     "bilancio": "7V-3S",
+     "eta": 37,
+     "titoli": []
+    }
+   ]
+  },
+  "FS 125kg": {
+   "stile": "FS",
+   "nome_stile": "Libera",
+   "kg": 125,
+   "atleti": [
+    {
+     "nome": "Amir Hossein Abbas ZARE",
+     "noc": "IRI",
+     "rank": 1,
+     "oro": 0.5404,
+     "medaglia": 0.8972,
+     "qualifica": 0.9992,
+     "via": "Mondiali 2027",
+     "rating": 2283,
+     "bilancio": "4V-0S",
+     "eta": 28,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Abdulla KURBANOV",
+     "noc": "RUS",
+     "rank": 2,
+     "oro": 0.174,
+     "medaglia": 0.6848,
+     "qualifica": 0.975,
+     "via": "Mondiali 2027",
+     "rating": 2069,
+     "bilancio": "4V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Wyatt Avery HENDRICKSON",
+     "noc": "USA",
+     "rank": 3,
+     "oro": 0.1452,
+     "medaglia": 0.652,
+     "qualifica": 0.9968,
+     "via": "Mondiali 2027",
+     "rating": 2047,
+     "bilancio": "4V-1S",
+     "eta": 28,
+     "titoli": []
+    },
+    {
+     "nome": "Giorgi MESHVILDISHVILI",
+     "noc": "AZE",
+     "rank": 4,
+     "oro": 0.0354,
+     "medaglia": 0.317,
+     "qualifica": 0.8252,
+     "via": "Mondiali 2027",
+     "rating": 1949,
+     "bilancio": "5V-1S",
+     "eta": 36,
+     "titoli": []
+    },
+    {
+     "nome": "Kamil Tomasz KOSCIOLEK",
+     "noc": "POL",
+     "rank": 5,
+     "oro": 0.0148,
+     "medaglia": 0.1508,
+     "qualifica": 0.598,
+     "via": "Torneo continentale 2028",
+     "rating": 1760,
+     "bilancio": "3V-1S",
+     "eta": 32,
+     "titoli": []
+    },
+    {
+     "nome": "Geno PETRIASHVILI",
+     "noc": "GEO",
+     "rank": 6,
+     "oro": 0.0132,
+     "medaglia": 0.0962,
+     "qualifica": 0.3356,
+     "via": "Torneo continentale 2028",
+     "rating": 1615,
+     "bilancio": "0V-0S",
+     "eta": 34,
+     "titoli": [
+      "🥇Olympic",
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Arslanbek TURDUBEKOV",
+     "noc": "KGZ",
+     "rank": 7,
+     "oro": 0.0116,
+     "medaglia": 0.0828,
+     "qualifica": 0.3718,
+     "via": "Torneo continentale 2028",
+     "rating": 1527,
+     "bilancio": "0V-0S",
+     "eta": 27,
+     "titoli": []
+    },
+    {
+     "nome": "Hakan BUYUKCINGIL",
+     "noc": "TUR",
+     "rank": 8,
+     "oro": 0.0096,
+     "medaglia": 0.1528,
+     "qualifica": 0.6156,
+     "via": "Torneo continentale 2028",
+     "rating": 1753,
+     "bilancio": "3V-2S",
+     "eta": 24,
+     "titoli": []
+    },
+    {
+     "nome": "Mohsen Mansour SIYAR",
+     "noc": "GER",
+     "rank": 9,
+     "oro": 0.0076,
+     "medaglia": 0.1128,
+     "qualifica": 0.5442,
+     "via": "Torneo continentale 2028",
+     "rating": 1715,
+     "bilancio": "2V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Yedige KASSIMBEK",
+     "noc": "KAZ",
+     "rank": 10,
+     "oro": 0.0074,
+     "medaglia": 0.15,
+     "qualifica": 0.7258,
+     "via": "Torneo continentale 2028",
+     "rating": 1765,
+     "bilancio": "5V-1S",
+     "eta": 22,
+     "titoli": []
+    }
+   ]
+  },
+  "GR 60kg": {
+   "stile": "GR",
+   "nome_stile": "Greco-romana",
+   "kg": 60,
+   "atleti": [
+    {
+     "nome": "Karen ASLANYAN",
+     "noc": "ARM",
+     "rank": 1,
+     "oro": 0.2942,
+     "medaglia": 0.7044,
+     "qualifica": 0.9712,
+     "via": "Mondiali 2027",
+     "rating": 2168,
+     "bilancio": "5V-0S",
+     "eta": null,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Koto GOMI",
+     "noc": "JPN",
+     "rank": 2,
+     "oro": 0.2088,
+     "medaglia": 0.5926,
+     "qualifica": 0.9426,
+     "via": "Mondiali 2027",
+     "rating": 2105,
+     "bilancio": "4V-0S",
+     "eta": null,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Eldaniz AZIZLI",
+     "noc": "AZE",
+     "rank": 3,
+     "oro": 0.1632,
+     "medaglia": 0.5344,
+     "qualifica": 0.9136,
+     "via": "Mondiali 2027",
+     "rating": 2151,
+     "bilancio": "4V-0S",
+     "eta": 36,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Payam Farzad AHMADI BALOOTAKI",
+     "noc": "IRI",
+     "rank": 4,
+     "oro": 0.0684,
+     "medaglia": 0.3478,
+     "qualifica": 0.8294,
+     "via": "Mondiali 2027",
+     "rating": 1971,
+     "bilancio": "3V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Sergey EMELIN",
+     "noc": "RUS",
+     "rank": 5,
+     "oro": 0.0562,
+     "medaglia": 0.3104,
+     "qualifica": 0.7816,
+     "via": "Mondiali 2027",
+     "rating": 1985,
+     "bilancio": "6V-1S",
+     "eta": 33,
+     "titoli": []
+    },
+    {
+     "nome": "Aidos SULTANGALI",
+     "noc": "KAZ",
+     "rank": 6,
+     "oro": 0.047,
+     "medaglia": 0.2614,
+     "qualifica": 0.732,
+     "via": "Torneo continentale 2028",
+     "rating": 1933,
+     "bilancio": "3V-1S",
+     "eta": 32,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Zholaman SHARSHENBEKOV",
+     "noc": "KGZ",
+     "rank": 7,
+     "oro": 0.0466,
+     "medaglia": 0.2386,
+     "qualifica": 0.7178,
+     "via": "Torneo continentale 2028",
+     "rating": 1908,
+     "bilancio": "4V-0S",
+     "eta": 29,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Vakhtang LOLUA",
+     "noc": "GEO",
+     "rank": 8,
+     "oro": 0.0326,
+     "medaglia": 0.213,
+     "qualifica": 0.6784,
+     "via": "Torneo continentale 2028",
+     "rating": 1927,
+     "bilancio": "3V-1S",
+     "eta": 21,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Ozodbek KHALIMBOEV",
+     "noc": "UZB",
+     "rank": 9,
+     "oro": 0.0308,
+     "medaglia": 0.2128,
+     "qualifica": 0.7128,
+     "via": "Torneo continentale 2028",
+     "rating": 1892,
+     "bilancio": "4V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Edmond Armen NAZARYAN",
+     "noc": "BUL",
+     "rank": 10,
+     "oro": 0.0122,
+     "medaglia": 0.1058,
+     "qualifica": 0.518,
+     "via": "Torneo continentale 2028",
+     "rating": 1811,
+     "bilancio": "3V-2S",
+     "eta": null,
+     "titoli": []
+    }
+   ]
+  },
+  "GR 67kg": {
+   "stile": "GR",
+   "nome_stile": "Greco-romana",
+   "kg": 67,
+   "atleti": [
+    {
+     "nome": "Saeid Morad Gholi ESMAEILI LEIVESI",
+     "noc": "IRI",
+     "rank": 1,
+     "oro": 0.525,
+     "medaglia": 0.8612,
+     "qualifica": 0.995,
+     "via": "Mondiali 2027",
+     "rating": 2252,
+     "bilancio": "5V-0S",
+     "eta": 25,
+     "titoli": [
+      "🥇Olympic",
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Dinislam BAMMATOV",
+     "noc": "RUS",
+     "rank": 2,
+     "oro": 0.1124,
+     "medaglia": 0.4582,
+     "qualifica": 0.815,
+     "via": "Mondiali 2027",
+     "rating": 1981,
+     "bilancio": "4V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Nika BROLADZE",
+     "noc": "GEO",
+     "rank": 3,
+     "oro": 0.0786,
+     "medaglia": 0.3554,
+     "qualifica": 0.7446,
+     "via": "Mondiali 2027",
+     "rating": 1933,
+     "bilancio": "3V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Bagdat SABAZ",
+     "noc": "KAZ",
+     "rank": 4,
+     "oro": 0.0596,
+     "medaglia": 0.3534,
+     "qualifica": 0.8258,
+     "via": "Mondiali 2027",
+     "rating": 1921,
+     "bilancio": "4V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Krisztian Istvan VANCZA",
+     "noc": "HUN",
+     "rank": 5,
+     "oro": 0.045,
+     "medaglia": 0.2738,
+     "qualifica": 0.696,
+     "via": "Mondiali 2027",
+     "rating": 1893,
+     "bilancio": "5V-2S",
+     "eta": 29,
+     "titoli": []
+    },
+    {
+     "nome": "Aytjan KHALMAKHANOV",
+     "noc": "UZB",
+     "rank": 6,
+     "oro": 0.0386,
+     "medaglia": 0.2882,
+     "qualifica": 0.7886,
+     "via": "Torneo continentale 2028",
+     "rating": 1899,
+     "bilancio": "5V-2S",
+     "eta": 23,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Amantur ISMAILOV",
+     "noc": "KGZ",
+     "rank": 7,
+     "oro": 0.037,
+     "medaglia": 0.2748,
+     "qualifica": 0.7782,
+     "via": "Torneo continentale 2028",
+     "rating": 1885,
+     "bilancio": "4V-1S",
+     "eta": 31,
+     "titoli": []
+    },
+    {
+     "nome": "Luis Alberto ORTA SANCHEZ",
+     "noc": "CUB",
+     "rank": 8,
+     "oro": 0.0188,
+     "medaglia": 0.195,
+     "qualifica": 0.9176,
+     "via": "UWW Ranking",
+     "rating": 1851,
+     "bilancio": "4V-1S",
+     "eta": 34,
+     "titoli": [
+      "🥇Olympic",
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Mohamed Hassan Ahmed Mohamed ABDELREHIM",
+     "noc": "EGY",
+     "rank": 9,
+     "oro": 0.017,
+     "medaglia": 0.1756,
+     "qualifica": 0.9796,
+     "via": "UWW Ranking",
+     "rating": 1782,
+     "bilancio": "3V-1S",
+     "eta": 22,
+     "titoli": []
+    },
+    {
+     "nome": "Slavik GALSTYAN",
+     "noc": "ARM",
+     "rank": 10,
+     "oro": 0.0122,
+     "medaglia": 0.1062,
+     "qualifica": 0.4492,
+     "via": "Torneo continentale 2028",
+     "rating": 1790,
+     "bilancio": "5V-3S",
+     "eta": 32,
+     "titoli": []
+    }
+   ]
+  },
+  "GR 77kg": {
+   "stile": "GR",
+   "nome_stile": "Greco-romana",
+   "kg": 77,
+   "atleti": [
+    {
+     "nome": "Sanan SULEYMANOV",
+     "noc": "AZE",
+     "rank": 1,
+     "oro": 0.4072,
+     "medaglia": 0.7888,
+     "qualifica": 0.9796,
+     "via": "Mondiali 2027",
+     "rating": 2169,
+     "bilancio": "5V-0S",
+     "eta": 32,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Ali Zabihollah OSKOU",
+     "noc": "IRI",
+     "rank": 2,
+     "oro": 0.1338,
+     "medaglia": 0.5308,
+     "qualifica": 0.956,
+     "via": "Mondiali 2027",
+     "rating": 1982,
+     "bilancio": "4V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Alexandrin GUTU",
+     "noc": "MDA",
+     "rank": 3,
+     "oro": 0.1222,
+     "medaglia": 0.496,
+     "qualifica": 0.8758,
+     "via": "Mondiali 2027",
+     "rating": 1977,
+     "bilancio": "4V-1S",
+     "eta": 26,
+     "titoli": []
+    },
+    {
+     "nome": "Moustafa Hussein Fathy ALAMELDIN",
+     "noc": "EGY",
+     "rank": 4,
+     "oro": 0.1138,
+     "medaglia": 0.471,
+     "qualifica": 0.9978,
+     "via": "Mondiali 2027",
+     "rating": 1944,
+     "bilancio": "5V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Shuai MAMEDAU",
+     "noc": "BLR",
+     "rank": 5,
+     "oro": 0.0626,
+     "medaglia": 0.324,
+     "qualifica": 0.7506,
+     "via": "Mondiali 2027",
+     "rating": 1886,
+     "bilancio": "4V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Danil GRIGOREV",
+     "noc": "RUS",
+     "rank": 6,
+     "oro": 0.047,
+     "medaglia": 0.2522,
+     "qualifica": 0.6442,
+     "via": "Mondiali 2027",
+     "rating": 1842,
+     "bilancio": "4V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Malkhas AMOYAN",
+     "noc": "ARM",
+     "rank": 7,
+     "oro": 0.0176,
+     "medaglia": 0.1078,
+     "qualifica": 0.41,
+     "via": "Torneo continentale 2028",
+     "rating": 1709,
+     "bilancio": "1V-1S",
+     "eta": 30,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Jamol JUMABAEV",
+     "noc": "UZB",
+     "rank": 8,
+     "oro": 0.0142,
+     "medaglia": 0.123,
+     "qualifica": 0.5884,
+     "via": "Torneo continentale 2028",
+     "rating": 1702,
+     "bilancio": "2V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Akzhol MAKHMUDOV",
+     "noc": "KGZ",
+     "rank": 9,
+     "oro": 0.014,
+     "medaglia": 0.1272,
+     "qualifica": 0.6646,
+     "via": "Torneo continentale 2028",
+     "rating": 1729,
+     "bilancio": "4V-2S",
+     "eta": 29,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Merey MAULITKANOV",
+     "noc": "KAZ",
+     "rank": 10,
+     "oro": 0.0116,
+     "medaglia": 0.1114,
+     "qualifica": 0.6028,
+     "via": "Torneo continentale 2028",
+     "rating": 1697,
+     "bilancio": "2V-1S",
+     "eta": null,
+     "titoli": []
+    }
+   ]
+  },
+  "GR 87kg": {
+   "stile": "GR",
+   "nome_stile": "Greco-romana",
+   "kg": 87,
+   "atleti": [
+    {
+     "nome": "Gholamreza Javad FAROKHISENJANI",
+     "noc": "IRI",
+     "rank": 1,
+     "oro": 0.4092,
+     "medaglia": 0.8426,
+     "qualifica": 0.9956,
+     "via": "Mondiali 2027",
+     "rating": 2244,
+     "bilancio": "4V-0S",
+     "eta": 26,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Semen Sergeevich NOVIKOV",
+     "noc": "BUL",
+     "rank": 2,
+     "oro": 0.3396,
+     "medaglia": 0.8074,
+     "qualifica": 0.9776,
+     "via": "Mondiali 2027",
+     "rating": 2205,
+     "bilancio": "5V-0S",
+     "eta": 31,
+     "titoli": [
+      "🥇Olympic",
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Gamzat GADZHIEV",
+     "noc": "RUS",
+     "rank": 3,
+     "oro": 0.043,
+     "medaglia": 0.3012,
+     "qualifica": 0.702,
+     "via": "Mondiali 2027",
+     "rating": 1928,
+     "bilancio": "7V-2S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Mihail BRADU",
+     "noc": "MDA",
+     "rank": 4,
+     "oro": 0.039,
+     "medaglia": 0.3206,
+     "qualifica": 0.7112,
+     "via": "Mondiali 2027",
+     "rating": 1940,
+     "bilancio": "6V-2S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Yuksel SARICICEK",
+     "noc": "TUR",
+     "rank": 5,
+     "oro": 0.0356,
+     "medaglia": 0.259,
+     "qualifica": 0.6392,
+     "via": "Mondiali 2027",
+     "rating": 1901,
+     "bilancio": "3V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Lasha GOBADZE",
+     "noc": "GEO",
+     "rank": 6,
+     "oro": 0.0338,
+     "medaglia": 0.2554,
+     "qualifica": 0.6288,
+     "via": "Mondiali 2027",
+     "rating": 1955,
+     "bilancio": "4V-1S",
+     "eta": 35,
+     "titoli": []
+    },
+    {
+     "nome": "Gevorg TADEVOSYAN",
+     "noc": "ARM",
+     "rank": 7,
+     "oro": 0.028,
+     "medaglia": 0.255,
+     "qualifica": 0.628,
+     "via": "Mondiali 2027",
+     "rating": 1900,
+     "bilancio": "4V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Asan Kurbanovich ZHANYSHOV",
+     "noc": "KGZ",
+     "rank": 8,
+     "oro": 0.0272,
+     "medaglia": 0.2062,
+     "qualifica": 0.7036,
+     "via": "Torneo continentale 2028",
+     "rating": 1797,
+     "bilancio": "2V-0S",
+     "eta": 24,
+     "titoli": []
+    },
+    {
+     "nome": "Termirlan TURDAKYN",
+     "noc": "KAZ",
+     "rank": 9,
+     "oro": 0.0058,
+     "medaglia": 0.0522,
+     "qualifica": 0.2988,
+     "via": "Torneo continentale 2028",
+     "rating": 1492,
+     "bilancio": "0V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Ivan HUKLEK",
+     "noc": "CRO",
+     "rank": 10,
+     "oro": 0.0046,
+     "medaglia": 0.088,
+     "qualifica": 0.6082,
+     "via": "Torneo mondiale 2028",
+     "rating": 1739,
+     "bilancio": "3V-2S",
+     "eta": 32,
+     "titoli": []
+    }
+   ]
+  },
+  "GR 97kg": {
+   "stile": "GR",
+   "nome_stile": "Greco-romana",
+   "kg": 97,
+   "atleti": [
+    {
+     "nome": "Kiryl MASKEVICH",
+     "noc": "BLR",
+     "rank": 1,
+     "oro": 0.3822,
+     "medaglia": 0.7982,
+     "qualifica": 0.9708,
+     "via": "Mondiali 2027",
+     "rating": 2150,
+     "bilancio": "4V-0S",
+     "eta": 30,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Artur SARGSIAN",
+     "noc": "RUS",
+     "rank": 2,
+     "oro": 0.1646,
+     "medaglia": 0.5596,
+     "qualifica": 0.8844,
+     "via": "Mondiali 2027",
+     "rating": 1995,
+     "bilancio": "3V-1S",
+     "eta": 30,
+     "titoli": []
+    },
+    {
+     "nome": "Mohammadhadi Abdollah SARAVI",
+     "noc": "IRI",
+     "rank": 3,
+     "oro": 0.1414,
+     "medaglia": 0.5648,
+     "qualifica": 0.9696,
+     "via": "Mondiali 2027",
+     "rating": 1983,
+     "bilancio": "3V-1S",
+     "eta": 31,
+     "titoli": [
+      "🥇Olympic",
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Kiril Milenov MILOV",
+     "noc": "BUL",
+     "rank": 4,
+     "oro": 0.1286,
+     "medaglia": 0.5158,
+     "qualifica": 0.8684,
+     "via": "Mondiali 2027",
+     "rating": 1985,
+     "bilancio": "4V-1S",
+     "eta": 32,
+     "titoli": []
+    },
+    {
+     "nome": "Alex Gergo SZOKE",
+     "noc": "HUN",
+     "rank": 5,
+     "oro": 0.0564,
+     "medaglia": 0.2952,
+     "qualifica": 0.6822,
+     "via": "Mondiali 2027",
+     "rating": 1863,
+     "bilancio": "4V-1S",
+     "eta": 28,
+     "titoli": []
+    },
+    {
+     "nome": "Arvi Martin SAVOLAINEN",
+     "noc": "FIN",
+     "rank": 6,
+     "oro": 0.0168,
+     "medaglia": 0.119,
+     "qualifica": 0.4354,
+     "via": "Torneo continentale 2028",
+     "rating": 1719,
+     "bilancio": "3V-1S",
+     "eta": 30,
+     "titoli": []
+    },
+    {
+     "nome": "Erlan MANATBEKOV",
+     "noc": "KGZ",
+     "rank": 7,
+     "oro": 0.0126,
+     "medaglia": 0.111,
+     "qualifica": 0.5664,
+     "via": "Torneo continentale 2028",
+     "rating": 1618,
+     "bilancio": "1V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Kevin MEJIA CASTILLO",
+     "noc": "HON",
+     "rank": 8,
+     "oro": 0.0112,
+     "medaglia": 0.0968,
+     "qualifica": 0.83,
+     "via": "Torneo continentale 2028",
+     "rating": 1631,
+     "bilancio": "1V-0S",
+     "eta": 33,
+     "titoli": []
+    },
+    {
+     "nome": "Giorgi MELIA",
+     "noc": "GEO",
+     "rank": 9,
+     "oro": 0.01,
+     "medaglia": 0.0552,
+     "qualifica": 0.1778,
+     "via": "Torneo continentale 2028",
+     "rating": 1493,
+     "bilancio": "0V-0S",
+     "eta": 32,
+     "titoli": []
+    },
+    {
+     "nome": "Markus RAGGINGER",
+     "noc": "AUT",
+     "rank": 10,
+     "oro": 0.0096,
+     "medaglia": 0.106,
+     "qualifica": 0.5164,
+     "via": "Torneo continentale 2028",
+     "rating": 1710,
+     "bilancio": "2V-2S",
+     "eta": null,
+     "titoli": []
+    }
+   ]
+  },
+  "GR 130kg": {
+   "stile": "GR",
+   "nome_stile": "Greco-romana",
+   "kg": 130,
+   "atleti": [
+    {
+     "nome": "Fardin Shaban HEDAYATI",
+     "noc": "IRI",
+     "rank": 1,
+     "oro": 0.518,
+     "medaglia": 0.8728,
+     "qualifica": 0.9996,
+     "via": "Mondiali 2027",
+     "rating": 2204,
+     "bilancio": "4V-0S",
+     "eta": 24,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Marat KAMPAROV",
+     "noc": "RUS",
+     "rank": 2,
+     "oro": 0.191,
+     "medaglia": 0.6384,
+     "qualifica": 0.9704,
+     "via": "Mondiali 2027",
+     "rating": 2013,
+     "bilancio": "4V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Darius Attila VITEK",
+     "noc": "HUN",
+     "rank": 3,
+     "oro": 0.0622,
+     "medaglia": 0.3928,
+     "qualifica": 0.8964,
+     "via": "Mondiali 2027",
+     "rating": 1862,
+     "bilancio": "4V-2S",
+     "eta": 29,
+     "titoli": []
+    },
+    {
+     "nome": "Wenhao JIANG",
+     "noc": "CHN",
+     "rank": 4,
+     "oro": 0.0512,
+     "medaglia": 0.3936,
+     "qualifica": 0.9752,
+     "via": "Mondiali 2027",
+     "rating": 1862,
+     "bilancio": "6V-2S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Konsta Johannes MAEENPAEAE",
+     "noc": "FIN",
+     "rank": 5,
+     "oro": 0.0388,
+     "medaglia": 0.2798,
+     "qualifica": 0.813,
+     "via": "Mondiali 2027",
+     "rating": 1789,
+     "bilancio": "3V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Pavel HLINCHUK",
+     "noc": "BLR",
+     "rank": 6,
+     "oro": 0.0374,
+     "medaglia": 0.3016,
+     "qualifica": 0.8348,
+     "via": "Mondiali 2027",
+     "rating": 1822,
+     "bilancio": "3V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Razmik KURDYAN",
+     "noc": "ARM",
+     "rank": 7,
+     "oro": 0.0194,
+     "medaglia": 0.1068,
+     "qualifica": 0.3806,
+     "via": "Torneo continentale 2028",
+     "rating": 1542,
+     "bilancio": "0V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Alan DZABIEV",
+     "noc": "BUL",
+     "rank": 8,
+     "oro": 0.0154,
+     "medaglia": 0.0974,
+     "qualifica": 0.3694,
+     "via": "Torneo continentale 2028",
+     "rating": 1527,
+     "bilancio": "0V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Roman KIM",
+     "noc": "KGZ",
+     "rank": 9,
+     "oro": 0.01,
+     "medaglia": 0.065,
+     "qualifica": 0.4532,
+     "via": "Torneo continentale 2028",
+     "rating": 1432,
+     "bilancio": "0V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "James Owens FORD III",
+     "noc": "PUR",
+     "rank": 10,
+     "oro": 0.0072,
+     "medaglia": 0.0598,
+     "qualifica": 0.4766,
+     "via": "Torneo continentale 2028",
+     "rating": 1400,
+     "bilancio": "0V-0S",
+     "eta": null,
+     "titoli": []
+    }
+   ]
+  },
+  "WW 50kg": {
+   "stile": "WW",
+   "nome_stile": "Femminile",
+   "kg": 50,
+   "atleti": [
+    {
+     "nome": "Yui SUSAKI",
+     "noc": "JPN",
+     "rank": 1,
+     "oro": 0.5442,
+     "medaglia": 0.9092,
+     "qualifica": 0.9986,
+     "via": "Mondiali 2027",
+     "rating": 2257,
+     "bilancio": "5V-0S",
+     "eta": 29,
+     "titoli": [
+      "🥇Olympic",
+      "🌏World Champion",
+      "🦄Legend"
+     ]
+    },
+    {
+     "nome": "Ziqi FENG",
+     "noc": "CHN",
+     "rank": 2,
+     "oro": 0.216,
+     "medaglia": 0.7412,
+     "qualifica": 0.9898,
+     "via": "Mondiali 2027",
+     "rating": 2079,
+     "bilancio": "7V-1S",
+     "eta": 29,
+     "titoli": []
+    },
+    {
+     "nome": "Samara Rosario CHAVEZ",
+     "noc": "USA",
+     "rank": 3,
+     "oro": 0.0814,
+     "medaglia": 0.5158,
+     "qualifica": 0.9712,
+     "via": "Mondiali 2027",
+     "rating": 1945,
+     "bilancio": "3V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Neelam NEELAM",
+     "noc": "IND",
+     "rank": 4,
+     "oro": 0.0618,
+     "medaglia": 0.4256,
+     "qualifica": 0.9002,
+     "via": "Mondiali 2027",
+     "rating": 1906,
+     "bilancio": "2V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Zeinep BAYANOVA",
+     "noc": "KAZ",
+     "rank": 5,
+     "oro": 0.0172,
+     "medaglia": 0.2164,
+     "qualifica": 0.8008,
+     "via": "Torneo continentale 2028",
+     "rating": 1779,
+     "bilancio": "5V-2S",
+     "eta": 25,
+     "titoli": []
+    },
+    {
+     "nome": "Oksana LIVACH",
+     "noc": "UKR",
+     "rank": 6,
+     "oro": 0.0162,
+     "medaglia": 0.2298,
+     "qualifica": 0.8306,
+     "via": "UWW Ranking",
+     "rating": 1791,
+     "bilancio": "5V-3S",
+     "eta": 31,
+     "titoli": []
+    },
+    {
+     "nome": "Nadezhda SOKOLOVA",
+     "noc": "RUS",
+     "rank": 7,
+     "oro": 0.0098,
+     "medaglia": 0.1166,
+     "qualifica": 0.575,
+     "via": "Torneo continentale 2028",
+     "rating": 1646,
+     "bilancio": "1V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "WON Myong Gyong",
+     "noc": "PRK",
+     "rank": 8,
+     "oro": 0.0064,
+     "medaglia": 0.0554,
+     "qualifica": 0.3042,
+     "via": "Torneo continentale 2028",
+     "rating": 1451,
+     "bilancio": "0V-0S",
+     "eta": 29,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Agata WALERZAK",
+     "noc": "POL",
+     "rank": 9,
+     "oro": 0.0052,
+     "medaglia": 0.047,
+     "qualifica": 0.2674,
+     "via": "Torneo continentale 2028",
+     "rating": 1409,
+     "bilancio": "0V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Svenja JUNGO",
+     "noc": "SUI",
+     "rank": 10,
+     "oro": 0.005,
+     "medaglia": 0.0486,
+     "qualifica": 0.3028,
+     "via": "Torneo continentale 2028",
+     "rating": 1400,
+     "bilancio": "0V-0S",
+     "eta": null,
+     "titoli": []
+    }
+   ]
+  },
+  "WW 53kg": {
+   "stile": "WW",
+   "nome_stile": "Femminile",
+   "kg": 53,
+   "atleti": [
+    {
+     "nome": "Moe KIYOOKA",
+     "noc": "JPN",
+     "rank": 1,
+     "oro": 0.322,
+     "medaglia": 0.7492,
+     "qualifica": 0.9918,
+     "via": "Mondiali 2027",
+     "rating": 2170,
+     "bilancio": "4V-0S",
+     "eta": 25,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Everest Shea LEYDECKER",
+     "noc": "USA",
+     "rank": 2,
+     "oro": 0.2996,
+     "medaglia": 0.7328,
+     "qualifica": 0.996,
+     "via": "Mondiali 2027",
+     "rating": 2146,
+     "bilancio": "4V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Antim ANTIM",
+     "noc": "IND",
+     "rank": 3,
+     "oro": 0.0994,
+     "medaglia": 0.4416,
+     "qualifica": 0.9242,
+     "via": "Mondiali 2027",
+     "rating": 1985,
+     "bilancio": "4V-0S",
+     "eta": 24,
+     "titoli": []
+    },
+    {
+     "nome": "Nataliia KLIVCHUTSKA",
+     "noc": "UKR",
+     "rank": 4,
+     "oro": 0.0866,
+     "medaglia": 0.44,
+     "qualifica": 0.9084,
+     "via": "Mondiali 2027",
+     "rating": 1983,
+     "bilancio": "7V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Emma Jonna Denise MALMGREN",
+     "noc": "SWE",
+     "rank": 5,
+     "oro": 0.066,
+     "medaglia": 0.3828,
+     "qualifica": 0.905,
+     "via": "Mondiali 2027",
+     "rating": 1961,
+     "bilancio": "5V-1S",
+     "eta": 27,
+     "titoli": []
+    },
+    {
+     "nome": "Lucia Yamileth YEPEZ GUZMAN",
+     "noc": "ECU",
+     "rank": 6,
+     "oro": 0.0384,
+     "medaglia": 0.2968,
+     "qualifica": 0.9646,
+     "via": "UWW Ranking",
+     "rating": 1898,
+     "bilancio": "3V-1S",
+     "eta": 27,
+     "titoli": []
+    },
+    {
+     "nome": "Ekaterina VERBINA",
+     "noc": "RUS",
+     "rank": 7,
+     "oro": 0.02,
+     "medaglia": 0.183,
+     "qualifica": 0.6748,
+     "via": "Torneo continentale 2028",
+     "rating": 1831,
+     "bilancio": "3V-1S",
+     "eta": 28,
+     "titoli": []
+    },
+    {
+     "nome": "Jin ZHANG",
+     "noc": "CHN",
+     "rank": 8,
+     "oro": 0.013,
+     "medaglia": 0.171,
+     "qualifica": 0.7894,
+     "via": "Torneo continentale 2028",
+     "rating": 1826,
+     "bilancio": "6V-3S",
+     "eta": 23,
+     "titoli": []
+    },
+    {
+     "nome": "Andreea Beatrice ANA",
+     "noc": "ROU",
+     "rank": 9,
+     "oro": 0.0096,
+     "medaglia": 0.1164,
+     "qualifica": 0.6362,
+     "via": "Torneo continentale 2028",
+     "rating": 1767,
+     "bilancio": "5V-3S",
+     "eta": 28,
+     "titoli": []
+    },
+    {
+     "nome": "Vanesa KALADZINSKAYA",
+     "noc": "BLR",
+     "rank": 10,
+     "oro": 0.0084,
+     "medaglia": 0.0498,
+     "qualifica": 0.2196,
+     "via": "Torneo continentale 2028",
+     "rating": 1498,
+     "bilancio": "0V-0S",
+     "eta": null,
+     "titoli": []
+    }
+   ]
+  },
+  "WW 57kg": {
+   "stile": "WW",
+   "nome_stile": "Femminile",
+   "kg": 57,
+   "atleti": [
+    {
+     "nome": "Kexin HONG",
+     "noc": "CHN",
+     "rank": 1,
+     "oro": 0.541,
+     "medaglia": 0.891,
+     "qualifica": 0.9988,
+     "via": "Mondiali 2027",
+     "rating": 2278,
+     "bilancio": "8V-0S",
+     "eta": 26,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Manisha MANISHA",
+     "noc": "IND",
+     "rank": 2,
+     "oro": 0.18,
+     "medaglia": 0.6762,
+     "qualifica": 0.9758,
+     "via": "Mondiali 2027",
+     "rating": 2087,
+     "bilancio": "4V-0S",
+     "eta": 31,
+     "titoli": []
+    },
+    {
+     "nome": "Sena NAGAMOTO",
+     "noc": "JPN",
+     "rank": 3,
+     "oro": 0.0874,
+     "medaglia": 0.5092,
+     "qualifica": 0.9396,
+     "via": "Mondiali 2027",
+     "rating": 1985,
+     "bilancio": "4V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Iryna KURACHKINA",
+     "noc": "BLR",
+     "rank": 4,
+     "oro": 0.075,
+     "medaglia": 0.4702,
+     "qualifica": 0.9326,
+     "via": "Mondiali 2027",
+     "rating": 1975,
+     "bilancio": "7V-2S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Abigail Elizabeth NETTE",
+     "noc": "USA",
+     "rank": 5,
+     "oro": 0.0442,
+     "medaglia": 0.3842,
+     "qualifica": 0.9562,
+     "via": "UWW Ranking",
+     "rating": 1925,
+     "bilancio": "5V-2S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Bolortuya KHURELKHUU",
+     "noc": "MGL",
+     "rank": 6,
+     "oro": 0.0186,
+     "medaglia": 0.1966,
+     "qualifica": 0.7648,
+     "via": "Torneo continentale 2028",
+     "rating": 1808,
+     "bilancio": "3V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Mariia VYNNYK",
+     "noc": "UKR",
+     "rank": 7,
+     "oro": 0.0124,
+     "medaglia": 0.1606,
+     "qualifica": 0.6846,
+     "via": "Torneo continentale 2028",
+     "rating": 1794,
+     "bilancio": "6V-2S",
+     "eta": 27,
+     "titoli": []
+    },
+    {
+     "nome": "Sezim ZHUMANAZAROVA",
+     "noc": "KGZ",
+     "rank": 8,
+     "oro": 0.0058,
+     "medaglia": 0.0488,
+     "qualifica": 0.2936,
+     "via": "Torneo continentale 2028",
+     "rating": 1468,
+     "bilancio": "0V-0S",
+     "eta": 26,
+     "titoli": []
+    },
+    {
+     "nome": "SON Il Sim",
+     "noc": "PRK",
+     "rank": 9,
+     "oro": 0.0042,
+     "medaglia": 0.0322,
+     "qualifica": 0.2278,
+     "via": "Torneo continentale 2028",
+     "rating": 1401,
+     "bilancio": "0V-0S",
+     "eta": 27,
+     "titoli": []
+    },
+    {
+     "nome": "Bertha Daniela ROJAS CHAVEZ",
+     "noc": "MEX",
+     "rank": 10,
+     "oro": 0.004,
+     "medaglia": 0.038,
+     "qualifica": 0.3274,
+     "via": "Torneo continentale 2028",
+     "rating": 1400,
+     "bilancio": "0V-0S",
+     "eta": 24,
+     "titoli": []
+    }
+   ]
+  },
+  "WW 62kg": {
+   "stile": "WW",
+   "nome_stile": "Femminile",
+   "kg": 62,
+   "atleti": [
+    {
+     "nome": "Alina KASABIEVA",
+     "noc": "RUS",
+     "rank": 1,
+     "oro": 0.3446,
+     "medaglia": 0.715,
+     "qualifica": 0.966,
+     "via": "Mondiali 2027",
+     "rating": 2135,
+     "bilancio": "4V-0S",
+     "eta": 26,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Ana Paula GODINEZ GONZALEZ",
+     "noc": "CAN",
+     "rank": 2,
+     "oro": 0.1046,
+     "medaglia": 0.4124,
+     "qualifica": 0.9712,
+     "via": "Mondiali 2027",
+     "rating": 1936,
+     "bilancio": "4V-0S",
+     "eta": 29,
+     "titoli": []
+    },
+    {
+     "nome": "Mansi MANSI",
+     "noc": "IND",
+     "rank": 3,
+     "oro": 0.1022,
+     "medaglia": 0.395,
+     "qualifica": 0.8646,
+     "via": "Mondiali 2027",
+     "rating": 1944,
+     "bilancio": "3V-0S",
+     "eta": 27,
+     "titoli": []
+    },
+    {
+     "nome": "Irina RINGACI",
+     "noc": "MDA",
+     "rank": 4,
+     "oro": 0.099,
+     "medaglia": 0.3934,
+     "qualifica": 0.8282,
+     "via": "Mondiali 2027",
+     "rating": 1946,
+     "bilancio": "3V-1S",
+     "eta": 27,
+     "titoli": []
+    },
+    {
+     "nome": "Nonoka OZAKI",
+     "noc": "JPN",
+     "rank": 5,
+     "oro": 0.0876,
+     "medaglia": 0.3896,
+     "qualifica": 0.8686,
+     "via": "Mondiali 2027",
+     "rating": 1934,
+     "bilancio": "3V-1S",
+     "eta": 25,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Adaugo Diana NWACHUKWU",
+     "noc": "USA",
+     "rank": 6,
+     "oro": 0.0816,
+     "medaglia": 0.389,
+     "qualifica": 0.9776,
+     "via": "Mondiali 2027",
+     "rating": 1940,
+     "bilancio": "5V-2S",
+     "eta": null,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Yongxin FENG",
+     "noc": "CHN",
+     "rank": 7,
+     "oro": 0.065,
+     "medaglia": 0.3496,
+     "qualifica": 0.8546,
+     "via": "Mondiali 2027",
+     "rating": 1918,
+     "bilancio": "3V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Bilyana Zhivkova DUDOVA",
+     "noc": "BUL",
+     "rank": 8,
+     "oro": 0.0248,
+     "medaglia": 0.1664,
+     "qualifica": 0.6084,
+     "via": "Torneo continentale 2028",
+     "rating": 1806,
+     "bilancio": "3V-1S",
+     "eta": 31,
+     "titoli": []
+    },
+    {
+     "nome": "Iryna BONDAR",
+     "noc": "UKR",
+     "rank": 9,
+     "oro": 0.02,
+     "medaglia": 0.0858,
+     "qualifica": 0.2742,
+     "via": "Torneo continentale 2028",
+     "rating": 1574,
+     "bilancio": "0V-0S",
+     "eta": 24,
+     "titoli": []
+    },
+    {
+     "nome": "Grace Jacob BULLEN",
+     "noc": "NOR",
+     "rank": 10,
+     "oro": 0.012,
+     "medaglia": 0.1118,
+     "qualifica": 0.583,
+     "via": "Torneo continentale 2028",
+     "rating": 1749,
+     "bilancio": "4V-2S",
+     "eta": 31,
+     "titoli": []
+    }
+   ]
+  },
+  "WW 68kg": {
+   "stile": "WW",
+   "nome_stile": "Femminile",
+   "kg": 68,
+   "atleti": [
+    {
+     "nome": "Jia LONG",
+     "noc": "CHN",
+     "rank": 1,
+     "oro": 0.5936,
+     "medaglia": 0.8988,
+     "qualifica": 0.9988,
+     "via": "Mondiali 2027",
+     "rating": 2296,
+     "bilancio": "9V-0S",
+     "eta": 30,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Meerim ZHUMANAZAROVA",
+     "noc": "KGZ",
+     "rank": 2,
+     "oro": 0.1118,
+     "medaglia": 0.5642,
+     "qualifica": 0.9522,
+     "via": "Mondiali 2027",
+     "rating": 2016,
+     "bilancio": "7V-2S",
+     "eta": 29,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Wiktoria CHOLUJ",
+     "noc": "POL",
+     "rank": 3,
+     "oro": 0.0694,
+     "medaglia": 0.4482,
+     "qualifica": 0.9054,
+     "via": "Mondiali 2027",
+     "rating": 1959,
+     "bilancio": "6V-1S",
+     "eta": 28,
+     "titoli": []
+    },
+    {
+     "nome": "Adela HANZLICKOVA",
+     "noc": "CZE",
+     "rank": 4,
+     "oro": 0.067,
+     "medaglia": 0.4574,
+     "qualifica": 0.978,
+     "via": "Mondiali 2027",
+     "rating": 1956,
+     "bilancio": "4V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Mahiro YOSHITAKE",
+     "noc": "JPN",
+     "rank": 5,
+     "oro": 0.0488,
+     "medaglia": 0.3398,
+     "qualifica": 0.8498,
+     "via": "Mondiali 2027",
+     "rating": 1903,
+     "bilancio": "3V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Kennedy Alexis BLADES",
+     "noc": "USA",
+     "rank": 6,
+     "oro": 0.0386,
+     "medaglia": 0.3324,
+     "qualifica": 0.9818,
+     "via": "UWW Ranking",
+     "rating": 1884,
+     "bilancio": "3V-1S",
+     "eta": 25,
+     "titoli": []
+    },
+    {
+     "nome": "Tanu SHARMA",
+     "noc": "IND",
+     "rank": 7,
+     "oro": 0.0176,
+     "medaglia": 0.1876,
+     "qualifica": 0.7022,
+     "via": "Torneo continentale 2028",
+     "rating": 1798,
+     "bilancio": "2V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Yuliana Vasileva YANEVA",
+     "noc": "BUL",
+     "rank": 8,
+     "oro": 0.0076,
+     "medaglia": 0.0414,
+     "qualifica": 0.197,
+     "via": "Torneo continentale 2028",
+     "rating": 1458,
+     "bilancio": "0V-0S",
+     "eta": 30,
+     "titoli": []
+    },
+    {
+     "nome": "Alina SHEVCHENKO",
+     "noc": "RUS",
+     "rank": 9,
+     "oro": 0.0056,
+     "medaglia": 0.0578,
+     "qualifica": 0.3592,
+     "via": "Torneo continentale 2028",
+     "rating": 1643,
+     "bilancio": "2V-2S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Nesrin BAS",
+     "noc": "TUR",
+     "rank": 10,
+     "oro": 0.0052,
+     "medaglia": 0.0778,
+     "qualifica": 0.4488,
+     "via": "Torneo continentale 2028",
+     "rating": 1701,
+     "bilancio": "4V-3S",
+     "eta": 26,
+     "titoli": []
+    }
+   ]
+  },
+  "WW 76kg": {
+   "stile": "WW",
+   "nome_stile": "Femminile",
+   "kg": 76,
+   "atleti": [
+    {
+     "nome": "Anastasiya ALPYEYEVA",
+     "noc": "UKR",
+     "rank": 1,
+     "oro": 0.4322,
+     "medaglia": 0.8292,
+     "qualifica": 0.9956,
+     "via": "Mondiali 2027",
+     "rating": 2161,
+     "bilancio": "4V-0S",
+     "eta": 27,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Kajal KAJAL",
+     "noc": "IND",
+     "rank": 2,
+     "oro": 0.2202,
+     "medaglia": 0.6974,
+     "qualifica": 0.9922,
+     "via": "Mondiali 2027",
+     "rating": 2042,
+     "bilancio": "7V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Dymond Precious GUILFORD",
+     "noc": "USA",
+     "rank": 3,
+     "oro": 0.09,
+     "medaglia": 0.4904,
+     "qualifica": 0.9918,
+     "via": "Mondiali 2027",
+     "rating": 1923,
+     "bilancio": "7V-2S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Yuka KAGAMI",
+     "noc": "JPN",
+     "rank": 4,
+     "oro": 0.0744,
+     "medaglia": 0.2832,
+     "qualifica": 0.7188,
+     "via": "Mondiali 2027",
+     "rating": 1749,
+     "bilancio": "0V-0S",
+     "eta": 27,
+     "titoli": [
+      "🥇Olympic",
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Davaanasan ENKH AMAR",
+     "noc": "MGL",
+     "rank": 5,
+     "oro": 0.0504,
+     "medaglia": 0.3476,
+     "qualifica": 0.9002,
+     "via": "Mondiali 2027",
+     "rating": 1841,
+     "bilancio": "3V-1S",
+     "eta": 30,
+     "titoli": []
+    },
+    {
+     "nome": "Shuiyan CHENG",
+     "noc": "CHN",
+     "rank": 6,
+     "oro": 0.0444,
+     "medaglia": 0.3008,
+     "qualifica": 0.8724,
+     "via": "Torneo continentale 2028",
+     "rating": 1815,
+     "bilancio": "3V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Genesis Rosangela REASCO VALDEZ",
+     "noc": "ECU",
+     "rank": 7,
+     "oro": 0.0162,
+     "medaglia": 0.109,
+     "qualifica": 0.6648,
+     "via": "Torneo continentale 2028",
+     "rating": 1517,
+     "bilancio": "0V-0S",
+     "eta": 30,
+     "titoli": [
+      "🌏World Champion"
+     ]
+    },
+    {
+     "nome": "Martina KUENZ",
+     "noc": "AUT",
+     "rank": 8,
+     "oro": 0.0122,
+     "medaglia": 0.1382,
+     "qualifica": 0.747,
+     "via": "Torneo continentale 2028",
+     "rating": 1681,
+     "bilancio": "2V-1S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "Vanesa GEORGIEVA",
+     "noc": "BUL",
+     "rank": 9,
+     "oro": 0.0082,
+     "medaglia": 0.0712,
+     "qualifica": 0.2942,
+     "via": "Torneo continentale 2028",
+     "rating": 1458,
+     "bilancio": "0V-0S",
+     "eta": null,
+     "titoli": []
+    },
+    {
+     "nome": "CHANG Hui-Tsz",
+     "noc": "TPE",
+     "rank": 10,
+     "oro": 0.008,
+     "medaglia": 0.0628,
+     "qualifica": 0.7002,
+     "via": "Torneo mondiale 2028",
+     "rating": 1400,
+     "bilancio": "0V-0S",
+     "eta": 29,
+     "titoli": []
+    }
+   ]
+  }
+ }
+}

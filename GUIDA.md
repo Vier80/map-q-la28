@@ -34,3 +34,13 @@ Se lo script non riconosce una gara a squadre, nel registro dell'esecuzione trov
 - Recurve: 3 atleti per genere se c'è la squadra, altrimenti 1. La squadra mista non aggiunge posti.
 - Pallanuoto: 12 è il valore di Parigi 2024, da confermare.
 - ENG, SCO e WAL confluiscono in GBR. I codici senza territorio vengono tenuti nei totali ma non hanno un paese sulla mappa.
+
+## Pagina Previsioni Wrestling
+
+- `wrestling.html`: favoriti per l'oro LA28 in ognuna delle 18 categorie di lotta, stessa grafica di `sport.html`
+- `wrestling.json`: le previsioni, riscritto a ogni aggiornamento
+- `aggiorna_wrestling.py`: legge il db Notion "Previsioni Wrestling LA28" e scrive `wrestling.json`
+
+Una volta sola: in Notion apri il database **Previsioni Wrestling LA28**, `•••` > Connessioni, aggiungi la stessa connessione della mappa.
+Da lì in poi si aggiorna da sola: l'agente previsioni ricalcola quando cambiano i dati wrestling, e questa pagina lo legge al controllo successivo (ogni 15 minuti circa).
+Indirizzo: `https://vier80.github.io/map-q-la28/wrestling.html` (si raggiunge anche da Qualificati per sport > Wrestling).

@@ -1,0 +1,49 @@
+name: Aggiorna mappa LA28
+on:
+  workflow_dispatch:   # lancio a mano da Actions > Run workflow
+  schedule:
+    - cron: "*/15 * * * *"   # controllo automatico ogni 15 minuti (ora UTC)
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  aggiorna:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.pubblica.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Leggi Notion e aggiorna data.json
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: python aggiorna_dati.py
+      - name: Salva data.json nel repository
+        id: salva
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          if git diff --cached --quiet; then
+            echo "cambiato=0" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "Aggiorna i qualificati LA28"
+            git push
+            echo "cambiato=1" >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.salva.outputs.cambiato == '1' || github.event_name == 'workflow_dispatch'
+        uses: actions/configure-pages@v5
+      - if: steps.salva.outputs.cambiato == '1' || github.event_name == 'workflow_dispatch'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: pubblica
+        if: steps.salva.outputs.cambiato == '1' || github.event_name == 'workflow_dispatch'
+        uses: actions/deploy-pages@v4

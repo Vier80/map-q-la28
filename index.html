@@ -294,6 +294,7 @@ svg#mondo:active { cursor: grabbing }
     testa.append(el("p", "grande", v.atleti), el("p", "sotto", `${unita(v.atleti, "atleti")} · ${v.pass} pass in Notion`));
     const osp = v.righe.filter((r) => r.ospitante).length;
     if (osp) testa.append(el("p", "sotto", `${osp} pass da paese ospitante`));
+    const link = el("a", "indietro", "Scheda completa →"); link.href = "scheda.html#" + noc; link.style.display = "inline-block"; link.style.textDecoration = "none"; testa.append(link);
     pann.append(testa);
     const corpo = el("div", "scheda");
     d3.group(v.righe, (r) => r.sport).forEach((righe, sport) => {

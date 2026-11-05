@@ -59,6 +59,11 @@ ROSE = {
 # Codici che sulla mappa confluiscono in un altro NOC.
 ACCORPA = {"ENG": "GBR", "SCO": "GBR", "WAL": "GBR"}
 
+# Gare senza genere: l'equitazione mette uomini e donne nella stessa gara.
+GARE_OPEN = re.compile(r"dressage|eventing|jumping", re.I)
+SOLO_UOMINI = {"mag team", "baseball", "decathlon", "trampoline men"}
+SOLO_DONNE = {"wag team", "softball", "heptathlon", "trampoline women", "group all-around", "individual all-around"}
+
 INDIZI_SQUADRA = re.compile(r"team|relay|4x|group|duet|mixed", re.I)
 APICI = re.compile(r"[\s¹²³⁰-₟ʰ-˿ᴬ-ᶿ]+$")
 
@@ -71,6 +76,38 @@ def codice_noc(valore):
     """'🇮🇹ITA' -> 'ITA'."""
     trovato = re.search(r"[A-Z]{2,3}$", valore or "")
     return trovato.group(0) if trovato else ""
+
+
+def categoria_gara(disciplina):
+    """M uomini, W donne, X mista, O aperta. Gli sport a volte hanno nomi senza genere."""
+    nome = re.sub(r"^[^A-Za-z]+", "", disciplina).lower()
+    if "mixed" in nome or nome == "nacra 17":
+        return "X"
+    if nome in SOLO_UOMINI:
+        return "M"
+    if nome in SOLO_DONNE:
+        return "W"
+    if re.search(r"\bwomen", nome):
+        return "W"
+    if re.search(r"\bmen", nome):
+        return "M"
+    return "O"
+
+
+def nome_card(riga):
+    if any("3x3" in d for d in riga["discipline"]):
+        return "Basketball 3x3"
+    return riga["sport"]
+
+
+def dividi_generi(riga):
+    atleti = riga["atleti"]
+    if "genere" in riga:
+        return riga["genere"]
+    categoria = categoria_gara(riga["discipline"][0]) if riga["discipline"] else "O"
+    if categoria == "X":
+        return {"M": atleti // 2, "W": atleti - atleti // 2, "O": 0}
+    return {"M": atleti * (categoria == "M"), "W": atleti * (categoria == "W"), "O": atleti * (categoria == "O")}
 
 
 def atleti_della_riga(riga, avvisi):
@@ -110,6 +147,7 @@ def correggi_arco(righe):
         for riga in gruppo:
             if "Recurve Mixed team" in riga["discipline"]:
                 riga["atleti"] = sum(1 for genere in coperti if not coperti[genere])
+                riga["genere"] = {"M": int(not coperti["Men"]), "W": int(not coperti["Women"]), "O": 0}
                 if riga["atleti"] < 2:
                     riga["nota"] = "atleti già contati nel recurve"
 
@@ -140,6 +178,10 @@ def aggrega(righe, adesso):
         riga["atleti"], riga["squadra"] = atleti_della_riga(riga, avvisi)
         pulite.append(riga)
     correggi_arco(pulite)
+    for riga in pulite:
+        for disciplina in riga["discipline"]:
+            if categoria_gara(disciplina) == "O" and not GARE_OPEN.search(disciplina):
+                avvisi.append(f"Gara senza genere riconosciuto, contata come Open: {disciplina}")
 
     nocs, senza_mappa = {}, []
     for riga in pulite:
@@ -147,7 +189,8 @@ def aggrega(righe, adesso):
         voce["atleti"] += riga["atleti"]
         voce["pass"] += 1
         voce["righe"].append({
-            "nome": riga["nome"], "sport": riga["sport"], "discipline": riga["discipline"],
+            "nome": riga["nome"], "sport": riga["sport"], "card": nome_card(riga), "discipline": riga["discipline"],
+            "genere": dividi_generi(riga), "gare": {d: categoria_gara(d) for d in riga["discipline"]},
             "atleti": riga["atleti"], "squadra": riga["squadra"], "ospitante": riga["ospitante"],
             "nota": riga.get("nota", ""),
         })

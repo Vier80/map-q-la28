@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scheda NOC LA28</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
+<style>
+/* Layout: testata con i totali del NOC, poi griglia di carte, una per sport. */
+:root {
+  --bg: #ffffff; --fg: #1d2c3f; --muted: #6b7786; --line: #dfe5ea; --card: #f9fafc; --band: #dde3e9; --pill: #edf0f3; --dim: #8c96a2;
+  --men: #7da9e8; --women: #dcc466; --strong: #245843; --shadow: rgba(29, 44, 63, .12);
+  --t1: #f1f5f9; --t2: #edf3fc; --t3: #faf6e6; --t4: #fdf1ea; --t5: #eff6f1; --t6: #f3f0f8;
+  --font: "Quicksand", "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #12181f; --fg: #e8edf2; --muted: #a0abb7; --line: #2d3945; --card: #19212a; --band: #36424e; --pill: #27313b; --dim: #8592a0;
+  --men: #8fb6ee; --women: #e3cd77; --strong: #b0cda6; --shadow: rgba(0, 0, 0, .4);
+  --t1: #1d2630; --t2: #1c2735; --t3: #2a2a1f; --t4: #2d2420; --t5: #1c2a24; --t6: #252233; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #12181f; --fg: #e8edf2; --muted: #a0abb7; --line: #2d3945; --card: #19212a; --band: #36424e; --pill: #27313b; --dim: #8592a0;
+  --men: #8fb6ee; --women: #e3cd77; --strong: #b0cda6; --shadow: rgba(0, 0, 0, .4);
+  --t1: #1d2630; --t2: #1c2735; --t3: #2a2a1f; --t4: #2d2420; --t5: #1c2a24; --t6: #252233; color-scheme: dark }
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 500 16px/1.4 var(--font) }
+h1, h2, p { margin: 0 }
+.guscio { max-width: 1320px; margin: 0 auto; display: grid; gap: 18px; padding-block: 18px 28px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.scelta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px }
+.scelta label { font-weight: 600 }
+select { flex: 0 1 340px; min-width: 0; height: 44px; padding: 0 12px; font: 600 1rem var(--font); color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 14px }
+.spunta { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; color: var(--muted) }
+.spunta input { width: 18px; height: 18px; margin: 0; accent-color: var(--strong) }
+
+.testata { border: 1.5px solid var(--line); border-radius: 26px; overflow: hidden; box-shadow: 0 8px 20px var(--shadow) }
+.banda { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 12px 22px; background: linear-gradient(90deg, var(--t1), var(--t3) 55%, var(--t5)); border-bottom: 1.5px solid var(--line) }
+.bandiera { font-size: 2.6rem; line-height: 1 }
+h1 { flex: 1 1 200px; min-width: 0; font: 600 1.7rem/1.2 var(--font); letter-spacing: .12em; text-transform: uppercase; overflow-wrap: anywhere }
+.chip { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; font: 600 .82rem var(--font); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--bg); border: 1.5px solid var(--line); border-radius: 999px; text-decoration: none }
+.chip.link { color: var(--strong); border-color: var(--strong) }
+.punto { width: 9px; height: 9px; border-radius: 50%; background: var(--strong) }
+.numeri { display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)) }
+.numero { display: grid; justify-items: center; gap: 2px; padding: 14px 8px 12px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line) }
+.numero b { font: 600 2.6rem/1.1 var(--font); font-variant-numeric: tabular-nums }
+.numero span { font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted) }
+.chiave { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 24px; margin: 0; padding: 9px 12px; list-style: none; font-size: .86rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted) }
+.chiave li { display: flex; align-items: center; gap: 7px }
+.dot { display: inline-block; flex: none; width: 11px; height: 11px; border-radius: 50% }
+.dot.M { background: var(--men) } .dot.W { background: var(--women) }
+.dot.X { background: linear-gradient(90deg, var(--men) 50%, var(--women) 50%) }
+.dot.O { background: var(--dim) }
+
+.griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 16px }
+.carta { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-content: start; gap: 6px 8px; width: 100%; min-height: 158px; padding: 12px 14px 12px 22px; text-align: left; font: inherit; color: inherit;
+  background: var(--card); border: 1.5px solid var(--line); border-radius: 22px; overflow: hidden }
+.carta::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 10px; background: var(--band) }
+button.carta { cursor: pointer } button.carta:hover { border-color: var(--strong); box-shadow: 0 5px 14px var(--shadow) }
+button.carta::before { background: var(--strong) }
+.carta h2 { grid-column: 1 / -1; padding-bottom: 5px; font: 600 1.28rem/1.2 var(--font); border-bottom: 1px solid var(--line); overflow-wrap: anywhere }
+.dati { display: grid; gap: 6px; justify-items: start; min-width: 0 }
+.conta { min-width: 66px; padding: 3px 14px; text-align: center; font: 600 1.45rem/1.3 var(--font); font-variant-numeric: tabular-nums; color: var(--muted); background: var(--pill); border-radius: 999px }
+button.carta .conta { color: var(--bg); background: var(--strong) }
+.riga { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 7px; font-size: .92rem; color: var(--muted); font-variant-numeric: tabular-nums }
+.icona { align-self: center; font-size: 2.9rem; line-height: 1 }
+.vuota .icona { filter: grayscale(1); opacity: .45 }
+.carta:not(.vuota) .riga { color: var(--fg) }
+
+dialog { width: min(560px, calc(100vw - 32px)); max-height: 80vh; padding: 0; color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 22px }
+dialog::backdrop { background: rgba(10, 18, 24, .45) }
+.dentro { display: grid; gap: 4px; padding: 18px }
+.dentro header { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 6px }
+.dentro h2 { font: 700 1.25rem var(--font) }
+.chiudi { padding: 6px 12px; font: 600 .95rem var(--font); color: var(--fg); background: none; border: 1.5px solid var(--line); border-radius: 12px; cursor: pointer }
+.voce { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1px 12px; padding: 8px 0; border-bottom: 1px solid var(--line) }
+.voce:last-child { border-bottom: 0 }
+.voce b { font-weight: 600; overflow-wrap: anywhere }
+.voce span { grid-column: 1; font-size: .87rem; color: var(--muted) }
+.voce i { grid-row: 1; grid-column: 2; font-style: normal; font-weight: 700; font-variant-numeric: tabular-nums }
+.nota { max-width: 90ch; font-size: .86rem; color: var(--muted) }
+:focus-visible { outline: 3px solid var(--strong); outline-offset: 2px }
+@media (max-width: 640px) { .numero b { font-size: 2rem } h1 { font-size: 1.3rem } .banda { padding: 10px 14px } .testata { border-radius: 20px } .numeri { grid-template-columns: repeat(2, minmax(0, 1fr)) } }
+</style>
+</head>
+<body>
+<div class="guscio">
+  <div class="scelta">
+    <label for="noc">Scegli un NOC</label>
+    <select id="noc"></select>
+    <label class="spunta"><input type="checkbox" id="solo"> Solo sport con qualificati</label>
+  </div>
+  <section class="testata">
+    <div class="banda">
+      <span class="bandiera" id="bandiera" aria-hidden="true"></span>
+      <h1 id="nome">Caricamento…</h1>
+      <span class="chip"><span class="punto"></span><span id="data"></span></span>
+      <a class="chip link" href="index.html">Mappa LA28</a>
+    </div>
+    <div class="numeri" id="numeri"></div>
+    <ul class="chiave">
+      <li><span class="dot M"></span>Gare uomini</li>
+      <li><span class="dot W"></span>Gare donne</li>
+      <li><span class="dot X"></span>Gare miste</li>
+    </ul>
+  </section>
+  <div class="griglia" id="griglia"></div>
+  <p class="nota" id="nota"></p>
+</div>
+<dialog id="finestra"><div class="dentro" id="dentro"></div></dialog>
+
+<script>
+(async function () {
+  const NOC = {"ZIM":["ZW","Zimbabwe"],"ZAM":["ZM","Zambia"],"YEM":["YE","Yemen"],"VIE":["VN","Vietnam"],"VEN":["VE","Venezuela"],"VAN":["VU","Vanuatu"],"UZB":["UZ","Uzbekistan"],"URU":["UY","Uruguay"],"FSM":["FM","Micronesia"],"MHL":["MH","Isole Marshall"],"ISV":["VI","Isole Vergini Americane"],"GUM":["GU","Guam"],"ASA":["AS","Samoa Americane"],"PUR":["PR","Portorico"],"USA":["US","Stati Uniti"],"CAY":["KY","Isole Cayman"],"BER":["BM","Bermuda"],"IVB":["VG","Isole Vergini Britanniche"],"GBR":["GB","Regno Unito"],"UAE":["AE","Emirati Arabi Uniti"],"UKR":["UA","Ucraina"],"UGA":["UG","Uganda"],"TKM":["TM","Turkmenistan"],"TUR":["TR","Turchia"],"TUN":["TN","Tunisia"],"TTO":["TT","Trinidad e Tobago"],"TGA":["TO","Tonga"],"TOG":["TG","Togo"],"TLS":["TL","Timor Est"],"THA":["TH","Thailandia"],"TAN":["TZ","Tanzania"],"TJK":["TJ","Tagikistan"],"TPE":["TW","Taiwan"],"SYR":["SY","Siria"],"SUI":["CH","Svizzera"],"SWE":["SE","Svezia"],"SWZ":["SZ","Eswatini"],"SUR":["SR","Suriname"],"SSD":["SS","Sud Sudan"],"SUD":["SD","Sudan"],"SRI":["LK","Sri Lanka"],"ESP":["ES","Spagna"],"KOR":["KR","Corea del Sud"],"RSA":["ZA","Sudafrica"],"SOM":["SO","Somalia"],"SOL":["SB","Isole Salomone"],"SVK":["SK","Slovacchia"],"SLO":["SI","Slovenia"],"SGP":["SG","Singapore"],"SLE":["SL","Sierra Leone"],"SEY":["SC","Seychelles"],"SRB":["RS","Serbia"],"SEN":["SN","Senegal"],"KSA":["SA","Arabia Saudita"],"STP":["ST","São Tomé e Príncipe"],"SMR":["SM","San Marino"],"SAM":["WS","Samoa"],"VIN":["VC","Saint Vincent e Grenadine"],"LCA":["LC","Saint Lucia"],"SKN":["KN","Saint Kitts e Nevis"],"RWA":["RW","Ruanda"],"RUS":["RU","Russia"],"ROU":["RO","Romania"],"QAT":["QA","Qatar"],"POR":["PT","Portogallo"],"POL":["PL","Polonia"],"PHI":["PH","Filippine"],"PER":["PE","Perù"],"PAR":["PY","Paraguay"],"PNG":["PG","Papua Nuova Guinea"],"PAN":["PA","Panama"],"PLW":["PW","Palau"],"PAK":["PK","Pakistan"],"OMA":["OM","Oman"],"NOR":["NO","Norvegia"],"PRK":["KP","Corea del Nord"],"NGR":["NG","Nigeria"],"NIG":["NE","Niger"],"NCA":["NI","Nicaragua"],"NZL":["NZ","Nuova Zelanda"],"COK":["CK","Isole Cook"],"NED":["NL","Paesi Bassi"],"ARU":["AW","Aruba"],"CUW":["CW","Curaçao"],"NEP":["NP","Nepal"],"NRU":["NR","Nauru"],"NAM":["NA","Namibia"],"MOZ":["MZ","Mozambico"],"MAR":["MA","Marocco"],"MNE":["ME","Montenegro"],"MGL":["MN","Mongolia"],"MDA":["MD","Moldavia"],"MON":["MC","Monaco"],"MEX":["MX","Messico"],"MRI":["MU","Mauritius"],"MTN":["MR","Mauritania"],"MLT":["MT","Malta"],"MLI":["ML","Mali"],"MDV":["MV","Maldive"],"MAS":["MY","Malaysia"],"MAW":["MW","Malawi"],"MAD":["MG","Madagascar"],"MKD":["MK","Macedonia del Nord"],"LUX":["LU","Lussemburgo"],"LTU":["LT","Lituania"],"LIE":["LI","Liechtenstein"],"LBA":["LY","Libia"],"LBR":["LR","Liberia"],"LES":["LS","Lesotho"],"LBN":["LB","Libano"],"LAT":["LV","Lettonia"],"LAO":["LA","Laos"],"KGZ":["KG","Kirghizistan"],"KUW":["KW","Kuwait"],"KOS":["XK","Kosovo"],"KIR":["KI","Kiribati"],"KEN":["KE","Kenya"],"KAZ":["KZ","Kazakistan"],"JOR":["JO","Giordania"],"JPN":["JP","Giappone"],"JAM":["JM","Giamaica"],"ITA":["IT","Italia"],"ISR":["IL","Israele"],"PLE":["PS","Territori Palestinesi"],"IRL":["IE","Irlanda"],"IRQ":["IQ","Iraq"],"IRI":["IR","Iran"],"INA":["ID","Indonesia"],"IND":["IN","India"],"ISL":["IS","Islanda"],"HUN":["HU","Ungheria"],"HON":["HN","Honduras"],"HAI":["HT","Haiti"],"GUY":["GY","Guyana"],"GBS":["GW","Guinea-Bissau"],"GUI":["GN","Guinea"],"GUA":["GT","Guatemala"],"GRN":["GD","Grenada"],"GRE":["GR","Grecia"],"GHA":["GH","Ghana"],"GER":["DE","Germania"],"GEO":["GE","Georgia"],"GAM":["GM","Gambia"],"GAB":["GA","Gabon"],"FRA":["FR","Francia"],"FIN":["FI","Finlandia"],"FIJ":["FJ","Figi"],"ETH":["ET","Etiopia"],"EST":["EE","Estonia"],"ERI":["ER","Eritrea"],"GEQ":["GQ","Guinea Equatoriale"],"ESA":["SV","El Salvador"],"EGY":["EG","Egitto"],"ECU":["EC","Ecuador"],"DOM":["DO","Repubblica Dominicana"],"DMA":["DM","Dominica"],"DJI":["DJ","Gibuti"],"DEN":["DK","Danimarca"],"CZE":["CZ","Cechia"],"CYP":["CY","Cipro"],"CUB":["CU","Cuba"],"CRO":["HR","Croazia"],"CIV":["CI","Costa d’Avorio"],"CRC":["CR","Costa Rica"],"COD":["CD","Congo - Kinshasa"],"CGO":["CG","Congo-Brazzaville"],"COM":["KM","Comore"],"COL":["CO","Colombia"],"CHN":["CN","Cina"],"MAC":["MO","RAS di Macao"],"HKG":["HK","RAS di Hong Kong"],"CHI":["CL","Cile"],"CHA":["TD","Ciad"],"CAF":["CF","Repubblica Centrafricana"],"CPV":["CV","Capo Verde"],"CAN":["CA","Canada"],"CMR":["CM","Camerun"],"CAM":["KH","Cambogia"],"MYA":["MM","Myanmar (Birmania)"],"BDI":["BI","Burundi"],"BUR":["BF","Burkina Faso"],"BUL":["BG","Bulgaria"],"BRU":["BN","Brunei"],"BRA":["BR","Brasile"],"BOT":["BW","Botswana"],"BIH":["BA","Bosnia ed Erzegovina"],"BOL":["BO","Bolivia"],"BHU":["BT","Bhutan"],"BEN":["BJ","Benin"],"BIZ":["BZ","Belize"],"BEL":["BE","Belgio"],"BLR":["BY","Bielorussia"],"BAR":["BB","Barbados"],"BAN":["BD","Bangladesh"],"BRN":["BH","Bahrein"],"BAH":["BS","Bahamas"],"AZE":["AZ","Azerbaigian"],"AUT":["AT","Austria"],"AUS":["AU","Australia"],"ARM":["AM","Armenia"],"ARG":["AR","Argentina"],"ANT":["AG","Antigua e Barbuda"],"ANG":["AO","Angola"],"AND":["AD","Andorra"],"ALG":["DZ","Algeria"],"ALB":["AL","Albania"],"AFG":["AF","Afghanistan"],"TUV":["TV","Tuvalu"]};
+  const ICONE = {"Archery":"🏹","Artistic Swimming":"🤽‍♀️","Athletics":"🏃","Badminton":"🏸","Baseball":"⚾","Basketball":"🏀","Basketball 3x3":"⛹️","Beachvolley":"🏖️","Boxing":"🥊","Canoe Slalom":"🛶","Canoe Sprint":"🚣","Cricket":"🏏","Cycling":"🚴","Cycling Track":"🚵","Diving":"🤿","Equestrian":"🏇","Fencing":"🤺","Flag Football":"🏈","Football":"⚽","Golf":"⛳","Gym Artistic":"🤸","Gym Rhythmic":"🎀","Handball":"🤾","Hockey Field":"🏑","Judo":"🥋","Lacrosse Sixes":"🥍","Modern Pentathlon":"🎯","Open Water":"🌊","Rowing":"🚣‍♀️","Rowing Coastal":"🌅","Rugby Sevens":"🏉","Sailing":"⛵","Shooting":"🔫","Skateboarding":"🛹","Softball":"🥎","Sport Climbing":"🧗","Squash":"🎾","Surfing":"🏄","Swimming":"🏊","Table Tennis":"🏓","Taekwondo":"🦶","Tennis":"🎾","Trampoline":"🤸‍♂️","Triathlon":"🏊‍♂️","Volleyball":"🏐","Water Polo":"🤽","Weightlifting":"🏋️","Wrestling":"🤼"};
+  const SOLO = { Baseball: ["M"], Softball: ["W"], Equestrian: ["O"] };
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, cls, testo) => { const e = document.createElement(tag); if (cls) e.className = cls; if (testo != null) e.textContent = testo; return e; };
+  const dot = (c) => el("span", "dot " + c);
+  const pulisci = (s) => s.replace("3️⃣MixedRelay", "Mixed Relay").replace(/^\P{L}+/u, "").replace("MixedTeam", "Mixed Team").replace("Seevens", "Sevens").replace("Plaftorm", "Platform").replace("Mixed team", "Mixed Team");
+  const bandiera = (a2) => a2 ? [...a2].map((c) => String.fromCodePoint(127397 + c.charCodeAt(0))).join("") : "";
+
+  let dati;
+  try { dati = await fetch("data.json?v=" + Date.now()).then((r) => { if (!r.ok) throw 0; return r.json(); }); }
+  catch (e) { $("nome").textContent = "Dati non disponibili: ricarica la pagina."; return; }
+
+  const dataIt = new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "short", year: "numeric" }).format(new Date(dati.aggiornato + "T12:00:00"));
+  $("data").textContent = "Aggiornato: " + dataIt;
+
+  const elenco = Object.keys(NOC).sort((a, b) => NOC[a][1].localeCompare(NOC[b][1], "it"));
+  const sel = $("noc");
+  elenco.forEach((n) => { const o = el("option", "", `${NOC[n][1]} · ${n}` + (dati.noc[n] ? ` (${dati.noc[n].atleti})` : "")); o.value = n; sel.append(o); });
+
+  const carte = [...new Set([...Object.keys(ICONE), ...Object.values(dati.noc).flatMap((v) => v.righe.map((r) => r.card))])].sort((a, b) => a.localeCompare(b));
+
+  function riepilogo(righe) {
+    const g = { M: 0, W: 0, O: 0 }, gare = new Map();
+    righe.forEach((r) => {
+      for (const k in g) g[k] += r.genere[k];
+      for (const d in r.gare) gare.set(d, r.gare[d] === "O" ? "X" : r.gare[d]);
+    });
+    const e = { M: 0, W: 0, X: 0 };
+    gare.forEach((c) => e[c]++);
+    return { g, e, gare: gare.size, atleti: g.M + g.W + g.O };
+  }
+
+  function apri(card, righe) {
+    const d = $("dentro"); d.textContent = "";
+    const h = el("header"), x = el("button", "chiudi", "Chiudi"); x.type = "button"; x.addEventListener("click", () => $("finestra").close());
+    h.append(el("h2", "", card), x); d.append(h);
+    righe.forEach((r) => {
+      const v = el("div", "voce"), gare = r.discipline.map(pulisci).join(", "), coppia = r.nome.includes("/");
+      if (r.squadra && !coppia) v.append(el("b", "", gare), el("span", "", r.nota ? `Squadra, ${r.nota}` : `Squadra, ${r.atleti} atleti`));
+      else v.append(el("b", "", coppia ? r.nome.split("/").join(", ") : r.nome), el("span", "", gare));
+      v.append(el("i", "", r.atleti)); d.append(v);
+    });
+    $("finestra").showModal();
+  }
+
+  function carta(card, righe) {
+    const r = riepilogo(righe), piena = righe.length > 0;
+    const c = el(piena ? "button" : "div", "carta" + (piena ? "" : " vuota"));
+    if (piena) { c.type = "button"; c.addEventListener("click", () => apri(card, righe)); }
+    c.append(el("h2", "", card));
+    const dd = el("div", "dati"); dd.append(el("span", "conta", r.atleti));
+    const generi = SOLO[card] || ["M", "W"];
+    const riga1 = el("div", "riga");
+    if (card === "Equestrian") riga1.append("Open ", dot("O"), String(r.g.O));
+    else { riga1.append(generi.length > 1 ? "U/D " : generi[0] === "M" ? "U " : "D "); generi.forEach((k) => riga1.append(dot(k), String(r.g[k]) + " ")); }
+    if (r.g.O && card !== "Equestrian") riga1.append(dot("O"), String(r.g.O));
+    const riga2 = el("div", "riga"); riga2.append("Gare ");
+    (SOLO[card] && card !== "Equestrian" ? generi : ["M", "W"]).forEach((k) => riga2.append(dot(k), String(r.e[k]) + " "));
+    if (r.e.X || card === "Equestrian") riga2.append(dot("X"), String(r.e.X));
+    dd.append(riga1, riga2);
+    c.append(dd, el("span", "icona", ICONE[card] || "🏅"));
+    c.lastChild.setAttribute("aria-hidden", "true");
+    return c;
+  }
+
+  function mostra(n) {
+    sel.value = n;
+    const v = dati.noc[n], righe = v ? v.righe : [], r = riepilogo(righe);
+    $("bandiera").textContent = bandiera(NOC[n][0]);
+    $("nome").textContent = NOC[n][1];
+    document.title = `${NOC[n][1]} · Scheda LA28`;
+    const sport = new Set(righe.map((x) => x.card)).size;
+    const voci = [[r.atleti, "Atleti", "--t1"], [r.g.M, "Uomini", "--t2"], [r.g.W, "Donne", "--t3"]];
+    if (r.g.O) voci.push([r.g.O, "Open", "--t6"]);
+    voci.push([r.gare, "Gare", "--t4"], [sport, "Sport", "--t5"]);
+    const num = $("numeri"); num.textContent = "";
+    voci.forEach(([a, b, t]) => { const d = el("div", "numero"); d.style.background = `var(${t})`; d.append(el("b", "", a), el("span", "", b)); num.append(d); });
+    const griglia = $("griglia"); griglia.textContent = "";
+    const solo = $("solo").checked;
+    carte.forEach((c) => { const rr = righe.filter((x) => x.card === c); if (!solo || rr.length) griglia.append(carta(c, rr)); });
+    $("nota").textContent = (r.g.O ? "Open: atleti dell'equitazione, dove uomini e donne gareggiano insieme e in Notion non c'è il genere. " : "") + "Le squadre contano i posti previsti dai sistemi di qualificazione LA28. Clicca una carta colorata per vedere nomi e squadre.";
+  }
+
+  const iniziale = () => { const h = location.hash.slice(1).toUpperCase(); return NOC[h] ? h : (Object.keys(dati.noc)[0] || elenco[0]); };
+  sel.addEventListener("change", () => { location.hash = sel.value; });
+  $("solo").addEventListener("change", () => mostra(sel.value));
+  window.addEventListener("hashchange", () => mostra(iniziale()));
+  mostra(iniziale());
+})();
+</script>
+</body>
+</html>

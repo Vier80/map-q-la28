@@ -33,6 +33,7 @@ h1, h2, h3, p { margin: 0 }
 h1 { font: 700 1.75rem/1.2 var(--display); letter-spacing: -.01em }
 .riepilogo { color: var(--muted); font-variant-numeric: tabular-nums }
 .riepilogo strong { color: var(--fg) }
+.vai { margin-left: auto; color: var(--strong); font: 600 .95rem var(--display); text-decoration: none }
 
 .comandi { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px }
 .comandi label { font: 600 1.05rem var(--display) }
@@ -113,6 +114,7 @@ svg#mondo:active { cursor: grabbing }
   <header class="testa">
     <h1>Qualificati LA28</h1>
     <p class="riepilogo" id="riepilogo">Caricamento dei dati…</p>
+    <a class="vai" href="sport.html">Qualificati per sport →</a>
   </header>
 
   <div class="comandi">
@@ -159,7 +161,7 @@ svg#mondo:active { cursor: grabbing }
   const fascia = (n) => FASCE.find((f) => n >= f.min && n <= f.max);
   const NOTA = "I dati vengono dal db Athletes di Notion, righe con Q in Pass LA28.";
   const DETTAGLIO = {
-    atleti: " Una squadra in Notion è una riga sola: vale il numero di posti previsto dai sistemi di qualificazione LA28, e chi gareggia in più prove conta una volta. Il valore della pallanuoto (12) è provvisorio.",
+    atleti: " Una squadra in Notion è una riga sola: vale il numero di posti previsto dai sistemi di qualificazione LA28, e chi gareggia in più prove conta una volta.",
     pass: " Ogni riga di Notion vale 1, che sia un atleta, una coppia o una squadra.",
   };
 

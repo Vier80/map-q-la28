@@ -47,13 +47,29 @@ ROSE = {
     "Men's Rugby Seevens": 12, "Women's Rugby Sevens": 12,
     "Baseball": 24, "Softball": 15,
     "Men's Cricket T20": 15, "Women's Cricket T20": 15,
-    "Men's Water Polo": 12, "Women's Water Polo": 12,  # DA VERIFICARE: valore di Parigi 2024
+    "Men's Water Polo": 11, "Women's Water Polo": 11,  # ricavato: 264 atleti / 24 squadre
     "MAG Team": 5, "WAG Team": 5, "Group All-Around": 5,
     "Dressage Team": 3, "Eventing Team": 3, "Jumping Team": 3,
     "Men's Recurve Team": 3, "Women's Recurve Team": 3,
     "Recurve Mixed team": 2, "Compound Mixed Team": 2,
     "3️⃣MixedRelay": 4, "🏓MixedTeam": 6,
     "Beach Volley Men's": 2, "Beach Volley Women's": 2,
+}
+
+# Posti atleti LA28 per sport, dai sistemi di qualificazione. Notion resta la fonte
+# dei qualificati, questa tabella dà solo il totale di ogni sport.
+POSTI_TOTALI_LA28 = 11198
+QUOTE = {
+    "Archery": 128, "Artistic Swimming": 96, "Athletics": 1810, "Badminton": 172, "Baseball": 144,
+    "Basketball": 288, "Basketball 3x3": 96, "Beachvolley": 96, "Boxing": 248, "Canoe Slalom": 82,
+    "Canoe Sprint": 234, "Cricket": 180, "Cycling": 324, "Cycling Track": 190, "Diving": 136,
+    "Equestrian": 200, "Fencing": 212, "Flag Football": 120, "Football": 504, "Golf": 120,
+    "Gym Artistic": 192, "Gym Rhythmic": 94, "Handball": 336, "Hockey Field": 384, "Judo": 372,
+    "Lacrosse Sixes": 132, "Modern Pentathlon": 64, "Open Water": 44, "Rowing": 438,
+    "Rowing Coastal": 64, "Rugby Sevens": 288, "Sailing": 330, "Shooting": 340, "Skateboarding": 88,
+    "Softball": 90, "Sport Climbing": 76, "Squash": 32, "Surfing": 48, "Swimming": 830,
+    "Table Tennis": 172, "Taekwondo": 128, "Tennis": 172, "Trampoline": 32, "Triathlon": 110,
+    "Volleyball": 288, "Water Polo": 264, "Weightlifting": 120, "Wrestling": 288,
 }
 
 # Codici che sulla mappa confluiscono in un altro NOC.
@@ -198,8 +214,25 @@ def aggrega(righe, adesso):
         voce["righe"].sort(key=lambda r: (r["sport"], r["nome"]))
         if noc not in nomi:
             senza_mappa.append(noc)
+    sport = {nome: {"quota": quota, "atleti": 0, "M": 0, "W": 0, "O": 0, "pass": 0, "noc": {}} for nome, quota in QUOTE.items()}
+    for noc, voce in nocs.items():
+        for riga in voce["righe"]:
+            carta = sport.get(riga["card"])
+            if carta is None:
+                avvisi.append(f"Sport senza quota in QUOTE: {riga['card']}")
+                carta = sport.setdefault(riga["card"], {"quota": 0, "atleti": 0, "M": 0, "W": 0, "O": 0, "pass": 0, "noc": {}})
+            carta["atleti"] += riga["atleti"]
+            carta["pass"] += 1
+            for genere in "MWO":
+                carta[genere] += riga["genere"][genere]
+            carta["noc"][noc] = carta["noc"].get(noc, 0) + riga["atleti"]
+    for nome, carta in sport.items():
+        if carta["atleti"] > carta["quota"]:
+            avvisi.append(f"{nome}: {carta['atleti']} qualificati superano i {carta['quota']} posti")
     return {
         "aggiornato": adesso,
+        "posti_totali": POSTI_TOTALI_LA28,
+        "sport": sport,
         "totali": {"atleti": sum(v["atleti"] for v in nocs.values()), "pass": len(pulite), "noc": len(nocs)},
         "noc": dict(sorted(nocs.items(), key=lambda kv: (-kv[1]["atleti"], kv[0]))),
         "senza_mappa": sorted(senza_mappa),

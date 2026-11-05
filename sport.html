@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Qualificati per sport LA28</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
+<style>
+/* Layout: testata con collegamenti, fascia di avanzamento con dettaglio dello sport, quattro totali, griglia di carte. */
+:root {
+  --bg: #ffffff; --fg: #17352b; --muted: #5f7169; --line: #d9e3de; --card: #fbfcfa; --soft: #e9f2ec; --track: #e4e9e5; --ink: #2d8066; --ink-2: #63c9a4; --gold: #8f6a1e;
+  --men: #7da9e8; --women: #dcc466; --open: #8c96a2; --shadow: rgba(23, 53, 43, .10);
+  --font: "Quicksand", "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111b17; --fg: #e4ece5; --muted: #9fb0a7; --line: #2f4037; --card: #17231e; --soft: #1b2c24; --track: #2b3a33; --ink: #63c9a4; --ink-2: #9fe3c8; --gold: #e3c15c;
+  --men: #8fb6ee; --women: #e3cd77; --open: #8592a0; --shadow: rgba(0, 0, 0, .4); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111b17; --fg: #e4ece5; --muted: #9fb0a7; --line: #2f4037; --card: #17231e; --soft: #1b2c24; --track: #2b3a33; --ink: #63c9a4; --ink-2: #9fe3c8; --gold: #e3c15c;
+  --men: #8fb6ee; --women: #e3cd77; --open: #8592a0; --shadow: rgba(0, 0, 0, .4); color-scheme: dark }
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 500 16px/1.4 var(--font) }
+h1, h2, h3, p { margin: 0 }
+.guscio { max-width: 1320px; margin: 0 auto; display: grid; gap: 16px; padding-block: 18px 28px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.testa { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px }
+.titolo { flex: 1 1 320px; min-width: 0 }
+.occhiello { font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink) }
+h1 { font: 600 2.1rem/1.2 var(--font); text-wrap: balance }
+.vai { flex: 1 1 220px; max-width: 320px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 10px; padding: 11px 16px; color: inherit; text-decoration: none; border: 1.5px solid var(--line); border-radius: 18px }
+.vai:hover { border-color: var(--ink) }
+.vai b { font-weight: 600 } .vai span { grid-column: 1; font-size: .84rem; color: var(--muted) } .vai i { grid-row: 1 / 3; grid-column: 2; font-style: normal; color: var(--ink); font-size: 1.2rem }
+
+.fascia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); background: var(--soft); border: 1.5px solid var(--line); border-radius: 24px }
+.avanz { display: flex; align-items: center; gap: 24px; padding: 22px 26px; min-width: 0 }
+.anello { position: relative; flex: none; width: 168px; height: 168px; display: grid; place-items: center; text-align: center }
+.anello svg { position: absolute; inset: 0; transform: rotate(-90deg) }
+.anello small { display: block; font-size: .8rem; color: var(--muted) }
+.anello b { display: block; font: 600 2rem/1.1 var(--font); font-variant-numeric: tabular-nums }
+.traccia { fill: none; stroke: var(--track) } .arco { fill: none; stroke: var(--ink); stroke-linecap: round }
+.avanz h2 { font: 600 1.45rem/1.25 var(--font); text-wrap: balance }
+.avanz p { color: var(--muted) }
+.etichetta { margin-bottom: 4px; font-size: .78rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--ink) }
+.dettaglio { min-width: 0; padding: 22px 26px; border-left: 1.5px solid var(--line) }
+.dettaglio h2 { font: 600 1.45rem/1.25 var(--font) }
+.dettaglio .etichetta { color: var(--gold) }
+.dettaglio p { color: var(--muted) }
+.generi { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 8px 0 }
+.generi span { display: inline-flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums }
+.dot { width: 11px; height: 11px; border-radius: 50% } .dot.M { background: var(--men) } .dot.W { background: var(--women) } .dot.O { background: var(--open) }
+.nocs { display: flex; flex-wrap: wrap; gap: 6px; max-height: 118px; overflow-y: auto; margin: 0; padding: 0; list-style: none }
+.nocs a { display: inline-block; padding: 3px 10px; font-size: .86rem; color: inherit; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; text-decoration: none; font-variant-numeric: tabular-nums }
+.nocs a:hover { border-color: var(--ink) }
+
+.totali { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1.5px solid var(--line); border-radius: 22px }
+.totale { padding: 12px 18px; text-align: center; border-right: 1px solid var(--line) } .totale:last-child { border-right: 0 }
+.totale b { display: block; font: 600 1.9rem/1.2 var(--font); font-variant-numeric: tabular-nums }
+.totale span { font-size: .78rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted) }
+
+.filtri { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px }
+#cerca { flex: 1 1 240px; min-width: 0; max-width: 460px; height: 44px; padding: 0 16px; font: 500 1rem var(--font); color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 14px }
+#cerca::placeholder { color: var(--muted) }
+.gruppo { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 4px; background: var(--soft); border-radius: 14px }
+.gruppo button { padding: 6px 12px; font: 600 .9rem var(--font); color: var(--muted); background: none; border: 0; border-radius: 10px; cursor: pointer }
+.gruppo button[aria-pressed="true"] { color: var(--fg); background: var(--bg); box-shadow: 0 1px 3px var(--shadow) }
+
+.griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px }
+.carta { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; width: 100%; padding: 16px; text-align: left; font: inherit; color: inherit; background: var(--card); border: 1.5px solid var(--line); border-radius: 20px; cursor: pointer }
+.carta:hover { border-color: var(--ink); box-shadow: 0 5px 14px var(--shadow) }
+.carta[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 4px 0 0 var(--ink) }
+.icona { display: grid; place-items: center; width: 50px; height: 50px; font-size: 1.7rem; background: var(--bg); border: 1px solid var(--line); border-radius: 13px }
+.carta.zero .icona { filter: grayscale(1); opacity: .6 }
+.carta h3 { font: 600 1.15rem/1.2 var(--font); overflow-wrap: anywhere }
+.mini { position: relative; width: 58px; height: 58px; display: grid; place-items: center; font-size: .72rem; font-weight: 700; font-variant-numeric: tabular-nums }
+.mini svg { position: absolute; inset: 0; transform: rotate(-90deg) }
+.barra { grid-column: 1 / -1; height: 9px; background: var(--track); border-radius: 999px; overflow: hidden }
+.barra i { display: block; height: 100%; background: linear-gradient(90deg, var(--ink), var(--ink-2)); border-radius: 999px }
+.cifre { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 8px }
+.cifre div { padding: 7px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 12px }
+.cifre b { display: block; font: 600 1.25rem/1.2 var(--font); color: var(--ink); font-variant-numeric: tabular-nums }
+.cifre span { font-size: .82rem; color: var(--muted) }
+.vuoto { padding: 20px; color: var(--muted) }
+.nota { max-width: 90ch; font-size: .86rem; color: var(--muted) }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px }
+@media (max-width: 900px) {
+  h1 { font-size: 1.6rem }
+  .fascia { grid-template-columns: minmax(0, 1fr) } .dettaglio { border-left: 0; border-top: 1.5px solid var(--line) }
+  .totali { grid-template-columns: repeat(2, minmax(0, 1fr)) } .totale:nth-child(2) { border-right: 0 } .totale:nth-child(-n+2) { border-bottom: 1px solid var(--line) }
+  .vai { max-width: none }
+}
+@media (max-width: 520px) { .avanz { flex-direction: column; text-align: center; padding: 18px } .dettaglio { padding: 18px } }
+</style>
+</head>
+<body>
+<div class="guscio">
+  <header class="testa">
+    <div class="titolo">
+      <p class="occhiello" id="data">Road to LA28</p>
+      <h1>Qualificati LA28 per sport</h1>
+    </div>
+    <a class="vai" href="scheda.html"><b>Per NOC</b><span>Scheda di ogni nazione</span><i>›</i></a>
+    <a class="vai" href="index.html"><b>Mappa</b><span>Qualificati nel mondo</span><i>›</i></a>
+  </header>
+
+  <section class="fascia">
+    <div class="avanz">
+      <div class="anello" id="anello"></div>
+      <div>
+        <p class="etichetta">Avanzamento globale</p>
+        <h2>Verso Los Angeles 2028</h2>
+        <p>Posti assegnati in tutti gli sport olimpici.</p>
+      </div>
+    </div>
+    <div class="dettaglio" id="dettaglio" aria-live="polite"></div>
+  </section>
+
+  <section class="totali" id="totali"></section>
+
+  <div class="filtri">
+    <input id="cerca" type="search" placeholder="Cerca uno sport…" autocomplete="off" aria-label="Cerca uno sport">
+    <div class="gruppo" id="ordine" role="group" aria-label="Ordina"></div>
+    <div class="gruppo" id="stato" role="group" aria-label="Filtra per stato"></div>
+  </div>
+
+  <div class="griglia" id="griglia"></div>
+  <p class="nota" id="nota"></p>
+</div>
+
+<script>
+(async function () {
+  const ICONE = {"Archery":"🏹","Artistic Swimming":"🤽‍♀️","Athletics":"🏃","Badminton":"🏸","Baseball":"⚾","Basketball":"🏀","Basketball 3x3":"⛹️","Beachvolley":"🏖️","Boxing":"🥊","Canoe Slalom":"🛶","Canoe Sprint":"🚣","Cricket":"🏏","Cycling":"🚴","Cycling Track":"🚵","Diving":"🤿","Equestrian":"🏇","Fencing":"🤺","Flag Football":"🏈","Football":"⚽","Golf":"⛳","Gym Artistic":"🤸","Gym Rhythmic":"🎀","Handball":"🤾","Hockey Field":"🏑","Judo":"🥋","Lacrosse Sixes":"🥍","Modern Pentathlon":"🎯","Open Water":"🌊","Rowing":"🚣‍♀️","Rowing Coastal":"🌅","Rugby Sevens":"🏉","Sailing":"⛵","Shooting":"🔫","Skateboarding":"🛹","Softball":"🥎","Sport Climbing":"🧗","Squash":"🎾","Surfing":"🏄","Swimming":"🏊","Table Tennis":"🏓","Taekwondo":"🦶","Tennis":"🎾","Trampoline":"🤸‍♂️","Triathlon":"🏊‍♂️","Volleyball":"🏐","Water Polo":"🤽","Weightlifting":"🏋️","Wrestling":"🤼"};
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, cls, testo) => { const e = document.createElement(tag); if (cls) e.className = cls; if (testo != null) e.textContent = testo; return e; };
+  const num = (n) => n.toLocaleString("it-IT");
+  const pct = (a, b) => b ? Math.min(100, a / b * 100) : 0;
+  const fmt = (p) => p.toLocaleString("it-IT", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + "%";
+  const NS = "http://www.w3.org/2000/svg";
+  function cerchio(dim, spessore, p) {
+    const s = document.createElementNS(NS, "svg"); s.setAttribute("viewBox", `0 0 ${dim} ${dim}`); s.setAttribute("aria-hidden", "true");
+    const r = (dim - spessore) / 2, c = 2 * Math.PI * r;
+    [["traccia", 0], ["arco", p]].forEach(([cl, v]) => {
+      const o = document.createElementNS(NS, "circle");
+      o.setAttribute("class", cl); o.setAttribute("cx", dim / 2); o.setAttribute("cy", dim / 2); o.setAttribute("r", r); o.setAttribute("stroke-width", spessore);
+      if (cl === "arco") { o.setAttribute("stroke-dasharray", `${c * v / 100} ${c}`); if (!v) o.setAttribute("stroke-opacity", "0"); }
+      s.append(o);
+    });
+    return s;
+  }
+
+  let dati;
+  try { dati = await fetch("data.json?v=" + Date.now()).then((r) => { if (!r.ok) throw 0; return r.json(); }); }
+  catch (e) { $("nota").textContent = "I dati non si caricano: ricarica la pagina."; return; }
+
+  const sport = Object.entries(dati.sport).map(([nome, s]) => ({ nome, ...s, resto: Math.max(0, s.quota - s.atleti), p: pct(s.atleti, s.quota) }));
+  const assegnati = dati.totali.atleti, totale = dati.posti_totali, p = pct(assegnati, totale);
+
+  const dataIt = new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "long", year: "numeric" }).format(new Date(dati.aggiornato + "T12:00:00"));
+  $("data").textContent = "Road to LA28 · dati Notion del " + dataIt;
+
+  const an = $("anello");
+  const dentro = el("div"); dentro.append(el("small", "", "LA28"), el("b", "", fmt(p)), el("small", "", "completato"));
+  an.append(cerchio(168, 16, p), dentro);
+
+  [[assegnati, "Posti assegnati"], [dati.totali.noc, "NOC qualificati"], [Math.max(0, totale - assegnati), "Posti restanti"], [totale, "Posti totali"]].forEach(([n, t]) => {
+    const d = el("div", "totale"); d.append(el("b", "", num(n)), el("span", "", t)); $("totali").append(d);
+  });
+
+  let scelto = null, ordine = "progresso", stato = "tutti";
+  const ORDINI = { progresso: "Più avanti", qualificati: "Più qualificati", restanti: "Più posti restanti", az: "Sport A–Z" };
+  const STATI = { tutti: "Tutti", corso: "In corso", zero: "Non iniziati", finiti: "Completati" };
+
+  function dettaglio() {
+    const box = $("dettaglio"); box.textContent = "";
+    const s = sport.find((x) => x.nome === scelto);
+    if (!s) {
+      box.append(el("p", "etichetta", "Dettaglio dello sport"), el("h2", "", "Clicca una carta qui sotto"),
+        el("p", "", "Qui compaiono uomini, donne e NOC qualificati di quello sport."));
+      return;
+    }
+    box.append(el("p", "etichetta", `${fmt(s.p)} dei posti`), el("h2", "", `${ICONE[s.nome] || "🏅"} ${s.nome}`));
+    box.append(el("p", "", `${num(s.atleti)} qualificati su ${num(s.quota)}, ${num(s.resto)} posti restanti`));
+    if (!s.atleti) return;
+    const g = el("div", "generi");
+    [["M", "Uomini"], ["W", "Donne"], ["O", "Open"]].forEach(([k, t]) => { if (s[k]) { const c = el("span"); c.append(el("i", "dot " + k), `${t} ${num(s[k])}`); g.append(c); } });
+    box.append(g);
+    const ul = el("ul", "nocs");
+    Object.entries(s.noc).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).forEach(([n, v]) => {
+      const li = el("li"), a = el("a", "", `${n} ${v}`); a.href = "scheda.html#" + n; li.append(a); ul.append(li);
+    });
+    box.append(ul);
+  }
+
+  function carta(s) {
+    const b = el("button", "carta" + (s.atleti ? "" : " zero")); b.type = "button"; b.setAttribute("aria-pressed", s.nome === scelto);
+    const m = el("span", "mini", fmt(s.p).replace(",00", "")); m.prepend(cerchio(58, 6, s.p));
+    const barra = el("div", "barra"), riemp = el("i"); riemp.style.width = s.p + "%"; barra.append(riemp);
+    const cifre = el("div", "cifre");
+    [[s.atleti, "Qualificati"], [s.resto, "Posti restanti"]].forEach(([n, t]) => { const d = el("div"); d.append(el("b", "", num(n)), el("span", "", t)); cifre.append(d); });
+    const ic = el("span", "icona", ICONE[s.nome] || "🏅"); ic.setAttribute("aria-hidden", "true");
+    b.append(ic, el("h3", "", s.nome), m, barra, cifre);
+    b.addEventListener("click", () => {
+      scelto = scelto === s.nome ? null : s.nome; dettaglio(); griglia();
+      if (scelto && window.innerWidth < 900) $("dettaglio").scrollIntoView({ block: "center" });
+    });
+    return b;
+  }
+
+  function griglia() {
+    const q = $("cerca").value.trim().toLowerCase();
+    const lista = sport
+      .filter((s) => !q || s.nome.toLowerCase().includes(q))
+      .filter((s) => stato === "tutti" || (stato === "zero" && !s.atleti) || (stato === "corso" && s.atleti && s.resto) || (stato === "finiti" && !s.resto))
+      .sort({ progresso: (a, b) => b.p - a.p, qualificati: (a, b) => b.atleti - a.atleti, restanti: (a, b) => b.resto - a.resto, az: () => 0 }[ordine])
+      .sort(ordine === "az" ? (a, b) => a.nome.localeCompare(b.nome) : () => 0);
+    const g = $("griglia"); g.textContent = "";
+    lista.forEach((s) => g.append(carta(s)));
+    if (!lista.length) g.append(el("p", "vuoto", "Nessuno sport corrisponde alla ricerca."));
+  }
+
+  function bottoni(id, voci, get, set) {
+    const box = $(id);
+    const disegna = () => { box.textContent = ""; Object.entries(voci).forEach(([k, t]) => { const b = el("button", "", t); b.type = "button"; b.setAttribute("aria-pressed", k === get()); b.addEventListener("click", () => { set(k); disegna(); griglia(); }); box.append(b); }); };
+    disegna();
+  }
+  bottoni("ordine", ORDINI, () => ordine, (k) => { ordine = k; });
+  bottoni("stato", STATI, () => stato, (k) => { stato = k; });
+  $("cerca").addEventListener("input", griglia);
+
+  $("nota").textContent = "I qualificati vengono dal db Athletes di Notion e si aggiornano da soli. I posti totali sono le quote atleti dei sistemi di qualificazione LA28. Cycling comprende strada, mountain bike e BMX. Le squadre contano tutti i loro posti.";
+  dettaglio(); griglia();
+})();
+</script>
+</body>
+</html>

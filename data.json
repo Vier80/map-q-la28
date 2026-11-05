@@ -1,14 +1,568 @@
 {
  "aggiornato": "2026-11-05",
+ "posti_totali": 11198,
+ "sport": {
+  "Archery": {
+   "quota": 128,
+   "atleti": 16,
+   "M": 8,
+   "W": 8,
+   "O": 0,
+   "pass": 13,
+   "noc": {
+    "CHN": 2,
+    "IND": 3,
+    "JPN": 1,
+    "KOR": 2,
+    "USA": 8
+   }
+  },
+  "Artistic Swimming": {
+   "quota": 96,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Athletics": {
+   "quota": 1810,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Badminton": {
+   "quota": 172,
+   "atleti": 1,
+   "M": 0,
+   "W": 1,
+   "O": 0,
+   "pass": 1,
+   "noc": {
+    "USA": 1
+   }
+  },
+  "Baseball": {
+   "quota": 144,
+   "atleti": 72,
+   "M": 72,
+   "W": 0,
+   "O": 0,
+   "pass": 3,
+   "noc": {
+    "DOM": 24,
+    "USA": 24,
+    "VEN": 24
+   }
+  },
+  "Basketball": {
+   "quota": 288,
+   "atleti": 24,
+   "M": 12,
+   "W": 12,
+   "O": 0,
+   "pass": 2,
+   "noc": {
+    "USA": 24
+   }
+  },
+  "Basketball 3x3": {
+   "quota": 96,
+   "atleti": 8,
+   "M": 4,
+   "W": 4,
+   "O": 0,
+   "pass": 2,
+   "noc": {
+    "USA": 8
+   }
+  },
+  "Beachvolley": {
+   "quota": 96,
+   "atleti": 16,
+   "M": 8,
+   "W": 8,
+   "O": 0,
+   "pass": 8,
+   "noc": {
+    "AUS": 4,
+    "BRA": 4,
+    "MAR": 2,
+    "NGR": 2,
+    "NED": 2,
+    "SWE": 2
+   }
+  },
+  "Boxing": {
+   "quota": 248,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Canoe Slalom": {
+   "quota": 82,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Canoe Sprint": {
+   "quota": 234,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Cricket": {
+   "quota": 180,
+   "atleti": 75,
+   "M": 15,
+   "W": 60,
+   "O": 0,
+   "pass": 5,
+   "noc": {
+    "AUS": 15,
+    "GBR": 15,
+    "IND": 15,
+    "USA": 15,
+    "RSA": 15
+   }
+  },
+  "Cycling": {
+   "quota": 324,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Cycling Track": {
+   "quota": 190,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Diving": {
+   "quota": 136,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Equestrian": {
+   "quota": 200,
+   "atleti": 72,
+   "M": 0,
+   "W": 0,
+   "O": 72,
+   "pass": 24,
+   "noc": {
+    "AUS": 3,
+    "BEL": 9,
+    "SUI": 6,
+    "GER": 9,
+    "DEN": 3,
+    "FRA": 3,
+    "GBR": 9,
+    "IRL": 6,
+    "ITA": 3,
+    "NED": 3,
+    "NZL": 3,
+    "SWE": 6,
+    "USA": 9
+   }
+  },
+  "Fencing": {
+   "quota": 212,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Flag Football": {
+   "quota": 120,
+   "atleti": 60,
+   "M": 30,
+   "W": 30,
+   "O": 0,
+   "pass": 6,
+   "noc": {
+    "CAN": 20,
+    "ITA": 10,
+    "MEX": 10,
+    "USA": 20
+   }
+  },
+  "Football": {
+   "quota": 504,
+   "atleti": 90,
+   "M": 36,
+   "W": 54,
+   "O": 0,
+   "pass": 5,
+   "noc": {
+    "BRA": 18,
+    "COL": 18,
+    "MEX": 18,
+    "USA": 36
+   }
+  },
+  "Golf": {
+   "quota": 120,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Gym Artistic": {
+   "quota": 192,
+   "atleti": 30,
+   "M": 15,
+   "W": 15,
+   "O": 0,
+   "pass": 6,
+   "noc": {
+    "CHN": 10,
+    "JPN": 10,
+    "RUS": 5,
+    "USA": 5
+   }
+  },
+  "Gym Rhythmic": {
+   "quota": 94,
+   "atleti": 8,
+   "M": 0,
+   "W": 8,
+   "O": 0,
+   "pass": 4,
+   "noc": {
+    "BUL": 1,
+    "GER": 1,
+    "ITA": 1,
+    "USA": 5
+   }
+  },
+  "Handball": {
+   "quota": 336,
+   "atleti": 28,
+   "M": 14,
+   "W": 14,
+   "O": 0,
+   "pass": 2,
+   "noc": {
+    "USA": 28
+   }
+  },
+  "Hockey Field": {
+   "quota": 384,
+   "atleti": 96,
+   "M": 48,
+   "W": 48,
+   "O": 0,
+   "pass": 6,
+   "noc": {
+    "BEL": 16,
+    "IND": 32,
+    "NED": 16,
+    "USA": 32
+   }
+  },
+  "Judo": {
+   "quota": 372,
+   "atleti": 1,
+   "M": 1,
+   "W": 0,
+   "O": 0,
+   "pass": 1,
+   "noc": {
+    "RUS": 1
+   }
+  },
+  "Lacrosse Sixes": {
+   "quota": 132,
+   "atleti": 22,
+   "M": 11,
+   "W": 11,
+   "O": 0,
+   "pass": 2,
+   "noc": {
+    "USA": 22
+   }
+  },
+  "Modern Pentathlon": {
+   "quota": 64,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Open Water": {
+   "quota": 44,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Rowing": {
+   "quota": 438,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Rowing Coastal": {
+   "quota": 64,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Rugby Sevens": {
+   "quota": 288,
+   "atleti": 24,
+   "M": 12,
+   "W": 12,
+   "O": 0,
+   "pass": 2,
+   "noc": {
+    "USA": 24
+   }
+  },
+  "Sailing": {
+   "quota": 330,
+   "atleti": 7,
+   "M": 3,
+   "W": 4,
+   "O": 0,
+   "pass": 7,
+   "noc": {
+    "KOR": 1,
+    "THA": 1,
+    "USA": 5
+   }
+  },
+  "Shooting": {
+   "quota": 340,
+   "atleti": 12,
+   "M": 6,
+   "W": 6,
+   "O": 0,
+   "pass": 12,
+   "noc": {
+    "CHN": 3,
+    "CZE": 1,
+    "GER": 1,
+    "FRA": 2,
+    "CRO": 1,
+    "HUN": 1,
+    "IRI": 1,
+    "KOR": 1,
+    "SVK": 1
+   }
+  },
+  "Skateboarding": {
+   "quota": 88,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Softball": {
+   "quota": 90,
+   "atleti": 15,
+   "M": 0,
+   "W": 15,
+   "O": 0,
+   "pass": 1,
+   "noc": {
+    "USA": 15
+   }
+  },
+  "Sport Climbing": {
+   "quota": 76,
+   "atleti": 1,
+   "M": 1,
+   "W": 0,
+   "O": 0,
+   "pass": 1,
+   "noc": {
+    "USA": 1
+   }
+  },
+  "Squash": {
+   "quota": 32,
+   "atleti": 3,
+   "M": 2,
+   "W": 1,
+   "O": 0,
+   "pass": 3,
+   "noc": {
+    "MAS": 2,
+    "USA": 1
+   }
+  },
+  "Surfing": {
+   "quota": 48,
+   "atleti": 2,
+   "M": 1,
+   "W": 1,
+   "O": 0,
+   "pass": 2,
+   "noc": {
+    "JPN": 2
+   }
+  },
+  "Swimming": {
+   "quota": 830,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Table Tennis": {
+   "quota": 172,
+   "atleti": 6,
+   "M": 3,
+   "W": 3,
+   "O": 0,
+   "pass": 1,
+   "noc": {
+    "USA": 6
+   }
+  },
+  "Taekwondo": {
+   "quota": 128,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Tennis": {
+   "quota": 172,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Trampoline": {
+   "quota": 32,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Triathlon": {
+   "quota": 110,
+   "atleti": 10,
+   "M": 5,
+   "W": 5,
+   "O": 0,
+   "pass": 4,
+   "noc": {
+    "CHN": 1,
+    "FRA": 4,
+    "JPN": 1,
+    "USA": 4
+   }
+  },
+  "Volleyball": {
+   "quota": 288,
+   "atleti": 144,
+   "M": 72,
+   "W": 72,
+   "O": 0,
+   "pass": 12,
+   "noc": {
+    "BRA": 24,
+    "CAN": 12,
+    "CUB": 12,
+    "EGY": 12,
+    "JPN": 12,
+    "POL": 12,
+    "THA": 12,
+    "TUN": 12,
+    "TUR": 12,
+    "USA": 24
+   }
+  },
+  "Water Polo": {
+   "quota": 264,
+   "atleti": 22,
+   "M": 11,
+   "W": 11,
+   "O": 0,
+   "pass": 2,
+   "noc": {
+    "USA": 22
+   }
+  },
+  "Weightlifting": {
+   "quota": 120,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  },
+  "Wrestling": {
+   "quota": 288,
+   "atleti": 0,
+   "M": 0,
+   "W": 0,
+   "O": 0,
+   "pass": 0,
+   "noc": {}
+  }
+ },
  "totali": {
-  "atleti": 867,
+  "atleti": 865,
   "pass": 137,
   "noc": 40
  },
  "noc": {
   "USA": {
    "nome": "Stati Uniti",
-   "atleti": 341,
+   "atleti": 339,
    "pass": 42,
    "righe": [
     {
@@ -819,14 +1373,14 @@
       "Men's Water Polo"
      ],
      "genere": {
-      "M": 12,
+      "M": 11,
       "W": 0,
       "O": 0
      },
      "gare": {
       "Men's Water Polo": "M"
      },
-     "atleti": 12,
+     "atleti": 11,
      "squadra": true,
      "ospitante": true,
      "nota": ""
@@ -840,13 +1394,13 @@
      ],
      "genere": {
       "M": 0,
-      "W": 12,
+      "W": 11,
       "O": 0
      },
      "gare": {
       "Women's Water Polo": "W"
      },
-     "atleti": 12,
+     "atleti": 11,
      "squadra": true,
      "ospitante": true,
      "nota": ""

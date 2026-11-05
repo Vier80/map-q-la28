@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Qualificati LA28</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap">
+<style>
+/* Layout: strumentazione in alto, mappa come pannello arrotondato, classifica o scheda NOC al fianco. Palette salvia della mappa di riferimento. */
+:root {
+  --bg: #ffffff; --fg: #17352b; --muted: #5f7169; --line: #cfdbd6; --panel: #f7f9f6; --sphere: #edf1ea; --ground: #f1f4ee;
+  --q0: #e8e7db; --q1: #bbc6a4; --q2: #7f9b7d; --q3: #467563; --q4: #245843; --none: #d6dbd5;
+  --border-land: #ffffff; --gold: #ceac49; --strong: #245843; --on-strong: #ffffff; --shadow: rgba(23, 53, 43, .14);
+  --display: "Quicksand", "Nunito Sans", system-ui, sans-serif; --body: "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111b17; --fg: #e4ece5; --muted: #9fb0a7; --line: #33453c; --panel: #17231e; --sphere: #1c2a24; --ground: #15211c;
+  --q0: #33423a; --q1: #5a7560; --q2: #84a585; --q3: #b0cda6; --q4: #e0efd0; --none: #28352f;
+  --border-land: #1c2a24; --gold: #e3c15c; --strong: #b0cda6; --on-strong: #122019; --shadow: rgba(0, 0, 0, .45); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111b17; --fg: #e4ece5; --muted: #9fb0a7; --line: #33453c; --panel: #17231e; --sphere: #1c2a24; --ground: #15211c;
+  --q0: #33423a; --q1: #5a7560; --q2: #84a585; --q3: #b0cda6; --q4: #e0efd0; --none: #28352f;
+  --border-land: #1c2a24; --gold: #e3c15c; --strong: #b0cda6; --on-strong: #122019; --shadow: rgba(0, 0, 0, .45); color-scheme: dark }
+
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.45 var(--body); }
+.guscio { max-width: 1320px; margin: 0 auto; display: grid; gap: 16px; padding-block: 20px 28px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3, p { margin: 0 }
+.testa { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px }
+h1 { font: 700 1.75rem/1.2 var(--display); letter-spacing: -.01em }
+.riepilogo { color: var(--muted); font-variant-numeric: tabular-nums }
+.riepilogo strong { color: var(--fg) }
+
+.comandi { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px }
+.comandi label { font: 600 1.05rem var(--display) }
+.ricerca { position: relative; flex: 1 1 260px; min-width: 0; max-width: 560px }
+input#cerca { width: 100%; height: 48px; padding: 0 18px; font: 500 1rem var(--display); color: var(--fg); background: var(--bg);
+  border: 1.5px solid var(--line); border-radius: 18px; }
+input#cerca::placeholder { color: var(--muted) }
+.suggerimenti { position: absolute; z-index: 20; inset: 54px 0 auto; margin: 0; padding: 6px; list-style: none; background: var(--bg);
+  border: 1.5px solid var(--line); border-radius: 14px; box-shadow: 0 8px 20px var(--shadow) }
+.suggerimenti button { display: flex; justify-content: space-between; gap: 12px; width: 100%; padding: 8px 10px; border: 0; border-radius: 9px;
+  background: none; color: inherit; font: inherit; text-align: left; cursor: pointer }
+.suggerimenti button:hover, .suggerimenti button.attivo { background: var(--ground) }
+.suggerimenti span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap }
+.tasto { height: 48px; padding: 0 18px; font: 600 1rem var(--display); color: var(--strong); background: var(--bg);
+  border: 1.5px solid var(--line); border-radius: 18px; cursor: pointer; box-shadow: 0 2px 5px var(--shadow) }
+.tasto:hover { border-color: var(--strong) }
+.misura { display: inline-flex; padding: 4px; gap: 2px; border: 1.5px solid var(--line); border-radius: 18px }
+.misura button { height: 38px; padding: 0 14px; border: 0; border-radius: 13px; background: none; color: var(--muted); font: 600 .95rem var(--display); cursor: pointer }
+.misura button[aria-pressed="true"] { background: var(--strong); color: var(--on-strong) }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px }
+
+.corpo { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 16px; align-items: stretch }
+.mappa { position: relative; min-width: 0; background: var(--ground); border: 1.5px solid var(--line); border-radius: 26px; overflow: hidden }
+svg#mondo { display: block; width: 100%; height: auto; min-height: 240px; cursor: grab }
+svg#mondo:active { cursor: grabbing }
+.sfera { fill: var(--sphere) }
+.terra { stroke: var(--border-land); stroke-width: .5px; vector-effect: non-scaling-stroke; cursor: pointer }
+.evidenza path { fill: none; stroke: var(--gold); stroke-width: 2.5px; vector-effect: non-scaling-stroke; stroke-linejoin: round; pointer-events: none }
+.zoom { position: absolute; top: calc(14px + env(safe-area-inset-top, 0px)); right: 14px; display: grid; gap: 10px }
+.zoom button { width: 44px; height: 44px; border: 1.5px solid var(--line); border-radius: 14px; background: var(--bg); color: var(--strong);
+  font: 600 1.5rem/1 var(--display); cursor: pointer; box-shadow: 0 2px 6px var(--shadow) }
+#suggello { position: absolute; z-index: 5; max-width: 240px; padding: 8px 12px; border-radius: 12px; background: var(--fg); color: var(--bg);
+  pointer-events: none; font-size: .9rem; line-height: 1.3; font-variant-numeric: tabular-nums }
+#suggello strong { display: block; font-family: var(--display) }
+
+.pannello { min-width: 0; display: flex; flex-direction: column; background: var(--panel); border: 1.5px solid var(--line); border-radius: 26px; overflow: hidden; }
+.scorre { flex: 1 1 0; min-height: 0; overflow-y: auto; padding: 16px }
+.pannello h2 { font: 700 1.15rem/1.25 var(--display); text-wrap: balance }
+.sotto { color: var(--muted); font-size: .9rem; font-variant-numeric: tabular-nums }
+.classifica { list-style: none; margin: 10px -6px 0; padding: 0 }
+.classifica button { display: grid; grid-template-columns: 26px 12px minmax(0, 1fr) auto; align-items: center; gap: 8px; width: 100%; padding: 6px; border: 0; border-radius: 10px;
+  background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; font-variant-numeric: tabular-nums }
+.classifica button:hover { background: var(--ground) }
+.pos { color: var(--muted); font-size: .85rem; text-align: right }
+.tacca { width: 12px; height: 12px; border-radius: 4px }
+.nomen { overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.nomen small { color: var(--muted); font-size: .8rem }
+.val { font-weight: 700 }
+.indietro { align-self: flex-start; margin: 0 0 10px; padding: 4px 0; border: 0; background: none; color: var(--strong); font: 600 .95rem var(--display); cursor: pointer }
+.grande { font: 700 2.1rem/1.1 var(--display); font-variant-numeric: tabular-nums }
+.scheda { display: grid; gap: 14px }
+.sport h3 { font: 700 .78rem var(--display); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding-bottom: 4px; border-bottom: 1px solid var(--line) }
+.voce { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; padding: 7px 0; border-bottom: 1px solid var(--line) }
+.voce:last-child { border-bottom: 0 }
+.voce b { font-weight: 600; overflow-wrap: anywhere }
+.voce span { grid-column: 1; color: var(--muted); font-size: .85rem }
+.voce i { grid-row: 1; grid-column: 2; font-style: normal; font-weight: 700; font-variant-numeric: tabular-nums }
+
+.piede { display: grid; gap: 10px }
+.legenda { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 0; padding: 0; list-style: none }
+.legenda li { display: flex; align-items: center; gap: 8px; font-variant-numeric: tabular-nums }
+.legenda .tacca { width: 26px; height: 26px; border-radius: 8px; box-shadow: inset 0 0 0 1px rgba(127, 127, 127, .25) }
+.nota { max-width: 90ch; color: var(--muted); font-size: .9rem }
+.errore { padding: 16px }
+
+@media (max-width: 980px) {
+  .corpo { grid-template-columns: minmax(0, 1fr) }
+  .scorre { flex: none; max-height: 460px }
+  h1 { font-size: 1.5rem }
+  .mappa, .pannello { border-radius: 20px }
+  .zoom { top: 8px; right: 8px; gap: 6px } .zoom button { width: 38px; height: 38px; border-radius: 11px }
+}
+</style>
+
+</head>
+<body>
+<div class="guscio">
+  <header class="testa">
+    <h1>Qualificati LA28</h1>
+    <p class="riepilogo" id="riepilogo">Caricamento dei dati…</p>
+  </header>
+
+  <div class="comandi">
+    <label for="cerca">Trova un NOC</label>
+    <div class="ricerca">
+      <input id="cerca" type="search" placeholder="Cerca un paese o un NOC…" autocomplete="off">
+      <ul class="suggerimenti" id="suggerimenti" hidden></ul>
+    </div>
+    <button class="tasto" id="reset" type="button">Reimposta vista</button>
+    <div class="misura" role="group" aria-label="Cosa contare">
+      <button type="button" id="m-atleti" aria-pressed="true">Atleti</button>
+      <button type="button" id="m-pass" aria-pressed="false">Pass Notion</button>
+    </div>
+  </div>
+
+  <div class="corpo">
+    <section class="mappa" id="contenitore" aria-label="Mappa del mondo con i qualificati per paese">
+      <svg id="mondo" viewBox="0 0 960 442" role="img" aria-label="Paesi colorati per numero di qualificati. La stessa informazione è nell'elenco accanto."></svg>
+      <div class="zoom">
+        <button type="button" id="piu" aria-label="Ingrandisci">+</button>
+        <button type="button" id="meno" aria-label="Riduci">−</button>
+      </div>
+      <div id="suggello" hidden></div>
+    </section>
+    <aside class="pannello"><div class="scorre" id="pannello"></div></aside>
+  </div>
+
+  <footer class="piede">
+    <ul class="legenda" id="legenda"></ul>
+    <p class="nota" id="nota"></p>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<script>
+(async function () {
+  const $ = (id) => document.getElementById(id);
+  const FASCE = [
+    { min: 0, max: 0, et: "0", col: "var(--q0)" }, { min: 1, max: 9, et: "1–9", col: "var(--q1)" },
+    { min: 10, max: 49, et: "10–49", col: "var(--q2)" }, { min: 50, max: 99, et: "50–99", col: "var(--q3)" },
+    { min: 100, max: Infinity, et: "100+", col: "var(--q4)" },
+  ];
+  const fascia = (n) => FASCE.find((f) => n >= f.min && n <= f.max);
+  const NOTA = "I dati vengono dal db Athletes di Notion, righe con Q in Pass LA28.";
+  const DETTAGLIO = {
+    atleti: " Una squadra in Notion è una riga sola: vale il numero di posti previsto dai sistemi di qualificazione LA28, e chi gareggia in più prove conta una volta. Il valore della pallanuoto (12) è provvisorio.",
+    pass: " Ogni riga di Notion vale 1, che sia un atleta, una coppia o una squadra.",
+  };
+
+  const el = (tag, cls, testo) => { const e = document.createElement(tag); if (cls) e.className = cls; if (testo != null) e.textContent = testo; return e; };
+
+  let dati, mondo;
+  try {
+    [dati, mondo] = await Promise.all(["data.json?v=" + Date.now(), "mondo.json"].map((f) => fetch(f).then((r) => { if (!r.ok) throw new Error(f); return r.json(); })));
+  } catch (e) {
+    $("riepilogo").textContent = "I dati non si caricano: ricarica la pagina.";
+    return;
+  }
+
+  let misura = "atleti", scelto = null;
+  const valore = (noc) => { const v = dati.noc[noc]; return v ? (misura === "atleti" ? v.atleti : v.pass) : 0; };
+  const unita = (n, m = misura) => m === "atleti" ? (n === 1 ? "atleta" : "atleti") : "pass";
+
+  const dataIt = new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "long", year: "numeric" }).format(new Date(dati.aggiornato + "T12:00:00"));
+  const t = dati.totali;
+  const riep = $("riepilogo"); riep.textContent = "";
+  [[t.atleti, " atleti"], [t.noc, " NOC"], [t.pass, " pass in Notion"]].forEach(([n, s], i) => {
+    if (i) riep.append(" · "); riep.append(el("strong", "", n), s);
+  });
+  riep.append(" · aggiornato al " + dataIt);
+
+  // Mappa
+  const W = 960, H = 442;
+  const svg = d3.select("#mondo");
+  const proiezione = d3.geoNaturalEarth1().fitWidth(W, { type: "Sphere" });
+  const percorso = d3.geoPath(proiezione);
+  const paesi = topojson.feature(mondo, mondo.objects.countries).features;
+  const scena = svg.append("g");
+  scena.append("path").datum({ type: "Sphere" }).attr("class", "sfera").attr("d", percorso);
+  const terre = scena.append("g").selectAll("path").data(paesi).join("path").attr("class", "terra").attr("d", percorso);
+  const evidenza = scena.append("g").attr("class", "evidenza");
+
+  const colora = () => terre.attr("fill", (d) => d.properties.noc ? fascia(valore(d.properties.noc)).col : "var(--none)");
+
+  function evidenzia(noc, extra) {
+    const lista = [...new Set([noc, extra].filter(Boolean))];
+    evidenza.selectAll("path").data(paesi.filter((d) => lista.includes(d.properties.noc))).join("path").attr("d", percorso);
+  }
+
+  const zoom = d3.zoom().scaleExtent([1, 14]).translateExtent([[0, 0], [W, H]])
+    .filter((e) => e.type === "wheel" ? (e.ctrlKey || e.metaKey) : !e.button)
+    .on("zoom", (e) => scena.attr("transform", e.transform));
+  svg.call(zoom).on("dblclick.zoom", null);
+  const lento = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 550;
+
+  function vaiA(noc) {
+    const fs = paesi.filter((d) => d.properties.noc === noc);
+    if (!fs.length) return;
+    let forme = [];
+    fs.forEach((f) => { const c = f.geometry.type === "Polygon" ? [f.geometry.coordinates] : f.geometry.coordinates; c.forEach((p) => forme.push({ type: "Polygon", coordinates: p })); });
+    const massima = forme.reduce((a, b) => d3.geoArea(a) > d3.geoArea(b) ? a : b);
+    const [[x0, y0], [x1, y1]] = percorso.bounds(massima);
+    const k = Math.max(1, Math.min(7, .55 / Math.max((x1 - x0) / W, (y1 - y0) / H)));
+    const tx = W / 2 - k * (x0 + x1) / 2, ty = H / 2 - k * (y0 + y1) / 2;
+    svg.transition().duration(lento()).call(zoom.transform, d3.zoomIdentity.translate(tx, ty).scale(k));
+  }
+
+  // Suggello al passaggio
+  const sug = $("suggello"), cont = $("contenitore");
+  function mostraSuggello(e, d) {
+    const { noc, nome } = d.properties;
+    sug.textContent = "";
+    sug.append(el("strong", "", noc ? `${nome} · ${noc}` : nome));
+    if (!noc) sug.append("Nessun comitato olimpico");
+    else { const v = dati.noc[noc]; sug.append(v ? `${v.atleti} ${unita(v.atleti, "atleti")} · ${v.pass} pass` : "Nessun qualificato"); }
+    sug.hidden = false;
+    const r = cont.getBoundingClientRect(), s = sug.getBoundingClientRect();
+    let x = e.clientX - r.left + 14, y = e.clientY - r.top + 14;
+    if (x + s.width > r.width - 8) x = e.clientX - r.left - s.width - 14;
+    if (y + s.height > r.height - 8) y = e.clientY - r.top - s.height - 14;
+    sug.style.left = Math.max(8, x) + "px"; sug.style.top = Math.max(8, y) + "px";
+  }
+  terre.on("pointermove", function (e, d) { if (e.pointerType === "touch") return; mostraSuggello(e, d); evidenzia(scelto, d.properties.noc); })
+    .on("pointerleave", () => { sug.hidden = true; evidenzia(scelto); })
+    .on("click", (e, d) => { if (d.properties.noc) seleziona(d.properties.noc, false); });
+
+  // Pannello
+  const pann = $("pannello");
+  const pulisci = (s) => s.replace("3️⃣MixedRelay", "Mixed Relay").replace(/^\P{L}+/u, "").replace("MixedTeam", "Mixed Team").replace("Seevens", "Sevens").replace("Plaftorm", "Platform").replace("Mixed team", "Mixed Team");
+
+  function classifica() {
+    pann.textContent = "";
+    pann.append(el("h2", "", misura === "atleti" ? "Classifica per atleti" : "Classifica per pass"));
+    pann.append(el("p", "sotto", `${t.noc} NOC con almeno un qualificato. Scegli un paese per vedere i nomi.`));
+    const ol = el("ol", "classifica");
+    const ordine = Object.keys(dati.noc).sort((a, b) => valore(b) - valore(a) || dati.noc[a].nome.localeCompare(dati.noc[b].nome, "it"));
+    let posto = 0, prec = null;
+    ordine.forEach((noc, i) => {
+      if (valore(noc) !== prec) { posto = i + 1; prec = valore(noc); }
+      const li = el("li"), b = el("button"); b.type = "button";
+      const tacca = el("span", "tacca"); tacca.style.background = fascia(valore(noc)).col;
+      const nome = el("span", "nomen"); nome.append(dati.noc[noc].nome + " ", el("small", "", noc));
+      b.append(el("span", "pos", posto), tacca, nome, el("span", "val", valore(noc)));
+      b.addEventListener("click", () => seleziona(noc, true));
+      li.append(b); ol.append(li);
+    });
+    pann.append(ol);
+    pann.scrollTop = 0;
+  }
+
+  function voce(r) {
+    const div = el("div", "voce");
+    const gare = r.discipline.map(pulisci).join(", ");
+    const coppia = r.nome.includes("/");
+    if (r.squadra && !coppia) {
+      div.append(el("b", "", gare), el("span", "", r.nota ? `Squadra, ${r.nota}` : `Squadra, ${r.atleti} atleti`));
+    } else {
+      div.append(el("b", "", coppia ? r.nome.split("/").join(", ") : r.nome), el("span", "", gare));
+    }
+    div.append(el("i", "", r.atleti));
+    return div;
+  }
+
+  function scheda(noc) {
+    const nomeMappa = paesi.find((d) => d.properties.noc === noc);
+    const v = dati.noc[noc];
+    pann.textContent = "";
+    const back = el("button", "indietro", "← Classifica"); back.type = "button";
+    back.addEventListener("click", () => azzera());
+    pann.append(back);
+    const testa = el("div"); testa.style.marginBottom = "12px";
+    testa.append(el("h2", "", `${v ? v.nome : nomeMappa.properties.nome} · ${noc}`));
+    if (!v) {
+      testa.append(el("p", "sotto", "Nessuna riga con Q in Notion."));
+      pann.append(testa);
+      return;
+    }
+    testa.append(el("p", "grande", v.atleti), el("p", "sotto", `${unita(v.atleti, "atleti")} · ${v.pass} pass in Notion`));
+    const osp = v.righe.filter((r) => r.ospitante).length;
+    if (osp) testa.append(el("p", "sotto", `${osp} pass da paese ospitante`));
+    pann.append(testa);
+    const corpo = el("div", "scheda");
+    d3.group(v.righe, (r) => r.sport).forEach((righe, sport) => {
+      const s = el("section", "sport");
+      s.append(el("h3", "", sport));
+      righe.forEach((r) => s.append(voce(r)));
+      corpo.append(s);
+    });
+    pann.append(corpo);
+    pann.scrollTop = 0;
+  }
+
+  function seleziona(noc, muovi) {
+    scelto = noc;
+    evidenzia(noc);
+    scheda(noc);
+    chiudiRicerca();
+    if (muovi) vaiA(noc);
+  }
+  function azzera() {
+    scelto = null; evidenzia(null); classifica();
+    svg.transition().duration(lento()).call(zoom.transform, d3.zoomIdentity);
+  }
+
+  // Ricerca
+  const elenco = new Map();
+  paesi.forEach((d) => { const { noc, nome, en } = d.properties; if (noc && !elenco.has(noc)) elenco.set(noc, { noc, nome: dati.noc[noc]?.nome || nome, en }); });
+  const voci = [...elenco.values()];
+  const norma = (s) => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+  const cerca = $("cerca"), lista = $("suggerimenti");
+  let trovati = [], attivo = 0;
+  function chiudiRicerca() { lista.hidden = true; cerca.value = ""; trovati = []; }
+  function disegnaLista() {
+    lista.textContent = "";
+    trovati.forEach((v, i) => {
+      const li = el("li"), b = el("button", i === attivo ? "attivo" : ""); b.type = "button";
+      const n = valore(v.noc);
+      b.append(el("span", "", `${v.nome} · ${v.noc}`), el("span", "", `${n} ${unita(n)}`));
+      b.addEventListener("click", () => seleziona(v.noc, true));
+      li.append(b); lista.append(li);
+    });
+    lista.hidden = !trovati.length;
+  }
+  cerca.addEventListener("input", () => {
+    const q = norma(cerca.value.trim());
+    attivo = 0;
+    if (!q) { trovati = []; disegnaLista(); return; }
+    const punti = (v) => norma(v.noc) === q ? 0 : norma(v.noc).startsWith(q) ? 1 : norma(v.nome).startsWith(q) ? 2 : norma(v.en).startsWith(q) ? 3 : (norma(v.nome).includes(q) || norma(v.en).includes(q)) ? 4 : 9;
+    trovati = voci.map((v) => [punti(v), v]).filter((p) => p[0] < 9).sort((a, b) => a[0] - b[0] || a[1].nome.localeCompare(b[1].nome, "it")).slice(0, 6).map((p) => p[1]);
+    disegnaLista();
+  });
+  cerca.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") return chiudiRicerca();
+    if (!trovati.length) return;
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); attivo = (attivo + (e.key === "ArrowDown" ? 1 : trovati.length - 1)) % trovati.length; disegnaLista(); }
+    if (e.key === "Enter") { e.preventDefault(); seleziona(trovati[attivo].noc, true); }
+  });
+  document.addEventListener("click", (e) => { if (!e.target.closest(".ricerca")) lista.hidden = true; });
+
+  // Comandi
+  $("reset").addEventListener("click", azzera);
+  $("piu").addEventListener("click", () => svg.transition().duration(lento() / 2).call(zoom.scaleBy, 1.7));
+  $("meno").addEventListener("click", () => svg.transition().duration(lento() / 2).call(zoom.scaleBy, 1 / 1.7));
+  function cambiaMisura(m) {
+    misura = m;
+    $("m-atleti").setAttribute("aria-pressed", m === "atleti");
+    $("m-pass").setAttribute("aria-pressed", m === "pass");
+    $("nota").textContent = NOTA + DETTAGLIO[m];
+    colora();
+    if (!scelto) classifica();
+  }
+  $("m-atleti").addEventListener("click", () => cambiaMisura("atleti"));
+  $("m-pass").addEventListener("click", () => cambiaMisura("pass"));
+
+  // Legenda
+  const leg = $("legenda");
+  FASCE.forEach((f) => { const li = el("li"), s = el("span", "tacca"); s.style.background = f.col; li.append(s, f.et); leg.append(li); });
+  { const li = el("li"), s = el("span", "tacca"); s.style.background = "var(--none)"; li.append(s, "Nessun comitato olimpico"); leg.append(li); }
+
+  cambiaMisura("atleti");
+})();
+</script>
+</body>
+</html>

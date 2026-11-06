@@ -372,20 +372,23 @@
   },
   "Shooting": {
    "quota": 340,
-   "atleti": 18,
-   "M": 9,
+   "atleti": 21,
+   "M": 12,
    "W": 9,
    "O": 0,
-   "pass": 18,
+   "pass": 21,
    "noc": {
     "CZE": 2,
     "IND": 1,
     "CHN": 5,
+    "KUW": 1,
+    "EGY": 1,
     "SVK": 2,
     "KOR": 1,
     "FRA": 2,
     "KAZ": 1,
     "GER": 1,
+    "DEN": 1,
     "HUN": 1,
     "IRI": 1,
     "CRO": 1
@@ -557,9 +560,9 @@
   }
  },
  "totali": {
-  "atleti": 871,
-  "pass": 143,
-  "noc": 41
+  "atleti": 874,
+  "pass": 146,
+  "noc": 42
  },
  "noc": {
   "USA": {
@@ -2636,6 +2639,53 @@
     }
    ]
   },
+  "EGY": {
+   "nome": "Egitto",
+   "atleti": 13,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "Azmy MEHELBA",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's Skeet"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Skeet": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "EGY Women's 🏐",
+     "sport": "Volleyball",
+     "card": "Volleyball",
+     "discipline": [
+      "Women's Volley"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 12,
+      "O": 0
+     },
+     "gare": {
+      "Women's Volley": "W"
+     },
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
   "THA": {
    "nome": "Thailandia",
    "atleti": 13,
@@ -2702,33 +2752,6 @@
      },
      "gare": {
       "Men's Volley": "M"
-     },
-     "atleti": 12,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
-  "EGY": {
-   "nome": "Egitto",
-   "atleti": 12,
-   "pass": 1,
-   "righe": [
-    {
-     "nome": "EGY Women's 🏐",
-     "sport": "Volleyball",
-     "card": "Volleyball",
-     "discipline": [
-      "Women's Volley"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 12,
-      "O": 0
-     },
-     "gare": {
-      "Women's Volley": "W"
      },
      "atleti": 12,
      "squadra": true,
@@ -3220,6 +3243,53 @@
     }
    ]
   },
+  "DEN": {
+   "nome": "Danimarca",
+   "atleti": 4,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "DEN Dressage Team",
+     "sport": "Equestrian",
+     "card": "Equestrian",
+     "discipline": [
+      "Dressage Team"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 0,
+      "O": 3
+     },
+     "gare": {
+      "Dressage Team": "O"
+     },
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Jesper HANSEN",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's Skeet"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Skeet": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
   "KOR": {
    "nome": "Corea del Sud",
    "atleti": 4,
@@ -3322,33 +3392,6 @@
      },
      "atleti": 1,
      "squadra": false,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
-  "DEN": {
-   "nome": "Danimarca",
-   "atleti": 3,
-   "pass": 1,
-   "righe": [
-    {
-     "nome": "DEN Dressage Team",
-     "sport": "Equestrian",
-     "card": "Equestrian",
-     "discipline": [
-      "Dressage Team"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 0,
-      "O": 3
-     },
-     "gare": {
-      "Dressage Team": "O"
-     },
-     "atleti": 3,
-     "squadra": true,
      "ospitante": false,
      "nota": ""
     }
@@ -3709,6 +3752,33 @@
      },
      "gare": {
       "Women's Skeet": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "KUW": {
+   "nome": "Kuwait",
+   "atleti": 1,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Abdulaziz ALSAAD",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's Skeet"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Skeet": "M"
      },
      "atleti": 1,
      "squadra": false,

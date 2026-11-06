@@ -1,0 +1,1816 @@
+{
+ "aggiornato": "2026-10",
+ "mese_ranking": "ottobre 2026",
+ "scaricato": "2026-11-06",
+ "fine_periodo": "2028-05-16",
+ "evento": 16,
+ "totali": {
+  "ranking": 40,
+  "ospitanti": 1,
+  "continentali": 72
+ },
+ "attesa": {
+  "grand_slam": 8,
+  "universality": 4
+ },
+ "quote_continentali": {
+  "Europa": 2,
+  "Asia": 2,
+  "Africa": 2,
+  "Pan America": 2,
+  "Oceania": 1
+ },
+ "categorie": {
+  "M -58": {
+   "genere": "M",
+   "kg": "-58",
+   "nome": "-58 kg",
+   "atleti": [
+    {
+     "nome": "Abolfazl ZANDI",
+     "noc": "IRI",
+     "paese": "Islamic Republic Of Iran",
+     "continente": "Asia",
+     "rank": 1,
+     "punti": 119.07,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 1 del ranking olimpico (119.07 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Eunsu SEO",
+     "noc": "KOR",
+     "paese": "Republic of Korea",
+     "continente": "Asia",
+     "rank": 2,
+     "punti": 112.72,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 2 del ranking olimpico (112.72 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Vito DELL'AQUILA",
+     "noc": "ITA",
+     "paese": "Italy",
+     "continente": "Europa",
+     "rank": 4,
+     "punti": 93.76,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 4 del ranking olimpico (93.76 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Ja'afar ALDAOUD",
+     "noc": "JOR",
+     "paese": "Jordan",
+     "continente": "Asia",
+     "rank": 5,
+     "punti": 86.96,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 5 del ranking olimpico (86.96 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Nicholas HOEFLING",
+     "noc": "CAN",
+     "paese": "Canada",
+     "continente": "Pan America",
+     "rank": 7,
+     "punti": 71.77,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 7 del ranking olimpico (71.77 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Aristeidis Nikolaos Psarros",
+     "noc": "GRE",
+     "paese": "Greece",
+     "continente": "Europa",
+     "rank": 8,
+     "punti": 69.1,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 8 del ranking olimpico tra gli atleti del continente (69.1 punti)."
+    },
+    {
+     "nome": "Hristiyan GEORGIEV",
+     "noc": "BUL",
+     "paese": "Bulgaria",
+     "continente": "Europa",
+     "rank": 10,
+     "punti": 57.05,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 10 del ranking olimpico tra gli atleti del continente (57.05 punti)."
+    },
+    {
+     "nome": "Paulo MELO",
+     "noc": "BRA",
+     "paese": "Brazil",
+     "continente": "Pan America",
+     "rank": 12,
+     "punti": 54.86,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 12 del ranking olimpico tra gli atleti del continente (54.86 punti)."
+    },
+    {
+     "nome": "Moataz Bellah ASEM ATA ABU SREE'",
+     "noc": "EGY",
+     "paese": "Egypt",
+     "continente": "Africa",
+     "rank": 13,
+     "punti": 53.15,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 13 del ranking olimpico tra gli atleti del continente (53.15 punti)."
+    },
+    {
+     "nome": "Abdullah Essa A Almushraf",
+     "noc": "KSA",
+     "paese": "Saudi Arabia",
+     "continente": "Asia",
+     "rank": 24,
+     "punti": 39.18,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 24 del ranking olimpico tra gli atleti del continente (39.18 punti)."
+    },
+    {
+     "nome": "Kuei-An Pan",
+     "noc": "TPE",
+     "paese": "Chinese Taipei",
+     "continente": "Asia",
+     "rank": 25,
+     "punti": 39.05,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 25 del ranking olimpico tra gli atleti del continente (39.05 punti)."
+    },
+    {
+     "nome": "Nouridine ISSAKA GARBA",
+     "noc": "NIG",
+     "paese": "Niger",
+     "continente": "Africa",
+     "rank": 31,
+     "punti": 32.96,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 31 del ranking olimpico tra gli atleti del continente (32.96 punti)."
+    },
+    {
+     "nome": "Daniel Estiven Torres Hidalgo",
+     "noc": "COL",
+     "paese": "Colombia",
+     "continente": "Pan America",
+     "rank": 42,
+     "punti": 26.48,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 42 del ranking olimpico tra gli atleti del continente (26.48 punti)."
+    },
+    {
+     "nome": "Clement ONGGOSANUSI",
+     "noc": "VAN",
+     "paese": "Vanuatu",
+     "continente": "Oceania",
+     "rank": 273,
+     "punti": 3.6,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Oceania): posizione 273 del ranking olimpico tra gli atleti del continente (3.6 punti)."
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "Youngsuk Ethan Gun",
+     "noc": "USA",
+     "paese": "United States of America",
+     "continente": "Pan America",
+     "rank": 9,
+     "punti": 62.7,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Gashim MAGOMEDOV",
+     "noc": "AZE",
+     "paese": "Azerbaijan",
+     "continente": "Europa",
+     "rank": 11,
+     "punti": 57.02,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Antoni SOKOLOWSKI",
+     "noc": "POL",
+     "paese": "Poland",
+     "continente": "Europa",
+     "rank": 15,
+     "punti": 50.0,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    }
+   ],
+   "attesa": [
+    {
+     "tipo": "G",
+     "etichetta": "Grand Slam Champions Series 2027",
+     "nota": "Il migliore del Grand Slam Champions Series 2027 (se gia' qualificato dal ranking, passa al secondo). La classifica non e' nei dati: posto in attesa."
+    }
+   ],
+   "soglia": 71.77
+  },
+  "M -68": {
+   "genere": "M",
+   "kg": "-68",
+   "nome": "-68 kg",
+   "atleti": [
+    {
+     "nome": "Jinho MUN",
+     "noc": "KOR",
+     "paese": "Republic of Korea",
+     "continente": "Asia",
+     "rank": 1,
+     "punti": 150.8,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 1 del ranking olimpico (150.8 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Berkay Erer",
+     "noc": "TUR",
+     "paese": "Türkiye",
+     "continente": "Europa",
+     "rank": 2,
+     "punti": 92.96,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 2 del ranking olimpico (92.96 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Maikol RODRIGUEZ",
+     "noc": "USA",
+     "paese": "United States of America",
+     "continente": "Pan America",
+     "rank": 3,
+     "punti": 86.65,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 3 del ranking olimpico (86.65 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Amir VYKOV",
+     "noc": "RUS",
+     "paese": "Russian Federation",
+     "continente": "Europa",
+     "rank": 4,
+     "punti": 83.95,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 4 del ranking olimpico (83.95 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Najmiddin KOSIMKHOJIEV",
+     "noc": "UZB",
+     "paese": "Uzbekistan",
+     "continente": "Asia",
+     "rank": 5,
+     "punti": 82.87,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 5 del ranking olimpico (82.87 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Omar Gergely SALIM",
+     "noc": "HUN",
+     "paese": "Hungary",
+     "continente": "Europa",
+     "rank": 6,
+     "punti": 66.38,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 6 del ranking olimpico tra gli atleti del continente (66.38 punti)."
+    },
+    {
+     "nome": "Marko GOLUBIC",
+     "noc": "CRO",
+     "paese": "Croatia",
+     "continente": "Europa",
+     "rank": 7,
+     "punti": 64.46,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 7 del ranking olimpico tra gli atleti del continente (64.46 punti)."
+    },
+    {
+     "nome": "Edival PONTES",
+     "noc": "BRA",
+     "paese": "Brazil",
+     "continente": "Pan America",
+     "rank": 8,
+     "punti": 63.07,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 8 del ranking olimpico tra gli atleti del continente (63.07 punti)."
+    },
+    {
+     "nome": "Zaid KAREEM",
+     "noc": "JOR",
+     "paese": "Jordan",
+     "continente": "Asia",
+     "rank": 10,
+     "punti": 60.78,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 10 del ranking olimpico tra gli atleti del continente (60.78 punti)."
+    },
+    {
+     "nome": "Yushuai LIANG",
+     "noc": "CHN",
+     "paese": "People's Republic Of China",
+     "continente": "Asia",
+     "rank": 18,
+     "punti": 44.12,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 18 del ranking olimpico tra gli atleti del continente (44.12 punti)."
+    },
+    {
+     "nome": "Xavier NIKOLOVSKI",
+     "noc": "AUS",
+     "paese": "Australia",
+     "continente": "Oceania",
+     "rank": 19,
+     "punti": 43.07,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Oceania): posizione 19 del ranking olimpico tra gli atleti del continente (43.07 punti)."
+    },
+    {
+     "nome": "David MILLAN GASTON",
+     "noc": "MEX",
+     "paese": "Mexico",
+     "continente": "Pan America",
+     "rank": 31,
+     "punti": 33.6,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 31 del ranking olimpico tra gli atleti del continente (33.6 punti)."
+    },
+    {
+     "nome": "Ibrahim Maiga",
+     "noc": "BUR",
+     "paese": "Burkina Faso",
+     "continente": "Africa",
+     "rank": 35,
+     "punti": 31.55,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 35 del ranking olimpico tra gli atleti del continente (31.55 punti)."
+    },
+    {
+     "nome": "Mohamed Khalil JENDOUBI",
+     "noc": "TUN",
+     "paese": "Tunisia",
+     "continente": "Africa",
+     "rank": 58,
+     "punti": 20.0,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 58 del ranking olimpico tra gli atleti del continente (20 punti)."
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "Adrian VICENTE YUNTA",
+     "noc": "ESP",
+     "paese": "Spain",
+     "continente": "Europa",
+     "rank": 9,
+     "punti": 62.41,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Souleyman ALAPHILIPPE",
+     "noc": "FRA",
+     "paese": "France",
+     "continente": "Europa",
+     "rank": 11,
+     "punti": 59.07,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Apostolos PANAGOPOULOS",
+     "noc": "GRE",
+     "paese": "Greece",
+     "continente": "Europa",
+     "rank": 16,
+     "punti": 50.96,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    }
+   ],
+   "attesa": [
+    {
+     "tipo": "G",
+     "etichetta": "Grand Slam Champions Series 2027",
+     "nota": "Il migliore del Grand Slam Champions Series 2027 (se gia' qualificato dal ranking, passa al secondo). La classifica non e' nei dati: posto in attesa."
+    }
+   ],
+   "soglia": 82.87
+  },
+  "M -80": {
+   "genere": "M",
+   "kg": "-80",
+   "nome": "-80 kg",
+   "atleti": [
+    {
+     "nome": "Henrique Marques Rodrigues Fernandes",
+     "noc": "BRA",
+     "paese": "Brazil",
+     "continente": "Pan America",
+     "rank": 1,
+     "punti": 148.4,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 1 del ranking olimpico (148.4 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Juan Antonio MILAN CANOVAS",
+     "noc": "ESP",
+     "paese": "Spain",
+     "continente": "Europa",
+     "rank": 2,
+     "punti": 118.06,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 2 del ranking olimpico (118.06 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Cj Nickolas",
+     "noc": "USA",
+     "paese": "United States of America",
+     "continente": "Pan America",
+     "rank": 3,
+     "punti": 116.67,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 3 del ranking olimpico (116.67 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Raman TURAVINAU",
+     "noc": "BLR",
+     "paese": "Belarus",
+     "continente": "Europa",
+     "rank": 4,
+     "punti": 102.22,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 4 del ranking olimpico (102.22 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Jasurbek Jaysunov",
+     "noc": "UZB",
+     "paese": "Uzbekistan",
+     "continente": "Asia",
+     "rank": 5,
+     "punti": 95.07,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 5 del ranking olimpico (95.07 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Stefan TAKOV",
+     "noc": "SRB",
+     "paese": "Serbia",
+     "continente": "Europa",
+     "rank": 7,
+     "punti": 64.72,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 7 del ranking olimpico tra gli atleti del continente (64.72 punti)."
+    },
+    {
+     "nome": "Oscar KOVACIC",
+     "noc": "CRO",
+     "paese": "Croatia",
+     "continente": "Europa",
+     "rank": 8,
+     "punti": 61.9,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 8 del ranking olimpico tra gli atleti del continente (61.9 punti)."
+    },
+    {
+     "nome": "Artem MYTAREV",
+     "noc": "RUS",
+     "paese": "Russian Federation",
+     "continente": "Europa",
+     "rank": 9,
+     "punti": 61.47,
+     "tipo": "C",
+     "via": "Torneo continentale (riassegnato)",
+     "stato": "Provvisorio",
+     "nota": "Posto del continente Oceania senza altri atleti utilizzabili: riassegnato al migliore del ranking olimpico della categoria (posizione 9)."
+    },
+    {
+     "nome": "Haitam Zarhouti",
+     "noc": "MAR",
+     "paese": "Morocco",
+     "continente": "Africa",
+     "rank": 11,
+     "punti": 59.74,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 11 del ranking olimpico tra gli atleti del continente (59.74 punti)."
+    },
+    {
+     "nome": "Saleh ELSHARABATY",
+     "noc": "JOR",
+     "paese": "Jordan",
+     "continente": "Asia",
+     "rank": 13,
+     "punti": 52.7,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 13 del ranking olimpico tra gli atleti del continente (52.7 punti)."
+    },
+    {
+     "nome": "Joaquin CHURCHILL MARTÍNEZ",
+     "noc": "CHI",
+     "paese": "Chile",
+     "continente": "Pan America",
+     "rank": 15,
+     "punti": 50.96,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 15 del ranking olimpico tra gli atleti del continente (50.96 punti)."
+    },
+    {
+     "nome": "Qizhang XIANG",
+     "noc": "CHN",
+     "paese": "People's Republic Of China",
+     "continente": "Asia",
+     "rank": 19,
+     "punti": 47.21,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 19 del ranking olimpico tra gli atleti del continente (47.21 punti)."
+    },
+    {
+     "nome": "Faysal SAWADOGO",
+     "noc": "BUR",
+     "paese": "Burkina Faso",
+     "continente": "Africa",
+     "rank": 22,
+     "punti": 38.57,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 22 del ranking olimpico tra gli atleti del continente (38.57 punti)."
+    },
+    {
+     "nome": "David ROBLETO",
+     "noc": "NCA",
+     "paese": "Nicaragua",
+     "continente": "Pan America",
+     "rank": 56,
+     "punti": 18.22,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 56 del ranking olimpico tra gli atleti del continente (18.22 punti)."
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "Amir Sina BAKHTIARI",
+     "noc": "IRI",
+     "paese": "Islamic Republic Of Iran",
+     "continente": "Asia",
+     "rank": 12,
+     "punti": 56.72,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Zurab KINTSURASHVILI",
+     "noc": "GEO",
+     "paese": "Georgia",
+     "continente": "Europa",
+     "rank": 14,
+     "punti": 51.04,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Jaegwon KANG",
+     "noc": "KOR",
+     "paese": "Republic of Korea",
+     "continente": "Asia",
+     "rank": 17,
+     "punti": 50.11,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    }
+   ],
+   "attesa": [
+    {
+     "tipo": "G",
+     "etichetta": "Grand Slam Champions Series 2027",
+     "nota": "Il migliore del Grand Slam Champions Series 2027 (se gia' qualificato dal ranking, passa al secondo). La classifica non e' nei dati: posto in attesa."
+    }
+   ],
+   "soglia": 95.07
+  },
+  "M +80": {
+   "genere": "M",
+   "kg": "+80",
+   "nome": "+80 kg",
+   "atleti": [
+    {
+     "nome": "Arian SALIMI",
+     "noc": "IRI",
+     "paese": "Islamic Republic Of Iran",
+     "continente": "Asia",
+     "rank": 1,
+     "punti": 131.6,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 1 del ranking olimpico (131.6 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Seif EISSA",
+     "noc": "EGY",
+     "paese": "Egypt",
+     "continente": "Africa",
+     "rank": 2,
+     "punti": 114.56,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 2 del ranking olimpico (114.56 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Rafail AIUKAEV",
+     "noc": "RUS",
+     "paese": "Russian Federation",
+     "continente": "Europa",
+     "rank": 3,
+     "punti": 95.42,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 3 del ranking olimpico (95.42 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Caden CUNNINGHAM",
+     "noc": "GBR",
+     "paese": "Great Britain",
+     "continente": "Europa",
+     "rank": 5,
+     "punti": 67.92,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 5 del ranking olimpico (67.92 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Sanghyun KANG",
+     "noc": "KOR",
+     "paese": "Republic of Korea",
+     "continente": "Asia",
+     "rank": 6,
+     "punti": 63.74,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 6 del ranking olimpico (63.74 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Sergio Troitiño Amoedo",
+     "noc": "ESP",
+     "paese": "Spain",
+     "continente": "Europa",
+     "rank": 8,
+     "punti": 59.69,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 8 del ranking olimpico tra gli atleti del continente (59.69 punti)."
+    },
+    {
+     "nome": "Vasileios THOLIOTIS",
+     "noc": "GRE",
+     "paese": "Greece",
+     "continente": "Europa",
+     "rank": 9,
+     "punti": 57.02,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 9 del ranking olimpico tra gli atleti del continente (57.02 punti)."
+    },
+    {
+     "nome": "Motaz IFAOUI",
+     "noc": "TUN",
+     "paese": "Tunisia",
+     "continente": "Africa",
+     "rank": 19,
+     "punti": 48.59,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 19 del ranking olimpico tra gli atleti del continente (48.59 punti)."
+    },
+    {
+     "nome": "Carlos SANSORES",
+     "noc": "MEX",
+     "paese": "Mexico",
+     "continente": "Pan America",
+     "rank": 23,
+     "punti": 39.42,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 23 del ranking olimpico tra gli atleti del continente (39.42 punti)."
+    },
+    {
+     "nome": "Jordan STEWART",
+     "noc": "CAN",
+     "paese": "Canada",
+     "continente": "Pan America",
+     "rank": 27,
+     "punti": 34.25,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 27 del ranking olimpico tra gli atleti del continente (34.25 punti)."
+    },
+    {
+     "nome": "Beibarys KABLAN",
+     "noc": "KAZ",
+     "paese": "Kazakhstan",
+     "continente": "Asia",
+     "rank": 28,
+     "punti": 32.96,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 28 del ranking olimpico tra gli atleti del continente (32.96 punti)."
+    },
+    {
+     "nome": "Liang-Hsi CHEN",
+     "noc": "TPE",
+     "paese": "Chinese Taipei",
+     "continente": "Asia",
+     "rank": 29,
+     "punti": 32.7,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 29 del ranking olimpico tra gli atleti del continente (32.7 punti)."
+    },
+    {
+     "nome": "Aiden STILLEY",
+     "noc": "AUS",
+     "paese": "Australia",
+     "continente": "Oceania",
+     "rank": 30,
+     "punti": 32.38,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Oceania): posizione 30 del ranking olimpico tra gli atleti del continente (32.38 punti)."
+    },
+    {
+     "nome": "Khouyyar Zakaria",
+     "noc": "MAR",
+     "paese": "Morocco",
+     "continente": "Africa",
+     "rank": 53,
+     "punti": 15.72,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 53 del ranking olimpico tra gli atleti del continente (15.72 punti)."
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "Michael C. RODRIGUEZ",
+     "noc": "USA",
+     "paese": "United States of America",
+     "continente": "Pan America",
+     "rank": 7,
+     "punti": 62.7,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Artsiom PLONIS",
+     "noc": "BLR",
+     "paese": "Belarus",
+     "continente": "Europa",
+     "rank": 10,
+     "punti": 54.06,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Marat MAVLONOV",
+     "noc": "UZB",
+     "paese": "Uzbekistan",
+     "continente": "Asia",
+     "rank": 11,
+     "punti": 53.47,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    }
+   ],
+   "attesa": [
+    {
+     "tipo": "G",
+     "etichetta": "Grand Slam Champions Series 2027",
+     "nota": "Il migliore del Grand Slam Champions Series 2027 (se gia' qualificato dal ranking, passa al secondo). La classifica non e' nei dati: posto in attesa."
+    }
+   ],
+   "soglia": 63.74
+  },
+  "F -49": {
+   "genere": "F",
+   "kg": "-49",
+   "nome": "-49 kg",
+   "atleti": [
+    {
+     "nome": "Alisa Angelova",
+     "noc": "RUS",
+     "paese": "Russian Federation",
+     "continente": "Europa",
+     "rank": 1,
+     "punti": 138.08,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 1 del ranking olimpico (138.08 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Xiaolu FU",
+     "noc": "CHN",
+     "paese": "People's Republic Of China",
+     "continente": "Asia",
+     "rank": 2,
+     "punti": 129.23,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 2 del ranking olimpico (129.23 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Chieh-Ling WANG",
+     "noc": "TPE",
+     "paese": "Chinese Taipei",
+     "continente": "Asia",
+     "rank": 4,
+     "punti": 105.6,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 4 del ranking olimpico (105.6 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Kamilah SALIM",
+     "noc": "HUN",
+     "paese": "Hungary",
+     "continente": "Europa",
+     "rank": 5,
+     "punti": 93.07,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 5 del ranking olimpico (93.07 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Hyang-Gi KIM",
+     "noc": "KOR",
+     "paese": "Republic of Korea",
+     "continente": "Asia",
+     "rank": 6,
+     "punti": 88.8,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 6 del ranking olimpico (88.8 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Adriana CEREZO IGLESIAS",
+     "noc": "ESP",
+     "paese": "Spain",
+     "continente": "Europa",
+     "rank": 9,
+     "punti": 76.16,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 9 del ranking olimpico tra gli atleti del continente (76.16 punti)."
+    },
+    {
+     "nome": "Jana KHATTAB",
+     "noc": "EGY",
+     "paese": "Egypt",
+     "continente": "Africa",
+     "rank": 10,
+     "punti": 75.63,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 10 del ranking olimpico tra gli atleti del continente (75.63 punti)."
+    },
+    {
+     "nome": "Farah Touzani",
+     "noc": "MAR",
+     "paese": "Morocco",
+     "continente": "Africa",
+     "rank": 11,
+     "punti": 75.42,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 11 del ranking olimpico tra gli atleti del continente (75.42 punti)."
+    },
+    {
+     "nome": "Julia Silva Nazario",
+     "noc": "BRA",
+     "paese": "Brazil",
+     "continente": "Pan America",
+     "rank": 13,
+     "punti": 66.24,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 13 del ranking olimpico tra gli atleti del continente (66.24 punti)."
+    },
+    {
+     "nome": "Daniela Paola SOUZA",
+     "noc": "MEX",
+     "paese": "Mexico",
+     "continente": "Pan America",
+     "rank": 15,
+     "punti": 59.77,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 15 del ranking olimpico tra gli atleti del continente (59.77 punti)."
+    },
+    {
+     "nome": "Hinata OKAZAKI",
+     "noc": "JPN",
+     "paese": "Japan",
+     "continente": "Asia",
+     "rank": 17,
+     "punti": 55.9,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 17 del ranking olimpico tra gli atleti del continente (55.9 punti)."
+    },
+    {
+     "nome": "Supharada ATESLI",
+     "noc": "GER",
+     "paese": "Germany",
+     "continente": "Europa",
+     "rank": 17,
+     "punti": 55.9,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 17 del ranking olimpico tra gli atleti del continente (55.9 punti)."
+    },
+    {
+     "nome": "Aidana KUMARTAYEVA",
+     "noc": "KAZ",
+     "paese": "Kazakhstan",
+     "continente": "Asia",
+     "rank": 24,
+     "punti": 48.61,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 24 del ranking olimpico tra gli atleti del continente (48.61 punti)."
+    },
+    {
+     "nome": "Juliet LAHOOD",
+     "noc": "AUS",
+     "paese": "Australia",
+     "continente": "Oceania",
+     "rank": 31,
+     "punti": 42.23,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Oceania): posizione 31 del ranking olimpico tra gli atleti del continente (42.23 punti)."
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "Elif Sude Akgul",
+     "noc": "TUR",
+     "paese": "Türkiye",
+     "continente": "Europa",
+     "rank": 19,
+     "punti": 52.54,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Emine GOGEBAKAN",
+     "noc": "TUR",
+     "paese": "Türkiye",
+     "continente": "Europa",
+     "rank": 20,
+     "punti": 52.27,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Jaycee BASSETT",
+     "noc": "CRC",
+     "paese": "Costa Rica",
+     "continente": "Pan America",
+     "rank": 21,
+     "punti": 50.97,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    }
+   ],
+   "attesa": [
+    {
+     "tipo": "G",
+     "etichetta": "Grand Slam Champions Series 2027",
+     "nota": "Il migliore del Grand Slam Champions Series 2027 (se gia' qualificato dal ranking, passa al secondo). La classifica non e' nei dati: posto in attesa."
+    }
+   ],
+   "soglia": 88.8
+  },
+  "F -57": {
+   "genere": "F",
+   "kg": "-57",
+   "nome": "-57 kg",
+   "atleti": [
+    {
+     "nome": "Maria Clara PACHECO",
+     "noc": "BRA",
+     "paese": "Brazil",
+     "continente": "Pan America",
+     "rank": 1,
+     "punti": 230.0,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 1 del ranking olimpico (230 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Fadia Khirfan",
+     "noc": "JOR",
+     "paese": "Jordan",
+     "continente": "Asia",
+     "rank": 2,
+     "punti": 136.03,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 2 del ranking olimpico (136.03 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Yu-jin KIM",
+     "noc": "KOR",
+     "paese": "Republic of Korea",
+     "continente": "Asia",
+     "rank": 3,
+     "punti": 116.4,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 3 del ranking olimpico (116.4 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Faith DILLON",
+     "noc": "USA",
+     "paese": "United States of America",
+     "continente": "Pan America",
+     "rank": 4,
+     "punti": 85.52,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 4 del ranking olimpico (85.52 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Amina Dehhaoui",
+     "noc": "MAR",
+     "paese": "Morocco",
+     "continente": "Africa",
+     "rank": 5,
+     "punti": 84.8,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 5 del ranking olimpico (84.8 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Yuliya VITKO",
+     "noc": "BLR",
+     "paese": "Belarus",
+     "continente": "Europa",
+     "rank": 6,
+     "punti": 71.26,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 6 del ranking olimpico tra gli atleti del continente (71.26 punti)."
+    },
+    {
+     "nome": "Ada AVDAGIC",
+     "noc": "BIH",
+     "paese": "Bosnia and Herzegovina",
+     "continente": "Europa",
+     "rank": 7,
+     "punti": 65.58,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 7 del ranking olimpico tra gli atleti del continente (65.58 punti)."
+    },
+    {
+     "nome": "Chaima TOUMI",
+     "noc": "TUN",
+     "paese": "Tunisia",
+     "continente": "Africa",
+     "rank": 9,
+     "punti": 58.86,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 9 del ranking olimpico tra gli atleti del continente (58.86 punti)."
+    },
+    {
+     "nome": "Gabriella BLEWITT",
+     "noc": "AUS",
+     "paese": "Australia",
+     "continente": "Oceania",
+     "rank": 13,
+     "punti": 56.16,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Oceania): posizione 13 del ranking olimpico tra gli atleti del continente (56.16 punti)."
+    },
+    {
+     "nome": "Nahid KIYANICHANDEH",
+     "noc": "IRI",
+     "paese": "Islamic Republic Of Iran",
+     "continente": "Asia",
+     "rank": 15,
+     "punti": 55.06,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 15 del ranking olimpico tra gli atleti del continente (55.06 punti)."
+    },
+    {
+     "nome": "Mariya SEVOSTYANOVA",
+     "noc": "KAZ",
+     "paese": "Kazakhstan",
+     "continente": "Asia",
+     "rank": 19,
+     "punti": 51.71,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 19 del ranking olimpico tra gli atleti del continente (51.71 punti)."
+    },
+    {
+     "nome": "Ella BREWSTER",
+     "noc": "CAN",
+     "paese": "Canada",
+     "continente": "Pan America",
+     "rank": 20,
+     "punti": 48.59,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 20 del ranking olimpico tra gli atleti del continente (48.59 punti)."
+    },
+    {
+     "nome": "Neshi Lee Lindo Alvarez",
+     "noc": "CRC",
+     "paese": "Costa Rica",
+     "continente": "Pan America",
+     "rank": 47,
+     "punti": 26.48,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 47 del ranking olimpico tra gli atleti del continente (26.48 punti)."
+    },
+    {
+     "nome": "Ajidde ISA",
+     "noc": "NGR",
+     "paese": "Nigeria",
+     "continente": "Africa",
+     "rank": 133,
+     "punti": 7.2,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 133 del ranking olimpico tra gli atleti del continente (7.2 punti)."
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "Arlet ORTIZ BENITO",
+     "noc": "ESP",
+     "paese": "Spain",
+     "continente": "Europa",
+     "rank": 8,
+     "punti": 59.31,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Chuling ZHANG",
+     "noc": "CHN",
+     "paese": "People's Republic Of China",
+     "continente": "Asia",
+     "rank": 10,
+     "punti": 57.84,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Madina MIRABZALOVA",
+     "noc": "UZB",
+     "paese": "Uzbekistan",
+     "continente": "Asia",
+     "rank": 11,
+     "punti": 57.06,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    }
+   ],
+   "attesa": [
+    {
+     "tipo": "G",
+     "etichetta": "Grand Slam Champions Series 2027",
+     "nota": "Il migliore del Grand Slam Champions Series 2027 (se gia' qualificato dal ranking, passa al secondo). La classifica non e' nei dati: posto in attesa."
+    }
+   ],
+   "soglia": 84.8
+  },
+  "F -67": {
+   "genere": "F",
+   "kg": "-67",
+   "nome": "-67 kg",
+   "atleti": [
+    {
+     "nome": "Viviana MARTON",
+     "noc": "HUN",
+     "paese": "Hungary",
+     "continente": "Europa",
+     "rank": 1,
+     "punti": 173.3,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 1 del ranking olimpico (173.3 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Styliani MARENTAKI",
+     "noc": "GRE",
+     "paese": "Greece",
+     "continente": "Europa",
+     "rank": 2,
+     "punti": 110.91,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 2 del ranking olimpico (110.91 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Jiani XING",
+     "noc": "CHN",
+     "paese": "People's Republic Of China",
+     "continente": "Asia",
+     "rank": 3,
+     "punti": 103.54,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 3 del ranking olimpico (103.54 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Hyo rim HONG",
+     "noc": "KOR",
+     "paese": "Republic of Korea",
+     "continente": "Asia",
+     "rank": 4,
+     "punti": 98.7,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 4 del ranking olimpico (98.7 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Lena MORENO REYES",
+     "noc": "ESP",
+     "paese": "Spain",
+     "continente": "Europa",
+     "rank": 5,
+     "punti": 83.86,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 5 del ranking olimpico (83.86 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Ozoda SOBIRJONOVA",
+     "noc": "UZB",
+     "paese": "Uzbekistan",
+     "continente": "Asia",
+     "rank": 6,
+     "punti": 78.61,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 6 del ranking olimpico tra gli atleti del continente (78.61 punti)."
+    },
+    {
+     "nome": "Mell MINA",
+     "noc": "ECU",
+     "paese": "Ecuador",
+     "continente": "Pan America",
+     "rank": 7,
+     "punti": 77.98,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 7 del ranking olimpico tra gli atleti del continente (77.98 punti)."
+    },
+    {
+     "nome": "Aleksandra PERISIC",
+     "noc": "SRB",
+     "paese": "Serbia",
+     "continente": "Europa",
+     "rank": 8,
+     "punti": 73.07,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 8 del ranking olimpico tra gli atleti del continente (73.07 punti)."
+    },
+    {
+     "nome": "Saghar MORADI SHEIKHLAR",
+     "noc": "IRI",
+     "paese": "Islamic Republic Of Iran",
+     "continente": "Asia",
+     "rank": 9,
+     "punti": 68.0,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 9 del ranking olimpico tra gli atleti del continente (68 punti)."
+    },
+    {
+     "nome": "Ruth GBAGBI",
+     "noc": "CIV",
+     "paese": "Cote D'ivoire",
+     "continente": "Africa",
+     "rank": 11,
+     "punti": 64.14,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 11 del ranking olimpico tra gli atleti del continente (64.14 punti)."
+    },
+    {
+     "nome": "Milena TITONELI",
+     "noc": "BRA",
+     "paese": "Brazil",
+     "continente": "Pan America",
+     "rank": 13,
+     "punti": 58.75,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 13 del ranking olimpico tra gli atleti del continente (58.75 punti)."
+    },
+    {
+     "nome": "Dora MESTROVIC",
+     "noc": "CRO",
+     "paese": "Croatia",
+     "continente": "Europa",
+     "rank": 16,
+     "punti": 55.15,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 16 del ranking olimpico tra gli atleti del continente (55.15 punti)."
+    },
+    {
+     "nome": "Masghouni WAFA",
+     "noc": "TUN",
+     "paese": "Tunisia",
+     "continente": "Africa",
+     "rank": 19,
+     "punti": 51.97,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 19 del ranking olimpico tra gli atleti del continente (51.97 punti)."
+    },
+    {
+     "nome": "Holly GOULD",
+     "noc": "NZL",
+     "paese": "New Zealand",
+     "continente": "Oceania",
+     "rank": 142,
+     "punti": 4.32,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Oceania): posizione 142 del ranking olimpico tra gli atleti del continente (4.32 punti)."
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "Razan mohammed ALRAWASHDEH",
+     "noc": "JOR",
+     "paese": "Jordan",
+     "continente": "Asia",
+     "rank": 10,
+     "punti": 65.1,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Chloe CHUA",
+     "noc": "USA",
+     "paese": "United States of America",
+     "continente": "Pan America",
+     "rank": 14,
+     "punti": 56.05,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Ava Soon LEE",
+     "noc": "HAI",
+     "paese": "Haiti",
+     "continente": "Pan America",
+     "rank": 17,
+     "punti": 55.02,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    }
+   ],
+   "attesa": [
+    {
+     "tipo": "G",
+     "etichetta": "Grand Slam Champions Series 2027",
+     "nota": "Il migliore del Grand Slam Champions Series 2027 (se gia' qualificato dal ranking, passa al secondo). La classifica non e' nei dati: posto in attesa."
+    }
+   ],
+   "soglia": 83.86
+  },
+  "F +67": {
+   "genere": "F",
+   "kg": "+67",
+   "nome": "+67 kg",
+   "atleti": [
+    {
+     "nome": "Anastasiia KOSMYCHEVA",
+     "noc": "RUS",
+     "paese": "Russian Federation",
+     "continente": "Europa",
+     "rank": 1,
+     "punti": 153.2,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 1 del ranking olimpico (153.2 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Lauren WILLIAMS",
+     "noc": "GBR",
+     "paese": "Great Britain",
+     "continente": "Europa",
+     "rank": 2,
+     "punti": 139.31,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 2 del ranking olimpico (139.31 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Sarah CHAÂRI",
+     "noc": "BEL",
+     "paese": "Belgium",
+     "continente": "Europa",
+     "rank": 3,
+     "punti": 125.52,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 3 del ranking olimpico (125.52 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Hana ZARRINKAMAR ROUDBARI",
+     "noc": "IRI",
+     "paese": "Islamic Republic Of Iran",
+     "continente": "Asia",
+     "rank": 4,
+     "punti": 114.0,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 4 del ranking olimpico (114 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Da Bin Song",
+     "noc": "KOR",
+     "paese": "Republic of Korea",
+     "continente": "Asia",
+     "rank": 5,
+     "punti": 112.56,
+     "tipo": "D",
+     "via": "Ranking olimpico",
+     "stato": "Provvisorio",
+     "nota": "Posizione 5 del ranking olimpico (112.56 punti): rientra nei primi 5 del ranking di gennaio 2028."
+    },
+    {
+     "nome": "Naomi ALADE",
+     "noc": "USA",
+     "paese": "United States of America",
+     "continente": "Pan America",
+     "rank": 13,
+     "punti": 62.7,
+     "tipo": "H",
+     "via": "Paese ospitante (USA)",
+     "stato": "Provvisorio",
+     "nota": "Posto ospitante: in simulazione si usa la categoria in cui gli USA hanno il miglior ranking (posizione 13). La categoria vera la sceglie la NOC entro il 30 settembre 2027."
+    },
+    {
+     "nome": "Lorena BRANDL",
+     "noc": "GER",
+     "paese": "Germany",
+     "continente": "Europa",
+     "rank": 6,
+     "punti": 92.78,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 6 del ranking olimpico tra gli atleti del continente (92.78 punti)."
+    },
+    {
+     "nome": "Kimi Laurene OSSIN",
+     "noc": "CIV",
+     "paese": "Cote D'ivoire",
+     "continente": "Africa",
+     "rank": 7,
+     "punti": 81.6,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 7 del ranking olimpico tra gli atleti del continente (81.6 punti)."
+    },
+    {
+     "nome": "Wenzhe MU",
+     "noc": "CHN",
+     "paese": "People's Republic Of China",
+     "continente": "Asia",
+     "rank": 8,
+     "punti": 74.88,
+     "tipo": "C",
+     "via": "Torneo continentale (riassegnato)",
+     "stato": "Provvisorio",
+     "nota": "Posto del continente Oceania senza altri atleti utilizzabili: riassegnato al migliore del ranking olimpico della categoria (posizione 8)."
+    },
+    {
+     "nome": "Tania CASTIÑEIRA ETCHEVERRIA",
+     "noc": "ESP",
+     "paese": "Spain",
+     "continente": "Europa",
+     "rank": 9,
+     "punti": 68.25,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Europa): posizione 9 del ranking olimpico tra gli atleti del continente (68.25 punti)."
+    },
+    {
+     "nome": "Svetlana SAIDOVA",
+     "noc": "UZB",
+     "paese": "Uzbekistan",
+     "continente": "Asia",
+     "rank": 11,
+     "punti": 65.55,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 11 del ranking olimpico tra gli atleti del continente (65.55 punti)."
+    },
+    {
+     "nome": "Dunya Bushuaib A SABER",
+     "noc": "KSA",
+     "paese": "Saudi Arabia",
+     "continente": "Asia",
+     "rank": 15,
+     "punti": 56.75,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Asia): posizione 15 del ranking olimpico tra gli atleti del continente (56.75 punti)."
+    },
+    {
+     "nome": "Malak SAMY ELHOSSEINY",
+     "noc": "EGY",
+     "paese": "Egypt",
+     "continente": "Africa",
+     "rank": 29,
+     "punti": 35.65,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Africa): posizione 29 del ranking olimpico tra gli atleti del continente (35.65 punti)."
+    },
+    {
+     "nome": "Sarai Gonzalez Lopez",
+     "noc": "MEX",
+     "paese": "Mexico",
+     "continente": "Pan America",
+     "rank": 41,
+     "punti": 23.6,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 41 del ranking olimpico tra gli atleti del continente (23.6 punti)."
+    },
+    {
+     "nome": "Rachel FOUNTAIN",
+     "noc": "CAN",
+     "paese": "Canada",
+     "continente": "Pan America",
+     "rank": 42,
+     "punti": 23.41,
+     "tipo": "C",
+     "via": "Torneo continentale",
+     "stato": "Provvisorio",
+     "nota": "Simulazione del torneo continentale (Pan America): posizione 42 del ranking olimpico tra gli atleti del continente (23.41 punti)."
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "Magdalena MATIC",
+     "noc": "CRO",
+     "paese": "Croatia",
+     "continente": "Europa",
+     "rank": 10,
+     "punti": 67.95,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Dagmara HAREMZA",
+     "noc": "POL",
+     "paese": "Poland",
+     "continente": "Europa",
+     "rank": 12,
+     "punti": 65.33,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    },
+    {
+     "nome": "Sude Yaren Uzuncavdar",
+     "noc": "TUR",
+     "paese": "Türkiye",
+     "continente": "Europa",
+     "rank": 16,
+     "punti": 56.72,
+     "tipo": "R",
+     "via": "Primi fuori dai posti",
+     "stato": "Fuori",
+     "nota": "Primo escluso dalla simulazione: sarebbe il candidato a un posto riassegnato."
+    }
+   ],
+   "attesa": [
+    {
+     "tipo": "G",
+     "etichetta": "Grand Slam Champions Series 2027",
+     "nota": "Il migliore del Grand Slam Champions Series 2027 (se gia' qualificato dal ranking, passa al secondo). La classifica non e' nei dati: posto in attesa."
+    }
+   ],
+   "soglia": 112.56
+  }
+ },
+ "note": [
+  "esclusi gli atleti senza Comitato Olimpico Nazionale: FPO (Polinesia francese): 2, MAC (Macao): 1, MRN (Martinica): 1, NCD (Nuova Caledonia): 2, TRT (squadra rifugiati WT): 13",
+  "Uomini: gli USA hanno gia' 2 posto/i da ranking, quindi i posti ospitanti scendono a 0.",
+  "Donne: gli USA hanno gia' 1 posto/i da ranking, quindi i posti ospitanti scendono a 1.",
+  "2 posti continentali riassegnati al migliore del ranking della categoria (regola F.1).",
+  "Grand Slam Champions Series: la classifica 2027 non e' disponibile, quindi gli 8 posti (uno per categoria) restano in attesa e non tolgono posti al ranking.",
+  "Tornei continentali (febbraio-aprile 2028): non ancora disputati. Come prevede il regolamento per i posti non assegnati (art. F.1), la simulazione li assegna ai migliori atleti del ranking olimpico di ogni continente: 2 per categoria (1 per l'Oceania), uno per NOC, al massimo 2 posti per NOC e genere, senza le NOC con gia' 2 posti da ranking nello stesso genere e senza gli USA.",
+  "Posto ospitante USA: 2 per genere, ridotti dei posti che gli USA ottengono con il ranking; la categoria viene scelta dove gli USA hanno il miglior ranking. I posti non usati passano a Universality.",
+  "Requisiti di eleggibilita' degli atleti (licenza, Kukkiwon Dan, top 20 negli ultimi due anni) non verificabili dai dati: si controlla solo la data di nascita (entro il 31 dicembre 2011).",
+  "Russia e Bielorussia compaiono come nel ranking WT: la loro partecipazione ai Giochi dipende dalle decisioni di CIO e WT, che la simulazione non considera."
+ ]
+}

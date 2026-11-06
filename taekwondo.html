@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Qualificati Taekwondo LA28</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
+<style>
+/* Stessa veste di judo.html e wrestling.html, in giallo chiaro: testata, fascia con totale e dettaglio, quattro totali, griglia di carte. */
+:root {
+  --bg: #ffffff; --fg: #3a3220; --muted: #77704f; --line: #f1e6b8; --card: #fffdf3; --soft: #fffbe6; --track: #f8efc9;
+  --ink: #e2b93a; --ink-2: #f4e08e; --ink-t: #8a6a0c; --host: #d28440;
+  --men: #7da9e8; --women: #dcc466; --open: #9aa0a8; --shadow: rgba(120, 90, 10, .10);
+  --font: "Quicksand", "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1c1a10; --fg: #f3ecd2; --muted: #b9b08a; --line: #433c20; --card: #25220f; --soft: #2c2812; --track: #3a3418;
+  --ink: #f0cf63; --ink-2: #f7e6a0; --ink-t: #f1d878; --host: #e39a58;
+  --men: #8fb6ee; --women: #e3cd77; --open: #8e949c; --shadow: rgba(0, 0, 0, .4); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1c1a10; --fg: #f3ecd2; --muted: #b9b08a; --line: #433c20; --card: #25220f; --soft: #2c2812; --track: #3a3418;
+  --ink: #f0cf63; --ink-2: #f7e6a0; --ink-t: #f1d878; --host: #e39a58;
+  --men: #8fb6ee; --women: #e3cd77; --open: #8e949c; --shadow: rgba(0, 0, 0, .4); color-scheme: dark }
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 500 16px/1.4 var(--font) }
+h1, h2, h3, p { margin: 0 }
+.guscio { max-width: 1320px; margin: 0 auto; display: grid; gap: 16px; padding-block: 18px 28px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.testa { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px }
+.titolo { flex: 1 1 320px; min-width: 0 }
+.occhiello { font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-t) }
+h1 { font: 600 2.1rem/1.2 var(--font); text-wrap: balance }
+.vai { flex: 1 1 220px; max-width: 320px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 10px; padding: 11px 16px; color: inherit; text-decoration: none; border: 1.5px solid var(--line); border-radius: 18px }
+.vai:hover { border-color: var(--ink) }
+.vai b { font-weight: 600 } .vai span { grid-column: 1; font-size: .84rem; color: var(--muted) } .vai i { grid-row: 1 / 3; grid-column: 2; font-style: normal; color: var(--ink-t); font-size: 1.2rem }
+button.vai { font: inherit; text-align: left; background: none; cursor: pointer }
+
+.fascia { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); background: var(--soft); border: 1.5px solid var(--line); border-radius: 24px }
+.avanz { display: flex; align-items: center; gap: 24px; padding: 22px 26px; min-width: 0; align-self: start; position: sticky; top: 8px }
+.anello { position: relative; flex: none; width: 168px; height: 168px; display: grid; place-items: center; text-align: center }
+.anello svg { position: absolute; inset: 0; transform: rotate(-90deg) }
+.anello small { display: block; font-size: .8rem; color: var(--muted) }
+.anello b { display: block; font: 600 2rem/1.1 var(--font); font-variant-numeric: tabular-nums }
+.traccia { fill: none; stroke: var(--track) } .arco { fill: none; stroke: var(--ink); stroke-linecap: round }
+.avanz h2 { font: 600 1.45rem/1.25 var(--font); text-wrap: balance; overflow-wrap: anywhere }
+.avanz p { color: var(--muted) }
+.etichetta { margin-bottom: 4px; font-size: .78rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-t) }
+.dettaglio { min-width: 0; padding: 22px 26px; border-left: 1.5px solid var(--line) }
+.dettaglio h2 { font: 600 1.45rem/1.25 var(--font) }
+.dettaglio .etichetta { color: var(--host) }
+.dettaglio > p { color: var(--muted) }
+
+/* elenco dei qualificati della categoria */
+.classifica { margin: 10px 0 0; padding: 0; list-style: none; display: grid; gap: 6px }
+.riga { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; align-items: center; gap: 4px 10px; padding: 8px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 14px }
+.riga.cerca-ok { border-color: var(--ink); box-shadow: inset 4px 0 0 var(--ink) }
+.riga.attesa { border-style: dashed; color: var(--muted) }
+.pos { font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; text-align: center }
+.chi { min-width: 0 } .chi b { font-weight: 600; overflow-wrap: anywhere } .chi small { display: block; font-size: .8rem; color: var(--muted) }
+.perc { text-align: right; font-variant-numeric: tabular-nums } .perc b { font: 700 1.1rem/1.1 var(--font); color: var(--ink-t) } .perc small { display: block; font-size: .76rem; color: var(--muted) }
+.titoli span, .chip { display: inline-block; padding: 3px 10px; font-size: .86rem; color: inherit; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; text-decoration: none; font-variant-numeric: tabular-nums }
+.titoli { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px }
+a.chip:hover, button.chip:hover { border-color: var(--ink) }
+.riga .noc { font-size: .78rem; padding: 1px 8px; margin-left: 4px; vertical-align: 1px }
+.sezione { margin: 12px 0 0; font-size: .78rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--muted) }
+.via { display: inline-flex; align-items: center; gap: 5px } .via i { width: 8px; height: 8px; border-radius: 50%; display: inline-block }
+.via .D, .tipo-D { background: var(--ink) } .via .H, .tipo-H { background: var(--host) } .via .C, .tipo-C { background: var(--ink-2) }
+.via .R { background: var(--open) } .via .G, .tipo-G { background: repeating-linear-gradient(45deg, var(--open) 0 3px, transparent 3px 6px) }
+
+.totali { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1.5px solid var(--line); border-radius: 22px }
+.totale { padding: 12px 18px; text-align: center; border-right: 1px solid var(--line) } .totale:last-child { border-right: 0 }
+.totale b { display: block; font: 600 1.9rem/1.2 var(--font); font-variant-numeric: tabular-nums }
+.totale span { font-size: .78rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted) }
+
+.filtri { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px }
+#cerca { flex: 1 1 240px; min-width: 0; max-width: 460px; height: 44px; padding: 0 16px; font: 500 1rem var(--font); color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 14px }
+#cerca::placeholder { color: var(--muted) }
+.gruppo { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 4px; background: var(--soft); border-radius: 14px }
+.gruppo button { padding: 6px 12px; font: 600 .9rem var(--font); color: var(--muted); background: none; border: 0; border-radius: 10px; cursor: pointer }
+.gruppo button[aria-pressed="true"] { color: var(--fg); background: var(--bg); box-shadow: 0 1px 3px var(--shadow) }
+
+.griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px }
+.carta { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; width: 100%; padding: 16px; text-align: left; font: inherit; color: inherit; background: var(--card); border: 1.5px solid var(--line); border-radius: 20px; cursor: pointer }
+.carta:hover { border-color: var(--ink); box-shadow: 0 5px 14px var(--shadow) }
+.carta[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 4px 0 0 var(--ink) }
+.icona { display: grid; place-items: center; width: 50px; height: 50px; font-size: 1.7rem; background: var(--bg); border: 1px solid var(--line); border-radius: 13px }
+.carta h3 { font: 600 1.15rem/1.2 var(--font); overflow-wrap: anywhere }
+.carta h3 small { display: block; font-size: .8rem; font-weight: 600; color: var(--muted) }
+.dot { display: inline-block; width: 9px; height: 9px; margin-right: 5px; border-radius: 50%; vertical-align: 1px } .dot.M { background: var(--men) } .dot.F { background: var(--women) }
+.mini { position: relative; width: 58px; height: 58px; display: grid; place-items: center; font-size: .9rem; font-weight: 700; font-variant-numeric: tabular-nums }
+.mini svg { position: absolute; inset: 0; transform: rotate(-90deg) }
+.barra { grid-column: 1 / -1; display: flex; height: 9px; background: var(--track); border-radius: 999px; overflow: hidden }
+.barra i { display: block; height: 100% }
+.cifre { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr) minmax(0, 1.15fr); gap: 8px }
+.cifre div { min-width: 0; padding: 7px 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 12px }
+.cifre b { display: block; font: 600 1.15rem/1.2 var(--font); color: var(--ink-t); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.cifre span { display: block; font-size: .8rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.vuoto { padding: 20px; color: var(--muted) }
+.legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .86rem; color: var(--muted) }
+.legenda span { display: inline-flex; align-items: center; gap: 6px } .legenda i { width: 10px; height: 10px; border-radius: 50%; display: inline-block }
+.nazioni h2 { font: 600 1.25rem/1.25 var(--font); margin-bottom: 8px }
+.nazioni .titoli { margin-top: 0 }
+button.chip { font: inherit; font-size: .86rem; cursor: pointer }
+.nota { max-width: 90ch; font-size: .86rem; color: var(--muted) }
+.note-det { max-width: 90ch; font-size: .86rem; color: var(--muted) }
+.note-det summary { cursor: pointer; font-weight: 600; color: var(--ink-t) }
+.note-det ul { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 4px }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px }
+@media (max-width: 900px) {
+  .avanz { position: static }
+  h1 { font-size: 1.6rem }
+  .fascia { grid-template-columns: minmax(0, 1fr) } .dettaglio { border-left: 0; border-top: 1.5px solid var(--line) }
+  .totali { grid-template-columns: repeat(2, minmax(0, 1fr)) } .totale:nth-child(2) { border-right: 0 } .totale:nth-child(-n+2) { border-bottom: 1px solid var(--line) }
+  .vai { max-width: none }
+}
+@media (max-width: 520px) { .avanz { flex-direction: column; text-align: center; padding: 18px } .dettaglio { padding: 18px } }
+
+/* vista di stampa / PDF (a schermo è nascosta) */
+#stampa { display: none }
+@media print {
+  @page { size: A4; margin: 11mm }
+  :root:not([data-theme="x"]) { color-scheme: light !important }
+  html, body { background: #fff !important; color: #3a3220 !important; font-size: 9pt }
+  .guscio { display: block; max-width: none; padding: 0 }
+  .guscio > :not(#stampa) { display: none !important }
+  #stampa { display: block; -webkit-print-color-adjust: exact; print-color-adjust: exact }
+  .s-occ { font-size: 8pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8a6a0c }
+  #stampa h1 { font: 700 18pt/1.2 var(--font); margin: 1mm 0 2mm }
+  .s-sint { font-size: 9pt; margin: 0 0 1.5mm }
+  .s-leg { font-size: 7.5pt; color: #77704f; margin: 0 0 4mm; padding-bottom: 3mm; border-bottom: 1.5pt solid #e2b93a }
+  .s-griglia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 8mm; align-items: start }
+  .s-cat { break-inside: avoid; page-break-inside: avoid; margin: 0 0 4mm }
+  .s-cat h2 { font: 700 10.5pt/1.2 var(--font); margin: 0; padding: 1.2mm 2mm; background: #fffbe6; border-left: 2.5pt solid #e2b93a; color: #3a3220 }
+  .s-sub { font-size: 7pt; color: #77704f; margin: .8mm 0 1mm 2mm }
+  .s-cat table { width: 100%; border-collapse: collapse; font-size: 7pt; line-height: 1.12; font-variant-numeric: tabular-nums }
+  .s-cat th { text-align: left; font-weight: 700; font-size: 6.6pt; color: #77704f; padding: 0 1.5mm .6mm; border-bottom: .6pt solid #e2b93a }
+  .s-cat td { padding: .12mm 1.5mm; border-bottom: .4pt solid #f1e6b8; vertical-align: top }
+  .s-cat .n { text-align: right; white-space: nowrap }
+  .s-cat .v { text-align: center; font-weight: 700; white-space: nowrap }
+  .s-cat .v.D { color: #b8901c } .s-cat .v.H { color: #c4702f } .s-cat .v.C { color: #b0a05a } .s-cat .v.R { color: #8e949c } .s-cat .v.G { color: #8e949c }
+  .s-cat tr.s-riserve td { padding-top: 1.4mm; font-size: 6.6pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #77704f; border-bottom: 0 }
+  .s-cat tr.s-attesa td { font-style: italic; color: #77704f }
+  .s-nota { font-size: 7.2pt; color: #77704f; margin-top: 2mm; padding-top: 2mm; border-top: .6pt solid #f1e6b8 }
+  .s-note { margin: 1mm 0 0; padding-left: 4mm; font-size: 7pt; color: #77704f }
+}
+</style>
+</head>
+<body>
+<div class="guscio">
+  <header class="testa">
+    <div class="titolo">
+      <p class="occhiello" id="data">Road to LA28</p>
+      <h1>🥋 Qualificati Taekwondo LA28 · simulazione</h1>
+    </div>
+    <a class="vai" href="sport.html"><b>Per sport</b><span>Qualificati di ogni sport</span><i>›</i></a>
+    <a class="vai" href="scheda.html"><b>Per NOC</b><span>Scheda di ogni nazione</span><i>›</i></a>
+    <a class="vai" href="index.html"><b>Mappa</b><span>Qualificati nel mondo</span><i>›</i></a>
+    <button class="vai" id="pdf" type="button" title="Si apre la stampa: scegli «Salva come PDF»"><b>Scarica PDF</b><span>Tutte le categorie, pronte da stampare</span><i>↓</i></button>
+  </header>
+
+  <section class="fascia">
+    <div class="avanz">
+      <div class="anello" id="anello"></div>
+      <div id="favorito"></div>
+    </div>
+    <div class="dettaglio" id="dettaglio" aria-live="polite"></div>
+  </section>
+
+  <section class="totali" id="totali"></section>
+
+  <div class="filtri">
+    <input id="cerca" type="search" placeholder="Cerca atleta, NOC, peso…" autocomplete="off" aria-label="Cerca un atleta, un NOC o un peso">
+    <div class="gruppo" id="genere" role="group" aria-label="Filtra per genere"></div>
+    <div class="gruppo" id="viaf" role="group" aria-label="Filtra per via di qualificazione"></div>
+    <div class="gruppo" id="ordine" role="group" aria-label="Ordina"></div>
+  </div>
+  <div class="legenda">
+    <span><i class="tipo-D"></i>Ranking olimpico (primi 5)</span>
+    <span><i class="tipo-H"></i>Paese ospitante</span>
+    <span><i class="tipo-C"></i>Torneo continentale (simulato)</span>
+    <span><i class="tipo-G"></i>In attesa (Grand Slam)</span>
+  </div>
+
+  <div class="griglia" id="griglia"></div>
+
+  <section class="nazioni" id="nazioni"></section>
+  <p class="nota" id="nota"></p>
+  <details class="note-det"><summary>Come funziona la simulazione</summary><ul id="note-lista"></ul></details>
+  <div id="stampa"></div>
+</div>
+
+<script>
+(async function () {
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, cls, testo) => { const e = document.createElement(tag); if (cls) e.className = cls; if (testo != null) e.textContent = testo; return e; };
+  const num = (n) => n.toLocaleString("it-IT");
+  const NS = "http://www.w3.org/2000/svg";
+  function cerchio(dim, spessore, p) {
+    const s = document.createElementNS(NS, "svg"); s.setAttribute("viewBox", `0 0 ${dim} ${dim}`); s.setAttribute("aria-hidden", "true");
+    const r = (dim - spessore) / 2, c = 2 * Math.PI * r;
+    [["traccia", 0], ["arco", p]].forEach(([cl, v]) => {
+      const o = document.createElementNS(NS, "circle");
+      o.setAttribute("class", cl); o.setAttribute("cx", dim / 2); o.setAttribute("cy", dim / 2); o.setAttribute("r", r); o.setAttribute("stroke-width", spessore);
+      if (cl === "arco") { o.setAttribute("stroke-dasharray", `${c * v / 100} ${c}`); if (!v) o.setAttribute("stroke-opacity", "0"); }
+      s.append(o);
+    });
+    return s;
+  }
+
+  let dati;
+  try { dati = await fetch("taekwondo.json?v=" + Date.now()).then((r) => { if (!r.ok) throw 0; return r.json(); }); }
+  catch (e) { $("nota").textContent = "La simulazione non si carica: ricarica la pagina."; return; }
+
+  const EV = dati.evento || 16;
+  const cat = Object.entries(dati.categorie).map(([chiave, c]) => {
+    const per = (t) => c.atleti.filter((a) => a.tipo === t);
+    return { chiave, ...c, ranking: per("D"), ospit: per("H"), cont: per("C"), tot: c.atleti.length, soglia: c.soglia || 0 };
+  });
+  const tutti = cat.flatMap((c) => c.atleti.map((a) => ({ ...a, cat: c })));
+  const maxTot = EV;
+  const capacita = EV * cat.length;
+  const inAttesa = dati.attesa.grand_slam + dati.attesa.universality;
+
+  const quando = dati.mese_ranking || "oggi";
+  $("data").textContent = "Road to LA28 · ranking di " + quando;
+  const noc = new Set(tutti.map((a) => a.noc));
+  [[cat.length, "Categorie"], [tutti.length, "Atleti qualificati"], [noc.size, "NOC in simulazione"], [inAttesa, "Posti ancora da assegnare"]].forEach(([n, t]) => {
+    const d = el("div", "totale"); d.append(el("b", "", n ? num(n) : "–"), el("span", "", t)); $("totali").append(d);
+  });
+
+  let scelto = null, genere = "tutti", viaf = "tutti", ordine = "peso";
+  const GENERI = { tutti: "Tutti", M: "Uomini", F: "Donne" };
+  const VIE = { tutti: "Tutte le vie", D: "Ranking", C: "Continentale", H: "Ospitante" };
+  const ORDINI = { peso: "Per peso", alta: "Soglia più alta", bassa: "Soglia più bassa" };
+  const domanda = () => $("cerca").value.trim().toLowerCase();
+  const corrisponde = (a, q) => q && (a.nome.toLowerCase().includes(q) || a.noc.toLowerCase() === q);
+  const pt = (p) => (p == null ? "–" : p.toLocaleString("it-IT", { minimumFractionDigits: 0, maximumFractionDigits: 2 }));
+
+  function anello(c) {
+    const box = $("anello"), testo = $("favorito"); box.textContent = ""; testo.textContent = "";
+    const n = c ? c.tot : tutti.length, cap = c ? EV : capacita;
+    const dentro = el("div"); dentro.append(el("small", "", c ? "qualificati" : "posti assegnati"), el("b", "", num(n)), el("small", "", "su " + num(cap)));
+    box.append(cerchio(168, 16, cap ? n / cap * 100 : 0), dentro);
+    if (c) {
+      testo.append(el("p", "etichetta", "Categoria selezionata"), el("h2", "", `🥋 ${c.nome} · ${c.genere === "M" ? "Uomini" : "Donne"}`),
+        el("p", "", `${c.ranking.length} dal ranking, ${c.cont.length} continentali${c.ospit.length ? ", 1 ospitante" : ""} · 5° del ranking ${pt(c.soglia)} punti`));
+    } else {
+      const t = dati.totali;
+      testo.append(el("p", "etichetta", "Simulazione di oggi"), el("h2", "", `${num(tutti.length)} atleti di ${num(noc.size)} NOC`),
+        el("p", "", `${num(t.ranking)} dal ranking · ${num(t.ospitanti)} ospitanti · ${num(t.continentali)} continentali. In attesa: ${dati.attesa.grand_slam} Grand Slam e ${dati.attesa.universality} Universality.`));
+    }
+  }
+
+  function riga(a, i, q) {
+    const li = el("li", "riga" + (corrisponde(a, q) ? " cerca-ok" : ""));
+    const chi = el("div", "chi"), nome = el("b", "", a.nome), n = el("a", "chip noc", a.noc); n.href = "scheda.html#" + a.noc;
+    nome.append(n); chi.append(nome);
+    const v = el("span", "via"); v.append(el("i", a.tipo), el("span", "", a.via));
+    const sm = el("small"); sm.append(v);
+    sm.append(document.createTextNode(` · ranking n.${a.rank} · ${a.continente || "–"} · ${a.stato}`));
+    chi.append(sm);
+    if (a.nota) chi.title = a.nota;
+    const perc = el("div", "perc"); perc.append(el("b", "", pt(a.punti)), el("small", "", "punti"));
+    li.append(el("span", "pos", i + 1), chi, perc);
+    return li;
+  }
+
+  function rigaAttesa(p) {
+    const li = el("li", "riga attesa");
+    const chi = el("div", "chi"), nome = el("b", "", p.etichetta);
+    const v = el("span", "via"); v.append(el("i", "G"), el("span", "", "Da assegnare"));
+    const sm = el("small"); sm.append(v, document.createTextNode(" · il migliore della classifica 2027 (se già qualificato dal ranking, il secondo)"));
+    chi.append(nome, sm); if (p.nota) chi.title = p.nota;
+    li.append(el("span", "pos", "·"), chi, el("div", "perc"));
+    return li;
+  }
+
+  function dettaglio() {
+    const box = $("dettaglio"); box.textContent = "";
+    const c = cat.find((x) => x.chiave === scelto);
+    anello(c);
+    if (!c) {
+      box.append(el("p", "etichetta", "Qualificati della categoria"), el("h2", "", "Clicca una carta qui sotto"),
+        el("p", "", "Qui compaiono tutti i qualificati della simulazione, con la via di qualificazione e i punti del ranking olimpico."));
+      return;
+    }
+    box.append(el("p", "etichetta", `5° posto del ranking olimpico: ${pt(c.soglia)} punti`), el("h2", "", `🥋 ${c.nome} · ${c.genere === "M" ? "Uomini" : "Donne"}`));
+    const q = domanda(), ol = el("ol", "classifica");
+    c.atleti.forEach((a, i) => ol.append(riga(a, i, q)));
+    c.attesa.forEach((p) => ol.append(rigaAttesa(p)));
+    box.append(ol);
+    if (c.riserve.length) {
+      box.append(el("p", "sezione", "Primi fuori dai posti"));
+      const rs = el("ol", "classifica"); c.riserve.forEach((a, i) => rs.append(riga(a, i, q))); box.append(rs);
+    }
+  }
+
+  function carta(c) {
+    const b = el("button", "carta"); b.type = "button"; b.setAttribute("aria-pressed", c.chiave === scelto);
+    const m = el("span", "mini", String(c.tot)); m.prepend(cerchio(58, 6, c.tot / maxTot * 100));
+    const barra = el("div", "barra");
+    [[c.ranking.length, "D"], [c.ospit.length, "H"], [c.cont.length, "C"], [c.attesa.length, "G"]].forEach(([n, t]) => {
+      if (!n) return; const s = el("i", "tipo-" + t); s.style.width = (n / EV * 100) + "%"; barra.append(s);
+    });
+    const cifre = el("div", "cifre");
+    [[String(c.ranking.length), "Ranking"], [String(c.cont.length), "Continentali"], [c.ospit.length ? "1" : "–", "Ospitante"]].forEach(([n, t]) => {
+      const d = el("div"); d.append(el("b", "", n), el("span", "", t)); cifre.append(d);
+    });
+    const ic = el("span", "icona", "🥋"); ic.setAttribute("aria-hidden", "true");
+    const h = el("h3", "", c.nome), s = el("small"); s.append(el("i", "dot " + c.genere), c.genere === "M" ? "Uomini" : "Donne"); h.prepend(s);
+    b.append(ic, h, m, barra, cifre);
+    b.title = `5° del ranking olimpico: ${pt(c.soglia)} punti`;
+    b.addEventListener("click", () => {
+      scelto = scelto === c.chiave ? null : c.chiave; dettaglio(); griglia();
+      if (scelto && window.innerWidth < 900) $("dettaglio").scrollIntoView({ block: "center" });
+    });
+    return b;
+  }
+
+  function griglia() {
+    const q = domanda();
+    const lista = cat
+      .filter((c) => genere === "tutti" || c.genere === genere)
+      .filter((c) => viaf === "tutti" || c.atleti.some((a) => a.tipo === viaf))
+      .filter((c) => !q || c.nome.toLowerCase().includes(q) || c.atleti.some((a) => corrisponde(a, q)));
+    if (ordine === "alta") lista.sort((a, b) => b.soglia - a.soglia);
+    if (ordine === "bassa") lista.sort((a, b) => a.soglia - b.soglia);
+    const g = $("griglia"); g.textContent = "";
+    lista.forEach((c) => g.append(carta(c)));
+    if (!lista.length) g.append(el("p", "vuoto", "Nessuna categoria corrisponde alla ricerca."));
+  }
+
+  function nazioni() {
+    const conta = {};
+    tutti.forEach((a) => { conta[a.noc] = (conta[a.noc] || 0) + 1; });
+    const top = Object.entries(conta).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 24);
+    const box = $("nazioni"); box.textContent = "";
+    box.append(el("h2", "", "Nazioni con più qualificati"));
+    const t = el("div", "titoli");
+    top.forEach(([n, k]) => {
+      const b = el("button", "chip", `${n} · ${k}`); b.type = "button"; b.title = `Mostra gli atleti ${n}`;
+      b.addEventListener("click", () => { $("cerca").value = n.toLowerCase(); $("cerca").dispatchEvent(new Event("input")); window.scrollTo({ top: 0, behavior: "smooth" }); });
+      t.append(b);
+    });
+    box.append(t);
+  }
+
+  function bottoni(id, voci, get, set) {
+    const box = $(id);
+    const disegna = () => { box.textContent = ""; Object.entries(voci).forEach(([k, t]) => { const b = el("button", "", t); b.type = "button"; b.setAttribute("aria-pressed", k === get()); b.addEventListener("click", () => { set(k); disegna(); griglia(); }); box.append(b); }); };
+    disegna();
+  }
+  bottoni("genere", GENERI, () => genere, (k) => { genere = k; });
+  bottoni("viaf", VIE, () => viaf, (k) => { viaf = k; });
+  bottoni("ordine", ORDINI, () => ordine, (k) => { ordine = k; });
+  $("cerca").addEventListener("input", () => {
+    const q = domanda();
+    const trovato = q && cat.find((c) => c.atleti.some((a) => corrisponde(a, q)));
+    if (trovato) scelto = trovato.chiave;
+    dettaglio(); griglia();
+  });
+
+  const fine = new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "long", year: "numeric" }).format(new Date(dati.fine_periodo + "T12:00:00"));
+  const cq = dati.quote_continentali;
+  $("nota").textContent = `Simulazione calcolata dall'agente taekwondo applicando il sistema di qualificazione di World Taekwondo per LA28 al ranking olimpico di ${quando}: 5 posti per categoria dal ranking (uno per NOC), 9 posti dai tornei continentali (Europa ${cq["Europa"]}, Asia ${cq["Asia"]}, Africa ${cq["Africa"]}, Pan America ${cq["Pan America"]}, Oceania ${cq["Oceania"]} per categoria), i posti del Paese ospitante (ridotti se gli USA si qualificano con il ranking) e, ancora da assegnare, 1 posto per categoria dal Grand Slam Champions Series e ${dati.attesa.universality} posti Universality (4 più gli eventuali posti ospitanti non usati). Il periodo di qualificazione si chiude il ${fine}: fino ad allora tutto è provvisorio.`;
+  (dati.note || []).forEach((n) => $("note-lista").append(el("li", "", n)));
+  if (!(dati.note || []).length) document.querySelector(".note-det").style.display = "none";
+
+  // vista di stampa: tutte le categorie, una dopo l'altra (visibile solo in stampa / PDF)
+  function stampa() {
+    const box = $("stampa"); box.textContent = "";
+    const t = dati.totali;
+    box.append(el("p", "s-occ", "Road to LA28 · ranking di " + quando), el("h1", "", "🥋 Qualificati Taekwondo LA28 · simulazione"));
+    box.append(el("p", "s-sint", `${num(tutti.length)} atleti di ${num(noc.size)} NOC: ${num(t.ranking)} dal ranking, ${num(t.ospitanti)} ospitanti, ${num(t.continentali)} continentali. In attesa: ${dati.attesa.grand_slam} posti Grand Slam Champions Series e ${dati.attesa.universality} Universality.`));
+    box.append(el("p", "s-leg", "D = ranking olimpico · H = Paese ospitante · C = torneo continentale (simulato) · G = Grand Slam (in attesa) · R = primo fuori · * = posto riassegnato"));
+    const gr = el("div", "s-griglia");
+    const riassegnato = (a) => /riassegnat/i.test(a.via || "");
+    cat.forEach((c) => {
+      const sec = el("section", "s-cat");
+      sec.append(el("h2", "", `${c.nome} · ${c.genere === "M" ? "Uomini" : "Donne"}`),
+        el("p", "s-sub", `5° del ranking ${pt(c.soglia)} punti · ${c.tot} qualificati (${c.ranking.length} ranking, ${c.cont.length} continentali${c.ospit.length ? ", 1 ospitante" : ""})`));
+      const tb = el("table"), th = el("tr");
+      ["#", "Atleta", "NOC", "Via", "Rank", "Punti"].forEach((x, i) => th.append(el("th", i > 3 ? "n" : "", x)));
+      tb.append(th);
+      const r = (a, i) => {
+        const tr = el("tr");
+        tr.append(el("td", "n", i + 1), el("td", "", a.nome), el("td", "", a.noc), el("td", "v " + a.tipo, a.tipo + (riassegnato(a) ? "*" : "")), el("td", "n", a.rank != null ? a.rank : "–"), el("td", "n", pt(a.punti)));
+        return tr;
+      };
+      c.atleti.forEach((a, i) => tb.append(r(a, i)));
+      c.attesa.forEach((p) => { const tr = el("tr", "s-attesa"); const td = el("td", "", "G · Da assegnare: " + p.etichetta); td.colSpan = 6; tr.append(td); tb.append(tr); });
+      if (c.riserve.length) {
+        const tr = el("tr", "s-riserve"); const td = el("td", "", "Primi fuori dai posti"); td.colSpan = 6; tr.append(td); tb.append(tr);
+        c.riserve.forEach((a, i) => tb.append(r(a, i)));
+      }
+      sec.append(tb); gr.append(sec);
+    });
+    box.append(gr, el("p", "s-nota", $("nota").textContent));
+    if ((dati.note || []).length) {
+      const ul = el("ul", "s-note"); dati.note.forEach((n) => ul.append(el("li", "", n))); box.append(ul);
+    }
+  }
+  stampa();
+  const titoloPagina = document.title;
+  window.addEventListener("beforeprint", () => { document.title = "Qualificati Taekwondo LA28 - simulazione ranking " + (dati.aggiornato || ""); });
+  window.addEventListener("afterprint", () => { document.title = titoloPagina; });
+  $("pdf").addEventListener("click", () => window.print());
+
+  nazioni(); dettaglio(); griglia();
+})();
+</script>
+</body>
+</html>

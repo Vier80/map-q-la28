@@ -101,6 +101,35 @@ a.chip:hover, button.chip:hover { border-color: var(--ink) }
 button.chip { font: inherit; font-size: .86rem; cursor: pointer }
 .nota { max-width: 90ch; font-size: .86rem; color: var(--muted) }
 :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px }
+
+/* pulsante PDF e vista di stampa (a schermo la vista di stampa è nascosta) */
+button.vai { font: inherit; text-align: left; background: none; cursor: pointer }
+#stampa { display: none }
+@media print {
+  @page { size: A4; margin: 11mm }
+  :root:not([data-theme="x"]) { color-scheme: light !important }
+  html, body { background: #fff !important; color: #3b2224 !important; font-size: 9pt }
+  .guscio { display: block; max-width: none; padding: 0 }
+  .guscio > :not(#stampa) { display: none !important }
+  #stampa { display: block; -webkit-print-color-adjust: exact; print-color-adjust: exact }
+  .s-occ { font-size: 8pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #b04a4e }
+  #stampa h1 { font: 700 18pt/1.2 var(--font); margin: 1mm 0 2mm }
+  .s-sint { font-size: 9pt; margin: 0 0 1.5mm }
+  .s-leg { font-size: 7.5pt; color: #7b6466; margin: 0 0 4mm; padding-bottom: 3mm; border-bottom: 1.5pt solid #cf6b6e }
+  .s-griglia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 8mm; align-items: start }
+  .s-cat { break-inside: avoid; page-break-inside: avoid; margin: 0 0 4mm }
+  .s-cat h2 { font: 700 10.5pt/1.2 var(--font); margin: 0; padding: 1.2mm 2mm; background: #fbefef; border-left: 2.5pt solid #cf6b6e; color: #3b2224 }
+  .s-sub { font-size: 7pt; color: #7b6466; margin: .8mm 0 1mm 2mm }
+  .s-cat table { width: 100%; border-collapse: collapse; font-size: 7pt; line-height: 1.12; font-variant-numeric: tabular-nums }
+  .s-cat th { text-align: left; font-weight: 700; font-size: 6.6pt; color: #7b6466; padding: 0 1.5mm .6mm; border-bottom: .6pt solid #cf6b6e }
+  .s-cat td { padding: .12mm 1.5mm; border-bottom: .4pt solid #f0dcdc; vertical-align: top }
+  .s-cat .n { text-align: right; white-space: nowrap }
+  .s-cat .v { text-align: center; font-weight: 700; white-space: nowrap }
+  .s-cat .v.D { color: #cf6b6e } .s-cat .v.H { color: #a8782a } .s-cat .v.C { color: #b8858a } .s-cat .v.R { color: #8c96a2 }
+  .s-cat tr.s-riserve td { padding-top: 1.4mm; font-size: 6.6pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #7b6466; border-bottom: 0 }
+  .s-cat tr.s-attesa td { font-style: italic; color: #7b6466 }
+  .s-nota { font-size: 7.2pt; color: #7b6466; margin-top: 2mm; padding-top: 2mm; border-top: .6pt solid #f0dcdc }
+}
 @media (max-width: 900px) {
   .avanz { position: static }
   h1 { font-size: 1.6rem }
@@ -121,6 +150,7 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     <a class="vai" href="sport.html"><b>Per sport</b><span>Qualificati di ogni sport</span><i>›</i></a>
     <a class="vai" href="scheda.html"><b>Per NOC</b><span>Scheda di ogni nazione</span><i>›</i></a>
     <a class="vai" href="index.html"><b>Mappa</b><span>Qualificati nel mondo</span><i>›</i></a>
+    <button class="vai" id="pdf" type="button" title="Si apre la stampa: scegli «Salva come PDF»"><b>Scarica PDF</b><span>Tutte le categorie, pronte da stampare</span><i>↓</i></button>
   </header>
 
   <section class="fascia">
@@ -149,6 +179,7 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
 
   <section class="nazioni" id="nazioni"></section>
   <p class="nota" id="nota"></p>
+  <div id="stampa"></div>
 </div>
 
 <script>
@@ -317,6 +348,43 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
 
   const fine = new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "long", year: "numeric" }).format(new Date(dati.fine_periodo + "T12:00:00"));
   $("nota").textContent = `Simulazione calcolata dall'agente judo applicando il sistema di qualificazione CIO per LA28 al ranking olimpico IJF di oggi: i primi 17 di ogni peso (uno per NOC), il posto del Paese ospitante e le quote continentali (Africa 12, Europa 13, Asia 12, Oceania 4, Americhe 11 per genere). Il periodo di qualificazione termina il ${fine}: fino ad allora tutto è provvisorio. Restano da assegnare 10 posti Universality e 6 inviti per la squadra mista.`;
+  // vista di stampa: tutte le categorie, una dopo l'altra (visibile solo in stampa / PDF)
+  function stampa() {
+    const box = $("stampa"); box.textContent = "";
+    const t = dati.totali;
+    box.append(el("p", "s-occ", "Road to LA28 · ranking del " + dataIt), el("h1", "", "🥋 Qualificati Judo LA28 · simulazione"));
+    box.append(el("p", "s-sint", `${num(tutti.length)} atleti di ${num(noc.size)} NOC: ${num(t.diretti)} diretti, ${num(t.ospitanti)} ospitanti, ${num(t.continentali)} continentali. In attesa: ${dati.universality} posti Universality e ${dati.squadra_mista} inviti squadra mista.`));
+    box.append(el("p", "s-leg", "D = qualificazione diretta (ranking olimpico) · H = Paese ospitante · C = quota continentale · R = riserva · * = posto riassegnato"));
+    const gr = el("div", "s-griglia");
+    const riassegnato = (a) => /riassegnat/i.test(a.via || "");
+    cat.forEach((c) => {
+      const sec = el("section", "s-cat");
+      sec.append(el("h2", "", `${c.nome} · ${c.genere === "M" ? "Uomini" : "Donne"}`),
+        el("p", "s-sub", `soglia diretta ${pt(c.soglia)} punti · ${c.tot} qualificati (${c.diretti.length + c.ospit.length} dal ranking, ${c.cont.length} continentali)`));
+      const tb = el("table"), th = el("tr");
+      ["#", "Atleta", "NOC", "Via", "Rank", "Punti"].forEach((x, i) => th.append(el("th", i > 3 ? "n" : "", x)));
+      tb.append(th);
+      const r = (a, i) => {
+        const tr = el("tr");
+        tr.append(el("td", "n", i + 1), el("td", "", a.nome), el("td", "", a.noc), el("td", "v " + a.tipo, a.tipo + (riassegnato(a) ? "*" : "")), el("td", "n", a.rank != null ? a.rank : "–"), el("td", "n", pt(a.punti)));
+        return tr;
+      };
+      c.atleti.forEach((a, i) => tb.append(r(a, i)));
+      if (c.da_assegnare) { const tr = el("tr", "s-attesa"); const td = el("td", "", `Posto ospitante ancora da assegnare: ${c.da_assegnare}`); td.colSpan = 6; tr.append(td); tb.append(tr); }
+      if (c.riserve.length) {
+        const tr = el("tr", "s-riserve"); const td = el("td", "", "Riserve"); td.colSpan = 6; tr.append(td); tb.append(tr);
+        c.riserve.forEach((a, i) => tb.append(r(a, i)));
+      }
+      sec.append(tb); gr.append(sec);
+    });
+    box.append(gr, el("p", "s-nota", $("nota").textContent));
+  }
+  stampa();
+  const titoloPagina = document.title;
+  window.addEventListener("beforeprint", () => { document.title = "Qualificati Judo LA28 - simulazione ranking " + dati.aggiornato; });
+  window.addEventListener("afterprint", () => { document.title = titoloPagina; });
+  $("pdf").addEventListener("click", () => window.print());
+
   nazioni(); dettaglio(); griglia();
 })();
 </script>

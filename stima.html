@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Stima qualificazioni LA28</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
+<style>
+/* Stessa veste di judo.html e taekwondo.html, in verde menta: testata, fascia con totali, carte per sport, elenco. */
+:root {
+  --bg: #ffffff; --fg: #1f3a33; --muted: #5f7a71; --line: #cfe9df; --card: #f7fcfa; --soft: #eefaf5; --track: #dcf1e8;
+  --ink: #3fae92; --ink-2: #9ad8c4; --ink-t: #1f7a63; --shadow: rgba(20, 90, 70, .10);
+  --certo: #2f9e62; --probabile: #4a90d9; --possibile: #e2b93a; --remoto: #e08a4a; --fuori: #9aa5a0; --dati: #c9d3ce;
+  --font: "Quicksand", "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0f1b17; --fg: #e6f4ee; --muted: #9db8ae; --line: #264038; --card: #14241e; --soft: #182b24; --track: #1f372e;
+  --ink: #5fcdb0; --ink-2: #9ad8c4; --ink-t: #86e0c6; --shadow: rgba(0, 0, 0, .4);
+  --certo: #4cc283; --probabile: #6aa9ec; --possibile: #ecc956; --remoto: #ee9d62; --fuori: #8a9792; --dati: #4b5a54; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0f1b17; --fg: #e6f4ee; --muted: #9db8ae; --line: #264038; --card: #14241e; --soft: #182b24; --track: #1f372e;
+  --ink: #5fcdb0; --ink-2: #9ad8c4; --ink-t: #86e0c6; --shadow: rgba(0, 0, 0, .4);
+  --certo: #4cc283; --probabile: #6aa9ec; --possibile: #ecc956; --remoto: #ee9d62; --fuori: #8a9792; --dati: #4b5a54; color-scheme: dark }
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 500 16px/1.4 var(--font) }
+h1, h2, h3, p { margin: 0 }
+.guscio { max-width: 1240px; margin: 0 auto; display: grid; gap: 16px; padding-block: 18px 28px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.testa { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px }
+.titolo { flex: 1 1 320px; min-width: 0 }
+.occhiello { font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-t) }
+h1 { font: 600 2.1rem/1.2 var(--font); text-wrap: balance }
+.sotto { margin-top: 4px; color: var(--muted); font-size: .92rem }
+.vai { flex: 0 1 220px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 10px; padding: 11px 16px; color: inherit; font: inherit; text-align: left; background: none; border: 1.5px solid var(--line); border-radius: 18px; cursor: pointer }
+.vai:hover { border-color: var(--ink) }
+.vai b { font-weight: 600 } .vai span { grid-column: 1; font-size: .84rem; color: var(--muted) } .vai i { grid-row: 1 / 3; grid-column: 2; font-style: normal; color: var(--ink-t); font-size: 1.2rem }
+
+.totali { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border: 1.5px solid var(--line); border-radius: 22px; background: var(--soft); overflow: hidden }
+.totale { padding: 12px 10px; text-align: center; border-right: 1px solid var(--line); border-top: 4px solid var(--c, var(--line)) }
+.totale:last-child { border-right: 0 }
+.totale b { display: block; font: 600 1.9rem/1.2 var(--font); font-variant-numeric: tabular-nums }
+.totale span { font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted) }
+
+.filtri { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px }
+#cerca { flex: 1 1 240px; min-width: 0; max-width: 420px; height: 44px; padding: 0 16px; font: 500 1rem var(--font); color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 14px }
+#cerca::placeholder { color: var(--muted) }
+.gruppo { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 4px; background: var(--soft); border-radius: 14px }
+.gruppo button { padding: 6px 12px; font: 600 .9rem var(--font); color: var(--muted); background: none; border: 0; border-radius: 10px; cursor: pointer }
+.gruppo button[aria-pressed="true"] { color: var(--fg); background: var(--bg); box-shadow: 0 1px 3px var(--shadow) }
+
+.griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 12px }
+.carta { display: grid; gap: 8px; width: 100%; padding: 14px 16px; text-align: left; font: inherit; color: inherit; background: var(--card); border: 1.5px solid var(--line); border-radius: 20px; cursor: pointer }
+.carta:hover { border-color: var(--ink); box-shadow: 0 5px 14px var(--shadow) }
+.carta[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 4px 0 0 var(--ink) }
+.carta h3 { font: 600 1.1rem/1.2 var(--font); display: flex; justify-content: space-between; gap: 8px }
+.carta h3 small { font-size: .85rem; font-weight: 600; color: var(--muted) }
+.barra { display: flex; height: 9px; background: var(--track); border-radius: 999px; overflow: hidden }
+.barra i { display: block; height: 100% }
+.carta p { font-size: .8rem; color: var(--muted) }
+
+.legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .86rem; color: var(--muted) }
+.legenda span { display: inline-flex; align-items: center; gap: 6px } .legenda i { width: 10px; height: 10px; border-radius: 50%; display: inline-block }
+
+.elenco { display: grid; gap: 22px }
+.blocco h2 { font: 600 1.3rem/1.25 var(--font); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px }
+.blocco h2 small { font-size: .85rem; font-weight: 600; color: var(--muted) }
+.disc { margin: 12px 0 4px; font-size: .78rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-t) }
+.righe { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px }
+.riga { background: var(--bg); border: 1px solid var(--line); border-radius: 14px }
+.riga[open] { border-color: var(--ink) }
+.riga summary { display: grid; grid-template-columns: 12px minmax(0, 1fr) minmax(90px, 150px) 56px; align-items: center; gap: 10px; padding: 8px 12px; cursor: pointer; list-style: none }
+.riga summary::-webkit-details-marker { display: none }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: var(--c) }
+.chi b { font-weight: 600; overflow-wrap: anywhere } .chi small { display: block; font-size: .8rem; color: var(--muted) }
+.lv { font-size: .76rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--c) }
+.mb { height: 8px; background: var(--track); border-radius: 999px; overflow: hidden } .mb i { display: block; height: 100%; background: var(--c); border-radius: 999px }
+.pc { text-align: right; font: 700 1.05rem/1.1 var(--font); font-variant-numeric: tabular-nums }
+.dett { padding: 4px 14px 12px 34px; font-size: .88rem; color: var(--muted); display: grid; gap: 3px }
+.dett b { color: var(--fg); font-weight: 600 }
+.q-badge { display: inline-block; margin-left: 6px; padding: 0 8px; font-size: .72rem; font-weight: 700; color: #fff; background: var(--certo); border-radius: 999px; vertical-align: 2px }
+.vuoto { padding: 20px; color: var(--muted) }
+.nota { max-width: 90ch; font-size: .86rem; color: var(--muted) }
+.note-det { max-width: 90ch; font-size: .88rem; color: var(--muted) }
+.note-det summary { cursor: pointer; font-weight: 600; color: var(--ink-t) }
+.note-det ul { margin: 8px 0 0; padding-left: 20px; display: grid; gap: 5px }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px }
+@media (max-width: 900px) { h1 { font-size: 1.6rem } .totali { grid-template-columns: repeat(3, minmax(0, 1fr)) } .totale:nth-child(3) { border-right: 0 } .totale:nth-child(-n+3) { border-bottom: 1px solid var(--line) } }
+@media (max-width: 560px) { .riga summary { grid-template-columns: 12px minmax(0, 1fr) 52px } .mb { display: none } }
+
+#stampa { display: none }
+@media print {
+  @page { size: A4; margin: 11mm }
+  :root:not([data-theme="x"]) { color-scheme: light !important }
+  html, body { background: #fff !important; color: #1f3a33 !important; font-size: 9pt }
+  .guscio { display: block; max-width: none; padding: 0 }
+  .guscio > :not(#stampa) { display: none !important }
+  #stampa { display: block; -webkit-print-color-adjust: exact; print-color-adjust: exact }
+  #stampa h1 { font: 700 18pt/1.2 var(--font); margin: 1mm 0 2mm }
+  .s-occ { font-size: 8pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #1f7a63 }
+  .s-sint { font-size: 9pt; margin: 0 0 4mm; padding-bottom: 3mm; border-bottom: 1.5pt solid #3fae92 }
+  .s-sport { margin: 0 0 4mm }
+  .s-sport h2 { font: 700 10.5pt/1.2 var(--font); margin: 0 0 1mm; padding: 1.2mm 2mm; background: #eefaf5; border-left: 2.5pt solid #3fae92; break-after: avoid }
+  .s-sport table { width: 100%; border-collapse: collapse; font-size: 7.4pt; line-height: 1.15; font-variant-numeric: tabular-nums }
+  .s-sport th { text-align: left; font-weight: 700; font-size: 6.8pt; color: #5f7a71; padding: 0 1.5mm .6mm; border-bottom: .6pt solid #3fae92 }
+  .s-sport td { padding: .2mm 1.5mm; border-bottom: .4pt solid #dcf1e8; vertical-align: top }
+  .s-sport tr { break-inside: avoid }
+  .s-sport .n { text-align: right; white-space: nowrap } .s-sport .l { font-weight: 700; white-space: nowrap }
+  .s-note { font-size: 7.4pt; color: #5f7a71; margin-top: 4mm }
+}
+</style>
+</head>
+<body>
+<main class="guscio" id="app">
+  <header class="testa">
+    <div class="titolo">
+      <p class="occhiello">Los Angeles 2028 · Italia</p>
+      <h1>Stima delle qualificazioni</h1>
+      <p class="sotto" id="agg">Caricamento…</p>
+    </div>
+    <button class="vai" id="pdf" type="button"><b>Scarica PDF</b><span>vista di stampa dell'elenco</span><i aria-hidden="true">⤓</i></button>
+  </header>
+  <section class="totali" id="totali" aria-label="Totali per livello"></section>
+  <div class="legenda" id="legenda"></div>
+  <section class="filtri">
+    <input id="cerca" type="search" placeholder="Cerca atleta, squadra o disciplina" aria-label="Cerca">
+    <div class="gruppo" id="livelli" role="group" aria-label="Filtra per livello"></div>
+  </section>
+  <section class="griglia" id="sport" aria-label="Sport"></section>
+  <section class="elenco" id="elenco"></section>
+  <details class="note-det"><summary>Come si calcola la stima</summary><ul id="metodo"></ul></details>
+  <p class="nota" id="note"></p>
+  <div id="stampa"></div>
+</main>
+<script>
+const COL = { "Certo": "var(--certo)", "Probabile": "var(--probabile)", "Possibile": "var(--possibile)", "Remoto": "var(--remoto)", "Fuori": "var(--fuori)", "Dati insufficienti": "var(--dati)" };
+const LIV = Object.keys(COL);
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const nf = (n) => new Intl.NumberFormat("it-IT").format(n);
+let D = null, sportSel = "", livSel = "", testo = "";
+
+function filtra() {
+  const q = testo.trim().toLowerCase();
+  return D.righe.filter((r) =>
+    (!sportSel || r.sport === sportSel) && (!livSel || r.livello === livSel) &&
+    (!q || (r.nome + " " + r.disciplina + " " + r.sport + " " + r.via).toLowerCase().includes(q)));
+}
+function disegna() {
+  $("totali").innerHTML = LIV.map((l) => `<div class="totale" style="--c:${COL[l]}"><b>${nf(D.totali[l] || 0)}</b><span>${l}</span></div>`).join("");
+  $("legenda").innerHTML = [["Certo", "Pass LA28 = Q"], ["Probabile", "70% o più"], ["Possibile", "35–69%"], ["Remoto", "8–34%"], ["Fuori", "sotto l'8%"], ["Dati insufficienti", "mancano punteggi o ranking"]]
+    .map(([l, t]) => `<span><i style="background:${COL[l]}"></i>${l}: ${t}</span>`).join("");
+  $("livelli").innerHTML = [["", "Tutti"], ...LIV.map((l) => [l, l])]
+    .map(([v, t]) => `<button type="button" data-l="${esc(v)}" aria-pressed="${livSel === v}">${esc(t)}</button>`).join("");
+  $("sport").innerHTML = `<button class="carta" type="button" data-s="" aria-pressed="${sportSel === ""}"><h3>Tutti gli sport <small>${nf(D.righe.length)}</small></h3><p>${D.sport.length} sport</p></button>` +
+    D.sport.map((s) => {
+      const tot = s.n || 1;
+      const barra = LIV.map((l) => `<i style="width:${(s[l] / tot) * 100}%;background:${COL[l]}"></i>`).join("");
+      const dett = LIV.filter((l) => s[l]).map((l) => `${s[l]} ${l.toLowerCase()}`).join(" · ");
+      return `<button class="carta" type="button" data-s="${esc(s.nome)}" aria-pressed="${sportSel === s.nome}"><h3>${esc(s.nome)} <small>${s.n}</small></h3><div class="barra">${barra}</div><p>${esc(dett)}</p></button>`;
+    }).join("");
+  const rows = filtra();
+  if (!rows.length) { $("elenco").innerHTML = `<p class="vuoto">Nessun risultato con questi filtri.</p>`; return; }
+  const per = new Map();
+  rows.forEach((r) => { if (!per.has(r.sport)) per.set(r.sport, new Map()); const m = per.get(r.sport); if (!m.has(r.disciplina)) m.set(r.disciplina, []); m.get(r.disciplina).push(r); });
+  $("elenco").innerHTML = [...per].map(([sp, mm]) => {
+    const n = [...mm.values()].reduce((a, b) => a + b.length, 0);
+    return `<div class="blocco"><h2>${esc(sp)} <small>${n} ${n === 1 ? "riga" : "righe"}</small></h2>` +
+      [...mm].map(([d, lst]) => `<p class="disc">${esc(d)}</p><ul class="righe">${lst.map(riga).join("")}</ul>`).join("") + `</div>`;
+  }).join("");
+}
+function riga(r) {
+  const c = COL[r.livello], p = r.p;
+  const info = [r.tipo === "Squadra" ? "squadra" : "", r.via, r.rank != null ? "ranking " + r.rank : ""].filter(Boolean).join(" · ");
+  const dett = [r.nota && `<span>${esc(r.nota)}</span>`, r.stato && `<span><b>Base della stima:</b> ${esc(r.stato)}</span>`,
+    r.margine != null && `<span><b>Margine dalla soglia:</b> ${r.margine > 0 ? "+" : ""}${r.margine} posti</span>`,
+    r.fine && `<span><b>Fine del periodo di qualificazione:</b> ${esc(new Date(r.fine).toLocaleDateString("it-IT"))}</span>`].filter(Boolean).join("");
+  return `<li><details class="riga" style="--c:${c}"><summary><span class="dot"></span>
+    <span class="chi"><b>${esc(r.nome)}</b>${r.pass === "Q" ? '<span class="q-badge">Q</span>' : ""}<small>${esc(info) || "&nbsp;"}</small></span>
+    <span><span class="lv">${esc(r.livello)}</span>${p != null ? `<div class="mb"><i style="width:${Math.max(2, p)}%"></i></div>` : ""}</span>
+    <span class="pc">${p != null ? Math.round(p) + "%" : "–"}</span></summary><div class="dett">${dett || "<span>Nessun dettaglio.</span>"}</div></details></li>`;
+}
+function stampa() {
+  const per = new Map();
+  D.righe.forEach((r) => { if (!per.has(r.sport)) per.set(r.sport, []); per.get(r.sport).push(r); });
+  const tot = LIV.map((l) => `${l}: ${D.totali[l] || 0}`).join(" · ");
+  $("stampa").innerHTML = `<p class="s-occ">Los Angeles 2028 · Italia</p><h1>Stima delle qualificazioni</h1><p class="s-sint">${esc(tot)} — aggiornato ${esc(D.aggiornato)}</p>` +
+    [...per].map(([sp, lst]) => `<section class="s-sport"><h2>${esc(sp)}</h2><table><thead><tr><th>Disciplina</th><th>Atleta / squadra</th><th>Livello</th><th class="n">%</th><th>Via</th></tr></thead><tbody>` +
+      lst.map((r) => `<tr><td>${esc(r.disciplina)}</td><td>${esc(r.nome)}${r.pass === "Q" ? " (Q)" : ""}</td><td class="l">${esc(r.livello)}</td><td class="n">${r.p != null ? Math.round(r.p) : "–"}</td><td>${esc(r.via)}</td></tr>`).join("") +
+      `</tbody></table></section>`).join("") + `<p class="s-note">${D.metodo.map(esc).join(" ")}</p>`;
+}
+fetch("stima_la28.json?v=" + Date.now()).then((r) => r.json()).then((d) => {
+  D = d;
+  $("agg").textContent = `Aggiornato ${d.aggiornato} · ${nf(d.righe.length)} atleti e squadre`;
+  $("metodo").innerHTML = d.metodo.map((m) => `<li>${esc(m)}</li>`).join("");
+  $("note").textContent = (d.note || []).join(" ");
+  stampa(); disegna();
+}).catch(() => { $("agg").textContent = "Non riesco a leggere stima_la28.json: l'agente non ha ancora pubblicato i dati."; });
+$("livelli").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { livSel = b.dataset.l; disegna(); } });
+$("sport").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { sportSel = b.dataset.s; disegna(); } });
+$("cerca").addEventListener("input", (e) => { testo = e.target.value; disegna(); });
+$("pdf").addEventListener("click", () => window.print());
+</script>
+</body>
+</html>

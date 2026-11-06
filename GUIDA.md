@@ -44,3 +44,12 @@ Se lo script non riconosce una gara a squadre, nel registro dell'esecuzione trov
 Una volta sola: in Notion apri il database **Previsioni Wrestling LA28**, `•••` > Connessioni, aggiungi la stessa connessione della mappa.
 Da lì in poi si aggiorna da sola: l'agente previsioni ricalcola quando cambiano i dati wrestling, e questa pagina lo legge al controllo successivo (ogni 15 minuti circa).
 Indirizzo: `https://vier80.github.io/map-q-la28/wrestling.html` (si raggiunge anche da Qualificati per sport > Wrestling).
+
+## Pagina Tennis
+
+- `tennis.html`: simulazione dei qualificati LA28 del tennis (singolare e doppio), stessa grafica della pagina wrestling in azzurro chiaro
+- `tennis.json`: i dati, riscritto a ogni aggiornamento
+- `aggiorna_tennis.py`: legge il db Notion "LA28 Tennis" (scritto dall'agente tennis) e scrive `tennis.json`
+
+Una volta sola: in Notion apri il database **LA28 Tennis**, `•••` > Connessioni, aggiungi la stessa connessione della mappa.
+Indirizzo: `https://vier80.github.io/map-q-la28/tennis.html` (si raggiunge anche da Qualificati per sport > Tennis).

@@ -1,0 +1,2025 @@
+{
+ "simulazione": "2026-11-05 10:31",
+ "eventi": {
+  "Men's Singles": {
+   "nome": "Singolare maschile",
+   "posti": 64,
+   "per_voce": 1,
+   "genere": "M",
+   "tipo": "singolare",
+   "classifica": "2026-11-05",
+   "voci": [
+    {
+     "pos": 1,
+     "ranking": 1,
+     "nome": "Alexander Zverev",
+     "noc": "GER",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 1, doppio 105"
+    },
+    {
+     "pos": 2,
+     "ranking": 2,
+     "nome": "Jannik Sinner",
+     "noc": "ITA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 2"
+    },
+    {
+     "pos": 3,
+     "ranking": 3,
+     "nome": "Carlos Alcaraz",
+     "noc": "ESP",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 3"
+    },
+    {
+     "pos": 4,
+     "ranking": 4,
+     "nome": "Ben Shelton",
+     "noc": "USA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 4, doppio 156"
+    },
+    {
+     "pos": 5,
+     "ranking": 5,
+     "nome": "Daniil Medvedev",
+     "noc": "RUS",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 5, doppio 256"
+    },
+    {
+     "pos": 6,
+     "ranking": 6,
+     "nome": "Flavio Cobolli",
+     "noc": "ITA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 6, doppio 364"
+    },
+    {
+     "pos": 7,
+     "ranking": 7,
+     "nome": "Arthur Fils",
+     "noc": "FRA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 7"
+    },
+    {
+     "pos": 8,
+     "ranking": 8,
+     "nome": "Frances Tiafoe",
+     "noc": "USA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 8"
+    },
+    {
+     "pos": 9,
+     "ranking": 9,
+     "nome": "Alex de Minaur",
+     "noc": "AUS",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 9"
+    },
+    {
+     "pos": 10,
+     "ranking": 10,
+     "nome": "Rafael Jódar",
+     "noc": "ESP",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 10, doppio 358"
+    },
+    {
+     "pos": 11,
+     "ranking": 11,
+     "nome": "Novak Djoković",
+     "noc": "SRB",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 11, doppio 571"
+    },
+    {
+     "pos": 12,
+     "ranking": 12,
+     "nome": "Taylor Fritz",
+     "noc": "USA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 12"
+    },
+    {
+     "pos": 13,
+     "ranking": 13,
+     "nome": "Félix Auger-Aliassime",
+     "noc": "CAN",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 13, doppio 573"
+    },
+    {
+     "pos": 14,
+     "ranking": 14,
+     "nome": "Tommy Paul",
+     "noc": "USA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 14"
+    },
+    {
+     "pos": 15,
+     "ranking": 15,
+     "nome": "Jiří Lehečka",
+     "noc": "CZE",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 15, doppio 362"
+    },
+    {
+     "pos": 16,
+     "ranking": 16,
+     "nome": "Jakub Menšík",
+     "noc": "CZE",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 16, doppio 579"
+    },
+    {
+     "pos": 17,
+     "ranking": 17,
+     "nome": "Alejandro Davidovich Fokina",
+     "noc": "ESP",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 17"
+    },
+    {
+     "pos": 18,
+     "ranking": 20,
+     "nome": "Francisco Cerúndolo",
+     "noc": "ARG",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 20"
+    },
+    {
+     "pos": 19,
+     "ranking": 21,
+     "nome": "Luciano Darderi",
+     "noc": "ITA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 21, doppio 191"
+    },
+    {
+     "pos": 20,
+     "ranking": 22,
+     "nome": "Andrey Rublev",
+     "noc": "RUS",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 22, doppio 218"
+    },
+    {
+     "pos": 21,
+     "ranking": 23,
+     "nome": "Casper Ruud",
+     "noc": "NOR",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 23, doppio 578"
+    },
+    {
+     "pos": 22,
+     "ranking": 24,
+     "nome": "Lorenzo Musetti",
+     "noc": "ITA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 24, doppio 211"
+    },
+    {
+     "pos": 23,
+     "ranking": 25,
+     "nome": "Karen Khachanov",
+     "noc": "RUS",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 25, doppio 219"
+    },
+    {
+     "pos": 24,
+     "ranking": 26,
+     "nome": "Alexander Bublik",
+     "noc": "KAZ",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 26, doppio 202"
+    },
+    {
+     "pos": 25,
+     "ranking": 27,
+     "nome": "Valentin Vacherot",
+     "noc": "MON",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 27, doppio 112"
+    },
+    {
+     "pos": 26,
+     "ranking": 28,
+     "nome": "Alexander Blockx",
+     "noc": "BEL",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 28"
+    },
+    {
+     "pos": 27,
+     "ranking": 29,
+     "nome": "Hubert Hurkacz",
+     "noc": "POL",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 29, doppio 886"
+    },
+    {
+     "pos": 28,
+     "ranking": 30,
+     "nome": "Alejandro Tabilo",
+     "noc": "CHI",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 30, doppio 175"
+    },
+    {
+     "pos": 29,
+     "ranking": 31,
+     "nome": "Tomás Martín Etcheverry",
+     "noc": "ARG",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 31"
+    },
+    {
+     "pos": 30,
+     "ranking": 32,
+     "nome": "Arthur Fery",
+     "noc": "GBR",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 32"
+    },
+    {
+     "pos": 31,
+     "ranking": 33,
+     "nome": "Ignacio Buse",
+     "noc": "PER",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 33, doppio 418"
+    },
+    {
+     "pos": 32,
+     "ranking": 34,
+     "nome": "Stefanos Tsitsipas",
+     "noc": "GRE",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 34, doppio 258"
+    },
+    {
+     "pos": 33,
+     "ranking": 37,
+     "nome": "Botic van de Zandschulp",
+     "noc": "NED",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 37, doppio 171"
+    },
+    {
+     "pos": 34,
+     "ranking": 38,
+     "nome": "Ugo Humbert",
+     "noc": "FRA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 38"
+    },
+    {
+     "pos": 35,
+     "ranking": 39,
+     "nome": "Jan Lennard Struff",
+     "noc": "GER",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 39, doppio 212"
+    },
+    {
+     "pos": 36,
+     "ranking": 40,
+     "nome": "Zizou Bergs",
+     "noc": "BEL",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 40, doppio 396"
+    },
+    {
+     "pos": 37,
+     "ranking": 41,
+     "nome": "João Fonseca",
+     "noc": "BRA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 41, doppio 110"
+    },
+    {
+     "pos": 38,
+     "ranking": 42,
+     "nome": "Daniel Mérida",
+     "noc": "ESP",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 42"
+    },
+    {
+     "pos": 39,
+     "ranking": 44,
+     "nome": "Arthur Géa",
+     "noc": "FRA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 44"
+    },
+    {
+     "pos": 40,
+     "ranking": 45,
+     "nome": "Cameron Norrie",
+     "noc": "GBR",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 45"
+    },
+    {
+     "pos": 41,
+     "ranking": 46,
+     "nome": "Quentin Halys",
+     "noc": "FRA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 46, doppio 65"
+    },
+    {
+     "pos": 42,
+     "ranking": 48,
+     "nome": "Mariano Navone",
+     "noc": "ARG",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 48"
+    },
+    {
+     "pos": 43,
+     "ranking": 49,
+     "nome": "Nuno Borges",
+     "noc": "POR",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 49, doppio 307"
+    },
+    {
+     "pos": 44,
+     "ranking": 50,
+     "nome": "Tallon Griekspoor",
+     "noc": "NED",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 50, doppio 170"
+    },
+    {
+     "pos": 45,
+     "ranking": 51,
+     "nome": "Denis Shapovalov",
+     "noc": "CAN",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 51"
+    },
+    {
+     "pos": 46,
+     "ranking": 52,
+     "nome": "Sebastián Báez",
+     "noc": "ARG",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 52"
+    },
+    {
+     "pos": 47,
+     "ranking": 55,
+     "nome": "Raphaël Collignon",
+     "noc": "BEL",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 55"
+    },
+    {
+     "pos": 48,
+     "ranking": 56,
+     "nome": "Adolfo Daniel Vallejo",
+     "noc": "PAR",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 56, doppio 540"
+    },
+    {
+     "pos": 49,
+     "ranking": 57,
+     "nome": "Jaime Faria",
+     "noc": "POR",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 57, doppio 446"
+    },
+    {
+     "pos": 50,
+     "ranking": 58,
+     "nome": "Yannick Hanfmann",
+     "noc": "GER",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 58, doppio 279"
+    },
+    {
+     "pos": 51,
+     "ranking": 60,
+     "nome": "Miomir Kecmanović",
+     "noc": "SRB",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 60"
+    },
+    {
+     "pos": 52,
+     "ranking": 61,
+     "nome": "Fábián Marozsán",
+     "noc": "HUN",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 61"
+    },
+    {
+     "pos": 53,
+     "ranking": 62,
+     "nome": "Vít Kopřiva",
+     "noc": "CZE",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 62, doppio 580"
+    },
+    {
+     "pos": 54,
+     "ranking": 63,
+     "nome": "Daniel Altmaier",
+     "noc": "GER",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 63, doppio 200"
+    },
+    {
+     "pos": 55,
+     "ranking": 69,
+     "nome": "Tomáš Macháč",
+     "noc": "CZE",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 69, doppio 245"
+    },
+    {
+     "pos": 56,
+     "ranking": 70,
+     "nome": "James Duckworth",
+     "noc": "AUS",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 70"
+    },
+    {
+     "pos": 57,
+     "ranking": 71,
+     "nome": "Roman Safiullin",
+     "noc": "RUS",
+     "stato": "Qualificato",
+     "via": "Paese ospitante (riassegnato: un atleta USA e' gia' qualificato)",
+     "dettagli": "singolare 71"
+    },
+    {
+     "pos": 58,
+     "ranking": 85,
+     "nome": "Coleman Wong",
+     "noc": "HKG",
+     "stato": "Qualificato",
+     "via": "Continentale - 2026 Asian Games",
+     "dettagli": "singolare 85, doppio 885"
+    },
+    {
+     "pos": 59,
+     "ranking": null,
+     "nome": "(da assegnare)",
+     "noc": "",
+     "stato": "In attesa",
+     "via": "Continentale - 2027 Pan American Games",
+     "dettagli": "in attesa del torneo"
+    },
+    {
+     "pos": 60,
+     "ranking": null,
+     "nome": "(da assegnare)",
+     "noc": "",
+     "stato": "In attesa",
+     "via": "Continentale - 2027 African Games",
+     "dettagli": "in attesa del torneo"
+    },
+    {
+     "pos": 61,
+     "ranking": null,
+     "nome": "(da assegnare)",
+     "noc": "",
+     "stato": "In attesa",
+     "via": "Continentale - 2027 Pacific Games",
+     "dettagli": "in attesa del torneo"
+    },
+    {
+     "pos": 62,
+     "ranking": 96,
+     "nome": "Marin Čilić",
+     "noc": "CRO",
+     "stato": "Qualificato",
+     "via": "Campione Slam/olimpico (1 titolo)",
+     "dettagli": "singolare 96"
+    },
+    {
+     "pos": 63,
+     "ranking": 77,
+     "nome": "Hamad Medjedović",
+     "noc": "SRB",
+     "stato": "Qualificato",
+     "via": "Posto campioni riassegnato (primo escluso in classifica)",
+     "dettagli": "singolare 77"
+    },
+    {
+     "pos": 64,
+     "ranking": null,
+     "nome": "(da assegnare)",
+     "noc": "",
+     "stato": "In attesa",
+     "via": "Universality",
+     "dettagli": "assegnato dal CIO su richiesta delle nazioni: non simulabile"
+    },
+    {
+     "pos": 101,
+     "ranking": 78,
+     "nome": "Alex Molčan",
+     "noc": "SVK",
+     "stato": "Riserva",
+     "via": "Prima riserva n.1",
+     "dettagli": "singolare 78"
+    },
+    {
+     "pos": 102,
+     "ranking": 82,
+     "nome": "Kamil Majchrzak",
+     "noc": "POL",
+     "stato": "Riserva",
+     "via": "Riserva n.2",
+     "dettagli": "singolare 82"
+    },
+    {
+     "pos": 103,
+     "ranking": 83,
+     "nome": "Rinky Hijikata",
+     "noc": "AUS",
+     "stato": "Riserva",
+     "via": "Riserva n.3",
+     "dettagli": "singolare 83"
+    },
+    {
+     "pos": 104,
+     "ranking": 87,
+     "nome": "Nikoloz Basilashvili",
+     "noc": "GEO",
+     "stato": "Riserva",
+     "via": "Riserva n.4",
+     "dettagli": "singolare 87"
+    },
+    {
+     "pos": 105,
+     "ranking": 88,
+     "nome": "Damir Džumhur",
+     "noc": "BIH",
+     "stato": "Riserva",
+     "via": "Riserva n.5",
+     "dettagli": "singolare 88"
+    },
+    {
+     "pos": 106,
+     "ranking": 90,
+     "nome": "Jacob Fearnley",
+     "noc": "GBR",
+     "stato": "Riserva",
+     "via": "Riserva n.6",
+     "dettagli": "singolare 90"
+    },
+    {
+     "pos": 107,
+     "ranking": 92,
+     "nome": "Dino Prižmić",
+     "noc": "CRO",
+     "stato": "Riserva",
+     "via": "Riserva n.7",
+     "dettagli": "singolare 92"
+    },
+    {
+     "pos": 108,
+     "ranking": 93,
+     "nome": "Yunchaokete Bu",
+     "noc": "CHN",
+     "stato": "Riserva",
+     "via": "Riserva n.8",
+     "dettagli": "singolare 93"
+    }
+   ]
+  },
+  "Women's Singles": {
+   "nome": "Singolare femminile",
+   "posti": 64,
+   "per_voce": 1,
+   "genere": "W",
+   "tipo": "singolare",
+   "classifica": "2026-11-02",
+   "voci": [
+    {
+     "pos": 1,
+     "ranking": 1,
+     "nome": "Elena Rybakina",
+     "noc": "KAZ",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 1"
+    },
+    {
+     "pos": 2,
+     "ranking": 2,
+     "nome": "Aryna Sabalenka",
+     "noc": "BLR",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 2, doppio 574"
+    },
+    {
+     "pos": 3,
+     "ranking": 3,
+     "nome": "Mirra Andreeva",
+     "noc": "RUS",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 3, doppio 41"
+    },
+    {
+     "pos": 4,
+     "ranking": 4,
+     "nome": "Coco Gauff",
+     "noc": "USA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 4, doppio 148"
+    },
+    {
+     "pos": 5,
+     "ranking": 5,
+     "nome": "Jessica Pegula",
+     "noc": "USA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 5, doppio 84"
+    },
+    {
+     "pos": 6,
+     "ranking": 6,
+     "nome": "Elina Svitolina",
+     "noc": "UKR",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 6"
+    },
+    {
+     "pos": 7,
+     "ranking": 7,
+     "nome": "Karolina Muchova",
+     "noc": "CZE",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 7, doppio 569"
+    },
+    {
+     "pos": 8,
+     "ranking": 8,
+     "nome": "Linda Noskova",
+     "noc": "CZE",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 8, doppio 40"
+    },
+    {
+     "pos": 9,
+     "ranking": 9,
+     "nome": "Iga Swiatek",
+     "noc": "POL",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 9"
+    },
+    {
+     "pos": 10,
+     "ranking": 10,
+     "nome": "Marta Kostyuk",
+     "noc": "UKR",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 10, doppio 137"
+    },
+    {
+     "pos": 11,
+     "ranking": 11,
+     "nome": "Diana Shnaider",
+     "noc": "RUS",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 11, doppio 17"
+    },
+    {
+     "pos": 12,
+     "ranking": 12,
+     "nome": "Maja Chwalinska",
+     "noc": "POL",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 12, doppio 164"
+    },
+    {
+     "pos": 13,
+     "ranking": 13,
+     "nome": "Iva Jovic",
+     "noc": "USA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 13, doppio 76"
+    },
+    {
+     "pos": 14,
+     "ranking": 14,
+     "nome": "Elise Mertens",
+     "noc": "BEL",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 14, doppio 10"
+    },
+    {
+     "pos": 15,
+     "ranking": 15,
+     "nome": "Sorana Cirstea",
+     "noc": "ROU",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 15, doppio 125"
+    },
+    {
+     "pos": 16,
+     "ranking": 16,
+     "nome": "Naomi Osaka",
+     "noc": "JPN",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 16"
+    },
+    {
+     "pos": 17,
+     "ranking": 17,
+     "nome": "Alexandra Eala",
+     "noc": "PHI",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 17, doppio 146"
+    },
+    {
+     "pos": 18,
+     "ranking": 18,
+     "nome": "Leylah Fernandez",
+     "noc": "CAN",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 18, doppio 74"
+    },
+    {
+     "pos": 19,
+     "ranking": 19,
+     "nome": "Belinda Bencic",
+     "noc": "SUI",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 19"
+    },
+    {
+     "pos": 20,
+     "ranking": 20,
+     "nome": "Victoria Mboko",
+     "noc": "CAN",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 20, doppio 139"
+    },
+    {
+     "pos": 21,
+     "ranking": 21,
+     "nome": "Qinwen Zheng",
+     "noc": "CHN",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 21"
+    },
+    {
+     "pos": 22,
+     "ranking": 22,
+     "nome": "Amanda Anisimova",
+     "noc": "USA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 22"
+    },
+    {
+     "pos": 23,
+     "ranking": 23,
+     "nome": "Marie Bouzkova",
+     "noc": "CZE",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 23, doppio 35"
+    },
+    {
+     "pos": 24,
+     "ranking": 25,
+     "nome": "Jelena Ostapenko",
+     "noc": "LAT",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 25, doppio 15"
+    },
+    {
+     "pos": 25,
+     "ranking": 26,
+     "nome": "Anna Kalinskaya",
+     "noc": "RUS",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 26, doppio 508"
+    },
+    {
+     "pos": 26,
+     "ranking": 27,
+     "nome": "Anastasia Potapova",
+     "noc": "AUT",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 27, doppio 426"
+    },
+    {
+     "pos": 27,
+     "ranking": 29,
+     "nome": "Nikola Bartunkova",
+     "noc": "CZE",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 29, doppio 350"
+    },
+    {
+     "pos": 28,
+     "ranking": 30,
+     "nome": "Maria Sakkari",
+     "noc": "GRE",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 30"
+    },
+    {
+     "pos": 29,
+     "ranking": 32,
+     "nome": "Ekaterina Alexandrova",
+     "noc": "RUS",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 32, doppio 53"
+    },
+    {
+     "pos": 30,
+     "ranking": 34,
+     "nome": "Diane Parry",
+     "noc": "FRA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 34, doppio 485"
+    },
+    {
+     "pos": 31,
+     "ranking": 35,
+     "nome": "Jasmine Paolini",
+     "noc": "ITA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 35, doppio 25"
+    },
+    {
+     "pos": 32,
+     "ranking": 36,
+     "nome": "Talia Gibson",
+     "noc": "AUS",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 36, doppio 79"
+    },
+    {
+     "pos": 33,
+     "ranking": 38,
+     "nome": "Xinyu Wang",
+     "noc": "CHN",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 38, doppio 77"
+    },
+    {
+     "pos": 34,
+     "ranking": 39,
+     "nome": "Donna Vekic",
+     "noc": "CRO",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 39"
+    },
+    {
+     "pos": 35,
+     "ranking": 42,
+     "nome": "Daria Snigur",
+     "noc": "UKR",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 42"
+    },
+    {
+     "pos": 36,
+     "ranking": 43,
+     "nome": "Cristina Bucsa",
+     "noc": "ESP",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 43, doppio 11"
+    },
+    {
+     "pos": 37,
+     "ranking": 44,
+     "nome": "Kamilla Rakhimova",
+     "noc": "UZB",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 44, doppio 171"
+    },
+    {
+     "pos": 38,
+     "ranking": 46,
+     "nome": "Kimberly Birrell",
+     "noc": "AUS",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 46, doppio 119"
+    },
+    {
+     "pos": 39,
+     "ranking": 49,
+     "nome": "Katie Boulter",
+     "noc": "GBR",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 49, doppio 284"
+    },
+    {
+     "pos": 40,
+     "ranking": 50,
+     "nome": "Magdalena Frech",
+     "noc": "POL",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 50, doppio 228"
+    },
+    {
+     "pos": 41,
+     "ranking": 52,
+     "nome": "Sonay Kartal",
+     "noc": "GBR",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 52"
+    },
+    {
+     "pos": 42,
+     "ranking": 53,
+     "nome": "Lilli Tagger",
+     "noc": "AUT",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 53, doppio 198"
+    },
+    {
+     "pos": 43,
+     "ranking": 54,
+     "nome": "Yuliia Starodubtseva",
+     "noc": "UKR",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 54, doppio 152"
+    },
+    {
+     "pos": 44,
+     "ranking": 56,
+     "nome": "Mayar Sherif",
+     "noc": "EGY",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 56"
+    },
+    {
+     "pos": 45,
+     "ranking": 57,
+     "nome": "Paula Badosa",
+     "noc": "ESP",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 57, doppio 574"
+    },
+    {
+     "pos": 46,
+     "ranking": 58,
+     "nome": "Clara Tauson",
+     "noc": "DEN",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 58, doppio 100"
+    },
+    {
+     "pos": 47,
+     "ranking": 60,
+     "nome": "Elena-Gabriela Ruse",
+     "noc": "ROU",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 60, doppio 93"
+    },
+    {
+     "pos": 48,
+     "ranking": 61,
+     "nome": "Tamara Korpatsch",
+     "noc": "GER",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 61, doppio 123"
+    },
+    {
+     "pos": 49,
+     "ranking": 63,
+     "nome": "Lanlana Tararudee",
+     "noc": "THA",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 63, doppio 481"
+    },
+    {
+     "pos": 50,
+     "ranking": 64,
+     "nome": "Yulia Putintseva",
+     "noc": "KAZ",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 64, doppio 334"
+    },
+    {
+     "pos": 51,
+     "ranking": 66,
+     "nome": "Tatjana Maria",
+     "noc": "GER",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 66, doppio 168"
+    },
+    {
+     "pos": 52,
+     "ranking": 67,
+     "nome": "Zeynep Sonmez",
+     "noc": "TUR",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 67, doppio 147"
+    },
+    {
+     "pos": 53,
+     "ranking": 68,
+     "nome": "Magda Linette",
+     "noc": "POL",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 68, doppio 173"
+    },
+    {
+     "pos": 54,
+     "ranking": 69,
+     "nome": "Camila Osorio",
+     "noc": "COL",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 69, doppio 433"
+    },
+    {
+     "pos": 55,
+     "ranking": 70,
+     "nome": "Maria Timofeeva",
+     "noc": "UZB",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 70, doppio 261"
+    },
+    {
+     "pos": 56,
+     "ranking": 71,
+     "nome": "Kaitlin Quevedo",
+     "noc": "ESP",
+     "stato": "Qualificato",
+     "via": "Ammissione diretta (ranking singolare)",
+     "dettagli": "singolare 71, doppio 443"
+    },
+    {
+     "pos": 57,
+     "ranking": 72,
+     "nome": "Elisabetta Cocciaretto",
+     "noc": "ITA",
+     "stato": "Qualificato",
+     "via": "Paese ospitante (riassegnato: un atleta USA e' gia' qualificato)",
+     "dettagli": "singolare 72, doppio 306"
+    },
+    {
+     "pos": 58,
+     "ranking": 80,
+     "nome": "Xiyu Wang",
+     "noc": "CHN",
+     "stato": "Qualificato",
+     "via": "Continentale - 2026 Asian Games",
+     "dettagli": "singolare 80, doppio 459"
+    },
+    {
+     "pos": 59,
+     "ranking": null,
+     "nome": "(da assegnare)",
+     "noc": "",
+     "stato": "In attesa",
+     "via": "Continentale - 2027 Pan American Games",
+     "dettagli": "in attesa del torneo"
+    },
+    {
+     "pos": 60,
+     "ranking": null,
+     "nome": "(da assegnare)",
+     "noc": "",
+     "stato": "In attesa",
+     "via": "Continentale - 2027 African Games",
+     "dettagli": "in attesa del torneo"
+    },
+    {
+     "pos": 61,
+     "ranking": null,
+     "nome": "(da assegnare)",
+     "noc": "",
+     "stato": "In attesa",
+     "via": "Continentale - 2027 Pacific Games",
+     "dettagli": "in attesa del torneo"
+    },
+    {
+     "pos": 62,
+     "ranking": 106,
+     "nome": "Emma Raducanu",
+     "noc": "GBR",
+     "stato": "Qualificato",
+     "via": "Campione Slam/olimpico (1 titolo)",
+     "dettagli": "singolare 106"
+    },
+    {
+     "pos": 63,
+     "ranking": 109,
+     "nome": "Bianca Andreescu",
+     "noc": "CAN",
+     "stato": "Qualificato",
+     "via": "Campione Slam/olimpico (1 titolo)",
+     "dettagli": "singolare 109"
+    },
+    {
+     "pos": 64,
+     "ranking": null,
+     "nome": "(da assegnare)",
+     "noc": "",
+     "stato": "In attesa",
+     "via": "Universality",
+     "dettagli": "assegnato dal CIO su richiesta delle nazioni: non simulabile"
+    },
+    {
+     "pos": 101,
+     "ranking": 73,
+     "nome": "Daria Kasatkina",
+     "noc": "AUS",
+     "stato": "Riserva",
+     "via": "Prima riserva n.1",
+     "dettagli": "singolare 73"
+    },
+    {
+     "pos": 102,
+     "ranking": 74,
+     "nome": "Anna Bondar",
+     "noc": "HUN",
+     "stato": "Riserva",
+     "via": "Riserva n.2",
+     "dettagli": "singolare 74"
+    },
+    {
+     "pos": 103,
+     "ranking": 75,
+     "nome": "Janice Tjen",
+     "noc": "INA",
+     "stato": "Riserva",
+     "via": "Riserva n.3",
+     "dettagli": "singolare 75"
+    },
+    {
+     "pos": 104,
+     "ranking": 77,
+     "nome": "Mananchaya Sawangkaew",
+     "noc": "THA",
+     "stato": "Riserva",
+     "via": "Riserva n.4",
+     "dettagli": "singolare 77"
+    },
+    {
+     "pos": 105,
+     "ranking": 79,
+     "nome": "Jaqueline Cristian",
+     "noc": "ROU",
+     "stato": "Riserva",
+     "via": "Riserva n.5",
+     "dettagli": "singolare 79"
+    },
+    {
+     "pos": 106,
+     "ranking": 81,
+     "nome": "Antonia Ruzic",
+     "noc": "CRO",
+     "stato": "Riserva",
+     "via": "Riserva n.6",
+     "dettagli": "singolare 81"
+    },
+    {
+     "pos": 107,
+     "ranking": 82,
+     "nome": "Alina Charaeva",
+     "noc": "ARM",
+     "stato": "Riserva",
+     "via": "Riserva n.7",
+     "dettagli": "singolare 82"
+    },
+    {
+     "pos": 108,
+     "ranking": 83,
+     "nome": "Taylah Preston",
+     "noc": "AUS",
+     "stato": "Riserva",
+     "via": "Riserva n.8",
+     "dettagli": "singolare 83"
+    }
+   ]
+  },
+  "Men's Doubles": {
+   "nome": "Doppio maschile",
+   "posti": 32,
+   "per_voce": 2,
+   "genere": "M",
+   "tipo": "doppio",
+   "classifica": "2026-11-05",
+   "voci": [
+    {
+     "pos": 1,
+     "ranking": 4,
+     "nome": "Henry Patten / Neal Skupski",
+     "noc": "GBR",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Henry Patten (S-/D1) + Neal Skupski (S-/D3)"
+    },
+    {
+     "pos": 2,
+     "ranking": 8,
+     "nome": "Ben Shelton / Christian Harrison",
+     "noc": "USA",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Ben Shelton (S4/D156) + Christian Harrison (S-/D4)"
+    },
+    {
+     "pos": 3,
+     "ranking": 9,
+     "nome": "Carlos Alcaraz / Marcel Granollers",
+     "noc": "ESP",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Carlos Alcaraz (S3/D-) + Marcel Granollers (S-/D6)"
+    },
+    {
+     "pos": 4,
+     "ranking": 9,
+     "nome": "Jannik Sinner / Andrea Vavassori",
+     "noc": "ITA",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Jannik Sinner (S2/D-) + Andrea Vavassori (S601/D7)"
+    },
+    {
+     "pos": 5,
+     "ranking": 12,
+     "nome": "Alexander Zverev / Kevin Krawietz",
+     "noc": "GER",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Alexander Zverev (S1/D105) + Kevin Krawietz (S-/D11)"
+    },
+    {
+     "pos": 6,
+     "ranking": 16,
+     "nome": "Flavio Cobolli / Simone Bolelli",
+     "noc": "ITA",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Flavio Cobolli (S6/D364) + Simone Bolelli (S-/D10)"
+    },
+    {
+     "pos": 7,
+     "ranking": 20,
+     "nome": "Arthur Fils / Albano Olivetti",
+     "noc": "FRA",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Arthur Fils (S7/D-) + Albano Olivetti (S-/D13)"
+    },
+    {
+     "pos": 8,
+     "ranking": 20,
+     "nome": "Frances Tiafoe / Taylor Fritz",
+     "noc": "USA",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Frances Tiafoe (S8/D-) + Taylor Fritz (S12/D-)"
+    },
+    {
+     "pos": 9,
+     "ranking": 23,
+     "nome": "Horacio Zeballos / Guido Andreozzi",
+     "noc": "ARG",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Horacio Zeballos (S-/D5) + Guido Andreozzi (S-/D18)"
+    },
+    {
+     "pos": 10,
+     "ranking": 27,
+     "nome": "Daniil Medvedev / Andrey Rublev",
+     "noc": "RUS",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Daniil Medvedev (S5/D256) + Andrey Rublev (S22/D218)"
+    },
+    {
+     "pos": 11,
+     "ranking": 27,
+     "nome": "Rafael Jódar / Alejandro Davidovich Fokina",
+     "noc": "ESP",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Rafael Jódar (S10/D358) + Alejandro Davidovich Fokina (S17/D-)"
+    },
+    {
+     "pos": 12,
+     "ranking": 31,
+     "nome": "Jiří Lehečka / Jakub Menšík",
+     "noc": "CZE",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Jiří Lehečka (S15/D362) + Jakub Menšík (S16/D579)"
+    },
+    {
+     "pos": 13,
+     "ranking": 31,
+     "nome": "Rafael Matos / Orlando Luz",
+     "noc": "BRA",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Rafael Matos (S-/D15) + Orlando Luz (S899/D16)"
+    },
+    {
+     "pos": 14,
+     "ranking": 32,
+     "nome": "Alex de Minaur / Marc Polmans",
+     "noc": "AUS",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Alex de Minaur (S9/D-) + Marc Polmans (S586/D23)"
+    },
+    {
+     "pos": 15,
+     "ranking": 35,
+     "nome": "Mate Pavić / Nikola Mektić",
+     "noc": "CRO",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Mate Pavić (S-/D9) + Nikola Mektić (S-/D26)"
+    },
+    {
+     "pos": 16,
+     "ranking": 39,
+     "nome": "Neil Oberleitner / Lucas Miedler",
+     "noc": "AUT",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Neil Oberleitner (S853/D19) + Lucas Miedler (S-/D20)"
+    },
+    {
+     "pos": 17,
+     "ranking": 42,
+     "nome": "Julian Cash / Lloyd Glasspool",
+     "noc": "GBR",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Julian Cash (S-/D21) + Lloyd Glasspool (S-/D21)"
+    },
+    {
+     "pos": 18,
+     "ranking": 51,
+     "nome": "Francisco Cerúndolo / Tomás Martín Etcheverry",
+     "noc": "ARG",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Francisco Cerúndolo (S20/D-) + Tomás Martín Etcheverry (S31/D-)"
+    },
+    {
+     "pos": 19,
+     "ranking": 51,
+     "nome": "Tim Pütz / Jan Lennard Struff",
+     "noc": "GER",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Tim Pütz (S-/D12) + Jan Lennard Struff (S39/D212)"
+    },
+    {
+     "pos": 20,
+     "ranking": 52,
+     "nome": "Théo Arribagé / Ugo Humbert",
+     "noc": "FRA",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Théo Arribagé (S-/D14) + Ugo Humbert (S38/D-)"
+    },
+    {
+     "pos": 21,
+     "ranking": 56,
+     "nome": "Valentin Vacherot / Hugo Nys",
+     "noc": "MON",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Valentin Vacherot (S27/D112) + Hugo Nys (S-/D29)"
+    },
+    {
+     "pos": 22,
+     "ranking": 64,
+     "nome": "Félix Auger-Aliassime / Denis Shapovalov",
+     "noc": "CAN",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Félix Auger-Aliassime (S13/D573) + Denis Shapovalov (S51/D-)"
+    },
+    {
+     "pos": 23,
+     "ranking": 66,
+     "nome": "Hubert Hurkacz / Jan Zieliński",
+     "noc": "POL",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Hubert Hurkacz (S29/D886) + Jan Zieliński (S-/D37)"
+    },
+    {
+     "pos": 24,
+     "ranking": 68,
+     "nome": "Alexander Blockx / Zizou Bergs",
+     "noc": "BEL",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (entrambi in singolare)",
+     "dettagli": "Alexander Blockx (S28/D-) + Zizou Bergs (S40/D396)"
+    },
+    {
+     "pos": 25,
+     "ranking": 71,
+     "nome": "Novak Djoković / Miomir Kecmanović",
+     "noc": "SRB",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (entrambi in singolare)",
+     "dettagli": "Novak Djoković (S11/D571) + Miomir Kecmanović (S60/D-)"
+    },
+    {
+     "pos": 26,
+     "ranking": 73,
+     "nome": "Robin Haase / Botic van de Zandschulp",
+     "noc": "NED",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (uno in singolare)",
+     "dettagli": "Robin Haase (S-/D36) + Botic van de Zandschulp (S37/D171)"
+    },
+    {
+     "pos": 27,
+     "ranking": 80,
+     "nome": "Francisco Cabral / Nuno Borges",
+     "noc": "POR",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (uno in singolare)",
+     "dettagli": "Francisco Cabral (S-/D31) + Nuno Borges (S49/D307)"
+    },
+    {
+     "pos": 28,
+     "ranking": 92,
+     "nome": "João Fonseca / Marcelo Melo",
+     "noc": "BRA",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (uno in singolare)",
+     "dettagli": "João Fonseca (S41/D110) + Marcelo Melo (S-/D51)"
+    },
+    {
+     "pos": 29,
+     "ranking": 96,
+     "nome": "Karen Khachanov / Roman Safiullin",
+     "noc": "RUS",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (entrambi in singolare)",
+     "dettagli": "Karen Khachanov (S25/D219) + Roman Safiullin (S71/D-)"
+    },
+    {
+     "pos": 30,
+     "ranking": 117,
+     "nome": "Harri Heliövaara / Otto Virtanen",
+     "noc": "FIN",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Harri Heliövaara (S-/D1) + Otto Virtanen (S116/D-)"
+    },
+    {
+     "pos": 31,
+     "ranking": 129,
+     "nome": "Jason Kubler / James Duckworth",
+     "noc": "AUS",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (uno in singolare)",
+     "dettagli": "Jason Kubler (S562/D59) + James Duckworth (S70/D-)"
+    },
+    {
+     "pos": 32,
+     "ranking": 130,
+     "nome": "Raphaël Collignon / Sander Gillé",
+     "noc": "BEL",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (uno in singolare)",
+     "dettagli": "Raphaël Collignon (S55/D-) + Sander Gillé (S-/D75)"
+    },
+    {
+     "pos": 101,
+     "ranking": 133,
+     "nome": "Alexander Bublik / Aleksandr Shevchenko",
+     "noc": "KAZ",
+     "stato": "Riserva",
+     "via": "Riserva n.1",
+     "dettagli": "Alexander Bublik (S26/D202) + Aleksandr Shevchenko (S107/D-)"
+    },
+    {
+     "pos": 102,
+     "ranking": 156,
+     "nome": "Jaime Faria / Henrique Rocha",
+     "noc": "POR",
+     "stato": "Riserva",
+     "via": "Riserva n.2",
+     "dettagli": "Jaime Faria (S57/D446) + Henrique Rocha (S99/D449)"
+    },
+    {
+     "pos": 103,
+     "ranking": 162,
+     "nome": "Fábián Marozsán / Zsombor Piros",
+     "noc": "HUN",
+     "stato": "Riserva",
+     "via": "Riserva n.3",
+     "dettagli": "Fábián Marozsán (S61/D-) + Zsombor Piros (S101/D-)"
+    },
+    {
+     "pos": 104,
+     "ranking": 163,
+     "nome": "Stefanos Tsitsipas / Stefanos Sakellaridis",
+     "noc": "GRE",
+     "stato": "Riserva",
+     "via": "Riserva n.4",
+     "dettagli": "Stefanos Tsitsipas (S34/D258) + Stefanos Sakellaridis (S129/D395)"
+    },
+    {
+     "pos": 105,
+     "ranking": 168,
+     "nome": "Hamad Medjedović / Stefan Latinović",
+     "noc": "SRB",
+     "stato": "Riserva",
+     "via": "Riserva n.5",
+     "dettagli": "Hamad Medjedović (S77/D-) + Stefan Latinović (S-/D91)"
+    },
+    {
+     "pos": 106,
+     "ranking": 184,
+     "nome": "Alejandro Tabilo / Tomás Barrios Vera",
+     "noc": "CHI",
+     "stato": "Riserva",
+     "via": "Riserva n.6",
+     "dettagli": "Alejandro Tabilo (S30/D175) + Tomás Barrios Vera (S154/D-)"
+    }
+   ]
+  },
+  "Women's Doubles": {
+   "nome": "Doppio femminile",
+   "posti": 32,
+   "per_voce": 2,
+   "genere": "W",
+   "tipo": "doppio",
+   "classifica": "2026-11-02",
+   "voci": [
+    {
+     "pos": 1,
+     "ranking": 6,
+     "nome": "Taylor Townsend / Coco Gauff",
+     "noc": "USA",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Taylor Townsend (S88/D2) + Coco Gauff (S4/D148)"
+    },
+    {
+     "pos": 2,
+     "ranking": 8,
+     "nome": "Elena Rybakina / Anna Danilina",
+     "noc": "KAZ",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Elena Rybakina (S1/D-) + Anna Danilina (S-/D7)"
+    },
+    {
+     "pos": 3,
+     "ranking": 8,
+     "nome": "Katerina Siniakova / Karolina Muchova",
+     "noc": "CZE",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Katerina Siniakova (S47/D1) + Karolina Muchova (S7/D569)"
+    },
+    {
+     "pos": 4,
+     "ranking": 13,
+     "nome": "Jessica Pegula / Nicole Melichar-Martinez",
+     "noc": "USA",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Jessica Pegula (S5/D84) + Nicole Melichar-Martinez (S-/D8)"
+    },
+    {
+     "pos": 5,
+     "ranking": 14,
+     "nome": "Mirra Andreeva / Diana Shnaider",
+     "noc": "RUS",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Mirra Andreeva (S3/D41) + Diana Shnaider (S11/D17)"
+    },
+    {
+     "pos": 6,
+     "ranking": 16,
+     "nome": "Elina Svitolina / Marta Kostyuk",
+     "noc": "UKR",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Elina Svitolina (S6/D-) + Marta Kostyuk (S10/D137)"
+    },
+    {
+     "pos": 7,
+     "ranking": 19,
+     "nome": "Shuai Zhang / Hanyu Guo",
+     "noc": "CHN",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Shuai Zhang (S95/D5) + Hanyu Guo (S213/D14)"
+    },
+    {
+     "pos": 8,
+     "ranking": 21,
+     "nome": "Gabriela Dabrowski / Leylah Fernandez",
+     "noc": "CAN",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Gabriela Dabrowski (S-/D3) + Leylah Fernandez (S18/D74)"
+    },
+    {
+     "pos": 9,
+     "ranking": 21,
+     "nome": "Iga Swiatek / Maja Chwalinska",
+     "noc": "POL",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Iga Swiatek (S9/D-) + Maja Chwalinska (S12/D164)"
+    },
+    {
+     "pos": 10,
+     "ranking": 31,
+     "nome": "Linda Noskova / Marie Bouzkova",
+     "noc": "CZE",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Linda Noskova (S8/D40) + Marie Bouzkova (S23/D35)"
+    },
+    {
+     "pos": 11,
+     "ranking": 35,
+     "nome": "Su-Wei Hsieh / En-Shuo Liang",
+     "noc": "TPE",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Su-Wei Hsieh (S-/D13) + En-Shuo Liang (S330/D22)"
+    },
+    {
+     "pos": 12,
+     "ranking": 37,
+     "nome": "Sara Errani / Jasmine Paolini",
+     "noc": "ITA",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Sara Errani (S-/D12) + Jasmine Paolini (S35/D25)"
+    },
+    {
+     "pos": 13,
+     "ranking": 39,
+     "nome": "Storm Hunter / Ellen Perez",
+     "noc": "AUS",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Storm Hunter (S161/D19) + Ellen Perez (S-/D20)"
+    },
+    {
+     "pos": 14,
+     "ranking": 42,
+     "nome": "Vera Zvonareva / Anna Kalinskaya",
+     "noc": "RUS",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Vera Zvonareva (S283/D16) + Anna Kalinskaya (S26/D508)"
+    },
+    {
+     "pos": 15,
+     "ranking": 43,
+     "nome": "Elise Mertens / Magali Kempen",
+     "noc": "BEL",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Elise Mertens (S14/D10) + Magali Kempen (S-/D33)"
+    },
+    {
+     "pos": 16,
+     "ranking": 43,
+     "nome": "Kristina Mladenovic / Diane Parry",
+     "noc": "FRA",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Kristina Mladenovic (S-/D9) + Diane Parry (S34/D485)"
+    },
+    {
+     "pos": 17,
+     "ranking": 44,
+     "nome": "Naomi Osaka / Shuko Aoyama",
+     "noc": "JPN",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Naomi Osaka (S16/D-) + Shuko Aoyama (S-/D28)"
+    },
+    {
+     "pos": 18,
+     "ranking": 45,
+     "nome": "Qinwen Zheng / Yifan Xu",
+     "noc": "CHN",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Qinwen Zheng (S21/D-) + Yifan Xu (S-/D24)"
+    },
+    {
+     "pos": 19,
+     "ranking": 60,
+     "nome": "Aldila Sutjiadi / Janice Tjen",
+     "noc": "INA",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Aldila Sutjiadi (S-/D18) + Janice Tjen (S75/D42)"
+    },
+    {
+     "pos": 20,
+     "ranking": 62,
+     "nome": "Maya Joint / Talia Gibson",
+     "noc": "AUS",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Maya Joint (S90/D26) + Talia Gibson (S36/D79)"
+    },
+    {
+     "pos": 21,
+     "ranking": 64,
+     "nome": "Olivia Nicholls / Maia Lumsden",
+     "noc": "GBR",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Olivia Nicholls (S-/D30) + Maia Lumsden (S-/D34)"
+    },
+    {
+     "pos": 22,
+     "ranking": 68,
+     "nome": "Cristina Bucsa / Paula Badosa",
+     "noc": "ESP",
+     "stato": "Qualificato",
+     "via": "Ranking combinato",
+     "dettagli": "Cristina Bucsa (S43/D11) + Paula Badosa (S57/D574)"
+    },
+    {
+     "pos": 23,
+     "ranking": 75,
+     "nome": "Sorana Cirstea / Elena-Gabriela Ruse",
+     "noc": "ROU",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (entrambi in singolare)",
+     "dettagli": "Sorana Cirstea (S15/D125) + Elena-Gabriela Ruse (S60/D93)"
+    },
+    {
+     "pos": 24,
+     "ranking": 80,
+     "nome": "Anastasia Potapova / Lilli Tagger",
+     "noc": "AUT",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (entrambi in singolare)",
+     "dettagli": "Anastasia Potapova (S27/D426) + Lilli Tagger (S53/D198)"
+    },
+    {
+     "pos": 25,
+     "ranking": 84,
+     "nome": "Aryna Sabalenka / Iryna Shymanovich",
+     "noc": "BLR",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (uno in singolare)",
+     "dettagli": "Aryna Sabalenka (S2/D574) + Iryna Shymanovich (S226/D82)"
+    },
+    {
+     "pos": 26,
+     "ranking": 90,
+     "nome": "Laura Siegemund / Tamara Korpatsch",
+     "noc": "GER",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (uno in singolare)",
+     "dettagli": "Laura Siegemund (S190/D29) + Tamara Korpatsch (S61/D123)"
+    },
+    {
+     "pos": 27,
+     "ranking": 96,
+     "nome": "Daria Snigur / Yuliia Starodubtseva",
+     "noc": "UKR",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (entrambi in singolare)",
+     "dettagli": "Daria Snigur (S42/D-) + Yuliia Starodubtseva (S54/D152)"
+    },
+    {
+     "pos": 28,
+     "ranking": 97,
+     "nome": "Luisa Stefani / Laura Pigossi",
+     "noc": "BRA",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Luisa Stefani (S-/D3) + Laura Pigossi (S260/D94)"
+    },
+    {
+     "pos": 29,
+     "ranking": 101,
+     "nome": "Katie Boulter / Sonay Kartal",
+     "noc": "GBR",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (entrambi in singolare)",
+     "dettagli": "Katie Boulter (S49/D284) + Sonay Kartal (S52/D-)"
+    },
+    {
+     "pos": 30,
+     "ranking": 114,
+     "nome": "Kamilla Rakhimova / Maria Timofeeva",
+     "noc": "UZB",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (entrambi in singolare)",
+     "dettagli": "Kamilla Rakhimova (S44/D171) + Maria Timofeeva (S70/D261)"
+    },
+    {
+     "pos": 31,
+     "ranking": 129,
+     "nome": "Victoria Mboko / Bianca Andreescu",
+     "noc": "CAN",
+     "stato": "Qualificato",
+     "via": "Priorita' al singolare (entrambi in singolare)",
+     "dettagli": "Victoria Mboko (S20/D139) + Bianca Andreescu (S109/D-)"
+    },
+    {
+     "pos": 32,
+     "ranking": 147,
+     "nome": "Aleksandra Krunic / Teodora Kostovic",
+     "noc": "SRB",
+     "stato": "Qualificato",
+     "via": "Top 10 ranking doppio",
+     "dettagli": "Aleksandra Krunic (S-/D6) + Teodora Kostovic (S141/D-)"
+    },
+    {
+     "pos": 101,
+     "ranking": 107,
+     "nome": "Magdalena Frech / Katarzyna Piter",
+     "noc": "POL",
+     "stato": "Riserva",
+     "via": "Riserva n.1",
+     "dettagli": "Magdalena Frech (S50/D228) + Katarzyna Piter (S-/D57)"
+    },
+    {
+     "pos": 102,
+     "ranking": 108,
+     "nome": "Belinda Bencic / Viktorija Golubic",
+     "noc": "SUI",
+     "stato": "Riserva",
+     "via": "Riserva n.2",
+     "dettagli": "Belinda Bencic (S19/D-) + Viktorija Golubic (S89/D-)"
+    },
+    {
+     "pos": 103,
+     "ranking": 120,
+     "nome": "Donna Vekic / Antonia Ruzic",
+     "noc": "CRO",
+     "stato": "Riserva",
+     "via": "Riserva n.3",
+     "dettagli": "Donna Vekic (S39/D-) + Antonia Ruzic (S81/D-)"
+    },
+    {
+     "pos": 104,
+     "ranking": 140,
+     "nome": "Lanlana Tararudee / Mananchaya Sawangkaew",
+     "noc": "THA",
+     "stato": "Riserva",
+     "via": "Riserva n.4",
+     "dettagli": "Lanlana Tararudee (S63/D481) + Mananchaya Sawangkaew (S77/D267)"
+    },
+    {
+     "pos": 105,
+     "ranking": 159,
+     "nome": "Yulia Putintseva / Zhibek Kulambayeva",
+     "noc": "KAZ",
+     "stato": "Riserva",
+     "via": "Riserva n.5",
+     "dettagli": "Yulia Putintseva (S64/D334) + Zhibek Kulambayeva (S473/D95)"
+    },
+    {
+     "pos": 106,
+     "ranking": 160,
+     "nome": "Kaitlin Quevedo / Sara Sorribes Tormo",
+     "noc": "ESP",
+     "stato": "Riserva",
+     "via": "Riserva n.6",
+     "dettagli": "Kaitlin Quevedo (S71/D443) + Sara Sorribes Tormo (S164/D89)"
+    }
+   ]
+  }
+ }
+}

@@ -11,7 +11,7 @@
  },
  "attesa": {
   "grand_slam": 8,
-  "universality": 4
+  "universality": 7
  },
  "quote_continentali": {
   "Europa": 2,
@@ -1805,11 +1805,13 @@
  "note": [
   "esclusi gli atleti senza Comitato Olimpico Nazionale: FPO (Polinesia francese): 2, MAC (Macao): 1, MRN (Martinica): 1, NCD (Nuova Caledonia): 2, TRT (squadra rifugiati WT): 13",
   "Uomini: gli USA hanno gia' 2 posto/i da ranking, quindi i posti ospitanti scendono a 0.",
+  "Uomini: 2 posto/i ospitante non usati passano a Universality (art. F.2).",
   "Donne: gli USA hanno gia' 1 posto/i da ranking, quindi i posti ospitanti scendono a 1.",
+  "Donne: 1 posto/i ospitante non usati passano a Universality (art. F.2).",
   "2 posti continentali riassegnati al migliore del ranking della categoria (regola F.1).",
   "Grand Slam Champions Series: la classifica 2027 non e' disponibile, quindi gli 8 posti (uno per categoria) restano in attesa e non tolgono posti al ranking.",
   "Tornei continentali (febbraio-aprile 2028): non ancora disputati. Come prevede il regolamento per i posti non assegnati (art. F.1), la simulazione li assegna ai migliori atleti del ranking olimpico di ogni continente: 2 per categoria (1 per l'Oceania), uno per NOC, al massimo 2 posti per NOC e genere, senza le NOC con gia' 2 posti da ranking nello stesso genere e senza gli USA.",
-  "Posto ospitante USA: 2 per genere, ridotti dei posti che gli USA ottengono con il ranking; la categoria viene scelta dove gli USA hanno il miglior ranking. I posti non usati passano a Universality.",
+  "Posto ospitante USA: 2 per genere, ridotti dei posti che gli USA ottengono con il ranking; la categoria viene scelta dove gli USA hanno il miglior ranking. I posti ospitanti non usati passano a Universality (art. F.2), che quindi puo' superare i 4 posti base.",
   "Requisiti di eleggibilita' degli atleti (licenza, Kukkiwon Dan, top 20 negli ultimi due anni) non verificabili dai dati: si controlla solo la data di nascita (entro il 31 dicembre 2011).",
   "Russia e Bielorussia compaiono come nel ranking WT: la loro partecipazione ai Giochi dipende dalle decisioni di CIO e WT, che la simulazione non considera."
  ]

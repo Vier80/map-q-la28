@@ -209,6 +209,7 @@ a.chip:hover { border-color: var(--ink) }
       nome.append(n); chi.append(nome);
       const extra = [`medaglia ${fmt(a.medaglia, 0)}`, `qualifica ${fmt(a.qualifica, 0)}`];
       if (a.via) extra.push(a.via);
+      if (a.uww) extra.push(`UWW ${a.uww.toLocaleString("it-IT")} pt`);
       if (a.eta) extra.push(`${a.eta} anni`);
       chi.append(el("small", "", extra.join(" · ")));
       const perc = el("div", "perc"); perc.append(el("b", "", fmt(a.oro)), el("small", "", "oro"));
@@ -267,7 +268,7 @@ a.chip:hover { border-color: var(--ink) }
   });
 
   const fonte = dati.incontri ? `${num(dati.incontri)} incontri del db Agente Wrestling` : "gli incontri del db Agente Wrestling";
-  $("nota").textContent = `Previsioni calcolate dall'agente previsioni su ${fonte} e sulle schede del db Athletes, simulando il sistema di qualificazione UWW LA28 (Mondiali 2027, UWW Ranking, tornei continentali e mondiale 2028) e il torneo olimpico. Le percentuali sono probabilità, non certezze: si aggiornano da sole quando aggiungi risultati in Notion.`;
+  $("nota").textContent = `Previsioni calcolate dall'agente previsioni su ${fonte} e sulle schede del db Athletes (titoli, età, punti UWW per ranking e teste di serie), simulando il sistema di qualificazione UWW LA28 (Mondiali 2027, UWW Ranking, tornei continentali e mondiale 2028) e il torneo olimpico. Le percentuali sono probabilità, non certezze: si aggiornano da sole quando aggiungi risultati in Notion.`;
   dettaglio(); griglia();
 })();
 </script>

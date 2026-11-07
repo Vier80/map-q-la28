@@ -84,6 +84,7 @@ def leggi_notion():
                 "p_qualifica": testo(p.get("P Qualifica")), "via": testo(p.get("Via probabile")),
                 "bilancio": testo(p.get("Bilancio")), "eta": testo(p.get("Età LA28")),
                 "titoli": testo(p.get("Titoli")) or [], "aggiornato": testo(p.get("Aggiornato")),
+                "uww": testo(p.get("Punti UWW")),
             })
         if not r.get("has_more"):
             break
@@ -105,7 +106,7 @@ def aggrega(righe, descrizione):
             "nome": r["atleta"], "noc": r["noc"], "rank": int(r["rank"] or 99),
             "oro": r["p_oro"] or 0, "medaglia": r["p_medaglia"] or 0, "qualifica": r["p_qualifica"] or 0,
             "via": r["via"], "rating": r["rating"], "bilancio": r["bilancio"],
-            "eta": r.get("eta"), "titoli": r.get("titoli") or [],
+            "eta": r.get("eta"), "titoli": r.get("titoli") or [], "uww": r.get("uww") or 0,
         })
     for c in categorie.values():
         c["atleti"].sort(key=lambda a: a["rank"])

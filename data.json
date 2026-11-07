@@ -11,8 +11,8 @@
    "pass": 13,
    "noc": {
     "IND": 3,
-    "JPN": 1,
     "CHN": 2,
+    "JPN": 1,
     "USA": 8,
     "KOR": 2
    }
@@ -243,23 +243,26 @@
    "O": 0,
    "pass": 6,
    "noc": {
-    "JPN": 10,
     "CHN": 10,
+    "JPN": 10,
     "RUS": 5,
     "USA": 5
    }
   },
   "Gym Rhythmic": {
    "quota": 94,
-   "atleti": 8,
+   "atleti": 23,
    "M": 0,
-   "W": 8,
+   "W": 23,
    "O": 0,
-   "pass": 4,
+   "pass": 7,
    "noc": {
+    "JPN": 5,
     "USA": 5,
+    "BRA": 5,
     "ITA": 1,
     "GER": 1,
+    "ESP": 5,
     "BUL": 1
    }
   },
@@ -479,12 +482,14 @@
   },
   "Tennis": {
    "quota": 172,
-   "atleti": 0,
+   "atleti": 1,
    "M": 0,
-   "W": 0,
+   "W": 1,
    "O": 0,
-   "pass": 0,
-   "noc": {}
+   "pass": 1,
+   "noc": {
+    "CHN": 1
+   }
   },
   "Trampoline": {
    "quota": 32,
@@ -503,8 +508,8 @@
    "O": 0,
    "pass": 4,
    "noc": {
-    "JPN": 1,
     "CHN": 1,
+    "JPN": 1,
     "USA": 4,
     "FRA": 4
    }
@@ -560,9 +565,9 @@
   }
  },
  "totali": {
-  "atleti": 874,
-  "pass": 146,
-  "noc": 42
+  "atleti": 890,
+  "pass": 150,
+  "noc": 43
  },
  "noc": {
   "USA": {
@@ -1412,6 +1417,133 @@
     }
    ]
   },
+  "BRA": {
+   "nome": "Brasile",
+   "atleti": 51,
+   "pass": 6,
+   "righe": [
+    {
+     "nome": "Andre STEIN/RENATO de Carvalho",
+     "sport": "Beachvolley",
+     "card": "Beachvolley",
+     "discipline": [
+      "Beach Volley Men's"
+     ],
+     "genere": {
+      "M": 2,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Beach Volley Men's": "M"
+     },
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "THAMELA Coradello/VICTORIA Lopes Pereira",
+     "sport": "Beachvolley",
+     "card": "Beachvolley",
+     "discipline": [
+      "Beach Volley Women's"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 2,
+      "O": 0
+     },
+     "gare": {
+      "Beach Volley Women's": "W"
+     },
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "BRA Women's ⚽️",
+     "sport": "Football",
+     "card": "Football",
+     "discipline": [
+      "Women's Football"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 18,
+      "O": 0
+     },
+     "gare": {
+      "Women's Football": "W"
+     },
+     "atleti": 18,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "BRA RGI Group",
+     "sport": "Gym Rhythmic",
+     "card": "Gym Rhythmic",
+     "discipline": [
+      "Group All-Around"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 5,
+      "O": 0
+     },
+     "gare": {
+      "Group All-Around": "W"
+     },
+     "atleti": 5,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "BRA Men's 🏐",
+     "sport": "Volleyball",
+     "card": "Volleyball",
+     "discipline": [
+      "Men's Volley"
+     ],
+     "genere": {
+      "M": 12,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Volley": "M"
+     },
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "BRA Women's 🏐",
+     "sport": "Volleyball",
+     "card": "Volleyball",
+     "discipline": [
+      "Women's Volley"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 12,
+      "O": 0
+     },
+     "gare": {
+      "Women's Volley": "W"
+     },
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
   "IND": {
    "nome": "India",
    "atleti": 51,
@@ -1539,113 +1671,6 @@
     }
    ]
   },
-  "BRA": {
-   "nome": "Brasile",
-   "atleti": 46,
-   "pass": 5,
-   "righe": [
-    {
-     "nome": "Andre STEIN/RENATO de Carvalho",
-     "sport": "Beachvolley",
-     "card": "Beachvolley",
-     "discipline": [
-      "Beach Volley Men's"
-     ],
-     "genere": {
-      "M": 2,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "Beach Volley Men's": "M"
-     },
-     "atleti": 2,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "THAMELA Coradello/VICTORIA Lopes Pereira",
-     "sport": "Beachvolley",
-     "card": "Beachvolley",
-     "discipline": [
-      "Beach Volley Women's"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 2,
-      "O": 0
-     },
-     "gare": {
-      "Beach Volley Women's": "W"
-     },
-     "atleti": 2,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "BRA Women's ⚽️",
-     "sport": "Football",
-     "card": "Football",
-     "discipline": [
-      "Women's Football"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 18,
-      "O": 0
-     },
-     "gare": {
-      "Women's Football": "W"
-     },
-     "atleti": 18,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "BRA Men's 🏐",
-     "sport": "Volleyball",
-     "card": "Volleyball",
-     "discipline": [
-      "Men's Volley"
-     ],
-     "genere": {
-      "M": 12,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "Men's Volley": "M"
-     },
-     "atleti": 12,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "BRA Women's 🏐",
-     "sport": "Volleyball",
-     "card": "Volleyball",
-     "discipline": [
-      "Women's Volley"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 12,
-      "O": 0
-     },
-     "gare": {
-      "Women's Volley": "W"
-     },
-     "atleti": 12,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
   "CAN": {
    "nome": "Canada",
    "atleti": 32,
@@ -1713,57 +1738,10 @@
     }
    ]
   },
-  "MEX": {
-   "nome": "Messico",
-   "atleti": 28,
-   "pass": 2,
-   "righe": [
-    {
-     "nome": "MEX Women's Flag",
-     "sport": "Flag Football",
-     "card": "Flag Football",
-     "discipline": [
-      "Women's Flag"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 10,
-      "O": 0
-     },
-     "gare": {
-      "Women's Flag": "W"
-     },
-     "atleti": 10,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "MEX Men's ⚽️",
-     "sport": "Football",
-     "card": "Football",
-     "discipline": [
-      "Men's Football"
-     ],
-     "genere": {
-      "M": 18,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "Men's Football": "M"
-     },
-     "atleti": 18,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
   "JPN": {
    "nome": "Giappone",
-   "atleti": 26,
-   "pass": 7,
+   "atleti": 31,
+   "pass": 8,
    "righe": [
     {
      "nome": "Junya NAKANISHI",
@@ -1819,6 +1797,26 @@
      },
      "gare": {
       "WAG Team": "W"
+     },
+     "atleti": 5,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "JPN RGI Group",
+     "sport": "Gym Rhythmic",
+     "card": "Gym Rhythmic",
+     "discipline": [
+      "Group All-Around"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 5,
+      "O": 0
+     },
+     "gare": {
+      "Group All-Around": "W"
      },
      "atleti": 5,
      "squadra": true,
@@ -1901,6 +1899,53 @@
       "Men's Volley": "M"
      },
      "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "MEX": {
+   "nome": "Messico",
+   "atleti": 28,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "MEX Women's Flag",
+     "sport": "Flag Football",
+     "card": "Flag Football",
+     "discipline": [
+      "Women's Flag"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 10,
+      "O": 0
+     },
+     "gare": {
+      "Women's Flag": "W"
+     },
+     "atleti": 10,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "MEX Men's ⚽️",
+     "sport": "Football",
+     "card": "Football",
+     "discipline": [
+      "Men's Football"
+     ],
+     "genere": {
+      "M": 18,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Football": "M"
+     },
+     "atleti": 18,
      "squadra": true,
      "ospitante": false,
      "nota": ""
@@ -2291,8 +2336,8 @@
   },
   "CHN": {
    "nome": "Cina",
-   "atleti": 18,
-   "pass": 11,
+   "atleti": 19,
+   "pass": 12,
    "righe": [
     {
      "nome": "CHN Recurve Mixed",
@@ -2490,6 +2535,26 @@
      },
      "gare": {
       "Men's 10m Air Rifle": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "WANG Xiyu",
+     "sport": "Tennis",
+     "card": "Tennis",
+     "discipline": [
+      "🎾Women's Singles"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "🎾Women's Singles": "W"
      },
      "atleti": 1,
      "squadra": false,
@@ -3237,6 +3302,33 @@
       "Jumping Team": "O"
      },
      "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "ESP": {
+   "nome": "Spagna",
+   "atleti": 5,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "ESP RGI Group",
+     "sport": "Gym Rhythmic",
+     "card": "Gym Rhythmic",
+     "discipline": [
+      "Group All-Around"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 5,
+      "O": 0
+     },
+     "gare": {
+      "Group All-Around": "W"
+     },
+     "atleti": 5,
      "squadra": true,
      "ospitante": false,
      "nota": ""

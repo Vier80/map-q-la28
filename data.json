@@ -83,17 +83,18 @@
   },
   "Beachvolley": {
    "quota": 96,
-   "atleti": 18,
+   "atleti": 20,
    "M": 10,
-   "W": 8,
+   "W": 10,
    "O": 0,
-   "pass": 9,
+   "pass": 10,
    "noc": {
     "AUS": 4,
     "MAR": 2,
     "NGR": 2,
     "USA": 2,
     "BRA": 4,
+    "CAN": 2,
     "NED": 2,
     "SWE": 2
    }
@@ -566,8 +567,8 @@
   }
  },
  "totali": {
-  "atleti": 892,
-  "pass": 151,
+  "atleti": 894,
+  "pass": 152,
   "noc": 43
  },
  "noc": {
@@ -1694,9 +1695,29 @@
   },
   "CAN": {
    "nome": "Canada",
-   "atleti": 32,
-   "pass": 3,
+   "atleti": 34,
+   "pass": 4,
    "righe": [
+    {
+     "nome": "Melissa H PAREDES/Brandie WILKERSON",
+     "sport": "Beachvolley",
+     "card": "Beachvolley",
+     "discipline": [
+      "Beach Volley Women's"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 2,
+      "O": 0
+     },
+     "gare": {
+      "Beach Volley Women's": "W"
+     },
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
     {
      "nome": "CAN Men's Flag",
      "sport": "Flag Football",

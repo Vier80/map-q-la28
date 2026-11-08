@@ -1,6 +1,6 @@
 {
  "aggiornato": "2026-11-08",
- "ultima_gara": "",
+ "ultima_gara": "2026-10-18",
  "cutoff": "2028-06-11",
  "posti_per_evento": 22,
  "posti_ranking": 20,
@@ -1628,11 +1628,7 @@
   }
  },
  "note": [
-  "Park maschile: 3 esclusi perché neutrali (impostazione NEUTRALI=esclusi): Platon Chirva (NIA, n.79), Alexander Gusev (NIA, n.84), Nikita Mochalkin (NIA, n.101)",
   "Park maschile: 1 esclusi perché senza Comitato Olimpico Nazionale riconosciuto: Pak Hou Nathaniel Wong (MAC, n.130)",
-  "Park femminile: 2 esclusi perché neutrali (impostazione NEUTRALI=esclusi): Vera Navalikhina (NIA, n.51), Liliya Sukhankova (NIA, n.108)",
-  "Street maschile: 4 esclusi perché neutrali (impostazione NEUTRALI=esclusi): Savva Vostokov (NIA, n.66), Grigorii Chepelev (NIA, n.69), Maksim Ezhov (NIA, n.70), Egor Golubev (NIA, n.140)",
-  "Street femminile: 5 esclusi perché neutrali (impostazione NEUTRALI=esclusi): Mariia Ozhigova (NIA, n.48), Anastasiia Antonova (NIA, n.84), Rada Tereschenko (AIN, n.89), Tatiana Styrova (NIA, n.99) ...",
   "Park maschile: per i posti continentali (Africa) restano fuori dai 20 Danny Leon (ESP, n.31)",
   "Park maschile: 21 posti assegnati su 22 (+1 Universality); NOC con 3 atleti: USA, BRA, JPN",
   "Park femminile: per i posti continentali (Africa) restano fuori dai 20 Coco Crafter (AUS, n.28)",
@@ -1641,6 +1637,7 @@
   "Street maschile: 21 posti assegnati su 22 (+1 Universality); NOC con 3 atleti: JPN, BRA, USA",
   "Street femminile: per i posti continentali (Africa) restano fuori dai 20 Valentina Krauel (ESP, n.27)",
   "Street femminile: 21 posti assegnati su 22 (+1 Universality); NOC con 3 atleti: AUS, JPN, CHN, BRA, ESP",
+  "Gli atleti neutrali (AIN) sono conteggiati come un unico gruppo AIN, senza continente.",
   "Singapore è indicata nel WSR come SGP: qui è contata con il codice olimpico SIN."
  ]
 }

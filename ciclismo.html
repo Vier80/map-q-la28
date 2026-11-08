@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Qualificati Ciclismo LA28</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
+<style>
+/* Stessa veste di squash.html e judo.html, in arancio pastello: testata, fascia con totale e dettaglio, quattro totali, carte. */
+:root {
+  --bg: #ffffff; --fg: #3a2a20; --muted: #7a6656; --line: #f3dccb; --card: #fffaf6; --soft: #fff3ea; --track: #f7e3d4;
+  --ink: #ef9a5f; --ink-2: #f6c7a3; --ink-t: #b0561c; --gold: #a8782a; --world: #7fbfb5;
+  --men: #7da9e8; --women: #dcc466; --open: #8c96a2; --shadow: rgba(120, 60, 20, .10);
+  --font: "Quicksand", "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1d1611; --fg: #f4e7dc; --muted: #bba595; --line: #45342a; --card: #251c16; --soft: #2c2119; --track: #3b2c22;
+  --ink: #f4ab76; --ink-2: #f8cfb0; --ink-t: #f6bb8e; --gold: #e3c15c; --world: #8fd0c5;
+  --men: #8fb6ee; --women: #e3cd77; --open: #8592a0; --shadow: rgba(0, 0, 0, .4); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1d1611; --fg: #f4e7dc; --muted: #bba595; --line: #45342a; --card: #251c16; --soft: #2c2119; --track: #3b2c22;
+  --ink: #f4ab76; --ink-2: #f8cfb0; --ink-t: #f6bb8e; --gold: #e3c15c; --world: #8fd0c5;
+  --men: #8fb6ee; --women: #e3cd77; --open: #8592a0; --shadow: rgba(0, 0, 0, .4); color-scheme: dark }
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 500 16px/1.4 var(--font) }
+h1, h2, h3, p { margin: 0 }
+.guscio { max-width: 1320px; margin: 0 auto; display: grid; gap: 16px; padding-block: 18px 28px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.testa { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px }
+.titolo { flex: 1 1 320px; min-width: 0 }
+.occhiello { font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-t) }
+h1 { font: 600 2.1rem/1.2 var(--font); text-wrap: balance }
+.vai { flex: 1 1 220px; max-width: 320px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 10px; padding: 11px 16px; color: inherit; text-decoration: none; border: 1.5px solid var(--line); border-radius: 18px }
+.vai:hover { border-color: var(--ink) }
+.vai b { font-weight: 600 } .vai span { grid-column: 1; font-size: .84rem; color: var(--muted) } .vai i { grid-row: 1 / 3; grid-column: 2; font-style: normal; color: var(--ink-t); font-size: 1.2rem }
+
+.fascia { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); background: var(--soft); border: 1.5px solid var(--line); border-radius: 24px }
+.avanz { display: flex; align-items: center; gap: 24px; padding: 22px 26px; min-width: 0; align-self: start; position: sticky; top: 8px }
+.anello { position: relative; flex: none; width: 168px; height: 168px; display: grid; place-items: center; text-align: center }
+.anello svg { position: absolute; inset: 0; transform: rotate(-90deg) }
+.anello small { display: block; font-size: .8rem; color: var(--muted) }
+.anello b { display: block; font: 600 2rem/1.1 var(--font); font-variant-numeric: tabular-nums }
+.traccia { fill: none; stroke: var(--track) } .arco { fill: none; stroke: var(--ink); stroke-linecap: round }
+.avanz h2 { font: 600 1.45rem/1.25 var(--font); text-wrap: balance; overflow-wrap: anywhere }
+.avanz p { color: var(--muted) }
+.etichetta { margin-bottom: 4px; font-size: .78rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-t) }
+.dettaglio { min-width: 0; padding: 22px 26px; border-left: 1.5px solid var(--line) }
+.dettaglio h2 { font: 600 1.45rem/1.25 var(--font) }
+.dettaglio .etichetta { color: var(--gold) }
+.dettaglio > p { color: var(--muted) }
+.titoli { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px }
+.titoli span, .chip { display: inline-block; padding: 3px 10px; font-size: .86rem; color: inherit; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; text-decoration: none; font-variant-numeric: tabular-nums }
+a.chip:hover, button.chip:hover { border-color: var(--ink) }
+
+.classifica { margin: 10px 0 0; padding: 0; list-style: none; display: grid; gap: 6px }
+.riga { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; align-items: center; gap: 4px 10px; padding: 8px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 14px }
+.riga.cerca-ok { border-color: var(--ink); box-shadow: inset 4px 0 0 var(--ink) }
+.riga.attesa { border-style: dashed; color: var(--muted) }
+.pos { font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; text-align: center }
+.chi { min-width: 0 } .chi b { font-weight: 600; overflow-wrap: anywhere } .chi small { display: block; font-size: .8rem; color: var(--muted) }
+.perc { text-align: right; font-variant-numeric: tabular-nums } .perc b { font: 700 1.1rem/1.1 var(--font); color: var(--ink-t) } .perc small { display: block; font-size: .76rem; color: var(--muted) }
+.riga .noc { font-size: .78rem; padding: 1px 8px; margin-left: 4px; vertical-align: 1px }
+.ipo { font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 1px 7px; margin-left: 4px; border-radius: 999px; color: var(--gold); border: 1px dashed var(--gold); vertical-align: 1px }
+.sezione { margin: 14px 0 0; font-size: .78rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--muted) }
+.via { display: inline-flex; align-items: center; gap: 5px } .via i { width: 8px; height: 8px; border-radius: 50%; display: inline-block }
+.via .D, .tipo-D { background: var(--ink) } .via .H, .tipo-H { background: var(--gold) } .via .C, .tipo-C { background: var(--ink-2) } .via .W, .tipo-W { background: var(--world) } .via .U, .tipo-U, .via .R { background: var(--open) }
+details.invitati { margin-top: 12px } details.invitati summary { cursor: pointer; font-weight: 600; color: var(--ink-t) }
+
+.totali { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1.5px solid var(--line); border-radius: 22px }
+.totale { padding: 12px 18px; text-align: center; border-right: 1px solid var(--line) } .totale:last-child { border-right: 0 }
+.totale b { display: block; font: 600 1.9rem/1.2 var(--font); font-variant-numeric: tabular-nums }
+.totale span { font-size: .78rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted) }
+
+.filtri { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px }
+#cerca { flex: 1 1 240px; min-width: 0; max-width: 460px; height: 44px; padding: 0 16px; font: 500 1rem var(--font); color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 14px }
+#cerca::placeholder { color: var(--muted) }
+.gruppo { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 4px; background: var(--soft); border-radius: 14px }
+.gruppo button { padding: 6px 12px; font: 600 .9rem var(--font); color: var(--muted); background: none; border: 0; border-radius: 10px; cursor: pointer }
+.gruppo button[aria-pressed="true"] { color: var(--fg); background: var(--bg); box-shadow: 0 1px 3px var(--shadow) }
+
+.griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px }
+.carta { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; width: 100%; padding: 16px; text-align: left; font: inherit; color: inherit; background: var(--card); border: 1.5px solid var(--line); border-radius: 20px; cursor: pointer }
+.carta:hover { border-color: var(--ink); box-shadow: 0 5px 14px var(--shadow) }
+.carta[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 4px 0 0 var(--ink) }
+.icona { display: grid; place-items: center; width: 50px; height: 50px; font-size: 1.7rem; background: var(--bg); border: 1px solid var(--line); border-radius: 13px }
+.carta h3 { font: 600 1.15rem/1.2 var(--font); overflow-wrap: anywhere }
+.carta h3 small { display: block; font-size: .8rem; font-weight: 600; color: var(--muted) }
+.dot { display: inline-block; width: 9px; height: 9px; margin-right: 5px; border-radius: 50%; vertical-align: 1px } .dot.M { background: var(--men) } .dot.F { background: var(--women) }
+.mini { position: relative; width: 58px; height: 58px; display: grid; place-items: center; font-size: .9rem; font-weight: 700; font-variant-numeric: tabular-nums }
+.mini svg { position: absolute; inset: 0; transform: rotate(-90deg) }
+.barra { grid-column: 1 / -1; display: flex; height: 9px; background: var(--track); border-radius: 999px; overflow: hidden }
+.barra i { display: block; height: 100% }
+.cifre { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px }
+.cifre div { min-width: 0; padding: 7px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 12px }
+.cifre b { display: block; font: 600 1.15rem/1.2 var(--font); color: var(--ink-t); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.cifre span { display: block; font-size: .82rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.vuoto { padding: 20px; color: var(--muted) }
+.legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .86rem; color: var(--muted) }
+.legenda span { display: inline-flex; align-items: center; gap: 6px } .legenda i { width: 10px; height: 10px; border-radius: 50%; display: inline-block }
+.nazioni h2, .tornei h2 { font: 600 1.25rem/1.25 var(--font); margin-bottom: 8px }
+.nazioni .titoli, .tornei .titoli { margin-top: 0 }
+.tornei .chip.si { border-color: var(--ink) } .tornei .chip.no { border-style: dashed; color: var(--muted) }
+button.chip { font: inherit; font-size: .86rem; cursor: pointer }
+.nota { max-width: 90ch; font-size: .86rem; color: var(--muted) }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px }
+
+button.vai { font: inherit; text-align: left; background: none; cursor: pointer }
+#stampa { display: none }
+@media print {
+  @page { size: A4; margin: 11mm }
+  :root:not([data-theme="x"]) { color-scheme: light !important }
+  html, body { background: #fff !important; color: #3a2a20 !important; font-size: 9pt }
+  .guscio { display: block; max-width: none; padding: 0 }
+  .guscio > :not(#stampa) { display: none !important }
+  #stampa { display: block; -webkit-print-color-adjust: exact; print-color-adjust: exact }
+  .s-occ { font-size: 8pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #b0561c }
+  #stampa h1 { font: 700 18pt/1.2 var(--font); margin: 1mm 0 2mm }
+  .s-sint { font-size: 9pt; margin: 0 0 1.5mm }
+  .s-leg { font-size: 7.5pt; color: #7a6656; margin: 0 0 4mm; padding-bottom: 3mm; border-bottom: 1.5pt solid #ef9a5f }
+  .s-griglia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 8mm; align-items: start }
+  .s-cat { break-inside: avoid; page-break-inside: avoid; margin: 0 0 4mm }
+  .s-cat h2 { font: 700 10.5pt/1.2 var(--font); margin: 0; padding: 1.2mm 2mm; background: #fff3ea; border-left: 2.5pt solid #ef9a5f; color: #3a2a20 }
+  .s-sub { font-size: 7pt; color: #7a6656; margin: .8mm 0 1mm 2mm }
+  .s-cat table { width: 100%; border-collapse: collapse; font-size: 7pt; line-height: 1.12; font-variant-numeric: tabular-nums }
+  .s-cat th { text-align: left; font-weight: 700; font-size: 6.6pt; color: #7a6656; padding: 0 1.5mm .6mm; border-bottom: .6pt solid #ef9a5f }
+  .s-cat td { padding: .12mm 1.5mm; border-bottom: .4pt solid #f3dccb; vertical-align: top }
+  .s-cat .n { text-align: right; white-space: nowrap }
+  .s-cat .v { text-align: center; font-weight: 700; white-space: nowrap }
+  .s-cat .v.D { color: #e0803f } .s-cat .v.H { color: #a8782a } .s-cat .v.C { color: #e9a172 } .s-cat .v.W { color: #4f9a90 } .s-cat .v.U, .s-cat .v.R { color: #8c96a2 }
+  .s-cat tr.s-riserve td { padding-top: 1.4mm; font-size: 6.6pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #7a6656; border-bottom: 0 }
+  .s-cat tr.s-attesa td { font-style: italic; color: #7a6656 }
+  .s-nota { font-size: 7.2pt; color: #7a6656; margin-top: 2mm; padding-top: 2mm; border-top: .6pt solid #f3dccb }
+}
+@media (max-width: 900px) {
+  .avanz { position: static }
+  h1 { font-size: 1.6rem }
+  .fascia { grid-template-columns: minmax(0, 1fr) } .dettaglio { border-left: 0; border-top: 1.5px solid var(--line) }
+  .totali { grid-template-columns: repeat(2, minmax(0, 1fr)) } .totale:nth-child(2) { border-right: 0 } .totale:nth-child(-n+2) { border-bottom: 1px solid var(--line) }
+  .vai { max-width: none }
+}
+@media (max-width: 520px) { .avanz { flex-direction: column; text-align: center; padding: 18px } .dettaglio { padding: 18px } }
+
+.riga { grid-template-columns: 26px minmax(0, 1fr) auto }
+.chi .atl { display: block; margin-top: 2px; font-size: .8rem; color: var(--fg); opacity: .85; overflow-wrap: anywhere }
+.ipo.prov { color: var(--ink-t); border-color: var(--ink-2) }
+.carta h3 small .disc { font-weight: 600; color: var(--ink-t) }
+</style>
+</head>
+<body>
+<div class="guscio">
+  <header class="testa">
+    <div class="titolo">
+      <p class="occhiello" id="data">Road to LA28</p>
+      <h1>🚴 Qualificati Ciclismo LA28 · simulazione</h1>
+    </div>
+    <a class="vai" href="sport.html"><b>Per sport</b><span>Qualificati di ogni sport</span><i>›</i></a>
+    <a class="vai" href="scheda.html"><b>Per NOC</b><span>Scheda di ogni nazione</span><i>›</i></a>
+    <a class="vai" href="index.html"><b>Mappa</b><span>Qualificati nel mondo</span><i>›</i></a>
+    <button class="vai" id="pdf" type="button" title="Si apre la stampa: scegli «Salva come PDF»"><b>Scarica PDF</b><span>BMX, MTB e pista, pronti da stampare</span><i>↓</i></button>
+  </header>
+
+  <section class="fascia">
+    <div class="avanz">
+      <div class="anello" id="anello"></div>
+      <div id="favorito"></div>
+    </div>
+    <div class="dettaglio" id="dettaglio" aria-live="polite"></div>
+  </section>
+
+  <section class="totali" id="totali"></section>
+
+  <div class="filtri">
+    <input id="cerca" type="search" placeholder="Cerca una nazione, un NOC o un atleta…" autocomplete="off" aria-label="Cerca una nazione, un NOC o un atleta">
+    <div class="gruppo" id="disciplina" role="group" aria-label="Filtra per disciplina"></div>
+    <div class="gruppo" id="genere" role="group" aria-label="Filtra per genere"></div>
+  </div>
+  <div class="legenda">
+    <span><i class="tipo-D"></i>Ranking olimpico UCI</span>
+    <span><i class="tipo-C"></i>Campionati continentali</span>
+    <span><i class="tipo-W"></i>Mondiali</span>
+    <span><i class="tipo-H"></i>Paese ospitante</span>
+    <span><i class="tipo-U"></i>Universality</span>
+    <span><span class="ipo prov">provvisorio</span>gara non ancora disputata: proiezione dal ranking</span>
+  </div>
+
+  <div class="griglia" id="griglia"></div>
+
+  <section class="nazioni" id="nazioni"></section>
+  <p class="nota" id="nota"></p>
+  <div id="stampa"></div>
+</div>
+
+<script>
+(async function () {
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, cls, testo) => { const e = document.createElement(tag); if (cls) e.className = cls; if (testo != null) e.textContent = testo; return e; };
+  const num = (n) => n.toLocaleString("it-IT");
+  const NS = "http://www.w3.org/2000/svg";
+  function cerchio(dim, spessore, p) {
+    const s = document.createElementNS(NS, "svg"); s.setAttribute("viewBox", `0 0 ${dim} ${dim}`); s.setAttribute("aria-hidden", "true");
+    const r = (dim - spessore) / 2, c = 2 * Math.PI * r;
+    [["traccia", 0], ["arco", p]].forEach(([cl, v]) => {
+      const o = document.createElementNS(NS, "circle");
+      o.setAttribute("class", cl); o.setAttribute("cx", dim / 2); o.setAttribute("cy", dim / 2); o.setAttribute("r", r); o.setAttribute("stroke-width", spessore);
+      if (cl === "arco") { o.setAttribute("stroke-dasharray", `${c * Math.min(100, v) / 100} ${c}`); if (!v) o.setAttribute("stroke-opacity", "0"); }
+      s.append(o);
+    });
+    return s;
+  }
+
+  let dati;
+  try { dati = await fetch("ciclismo.json?v=" + Date.now()).then((r) => { if (!r.ok) throw 0; return r.json(); }); }
+  catch (e) { $("nota").textContent = "La simulazione non si carica: ricarica la pagina."; return; }
+
+  const ICONA = { "BMX Racing": "🚲", "MTB": "🚵", "Pista": "🚴" };
+  const DISC_NOME = { "BMX Racing": "BMX Racing", "MTB": "MTB cross-country", "Pista": "Pista" };
+  const somma = (lista) => lista.reduce((t, a) => t + (a.posti || 0), 0);
+  const ev = Object.entries(dati.eventi).map(([chiave, e]) => {
+    const posti = (t) => somma(e.righe.filter((a) => a.tipo === t));
+    const ass = somma(e.righe), att = somma(e.attesa);
+    return { chiave, ...e, ass, cap: ass + att, prov: somma(e.righe.filter((a) => a.stato === "Provvisorio")),
+      perTipo: { D: posti("D"), C: posti("C"), W: posti("W"), H: posti("H") } };
+  });
+  const tutte = ev.flatMap((e) => e.righe.map((a) => ({ ...a, ev: e })));
+  const totAss = somma(tutte), totCap = ev.reduce((t, e) => t + e.cap, 0);
+  const totProv = ev.reduce((t, e) => t + e.prov, 0), totAtt = totCap - totAss;
+  const noc = new Set(tutte.map((a) => a.noc));
+  const genereNome = (g) => (g === "M" ? "Uomini" : "Donne");
+  const nomeEv = (e) => `${e.disciplina === "Pista" ? "Pista · " : ""}${e.nome} ${genereNome(e.genere).toLowerCase()}`;
+
+  const fmtData = (s) => new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "long", year: "numeric" }).format(new Date(s + "T12:00:00"));
+  const dataRif = dati.ranking_al || dati.aggiornato;
+  $("data").textContent = "Road to LA28 · ranking olimpici UCI del " + fmtData(dataRif);
+
+  [[totAss, "Posti assegnati"], [noc.size, "NOC in simulazione"], [totProv, "Posti provvisori"], [totAtt, "Posti ancora da assegnare"]].forEach(([n, t]) => {
+    const d = el("div", "totale"); d.append(el("b", "", n ? num(n) : "–"), el("span", "", t)); $("totali").append(d);
+  });
+
+  let scelto = ev.length ? ev[0].chiave : null, genere = "tutti", disciplina = "tutti";
+  const GENERI = { tutti: "Tutti", M: "Uomini", F: "Donne" };
+  const DISCIPLINE = { tutti: "Tutte", "BMX Racing": "BMX", "MTB": "MTB", "Pista": "Pista" };
+  const domanda = () => $("cerca").value.trim().toLowerCase();
+  const corrisponde = (a, q) => q && ((a.noc || "").toLowerCase() === q || (a.paese || "").toLowerCase().includes(q) || (a.atleti || "").toLowerCase().includes(q));
+  const pt = (p) => (p == null ? "–" : Math.round(p).toLocaleString("it-IT"));
+  const parolaPosti = (n) => (n === 1 ? "posto" : "posti");
+
+  function anello(e) {
+    const box = $("anello"), testo = $("favorito"); box.textContent = ""; testo.textContent = "";
+    const n = e ? e.ass : totAss, cap = e ? e.cap : totCap;
+    const dentro = el("div"); dentro.append(el("small", "", "posti assegnati"), el("b", "", num(n)), el("small", "", "su " + num(cap)));
+    box.append(cerchio(168, 16, cap ? n / cap * 100 : 0), dentro);
+    if (e) {
+      const t = e.perTipo, parti = [];
+      if (t.D) parti.push(`${t.D} dal ranking olimpico`);
+      if (t.C) parti.push(`${t.C} dai continentali`);
+      if (t.W) parti.push(`${t.W} dai Mondiali`);
+      if (t.H) parti.push(`${t.H} ospitante`);
+      testo.append(el("p", "etichetta", "Evento selezionato"), el("h2", "", `${ICONA[e.disciplina] || "🚴"} ${nomeEv(e)}`),
+        el("p", "", `${e.righe.length} nazioni: ${parti.join(", ")}.` + (e.prov ? ` ${e.prov} ${parolaPosti(e.prov)} provvisori.` : "") + (e.cap > e.ass ? ` Restano ${e.cap - e.ass}: ${e.attesa.map((a) => a.via).join(", ")}.` : "")));
+    } else {
+      testo.append(el("p", "etichetta", "Simulazione di oggi"), el("h2", "", `${num(totAss)} posti a ${num(noc.size)} NOC`),
+        el("p", "", `Su ${num(totCap)} posti di BMX Racing, MTB cross-country e pista.`));
+    }
+  }
+
+  function riga(a, i, q) {
+    const attesa = !a.noc;
+    const li = el("li", "riga" + (corrisponde(a, q) ? " cerca-ok" : "") + (attesa ? " attesa" : ""));
+    const chi = el("div", "chi"), nome = el("b", "", attesa ? a.via : (a.paese || a.noc));
+    if (a.noc) { const n = el("a", "chip noc", a.noc); n.href = "scheda.html#" + a.noc; nome.append(n); }
+    if (a.stato === "Provvisorio") nome.append(el("span", "ipo prov", "provvisorio"));
+    chi.append(nome);
+    const sm = el("small");
+    if (!attesa) {
+      const v = el("span", "via"); v.append(el("i", a.tipo), el("span", "", a.via)); sm.append(v);
+      sm.append(document.createTextNode(` · ${a.continente || "–"}` + (a.dettagli ? " · " + a.dettagli : "")));
+    } else sm.append(document.createTextNode(a.dettagli || "da assegnare"));
+    chi.append(sm);
+    if (a.atleti) chi.append(el("span", "atl", a.atleti));
+    const perc = el("div", "perc");
+    if (!attesa) perc.append(el("b", "", a.stato === "Riserva" ? "riserva" : `${a.posti} ${parolaPosti(a.posti)}`), el("small", "", (a.rank ? "n." + a.rank + " · " : "") + pt(a.punti) + " punti"));
+    else perc.append(el("b", "", `${a.posti} ${parolaPosti(a.posti)}`), el("small", "", "in attesa"));
+    li.append(el("span", "pos", attesa ? "·" : i + 1), chi, perc);
+    return li;
+  }
+
+  function dettaglio() {
+    const box = $("dettaglio"); box.textContent = "";
+    const e = ev.find((x) => x.chiave === scelto);
+    anello(e);
+    if (!e) {
+      box.append(el("p", "etichetta", "Nazioni qualificate dell'evento"), el("h2", "", "Clicca una carta qui sotto"),
+        el("p", "", "Qui compaiono le nazioni della simulazione, con i posti, la via di qualificazione e gli atleti che hanno portato punti."));
+      return;
+    }
+    box.append(el("p", "etichetta", `${e.righe.length} nazioni · ranking del ${e.ranking ? fmtData(e.ranking) : "–"}`), el("h2", "", `${ICONA[e.disciplina] || "🚴"} ${nomeEv(e)}`));
+    const q = domanda(), ol = el("ol", "classifica");
+    e.righe.forEach((a, i) => ol.append(riga(a, i, q)));
+    e.attesa.forEach((a) => ol.append(riga(a, 0, q)));
+    box.append(ol);
+    if (e.riserve.length) {
+      const d = el("details", "invitati");
+      if (q && e.riserve.some((a) => corrisponde(a, q))) d.open = true;
+      d.append(el("summary", "", `Riserve (${e.riserve.length})`));
+      const rs = el("ol", "classifica"); e.riserve.forEach((a, i) => rs.append(riga(a, i, q))); d.append(rs);
+      box.append(d);
+    }
+  }
+
+  function carta(e) {
+    const b = el("button", "carta"); b.type = "button"; b.setAttribute("aria-pressed", e.chiave === scelto);
+    const m = el("span", "mini", String(e.ass)); m.prepend(cerchio(58, 6, e.cap ? e.ass / e.cap * 100 : 0));
+    const barra = el("div", "barra");
+    [["D", e.perTipo.D], ["C", e.perTipo.C], ["W", e.perTipo.W], ["H", e.perTipo.H]].forEach(([t, n]) => {
+      if (!n || !e.cap) return; const s = el("i", "tipo-" + t); s.style.width = (n / e.cap * 100) + "%"; barra.append(s);
+    });
+    const cifre = el("div", "cifre");
+    [[String(e.righe.length), "Nazioni"], [`${e.ass}/${e.cap}`, "Posti"], [String(e.prov), "Provv."]].forEach(([n, t]) => {
+      const d = el("div"); d.append(el("b", "", n), el("span", "", t)); cifre.append(d);
+    });
+    const ic = el("span", "icona", ICONA[e.disciplina] || "🚴"); ic.setAttribute("aria-hidden", "true");
+    const h = el("h3", "", e.nome), s = el("small");
+    s.append(el("i", "dot " + e.genere), genereNome(e.genere));
+    if (e.disciplina === "Pista") s.append(" · ", el("span", "disc", "Pista"));
+    h.prepend(s);
+    b.append(ic, h, m, barra, cifre);
+    b.title = `${e.ass} posti assegnati su ${e.cap}`;
+    b.addEventListener("click", () => {
+      scelto = scelto === e.chiave ? null : e.chiave; dettaglio(); griglia();
+      if (scelto && window.innerWidth < 900) $("dettaglio").scrollIntoView({ block: "center" });
+    });
+    return b;
+  }
+
+  const visibili = () => {
+    const q = domanda();
+    return ev
+      .filter((e) => genere === "tutti" || e.genere === genere)
+      .filter((e) => disciplina === "tutti" || e.disciplina === disciplina)
+      .filter((e) => !q || e.righe.some((a) => corrisponde(a, q)) || e.riserve.some((a) => corrisponde(a, q)));
+  };
+
+  function griglia() {
+    const lista = visibili();
+    const g = $("griglia"); g.textContent = "";
+    lista.forEach((e) => g.append(carta(e)));
+    if (!lista.length) g.append(el("p", "vuoto", "Nessun evento corrisponde alla ricerca."));
+  }
+
+  function nazioni() {
+    const conta = {};
+    tutte.forEach((a) => { conta[a.noc] = (conta[a.noc] || 0) + a.posti; });
+    const top = Object.entries(conta).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    const box = $("nazioni"); box.textContent = "";
+    box.append(el("h2", "", "Nazioni qualificate (posti totali)"));
+    const t = el("div", "titoli");
+    top.forEach(([n, k]) => {
+      const b = el("button", "chip", `${n} · ${k}`); b.type = "button"; b.title = `Mostra gli eventi di ${n}`;
+      b.addEventListener("click", () => { $("cerca").value = n.toLowerCase(); $("cerca").dispatchEvent(new Event("input")); window.scrollTo({ top: 0, behavior: "smooth" }); });
+      t.append(b);
+    });
+    box.append(t);
+  }
+
+  function bottoni(id, voci, get, set) {
+    const box = $(id);
+    const disegna = () => { box.textContent = ""; Object.entries(voci).forEach(([k, t]) => { const b = el("button", "", t); b.type = "button"; b.setAttribute("aria-pressed", k === get()); b.addEventListener("click", () => { set(k); disegna(); seVisibile(); dettaglio(); griglia(); }); box.append(b); }); };
+    disegna();
+    return disegna;
+  }
+  // se l'evento scelto esce dai filtri, passa al primo evento visibile
+  const seVisibile = () => { const l = visibili(); if (!l.some((e) => e.chiave === scelto)) scelto = l.length ? l[0].chiave : null; };
+  const ridisegnaGenere = bottoni("genere", GENERI, () => genere, (k) => { genere = k; });
+  const ridisegnaDisc = bottoni("disciplina", DISCIPLINE, () => disciplina, (k) => { disciplina = k; });
+  $("cerca").addEventListener("input", () => {
+    const q = domanda();
+    const trovato = q && ev.find((e) => e.righe.some((a) => corrisponde(a, q)) || e.riserve.some((a) => corrisponde(a, q)));
+    if (trovato) scelto = trovato.chiave;
+    dettaglio(); griglia();
+  });
+
+  // link diretti da "Qualificati per sport": ciclismo.html#pista, #bmx, #mtb, #fuoristrada
+  function daIndirizzo() {
+    const h = decodeURIComponent(location.hash.slice(1)).toLowerCase();
+    const MAPPA = { pista: "Pista", bmx: "BMX Racing", mtb: "MTB" };
+    if (MAPPA[h]) disciplina = MAPPA[h];
+    else if (h === "fuoristrada") { disciplina = "tutti"; const e = ev.find((x) => x.disciplina !== "Pista"); if (e) scelto = e.chiave; }
+    else return;
+    if (MAPPA[h]) seVisibile();
+    ridisegnaDisc(); ridisegnaGenere();
+  }
+  daIndirizzo();
+  window.addEventListener("hashchange", () => { daIndirizzo(); dettaglio(); griglia(); });
+
+  $("nota").textContent = `Simulazione calcolata dall'agente ciclismo applicando i sistemi di qualificazione UCI per LA28 ai ranking olimpici UCI (nazioni). ` +
+    `BMX Racing e MTB: posti per nazione dal ranking olimpico a scaglioni, più campionati continentali (Africa, America, Asia), Mondiali, Paese ospitante (USA) e Universality. ` +
+    `Pista: velocità a squadre (8 nazioni da 3), sprint e keirin (14 atleti dalla classifica individuale, con minimo continentale), inseguimento a squadre (8 da 4), americana (6 coppie, oltre alle nazioni dell'inseguimento) e omnium (13, oltre alle nazioni dell'americana). ` +
+    `Le gare non ancora disputate sono una proiezione: la nazione meglio classificata non ancora qualificata. Nelle prove a squadre gli atleti indicati sono i candidati che hanno portato punti. Fino alla chiusura del periodo di qualificazione tutto è provvisorio.`;
+
+  function stampa() {
+    const box = $("stampa"); box.textContent = "";
+    box.append(el("p", "s-occ", "Road to LA28 · ranking olimpici UCI del " + fmtData(dataRif)), el("h1", "", "🚴 Qualificati Ciclismo LA28 · simulazione"));
+    box.append(el("p", "s-sint", `${num(totAss)} posti assegnati su ${num(totCap)}, ${num(noc.size)} NOC. ${num(totProv)} posti provvisori (gare non ancora disputate).`));
+    box.append(el("p", "s-leg", "D = ranking olimpico UCI · C = campionati continentali · W = Mondiali · H = Paese ospitante · U = Universality · (p) = provvisorio, proiezione dal ranking"));
+    const gr = el("div", "s-griglia");
+    ev.forEach((e) => {
+      const sec = el("section", "s-cat");
+      sec.append(el("h2", "", nomeEv(e)), el("p", "s-sub", `${e.ass} posti assegnati su ${e.cap}, ${e.righe.length} nazioni`));
+      const tb = el("table"), th = el("tr");
+      ["#", "Nazione", "NOC", "Via", "Posti", "Rank"].forEach((x, i) => th.append(el("th", i > 3 ? "n" : "", x)));
+      tb.append(th);
+      const r = (a, i) => {
+        const tr = el("tr");
+        tr.append(el("td", "n", i + 1), el("td", "", a.paese || a.noc), el("td", "", a.noc), el("td", "v " + a.tipo, a.tipo + (a.stato === "Provvisorio" ? " (p)" : "")), el("td", "n", a.posti), el("td", "n", a.rank != null ? a.rank : "–"));
+        return tr;
+      };
+      e.righe.forEach((a, i) => tb.append(r(a, i)));
+      e.attesa.forEach((a) => { const tr = el("tr", "s-attesa"); const td = el("td", "", `${a.via}: ${a.posti} da assegnare`); td.colSpan = 6; tr.append(td); tb.append(tr); });
+      if (e.riserve.length) {
+        const tr = el("tr", "s-riserve"); const td = el("td", "", "Riserve"); td.colSpan = 6; tr.append(td); tb.append(tr);
+        e.riserve.forEach((a, i) => tb.append(r(a, i)));
+      }
+      sec.append(tb); gr.append(sec);
+    });
+    box.append(gr, el("p", "s-nota", $("nota").textContent));
+  }
+  stampa();
+  const titoloPagina = document.title;
+  window.addEventListener("beforeprint", () => { document.title = "Qualificati Ciclismo LA28 - simulazione ranking " + dataRif; });
+  window.addEventListener("afterprint", () => { document.title = titoloPagina; });
+  $("pdf").addEventListener("click", () => window.print());
+
+  nazioni(); dettaglio(); griglia();
+})();
+</script>
+</body>
+</html>

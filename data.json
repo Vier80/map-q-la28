@@ -83,15 +83,16 @@
   },
   "Beachvolley": {
    "quota": 96,
-   "atleti": 16,
-   "M": 8,
+   "atleti": 18,
+   "M": 10,
    "W": 8,
    "O": 0,
-   "pass": 8,
+   "pass": 9,
    "noc": {
     "AUS": 4,
     "MAR": 2,
     "NGR": 2,
+    "USA": 2,
     "BRA": 4,
     "NED": 2,
     "SWE": 2
@@ -565,15 +566,15 @@
   }
  },
  "totali": {
-  "atleti": 890,
-  "pass": 150,
+  "atleti": 892,
+  "pass": 151,
   "noc": 43
  },
  "noc": {
   "USA": {
    "nome": "Stati Uniti",
-   "atleti": 339,
-   "pass": 42,
+   "atleti": 341,
+   "pass": 43,
    "righe": [
     {
      "nome": "Alexis RUIZ/Stephan HANSEN",
@@ -773,6 +774,26 @@
      "atleti": 12,
      "squadra": true,
      "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "Trevor CRABB/Chase BUDINGER",
+     "sport": "Beachvolley",
+     "card": "Beachvolley",
+     "discipline": [
+      "Beach Volley Men's"
+     ],
+     "genere": {
+      "M": 2,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Beach Volley Men's": "M"
+     },
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
      "nota": ""
     },
     {

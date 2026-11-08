@@ -181,6 +181,7 @@ h1 { font: 600 2.1rem/1.2 var(--font); text-wrap: balance }
     box.append(el("p", "etichetta", `${fmt(s.p)} dei posti`), el("h2", "", `${ICONE[s.nome] || "🏅"} ${s.nome}`));
     box.append(el("p", "", `${num(s.atleti)} qualificati su ${num(s.quota)}, ${num(s.resto)} posti restanti`));
     if (s.nome === "Tennis") { const a = el("a", "vai", ""); a.href = "tennis.html"; a.style.marginTop = "10px"; a.append(el("b", "", "🎾 Simulazione qualificati LA28"), el("span", "", "Singolare e doppio, per evento e nazione"), el("i", "", "›")); box.append(a); }
+    if (s.nome === "Squash") { const a = el("a", "vai", ""); a.href = "squash.html"; a.style.marginTop = "10px"; a.append(el("b", "", "🎾 Simulazione qualificati LA28"), el("span", "", "Singolare maschile e femminile"), el("i", "", "›")); box.append(a); }
     if (s.nome === "Wrestling") { const a = el("a", "vai", ""); a.href = "wrestling.html"; a.style.marginTop = "10px"; a.append(el("b", "", "🤼 Previsioni oro LA28"), el("span", "", "Favoriti di ogni categoria"), el("i", "", "›")); box.append(a); }
     if (!s.atleti) return;
     const g = el("div", "generi");

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calendario qualificazioni LA28</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
+<style>
+/* Stessa veste di stima.html, in lilla: testata, fascia con totali, carte per sport, elenco per mese. */
+:root {
+  --bg: #ffffff; --fg: #2a2540; --muted: #6b6585; --line: #e2ddf3; --card: #faf9fe; --soft: #f3f0fc; --track: #e8e3f7;
+  --ink: #8b7fd6; --ink-2: #c3bbef; --ink-t: #5d4fb8; --shadow: rgba(70, 50, 140, .10);
+  --concluso: #a9a4bd; --corso: #2f9e62; --prossimo: #8b7fd6; --tbd: #e2b93a; --quota: #5d4fb8;
+  --a2026: #4a90d9; --a2027: #8b7fd6; --a2028: #e08a4a;
+  --font: "Quicksand", "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #15121f; --fg: #ece9f7; --muted: #a9a3c4; --line: #2f2a45; --card: #1b1729; --soft: #201b31; --track: #2a2440;
+  --ink: #a89cf0; --ink-2: #c3bbef; --ink-t: #c2b8ff; --shadow: rgba(0, 0, 0, .4);
+  --concluso: #6f6a85; --corso: #4cc283; --prossimo: #a89cf0; --tbd: #ecc956; --quota: #c2b8ff;
+  --a2026: #6aa9ec; --a2027: #a89cf0; --a2028: #ee9d62; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #15121f; --fg: #ece9f7; --muted: #a9a3c4; --line: #2f2a45; --card: #1b1729; --soft: #201b31; --track: #2a2440;
+  --ink: #a89cf0; --ink-2: #c3bbef; --ink-t: #c2b8ff; --shadow: rgba(0, 0, 0, .4);
+  --concluso: #6f6a85; --corso: #4cc283; --prossimo: #a89cf0; --tbd: #ecc956; --quota: #c2b8ff;
+  --a2026: #6aa9ec; --a2027: #a89cf0; --a2028: #ee9d62; color-scheme: dark }
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 500 16px/1.4 var(--font) }
+h1, h2, h3, p { margin: 0 }
+a { color: var(--ink-t) }
+.guscio { max-width: 1240px; margin: 0 auto; display: grid; gap: 16px; padding-block: 18px 28px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.testa { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px }
+.titolo { flex: 1 1 320px; min-width: 0 }
+.occhiello { font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-t) }
+h1 { font: 600 2.1rem/1.2 var(--font); text-wrap: balance }
+.sotto { margin-top: 4px; color: var(--muted); font-size: .92rem }
+.vai { flex: 0 1 230px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 10px; padding: 11px 16px; color: inherit; font: inherit; text-align: left; background: none; border: 1.5px solid var(--line); border-radius: 18px; cursor: pointer }
+.vai:hover { border-color: var(--ink) }
+.vai b { font-weight: 600 } .vai span { grid-column: 1; font-size: .84rem; color: var(--muted) } .vai i { grid-row: 1 / 3; grid-column: 2; font-style: normal; color: var(--ink-t); font-size: 1.2rem }
+
+.totali { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); border: 1.5px solid var(--line); border-radius: 22px; background: var(--soft); overflow: hidden }
+.totale { padding: 12px 10px; text-align: center; border-right: 1px solid var(--line); border-top: 4px solid var(--c, var(--line)) }
+.totale:last-child { border-right: 0 }
+.totale b { display: block; font: 600 1.9rem/1.2 var(--font); font-variant-numeric: tabular-nums }
+.totale span { font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted) }
+
+.filtri { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px }
+#cerca { flex: 1 1 240px; min-width: 0; max-width: 420px; height: 44px; padding: 0 16px; font: 500 1rem var(--font); color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 14px }
+#cerca::placeholder { color: var(--muted) }
+.gruppo { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 4px; background: var(--soft); border-radius: 14px }
+.gruppo button { padding: 6px 12px; font: 600 .9rem var(--font); color: var(--muted); background: none; border: 0; border-radius: 10px; cursor: pointer }
+.gruppo button[aria-pressed="true"] { color: var(--fg); background: var(--bg); box-shadow: 0 1px 3px var(--shadow) }
+
+.griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 12px }
+.carta { display: grid; gap: 8px; width: 100%; padding: 14px 16px; text-align: left; font: inherit; color: inherit; background: var(--card); border: 1.5px solid var(--line); border-radius: 20px; cursor: pointer }
+.carta:hover { border-color: var(--ink); box-shadow: 0 5px 14px var(--shadow) }
+.carta[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 4px 0 0 var(--ink) }
+.carta h3 { font: 600 1.05rem/1.2 var(--font); display: flex; justify-content: space-between; gap: 8px }
+.carta h3 small { font-size: .85rem; font-weight: 600; color: var(--muted) }
+.barra { display: flex; height: 9px; background: var(--track); border-radius: 999px; overflow: hidden }
+.barra i { display: block; height: 100% }
+.carta p { font-size: .8rem; color: var(--muted) }
+
+.legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .86rem; color: var(--muted) }
+.legenda span { display: inline-flex; align-items: center; gap: 6px } .legenda i { width: 10px; height: 10px; border-radius: 50%; display: inline-block }
+
+.elenco { display: grid; gap: 22px }
+.blocco h2 { font: 600 1.3rem/1.25 var(--font); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-bottom: 8px }
+.blocco h2 small { font-size: .85rem; font-weight: 600; color: var(--muted) }
+.cols, .riga { display: grid; grid-template-columns: 12px 128px 150px minmax(0, 1fr) 210px 150px; align-items: center; gap: 12px }
+.cols { padding: 0 14px 4px; font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-t) }
+.righe { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px }
+.riga { padding: 9px 14px; background: var(--bg); border: 1px solid var(--line); border-radius: 14px }
+.riga:hover { border-color: var(--ink) }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: var(--c) }
+.dt { font-variant-numeric: tabular-nums; line-height: 1.25 } .dt small { display: block; font-size: .74rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--c) }
+.sp { justify-self: start; padding: 2px 10px; font-size: .8rem; font-weight: 700; color: var(--ink-t); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; overflow-wrap: anywhere }
+.ev b { font-weight: 600; overflow-wrap: anywhere } .ev small { display: block; margin-top: 1px; font-size: .8rem; color: var(--muted) }
+.ev small a { color: var(--muted) } .ev small a:hover { color: var(--ink-t) }
+.sd { display: flex; align-items: center; gap: 8px; min-width: 0 } .sd img { width: 26px; height: 18px; object-fit: cover; border-radius: 3px; box-shadow: 0 0 0 1px var(--line); flex: none }
+.sd .nob { width: 26px; height: 18px; border-radius: 3px; background: var(--track); flex: none }
+.sd span { min-width: 0 } .sd small { display: block; font-size: .78rem; color: var(--muted) }
+.nt b { font: 700 1.05rem/1.1 var(--font); color: var(--quota); font-variant-numeric: tabular-nums } .nt b small { font: 600 .78rem var(--font); color: var(--muted) }
+.nt > small { display: block; font-size: .78rem; color: var(--muted) }
+.anno { display: inline-block; padding: 0 7px; margin-left: 6px; font-size: .7rem; font-weight: 700; color: #fff; background: var(--y); border-radius: 999px; vertical-align: 2px }
+.vuoto { padding: 20px; color: var(--muted) }
+.nota { max-width: 90ch; font-size: .86rem; color: var(--muted) }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px }
+@media (max-width: 1000px) { .cols { display: none } .riga { grid-template-columns: 12px 112px minmax(0, 1fr) 120px; row-gap: 6px }
+  .riga .sp { grid-column: 3; grid-row: 1 } .riga .ev { grid-column: 3; grid-row: 2 } .riga .dt { grid-column: 2; grid-row: 1 / 3 }
+  .riga .dot { grid-row: 1 / 3 } .riga .sd { grid-column: 3; grid-row: 3 } .riga .nt { grid-column: 4; grid-row: 1 / 4; text-align: right } }
+@media (max-width: 900px) { h1 { font-size: 1.6rem } .totali { grid-template-columns: repeat(3, minmax(0, 1fr)) } .totale:nth-child(3) { border-right: 0 } .totale:nth-child(-n+3) { border-bottom: 1px solid var(--line) } }
+@media (max-width: 560px) { .griglia { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px } .carta { padding: 10px 12px; gap: 6px; border-radius: 16px } .carta h3 { font-size: .95rem } .carta p { font-size: .74rem }
+  .riga { grid-template-columns: 12px minmax(0, 1fr) 78px } .riga .dt { grid-column: 2; grid-row: 1 } .riga .sp, .riga .ev, .riga .sd { grid-column: 2 }
+  .riga .sp { grid-row: 2 } .riga .ev { grid-row: 3 } .riga .sd { grid-row: 4 } .riga .nt { grid-column: 3; grid-row: 1 / 5 } .riga .dot { grid-row: 1 / 5; align-self: start; margin-top: 4px } }
+
+#stampa { display: none }
+@media print {
+  @page { size: A4 landscape; margin: 10mm }
+  :root:not([data-theme="x"]) { color-scheme: light !important }
+  html, body { background: #fff !important; color: #2a2540 !important; font-size: 9pt }
+  .guscio { display: block; max-width: none; padding: 0 }
+  .guscio > :not(#stampa) { display: none !important }
+  #stampa { display: block; -webkit-print-color-adjust: exact; print-color-adjust: exact }
+  #stampa h1 { font: 700 18pt/1.2 var(--font); margin: 1mm 0 2mm }
+  .s-occ { font-size: 8pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #5d4fb8 }
+  .s-sint { font-size: 9pt; margin: 0 0 4mm; padding-bottom: 3mm; border-bottom: 1.5pt solid #8b7fd6 }
+  .s-mese { margin: 0 0 4mm }
+  .s-mese h2 { font: 700 10.5pt/1.2 var(--font); margin: 0 0 1mm; padding: 1.2mm 2mm; background: #f3f0fc; border-left: 2.5pt solid #8b7fd6; break-after: avoid }
+  .s-mese table { width: 100%; border-collapse: collapse; font-size: 7.6pt; line-height: 1.2; font-variant-numeric: tabular-nums; table-layout: fixed }
+  .s-mese th { text-align: left; font-weight: 700; font-size: 6.8pt; letter-spacing: .05em; text-transform: uppercase; color: #6b6585; padding: 0 1.5mm .6mm; border-bottom: .6pt solid #8b7fd6 }
+  .s-mese td { padding: .5mm 1.5mm; border-bottom: .4pt solid #e8e3f7; vertical-align: top }
+  .s-mese tr { break-inside: avoid }
+  .s-mese .c-d { width: 30mm } .s-mese .c-s { width: 32mm } .s-mese .c-v { width: 46mm } .s-mese .c-n { width: 44mm }
+  .s-mese td.c-s, .s-mese td.n b { font-weight: 700 } .s-mese img { width: 4.2mm; height: 3mm; object-fit: cover; vertical-align: -.4mm; margin-right: 1mm }
+  .s-note { font-size: 7.4pt; color: #6b6585; margin-top: 4mm }
+}
+</style>
+</head>
+<body>
+<main class="guscio" id="app">
+  <header class="testa">
+    <div class="titolo">
+      <p class="occhiello">Los Angeles 2028 · Qualificazioni</p>
+      <h1>Calendario delle qualificazioni</h1>
+      <p class="sotto" id="agg">Caricamento…</p>
+    </div>
+    <button class="vai" id="pdf" type="button"><b>Scarica PDF</b><span>vista di stampa del calendario</span><i aria-hidden="true">⤓</i></button>
+  </header>
+  <section class="totali" id="totali" aria-label="Totali"></section>
+  <div class="legenda" id="legenda"></div>
+  <section class="filtri">
+    <input id="cerca" type="search" placeholder="Cerca evento, sport o sede" aria-label="Cerca">
+    <div class="gruppo" id="anni" role="group" aria-label="Filtra per anno"></div>
+    <div class="gruppo" id="stati" role="group" aria-label="Filtra per stato"></div>
+  </section>
+  <section class="griglia" id="sport" aria-label="Sport"></section>
+  <section class="elenco" id="elenco"></section>
+  <p class="nota" id="note"></p>
+  <div id="stampa"></div>
+</main>
+<script>
+const ANNI = ["2026", "2027", "2028"];
+const COL_ANNO = { "2026": "var(--a2026)", "2027": "var(--a2027)", "2028": "var(--a2028)" };
+const STATI = { "Concluso": "var(--concluso)", "In corso": "var(--corso)", "In programma": "var(--prossimo)", "Da definire": "var(--tbd)" };
+const MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
+// Codice CIO della bandiera sul sito -> [codice ISO per l'immagine, nome in italiano]
+const PAESI = {
+  ALG: ["dz", "Algeria"], ARG: ["ar", "Argentina"], AUS: ["au", "Australia"], AUT: ["at", "Austria"], AZE: ["az", "Azerbaigian"],
+  BEL: ["be", "Belgio"], BRA: ["br", "Brasile"], BUL: ["bg", "Bulgaria"], CAN: ["ca", "Canada"], CHI: ["cl", "Cile"],
+  CHN: ["cn", "Cina"], COL: ["co", "Colombia"], CRO: ["hr", "Croazia"], CUB: ["cu", "Cuba"], CYP: ["cy", "Cipro"],
+  CZE: ["cz", "Repubblica Ceca"], DEN: ["dk", "Danimarca"], DOM: ["do", "Repubblica Dominicana"], EGY: ["eg", "Egitto"],
+  ENG: ["gb-eng", "Inghilterra"], ESA: ["sv", "El Salvador"], ESP: ["es", "Spagna"], EST: ["ee", "Estonia"], FIN: ["fi", "Finlandia"],
+  FRA: ["fr", "Francia"], GBR: ["gb", "Gran Bretagna"], GER: ["de", "Germania"], GRE: ["gr", "Grecia"], HKG: ["hk", "Hong Kong"],
+  HUN: ["hu", "Ungheria"], INA: ["id", "Indonesia"], IND: ["in", "India"], IRI: ["ir", "Iran"], IRL: ["ie", "Irlanda"],
+  ISR: ["il", "Israele"], ITA: ["it", "Italia"], JPN: ["jp", "Giappone"], KAZ: ["kz", "Kazakistan"], KEN: ["ke", "Kenya"],
+  KOR: ["kr", "Corea del Sud"], KSA: ["sa", "Arabia Saudita"], KUW: ["kw", "Kuwait"], LAT: ["lv", "Lettonia"], LTU: ["lt", "Lituania"],
+  MAR: ["ma", "Marocco"], MAS: ["my", "Malesia"], MEX: ["mx", "Messico"], NED: ["nl", "Paesi Bassi"], NGR: ["ng", "Nigeria"],
+  NOR: ["no", "Norvegia"], NZL: ["nz", "Nuova Zelanda"], PAN: ["pa", "Panama"], PER: ["pe", "Perù"], PHI: ["ph", "Filippine"],
+  PNG: ["pg", "Papua Nuova Guinea"], POL: ["pl", "Polonia"], POR: ["pt", "Portogallo"], PUR: ["pr", "Porto Rico"], PYF: ["pf", "Polinesia Francese"],
+  QAT: ["qa", "Qatar"], ROU: ["ro", "Romania"], RSA: ["za", "Sudafrica"], SCO: ["gb-sct", "Scozia"], SEN: ["sn", "Senegal"],
+  SGP: ["sg", "Singapore"], SLO: ["si", "Slovenia"], SRB: ["rs", "Serbia"], SUI: ["ch", "Svizzera"], SVK: ["sk", "Slovacchia"],
+  SWE: ["se", "Svezia"], THA: ["th", "Thailandia"], TPE: ["tw", "Taipei Cinese"], TUN: ["tn", "Tunisia"], TUR: ["tr", "Turchia"],
+  UAE: ["ae", "Emirati Arabi Uniti"], UKR: ["ua", "Ucraina"], URU: ["uy", "Uruguay"], USA: ["us", "Stati Uniti"], UZB: ["uz", "Uzbekistan"],
+  VEN: ["ve", "Venezuela"], VIE: ["vn", "Vietnam"], WAL: ["gb-wls", "Galles"], ZIM: ["zw", "Zimbabwe"],
+  WHT: [null, "Varie sedi"], UKW: [null, "Sede da definire"],
+};
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const nf = (n) => new Intl.NumberFormat("it-IT").format(n);
+const oggi = new Date().toLocaleDateString("sv-SE");   // AAAA-MM-GG nel fuso orario di chi guarda
+let D = null, annoSel = "", statoSel = "", sportSel = "", testo = "";
+
+function stato(e) {
+  if (!e.inizio) return "Da definire";
+  if ((e.fine || e.inizio) < oggi) return "Concluso";
+  if (e.inizio <= oggi) return "In corso";
+  return "In programma";
+}
+function gg(iso) { const [y, m, d] = iso.split("-").map(Number); return `${d} ${MESI[m - 1]}`; }
+function gg2(iso) { const [y, m, d] = iso.split("-").map(Number); return `${d} ${MESI[m - 1].slice(0, 3)}`; }
+function periodo(e) {
+  if (!e.inizio) return ["Date da definire", ""];
+  const f = e.fine || e.inizio;
+  if (f === e.inizio) return [gg(e.inizio), ""];
+  return [gg(e.inizio), gg(f) + (f.slice(0, 4) !== e.inizio.slice(0, 4) ? " " + f.slice(0, 4) : "")];
+}
+function periodoBreve(e) {
+  if (!e.inizio) return "TBD";
+  const f = e.fine || e.inizio;
+  return f === e.inizio ? gg2(e.inizio) : `${gg2(e.inizio)} – ${gg2(f)}`;
+}
+function paese(e) { const p = PAESI[e.paese]; return p ? p : [null, e.paese || ""]; }
+function bandiera(e, cls = "") {
+  const [iso, nome] = paese(e);
+  return iso ? `<img class="${cls}" src="https://flagcdn.com/w40/${iso}.png" alt="" loading="lazy" onerror="this.remove()">` : `<i class="nob" aria-hidden="true"></i>`;
+}
+function posti(e) {
+  const parti = [["uomini", "U"], ["donne", "D"], ["misti", "Misti"], ["open", "Open"]].filter(([k]) => e[k] != null).map(([k, l]) => `${l} ${e[k]}`);
+  return parti.join(" · ");
+}
+function filtra(conSport = true) {
+  const q = testo.trim().toLowerCase();
+  return D.eventi.filter((e) =>
+    (!annoSel || e.anno === annoSel) && (!statoSel || e.stato === statoSel) && (!conSport || !sportSel || e.sport === sportSel) &&
+    (!q || [e.evento, e.sport, e.sede, paese(e)[1], e.paese].join(" ").toLowerCase().includes(q)));
+}
+function gruppi(rows) {
+  const per = new Map();
+  rows.forEach((e) => {
+    const k = e.inizio ? e.inizio.slice(0, 7) : `${e.anno}-99`;
+    if (!per.has(k)) per.set(k, []);
+    per.get(k).push(e);
+  });
+  return [...per].sort((a, b) => a[0].localeCompare(b[0])).map(([k, lst]) => {
+    const [y, m] = k.split("-");
+    return [m === "99" ? `Date da definire · ${y}` : `${MESI[+m - 1][0].toUpperCase()}${MESI[+m - 1].slice(1)} ${y}`, lst];
+  });
+}
+const somma = (lst) => lst.reduce((a, e) => a + (e.quota || 0), 0);
+const postiTxt = (n) => `${nf(n)} ${n === 1 ? "posto" : "posti"}`;
+const eventiTxt = (n) => `${nf(n)} ${n === 1 ? "evento" : "eventi"}`;
+
+function disegna() {
+  const base = filtra(false);
+  const conta = (s) => base.filter((e) => e.stato === s).length;
+  $("totali").innerHTML = [["Eventi", base.length, "var(--ink)"], ["Posti quota", somma(base), "var(--quota)"],
+    ...Object.entries(STATI).map(([s, c]) => [{ "Concluso": "Conclusi", "Da definire": "Date da definire" }[s] || s, conta(s), c])]
+    .map(([l, n, c]) => `<div class="totale" style="--c:${c}"><b>${nf(n)}</b><span>${l}</span></div>`).join("");
+  $("anni").innerHTML = [["", "Tutti gli anni"], ...ANNI.map((a) => [a, a])]
+    .map(([v, t]) => `<button type="button" data-a="${v}" aria-pressed="${annoSel === v}">${t}</button>`).join("");
+  $("stati").innerHTML = [["", "Tutti"], ...Object.keys(STATI).map((s) => [s, s])]
+    .map(([v, t]) => `<button type="button" data-s="${esc(v)}" aria-pressed="${statoSel === v}">${esc(t)}</button>`).join("");
+  const sport = new Map();
+  base.forEach((e) => { if (!sport.has(e.sport)) sport.set(e.sport, []); sport.get(e.sport).push(e); });
+  $("sport").innerHTML = `<button class="carta" type="button" data-sp="" aria-pressed="${sportSel === ""}"><h3>Tutti gli sport <small>${base.length}</small></h3><p>${sport.size} sport · ${postiTxt(somma(base))}</p></button>` +
+    [...sport].sort((a, b) => a[0].localeCompare(b[0])).map(([s, lst]) => {
+      const barra = ANNI.map((a) => { const n = lst.filter((e) => e.anno === a).length; return n ? `<i style="width:${n / lst.length * 100}%;background:${COL_ANNO[a]}"></i>` : ""; }).join("");
+      const dett = ANNI.map((a) => [a, lst.filter((e) => e.anno === a).length]).filter(([, n]) => n).map(([a, n]) => `${a}: ${n}`).join(" · ");
+      return `<button class="carta" type="button" data-sp="${esc(s)}" aria-pressed="${sportSel === s}"><h3>${esc(s)} <small>${lst.length}</small></h3><div class="barra">${barra}</div><p>${postiTxt(somma(lst))} · ${dett}</p></button>`;
+    }).join("");
+  const rows = filtra();
+  stampa(rows);
+  if (!rows.length) { $("elenco").innerHTML = `<p class="vuoto">Nessun evento con questi filtri.</p>`; return; }
+  const testata = `<div class="cols" aria-hidden="true"><span></span><span>Date</span><span>Sport</span><span>Evento</span><span>Sede</span><span>Note</span></div>`;
+  $("elenco").innerHTML = gruppi(rows).map(([titolo, lst]) =>
+    `<div class="blocco"><h2>${esc(titolo)} <small>${eventiTxt(lst.length)} · ${postiTxt(somma(lst))}</small></h2>${testata}<ul class="righe">${lst.map(riga).join("")}</ul></div>`).join("");
+}
+function riga(e) {
+  const [d1, d2] = periodo(e), c = STATI[e.stato];
+  const link = [e.discussione && `<a href="${esc(e.discussione)}" target="_blank" rel="noopener">Discussione</a>`,
+    e.tracker && `<a href="${esc(e.tracker)}" target="_blank" rel="noopener">Tracker</a>`].filter(Boolean).join(" · ");
+  const [, nomePaese] = paese(e);
+  const citta = e.sede && !/^(TBD|Various Cities)$/i.test(e.sede) ? e.sede : "";
+  return `<li class="riga" style="--c:${c}"><span class="dot" title="${esc(e.stato)}"></span>
+    <span class="dt">${esc(d1)}${d2 ? "<br>" + esc(d2) : ""}<small>${esc(e.stato)}</small></span>
+    <span class="sp">${esc(e.sport)}</span>
+    <span class="ev"><b>${esc(e.evento)}</b><small>${link || "&nbsp;"}<span class="anno" style="--y:${COL_ANNO[e.anno] || "var(--ink)"}">${esc(e.anno)}</span></small></span>
+    <span class="sd">${bandiera(e)}<span>${esc(citta || nomePaese)}${citta ? `<small>${esc(nomePaese)}</small>` : ""}</span></span>
+    <span class="nt"><b>${e.quota != null ? nf(e.quota) : "–"} <small>${e.quota === 1 ? "posto" : "posti"}</small></b><small>${esc(posti(e)) || "&nbsp;"}</small></span></li>`;
+}
+function stampa(rows) {
+  const filtri = [annoSel && `anno ${annoSel}`, statoSel && statoSel.toLowerCase(), sportSel, testo.trim() && `ricerca "${testo.trim()}"`].filter(Boolean);
+  $("stampa").innerHTML = `<p class="s-occ">Los Angeles 2028 · Qualificazioni</p><h1>Calendario delle qualificazioni${annoSel ? " " + annoSel : ""}</h1>` +
+    `<p class="s-sint">${eventiTxt(rows.length)} · ${postiTxt(somma(rows))} quota${filtri.length ? " · filtri: " + esc(filtri.join(", ")) : ""} — aggiornato ${esc(D.aggiornato)}</p>` +
+    gruppi(rows).map(([titolo, lst]) => `<section class="s-mese"><h2>${esc(titolo)} · ${eventiTxt(lst.length)} · ${postiTxt(somma(lst))}</h2><table><thead><tr>` +
+      `<th class="c-d">Date</th><th class="c-s">Sport</th><th>Evento</th><th class="c-v">Sede</th><th class="c-n">Note</th></tr></thead><tbody>` +
+      lst.map((e) => { const [, np] = paese(e); const citta = e.sede && !/^(TBD|Various Cities)$/i.test(e.sede) ? e.sede : "";
+        return `<tr><td>${esc(periodoBreve(e))}</td><td class="c-s">${esc(e.sport)}</td><td>${esc(e.evento)}</td>` +
+          `<td>${paese(e)[0] ? bandiera(e) : ""}${esc(citta ? `${citta} (${np})` : np)}</td>` +
+          `<td class="n"><b>${e.quota != null ? e.quota : "–"}</b>${posti(e) ? " · " + esc(posti(e)) : ""}</td></tr>`; }).join("") +
+      `</tbody></table></section>`).join("") +
+    `<p class="s-note">Fonte: Totallympics, calendari di qualificazione LA28 (eventi che assegnano posti diretti). U = uomini, D = donne. Stampato il ${new Date().toLocaleDateString("it-IT")}.</p>`;
+}
+fetch("calendario.json?v=" + Date.now()).then((r) => r.json()).then((d) => {
+  d.eventi.forEach((e) => { e.stato = stato(e); });
+  D = d;
+  $("agg").innerHTML = `Aggiornato ${esc(d.aggiornato)} · ${nf(d.eventi.length)} eventi di qualificazione · fonte <a href="${esc(d.fonte)}" target="_blank" rel="noopener">Totallympics</a>`;
+  $("legenda").innerHTML = Object.entries(STATI).map(([s, c]) => `<span><i style="background:${c}"></i>${s}</span>`).join("") +
+    ANNI.map((a) => `<span><i style="background:${COL_ANNO[a]};border-radius:3px"></i>${a}</span>`).join("");
+  $("note").textContent = "Sono elencati gli eventi che assegnano posti diretti per Los Angeles 2028, come pubblicati nei calendari di Totallympics. Lo stato (concluso, in corso, in programma) è calcolato sulla data di oggi. Il pulsante Scarica PDF apre la stampa dell'elenco con i filtri attivi: scegli \"Salva come PDF\".";
+  disegna();
+}).catch(() => { $("agg").textContent = "Non riesco a leggere calendario.json: l'agente non ha ancora pubblicato i dati."; });
+$("anni").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { annoSel = b.dataset.a; disegna(); } });
+$("stati").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { statoSel = b.dataset.s; disegna(); } });
+$("sport").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) { sportSel = b.dataset.sp; disegna(); } });
+$("cerca").addEventListener("input", (e) => { testo = e.target.value; disegna(); });
+$("pdf").addEventListener("click", () => window.print());
+</script>
+</body>
+</html>

@@ -36,10 +36,10 @@ jobs:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: python aggiorna_tennis.py
       - name: Leggi il calendario delle qualificazioni e aggiorna calendario.json
-           continue-on-error: true
-           env:
-             NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-           run: python aggiorna_calendario.py
+        continue-on-error: true
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: python aggiorna_calendario.py
       - name: Salva data.json nel repository
         id: salva
         run: |

@@ -19,57 +19,57 @@
 }
 * { box-sizing: border-box }
 html { -webkit-text-size-adjust: 100% }
-body { margin: 0; background: var(--sfondo); color: var(--testo); font: 500 16px/1.4 Quicksand, "Avenir Next", system-ui, sans-serif }
+body { margin: 0; background: var(--sfondo); color: var(--testo); font: 500 15px/1.45 Quicksand, "Avenir Next", system-ui, sans-serif }
 a { color: var(--blu); text-decoration: none }
 button, input, select { font: inherit; color: inherit }
-.pagina { max-width: 1700px; margin: 0 auto; padding: 0 12px 40px }
+.pagina { max-width: 1400px; margin: 0 auto; padding: 0 12px 40px }
 
 /* ---------- intestazione ---------- */
 .testa { background: var(--carta); border-radius: 0 0 14px 14px; box-shadow: 0 1px 3px rgba(22,41,77,.06); overflow: hidden; margin-bottom: 18px }
 .testa::before { content: ""; display: block; height: 6px; background: linear-gradient(90deg, #f2b04c, var(--oro) 35%, #e8c27c) }
 .testa-su { display: flex; gap: 20px; align-items: center; justify-content: space-between; padding: 18px 12px 18px 20px;
   background: linear-gradient(90deg, var(--crema), #fff 45%); border-bottom: 1px solid var(--bordo); flex-wrap: wrap }
-.occhiello { color: var(--oro); font-weight: 700; letter-spacing: 1.6px; font-size: 17px; display: flex; align-items: center; gap: 8px }
+.occhiello { color: var(--oro); font-weight: 700; letter-spacing: 1.3px; font-size: 13px; display: flex; align-items: center; gap: 8px }
 .occhiello::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--oro) }
-h1 { margin: 6px 0 0; font-size: 34px; font-weight: 600; color: var(--blu-notte); letter-spacing: -.2px; position: relative; padding-bottom: 10px }
+h1 { margin: 6px 0 0; font-size: 28px; font-weight: 600; color: var(--blu-notte); letter-spacing: -.2px; position: relative; padding-bottom: 10px }
 h1::after { content: ""; position: absolute; left: 0; bottom: 0; width: 62px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, var(--oro), #f0c77e) }
 .collegamenti { display: flex; gap: 10px; flex-wrap: wrap }
-.collegamento { display: flex; align-items: center; gap: 14px; padding: 10px 14px; min-width: 300px; background: #fff; border: 1px solid var(--bordo-campo);
+.collegamento { display: flex; align-items: center; gap: 12px; padding: 9px 12px; min-width: 250px; background: #fff; border: 1px solid var(--bordo-campo);
   border-radius: 10px; color: var(--blu-notte); transition: box-shadow .15s, border-color .15s }
 .collegamento:hover { border-color: #9fb6d6; box-shadow: 0 3px 10px rgba(31,90,156,.12) }
-.collegamento .ico { width: 36px; height: 36px; border-radius: 50%; background: var(--blu-chiaro); display: grid; place-items: center; flex: none; color: var(--blu) }
-.collegamento b { display: block; font-weight: 600; font-size: 17px }
-.collegamento small { display: block; color: var(--testo-2); font-size: 16px }
-.collegamento .freccia { margin-left: auto; color: var(--blu-notte); font-size: 22px; font-weight: 600 }
+.collegamento .ico { width: 32px; height: 32px; border-radius: 50%; background: var(--blu-chiaro); display: grid; place-items: center; flex: none; color: var(--blu) }
+.collegamento b { display: block; font-weight: 600; font-size: 14.5px }
+.collegamento small { display: block; color: var(--testo-2); font-size: 13px }
+.collegamento .freccia { margin-left: auto; color: var(--blu-notte); font-size: 18px; font-weight: 600 }
 
 .numeri { display: grid; grid-template-columns: repeat(4, 1fr) }
-.numero { display: flex; align-items: center; justify-content: center; gap: 22px; padding: 22px 12px; border-right: 1px solid var(--bordo) }
+.numero { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 16px 12px; border-right: 1px solid var(--bordo) }
 .numero:last-child { border-right: 0 }
-.numero .ico { width: 48px; height: 48px; border-radius: 50%; background: var(--blu-chiaro); display: grid; place-items: center; color: var(--blu); flex: none }
-.numero b { display: block; font-size: 30px; font-weight: 600; color: var(--blu-notte); font-variant-numeric: tabular-nums; line-height: 1.1 }
-.numero span { display: block; color: var(--testo-2); letter-spacing: .8px; font-size: 17px; text-transform: uppercase; font-weight: 600 }
+.numero .ico { width: 40px; height: 40px; border-radius: 50%; background: var(--blu-chiaro); display: grid; place-items: center; color: var(--blu); flex: none }
+.numero b { display: block; font-size: 24px; font-weight: 600; color: var(--blu-notte); font-variant-numeric: tabular-nums; line-height: 1.1 }
+.numero span { display: block; color: var(--testo-2); letter-spacing: .7px; font-size: 12px; text-transform: uppercase; font-weight: 600 }
 
 /* ---------- pannello ---------- */
 .pannello { background: var(--carta); border-radius: 14px; box-shadow: 0 1px 3px rgba(22,41,77,.06); overflow: hidden }
 .schede { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 8px 12px 0; background: #f6f8fb; border-bottom: 1px solid var(--bordo) }
-.scheda { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border: 1px solid var(--bordo); border-bottom: 0;
-  border-radius: 8px 8px 0 0; background: var(--blu-testata); color: var(--blu-notte); font-weight: 600; font-size: 18px; cursor: pointer; position: relative; top: 1px }
+.scheda { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px; border: 1px solid var(--bordo); border-bottom: 0;
+  border-radius: 8px 8px 0 0; background: var(--blu-testata); color: var(--blu-notte); font-weight: 600; font-size: 15px; cursor: pointer; position: relative; top: 1px }
 .scheda[aria-selected="true"] { background: linear-gradient(180deg, var(--crema), #fdf0d8); color: var(--oro-scuro); border-color: #ecd7b1; box-shadow: inset 0 -3px 0 var(--oro) }
-.scheda svg { width: 20px; height: 20px }
+.scheda svg { width: 17px; height: 17px }
 
-.esplora { padding: 22px 22px 18px }
-.riga-titolo { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 18px }
-.riga-titolo h2 { margin: 0; font-size: 20px; font-weight: 600; color: var(--blu-notte) }
+.esplora { padding: 18px 20px 14px }
+.riga-titolo { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px }
+.riga-titolo h2 { margin: 0; font-size: 17px; font-weight: 600; color: var(--blu-notte) }
 .bottoni { display: flex; gap: 8px; flex-wrap: wrap }
-.bottone { display: inline-flex; align-items: center; gap: 7px; padding: 9px 13px; background: #fff; border: 1px solid var(--bordo-campo); border-radius: 8px;
-  color: var(--blu); font-weight: 600; font-size: 17px; cursor: pointer }
+.bottone { display: inline-flex; align-items: center; gap: 6px; padding: 7px 11px; background: #fff; border: 1px solid var(--bordo-campo); border-radius: 8px;
+  color: var(--blu); font-weight: 600; font-size: 14px; cursor: pointer }
 .bottone:hover { background: var(--blu-chiaro) }
 .bottone[disabled] { opacity: .45; cursor: default; background: #fff }
-.bottone svg { width: 16px; height: 16px }
+.bottone svg { width: 14px; height: 14px }
 
 .filtri { display: grid; grid-template-columns: 1.2fr .6fr 1fr 1fr 1fr; gap: 12px; align-items: end }
-.campo label { display: block; text-transform: uppercase; letter-spacing: 1.2px; color: var(--testo-2); font-size: 17px; font-weight: 600; margin-bottom: 8px }
-.campo input, .campo select { width: 100%; height: 46px; padding: 0 14px; border: 1px solid var(--bordo-campo); border-radius: 7px; background: #fff; color: var(--testo); font-size: 17px }
+.campo label { display: block; text-transform: uppercase; letter-spacing: 1px; color: var(--testo-2); font-size: 12px; font-weight: 600; margin-bottom: 6px }
+.campo input, .campo select { width: 100%; height: 40px; padding: 0 12px; border: 1px solid var(--bordo-campo); border-radius: 7px; background: #fff; color: var(--testo); font-size: 14.5px }
 .campo select { appearance: none; -webkit-appearance: none; padding-right: 38px;
   background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2316294d' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center }
 .campo input::placeholder { color: var(--testo-3) }
@@ -77,50 +77,50 @@ h1::after { content: ""; position: absolute; left: 0; bottom: 0; width: 62px; he
 .campo.vuoto { visibility: hidden }
 
 .rapidi { display: flex; align-items: center; gap: 8px; margin-top: 12px; flex-wrap: wrap }
-.rapidi > span { color: var(--testo-2); font-size: 18px; margin-right: 2px }
-.chip { padding: 6px 12px; border: 1px solid var(--bordo-campo); background: #fff; border-radius: 999px; font-size: 18px; font-weight: 500; color: var(--testo-2); cursor: pointer }
+.rapidi > span { color: var(--testo-2); font-size: 14px; margin-right: 2px }
+.chip { padding: 4px 11px; border: 1px solid var(--bordo-campo); background: #fff; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--testo-2); cursor: pointer }
 .chip[aria-pressed="true"] { background: var(--blu-chiaro); border-color: #a9c2e3; color: var(--blu) }
-.stato { display: flex; justify-content: space-between; gap: 12px; color: var(--testo-2); font-size: 18px; margin-top: 18px; flex-wrap: wrap }
+.stato { display: flex; justify-content: space-between; gap: 12px; color: var(--testo-2); font-size: 14px; margin-top: 14px; flex-wrap: wrap }
 
 /* ---------- elenco ---------- */
-.elenco-testa { display: flex; align-items: center; gap: 14px; padding: 14px 20px; background: #f7f9fc; border-top: 1px solid var(--bordo); flex-wrap: wrap }
-.elenco-testa h3 { margin: 0; font-size: 19px; font-weight: 600; color: var(--blu-notte) }
-.elenco-testa .etichetta { text-transform: uppercase; letter-spacing: 1.2px; color: var(--testo-2); font-size: 17px; font-weight: 600 }
+.elenco-testa { display: flex; align-items: center; gap: 12px; padding: 11px 16px; background: #f7f9fc; border-top: 1px solid var(--bordo); flex-wrap: wrap }
+.elenco-testa h3 { margin: 0; font-size: 15.5px; font-weight: 600; color: var(--blu-notte) }
+.elenco-testa .etichetta { text-transform: uppercase; letter-spacing: 1px; color: var(--testo-2); font-size: 12px; font-weight: 600 }
 .contatori { display: flex; gap: 6px; flex-wrap: wrap }
-.contatore { border: 1px solid var(--bordo); background: #fff; border-radius: 7px; padding: 4px 12px 4px 10px; text-transform: uppercase; letter-spacing: 1px;
-  font-size: 17px; font-weight: 600; color: var(--blu-notte); border-left: 3px solid var(--c, var(--blu)) }
-.mostra { margin-left: auto; color: var(--testo-2); font-size: 18px }
+.contatore { border: 1px solid var(--bordo); background: #fff; border-radius: 7px; padding: 3px 10px 3px 8px; text-transform: uppercase; letter-spacing: .8px;
+  font-size: 12px; font-weight: 600; color: var(--blu-notte); border-left: 3px solid var(--c, var(--blu)) }
+.mostra { margin-left: auto; color: var(--testo-2); font-size: 14px }
 
 table { width: 100%; border-collapse: collapse }
-thead th { text-align: left; text-transform: uppercase; letter-spacing: 1.2px; font-size: 17px; font-weight: 600; color: var(--testo-2);
-  padding: 15px 14px; background: var(--blu-testata); border-bottom: 1px solid var(--bordo); white-space: nowrap }
+thead th { text-align: left; text-transform: uppercase; letter-spacing: 1px; font-size: 12px; font-weight: 600; color: var(--testo-2);
+  padding: 11px 12px; background: var(--blu-testata); border-bottom: 1px solid var(--bordo); white-space: nowrap }
 thead th.ordinabile { cursor: pointer; user-select: none }
-thead th.ordinabile .verso { float: right; color: var(--testo-3); font-size: 18px }
+thead th.ordinabile .verso { float: right; color: var(--testo-3); font-size: 13px }
 thead th.attiva { background: #e3edf8; color: var(--blu) }
 thead th.attiva .verso { color: var(--blu) }
-tbody td { padding: 18px 14px; border-bottom: 1px solid var(--bordo); vertical-align: middle; font-size: 18px }
+tbody td { padding: 12px; border-bottom: 1px solid var(--bordo); vertical-align: middle; font-size: 14.5px }
 tbody tr:nth-child(even) td { background: #fbfcfe }
 tbody tr:hover td { background: #f4f8fd }
 .atleta { color: var(--blu-notte); font-weight: 600 }
-.atleta small { display: block; color: var(--testo-3); font-weight: 500; font-size: 15px; margin-top: 2px }
-.paese { display: flex; align-items: center; gap: 12px }
-.bandiera { width: 42px; height: 28px; border-radius: 4px; box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.12); object-fit: cover; flex: none; background: #f1f3f6 }
-.bandiera.emoji { display: grid; place-items: center; font-size: 22px; box-shadow: none; background: none }
+.atleta small { display: block; color: var(--testo-3); font-weight: 500; font-size: 12.5px; margin-top: 1px }
+.paese { display: flex; align-items: center; gap: 10px }
+.bandiera { width: 30px; height: 20px; border-radius: 4px; box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.12); object-fit: cover; flex: none; background: #f1f3f6 }
+.bandiera.emoji { display: grid; place-items: center; font-size: 18px; box-shadow: none; background: none }
 .sport { color: var(--blu); font-weight: 600 }
 .gara { color: var(--testo) }
-.pillola { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 18px; border-radius: 999px; border: 1px solid; text-transform: uppercase;
-  letter-spacing: 1.2px; font-size: 17px; font-weight: 600; line-height: 1.2; text-align: center; min-width: 170px; justify-content: center }
+.pillola { display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px 5px 13px; border-radius: 999px; border: 1px solid; text-transform: uppercase;
+  letter-spacing: .9px; font-size: 11.5px; font-weight: 700; line-height: 1.2; text-align: center; min-width: 124px; justify-content: center }
 .pillola.athlete { background: var(--verde-bg); border-color: var(--verde-bordo); color: var(--verde) }
 .pillola.noc { background: var(--azzurro-bg); border-color: var(--azzurro-bordo); color: var(--azzurro) }
 .pillola.team { background: var(--arancio-bg); border-color: var(--arancio-bordo); color: var(--arancio) }
 .pillola a { color: inherit; display: grid; place-items: center; opacity: .75; flex: none }
 .pillola a:hover { opacity: 1 }
-.pillola svg { width: 15px; height: 15px }
-.percorso { color: var(--testo-2); max-width: 300px }
-.percorso small { display: block; color: var(--oro-scuro); font-size: 14px; font-weight: 600; margin-top: 2px; letter-spacing: .3px }
+.pillola svg { width: 13px; height: 13px }
+.percorso { color: var(--testo-2); max-width: 320px }
+.percorso small { display: block; color: var(--oro-scuro); font-size: 12px; font-weight: 600; margin-top: 1px; letter-spacing: .3px }
 .nessuno { text-align: center; color: var(--testo-3); padding: 50px 0 !important }
 
-.piede-elenco { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; color: var(--testo-2); font-size: 17px; gap: 10px }
+.piede-elenco { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; color: var(--testo-2); font-size: 14px; gap: 10px }
 
 /* riepilogo per sport */
 .barra-mini { display: flex; gap: 2px; height: 10px; width: 180px }
@@ -129,9 +129,9 @@ tbody tr:hover td { background: #f4f8fd }
 
 /* legenda */
 .legenda { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px }
-.legenda div { background: var(--carta); border-radius: 12px; padding: 16px 18px; color: var(--testo-2); font-size: 16px; box-shadow: 0 1px 3px rgba(22,41,77,.06) }
+.legenda div { background: var(--carta); border-radius: 12px; padding: 14px 16px; color: var(--testo-2); font-size: 14px; box-shadow: 0 1px 3px rgba(22,41,77,.06) }
 .legenda .pillola { margin-bottom: 10px; min-width: 0 }
-footer { color: var(--testo-3); font-size: 15px; margin-top: 16px; padding: 0 6px }
+footer { color: var(--testo-3); font-size: 13px; margin-top: 16px; padding: 0 6px }
 
 .tooltip { position: fixed; z-index: 10; max-width: 320px; background: var(--blu-notte); color: #fff; font-size: 14px; line-height: 1.4; padding: 9px 12px;
   border-radius: 8px; pointer-events: none; opacity: 0; transition: opacity .12s; box-shadow: 0 6px 18px rgba(0,0,0,.18) }
@@ -148,24 +148,49 @@ footer { color: var(--testo-3); font-size: 15px; margin-top: 16px; padding: 0 6p
   .campo.vuoto { display: none }
 }
 @media (max-width: 760px) {
-  body { font-size: 15px }
-  h1 { font-size: 27px }
-  .occhiello { font-size: 14px }
-  .numeri { grid-template-columns: 1fr }
-  .numero { gap: 16px }
-  .numero b { font-size: 25px } .numero span { font-size: 14px }
+  h1 { font-size: 24px }
+  .occhiello { font-size: 11.5px }
+  .numeri { grid-template-columns: 1fr 1fr }
+  .numero { gap: 10px; padding: 12px; justify-content: flex-start }
+  .numero .ico { width: 32px; height: 32px }
+  .numero b { font-size: 20px } .numero span { font-size: 10.5px }
   .schede { grid-template-columns: 1fr 1fr; gap: 6px; padding: 6px 6px 0 }
-  .scheda { font-size: 15px; padding: 11px 6px }
+  .scheda { font-size: 14px; padding: 10px 6px }
   .filtri { grid-template-columns: 1fr }
-  .campo label, .rapidi > span, .chip, .stato, .mostra { font-size: 15px }
   .legenda { grid-template-columns: 1fr }
   thead { display: none }
   table, tbody, tr, td { display: block; width: 100% }
-  tbody tr { padding: 12px 16px; border-bottom: 1px solid var(--bordo) }
-  tbody td { border: 0; padding: 4px 0; font-size: 16px; background: none !important }
-  .pillola { min-width: 0; font-size: 14px }
+  tbody tr { padding: 10px 14px; border-bottom: 1px solid var(--bordo) }
+  tbody td { border: 0; padding: 3px 0; background: none !important }
+  .pillola { min-width: 0 }
 }
-@media print { .collegamenti, .bottoni, .filtri, .rapidi, .piede-elenco, .schede { display: none } body { background: #fff } }
+#stampa { display: none }
+@media print {
+  @page { size: A4 landscape; margin: 10mm }
+  html, body { background: #fff !important; color: #1c2537 !important; font-size: 9pt }
+  .pagina { max-width: none; padding: 0 }
+  .pagina > :not(#stampa), .tooltip, .avviso { display: none !important }
+  #stampa { display: block; -webkit-print-color-adjust: exact; print-color-adjust: exact }
+  .s-occ { font-size: 8pt; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #c48a2c }
+  #stampa h1 { font-size: 18pt; margin: 1mm 0 1mm; padding: 0 }
+  #stampa h1::after { display: none }
+  .s-sint { font-size: 8.5pt; color: #4d5a6e; margin: 0 0 4mm; padding-bottom: 2.5mm; border-bottom: 1.5pt solid #c48a2c }
+  .s-sport { margin: 0 0 3.5mm }
+  .s-sport h2 { font-size: 10pt; margin: 0 0 1mm; padding: 1.2mm 2mm; background: #fdf6e8; border-left: 2.5pt solid #c48a2c; break-after: avoid; color: #16294d }
+  .s-sport h2 span { font-weight: 500; color: #4d5a6e; font-size: 8.5pt }
+  .s-sport table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 7.6pt; line-height: 1.25 }
+  .s-sport th { text-align: left; font-size: 6.6pt; letter-spacing: .06em; text-transform: uppercase; color: #4d5a6e; padding: 0 1.5mm .7mm; border-bottom: .6pt solid #c48a2c; background: none }
+  .s-sport td { padding: .7mm 1.5mm; border-bottom: .4pt solid #e2e7ee; vertical-align: top; font-size: 7.6pt; background: none !important }
+  .s-sport tr { break-inside: avoid }
+  .s-sport td.n { font-weight: 700; color: #16294d }
+  .s-sport img { width: 4.2mm; height: 2.8mm; object-fit: cover; vertical-align: -.4mm; margin-right: 1mm; border-radius: .4mm }
+  .s-sport .q { display: inline-block; padding: .2mm 1.6mm; border-radius: 3mm; font-size: 6.4pt; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; border: .5pt solid }
+  .s-sport .q.athlete { background: #e9f6ef; border-color: #bfe3cf; color: #2f8a5c }
+  .s-sport .q.noc { background: #ebf1fc; border-color: #c3d5f3; color: #2e64c8 }
+  .s-sport .q.team { background: #fcf1e4; border-color: #f0d2ad; color: #b8661a }
+  .s-sport .c-n { width: 58mm } .s-sport .c-p { width: 50mm } .s-sport .c-e { width: 52mm } .s-sport .c-q { width: 28mm } .s-sport .c-x { width: 12mm; text-align: right }
+  .s-note { font-size: 7pt; color: #7d8899; margin-top: 3mm }
+}
 </style>
 </head>
 <body>
@@ -210,6 +235,7 @@ footer { color: var(--testo-3); font-size: 15px; margin-top: 16px; padding: 0 6p
         <div class="bottoni">
           <button class="bottone" id="copia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Copy link</button>
           <button class="bottone" id="csv"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 3h2v9l3-3 1.4 1.4L12 15.8l-5.4-5.4L8 9l3 3V3ZM4 17h2v2h12v-2h2v4H4v-4Z"/></svg>Export CSV</button>
+          <button class="bottone" id="pdf" title="Opens the print view: choose “Save as PDF”"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h9l5 5v15H6V2Zm8 1.5V8h4.5L14 3.5ZM8 12v6h1.5v-2h1a2 2 0 0 0 0-4H8Zm1.5 1.3h1a.7.7 0 0 1 0 1.4h-1v-1.4ZM13 12v6h2a3 3 0 0 0 0-6h-2Zm1.5 1.4h.5a1.6 1.6 0 0 1 0 3.2h-.5v-3.2Z"/></svg>Download PDF</button>
           <button class="bottone" id="ricarica">Refresh data</button>
         </div>
       </div>
@@ -274,6 +300,7 @@ footer { color: var(--testo-3); font-size: 15px; margin-top: 16px; padding: 0 6p
   <div><span class="pillola noc">NOC Quota</span><br>Place belonging to the NOC, which may choose another eligible athlete. The name shows who earned it.</div>
   <div><span class="pillola team">Team Quota</span><br>Place belonging to the NOC's team (team sports, relays, pairs, crews), also assignable by the NOC.</div>
 </section>
+<section id="stampa"></section>
 <footer>Rules from the <a href="https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games" target="_blank" rel="noopener">IOC LA28 qualification systems</a> · data from the Notion “Athletes” database (Pass LA28 = Q).</footer>
 </div>
 <div class="tooltip" id="tooltip"></div>
@@ -506,6 +533,33 @@ $("csv").onclick = () => {
   link.click(); URL.revokeObjectURL(link.href);
 };
 $("ricarica").onclick = () => carica(true).then(() => avvisa("Data refreshed"));
+
+// vista di stampa: tutte le righe filtrate (non solo la pagina visibile), divise per sport
+function preparaStampa() {
+  const righe = filtrate().slice().sort((a, b) => [a._sport, a.gare.join(), a._paese, a._nome].join("|").localeCompare([b._sport, b.gare.join(), b._paese, b._nome].join("|"), "en"));
+  const filtri = [$("cerca").value.trim() && `search “${$("cerca").value.trim()}”`, $("f-noc").value && $("f-noc").selectedOptions[0].text,
+    $("f-sport").value && $("f-sport").selectedOptions[0].text, $("f-tipo").value && $("f-tipo").selectedOptions[0].text].filter(Boolean);
+  const gruppi = {};
+  for (const r of righe) (gruppi[r._sport] ||= []).push(r);
+  const t = DATI.totali, posti = righe.reduce((s, r) => s + r.posti, 0);
+  const bandieraStampa = (r) => ISO[r.noc] ? `<img src="https://flagcdn.com/w40/${ISO[r.noc]}.png" alt="">` : (r.bandiera || "");
+  $("stampa").innerHTML = `<div class="s-occ">Road to LA28 · Live qualification data</div><h1>LA28 Qualified Athletes</h1>
+    <p class="s-sint">${num(righe.length)} entries · ${num(posti)} quota places · ${num(new Set(righe.map((r) => r.noc)).size)} NOCs
+      ${filtri.length ? " · Filters: " + esc(filtri.join(", ")) : ` · Total LA28: ${num(t.posti_qualificati)} of ${num(t.posti_totali)} places qualified`}
+      · Data updated ${esc(DATI.aggiornato.split("-").reverse().join("/"))}</p>
+    ${Object.entries(gruppi).map(([sport, lista]) => `<div class="s-sport">
+      <h2>${esc(sport)} <span>· ${lista.length} entries · ${lista.reduce((s, r) => s + r.posti, 0)} places</span></h2>
+      <table><thead><tr><th class="c-n">Athlete / Team</th><th class="c-p">NOC</th><th class="c-e">Event</th><th class="c-q">Status</th><th>Qualification Route</th><th class="c-x">Places</th></tr></thead>
+      <tbody>${lista.map((r) => `<tr><td class="n">${esc(r._nome)}</td><td>${bandieraStampa(r)}${esc(r.noc)} · ${esc(r._paese)}</td>
+        <td>${r.gare.map(esc).join(", ")}</td><td><span class="q ${TIPI[r.tipo]}">${r.tipo}</span></td>
+        <td>${esc(r._percorso) || "—"}${r.evento && r.via !== "Not specified" ? ` (${esc(r.via)})` : ""}</td><td class="c-x">${r.posti}</td></tr>`).join("")}</tbody></table></div>`).join("")}
+    <p class="s-note">Athlete Quota: place awarded to a named athlete · NOC Quota: place belonging to the NOC · Team Quota: place belonging to the NOC's team.
+      Rules from the IOC LA28 qualification systems.</p>`;
+}
+const titoloPagina = document.title;
+window.addEventListener("beforeprint", () => { if (DATI) { preparaStampa(); document.title = "LA28 Qualified Athletes " + DATI.aggiornato; } });
+window.addEventListener("afterprint", () => { document.title = titoloPagina; });
+$("pdf").onclick = () => { if (!DATI) return; preparaStampa(); window.print(); };
 
 carica(false);
 </script>

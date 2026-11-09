@@ -377,19 +377,21 @@
   },
   "Shooting": {
    "quota": 340,
-   "atleti": 21,
+   "atleti": 24,
    "M": 12,
-   "W": 9,
+   "W": 12,
    "O": 0,
-   "pass": 21,
+   "pass": 24,
    "noc": {
     "CZE": 2,
     "IND": 1,
+    "SRB": 1,
     "CHN": 5,
+    "JPN": 1,
     "KUW": 1,
     "EGY": 1,
     "SVK": 2,
-    "KOR": 1,
+    "KOR": 2,
     "FRA": 2,
     "KAZ": 1,
     "GER": 1,
@@ -567,9 +569,9 @@
   }
  },
  "totali": {
-  "atleti": 894,
-  "pass": 152,
-  "noc": 43
+  "atleti": 897,
+  "pass": 155,
+  "noc": 44
  },
  "noc": {
   "USA": {
@@ -1782,8 +1784,8 @@
   },
   "JPN": {
    "nome": "Giappone",
-   "atleti": 31,
-   "pass": 8,
+   "atleti": 32,
+   "pass": 9,
    "righe": [
     {
      "nome": "Junya NAKANISHI",
@@ -1862,6 +1864,28 @@
      },
      "atleti": 5,
      "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Misaki NOBATA",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Women's 10m Air Rifle",
+      "Women's 50m Rifle 3 Positions"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's 10m Air Rifle": "W",
+      "Women's 50m Rifle 3 Positions": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
      "ospitante": false,
      "nota": ""
     },
@@ -3377,57 +3401,10 @@
     }
    ]
   },
-  "DEN": {
-   "nome": "Danimarca",
-   "atleti": 4,
-   "pass": 2,
-   "righe": [
-    {
-     "nome": "DEN Dressage Team",
-     "sport": "Equestrian",
-     "card": "Equestrian",
-     "discipline": [
-      "Dressage Team"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 0,
-      "O": 3
-     },
-     "gare": {
-      "Dressage Team": "O"
-     },
-     "atleti": 3,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "Jesper HANSEN",
-     "sport": "Shooting",
-     "card": "Shooting",
-     "discipline": [
-      "Men's Skeet"
-     ],
-     "genere": {
-      "M": 1,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "Men's Skeet": "M"
-     },
-     "atleti": 1,
-     "squadra": false,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
   "KOR": {
    "nome": "Corea del Sud",
-   "atleti": 4,
-   "pass": 5,
+   "atleti": 5,
+   "pass": 6,
    "righe": [
     {
      "nome": "KOR Recurve Mixed",
@@ -3523,6 +3500,73 @@
      },
      "gare": {
       "Women's 10m Air Rifle": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "OH Sehee",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Women's 50m Rifle 3 Positions"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's 50m Rifle 3 Positions": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "DEN": {
+   "nome": "Danimarca",
+   "atleti": 4,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "DEN Dressage Team",
+     "sport": "Equestrian",
+     "card": "Equestrian",
+     "discipline": [
+      "Dressage Team"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 0,
+      "O": 3
+     },
+     "gare": {
+      "Dressage Team": "O"
+     },
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Jesper HANSEN",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's Skeet"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Skeet": "M"
      },
      "atleti": 1,
      "squadra": false,
@@ -3913,6 +3957,35 @@
      },
      "gare": {
       "Men's Skeet": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "SRB": {
+   "nome": "Serbia",
+   "atleti": 1,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Aleksandra STOJADINOVIC",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Women's 10m Air Rifle",
+      "Women's 50m Rifle 3 Positions"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's 10m Air Rifle": "W",
+      "Women's 50m Rifle 3 Positions": "W"
      },
      "atleti": 1,
      "squadra": false,

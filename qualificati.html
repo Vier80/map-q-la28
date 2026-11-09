@@ -1,356 +1,441 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LA28 Qualified Athletes</title>
 <meta name="theme-color" content="#edf0f4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
 <style>
 :root {
-  --sfondo: #edf0f4; --carta: #ffffff; --bordo: #d9dee7; --bordo-forte: #c3cad6;
-  --testo: #18202e; --testo-2: #4a5568; --testo-3: #7a8494;
-  --notte: #13213c; --notte-2: #1d3157; --accento: #c8102e;
-  --athlete: #1f9e74; --noc: #2e64c8; --team: #d9822b;
-  --athlete-bg: #e3f4ee; --noc-bg: #e6eefb; --team-bg: #fbeee0;
-  --raggio: 10px; --titoli: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --sfondo: #edf0f4; --carta: #ffffff; --bordo: #e2e7ee; --bordo-campo: #cfd8e4;
+  --blu-notte: #16294d; --blu: #1f5a9c; --blu-chiaro: #eaf1f9; --blu-testata: #f3f7fb;
+  --testo: #1c2537; --testo-2: #4d5a6e; --testo-3: #7d8899;
+  --oro: #c48a2c; --oro-scuro: #a8701a; --crema: #fdf6e8;
+  --verde: #2f8a5c; --verde-bg: #e9f6ef; --verde-bordo: #bfe3cf;
+  --azzurro: #2e64c8; --azzurro-bg: #ebf1fc; --azzurro-bordo: #c3d5f3;
+  --arancio: #b8661a; --arancio-bg: #fcf1e4; --arancio-bordo: #f0d2ad;
 }
 * { box-sizing: border-box }
-body { margin: 0; background: var(--sfondo); color: var(--testo); font: 14px/1.45 Inter, system-ui, sans-serif }
-a { color: var(--noc); text-decoration: none }
-a:hover { text-decoration: underline }
+html { -webkit-text-size-adjust: 100% }
+body { margin: 0; background: var(--sfondo); color: var(--testo); font: 500 16px/1.4 Quicksand, "Avenir Next", system-ui, sans-serif }
+a { color: var(--blu); text-decoration: none }
 button, input, select { font: inherit; color: inherit }
+.pagina { max-width: 1700px; margin: 0 auto; padding: 0 12px 40px }
 
-/* barra in alto */
-.barra { background: var(--notte); color: #fff }
-.barra .dentro { max-width: 1240px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 24px; height: 54px }
-.logo { font-family: var(--titoli); font-size: 22px; letter-spacing: .5px; display: flex; align-items: center; gap: 10px; white-space: nowrap }
-.logo i { display: inline-block; width: 26px; height: 26px; border-radius: 6px; background: linear-gradient(135deg, var(--accento), #ff6a3d) }
-.menu { display: flex; gap: 4px; overflow-x: auto }
-.menu a { color: #c9d3e6; padding: 8px 12px; border-radius: 6px; white-space: nowrap; font-weight: 500 }
-.menu a:hover, .menu a.attivo { background: var(--notte-2); color: #fff; text-decoration: none }
+/* ---------- intestazione ---------- */
+.testa { background: var(--carta); border-radius: 0 0 14px 14px; box-shadow: 0 1px 3px rgba(22,41,77,.06); overflow: hidden; margin-bottom: 18px }
+.testa::before { content: ""; display: block; height: 6px; background: linear-gradient(90deg, #f2b04c, var(--oro) 35%, #e8c27c) }
+.testa-su { display: flex; gap: 20px; align-items: center; justify-content: space-between; padding: 18px 12px 18px 20px;
+  background: linear-gradient(90deg, var(--crema), #fff 45%); border-bottom: 1px solid var(--bordo); flex-wrap: wrap }
+.occhiello { color: var(--oro); font-weight: 700; letter-spacing: 1.6px; font-size: 17px; display: flex; align-items: center; gap: 8px }
+.occhiello::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--oro) }
+h1 { margin: 6px 0 0; font-size: 34px; font-weight: 600; color: var(--blu-notte); letter-spacing: -.2px; position: relative; padding-bottom: 10px }
+h1::after { content: ""; position: absolute; left: 0; bottom: 0; width: 62px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, var(--oro), #f0c77e) }
+.collegamenti { display: flex; gap: 10px; flex-wrap: wrap }
+.collegamento { display: flex; align-items: center; gap: 14px; padding: 10px 14px; min-width: 300px; background: #fff; border: 1px solid var(--bordo-campo);
+  border-radius: 10px; color: var(--blu-notte); transition: box-shadow .15s, border-color .15s }
+.collegamento:hover { border-color: #9fb6d6; box-shadow: 0 3px 10px rgba(31,90,156,.12) }
+.collegamento .ico { width: 36px; height: 36px; border-radius: 50%; background: var(--blu-chiaro); display: grid; place-items: center; flex: none; color: var(--blu) }
+.collegamento b { display: block; font-weight: 600; font-size: 17px }
+.collegamento small { display: block; color: var(--testo-2); font-size: 16px }
+.collegamento .freccia { margin-left: auto; color: var(--blu-notte); font-size: 22px; font-weight: 600 }
 
-main { max-width: 1240px; margin: 0 auto; padding: 18px 20px 48px }
-.briciole { font-size: 12.5px; color: var(--testo-3); margin-bottom: 14px }
-.briciole a { color: var(--testo-2) }
+.numeri { display: grid; grid-template-columns: repeat(4, 1fr) }
+.numero { display: flex; align-items: center; justify-content: center; gap: 22px; padding: 22px 12px; border-right: 1px solid var(--bordo) }
+.numero:last-child { border-right: 0 }
+.numero .ico { width: 48px; height: 48px; border-radius: 50%; background: var(--blu-chiaro); display: grid; place-items: center; color: var(--blu); flex: none }
+.numero b { display: block; font-size: 30px; font-weight: 600; color: var(--blu-notte); font-variant-numeric: tabular-nums; line-height: 1.1 }
+.numero span { display: block; color: var(--testo-2); letter-spacing: .8px; font-size: 17px; text-transform: uppercase; font-weight: 600 }
 
-/* intestazione */
-.testa { background: var(--carta); border: 1px solid var(--bordo); border-radius: var(--raggio); padding: 22px 24px; margin-bottom: 16px; position: relative; overflow: hidden }
-.testa::after { content: ""; position: absolute; right: -40px; top: -40px; width: 220px; height: 220px; border-radius: 50%; border: 28px solid #f2f4f8 }
-.testa > * { position: relative; z-index: 1 }
-.occhiello { font-size: 11.5px; font-weight: 700; letter-spacing: 1.4px; color: var(--accento); text-transform: uppercase }
-h1 { font-family: var(--titoli); font-size: 40px; line-height: 1.05; margin: 6px 0 6px; letter-spacing: .3px }
-.sotto { color: var(--testo-2); max-width: 720px; margin: 0; position: relative; z-index: 1 }
-.agg { font-size: 12.5px; color: var(--testo-3); margin-top: 10px; position: relative; z-index: 1 }
+/* ---------- pannello ---------- */
+.pannello { background: var(--carta); border-radius: 14px; box-shadow: 0 1px 3px rgba(22,41,77,.06); overflow: hidden }
+.schede { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 8px 12px 0; background: #f6f8fb; border-bottom: 1px solid var(--bordo) }
+.scheda { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 14px; border: 1px solid var(--bordo); border-bottom: 0;
+  border-radius: 8px 8px 0 0; background: var(--blu-testata); color: var(--blu-notte); font-weight: 600; font-size: 18px; cursor: pointer; position: relative; top: 1px }
+.scheda[aria-selected="true"] { background: linear-gradient(180deg, var(--crema), #fdf0d8); color: var(--oro-scuro); border-color: #ecd7b1; box-shadow: inset 0 -3px 0 var(--oro) }
+.scheda svg { width: 20px; height: 20px }
 
-/* numeri */
-.numeri { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px }
-.numero { background: var(--carta); border: 1px solid var(--bordo); border-radius: var(--raggio); padding: 14px 16px }
-.numero b { display: block; font-family: var(--titoli); font-size: 34px; line-height: 1.05; font-variant-numeric: tabular-nums }
-.numero span { color: var(--testo-2); font-size: 12.5px; font-weight: 500 }
-.avanzamento { height: 6px; background: #e8ecf2; border-radius: 4px; margin-top: 10px; overflow: hidden }
-.avanzamento div { height: 100%; background: var(--notte); border-radius: 4px }
+.esplora { padding: 22px 22px 18px }
+.riga-titolo { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 18px }
+.riga-titolo h2 { margin: 0; font-size: 20px; font-weight: 600; color: var(--blu-notte) }
+.bottoni { display: flex; gap: 8px; flex-wrap: wrap }
+.bottone { display: inline-flex; align-items: center; gap: 7px; padding: 9px 13px; background: #fff; border: 1px solid var(--bordo-campo); border-radius: 8px;
+  color: var(--blu); font-weight: 600; font-size: 17px; cursor: pointer }
+.bottone:hover { background: var(--blu-chiaro) }
+.bottone[disabled] { opacity: .45; cursor: default; background: #fff }
+.bottone svg { width: 16px; height: 16px }
 
-/* pannello */
-.pannello { background: var(--carta); border: 1px solid var(--bordo); border-radius: var(--raggio) }
-.schede { display: flex; align-items: center; gap: 4px; border-bottom: 1px solid var(--bordo); padding: 0 12px; flex-wrap: wrap }
-.scheda { background: none; border: 0; padding: 14px 14px 12px; font-weight: 600; color: var(--testo-2); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -1px }
-.scheda[aria-selected="true"] { color: var(--testo); border-bottom-color: var(--accento) }
-.strumenti { margin-left: auto; display: flex; gap: 6px; padding: 8px 0 }
-.bottone { background: #fff; border: 1px solid var(--bordo-forte); border-radius: 7px; padding: 6px 11px; cursor: pointer; font-size: 13px; font-weight: 500; display: inline-flex; gap: 6px; align-items: center }
-.bottone:hover { background: #f4f6f9 }
-.corpo { padding: 16px }
+.filtri { display: grid; grid-template-columns: 1.2fr .6fr 1fr 1fr 1fr; gap: 12px; align-items: end }
+.campo label { display: block; text-transform: uppercase; letter-spacing: 1.2px; color: var(--testo-2); font-size: 17px; font-weight: 600; margin-bottom: 8px }
+.campo input, .campo select { width: 100%; height: 46px; padding: 0 14px; border: 1px solid var(--bordo-campo); border-radius: 7px; background: #fff; color: var(--testo); font-size: 17px }
+.campo select { appearance: none; -webkit-appearance: none; padding-right: 38px;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2316294d' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center }
+.campo input::placeholder { color: var(--testo-3) }
+.campo input:focus, .campo select:focus { outline: 3px solid #d7e5f7; border-color: #8fb0dc }
+.campo.vuoto { visibility: hidden }
 
-/* ripartizione per tipo di quota */
-.ripartizione { margin-bottom: 16px }
-.ripartizione .titolo { font-weight: 600; font-size: 13px; margin-bottom: 8px; color: var(--testo-2) }
-.striscia { display: flex; gap: 2px; height: 14px }
-.striscia div { min-width: 4px; border-radius: 4px; cursor: default; position: relative }
-.legenda { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 8px; font-size: 12.5px; color: var(--testo-2) }
-.legenda span { display: inline-flex; align-items: center; gap: 6px }
-.legenda i { width: 10px; height: 10px; border-radius: 3px; display: inline-block }
-.legenda b { color: var(--testo) }
+.rapidi { display: flex; align-items: center; gap: 8px; margin-top: 12px; flex-wrap: wrap }
+.rapidi > span { color: var(--testo-2); font-size: 18px; margin-right: 2px }
+.chip { padding: 6px 12px; border: 1px solid var(--bordo-campo); background: #fff; border-radius: 999px; font-size: 18px; font-weight: 500; color: var(--testo-2); cursor: pointer }
+.chip[aria-pressed="true"] { background: var(--blu-chiaro); border-color: #a9c2e3; color: var(--blu) }
+.stato { display: flex; justify-content: space-between; gap: 12px; color: var(--testo-2); font-size: 18px; margin-top: 18px; flex-wrap: wrap }
 
-/* filtri */
-.filtri { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 8px; margin-bottom: 10px }
-.filtri input, .filtri select, .ordina select { width: 100%; border: 1px solid var(--bordo-forte); border-radius: 7px; padding: 8px 10px; background: #fff }
-.filtri input:focus, .filtri select:focus { outline: 2px solid #b9cdf3; border-color: var(--noc) }
-.riga-chip { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 12px }
-.chip { border: 1px solid var(--bordo-forte); background: #fff; border-radius: 999px; padding: 5px 12px; cursor: pointer; font-size: 13px; font-weight: 500 }
-.chip[aria-pressed="true"] { background: var(--notte); border-color: var(--notte); color: #fff }
-.ordina { margin-left: auto; display: flex; align-items: center; gap: 8px; color: var(--testo-2); font-size: 13px }
-.ordina select { width: auto; padding: 5px 8px }
-.conteggio { font-size: 12.5px; color: var(--testo-3); margin-bottom: 8px }
+/* ---------- elenco ---------- */
+.elenco-testa { display: flex; align-items: center; gap: 14px; padding: 14px 20px; background: #f7f9fc; border-top: 1px solid var(--bordo); flex-wrap: wrap }
+.elenco-testa h3 { margin: 0; font-size: 19px; font-weight: 600; color: var(--blu-notte) }
+.elenco-testa .etichetta { text-transform: uppercase; letter-spacing: 1.2px; color: var(--testo-2); font-size: 17px; font-weight: 600 }
+.contatori { display: flex; gap: 6px; flex-wrap: wrap }
+.contatore { border: 1px solid var(--bordo); background: #fff; border-radius: 7px; padding: 4px 12px 4px 10px; text-transform: uppercase; letter-spacing: 1px;
+  font-size: 17px; font-weight: 600; color: var(--blu-notte); border-left: 3px solid var(--c, var(--blu)) }
+.mostra { margin-left: auto; color: var(--testo-2); font-size: 18px }
 
-/* tabella */
-.tabella { width: 100%; border-collapse: collapse }
-.tabella th { text-align: left; font-size: 11.5px; text-transform: uppercase; letter-spacing: .6px; color: var(--testo-3); font-weight: 600; padding: 9px 10px; border-bottom: 1px solid var(--bordo); background: #f8f9fb; white-space: nowrap }
-.tabella td { padding: 10px; border-bottom: 1px solid #eef1f5; vertical-align: top }
-.tabella tbody tr:hover td { background: #f8fafd }
-.nome { font-weight: 600 }
-.nome small { display: block; font-weight: 400; color: var(--testo-3); font-size: 12px }
-.noc { display: flex; gap: 8px; align-items: center; white-space: nowrap }
-.noc .bandiera { font-size: 20px; line-height: 1 }
-.noc b { font-weight: 600 }
-.noc small { display: block; color: var(--testo-3); font-size: 12px; font-weight: 400 }
-.gara { color: var(--testo-2) }
-.badge { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap }
-.badge::before { content: ""; width: 7px; height: 7px; border-radius: 50% }
-.badge.athlete { background: var(--athlete-bg); color: #13664a } .badge.athlete::before { background: var(--athlete) }
-.badge.noc { background: var(--noc-bg); color: #1f478f } .badge.noc::before { background: var(--noc) }
-.badge.team { background: var(--team-bg); color: #8a4d12 } .badge.team::before { background: var(--team) }
-.verifica { color: var(--accento); font-size: 11.5px; font-weight: 600; display: block; margin-top: 4px }
-.via { white-space: nowrap; font-weight: 500 }
-.via small { display: block; color: var(--testo-3); font-weight: 400; white-space: normal; font-size: 12px }
-.posti { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600 }
-.regola { font-size: 12.5px; color: var(--testo-2); max-width: 300px }
-.regola a { font-weight: 600; white-space: nowrap }
-.vuoto { text-align: center; color: var(--testo-3); padding: 40px 0 }
+table { width: 100%; border-collapse: collapse }
+thead th { text-align: left; text-transform: uppercase; letter-spacing: 1.2px; font-size: 17px; font-weight: 600; color: var(--testo-2);
+  padding: 15px 14px; background: var(--blu-testata); border-bottom: 1px solid var(--bordo); white-space: nowrap }
+thead th.ordinabile { cursor: pointer; user-select: none }
+thead th.ordinabile .verso { float: right; color: var(--testo-3); font-size: 18px }
+thead th.attiva { background: #e3edf8; color: var(--blu) }
+thead th.attiva .verso { color: var(--blu) }
+tbody td { padding: 18px 14px; border-bottom: 1px solid var(--bordo); vertical-align: middle; font-size: 18px }
+tbody tr:nth-child(even) td { background: #fbfcfe }
+tbody tr:hover td { background: #f4f8fd }
+.atleta { color: var(--blu-notte); font-weight: 600 }
+.atleta small { display: block; color: var(--testo-3); font-weight: 500; font-size: 15px; margin-top: 2px }
+.paese { display: flex; align-items: center; gap: 12px }
+.bandiera { width: 42px; height: 28px; border-radius: 4px; box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.12); object-fit: cover; flex: none; background: #f1f3f6 }
+.bandiera.emoji { display: grid; place-items: center; font-size: 22px; box-shadow: none; background: none }
+.sport { color: var(--blu); font-weight: 600 }
+.gara { color: var(--testo) }
+.pillola { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 18px; border-radius: 999px; border: 1px solid; text-transform: uppercase;
+  letter-spacing: 1.2px; font-size: 17px; font-weight: 600; line-height: 1.2; text-align: center; min-width: 170px; justify-content: center }
+.pillola.athlete { background: var(--verde-bg); border-color: var(--verde-bordo); color: var(--verde) }
+.pillola.noc { background: var(--azzurro-bg); border-color: var(--azzurro-bordo); color: var(--azzurro) }
+.pillola.team { background: var(--arancio-bg); border-color: var(--arancio-bordo); color: var(--arancio) }
+.pillola a { color: inherit; display: grid; place-items: center; opacity: .75; flex: none }
+.pillola a:hover { opacity: 1 }
+.pillola svg { width: 15px; height: 15px }
+.percorso { color: var(--testo-2); max-width: 300px }
+.percorso small { display: block; color: var(--oro-scuro); font-size: 14px; font-weight: 600; margin-top: 2px; letter-spacing: .3px }
+.nessuno { text-align: center; color: var(--testo-3); padding: 50px 0 !important }
 
-.pagine { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-size: 13px; color: var(--testo-2) }
-.pagine .bottone[disabled] { opacity: .4; cursor: default }
+.piede-elenco { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; color: var(--testo-2); font-size: 17px; gap: 10px }
 
 /* riepilogo per sport */
-.mini { display: flex; gap: 2px; height: 10px; width: 160px }
-.mini div { border-radius: 3px; min-width: 3px }
+.barra-mini { display: flex; gap: 2px; height: 10px; width: 180px }
+.barra-mini div { border-radius: 3px; min-width: 3px }
+.num { text-align: right; font-variant-numeric: tabular-nums }
 
-/* spiegazione */
-.spiega { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px }
-.spiega div { background: var(--carta); border: 1px solid var(--bordo); border-radius: var(--raggio); padding: 14px 16px; font-size: 13px; color: var(--testo-2) }
-.spiega h3 { margin: 0 0 6px; font-size: 14px; color: var(--testo) }
-footer { margin-top: 18px; font-size: 12.5px; color: var(--testo-3) }
+/* legenda */
+.legenda { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px }
+.legenda div { background: var(--carta); border-radius: 12px; padding: 16px 18px; color: var(--testo-2); font-size: 16px; box-shadow: 0 1px 3px rgba(22,41,77,.06) }
+.legenda .pillola { margin-bottom: 10px; min-width: 0 }
+footer { color: var(--testo-3); font-size: 15px; margin-top: 16px; padding: 0 6px }
 
-.avviso-copia { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--notte); color: #fff; padding: 8px 16px; border-radius: 8px; font-size: 13px; opacity: 0; transition: opacity .2s; pointer-events: none }
-.avviso-copia.su { opacity: 1 }
+.tooltip { position: fixed; z-index: 10; max-width: 320px; background: var(--blu-notte); color: #fff; font-size: 14px; line-height: 1.4; padding: 9px 12px;
+  border-radius: 8px; pointer-events: none; opacity: 0; transition: opacity .12s; box-shadow: 0 6px 18px rgba(0,0,0,.18) }
+.tooltip.su { opacity: 1 }
+.avviso { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background: var(--blu-notte); color: #fff; padding: 9px 18px; border-radius: 8px;
+  font-size: 15px; opacity: 0; transition: opacity .2s; pointer-events: none }
+.avviso.su { opacity: 1 }
 
-@media (max-width: 900px) {
-  .numeri { grid-template-columns: repeat(2, 1fr) }
+@media (max-width: 1100px) {
+  .collegamento { min-width: 0; flex: 1 1 260px }
+  .numeri { grid-template-columns: 1fr 1fr }
+  .numero { border-bottom: 1px solid var(--bordo); justify-content: flex-start; padding-left: 24px }
   .filtri { grid-template-columns: 1fr 1fr }
-  .filtri input { grid-column: 1 / -1 }
-  .spiega { grid-template-columns: 1fr }
-  .tabella thead { display: none }
-  .tabella, .tabella tbody, .tabella tr, .tabella td { display: block; width: 100% }
-  .tabella tr { border-bottom: 1px solid var(--bordo); padding: 8px 0 }
-  .tabella td { border: 0; padding: 3px 4px }
-  .tabella td[data-l]::before { content: attr(data-l) ": "; color: var(--testo-3); font-size: 12px }
-  .posti { text-align: left }
-  .strumenti { margin-left: 0; width: 100%; padding-top: 0 }
-  h1 { font-size: 32px }
-  .testa::after { display: none }
+  .campo.vuoto { display: none }
 }
-@media print { .barra, .strumenti, .filtri, .riga-chip, .pagine { display: none } body { background: #fff } }
+@media (max-width: 760px) {
+  body { font-size: 15px }
+  h1 { font-size: 27px }
+  .occhiello { font-size: 14px }
+  .numeri { grid-template-columns: 1fr }
+  .numero { gap: 16px }
+  .numero b { font-size: 25px } .numero span { font-size: 14px }
+  .schede { grid-template-columns: 1fr 1fr; gap: 6px; padding: 6px 6px 0 }
+  .scheda { font-size: 15px; padding: 11px 6px }
+  .filtri { grid-template-columns: 1fr }
+  .campo label, .rapidi > span, .chip, .stato, .mostra { font-size: 15px }
+  .legenda { grid-template-columns: 1fr }
+  thead { display: none }
+  table, tbody, tr, td { display: block; width: 100% }
+  tbody tr { padding: 12px 16px; border-bottom: 1px solid var(--bordo) }
+  tbody td { border: 0; padding: 4px 0; font-size: 16px; background: none !important }
+  .pillola { min-width: 0; font-size: 14px }
+}
+@media print { .collegamenti, .bottoni, .filtri, .rapidi, .piede-elenco, .schede { display: none } body { background: #fff } }
 </style>
 </head>
 <body>
-<header class="barra"><div class="dentro">
-  <div class="logo"><i></i>LA28 Tracker</div>
-  <nav class="menu">
-    <a href="index.html">Mappa</a>
-    <a href="sport.html">Per sport</a>
-    <a class="attivo" href="qualificati.html">Qualificati</a>
-    <a href="stima.html">Stima</a>
-    <a href="calendario.html">Calendario</a>
-  </nav>
-</div></header>
+<div class="pagina">
 
-<main>
-  <div class="briciole"><a href="index.html">Mappa LA28</a> › Qualification Tracker › Qualified Athletes</div>
-
-  <section class="testa">
-    <div class="occhiello">Road to LA28 · dati dal db Notion Athletes</div>
-    <h1>LA28 Qualified Athletes</h1>
-    <p class="sotto">Tutti gli atleti e le squadre con la Q in “Pass LA28”, con il tipo di posto secondo i sistemi di qualificazione CIO: al singolo atleta, al Comitato Olimpico Nazionale o alla squadra.</p>
-    <div class="agg" id="agg">Caricamento…</div>
-  </section>
-
-  <section class="numeri" id="numeri"></section>
-
-  <section class="pannello">
-    <div class="schede" role="tablist">
-      <button class="scheda" role="tab" aria-selected="true" data-scheda="elenco">Quota Allocations</button>
-      <button class="scheda" role="tab" aria-selected="false" data-scheda="sport">Riepilogo per sport</button>
-      <div class="strumenti">
-        <button class="bottone" id="copia">🔗 Copia link</button>
-        <button class="bottone" id="csv">⬇︎ Esporta CSV</button>
-        <button class="bottone" id="ricarica">↻ Aggiorna</button>
-      </div>
+<header class="testa">
+  <div class="testa-su">
+    <div>
+      <div class="occhiello">ROAD TO LA28 · LIVE QUALIFICATION DATA</div>
+      <h1>LA28 Qualified Athletes</h1>
     </div>
+    <nav class="collegamenti">
+      <a class="collegamento" href="sport.html">
+        <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h10v2h3v3a4 4 0 0 1-4 4h-.3A5 5 0 0 1 13 14.9V17h3v2H8v-2h3v-2.1A5 5 0 0 1 8.3 12H8a4 4 0 0 1-4-4V5h3V3Zm0 4H6v1a2 2 0 0 0 1.2 1.8A5 5 0 0 1 7 8V7Zm11 0h-1v1c0 .6-.1 1.2-.2 1.8A2 2 0 0 0 18 8V7ZM7 20h10v1H7v-1Z"/></svg></span>
+        <span><b>Qualification by Sport</b><small>Browse Olympic Sport Trackers</small></span><span class="freccia">›</span>
+      </a>
+      <a class="collegamento" href="index.html">
+        <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6h-3a15 15 0 0 0-1.3-4 8 8 0 0 1 4.3 4ZM12 4c.8 1.1 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.9 1.9-4ZM4.3 14a8 8 0 0 1 0-4h3.4a17 17 0 0 0 0 4H4.3Zm.8 2h3a15 15 0 0 0 1.3 4 8 8 0 0 1-4.3-4Zm3-8h-3a8 8 0 0 1 4.3-4c-.6 1.2-1 2.6-1.3 4ZM12 20c-.8-1.1-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.9-1.9 4Zm2.3-6H9.7a15 15 0 0 1 0-4h4.6a15 15 0 0 1 0 4Zm.3 6c.6-1.2 1-2.6 1.3-4h3a8 8 0 0 1-4.3 4Zm1.7-6a17 17 0 0 0 0-4h3.4a8 8 0 0 1 0 4h-3.4Z"/></svg></span>
+        <span><b>Qualification by NOC</b><small>Browse every NOC Tracker</small></span><span class="freccia">›</span>
+      </a>
+      <a class="collegamento" href="stima.html">
+        <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h2v16h16v2H3V3Zm4 9h2v5H7v-5Zm4-4h2v9h-2V8Zm4 2h2v7h-2v-7Zm4-5h2v12h-2V5Z"/></svg></span>
+        <span><b>Qualification Rankings</b><small>Browse all Olympic Rankings</small></span><span class="freccia">›</span>
+      </a>
+    </nav>
+  </div>
+  <div class="numeri" id="numeri"></div>
+</header>
 
-    <div class="corpo" id="vista-elenco">
-      <div class="ripartizione" id="ripartizione"></div>
+<section class="pannello">
+  <div class="schede" role="tablist">
+    <button class="scheda" role="tab" aria-selected="true" data-scheda="elenco">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h2v2H4V5Zm4 0h12v2H8V5Zm-4 6h2v2H4v-2Zm4 0h12v2H8v-2Zm-4 6h2v2H4v-2Zm4 0h12v2H8v-2Z"/></svg>Quota Allocations</button>
+    <button class="scheda" role="tab" aria-selected="false" data-scheda="sport">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m6 15 4-5 4 3 6-7"/></svg>Sport Summary</button>
+  </div>
+
+  <div id="vista-elenco">
+    <div class="esplora">
+      <div class="riga-titolo">
+        <h2>Explore Quota Allocations</h2>
+        <div class="bottoni">
+          <button class="bottone" id="copia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Copy link</button>
+          <button class="bottone" id="csv"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 3h2v9l3-3 1.4 1.4L12 15.8l-5.4-5.4L8 9l3 3V3ZM4 17h2v2h12v-2h2v4H4v-4Z"/></svg>Export CSV</button>
+          <button class="bottone" id="ricarica">Refresh data</button>
+        </div>
+      </div>
       <div class="filtri">
-        <input id="cerca" type="search" placeholder="Cerca atleta, squadra, gara o evento…" aria-label="Cerca">
-        <select id="f-noc" aria-label="NOC"><option value="">Tutti gli NOC</option></select>
-        <select id="f-sport" aria-label="Sport"><option value="">Tutti gli sport</option></select>
-        <select id="f-tipo" aria-label="Tipo di quota">
-          <option value="">Tutti i tipi di quota</option>
-          <option value="athlete">Athlete Quota</option>
-          <option value="noc">NOC Quota</option>
-          <option value="team">Team Quota</option>
-          <option value="noc-team">NOC / Team Quota</option>
-        </select>
-        <select id="f-via" aria-label="Via di qualificazione"><option value="">Tutte le vie</option></select>
+        <div class="campo"><label for="cerca">Search</label><input id="cerca" type="search" placeholder="Athlete, NOC, Sport or Event..."></div>
+        <div class="campo vuoto"></div>
+        <div class="campo"><label for="f-noc">NOC</label><select id="f-noc"><option value="">Country or NOC Code</option></select></div>
+        <div class="campo"><label for="f-sport">Sport</label><select id="f-sport"><option value="">All Sports · Type Sport Name</option></select></div>
+        <div class="campo"><label for="f-tipo">Qualification Status</label>
+          <select id="f-tipo">
+            <option value="">All</option>
+            <option value="athlete">Athlete Quota</option>
+            <option value="noc">NOC Quota</option>
+            <option value="team">Team Quota</option>
+            <option value="noc-team">NOC / Team Quota</option>
+          </select></div>
       </div>
-      <div class="riga-chip">
-        <button class="chip" data-chip="">Tutti</button>
+      <div class="rapidi">
+        <span>Quick filters</span>
+        <button class="chip" data-chip="">All</button>
         <button class="chip" data-chip="athlete">Athlete Quota</button>
-        <button class="chip" data-chip="noc">NOC Quota</button>
-        <button class="chip" data-chip="team">Team Quota</button>
         <button class="chip" data-chip="noc-team">NOC / Team Quota</button>
-        <label class="ordina">Ordina per
-          <select id="ordina">
-            <option value="sport">Sport</option>
-            <option value="nome">Atleta / Squadra</option>
-            <option value="noc">NOC</option>
-          </select>
-        </label>
       </div>
-      <div class="conteggio" id="conteggio"></div>
-      <table class="tabella">
-        <thead><tr>
-          <th>Atleta / Squadra</th><th>NOC</th><th>Sport · Gara</th><th>Tipo di quota</th>
-          <th>Via di qualificazione</th><th style="text-align:right">Posti</th><th>Regola CIO</th>
-        </tr></thead>
-        <tbody id="righe"></tbody>
-      </table>
-      <div class="pagine">
-        <button class="bottone" id="prima">← Precedente</button>
-        <span id="pagina"></span>
-        <button class="bottone" id="dopo">Successiva →</button>
-      </div>
+      <div class="stato"><span id="stato-dati">Loading quota data…</span><span id="controllato"></span></div>
     </div>
 
-    <div class="corpo" id="vista-sport" hidden>
-      <table class="tabella">
-        <thead><tr><th>Sport</th><th style="text-align:right">Righe</th><th style="text-align:right">Posti</th>
-          <th style="text-align:right">Athlete</th><th style="text-align:right">NOC</th><th style="text-align:right">Team</th><th>Ripartizione</th></tr></thead>
-        <tbody id="righe-sport"></tbody>
-      </table>
+    <div class="elenco-testa">
+      <h3>Athletes &amp; Quota Directory</h3>
+      <span class="etichetta">Qualified Athletes</span>
+      <div class="contatori" id="contatori"></div>
+      <span class="mostra" id="mostra"></span>
     </div>
-  </section>
+    <table>
+      <thead><tr>
+        <th class="ordinabile" data-ordina="nome" style="width:19%">Athlete / Team <span class="verso">↕</span></th>
+        <th class="ordinabile" data-ordina="noc" style="width:18%">NOC <span class="verso">↕</span></th>
+        <th class="ordinabile" data-ordina="sport" style="width:13%">Sport <span class="verso">↕</span></th>
+        <th style="width:16%">Event</th>
+        <th style="width:14%">Status</th>
+        <th>Qualification Route</th>
+      </tr></thead>
+      <tbody id="righe"></tbody>
+    </table>
+    <div class="piede-elenco">
+      <button class="bottone" id="prima">‹ Previous</button>
+      <span id="pagina"></span>
+      <button class="bottone" id="dopo">Next ›</button>
+    </div>
+  </div>
 
-  <section class="spiega">
-    <div><h3><span class="badge athlete">Athlete Quota</span></h3>Il posto è assegnato all'atleta per nome: l'NOC non può darlo a un altro. Ogni atleta compare una volta per NOC.</div>
-    <div><h3><span class="badge noc">NOC Quota</span></h3>Il posto appartiene al Comitato Olimpico Nazionale, che può scegliere un altro atleta idoneo. Il nome indica chi l'ha conquistato.</div>
-    <div><h3><span class="badge team">Team Quota</span></h3>Il posto appartiene alla squadra dell'NOC (squadre, staffette, coppie, equipaggi). La colonna Posti indica quanti atleti vale.</div>
-  </section>
+  <div id="vista-sport" hidden>
+    <div class="elenco-testa"><h3>Quota allocations by sport</h3><span class="mostra" id="mostra-sport"></span></div>
+    <table>
+      <thead><tr><th>Sport</th><th class="num">Entries</th><th class="num">Quota places</th><th class="num">Athlete</th><th class="num">NOC</th><th class="num">Team</th><th>Split</th></tr></thead>
+      <tbody id="righe-sport"></tbody>
+    </table>
+  </div>
+</section>
 
-  <footer>
-    Regole lette dai <a id="fonte" href="https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games" target="_blank" rel="noopener">sistemi di qualificazione CIO per LA28</a>.
-    La via di qualificazione viene da “Altri Criteri” e da “Direct Q Events LA28” del db Athletes; dove manca vale la regola principale dello sport.
-  </footer>
-</main>
-<div class="avviso-copia" id="avviso"></div>
+<section class="legenda">
+  <div><span class="pillola athlete">Athlete Quota</span><br>Place awarded to a named athlete: the NOC cannot give it to someone else. Each named athlete appears once per NOC.</div>
+  <div><span class="pillola noc">NOC Quota</span><br>Place belonging to the NOC, which may choose another eligible athlete. The name shows who earned it.</div>
+  <div><span class="pillola team">Team Quota</span><br>Place belonging to the NOC's team (team sports, relays, pairs, crews), also assignable by the NOC.</div>
+</section>
+<footer>Rules from the <a href="https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games" target="_blank" rel="noopener">IOC LA28 qualification systems</a> · data from the Notion “Athletes” database (Pass LA28 = Q).</footer>
+</div>
+<div class="tooltip" id="tooltip"></div>
+<div class="avviso" id="avviso"></div>
 
 <script>
-const TIPI = {
-  "Athlete Quota": { classe: "athlete", colore: "var(--athlete)", corto: "Athlete" },
-  "NOC Quota": { classe: "noc", colore: "var(--noc)", corto: "NOC" },
-  "Team Quota": { classe: "team", colore: "var(--team)", corto: "Team" },
-};
+// Codici CIO -> codici ISO a due lettere, per le bandiere (flagcdn.com) e i nomi inglesi dei paesi.
+const ISO = Object.fromEntries(("AFG af ALB al ALG dz AND ad ANG ao ANT ag ARG ar ARM am ARU aw ASA as AUS au AUT at AZE az BAH bs BAN bd BAR bb BDI bi BEL be BEN bj " +
+ "BER bm BHU bt BIH ba BIZ bz BLR by BOL bo BOT bw BRA br BRN bh BRU bn BUL bg BUR bf CAF cf CAM kh CAN ca CAY ky CGO cg CHA td CHI cl CHN cn CIV ci CMR cm " +
+ "COD cd COK ck COL co COM km CPV cv CRC cr CRO hr CUB cu CYP cy CZE cz DEN dk DJI dj DMA dm DOM do ECU ec EGY eg ERI er ESA sv ESP es EST ee ETH et FIJ fj " +
+ "FIN fi FRA fr FSM fm GAB ga GAM gm GBR gb GBS gw GEO ge GEQ gq GER de GHA gh GRE gr GRN gd GUA gt GUI gn GUM gu GUY gy HAI ht HKG hk HON hn HUN hu INA id " +
+ "IND in IRI ir IRL ie IRQ iq ISL is ISR il ISV vi ITA it IVB vg JAM jm JOR jo JPN jp KAZ kz KEN ke KGZ kg KIR ki KOR kr KOS xk KSA sa KUW kw LAO la LAT lv " +
+ "LBA ly LBN lb LBR lr LCA lc LES ls LIE li LTU lt LUX lu MAD mg MAR ma MAS my MAW mw MDA md MDV mv MEX mx MGL mn MHL mh MKD mk MLI ml MLT mt MNE me MON mc " +
+ "MOZ mz MRI mu MTN mr MYA mm NAM na NCA ni NED nl NEP np NGR ng NIG ne NOR no NRU nr NZL nz OMA om PAK pk PAN pa PAR py PER pe PHI ph PLE ps PLW pw PNG pg " +
+ "POL pl POR pt PRK kp PUR pr QAT qa ROU ro RSA za RUS ru RWA rw SAM ws SEN sn SEY sc SGP sg SKN kn SLE sl SLO si SMR sm SOL sb SOM so SRB rs SRI lk SSD ss " +
+ "STP st SUD sd SUI ch SUR sr SVK sk SWE se SWZ sz SYR sy TAN tz TGA to THA th TJK tj TKM tm TLS tl TOG tg TPE tw TTO tt TUN tn TUR tr TUV tv UAE ae UGA ug " +
+ "UKR ua URU uy USA us UZB uz VAN vu VEN ve VIE vn VIN vc YEM ye ZAM zm ZIM zw").match(/\S+ \S+/g).map((c) => c.split(" ")));
+const NOMI_SPECIALI = { CHN: "People's Republic of China", HKG: "Hong Kong, China", TPE: "Chinese Taipei", KOR: "Republic of Korea", PRK: "DPR Korea",
+  IRI: "Islamic Republic of Iran", RUS: "Russian Federation", GBR: "Great Britain", USA: "United States", AIN: "Individual Neutral Athletes", EOR: "Refugee Olympic Team" };
+const NOMI_SPORT = { Beachvolley: "Beach Volleyball", "Gym Rhythmic": "Rhythmic Gymnastics", "Gym Artistic": "Artistic Gymnastics", "Hockey Field": "Hockey",
+  "Lacrosse Sixes": "Lacrosse", "Canoe Slalom": "Slalom Paddle", "Canoe Sprint": "Sprint Paddle", "Open Water": "Open Water Swimming" };
+const VIA_SENZA_EVENTO = { "Host Country": "Host country place", "Universality / Tripartite": "Universality place", "Ranking": "Olympic ranking",
+  "Olympic Q-Series": "Olympic Qualifier Series", "World Championships": "World Championships", "Continental": "Continental qualification", "Not specified": "" };
+const TIPI = { "Athlete Quota": "athlete", "NOC Quota": "noc", "Team Quota": "team" };
+const COLORI = { "Athlete Quota": "#2f8a5c", "NOC Quota": "#2e64c8", "Team Quota": "#d9822b" };
 const STATO = { athlete: ["Athlete Quota"], noc: ["NOC Quota"], team: ["Team Quota"], "noc-team": ["NOC Quota", "Team Quota"] };
-const PER_PAGINA = 25;
-let DATI = null, pagina = 1;
+const PER_PAGINA = 50;
+const ICONA_INFO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5" stroke-linecap="round"/></svg>';
+
+let DATI = null, pagina = 1, ordine = { campo: "nome", su: true };
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const num = (n) => Number(n).toLocaleString("it-IT");
+const num = (n) => Number(n).toLocaleString("en-US").replace(/,/g, ".");
+let nomiRegioni = null;
+try { nomiRegioni = new Intl.DisplayNames(["en"], { type: "region" }); } catch (e) {}
+
+function nomePaese(r) {
+  if (NOMI_SPECIALI[r.noc]) return NOMI_SPECIALI[r.noc];
+  const iso = ISO[r.noc];
+  try { if (iso && nomiRegioni) return nomiRegioni.of(iso.toUpperCase()); } catch (e) {}
+  return r.paese || r.noc;
+}
+function bandiera(r) {
+  const iso = ISO[r.noc];
+  return iso ? `<img class="bandiera" loading="lazy" src="https://flagcdn.com/w80/${iso}.png" alt="${esc(r.noc)}" data-emoji="${esc(r.bandiera || "")}"
+                 onerror="this.outerHTML='<span class=&quot;bandiera emoji&quot;>'+(this.dataset.emoji||'🏳️')+'</span>'">`
+             : `<span class="bandiera emoji">${r.bandiera || "🏳️"}</span>`;
+}
+// "Kanoa IGARASHI" -> "IGARASHI Kanoa" (come Totallympics); le squadre restano com'erano.
+function cognomePrima(nome) {
+  return nome.split("/").map((parte) => {
+    const parole = parte.trim().split(/\s+/);
+    const cognome = parole.filter((p) => p.length > 1 && p === p.toUpperCase() && /[A-Z]/.test(p));
+    const altro = parole.filter((p) => !cognome.includes(p));
+    return cognome.length && altro.length ? [...cognome, ...altro].join(" ") : parte.trim();
+  }).join(" / ");
+}
+function nomeSport(r) {
+  if (r.gare.some((g) => /3x3/i.test(g))) return "3x3 Basketball";
+  return NOMI_SPORT[r.sport] || r.sport;
+}
+function percorso(r) {
+  if (r.evento) return `${nomeSport(r)} at the ${r.evento}`;
+  return VIA_SENZA_EVENTO[r.via] ?? r.via;
+}
 
 async function carica(forza) {
   try {
-    if (window.DATI_INCORPORATI && !forza) { DATI = window.DATI_INCORPORATI; }
+    if (window.DATI_INCORPORATI && !forza) DATI = window.DATI_INCORPORATI;
     else {
-      const r = await fetch("qualificati.json" + (forza ? "?t=" + Date.now() : ""), { cache: forza ? "no-store" : "default" });
-      if (!r.ok) throw new Error(r.status);
-      DATI = await r.json();
+      const risposta = await fetch("qualificati.json" + (forza ? "?t=" + Date.now() : ""), { cache: forza ? "no-store" : "default" });
+      if (!risposta.ok) throw new Error("HTTP " + risposta.status);
+      DATI = await risposta.json();
     }
   } catch (e) {
-    if (window.DATI_INCORPORATI) { DATI = window.DATI_INCORPORATI; }
-    else { $("agg").textContent = "Non riesco a leggere qualificati.json (" + e.message + ")."; return; }
+    if (window.DATI_INCORPORATI) DATI = window.DATI_INCORPORATI;
+    else { $("stato-dati").textContent = "Could not load qualificati.json (" + e.message + ")."; return; }
   }
+  for (const r of DATI.righe) {
+    r._nome = r.tipo === "Team Quota" && !r.nome.includes("/") ? r.nome : cognomePrima(r.nome);
+    r._paese = nomePaese(r); r._sport = nomeSport(r); r._percorso = percorso(r);
+  }
+  const adesso = new Date();
+  const [a, m, g] = DATI.aggiornato.split("-").map(Number);
+  const mesi = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  $("stato-dati").textContent = `Quota data loaded. Data updated on ${g} ${mesi[m - 1]} ${a}.`;
+  $("controllato").textContent = `Last checked: ${adesso.getDate()} ${mesi[adesso.getMonth()]} ${adesso.getFullYear()} at ${String(adesso.getHours()).padStart(2, "0")}:${String(adesso.getMinutes()).padStart(2, "0")}`;
   prepara();
 }
 
+const ICONE = {
+  atleta: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7" r="4"/><path d="M4 21a8 8 0 0 1 16 0H4Z"/></svg>',
+  mondo: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1 17.9A8 8 0 0 1 4.2 10L9 15v1a2 2 0 0 0 2 2v1.9Zm6.9-2.5A2 2 0 0 0 16 16h-1v-3a1 1 0 0 0-1-1H8v-2h2a1 1 0 0 0 1-1V7h2a2 2 0 0 0 2-2v-.4a8 8 0 0 1 2.9 12.8Z"/></svg>',
+  clessidra: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h12v2h-1v3.6L13.4 12l3.6 4.4V20h1v2H6v-2h1v-3.6l3.6-4.4L7 7.6V4H6V2Zm3 2v2.9l3 3.7 3-3.7V4H9Zm3 9.4-3 3.7V20h6v-2.9l-3-3.7Z"/></svg>',
+  coppa: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h10v2h3v3a4 4 0 0 1-4 4h-.3A5 5 0 0 1 13 14.9V17h3v2H8v-2h3v-2.1A5 5 0 0 1 8.3 12H8a4 4 0 0 1-4-4V5h3V3Zm0 4H6v1a2 2 0 0 0 1.2 1.8A5 5 0 0 1 7 8V7Zm11 0h-1v1c0 .6-.1 1.2-.2 1.8A2 2 0 0 0 18 8V7ZM7 20h10v1H7v-1Z"/></svg>',
+};
+
 function prepara() {
   const t = DATI.totali;
-  const [a, m, g] = DATI.aggiornato.split("-");
-  $("agg").textContent = `Aggiornato al ${g}/${m}/${a} · ${num(t.righe)} righe con la Q`;
-  const pct = Math.min(100, t.posti_qualificati / t.posti_totali * 100);
-  $("numeri").innerHTML = `
-    <div class="numero"><b>${num(t.posti_qualificati)}</b><span>Posti qualificati</span>
-      <div class="avanzamento" title="${pct.toFixed(1)}% dei posti totali"><div style="width:${pct}%"></div></div></div>
-    <div class="numero"><b>${num(t.noc)}</b><span>NOC qualificati</span></div>
-    <div class="numero"><b>${num(t.rimanenti)}</b><span>Posti ancora da assegnare</span></div>
-    <div class="numero"><b>${num(t.posti_totali)}</b><span>Posti totali LA28</span></div>`;
-
-  const conta = { "Athlete Quota": t.athlete_quota, "NOC Quota": t.noc_quota, "Team Quota": t.team_quota };
-  $("ripartizione").innerHTML = `<div class="titolo">Ripartizione per tipo di quota (righe)</div>
-    <div class="striscia">${Object.entries(conta).filter(([, n]) => n).map(([k, n]) =>
-      `<div style="flex:${n};background:${TIPI[k].colore}" title="${k}: ${n} righe (${(n / t.righe * 100).toFixed(0)}%)"></div>`).join("")}</div>
-    <div class="legenda">${Object.entries(conta).map(([k, n]) =>
-      `<span><i style="background:${TIPI[k].colore}"></i>${k} <b>${num(n)}</b></span>`).join("")}</div>`;
-
-  riempi("f-noc", [...new Map(DATI.righe.map((r) => [r.noc, `${r.bandiera} ${r.noc} · ${r.paese}`])).entries()].sort());
-  riempi("f-sport", [...new Set(DATI.righe.map((r) => r.sport))].sort().map((s) => [s, s]));
-  riempi("f-via", [...new Set(DATI.righe.map((r) => r.via))].sort().map((s) => [s, s]));
+  const voce = (icona, n, testo) => `<div class="numero"><span class="ico">${ICONE[icona]}</span><div><b>${num(n)}</b><span>${testo}</span></div></div>`;
+  $("numeri").innerHTML = voce("atleta", t.posti_qualificati, "Qualified quota places") + voce("mondo", t.noc, "Qualified NOCs") +
+    voce("clessidra", t.rimanenti, "Remaining quota places") + voce("coppa", t.posti_totali, "Total quota places");
+  riempi("f-noc", [...new Map(DATI.righe.map((r) => [r.noc, `${r._paese} (${r.noc})`])).entries()].sort((a, b) => a[1].localeCompare(b[1])));
+  riempi("f-sport", [...new Map(DATI.righe.map((r) => [r.sport, r._sport])).entries()].sort((a, b) => a[1].localeCompare(b[1])));
   daIndirizzo();
   disegna();
   disegnaSport();
 }
-
 function riempi(id, voci) {
   const sel = $(id), primo = sel.options[0];
   sel.innerHTML = ""; sel.append(primo);
   for (const [v, t] of voci) sel.add(new Option(t, v));
 }
-
 function daIndirizzo() {
   const p = new URLSearchParams(location.search);
   $("cerca").value = p.get("q") || "";
   $("f-noc").value = p.get("noc") || "";
   $("f-sport").value = p.get("sport") || "";
   $("f-tipo").value = STATO[p.get("status")] ? p.get("status") : "";
-  $("f-via").value = p.get("via") || "";
-  $("ordina").value = p.get("sort") || "sport";
+  if (["nome", "noc", "sport"].includes(p.get("sort"))) ordine = { campo: p.get("sort"), su: p.get("dir") !== "desc" };
 }
-
 function versoIndirizzo() {
   const p = new URLSearchParams();
   const metti = (k, v) => v && p.set(k, v);
-  metti("q", $("cerca").value.trim()); metti("noc", $("f-noc").value); metti("sport", $("f-sport").value);
-  metti("status", $("f-tipo").value); metti("via", $("f-via").value);
-  if ($("ordina").value !== "sport") p.set("sort", $("ordina").value);
+  metti("q", $("cerca").value.trim()); metti("noc", $("f-noc").value); metti("sport", $("f-sport").value); metti("status", $("f-tipo").value);
+  if (ordine.campo !== "nome" || !ordine.su) { p.set("sort", ordine.campo); if (!ordine.su) p.set("dir", "desc"); }
   history.replaceState(null, "", location.pathname + (p.toString() ? "?" + p : ""));
 }
-
 function filtrate() {
-  const q = $("cerca").value.trim().toLowerCase(), noc = $("f-noc").value, sport = $("f-sport").value;
-  const tipo = STATO[$("f-tipo").value], via = $("f-via").value, ord = $("ordina").value;
-  const out = DATI.righe.filter((r) =>
-    (!noc || r.noc === noc) && (!sport || r.sport === sport) && (!tipo || tipo.includes(r.tipo)) && (!via || r.via === via) &&
-    (!q || [r.nome, r.paese, r.noc, r.sport, r.gare.join(" "), r.evento].join(" ").toLowerCase().includes(q)));
-  const chiave = { sport: (r) => [r.sport, r.gare.join(), r.noc, r.nome], nome: (r) => [r.nome], noc: (r) => [r.noc, r.sport, r.nome] }[ord];
-  return out.sort((a, b) => chiave(a).join("|").localeCompare(chiave(b).join("|"), "it"));
+  const q = $("cerca").value.trim().toLowerCase(), noc = $("f-noc").value, sport = $("f-sport").value, tipo = STATO[$("f-tipo").value];
+  const chiave = { nome: (r) => [r._nome], noc: (r) => [r._paese, r._nome], sport: (r) => [r._sport, r.gare.join(), r._nome] }[ordine.campo];
+  return DATI.righe.filter((r) => (!noc || r.noc === noc) && (!sport || r.sport === sport) && (!tipo || tipo.includes(r.tipo)) &&
+      (!q || [r._nome, r.nome, r._paese, r.noc, r._sport, r.gare.join(" "), r.evento, r.via].join(" ").toLowerCase().includes(q)))
+    .sort((a, b) => chiave(a).join("|").localeCompare(chiave(b).join("|"), "en") * (ordine.su ? 1 : -1));
 }
 
 function disegna() {
   document.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.chip === $("f-tipo").value)));
+  document.querySelectorAll("th.ordinabile").forEach((th) => {
+    const attiva = th.dataset.ordina === ordine.campo;
+    th.classList.toggle("attiva", attiva);
+    th.querySelector(".verso").textContent = attiva ? (ordine.su ? "↑" : "↓") : "↕";
+  });
   const righe = filtrate();
   const pagine = Math.max(1, Math.ceil(righe.length / PER_PAGINA));
   pagina = Math.min(pagina, pagine);
-  const posti = righe.reduce((s, r) => s + r.posti, 0);
-  $("conteggio").textContent = `${num(righe.length)} risultati · ${num(posti)} posti`;
-  const vista = righe.slice((pagina - 1) * PER_PAGINA, pagina * PER_PAGINA);
+  const da = (pagina - 1) * PER_PAGINA, vista = righe.slice(da, da + PER_PAGINA);
+  const conta = (f) => new Set(righe.map(f)).size;
+  const contatore = (n, testo, colore) => `<span class="contatore" style="--c:${colore}">${num(n)} ${testo}</span>`;
+  $("contatori").innerHTML = contatore(righe.reduce((s, r) => s + r.posti, 0), "Athletes", "#2f8a5c") + contatore(conta((r) => r.noc), "NOCs", "#2e64c8") +
+    contatore(conta((r) => r.sport), "Sports", "#c48a2c") + contatore(conta((r) => r.sport + "|" + r.gare.join()), "Events", "#7b5cc4");
+  $("mostra").textContent = righe.length ? `Showing ${da + 1}–${da + vista.length} of ${num(righe.length)} entries` : "No entries";
   $("righe").innerHTML = vista.length ? vista.map((r) => `<tr>
-      <td class="nome" data-l="Atleta">${esc(r.nome)}${r.nota ? `<small>${esc(r.nota)}</small>` : ""}</td>
-      <td data-l="NOC"><div class="noc"><span class="bandiera">${r.bandiera}</span><div><b>${esc(r.noc)}</b><small>${esc(r.paese)}</small></div></div></td>
-      <td data-l="Gara"><b>${esc(r.sport)}</b><div class="gara">${r.gare.map(esc).join("<br>")}</div></td>
-      <td data-l="Tipo"><span class="badge ${TIPI[r.tipo].classe}">${r.tipo}</span>${r.verifica ? '<span class="verifica">⚠︎ da verificare</span>' : ""}</td>
-      <td data-l="Via" class="via">${esc(r.via)}${r.evento ? `<small>${esc(r.evento)}</small>` : ""}</td>
-      <td data-l="Posti" class="posti">${r.posti}</td>
-      <td data-l="Regola" class="regola">${esc(r.regola)} <a href="${esc(r.documento)}" target="_blank" rel="noopener">PDF ↗</a></td>
-    </tr>`).join("") : `<tr><td colspan="7" class="vuoto">Nessun risultato con questi filtri.</td></tr>`;
-  $("pagina").textContent = `Pagina ${pagina} di ${pagine}`;
+      <td class="atleta">${esc(r._nome)}${r.posti > 1 ? `<small>${r.posti} athletes${r.nota ? " · " + esc(r.nota) : ""}</small>` : r.nota ? `<small>${esc(r.nota)}</small>` : ""}</td>
+      <td><div class="paese">${bandiera(r)}<span>${esc(r._paese)}</span></div></td>
+      <td><a class="sport" href="?sport=${encodeURIComponent(r.sport)}" data-sport="${esc(r.sport)}">${esc(r._sport)}</a></td>
+      <td class="gara">${r.gare.map(esc).join("<br>")}</td>
+      <td><span class="pillola ${TIPI[r.tipo]}">${r.tipo.replace(" ", "<br>")}<a href="${esc(r.documento)}" target="_blank" rel="noopener"
+          data-info="${esc(r.regola)}${r.verifica ? " (to be verified)" : ""}" aria-label="Qualification system">${ICONA_INFO}</a></span></td>
+      <td class="percorso">${esc(r._percorso) || "—"}${r.evento && r.via && r.via !== "Not specified" ? `<small>${esc(r.via)}</small>` : ""}</td>
+    </tr>`).join("") : `<tr><td colspan="6" class="nessuno">There are no records to show.</td></tr>`;
+  $("pagina").textContent = `Page ${pagina} of ${pagine}`;
   $("prima").disabled = pagina <= 1;
   $("dopo").disabled = pagina >= pagine;
 }
@@ -358,52 +443,69 @@ function disegna() {
 function disegnaSport() {
   const per = {};
   for (const r of DATI.righe) {
-    const s = (per[r.sport] ||= { righe: 0, posti: 0, "Athlete Quota": 0, "NOC Quota": 0, "Team Quota": 0 });
+    const s = (per[r._sport] ||= { sport: r.sport, righe: 0, posti: 0, "Athlete Quota": 0, "NOC Quota": 0, "Team Quota": 0 });
     s.righe++; s.posti += r.posti; s[r.tipo]++;
   }
-  $("righe-sport").innerHTML = Object.entries(per).sort((a, b) => b[1].posti - a[1].posti).map(([nome, s]) => `<tr>
-    <td class="nome" data-l="Sport"><a href="?sport=${encodeURIComponent(nome)}" data-sport="${esc(nome)}">${esc(nome)}</a></td>
-    <td class="posti" data-l="Righe">${s.righe}</td><td class="posti" data-l="Posti">${s.posti}</td>
-    <td class="posti" data-l="Athlete">${s["Athlete Quota"] || "–"}</td><td class="posti" data-l="NOC">${s["NOC Quota"] || "–"}</td><td class="posti" data-l="Team">${s["Team Quota"] || "–"}</td>
-    <td data-l="Ripartizione"><div class="mini">${Object.keys(TIPI).filter((k) => s[k]).map((k) =>
-      `<div style="flex:${s[k]};background:${TIPI[k].colore}" title="${k}: ${s[k]}"></div>`).join("")}</div></td></tr>`).join("");
+  const voci = Object.entries(per).sort((a, b) => b[1].posti - a[1].posti);
+  $("mostra-sport").textContent = `${voci.length} sports`;
+  $("righe-sport").innerHTML = voci.map(([nome, s]) => `<tr>
+    <td><a class="sport" href="?sport=${encodeURIComponent(s.sport)}" data-sport="${esc(s.sport)}">${esc(nome)}</a></td>
+    <td class="num">${s.righe}</td><td class="num"><b>${s.posti}</b></td>
+    <td class="num">${s["Athlete Quota"] || "–"}</td><td class="num">${s["NOC Quota"] || "–"}</td><td class="num">${s["Team Quota"] || "–"}</td>
+    <td><div class="barra-mini">${Object.keys(COLORI).filter((k) => s[k]).map((k) =>
+      `<div style="flex:${s[k]};background:${COLORI[k]}" data-info="${k}: ${s[k]}"></div>`).join("")}</div></td></tr>`).join("");
 }
 
 function cambia() { pagina = 1; versoIndirizzo(); disegna(); }
-["cerca"].forEach((id) => $(id).addEventListener("input", cambia));
-["f-noc", "f-sport", "f-tipo", "f-via", "ordina"].forEach((id) => $(id).addEventListener("change", cambia));
+$("cerca").addEventListener("input", cambia);
+["f-noc", "f-sport", "f-tipo"].forEach((id) => $(id).addEventListener("change", cambia));
 document.querySelectorAll(".chip").forEach((c) => c.addEventListener("click", () => { $("f-tipo").value = c.dataset.chip; cambia(); }));
-$("prima").onclick = () => { pagina--; disegna(); scrollTo({ top: $("righe").offsetTop - 120, behavior: "smooth" }); };
-$("dopo").onclick = () => { pagina++; disegna(); scrollTo({ top: $("righe").offsetTop - 120, behavior: "smooth" }); };
+document.querySelectorAll("th.ordinabile").forEach((th) => th.addEventListener("click", () => {
+  ordine = ordine.campo === th.dataset.ordina ? { campo: ordine.campo, su: !ordine.su } : { campo: th.dataset.ordina, su: true };
+  cambia();
+}));
+const vaiSu = () => { const y = $("righe").closest("table").getBoundingClientRect().top + scrollY - 80; if (scrollY > y) scrollTo({ top: y, behavior: "smooth" }); };
+$("prima").onclick = () => { pagina--; disegna(); vaiSu(); };
+$("dopo").onclick = () => { pagina++; disegna(); vaiSu(); };
 
-document.querySelectorAll(".scheda").forEach((s) => s.addEventListener("click", () => mostra(s.dataset.scheda)));
 function mostra(quale) {
   document.querySelectorAll(".scheda").forEach((x) => x.setAttribute("aria-selected", String(x.dataset.scheda === quale)));
   $("vista-elenco").hidden = quale !== "elenco";
   $("vista-sport").hidden = quale !== "sport";
 }
-$("righe-sport").addEventListener("click", (e) => {
+document.querySelectorAll(".scheda").forEach((s) => s.addEventListener("click", () => mostra(s.dataset.scheda)));
+document.addEventListener("click", (e) => {
   const a = e.target.closest("a[data-sport]"); if (!a) return;
   e.preventDefault(); $("f-sport").value = a.dataset.sport; mostra("elenco"); cambia();
 });
 
+// tooltip per l'icona (i) e per le barre del riepilogo
+const tip = $("tooltip");
+document.addEventListener("mouseover", (e) => {
+  const el = e.target.closest("[data-info]"); if (!el) return;
+  tip.textContent = el.dataset.info; tip.classList.add("su");
+  const b = el.getBoundingClientRect();
+  tip.style.left = Math.max(8, Math.min(innerWidth - tip.offsetWidth - 8, b.left + b.width / 2 - tip.offsetWidth / 2)) + "px";
+  tip.style.top = (b.top - tip.offsetHeight - 8 < 0 ? b.bottom + 8 : b.top - tip.offsetHeight - 8) + "px";
+});
+document.addEventListener("mouseout", (e) => { if (e.target.closest("[data-info]")) tip.classList.remove("su"); });
+
 function avvisa(testo) { const a = $("avviso"); a.textContent = testo; a.classList.add("su"); setTimeout(() => a.classList.remove("su"), 1800); }
 $("copia").onclick = async () => {
-  try { await navigator.clipboard.writeText(location.href); avvisa("Link copiato"); }
-  catch { prompt("Copia il link:", location.href); }
+  try { await navigator.clipboard.writeText(location.href); avvisa("Link copied"); } catch (e) { prompt("Copy this link:", location.href); }
 };
 $("csv").onclick = () => {
-  const campi = [["Atleta / Squadra", "nome"], ["NOC", "noc"], ["Paese", "paese"], ["Sport", "sport"], ["Gara", (r) => r.gare.join(" | ")],
-    ["Tipo di quota", "tipo"], ["Via di qualificazione", "via"], ["Evento", "evento"], ["Posti", "posti"], ["Regola CIO", "regola"], ["Sistema di qualificazione", "documento"]];
+  const campi = [["Athlete / Team", "_nome"], ["NOC", "noc"], ["Country", "_paese"], ["Sport", "_sport"], ["Event", (r) => r.gare.join(" | ")],
+    ["Status", "tipo"], ["Qualification Route", "_percorso"], ["Pathway", "via"], ["Quota places", "posti"], ["IOC rule", "regola"], ["Qualification system", "documento"]];
   const cella = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
-  const testo = [campi.map(([t]) => cella(t)).join(";"), ...filtrate().map((r) =>
-    campi.map(([, k]) => cella(typeof k === "function" ? k(r) : r[k])).join(";"))].join("\r\n");
+  const testo = [campi.map(([t]) => cella(t)).join(";"),
+    ...filtrate().map((r) => campi.map(([, k]) => cella(typeof k === "function" ? k(r) : r[k])).join(";"))].join("\r\n");
   const link = document.createElement("a");
   link.href = URL.createObjectURL(new Blob(["﻿" + testo], { type: "text/csv;charset=utf-8" }));
-  link.download = `qualificati-la28-${DATI.aggiornato}.csv`;
+  link.download = `la28-qualified-athletes-${DATI.aggiornato}.csv`;
   link.click(); URL.revokeObjectURL(link.href);
 };
-$("ricarica").onclick = () => { carica(true).then(() => avvisa("Dati aggiornati")); };
+$("ricarica").onclick = () => carica(true).then(() => avvisa("Data refreshed"));
 
 carica(false);
 </script>

@@ -35,12 +35,18 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: python aggiorna_tennis.py
+      - name: Leggi il calendario delle qualificazioni e aggiorna calendario.json
+           continue-on-error: true
+           env:
+             NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+           run: python aggiorna_calendario.py
       - name: Salva data.json nel repository
         id: salva
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data.json wrestling.json tennis.json
+          git add calendario.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "cambiato=0" >> "$GITHUB_OUTPUT"
           else

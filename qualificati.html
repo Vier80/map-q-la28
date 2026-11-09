@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LA28 Qualified Athletes</title>
+<meta name="theme-color" content="#edf0f4">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root {
+  --sfondo: #edf0f4; --carta: #ffffff; --bordo: #d9dee7; --bordo-forte: #c3cad6;
+  --testo: #18202e; --testo-2: #4a5568; --testo-3: #7a8494;
+  --notte: #13213c; --notte-2: #1d3157; --accento: #c8102e;
+  --athlete: #1f9e74; --noc: #2e64c8; --team: #d9822b;
+  --athlete-bg: #e3f4ee; --noc-bg: #e6eefb; --team-bg: #fbeee0;
+  --raggio: 10px; --titoli: "Barlow Condensed", "Arial Narrow", sans-serif;
+}
+* { box-sizing: border-box }
+body { margin: 0; background: var(--sfondo); color: var(--testo); font: 14px/1.45 Inter, system-ui, sans-serif }
+a { color: var(--noc); text-decoration: none }
+a:hover { text-decoration: underline }
+button, input, select { font: inherit; color: inherit }
+
+/* barra in alto */
+.barra { background: var(--notte); color: #fff }
+.barra .dentro { max-width: 1240px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 24px; height: 54px }
+.logo { font-family: var(--titoli); font-size: 22px; letter-spacing: .5px; display: flex; align-items: center; gap: 10px; white-space: nowrap }
+.logo i { display: inline-block; width: 26px; height: 26px; border-radius: 6px; background: linear-gradient(135deg, var(--accento), #ff6a3d) }
+.menu { display: flex; gap: 4px; overflow-x: auto }
+.menu a { color: #c9d3e6; padding: 8px 12px; border-radius: 6px; white-space: nowrap; font-weight: 500 }
+.menu a:hover, .menu a.attivo { background: var(--notte-2); color: #fff; text-decoration: none }
+
+main { max-width: 1240px; margin: 0 auto; padding: 18px 20px 48px }
+.briciole { font-size: 12.5px; color: var(--testo-3); margin-bottom: 14px }
+.briciole a { color: var(--testo-2) }
+
+/* intestazione */
+.testa { background: var(--carta); border: 1px solid var(--bordo); border-radius: var(--raggio); padding: 22px 24px; margin-bottom: 16px; position: relative; overflow: hidden }
+.testa::after { content: ""; position: absolute; right: -40px; top: -40px; width: 220px; height: 220px; border-radius: 50%; border: 28px solid #f2f4f8 }
+.testa > * { position: relative; z-index: 1 }
+.occhiello { font-size: 11.5px; font-weight: 700; letter-spacing: 1.4px; color: var(--accento); text-transform: uppercase }
+h1 { font-family: var(--titoli); font-size: 40px; line-height: 1.05; margin: 6px 0 6px; letter-spacing: .3px }
+.sotto { color: var(--testo-2); max-width: 720px; margin: 0; position: relative; z-index: 1 }
+.agg { font-size: 12.5px; color: var(--testo-3); margin-top: 10px; position: relative; z-index: 1 }
+
+/* numeri */
+.numeri { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px }
+.numero { background: var(--carta); border: 1px solid var(--bordo); border-radius: var(--raggio); padding: 14px 16px }
+.numero b { display: block; font-family: var(--titoli); font-size: 34px; line-height: 1.05; font-variant-numeric: tabular-nums }
+.numero span { color: var(--testo-2); font-size: 12.5px; font-weight: 500 }
+.avanzamento { height: 6px; background: #e8ecf2; border-radius: 4px; margin-top: 10px; overflow: hidden }
+.avanzamento div { height: 100%; background: var(--notte); border-radius: 4px }
+
+/* pannello */
+.pannello { background: var(--carta); border: 1px solid var(--bordo); border-radius: var(--raggio) }
+.schede { display: flex; align-items: center; gap: 4px; border-bottom: 1px solid var(--bordo); padding: 0 12px; flex-wrap: wrap }
+.scheda { background: none; border: 0; padding: 14px 14px 12px; font-weight: 600; color: var(--testo-2); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -1px }
+.scheda[aria-selected="true"] { color: var(--testo); border-bottom-color: var(--accento) }
+.strumenti { margin-left: auto; display: flex; gap: 6px; padding: 8px 0 }
+.bottone { background: #fff; border: 1px solid var(--bordo-forte); border-radius: 7px; padding: 6px 11px; cursor: pointer; font-size: 13px; font-weight: 500; display: inline-flex; gap: 6px; align-items: center }
+.bottone:hover { background: #f4f6f9 }
+.corpo { padding: 16px }
+
+/* ripartizione per tipo di quota */
+.ripartizione { margin-bottom: 16px }
+.ripartizione .titolo { font-weight: 600; font-size: 13px; margin-bottom: 8px; color: var(--testo-2) }
+.striscia { display: flex; gap: 2px; height: 14px }
+.striscia div { min-width: 4px; border-radius: 4px; cursor: default; position: relative }
+.legenda { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 8px; font-size: 12.5px; color: var(--testo-2) }
+.legenda span { display: inline-flex; align-items: center; gap: 6px }
+.legenda i { width: 10px; height: 10px; border-radius: 3px; display: inline-block }
+.legenda b { color: var(--testo) }
+
+/* filtri */
+.filtri { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: 8px; margin-bottom: 10px }
+.filtri input, .filtri select, .ordina select { width: 100%; border: 1px solid var(--bordo-forte); border-radius: 7px; padding: 8px 10px; background: #fff }
+.filtri input:focus, .filtri select:focus { outline: 2px solid #b9cdf3; border-color: var(--noc) }
+.riga-chip { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 12px }
+.chip { border: 1px solid var(--bordo-forte); background: #fff; border-radius: 999px; padding: 5px 12px; cursor: pointer; font-size: 13px; font-weight: 500 }
+.chip[aria-pressed="true"] { background: var(--notte); border-color: var(--notte); color: #fff }
+.ordina { margin-left: auto; display: flex; align-items: center; gap: 8px; color: var(--testo-2); font-size: 13px }
+.ordina select { width: auto; padding: 5px 8px }
+.conteggio { font-size: 12.5px; color: var(--testo-3); margin-bottom: 8px }
+
+/* tabella */
+.tabella { width: 100%; border-collapse: collapse }
+.tabella th { text-align: left; font-size: 11.5px; text-transform: uppercase; letter-spacing: .6px; color: var(--testo-3); font-weight: 600; padding: 9px 10px; border-bottom: 1px solid var(--bordo); background: #f8f9fb; white-space: nowrap }
+.tabella td { padding: 10px; border-bottom: 1px solid #eef1f5; vertical-align: top }
+.tabella tbody tr:hover td { background: #f8fafd }
+.nome { font-weight: 600 }
+.nome small { display: block; font-weight: 400; color: var(--testo-3); font-size: 12px }
+.noc { display: flex; gap: 8px; align-items: center; white-space: nowrap }
+.noc .bandiera { font-size: 20px; line-height: 1 }
+.noc b { font-weight: 600 }
+.noc small { display: block; color: var(--testo-3); font-size: 12px; font-weight: 400 }
+.gara { color: var(--testo-2) }
+.badge { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border-radius: 999px; font-size: 12px; font-weight: 600; white-space: nowrap }
+.badge::before { content: ""; width: 7px; height: 7px; border-radius: 50% }
+.badge.athlete { background: var(--athlete-bg); color: #13664a } .badge.athlete::before { background: var(--athlete) }
+.badge.noc { background: var(--noc-bg); color: #1f478f } .badge.noc::before { background: var(--noc) }
+.badge.team { background: var(--team-bg); color: #8a4d12 } .badge.team::before { background: var(--team) }
+.verifica { color: var(--accento); font-size: 11.5px; font-weight: 600; display: block; margin-top: 4px }
+.via { white-space: nowrap; font-weight: 500 }
+.via small { display: block; color: var(--testo-3); font-weight: 400; white-space: normal; font-size: 12px }
+.posti { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600 }
+.regola { font-size: 12.5px; color: var(--testo-2); max-width: 300px }
+.regola a { font-weight: 600; white-space: nowrap }
+.vuoto { text-align: center; color: var(--testo-3); padding: 40px 0 }
+
+.pagine { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; font-size: 13px; color: var(--testo-2) }
+.pagine .bottone[disabled] { opacity: .4; cursor: default }
+
+/* riepilogo per sport */
+.mini { display: flex; gap: 2px; height: 10px; width: 160px }
+.mini div { border-radius: 3px; min-width: 3px }
+
+/* spiegazione */
+.spiega { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 16px }
+.spiega div { background: var(--carta); border: 1px solid var(--bordo); border-radius: var(--raggio); padding: 14px 16px; font-size: 13px; color: var(--testo-2) }
+.spiega h3 { margin: 0 0 6px; font-size: 14px; color: var(--testo) }
+footer { margin-top: 18px; font-size: 12.5px; color: var(--testo-3) }
+
+.avviso-copia { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--notte); color: #fff; padding: 8px 16px; border-radius: 8px; font-size: 13px; opacity: 0; transition: opacity .2s; pointer-events: none }
+.avviso-copia.su { opacity: 1 }
+
+@media (max-width: 900px) {
+  .numeri { grid-template-columns: repeat(2, 1fr) }
+  .filtri { grid-template-columns: 1fr 1fr }
+  .filtri input { grid-column: 1 / -1 }
+  .spiega { grid-template-columns: 1fr }
+  .tabella thead { display: none }
+  .tabella, .tabella tbody, .tabella tr, .tabella td { display: block; width: 100% }
+  .tabella tr { border-bottom: 1px solid var(--bordo); padding: 8px 0 }
+  .tabella td { border: 0; padding: 3px 4px }
+  .tabella td[data-l]::before { content: attr(data-l) ": "; color: var(--testo-3); font-size: 12px }
+  .posti { text-align: left }
+  .strumenti { margin-left: 0; width: 100%; padding-top: 0 }
+  h1 { font-size: 32px }
+  .testa::after { display: none }
+}
+@media print { .barra, .strumenti, .filtri, .riga-chip, .pagine { display: none } body { background: #fff } }
+</style>
+</head>
+<body>
+<header class="barra"><div class="dentro">
+  <div class="logo"><i></i>LA28 Tracker</div>
+  <nav class="menu">
+    <a href="index.html">Mappa</a>
+    <a href="sport.html">Per sport</a>
+    <a class="attivo" href="qualificati.html">Qualificati</a>
+    <a href="stima.html">Stima</a>
+    <a href="calendario.html">Calendario</a>
+  </nav>
+</div></header>
+
+<main>
+  <div class="briciole"><a href="index.html">Mappa LA28</a> › Qualification Tracker › Qualified Athletes</div>
+
+  <section class="testa">
+    <div class="occhiello">Road to LA28 · dati dal db Notion Athletes</div>
+    <h1>LA28 Qualified Athletes</h1>
+    <p class="sotto">Tutti gli atleti e le squadre con la Q in “Pass LA28”, con il tipo di posto secondo i sistemi di qualificazione CIO: al singolo atleta, al Comitato Olimpico Nazionale o alla squadra.</p>
+    <div class="agg" id="agg">Caricamento…</div>
+  </section>
+
+  <section class="numeri" id="numeri"></section>
+
+  <section class="pannello">
+    <div class="schede" role="tablist">
+      <button class="scheda" role="tab" aria-selected="true" data-scheda="elenco">Quota Allocations</button>
+      <button class="scheda" role="tab" aria-selected="false" data-scheda="sport">Riepilogo per sport</button>
+      <div class="strumenti">
+        <button class="bottone" id="copia">🔗 Copia link</button>
+        <button class="bottone" id="csv">⬇︎ Esporta CSV</button>
+        <button class="bottone" id="ricarica">↻ Aggiorna</button>
+      </div>
+    </div>
+
+    <div class="corpo" id="vista-elenco">
+      <div class="ripartizione" id="ripartizione"></div>
+      <div class="filtri">
+        <input id="cerca" type="search" placeholder="Cerca atleta, squadra, gara o evento…" aria-label="Cerca">
+        <select id="f-noc" aria-label="NOC"><option value="">Tutti gli NOC</option></select>
+        <select id="f-sport" aria-label="Sport"><option value="">Tutti gli sport</option></select>
+        <select id="f-tipo" aria-label="Tipo di quota">
+          <option value="">Tutti i tipi di quota</option>
+          <option value="athlete">Athlete Quota</option>
+          <option value="noc">NOC Quota</option>
+          <option value="team">Team Quota</option>
+          <option value="noc-team">NOC / Team Quota</option>
+        </select>
+        <select id="f-via" aria-label="Via di qualificazione"><option value="">Tutte le vie</option></select>
+      </div>
+      <div class="riga-chip">
+        <button class="chip" data-chip="">Tutti</button>
+        <button class="chip" data-chip="athlete">Athlete Quota</button>
+        <button class="chip" data-chip="noc">NOC Quota</button>
+        <button class="chip" data-chip="team">Team Quota</button>
+        <button class="chip" data-chip="noc-team">NOC / Team Quota</button>
+        <label class="ordina">Ordina per
+          <select id="ordina">
+            <option value="sport">Sport</option>
+            <option value="nome">Atleta / Squadra</option>
+            <option value="noc">NOC</option>
+          </select>
+        </label>
+      </div>
+      <div class="conteggio" id="conteggio"></div>
+      <table class="tabella">
+        <thead><tr>
+          <th>Atleta / Squadra</th><th>NOC</th><th>Sport · Gara</th><th>Tipo di quota</th>
+          <th>Via di qualificazione</th><th style="text-align:right">Posti</th><th>Regola CIO</th>
+        </tr></thead>
+        <tbody id="righe"></tbody>
+      </table>
+      <div class="pagine">
+        <button class="bottone" id="prima">← Precedente</button>
+        <span id="pagina"></span>
+        <button class="bottone" id="dopo">Successiva →</button>
+      </div>
+    </div>
+
+    <div class="corpo" id="vista-sport" hidden>
+      <table class="tabella">
+        <thead><tr><th>Sport</th><th style="text-align:right">Righe</th><th style="text-align:right">Posti</th>
+          <th style="text-align:right">Athlete</th><th style="text-align:right">NOC</th><th style="text-align:right">Team</th><th>Ripartizione</th></tr></thead>
+        <tbody id="righe-sport"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="spiega">
+    <div><h3><span class="badge athlete">Athlete Quota</span></h3>Il posto è assegnato all'atleta per nome: l'NOC non può darlo a un altro. Ogni atleta compare una volta per NOC.</div>
+    <div><h3><span class="badge noc">NOC Quota</span></h3>Il posto appartiene al Comitato Olimpico Nazionale, che può scegliere un altro atleta idoneo. Il nome indica chi l'ha conquistato.</div>
+    <div><h3><span class="badge team">Team Quota</span></h3>Il posto appartiene alla squadra dell'NOC (squadre, staffette, coppie, equipaggi). La colonna Posti indica quanti atleti vale.</div>
+  </section>
+
+  <footer>
+    Regole lette dai <a id="fonte" href="https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games" target="_blank" rel="noopener">sistemi di qualificazione CIO per LA28</a>.
+    La via di qualificazione viene da “Altri Criteri” e da “Direct Q Events LA28” del db Athletes; dove manca vale la regola principale dello sport.
+  </footer>
+</main>
+<div class="avviso-copia" id="avviso"></div>
+
+<script>
+const TIPI = {
+  "Athlete Quota": { classe: "athlete", colore: "var(--athlete)", corto: "Athlete" },
+  "NOC Quota": { classe: "noc", colore: "var(--noc)", corto: "NOC" },
+  "Team Quota": { classe: "team", colore: "var(--team)", corto: "Team" },
+};
+const STATO = { athlete: ["Athlete Quota"], noc: ["NOC Quota"], team: ["Team Quota"], "noc-team": ["NOC Quota", "Team Quota"] };
+const PER_PAGINA = 25;
+let DATI = null, pagina = 1;
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const num = (n) => Number(n).toLocaleString("it-IT");
+
+async function carica(forza) {
+  try {
+    if (window.DATI_INCORPORATI && !forza) { DATI = window.DATI_INCORPORATI; }
+    else {
+      const r = await fetch("qualificati.json" + (forza ? "?t=" + Date.now() : ""), { cache: forza ? "no-store" : "default" });
+      if (!r.ok) throw new Error(r.status);
+      DATI = await r.json();
+    }
+  } catch (e) {
+    if (window.DATI_INCORPORATI) { DATI = window.DATI_INCORPORATI; }
+    else { $("agg").textContent = "Non riesco a leggere qualificati.json (" + e.message + ")."; return; }
+  }
+  prepara();
+}
+
+function prepara() {
+  const t = DATI.totali;
+  const [a, m, g] = DATI.aggiornato.split("-");
+  $("agg").textContent = `Aggiornato al ${g}/${m}/${a} · ${num(t.righe)} righe con la Q`;
+  const pct = Math.min(100, t.posti_qualificati / t.posti_totali * 100);
+  $("numeri").innerHTML = `
+    <div class="numero"><b>${num(t.posti_qualificati)}</b><span>Posti qualificati</span>
+      <div class="avanzamento" title="${pct.toFixed(1)}% dei posti totali"><div style="width:${pct}%"></div></div></div>
+    <div class="numero"><b>${num(t.noc)}</b><span>NOC qualificati</span></div>
+    <div class="numero"><b>${num(t.rimanenti)}</b><span>Posti ancora da assegnare</span></div>
+    <div class="numero"><b>${num(t.posti_totali)}</b><span>Posti totali LA28</span></div>`;
+
+  const conta = { "Athlete Quota": t.athlete_quota, "NOC Quota": t.noc_quota, "Team Quota": t.team_quota };
+  $("ripartizione").innerHTML = `<div class="titolo">Ripartizione per tipo di quota (righe)</div>
+    <div class="striscia">${Object.entries(conta).filter(([, n]) => n).map(([k, n]) =>
+      `<div style="flex:${n};background:${TIPI[k].colore}" title="${k}: ${n} righe (${(n / t.righe * 100).toFixed(0)}%)"></div>`).join("")}</div>
+    <div class="legenda">${Object.entries(conta).map(([k, n]) =>
+      `<span><i style="background:${TIPI[k].colore}"></i>${k} <b>${num(n)}</b></span>`).join("")}</div>`;
+
+  riempi("f-noc", [...new Map(DATI.righe.map((r) => [r.noc, `${r.bandiera} ${r.noc} · ${r.paese}`])).entries()].sort());
+  riempi("f-sport", [...new Set(DATI.righe.map((r) => r.sport))].sort().map((s) => [s, s]));
+  riempi("f-via", [...new Set(DATI.righe.map((r) => r.via))].sort().map((s) => [s, s]));
+  daIndirizzo();
+  disegna();
+  disegnaSport();
+}
+
+function riempi(id, voci) {
+  const sel = $(id), primo = sel.options[0];
+  sel.innerHTML = ""; sel.append(primo);
+  for (const [v, t] of voci) sel.add(new Option(t, v));
+}
+
+function daIndirizzo() {
+  const p = new URLSearchParams(location.search);
+  $("cerca").value = p.get("q") || "";
+  $("f-noc").value = p.get("noc") || "";
+  $("f-sport").value = p.get("sport") || "";
+  $("f-tipo").value = STATO[p.get("status")] ? p.get("status") : "";
+  $("f-via").value = p.get("via") || "";
+  $("ordina").value = p.get("sort") || "sport";
+}
+
+function versoIndirizzo() {
+  const p = new URLSearchParams();
+  const metti = (k, v) => v && p.set(k, v);
+  metti("q", $("cerca").value.trim()); metti("noc", $("f-noc").value); metti("sport", $("f-sport").value);
+  metti("status", $("f-tipo").value); metti("via", $("f-via").value);
+  if ($("ordina").value !== "sport") p.set("sort", $("ordina").value);
+  history.replaceState(null, "", location.pathname + (p.toString() ? "?" + p : ""));
+}
+
+function filtrate() {
+  const q = $("cerca").value.trim().toLowerCase(), noc = $("f-noc").value, sport = $("f-sport").value;
+  const tipo = STATO[$("f-tipo").value], via = $("f-via").value, ord = $("ordina").value;
+  const out = DATI.righe.filter((r) =>
+    (!noc || r.noc === noc) && (!sport || r.sport === sport) && (!tipo || tipo.includes(r.tipo)) && (!via || r.via === via) &&
+    (!q || [r.nome, r.paese, r.noc, r.sport, r.gare.join(" "), r.evento].join(" ").toLowerCase().includes(q)));
+  const chiave = { sport: (r) => [r.sport, r.gare.join(), r.noc, r.nome], nome: (r) => [r.nome], noc: (r) => [r.noc, r.sport, r.nome] }[ord];
+  return out.sort((a, b) => chiave(a).join("|").localeCompare(chiave(b).join("|"), "it"));
+}
+
+function disegna() {
+  document.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.chip === $("f-tipo").value)));
+  const righe = filtrate();
+  const pagine = Math.max(1, Math.ceil(righe.length / PER_PAGINA));
+  pagina = Math.min(pagina, pagine);
+  const posti = righe.reduce((s, r) => s + r.posti, 0);
+  $("conteggio").textContent = `${num(righe.length)} risultati · ${num(posti)} posti`;
+  const vista = righe.slice((pagina - 1) * PER_PAGINA, pagina * PER_PAGINA);
+  $("righe").innerHTML = vista.length ? vista.map((r) => `<tr>
+      <td class="nome" data-l="Atleta">${esc(r.nome)}${r.nota ? `<small>${esc(r.nota)}</small>` : ""}</td>
+      <td data-l="NOC"><div class="noc"><span class="bandiera">${r.bandiera}</span><div><b>${esc(r.noc)}</b><small>${esc(r.paese)}</small></div></div></td>
+      <td data-l="Gara"><b>${esc(r.sport)}</b><div class="gara">${r.gare.map(esc).join("<br>")}</div></td>
+      <td data-l="Tipo"><span class="badge ${TIPI[r.tipo].classe}">${r.tipo}</span>${r.verifica ? '<span class="verifica">⚠︎ da verificare</span>' : ""}</td>
+      <td data-l="Via" class="via">${esc(r.via)}${r.evento ? `<small>${esc(r.evento)}</small>` : ""}</td>
+      <td data-l="Posti" class="posti">${r.posti}</td>
+      <td data-l="Regola" class="regola">${esc(r.regola)} <a href="${esc(r.documento)}" target="_blank" rel="noopener">PDF ↗</a></td>
+    </tr>`).join("") : `<tr><td colspan="7" class="vuoto">Nessun risultato con questi filtri.</td></tr>`;
+  $("pagina").textContent = `Pagina ${pagina} di ${pagine}`;
+  $("prima").disabled = pagina <= 1;
+  $("dopo").disabled = pagina >= pagine;
+}
+
+function disegnaSport() {
+  const per = {};
+  for (const r of DATI.righe) {
+    const s = (per[r.sport] ||= { righe: 0, posti: 0, "Athlete Quota": 0, "NOC Quota": 0, "Team Quota": 0 });
+    s.righe++; s.posti += r.posti; s[r.tipo]++;
+  }
+  $("righe-sport").innerHTML = Object.entries(per).sort((a, b) => b[1].posti - a[1].posti).map(([nome, s]) => `<tr>
+    <td class="nome" data-l="Sport"><a href="?sport=${encodeURIComponent(nome)}" data-sport="${esc(nome)}">${esc(nome)}</a></td>
+    <td class="posti" data-l="Righe">${s.righe}</td><td class="posti" data-l="Posti">${s.posti}</td>
+    <td class="posti" data-l="Athlete">${s["Athlete Quota"] || "–"}</td><td class="posti" data-l="NOC">${s["NOC Quota"] || "–"}</td><td class="posti" data-l="Team">${s["Team Quota"] || "–"}</td>
+    <td data-l="Ripartizione"><div class="mini">${Object.keys(TIPI).filter((k) => s[k]).map((k) =>
+      `<div style="flex:${s[k]};background:${TIPI[k].colore}" title="${k}: ${s[k]}"></div>`).join("")}</div></td></tr>`).join("");
+}
+
+function cambia() { pagina = 1; versoIndirizzo(); disegna(); }
+["cerca"].forEach((id) => $(id).addEventListener("input", cambia));
+["f-noc", "f-sport", "f-tipo", "f-via", "ordina"].forEach((id) => $(id).addEventListener("change", cambia));
+document.querySelectorAll(".chip").forEach((c) => c.addEventListener("click", () => { $("f-tipo").value = c.dataset.chip; cambia(); }));
+$("prima").onclick = () => { pagina--; disegna(); scrollTo({ top: $("righe").offsetTop - 120, behavior: "smooth" }); };
+$("dopo").onclick = () => { pagina++; disegna(); scrollTo({ top: $("righe").offsetTop - 120, behavior: "smooth" }); };
+
+document.querySelectorAll(".scheda").forEach((s) => s.addEventListener("click", () => mostra(s.dataset.scheda)));
+function mostra(quale) {
+  document.querySelectorAll(".scheda").forEach((x) => x.setAttribute("aria-selected", String(x.dataset.scheda === quale)));
+  $("vista-elenco").hidden = quale !== "elenco";
+  $("vista-sport").hidden = quale !== "sport";
+}
+$("righe-sport").addEventListener("click", (e) => {
+  const a = e.target.closest("a[data-sport]"); if (!a) return;
+  e.preventDefault(); $("f-sport").value = a.dataset.sport; mostra("elenco"); cambia();
+});
+
+function avvisa(testo) { const a = $("avviso"); a.textContent = testo; a.classList.add("su"); setTimeout(() => a.classList.remove("su"), 1800); }
+$("copia").onclick = async () => {
+  try { await navigator.clipboard.writeText(location.href); avvisa("Link copiato"); }
+  catch { prompt("Copia il link:", location.href); }
+};
+$("csv").onclick = () => {
+  const campi = [["Atleta / Squadra", "nome"], ["NOC", "noc"], ["Paese", "paese"], ["Sport", "sport"], ["Gara", (r) => r.gare.join(" | ")],
+    ["Tipo di quota", "tipo"], ["Via di qualificazione", "via"], ["Evento", "evento"], ["Posti", "posti"], ["Regola CIO", "regola"], ["Sistema di qualificazione", "documento"]];
+  const cella = (v) => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const testo = [campi.map(([t]) => cella(t)).join(";"), ...filtrate().map((r) =>
+    campi.map(([, k]) => cella(typeof k === "function" ? k(r) : r[k])).join(";"))].join("\r\n");
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(new Blob(["﻿" + testo], { type: "text/csv;charset=utf-8" }));
+  link.download = `qualificati-la28-${DATI.aggiornato}.csv`;
+  link.click(); URL.revokeObjectURL(link.href);
+};
+$("ricarica").onclick = () => { carica(true).then(() => avvisa("Dati aggiornati")); };
+
+carica(false);
+</script>
+</body>
+</html>

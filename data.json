@@ -295,14 +295,12 @@
   },
   "Judo": {
    "quota": 372,
-   "atleti": 1,
-   "M": 1,
+   "atleti": 0,
+   "M": 0,
    "W": 0,
    "O": 0,
-   "pass": 1,
-   "noc": {
-    "RUS": 1
-   }
+   "pass": 0,
+   "noc": {}
   },
   "Lacrosse Sixes": {
    "quota": 132,
@@ -569,8 +567,8 @@
   }
  },
  "totali": {
-  "atleti": 897,
-  "pass": 155,
+  "atleti": 896,
+  "pass": 154,
   "noc": 44
  },
  "noc": {
@@ -3280,53 +3278,6 @@
     }
    ]
   },
-  "RUS": {
-   "nome": "Russia",
-   "atleti": 6,
-   "pass": 2,
-   "righe": [
-    {
-     "nome": "RUS MAG Team",
-     "sport": "Gym Artistic",
-     "card": "Gym Artistic",
-     "discipline": [
-      "MAG Team"
-     ],
-     "genere": {
-      "M": 5,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "MAG Team": "M"
-     },
-     "atleti": 5,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "Inal TASOEV",
-     "sport": "Judo",
-     "card": "Judo",
-     "discipline": [
-      "Men's +100kg"
-     ],
-     "genere": {
-      "M": 1,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "Men's +100kg": "M"
-     },
-     "atleti": 1,
-     "squadra": false,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
   "SUI": {
    "nome": "Svizzera",
    "atleti": 6,
@@ -3523,6 +3474,33 @@
      },
      "atleti": 1,
      "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "RUS": {
+   "nome": "Russia",
+   "atleti": 5,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "RUS MAG Team",
+     "sport": "Gym Artistic",
+     "card": "Gym Artistic",
+     "discipline": [
+      "MAG Team"
+     ],
+     "genere": {
+      "M": 5,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "MAG Team": "M"
+     },
+     "atleti": 5,
+     "squadra": true,
      "ospitante": false,
      "nota": ""
     }

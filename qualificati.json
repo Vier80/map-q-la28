@@ -1,0 +1,3102 @@
+{
+ "aggiornato": "2026-11-09",
+ "totali": {
+  "posti_qualificati": 896,
+  "noc": 44,
+  "rimanenti": 10302,
+  "posti_totali": 11198,
+  "righe": 154,
+  "athlete_quota": 5,
+  "noc_quota": 45,
+  "team_quota": 104
+ },
+ "fonte_regole": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+ "righe": [
+  {
+   "chiave": "3ebf48c9aad9806ca3f9d2f1b9abd98c",
+   "nome": "Chikitha TANIPARTHI/Sahil Rajesh JADHAV",
+   "noc": "IND",
+   "bandiera": "🇮🇳",
+   "paese": "India",
+   "sport": "Archery",
+   "gare": [
+    "Compound Mixed Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "Asian Games 2026",
+   "posti": 2,
+   "nota": "",
+   "regola": "Tutti i posti (individuali, squadre e misto) vanno all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Chikitha-TANIPARTHI-Sahil-Rajesh-JADHAV-3ebf48c9aad9806ca3f9d2f1b9abd98c"
+  },
+  {
+   "chiave": "341f48c9aad980bc9476c702937f76b7",
+   "nome": "Alexis RUIZ/Stephan HANSEN",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Archery",
+   "gare": [
+    "Compound Mixed Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 2,
+   "nota": "",
+   "regola": "Tutti i posti (individuali, squadre e misto) vanno all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Alexis-RUIZ-Stephan-HANSEN-341f48c9aad980bc9476c702937f76b7"
+  },
+  {
+   "chiave": "35cf48c9aad98063ba52e06d46c0f4e1",
+   "nome": "LI Mengqi",
+   "noc": "CHN",
+   "bandiera": "🇨🇳",
+   "paese": "Cina",
+   "sport": "Archery",
+   "gare": [
+    "Men's Recurve Individual"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Continental",
+   "evento": "2026 Asian Games",
+   "posti": 1,
+   "nota": "",
+   "regola": "Tutti i posti (individuali, squadre e misto) vanno all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/LI-Mengqi-35cf48c9aad98063ba52e06d46c0f4e1"
+  },
+  {
+   "chiave": "2c5f48c9aad98083a3bfc9a2b17f9437",
+   "nome": "Junya NAKANISHI",
+   "noc": "JPN",
+   "bandiera": "🇯🇵",
+   "paese": "Giappone",
+   "sport": "Archery",
+   "gare": [
+    "Men's Recurve Individual"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Tutti i posti (individuali, squadre e misto) vanno all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Junya-NAKANISHI-2c5f48c9aad98083a3bfc9a2b17f9437"
+  },
+  {
+   "chiave": "380f48c9aad98035bdfbd1d1c35aa921",
+   "nome": "LEE Woo-seok",
+   "noc": "KOR",
+   "bandiera": "🇰🇷",
+   "paese": "Corea del Sud",
+   "sport": "Archery",
+   "gare": [
+    "Men's Recurve Individual"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Tutti i posti (individuali, squadre e misto) vanno all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/LEE-Woo-seok-380f48c9aad98035bdfbd1d1c35aa921"
+  },
+  {
+   "chiave": "2fbf48c9aad980f583bbfae2e4376dd0",
+   "nome": "USA Men's Recurve",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Archery",
+   "gare": [
+    "Men's Recurve Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Tutti i posti (individuali, squadre e misto) vanno all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Men-s-Recurve-2fbf48c9aad980f583bbfae2e4376dd0"
+  },
+  {
+   "chiave": "33ef48c9aad980219f59f76d3a0c01f7",
+   "nome": "CHN Recurve Mixed",
+   "noc": "CHN",
+   "bandiera": "🇨🇳",
+   "paese": "Cina",
+   "sport": "Archery",
+   "gare": [
+    "Recurve Mixed team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 0,
+   "nota": "atleti già contati nel recurve",
+   "regola": "Tutti i posti (individuali, squadre e misto) vanno all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/CHN-Recurve-Mixed-33ef48c9aad980219f59f76d3a0c01f7"
+  },
+  {
+   "chiave": "33ef48c9aad980a79ca5f599e287a7b7",
+   "nome": "KOR Recurve Mixed",
+   "noc": "KOR",
+   "bandiera": "🇰🇷",
+   "paese": "Corea del Sud",
+   "sport": "Archery",
+   "gare": [
+    "Recurve Mixed team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 0,
+   "nota": "atleti già contati nel recurve",
+   "regola": "Tutti i posti (individuali, squadre e misto) vanno all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/KOR-Recurve-Mixed-33ef48c9aad980a79ca5f599e287a7b7"
+  },
+  {
+   "chiave": "33ef48c9aad980478c64f5f764386936",
+   "nome": "USA Recurve Mixed",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Archery",
+   "gare": [
+    "Recurve Mixed team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 0,
+   "nota": "atleti già contati nel recurve",
+   "regola": "Tutti i posti (individuali, squadre e misto) vanno all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Recurve-Mixed-33ef48c9aad980478c64f5f764386936"
+  },
+  {
+   "chiave": "2c5f48c9aad980a294edc4de7d6c9357",
+   "nome": "ZHU Jingyi",
+   "noc": "CHN",
+   "bandiera": "🇨🇳",
+   "paese": "Cina",
+   "sport": "Archery",
+   "gare": [
+    "Women's Recurve Individual"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Continental",
+   "evento": "2026 Asian Games",
+   "posti": 1,
+   "nota": "",
+   "regola": "Tutti i posti (individuali, squadre e misto) vanno all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/ZHU-Jingyi-2c5f48c9aad980a294edc4de7d6c9357"
+  },
+  {
+   "chiave": "3eef48c9aad980648f93e68a1839cab5",
+   "nome": "Kumkum Anil MOHOD",
+   "noc": "IND",
+   "bandiera": "🇮🇳",
+   "paese": "India",
+   "sport": "Archery",
+   "gare": [
+    "Women's Recurve Individual"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Tutti i posti (individuali, squadre e misto) vanno all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Kumkum-Anil-MOHOD-3eef48c9aad980648f93e68a1839cab5"
+  },
+  {
+   "chiave": "39cf48c9aad980638b0af3bec70ce276",
+   "nome": "OH Yejin",
+   "noc": "KOR",
+   "bandiera": "🇰🇷",
+   "paese": "Corea del Sud",
+   "sport": "Archery",
+   "gare": [
+    "Women's Recurve Individual"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Tutti i posti (individuali, squadre e misto) vanno all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/OH-Yejin-39cf48c9aad980638b0af3bec70ce276"
+  },
+  {
+   "chiave": "2fbf48c9aad9809fbf56d8d9de6e7ce2",
+   "nome": "USA Women's Recurve",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Archery",
+   "gare": [
+    "Women's Recurve Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Tutti i posti (individuali, squadre e misto) vanno all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Women-s-Recurve-2fbf48c9aad9809fbf56d8d9de6e7ce2"
+  },
+  {
+   "chiave": "2c5f48c9aad980c680b7f94ef3d16945",
+   "nome": "Beiwen ZHANG",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Badminton",
+   "gare": [
+    "Women's Singles"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti nominativi dal ranking olimpico; paese ospitante e universalità vanno all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BDM-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Beiwen-ZHANG-2c5f48c9aad980c680b7f94ef3d16945"
+  },
+  {
+   "chiave": "2fbf48c9aad980d88d0fc4800a27d18d",
+   "nome": "DOM Baseball",
+   "noc": "DOM",
+   "bandiera": "🇩🇴",
+   "paese": "Repubblica Dominicana",
+   "sport": "Baseball",
+   "gare": [
+    "Baseball"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 24,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BSB-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/DOM-Baseball-2fbf48c9aad980d88d0fc4800a27d18d"
+  },
+  {
+   "chiave": "2fbf48c9aad980bda0d0c148ef699110",
+   "nome": "USA Baseball",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Baseball",
+   "gare": [
+    "Baseball"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 24,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BSB-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Baseball-2fbf48c9aad980bda0d0c148ef699110"
+  },
+  {
+   "chiave": "2fbf48c9aad9807ba2f9dca689aaea7e",
+   "nome": "VEN Baseball",
+   "noc": "VEN",
+   "bandiera": "🇻🇪",
+   "paese": "Venezuela",
+   "sport": "Baseball",
+   "gare": [
+    "Baseball"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 24,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BSB-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/VEN-Baseball-2fbf48c9aad9807ba2f9dca689aaea7e"
+  },
+  {
+   "chiave": "32df48c9aad980b1a413eac36dbf031c",
+   "nome": "USA Men's 3x3",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Basketball",
+   "gare": [
+    "Men's 3x3"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 4,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BK3-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Men-s-3x3-32df48c9aad980b1a413eac36dbf031c"
+  },
+  {
+   "chiave": "399f48c9aad98061ade1d6c3065a06e2",
+   "nome": "USA Men's 🏀",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Basketball",
+   "gare": [
+    "Men's Basketball"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BKB-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Men-s-399f48c9aad98061ade1d6c3065a06e2"
+  },
+  {
+   "chiave": "32ef48c9aad9800f8b7acf3f4f4370af",
+   "nome": "USA Women's 3x3",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Basketball",
+   "gare": [
+    "Women's 3x3"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 4,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BK3-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Women-s-3x3-32ef48c9aad9800f8b7acf3f4f4370af"
+  },
+  {
+   "chiave": "399f48c9aad980cc94a9ed1ac4d55e07",
+   "nome": "USA Women's 🏀",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Basketball",
+   "gare": [
+    "Women's Basketball"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BKB-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Women-s-399f48c9aad980cc94a9ed1ac4d55e07"
+  },
+  {
+   "chiave": "3d3f48c9aad980d782cdfee029d60b63",
+   "nome": "Mark NICOLAIDIS/Izac CARRACHER",
+   "noc": "AUS",
+   "bandiera": "🇦🇺",
+   "paese": "Australia",
+   "sport": "Beachvolley",
+   "gare": [
+    "Beach Volley Men's"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "AVC Asian Championships 2026",
+   "posti": 2,
+   "nota": "",
+   "regola": "Tutti i posti vanno all'NOC, anche quelli vinti dalla coppia.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VBV-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Mark-NICOLAIDIS-Izac-CARRACHER-3d3f48c9aad980d782cdfee029d60b63"
+  },
+  {
+   "chiave": "3bff48c9aad9804ba017ed5dcf68485b",
+   "nome": "Andre STEIN/RENATO de Carvalho",
+   "noc": "BRA",
+   "bandiera": "🇧🇷",
+   "paese": "Brasile",
+   "sport": "Beachvolley",
+   "gare": [
+    "Beach Volley Men's"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "CSV South American Championships",
+   "posti": 2,
+   "nota": "",
+   "regola": "Tutti i posti vanno all'NOC, anche quelli vinti dalla coppia.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VBV-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Andre-STEIN-RENATO-de-Carvalho-3bff48c9aad9804ba017ed5dcf68485b"
+  },
+  {
+   "chiave": "3c4f48c9aad9806988c3c7c0193c6627",
+   "nome": "Zouheir ELGRAOUI/Soufiane EL GHAROUTI",
+   "noc": "MAR",
+   "bandiera": "🇲🇦",
+   "paese": "Marocco",
+   "sport": "Beachvolley",
+   "gare": [
+    "Beach Volley Men's"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "CAVB African Championships 2026",
+   "posti": 2,
+   "nota": "",
+   "regola": "Tutti i posti vanno all'NOC, anche quelli vinti dalla coppia.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VBV-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Zouheir-ELGRAOUI-Soufiane-EL-GHAROUTI-3c4f48c9aad9806988c3c7c0193c6627"
+  },
+  {
+   "chiave": "2c5f48c9aad980959213e342c2c1fceb",
+   "nome": "Jacob HOLTING N/Elmer ANDERSSON",
+   "noc": "SWE",
+   "bandiera": "🇸🇪",
+   "paese": "Svezia",
+   "sport": "Beachvolley",
+   "gare": [
+    "Beach Volley Men's"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 2,
+   "nota": "",
+   "regola": "Tutti i posti vanno all'NOC, anche quelli vinti dalla coppia.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VBV-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Jacob-HOLTING-N-Elmer-ANDERSSON-2c5f48c9aad980959213e342c2c1fceb"
+  },
+  {
+   "chiave": "396f48c9aad9807c931bd7a4b17ce1be",
+   "nome": "Trevor CRABB/Chase BUDINGER",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Beachvolley",
+   "gare": [
+    "Beach Volley Men's"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "NORCECA Championships 2026",
+   "posti": 2,
+   "nota": "",
+   "regola": "Tutti i posti vanno all'NOC, anche quelli vinti dalla coppia.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VBV-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Trevor-CRABB-Chase-BUDINGER-396f48c9aad9807c931bd7a4b17ce1be"
+  },
+  {
+   "chiave": "3bff48c9aad980348b39d7f216600963",
+   "nome": "Stefanie FEJES/Taliqua CLANCY",
+   "noc": "AUS",
+   "bandiera": "🇦🇺",
+   "paese": "Australia",
+   "sport": "Beachvolley",
+   "gare": [
+    "Beach Volley Women's"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "AVC Asian Championships 2026",
+   "posti": 2,
+   "nota": "",
+   "regola": "Tutti i posti vanno all'NOC, anche quelli vinti dalla coppia.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VBV-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Stefanie-FEJES-Taliqua-CLANCY-3bff48c9aad980348b39d7f216600963"
+  },
+  {
+   "chiave": "2c5f48c9aad980bd86b8f8e8081266ee",
+   "nome": "THAMELA Coradello/VICTORIA Lopes Pereira",
+   "noc": "BRA",
+   "bandiera": "🇧🇷",
+   "paese": "Brasile",
+   "sport": "Beachvolley",
+   "gare": [
+    "Beach Volley Women's"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "CSV South American Championships 2026",
+   "posti": 2,
+   "nota": "",
+   "regola": "Tutti i posti vanno all'NOC, anche quelli vinti dalla coppia.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VBV-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/THAMELA-Coradello-VICTORIA-Lopes-Pereira-2c5f48c9aad980bd86b8f8e8081266ee"
+  },
+  {
+   "chiave": "2c5f48c9aad980f29cefc36c78d51437",
+   "nome": "Melissa H PAREDES/Brandie WILKERSON",
+   "noc": "CAN",
+   "bandiera": "🇨🇦",
+   "paese": "Canada",
+   "sport": "Beachvolley",
+   "gare": [
+    "Beach Volley Women's"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "NORECA Championships 2026",
+   "posti": 2,
+   "nota": "",
+   "regola": "Tutti i posti vanno all'NOC, anche quelli vinti dalla coppia.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VBV-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Melissa-H-PAREDES-Brandie-WILKERSON-2c5f48c9aad980f29cefc36c78d51437"
+  },
+  {
+   "chiave": "2c5f48c9aad9800fb5e5cb75b19e9371",
+   "nome": "Katja STAM/Raisa SCHOON",
+   "noc": "NED",
+   "bandiera": "🇳🇱",
+   "paese": "Paesi Bassi",
+   "sport": "Beachvolley",
+   "gare": [
+    "Beach Volley Women's"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 2,
+   "nota": "",
+   "regola": "Tutti i posti vanno all'NOC, anche quelli vinti dalla coppia.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VBV-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Katja-STAM-Raisa-SCHOON-2c5f48c9aad9800fb5e5cb75b19e9371"
+  },
+  {
+   "chiave": "3c4f48c9aad98035b467ee546a5b2a4d",
+   "nome": "Esther MBAH/Pamela BAWA",
+   "noc": "NGR",
+   "bandiera": "🇳🇬",
+   "paese": "Nigeria",
+   "sport": "Beachvolley",
+   "gare": [
+    "Beach Volley Women's"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "CAVB African Championships 2026",
+   "posti": 2,
+   "nota": "",
+   "regola": "Tutti i posti vanno all'NOC, anche quelli vinti dalla coppia.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VBV-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Esther-MBAH-Pamela-BAWA-3c4f48c9aad98035b467ee546a5b2a4d"
+  },
+  {
+   "chiave": "31af48c9aad9803a973dd3e234c5bf7c",
+   "nome": "USA Men's Cricket",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Cricket",
+   "gare": [
+    "Men's Cricket T20"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 15,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CRT-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Men-s-Cricket-31af48c9aad9803a973dd3e234c5bf7c"
+  },
+  {
+   "chiave": "396f48c9aad9803fbf18e6e46d0de806",
+   "nome": "AUS Women's Cricket",
+   "noc": "AUS",
+   "bandiera": "🇦🇺",
+   "paese": "Australia",
+   "sport": "Cricket",
+   "gare": [
+    "Women's Cricket T20"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 15,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CRT-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/AUS-Women-s-Cricket-396f48c9aad9803fbf18e6e46d0de806"
+  },
+  {
+   "chiave": "396f48c9aad9809181f5d80602a9506c",
+   "nome": "GBR Women's Cricket",
+   "noc": "GBR",
+   "bandiera": "🇬🇧",
+   "paese": "Regno Unito",
+   "sport": "Cricket",
+   "gare": [
+    "Women's Cricket T20"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 15,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CRT-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/GBR-Women-s-Cricket-396f48c9aad9809181f5d80602a9506c"
+  },
+  {
+   "chiave": "391f48c9aad980afb7a8dd80a841f009",
+   "nome": "IND Women's Cricket",
+   "noc": "IND",
+   "bandiera": "🇮🇳",
+   "paese": "India",
+   "sport": "Cricket",
+   "gare": [
+    "Women's Cricket T20"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 15,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CRT-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/IND-Women-s-Cricket-391f48c9aad980afb7a8dd80a841f009"
+  },
+  {
+   "chiave": "392f48c9aad980bca843e038e8159195",
+   "nome": "RSA Women's Cricket",
+   "noc": "RSA",
+   "bandiera": "🇿🇦",
+   "paese": "Sudafrica",
+   "sport": "Cricket",
+   "gare": [
+    "Women's Cricket T20"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 15,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CRT-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/RSA-Women-s-Cricket-392f48c9aad980bca843e038e8159195"
+  },
+  {
+   "chiave": "3baf48c9aad980f6af8df3921cce447f",
+   "nome": "AUS Dressage Team",
+   "noc": "AUS",
+   "bandiera": "🇦🇺",
+   "paese": "Australia",
+   "sport": "Equestrian",
+   "gare": [
+    "Dressage Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-DRS-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/AUS-Dressage-Team-3baf48c9aad980f6af8df3921cce447f"
+  },
+  {
+   "chiave": "304f48c9aad980d8b800dd4d1958ef42",
+   "nome": "BEL Dressage Team",
+   "noc": "BEL",
+   "bandiera": "🇧🇪",
+   "paese": "Belgio",
+   "sport": "Equestrian",
+   "gare": [
+    "Dressage Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-DRS-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/BEL-Dressage-Team-304f48c9aad980d8b800dd4d1958ef42"
+  },
+  {
+   "chiave": "304f48c9aad9802b8477e3bdb8f9e748",
+   "nome": "DEN Dressage Team",
+   "noc": "DEN",
+   "bandiera": "🇩🇰",
+   "paese": "Danimarca",
+   "sport": "Equestrian",
+   "gare": [
+    "Dressage Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-DRS-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/DEN-Dressage-Team-304f48c9aad9802b8477e3bdb8f9e748"
+  },
+  {
+   "chiave": "304f48c9aad9806ab509ecbcb8495d26",
+   "nome": "GBR Dressage Team",
+   "noc": "GBR",
+   "bandiera": "🇬🇧",
+   "paese": "Regno Unito",
+   "sport": "Equestrian",
+   "gare": [
+    "Dressage Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-DRS-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/GBR-Dressage-Team-304f48c9aad9806ab509ecbcb8495d26"
+  },
+  {
+   "chiave": "304f48c9aad98022bd23d947df9b324d",
+   "nome": "GER Dressage Team",
+   "noc": "GER",
+   "bandiera": "🇩🇪",
+   "paese": "Germania",
+   "sport": "Equestrian",
+   "gare": [
+    "Dressage Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-DRS-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/GER-Dressage-Team-304f48c9aad98022bd23d947df9b324d"
+  },
+  {
+   "chiave": "304f48c9aad98040ae95ea50b3f13690",
+   "nome": "NED Dressage Team",
+   "noc": "NED",
+   "bandiera": "🇳🇱",
+   "paese": "Paesi Bassi",
+   "sport": "Equestrian",
+   "gare": [
+    "Dressage Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-DRS-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/NED-Dressage-Team-304f48c9aad98040ae95ea50b3f13690"
+  },
+  {
+   "chiave": "304f48c9aad980f386c4cb35fd7e5399",
+   "nome": "SWE Dressage Team",
+   "noc": "SWE",
+   "bandiera": "🇸🇪",
+   "paese": "Svezia",
+   "sport": "Equestrian",
+   "gare": [
+    "Dressage Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-DRS-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/SWE-Dressage-Team-304f48c9aad980f386c4cb35fd7e5399"
+  },
+  {
+   "chiave": "39df48c9aad98028a646cd9d149352c6",
+   "nome": "USA Dressage Team",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Equestrian",
+   "gare": [
+    "Dressage Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-DRS-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Dressage-Team-39df48c9aad98028a646cd9d149352c6"
+  },
+  {
+   "chiave": "304f48c9aad98097a975d4e3c1121a3f",
+   "nome": "BEL Eventing Team",
+   "noc": "BEL",
+   "bandiera": "🇧🇪",
+   "paese": "Belgio",
+   "sport": "Equestrian",
+   "gare": [
+    "Eventing Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-EVE-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/BEL-Eventing-Team-304f48c9aad98097a975d4e3c1121a3f"
+  },
+  {
+   "chiave": "304f48c9aad98033b556e19eaf983b4b",
+   "nome": "GBR Eventing Team",
+   "noc": "GBR",
+   "bandiera": "🇬🇧",
+   "paese": "Regno Unito",
+   "sport": "Equestrian",
+   "gare": [
+    "Eventing Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-EVE-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/GBR-Eventing-Team-304f48c9aad98033b556e19eaf983b4b"
+  },
+  {
+   "chiave": "304f48c9aad98098b868c48fccac550c",
+   "nome": "GER Eventing Team",
+   "noc": "GER",
+   "bandiera": "🇩🇪",
+   "paese": "Germania",
+   "sport": "Equestrian",
+   "gare": [
+    "Eventing Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-EVE-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/GER-Eventing-Team-304f48c9aad98098b868c48fccac550c"
+  },
+  {
+   "chiave": "304f48c9aad980f086bce1507453b6c1",
+   "nome": "IRL Eventing Team",
+   "noc": "IRL",
+   "bandiera": "🇮🇪",
+   "paese": "Irlanda",
+   "sport": "Equestrian",
+   "gare": [
+    "Eventing Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-EVE-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/IRL-Eventing-Team-304f48c9aad980f086bce1507453b6c1"
+  },
+  {
+   "chiave": "3bef48c9aad980b59c5cd0be2dc43d8d",
+   "nome": "NZL Eventing Team",
+   "noc": "NZL",
+   "bandiera": "🇳🇿",
+   "paese": "Nuova Zelanda",
+   "sport": "Equestrian",
+   "gare": [
+    "Eventing Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-EVE-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/NZL-Eventing-Team-3bef48c9aad980b59c5cd0be2dc43d8d"
+  },
+  {
+   "chiave": "304f48c9aad9801f864cea88770ee8d5",
+   "nome": "SUI Eventing Team",
+   "noc": "SUI",
+   "bandiera": "🇨🇭",
+   "paese": "Svizzera",
+   "sport": "Equestrian",
+   "gare": [
+    "Eventing Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-EVE-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/SUI-Eventing-Team-304f48c9aad9801f864cea88770ee8d5"
+  },
+  {
+   "chiave": "304f48c9aad980799ea0fd297609eea7",
+   "nome": "SWE Eventing Team",
+   "noc": "SWE",
+   "bandiera": "🇸🇪",
+   "paese": "Svezia",
+   "sport": "Equestrian",
+   "gare": [
+    "Eventing Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-EVE-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/SWE-Eventing-Team-304f48c9aad980799ea0fd297609eea7"
+  },
+  {
+   "chiave": "39df48c9aad98060942bd13a0f343055",
+   "nome": "USA Eventing Team",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Equestrian",
+   "gare": [
+    "Eventing Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-EVE-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Eventing-Team-39df48c9aad98060942bd13a0f343055"
+  },
+  {
+   "chiave": "304f48c9aad9801db2b8e4a3172eec87",
+   "nome": "BEL Jumping Team",
+   "noc": "BEL",
+   "bandiera": "🇧🇪",
+   "paese": "Belgio",
+   "sport": "Equestrian",
+   "gare": [
+    "Jumping Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-JPG-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/BEL-Jumping-Team-304f48c9aad9801db2b8e4a3172eec87"
+  },
+  {
+   "chiave": "304f48c9aad98028930cfc821c9a7741",
+   "nome": "FRA Jumping Team",
+   "noc": "FRA",
+   "bandiera": "🇫🇷",
+   "paese": "Francia",
+   "sport": "Equestrian",
+   "gare": [
+    "Jumping Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-JPG-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/FRA-Jumping-Team-304f48c9aad98028930cfc821c9a7741"
+  },
+  {
+   "chiave": "304f48c9aad98089b3cce4007de215b0",
+   "nome": "GBR Jumping Team",
+   "noc": "GBR",
+   "bandiera": "🇬🇧",
+   "paese": "Regno Unito",
+   "sport": "Equestrian",
+   "gare": [
+    "Jumping Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-JPG-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/GBR-Jumping-Team-304f48c9aad98089b3cce4007de215b0"
+  },
+  {
+   "chiave": "304f48c9aad9807c8f4ac9dec41b5892",
+   "nome": "GER Jumping Team",
+   "noc": "GER",
+   "bandiera": "🇩🇪",
+   "paese": "Germania",
+   "sport": "Equestrian",
+   "gare": [
+    "Jumping Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-JPG-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/GER-Jumping-Team-304f48c9aad9807c8f4ac9dec41b5892"
+  },
+  {
+   "chiave": "304f48c9aad980fbb495f7c03c1235c3",
+   "nome": "IRL Jumping Team",
+   "noc": "IRL",
+   "bandiera": "🇮🇪",
+   "paese": "Irlanda",
+   "sport": "Equestrian",
+   "gare": [
+    "Jumping Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-JPG-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/IRL-Jumping-Team-304f48c9aad980fbb495f7c03c1235c3"
+  },
+  {
+   "chiave": "304f48c9aad980449952dad682958a6b",
+   "nome": "ITA Jumping Team",
+   "noc": "ITA",
+   "bandiera": "🇮🇹",
+   "paese": "Italia",
+   "sport": "Equestrian",
+   "gare": [
+    "Jumping Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-JPG-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/ITA-Jumping-Team-304f48c9aad980449952dad682958a6b"
+  },
+  {
+   "chiave": "304f48c9aad9805bbc88fc503fc2e7ff",
+   "nome": "SUI Jumping Team",
+   "noc": "SUI",
+   "bandiera": "🇨🇭",
+   "paese": "Svizzera",
+   "sport": "Equestrian",
+   "gare": [
+    "Jumping Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-JPG-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/SUI-Jumping-Team-304f48c9aad9805bbc88fc503fc2e7ff"
+  },
+  {
+   "chiave": "39df48c9aad9800e8445d8d86ee474b0",
+   "nome": "USA Jumping Team",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Equestrian",
+   "gare": [
+    "Jumping Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 3,
+   "nota": "",
+   "regola": "Posti di squadra e individuali all'NOC (salto, dressage, completo).",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/EQU-JPG-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Jumping-Team-39df48c9aad9800e8445d8d86ee474b0"
+  },
+  {
+   "chiave": "3bef48c9aad9808c89aaec5cfdc1d824",
+   "nome": "CAN Men's Flag",
+   "noc": "CAN",
+   "bandiera": "🇨🇦",
+   "paese": "Canada",
+   "sport": "Flag Football",
+   "gare": [
+    "Men's Flag"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 10,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/FFB-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/CAN-Men-s-Flag-3bef48c9aad9808c89aaec5cfdc1d824"
+  },
+  {
+   "chiave": "3bef48c9aad980a195edd5d669dc2d73",
+   "nome": "ITA Men's Flag",
+   "noc": "ITA",
+   "bandiera": "🇮🇹",
+   "paese": "Italia",
+   "sport": "Flag Football",
+   "gare": [
+    "Men's Flag"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 10,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/FFB-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/ITA-Men-s-Flag-3bef48c9aad980a195edd5d669dc2d73"
+  },
+  {
+   "chiave": "399f48c9aad980c79bf0f840e0532cbf",
+   "nome": "USA Men's Flag",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Flag Football",
+   "gare": [
+    "Men's Flag"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 10,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/FFB-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Men-s-Flag-399f48c9aad980c79bf0f840e0532cbf"
+  },
+  {
+   "chiave": "3bef48c9aad980ad983ff4bb430e1f08",
+   "nome": "CAN Women's Flag",
+   "noc": "CAN",
+   "bandiera": "🇨🇦",
+   "paese": "Canada",
+   "sport": "Flag Football",
+   "gare": [
+    "Women's Flag"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 10,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/FFB-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/CAN-Women-s-Flag-3bef48c9aad980ad983ff4bb430e1f08"
+  },
+  {
+   "chiave": "3bef48c9aad9808a83b6edb868a6f967",
+   "nome": "MEX Women's Flag",
+   "noc": "MEX",
+   "bandiera": "🇲🇽",
+   "paese": "Messico",
+   "sport": "Flag Football",
+   "gare": [
+    "Women's Flag"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 10,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/FFB-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/MEX-Women-s-Flag-3bef48c9aad9808a83b6edb868a6f967"
+  },
+  {
+   "chiave": "399f48c9aad980fa9d9dd39ec85068a3",
+   "nome": "USA Women's Flag",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Flag Football",
+   "gare": [
+    "Women's Flag"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 10,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/FFB-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Women-s-Flag-399f48c9aad980fa9d9dd39ec85068a3"
+  },
+  {
+   "chiave": "327f48c9aad980e4a238ce7a14886e05",
+   "nome": "MEX Men's ⚽️",
+   "noc": "MEX",
+   "bandiera": "🇲🇽",
+   "paese": "Messico",
+   "sport": "Football",
+   "gare": [
+    "Men's Football"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 18,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/MEX-Men-s-327f48c9aad980e4a238ce7a14886e05"
+  },
+  {
+   "chiave": "327f48c9aad980959ef5d3bc63b1bd06",
+   "nome": "USA Men's ⚽️",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Football",
+   "gare": [
+    "Men's Football"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 18,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Men-s-327f48c9aad980959ef5d3bc63b1bd06"
+  },
+  {
+   "chiave": "398f48c9aad98053a3fed3ab497027d8",
+   "nome": "BRA Women's ⚽️",
+   "noc": "BRA",
+   "bandiera": "🇧🇷",
+   "paese": "Brasile",
+   "sport": "Football",
+   "gare": [
+    "Women's Football"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 18,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/BRA-Women-s-398f48c9aad98053a3fed3ab497027d8"
+  },
+  {
+   "chiave": "398f48c9aad980d98243e267a8e39fcd",
+   "nome": "COL Women's ⚽️",
+   "noc": "COL",
+   "bandiera": "🇨🇴",
+   "paese": "Colombia",
+   "sport": "Football",
+   "gare": [
+    "Women's Football"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 18,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/COL-Women-s-398f48c9aad980d98243e267a8e39fcd"
+  },
+  {
+   "chiave": "399f48c9aad980d99acef1d605b660bb",
+   "nome": "USA Women's ⚽️",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Football",
+   "gare": [
+    "Women's Football"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 18,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Women-s-399f48c9aad980d99acef1d605b660bb"
+  },
+  {
+   "chiave": "2fbf48c9aad9805c8dd3d8be8de45bd8",
+   "nome": "CHN MAG Team",
+   "noc": "CHN",
+   "bandiera": "🇨🇳",
+   "paese": "Cina",
+   "sport": "Gym Artistic",
+   "gare": [
+    "MAG Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 5,
+   "nota": "",
+   "regola": "Squadre: posto all'NOC. Individuali e attrezzi: posti nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GAR-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/CHN-MAG-Team-2fbf48c9aad9805c8dd3d8be8de45bd8"
+  },
+  {
+   "chiave": "2fbf48c9aad980359229e9649016ca27",
+   "nome": "JPN MAG Team",
+   "noc": "JPN",
+   "bandiera": "🇯🇵",
+   "paese": "Giappone",
+   "sport": "Gym Artistic",
+   "gare": [
+    "MAG Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 5,
+   "nota": "",
+   "regola": "Squadre: posto all'NOC. Individuali e attrezzi: posti nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GAR-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/JPN-MAG-Team-2fbf48c9aad980359229e9649016ca27"
+  },
+  {
+   "chiave": "3c2f48c9aad980e8b993f34753d23469",
+   "nome": "RUS MAG Team",
+   "noc": "RUS",
+   "bandiera": "🇷🇺",
+   "paese": "Russia",
+   "sport": "Gym Artistic",
+   "gare": [
+    "MAG Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 5,
+   "nota": "",
+   "regola": "Squadre: posto all'NOC. Individuali e attrezzi: posti nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GAR-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/RUS-MAG-Team-3c2f48c9aad980e8b993f34753d23469"
+  },
+  {
+   "chiave": "2fbf48c9aad98095b075df46e1b48e55",
+   "nome": "CHN WAG Team",
+   "noc": "CHN",
+   "bandiera": "🇨🇳",
+   "paese": "Cina",
+   "sport": "Gym Artistic",
+   "gare": [
+    "WAG Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 5,
+   "nota": "",
+   "regola": "Squadre: posto all'NOC. Individuali e attrezzi: posti nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GAR-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/CHN-WAG-Team-2fbf48c9aad98095b075df46e1b48e55"
+  },
+  {
+   "chiave": "2fbf48c9aad980ba8383f5c34d60d4aa",
+   "nome": "JPN WAG Team",
+   "noc": "JPN",
+   "bandiera": "🇯🇵",
+   "paese": "Giappone",
+   "sport": "Gym Artistic",
+   "gare": [
+    "WAG Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 5,
+   "nota": "",
+   "regola": "Squadre: posto all'NOC. Individuali e attrezzi: posti nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GAR-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/JPN-WAG-Team-2fbf48c9aad980ba8383f5c34d60d4aa"
+  },
+  {
+   "chiave": "3c2f48c9aad9804e898bfbc96596a503",
+   "nome": "USA WAG Team",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Gym Artistic",
+   "gare": [
+    "WAG Team"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 5,
+   "nota": "",
+   "regola": "Squadre: posto all'NOC. Individuali e attrezzi: posti nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GAR-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-WAG-Team-3c2f48c9aad9804e898bfbc96596a503"
+  },
+  {
+   "chiave": "2fbf48c9aad980468fa5e16e08037c33",
+   "nome": "BRA RGI Group",
+   "noc": "BRA",
+   "bandiera": "🇧🇷",
+   "paese": "Brasile",
+   "sport": "Gym Rhythmic",
+   "gare": [
+    "Group All-Around"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 5,
+   "nota": "",
+   "regola": "Individuale dai Mondiali e squadre: posti all'NOC. Continentali, ospitante e universalità: nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GRY-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/BRA-RGI-Group-2fbf48c9aad980468fa5e16e08037c33"
+  },
+  {
+   "chiave": "2fbf48c9aad980b1ae71c5334269faeb",
+   "nome": "ESP RGI Group",
+   "noc": "ESP",
+   "bandiera": "🇪🇸",
+   "paese": "Spagna",
+   "sport": "Gym Rhythmic",
+   "gare": [
+    "Group All-Around"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 5,
+   "nota": "",
+   "regola": "Individuale dai Mondiali e squadre: posti all'NOC. Continentali, ospitante e universalità: nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GRY-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/ESP-RGI-Group-2fbf48c9aad980b1ae71c5334269faeb"
+  },
+  {
+   "chiave": "2fbf48c9aad980dbb74fe2411890012b",
+   "nome": "JPN RGI Group",
+   "noc": "JPN",
+   "bandiera": "🇯🇵",
+   "paese": "Giappone",
+   "sport": "Gym Rhythmic",
+   "gare": [
+    "Group All-Around"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 5,
+   "nota": "",
+   "regola": "Individuale dai Mondiali e squadre: posti all'NOC. Continentali, ospitante e universalità: nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GRY-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/JPN-RGI-Group-2fbf48c9aad980dbb74fe2411890012b"
+  },
+  {
+   "chiave": "341f48c9aad980049367ebdd15d4b7fd",
+   "nome": "USA RGI Group",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Gym Rhythmic",
+   "gare": [
+    "Group All-Around"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 5,
+   "nota": "",
+   "regola": "Individuale dai Mondiali e squadre: posti all'NOC. Continentali, ospitante e universalità: nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GRY-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-RGI-Group-341f48c9aad980049367ebdd15d4b7fd"
+  },
+  {
+   "chiave": "2c5f48c9aad9804487b6fd20e1177d9a",
+   "nome": "Stiliana NIKOLOVA",
+   "noc": "BUL",
+   "bandiera": "🇧🇬",
+   "paese": "Bulgaria",
+   "sport": "Gym Rhythmic",
+   "gare": [
+    "Individual All-Around"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Individuale dai Mondiali e squadre: posti all'NOC. Continentali, ospitante e universalità: nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GRY-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Stiliana-NIKOLOVA-2c5f48c9aad9804487b6fd20e1177d9a"
+  },
+  {
+   "chiave": "2c5f48c9aad9800bb5b3ed2926685c24",
+   "nome": "Darja VARFOLOMEEV",
+   "noc": "GER",
+   "bandiera": "🇩🇪",
+   "paese": "Germania",
+   "sport": "Gym Rhythmic",
+   "gare": [
+    "Individual All-Around"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Individuale dai Mondiali e squadre: posti all'NOC. Continentali, ospitante e universalità: nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GRY-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Darja-VARFOLOMEEV-2c5f48c9aad9800bb5b3ed2926685c24"
+  },
+  {
+   "chiave": "2c5f48c9aad980e9b4e2f86e64cd183c",
+   "nome": "Sofia RAFFAELI",
+   "noc": "ITA",
+   "bandiera": "🇮🇹",
+   "paese": "Italia",
+   "sport": "Gym Rhythmic",
+   "gare": [
+    "Individual All-Around"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Individuale dai Mondiali e squadre: posti all'NOC. Continentali, ospitante e universalità: nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/GRY-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Sofia-RAFFAELI-2c5f48c9aad980e9b4e2f86e64cd183c"
+  },
+  {
+   "chiave": "39df48c9aad980e28406d9b57ab007a5",
+   "nome": "USA Men's Handball",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Handball",
+   "gare": [
+    "Men's Handball"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 14,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/HBL-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Men-s-Handball-39df48c9aad980e28406d9b57ab007a5"
+  },
+  {
+   "chiave": "39df48c9aad9806c992fd88c30947aa7",
+   "nome": "USA Women's Handball",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Handball",
+   "gare": [
+    "Women's Handball"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 14,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/HBL-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Women-s-Handball-39df48c9aad9806c992fd88c30947aa7"
+  },
+  {
+   "chiave": "352f48c9aad98044bac7dc9eaa0b840b",
+   "nome": "BEL Men's Team",
+   "noc": "BEL",
+   "bandiera": "🇧🇪",
+   "paese": "Belgio",
+   "sport": "Hockey Field",
+   "gare": [
+    "Men's Hockey Field"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 16,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/HOC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/BEL-Men-s-Team-352f48c9aad98044bac7dc9eaa0b840b"
+  },
+  {
+   "chiave": "352f48c9aad9807fbc33f5872d2631c4",
+   "nome": "IND Men's Team",
+   "noc": "IND",
+   "bandiera": "🇮🇳",
+   "paese": "India",
+   "sport": "Hockey Field",
+   "gare": [
+    "Men's Hockey Field"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 16,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/HOC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/IND-Men-s-Team-352f48c9aad9807fbc33f5872d2631c4"
+  },
+  {
+   "chiave": "399f48c9aad980a0a454eef69af803d8",
+   "nome": "USA Men's Team",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Hockey Field",
+   "gare": [
+    "Men's Hockey Field"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 16,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/HOC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Men-s-Team-399f48c9aad980a0a454eef69af803d8"
+  },
+  {
+   "chiave": "3cdf48c9aad98061988de0b5b2d84c78",
+   "nome": "IND Women's Team",
+   "noc": "IND",
+   "bandiera": "🇮🇳",
+   "paese": "India",
+   "sport": "Hockey Field",
+   "gare": [
+    "Women's Hockey Field"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 16,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/HOC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/IND-Women-s-Team-3cdf48c9aad98061988de0b5b2d84c78"
+  },
+  {
+   "chiave": "352f48c9aad980d890c8ea7ee3bf7143",
+   "nome": "NED Women's Team",
+   "noc": "NED",
+   "bandiera": "🇳🇱",
+   "paese": "Paesi Bassi",
+   "sport": "Hockey Field",
+   "gare": [
+    "Women's Hockey Field"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 16,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/HOC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/NED-Women-s-Team-352f48c9aad980d890c8ea7ee3bf7143"
+  },
+  {
+   "chiave": "399f48c9aad980d1bb5fc29d2e0225ba",
+   "nome": "USA Women's Team",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Hockey Field",
+   "gare": [
+    "Women's Hockey Field"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 16,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/HOC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Women-s-Team-399f48c9aad980d1bb5fc29d2e0225ba"
+  },
+  {
+   "chiave": "39df48c9aad9807b89e7f7adcd4a7ec7",
+   "nome": "USA Men's Lacrosse",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Lacrosse Sixes",
+   "gare": [
+    "Men's Lacrosse"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 11,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/LAC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Men-s-Lacrosse-39df48c9aad9807b89e7f7adcd4a7ec7"
+  },
+  {
+   "chiave": "39df48c9aad980e1a5dac67cb7139d58",
+   "nome": "USA Women's Lacrosse",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Lacrosse Sixes",
+   "gare": [
+    "Women's Lacrosse"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 11,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/LAC-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Women-s-Lacrosse-39df48c9aad980e1a5dac67cb7139d58"
+  },
+  {
+   "chiave": "36ef48c9aad98033861cf7cab55d88d6",
+   "nome": "USA Team Rugby7",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Rugby Sevens",
+   "gare": [
+    "Men's Rugby Seevens"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/RU7-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Team-Rugby7-36ef48c9aad98033861cf7cab55d88d6"
+  },
+  {
+   "chiave": "328f48c9aad9802498dac69c9531ef28",
+   "nome": "USA Women's Rugby7",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Rugby Sevens",
+   "gare": [
+    "Women's Rugby Sevens"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/RU7-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Women-s-Rugby7-328f48c9aad9802498dac69c9531ef28"
+  },
+  {
+   "chiave": "339f48c9aad9806799dff011c5dde1f8",
+   "nome": "Noah RUNCIMAN",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Sailing",
+   "gare": [
+    "Men's Kite"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC per barca (Mondiali, continentali, ospitante); universalità nominativa.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SAL-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Noah-RUNCIMAN-339f48c9aad9806799dff011c5dde1f8"
+  },
+  {
+   "chiave": "339f48c9aad9800eb44ce6cfdd711265",
+   "nome": "HA Jeemin",
+   "noc": "KOR",
+   "bandiera": "🇰🇷",
+   "paese": "Corea del Sud",
+   "sport": "Sailing",
+   "gare": [
+    "Men's Laser ILCA 7"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Continental",
+   "evento": "2026 Asian Games",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC per barca (Mondiali, continentali, ospitante); universalità nominativa.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SAL-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/HA-Jeemin-339f48c9aad9800eb44ce6cfdd711265"
+  },
+  {
+   "chiave": "2c5f48c9aad98163bcf0feb4ec69f3b8",
+   "nome": "Noah LYONS",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Sailing",
+   "gare": [
+    "Men's iQFOIL"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC per barca (Mondiali, continentali, ospitante); universalità nominativa.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SAL-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Noah-LYONS-2c5f48c9aad98163bcf0feb4ec69f3b8"
+  },
+  {
+   "chiave": "2c5f48c9aad981048090d0878b82515f",
+   "nome": "Daniela MOROZ",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Sailing",
+   "gare": [
+    "Women's Kite"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC per barca (Mondiali, continentali, ospitante); universalità nominativa.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SAL-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Daniela-MOROZ-2c5f48c9aad981048090d0878b82515f"
+  },
+  {
+   "chiave": "3edf48c9aad98099aa35c0fbc0810cce",
+   "nome": "Sophia MONTGOMERY",
+   "noc": "THA",
+   "bandiera": "🇹🇭",
+   "paese": "Thailandia",
+   "sport": "Sailing",
+   "gare": [
+    "Women's Laser Radial ILCA 6"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Continental",
+   "evento": "2026 Asian Games",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC per barca (Mondiali, continentali, ospitante); universalità nominativa.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SAL-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Sophia-MONTGOMERY-3edf48c9aad98099aa35c0fbc0810cce"
+  },
+  {
+   "chiave": "339f48c9aad980359166cb0e9eea4b1b",
+   "nome": "Charlotte ROSE",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Sailing",
+   "gare": [
+    "Women's Laser Radial ILCA 6"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC per barca (Mondiali, continentali, ospitante); universalità nominativa.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SAL-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Charlotte-ROSE-339f48c9aad980359166cb0e9eea4b1b"
+  },
+  {
+   "chiave": "2c5f48c9aad98174ad5ddf187718f6de",
+   "nome": "Dominique STATER",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Sailing",
+   "gare": [
+    "Women's iQFOIL"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC per barca (Mondiali, continentali, ospitante); universalità nominativa.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SAL-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Dominique-STATER-2c5f48c9aad98174ad5ddf187718f6de"
+  },
+  {
+   "chiave": "2c5f48c9aad981808354e42fccc8a9cd",
+   "nome": "HU Kai",
+   "noc": "CHN",
+   "bandiera": "🇨🇳",
+   "paese": "Cina",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 10m Air Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/HU-Kai-2c5f48c9aad981808354e42fccc8a9cd"
+  },
+  {
+   "chiave": "40ff48c9aad980e2a603de621a06b24e",
+   "nome": "Jindrich DUBOVY",
+   "noc": "CZE",
+   "bandiera": "🇨🇿",
+   "paese": "Cechia",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 10m Air Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Jindrich-DUBOVY-40ff48c9aad980e2a603de621a06b24e"
+  },
+  {
+   "chiave": "40ff48c9aad980699cb7ffd780d70a9b",
+   "nome": "Jaypal MALVIYA",
+   "noc": "IND",
+   "bandiera": "🇮🇳",
+   "paese": "India",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 10m Air Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Jaypal-MALVIYA-40ff48c9aad980699cb7ffd780d70a9b"
+  },
+  {
+   "chiave": "2c5f48c9aad98177bf28fe5d81232fd8",
+   "nome": "SHENG Lihao",
+   "noc": "CHN",
+   "bandiera": "🇨🇳",
+   "paese": "Cina",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 10m Air Rifle"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/SHENG-Lihao-2c5f48c9aad98177bf28fe5d81232fd8"
+  },
+  {
+   "chiave": "2c5f48c9aad981e098d3f00556774c76",
+   "nome": "Miran MARICIC",
+   "noc": "CRO",
+   "bandiera": "🇭🇷",
+   "paese": "Croazia",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 10m Air Rifle"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Miran-MARICIC-2c5f48c9aad981e098d3f00556774c76"
+  },
+  {
+   "chiave": "2c5f48c9aad9818fbc10f997c532e379",
+   "nome": "Matej RAMPULA",
+   "noc": "CZE",
+   "bandiera": "🇨🇿",
+   "paese": "Cechia",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 25m Rapid Fire Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Matej-RAMPULA-2c5f48c9aad9818fbc10f997c532e379"
+  },
+  {
+   "chiave": "2c5f48c9aad98127ade2dc29917515eb",
+   "nome": "Clement BESSAGUET",
+   "noc": "FRA",
+   "bandiera": "🇫🇷",
+   "paese": "Francia",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 25m Rapid Fire Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Clement-BESSAGUET-2c5f48c9aad98127ade2dc29917515eb"
+  },
+  {
+   "chiave": "2c5f48c9aad98167a3b9d9c1a36ac101",
+   "nome": "Florian PETER",
+   "noc": "GER",
+   "bandiera": "🇩🇪",
+   "paese": "Germania",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 25m Rapid Fire Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Florian-PETER-2c5f48c9aad98167a3b9d9c1a36ac101"
+  },
+  {
+   "chiave": "2c5f48c9aad9819baf40c3e2af91128b",
+   "nome": "Patrik JANY",
+   "noc": "SVK",
+   "bandiera": "🇸🇰",
+   "paese": "Slovacchia",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 50m Rifle 3 Positions",
+    "Men's 10m Air Rifle"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Patrik-JANY-2c5f48c9aad9819baf40c3e2af91128b"
+  },
+  {
+   "chiave": "2d4f48c9aad980ffbc37cc6b419dea2e",
+   "nome": "Jesper HANSEN",
+   "noc": "DEN",
+   "bandiera": "🇩🇰",
+   "paese": "Danimarca",
+   "sport": "Shooting",
+   "gare": [
+    "Men's Skeet"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Jesper-HANSEN-2d4f48c9aad980ffbc37cc6b419dea2e"
+  },
+  {
+   "chiave": "2c5f48c9aad981bf9ad8fd9e6cdac21d",
+   "nome": "Azmy MEHELBA",
+   "noc": "EGY",
+   "bandiera": "🇪🇬",
+   "paese": "Egitto",
+   "sport": "Shooting",
+   "gare": [
+    "Men's Skeet"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Azmy-MEHELBA-2c5f48c9aad981bf9ad8fd9e6cdac21d"
+  },
+  {
+   "chiave": "3d5f48c9aad980f18ab5d4e1af607c11",
+   "nome": "Abdulaziz ALSAAD",
+   "noc": "KUW",
+   "bandiera": "🇰🇼",
+   "paese": "Kuwait",
+   "sport": "Shooting",
+   "gare": [
+    "Men's Skeet"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Abdulaziz-ALSAAD-3d5f48c9aad980f18ab5d4e1af607c11"
+  },
+  {
+   "chiave": "2c5f48c9aad9819ea53affc268819027",
+   "nome": "JIANG Ranxin",
+   "noc": "CHN",
+   "bandiera": "🇨🇳",
+   "paese": "Cina",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 10m Air Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/JIANG-Ranxin-2c5f48c9aad9819ea53affc268819027"
+  },
+  {
+   "chiave": "2c5f48c9aad981e4a62eeb4a94a5e3f0",
+   "nome": "Veronika MAJOR",
+   "noc": "HUN",
+   "bandiera": "🇭🇺",
+   "paese": "Ungheria",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 10m Air Pistol",
+    "Women's 25m Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Veronika-MAJOR-2c5f48c9aad981e4a62eeb4a94a5e3f0"
+  },
+  {
+   "chiave": "2c5f48c9aad9815c902bf636185265a9",
+   "nome": "Oceanne MULLER",
+   "noc": "FRA",
+   "bandiera": "🇫🇷",
+   "paese": "Francia",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 10m Air Rifle"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Oceanne-MULLER-2c5f48c9aad9815c902bf636185265a9"
+  },
+  {
+   "chiave": "2c5f48c9aad981078028c9f06532007a",
+   "nome": "BAN Hyojin",
+   "noc": "KOR",
+   "bandiera": "🇰🇷",
+   "paese": "Corea del Sud",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 10m Air Rifle"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/BAN-Hyojin-2c5f48c9aad981078028c9f06532007a"
+  },
+  {
+   "chiave": "2c5f48c9aad98108aad2d06d587a59cc",
+   "nome": "HAN Jiayu",
+   "noc": "CHN",
+   "bandiera": "🇨🇳",
+   "paese": "Cina",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 10m Air Rifle",
+    "Women's 50m Rifle 3 Positions"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/HAN-Jiayu-2c5f48c9aad98108aad2d06d587a59cc"
+  },
+  {
+   "chiave": "2c5f48c9aad981b3ab8cf52749a62471",
+   "nome": "Misaki NOBATA",
+   "noc": "JPN",
+   "bandiera": "🇯🇵",
+   "paese": "Giappone",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 10m Air Rifle",
+    "Women's 50m Rifle 3 Positions"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Misaki-NOBATA-2c5f48c9aad981b3ab8cf52749a62471"
+  },
+  {
+   "chiave": "3fef48c9aad9809fa24fef0b20443426",
+   "nome": "Aleksandra STOJADINOVIC",
+   "noc": "SRB",
+   "bandiera": "🇷🇸",
+   "paese": "Serbia",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 10m Air Rifle",
+    "Women's 50m Rifle 3 Positions"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Aleksandra-STOJADINOVIC-3fef48c9aad9809fa24fef0b20443426"
+  },
+  {
+   "chiave": "2c5f48c9aad981ad97d5df3a58b10505",
+   "nome": "Haniyeh ROSTAMIYAN",
+   "noc": "IRI",
+   "bandiera": "🇮🇷",
+   "paese": "Iran",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 25m Pistol",
+    "Women's 10m Air Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Haniyeh-ROSTAMIYAN-2c5f48c9aad981ad97d5df3a58b10505"
+  },
+  {
+   "chiave": "2c5f48c9aad9818f894bd1fc5e31ef7d",
+   "nome": "OH Sehee",
+   "noc": "KOR",
+   "bandiera": "🇰🇷",
+   "paese": "Corea del Sud",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 50m Rifle 3 Positions"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/OH-Sehee-2c5f48c9aad9818f894bd1fc5e31ef7d"
+  },
+  {
+   "chiave": "2c5f48c9aad981929a56ec4f83210e1c",
+   "nome": "JIANG Yiting",
+   "noc": "CHN",
+   "bandiera": "🇨🇳",
+   "paese": "Cina",
+   "sport": "Shooting",
+   "gare": [
+    "Women's Skeet"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/JIANG-Yiting-2c5f48c9aad981929a56ec4f83210e1c"
+  },
+  {
+   "chiave": "357f48c9aad980b485bdff16b6c871d0",
+   "nome": "Assem ORYNBAY",
+   "noc": "KAZ",
+   "bandiera": "🇰🇿",
+   "paese": "Kazakistan",
+   "sport": "Shooting",
+   "gare": [
+    "Women's Skeet"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Assem-ORYNBAY-357f48c9aad980b485bdff16b6c871d0"
+  },
+  {
+   "chiave": "3a7f48c9aad980f39c50d33b6e9c7e34",
+   "nome": "Monika STIBRAVA",
+   "noc": "SVK",
+   "bandiera": "🇸🇰",
+   "paese": "Slovacchia",
+   "sport": "Shooting",
+   "gare": [
+    "Women's Skeet"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Monika-STIBRAVA-3a7f48c9aad980f39c50d33b6e9c7e34"
+  },
+  {
+   "chiave": "2fbf48c9aad980059ef2eda1b92b3b53",
+   "nome": "USA Softball",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Softball",
+   "gare": [
+    "Softball"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 15,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/BSB-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Softball-2fbf48c9aad980059ef2eda1b92b3b53"
+  },
+  {
+   "chiave": "2c5f48c9aad9811ead4ef51f3ec67516",
+   "nome": "Colin DUFFY",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Sport Climbing",
+   "gare": [
+    "Men's Boulder"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti nominativi; ospitante e universalità all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/CLB-Boulder-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Colin-DUFFY-2c5f48c9aad9811ead4ef51f3ec67516"
+  },
+  {
+   "chiave": "2c5f48c9aad981568f5cfc335fbcf27b",
+   "nome": "NG Eain Yow",
+   "noc": "MAS",
+   "bandiera": "🇲🇾",
+   "paese": "Malaysia",
+   "sport": "Squash",
+   "gare": [
+    "Men's Squash"
+   ],
+   "tipo": "Athlete Quota",
+   "via": "Continental",
+   "evento": "Asian Games 2026",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti nominativi (ranking PSA e tornei continentali); ospitante e universalità all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SQU-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/NG-Eain-Yow-2c5f48c9aad981568f5cfc335fbcf27b"
+  },
+  {
+   "chiave": "39ff48c9aad980e6b6acedba7248bc91",
+   "nome": "Timothy BROWNELL",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Squash",
+   "gare": [
+    "Men's Squash"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti nominativi (ranking PSA e tornei continentali); ospitante e universalità all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SQU-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Timothy-BROWNELL-39ff48c9aad980e6b6acedba7248bc91"
+  },
+  {
+   "chiave": "2c5f48c9aad9816fbf9bdb414660a804",
+   "nome": "Sivasangari SUBRAMANIAM",
+   "noc": "MAS",
+   "bandiera": "🇲🇾",
+   "paese": "Malaysia",
+   "sport": "Squash",
+   "gare": [
+    "Women's Squash"
+   ],
+   "tipo": "Athlete Quota",
+   "via": "Continental",
+   "evento": "Asian Games 2026",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti nominativi (ranking PSA e tornei continentali); ospitante e universalità all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SQU-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Sivasangari-SUBRAMANIAM-2c5f48c9aad9816fbf9bdb414660a804"
+  },
+  {
+   "chiave": "2c5f48c9aad981558994cdf21cc5574e",
+   "nome": "Kanoa IGARASHI",
+   "noc": "JPN",
+   "bandiera": "🇯🇵",
+   "paese": "Giappone",
+   "sport": "Surfing",
+   "gare": [
+    "Men's Surfing"
+   ],
+   "tipo": "Athlete Quota",
+   "via": "Continental",
+   "evento": "Asian Games 2026",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti nominativi (WSL, ISA Games, continentali); ospitante, universalità e squadra ISA all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SRF-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Kanoa-IGARASHI-2c5f48c9aad981558994cdf21cc5574e"
+  },
+  {
+   "chiave": "3eaf48c9aad980439a48de089d6f1e63",
+   "nome": "Mirai IKEDA",
+   "noc": "JPN",
+   "bandiera": "🇯🇵",
+   "paese": "Giappone",
+   "sport": "Surfing",
+   "gare": [
+    "Women's Surfing"
+   ],
+   "tipo": "Athlete Quota",
+   "via": "Continental",
+   "evento": "Asian Games 2026",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti nominativi (WSL, ISA Games, continentali); ospitante, universalità e squadra ISA all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SRF-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Mirai-IKEDA-3eaf48c9aad980439a48de089d6f1e63"
+  },
+  {
+   "chiave": "3a5f48c9aad98007a7e0e12a0bf04152",
+   "nome": "USA Mixed Team",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Table Tennis",
+   "gare": [
+    "MixedTeam"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 6,
+   "nota": "",
+   "regola": "Singolari: posti nominativi. Squadra mista e doppio misto: all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TTE-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Mixed-Team-3a5f48c9aad98007a7e0e12a0bf04152"
+  },
+  {
+   "chiave": "3eff48c9aad980398034d48b844c42ec",
+   "nome": "WANG Xiyu",
+   "noc": "CHN",
+   "bandiera": "🇨🇳",
+   "paese": "Cina",
+   "sport": "Tennis",
+   "gare": [
+    "Women's Singles"
+   ],
+   "tipo": "Athlete Quota",
+   "via": "Continental",
+   "evento": "2026 Asian Games",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti nominativi (anche doppi e misto); solo l'universalità va all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TEN-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/WANG-Xiyu-3eff48c9aad980398034d48b844c42ec"
+  },
+  {
+   "chiave": "388f48c9aad9800fb8dec0804249f1e3",
+   "nome": "Team FRA",
+   "noc": "FRA",
+   "bandiera": "🇫🇷",
+   "paese": "Francia",
+   "sport": "Triathlon",
+   "gare": [
+    "3️⃣MixedRelay"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 4,
+   "nota": "",
+   "regola": "Posti all'NOC, individuali e staffetta mista.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TRI-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Team-FRA-388f48c9aad9800fb8dec0804249f1e3"
+  },
+  {
+   "chiave": "388f48c9aad980feb3bad41dc23820a5",
+   "nome": "Team USA",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Triathlon",
+   "gare": [
+    "3️⃣MixedRelay"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 4,
+   "nota": "",
+   "regola": "Posti all'NOC, individuali e staffetta mista.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TRI-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Team-USA-388f48c9aad980feb3bad41dc23820a5"
+  },
+  {
+   "chiave": "3e1f48c9aad980489005d6f258ec41b8",
+   "nome": "Takumi HOJO",
+   "noc": "JPN",
+   "bandiera": "🇯🇵",
+   "paese": "Giappone",
+   "sport": "Triathlon",
+   "gare": [
+    "Men's Triathlon"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Continental",
+   "evento": "Asian Games 2026",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, individuali e staffetta mista.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TRI-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Takumi-HOJO-3e1f48c9aad980489005d6f258ec41b8"
+  },
+  {
+   "chiave": "3e1f48c9aad980ee9647cf285fa5f2ed",
+   "nome": "LIN Xinyu",
+   "noc": "CHN",
+   "bandiera": "🇨🇳",
+   "paese": "Cina",
+   "sport": "Triathlon",
+   "gare": [
+    "Women's Triathlon"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Continental",
+   "evento": "Asian Games 2026",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, individuali e staffetta mista.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TRI-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/LIN-Xinyu-3e1f48c9aad980ee9647cf285fa5f2ed"
+  },
+  {
+   "chiave": "3a5f48c9aad98065b1edc440191ae599",
+   "nome": "BRA Men's 🏐",
+   "noc": "BRA",
+   "bandiera": "🇧🇷",
+   "paese": "Brasile",
+   "sport": "Volleyball",
+   "gare": [
+    "Men's Volley"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "2026 CSV South American Championships",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/BRA-Men-s-3a5f48c9aad98065b1edc440191ae599"
+  },
+  {
+   "chiave": "3e1f48c9aad98064b97cf1f2fcc75146",
+   "nome": "CUB Men's 🏐",
+   "noc": "CUB",
+   "bandiera": "🇨🇺",
+   "paese": "Cuba",
+   "sport": "Volleyball",
+   "gare": [
+    "Men's Volley"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "2026 NORCECA North American",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/CUB-Men-s-3e1f48c9aad98064b97cf1f2fcc75146"
+  },
+  {
+   "chiave": "3b0f48c9aad980ce8384f920c6808da9",
+   "nome": "JPN Men's 🏐",
+   "noc": "JPN",
+   "bandiera": "🇯🇵",
+   "paese": "Giappone",
+   "sport": "Volleyball",
+   "gare": [
+    "Men's Volley"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "2026 Asian Championshisp",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/JPN-Men-s-3b0f48c9aad980ce8384f920c6808da9"
+  },
+  {
+   "chiave": "352f48c9aad980099735cddb0dd5ffc1",
+   "nome": "POL Men's 🏐",
+   "noc": "POL",
+   "bandiera": "🇵🇱",
+   "paese": "Polonia",
+   "sport": "Volleyball",
+   "gare": [
+    "Men's Volley"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/POL-Men-s-352f48c9aad980099735cddb0dd5ffc1"
+  },
+  {
+   "chiave": "3e7f48c9aad980b28f93e55fa5dd5e29",
+   "nome": "TUN Men's 🏐",
+   "noc": "TUN",
+   "bandiera": "🇹🇳",
+   "paese": "Tunisia",
+   "sport": "Volleyball",
+   "gare": [
+    "Men's Volley"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "2026 CAVB African Championships",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/TUN-Men-s-3e7f48c9aad980b28f93e55fa5dd5e29"
+  },
+  {
+   "chiave": "352f48c9aad98035acf3c4089018ab2e",
+   "nome": "USA Men's 🏐",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Volleyball",
+   "gare": [
+    "Men's Volley"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Men-s-352f48c9aad98035acf3c4089018ab2e"
+  },
+  {
+   "chiave": "352f48c9aad98006b290c0558fd40a0f",
+   "nome": "BRA Women's 🏐",
+   "noc": "BRA",
+   "bandiera": "🇧🇷",
+   "paese": "Brasile",
+   "sport": "Volleyball",
+   "gare": [
+    "Women's Volley"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "CSV South American Championships",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/BRA-Women-s-352f48c9aad98006b290c0558fd40a0f"
+  },
+  {
+   "chiave": "3a7f48c9aad980769010f4235ea7df55",
+   "nome": "CAN Women's 🏐",
+   "noc": "CAN",
+   "bandiera": "🇨🇦",
+   "paese": "Canada",
+   "sport": "Volleyball",
+   "gare": [
+    "Women's Volley"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "NOCECA Championships",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/CAN-Women-s-3a7f48c9aad980769010f4235ea7df55"
+  },
+  {
+   "chiave": "3d2f48c9aad98005ac03c0a0bf24e4eb",
+   "nome": "EGY Women's 🏐",
+   "noc": "EGY",
+   "bandiera": "🇪🇬",
+   "paese": "Egitto",
+   "sport": "Volleyball",
+   "gare": [
+    "Women's Volley"
+   ],
+   "tipo": "Team Quota",
+   "via": "Continental",
+   "evento": "CAVB African Championships",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/EGY-Women-s-3d2f48c9aad98005ac03c0a0bf24e4eb"
+  },
+  {
+   "chiave": "3ccf48c9aad9804f84c9e169537467c5",
+   "nome": "THA Women's 🏐",
+   "noc": "THA",
+   "bandiera": "🇹🇭",
+   "paese": "Thailandia",
+   "sport": "Volleyball",
+   "gare": [
+    "Women's Volley"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/THA-Women-s-3ccf48c9aad9804f84c9e169537467c5"
+  },
+  {
+   "chiave": "352f48c9aad980829d2fd769a2185a7f",
+   "nome": "TUR Women's 🏐",
+   "noc": "TUR",
+   "bandiera": "🇹🇷",
+   "paese": "Turchia",
+   "sport": "Volleyball",
+   "gare": [
+    "Women's Volley"
+   ],
+   "tipo": "Team Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/TUR-Women-s-352f48c9aad980829d2fd769a2185a7f"
+  },
+  {
+   "chiave": "352f48c9aad98084b184c3c471aac6ab",
+   "nome": "USA Women's 🏐",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Volleyball",
+   "gare": [
+    "Women's Volley"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 12,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/VVO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Women-s-352f48c9aad98084b184c3c471aac6ab"
+  },
+  {
+   "chiave": "2fbf48c9aad980a3a51fdb9693194744",
+   "nome": "USA Men's Water Polo",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Water Polo",
+   "gare": [
+    "Men's Water Polo"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 11,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/WPO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Men-s-Water-Polo-2fbf48c9aad980a3a51fdb9693194744"
+  },
+  {
+   "chiave": "2fbf48c9aad980df8b05ef5799c48ec5",
+   "nome": "USA Women's Water Polo",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Water Polo",
+   "gare": [
+    "Women's Water Polo"
+   ],
+   "tipo": "Team Quota",
+   "via": "Host Country",
+   "evento": "",
+   "posti": 11,
+   "nota": "",
+   "regola": "Sport di squadra: il posto è dell'NOC per la sua squadra.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/WPO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/USA-Women-s-Water-Polo-2fbf48c9aad980df8b05ef5799c48ec5"
+  }
+ ]
+}

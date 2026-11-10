@@ -45,6 +45,11 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: python aggiorna_qualificati.py
+      - name: Performance Judo - ricalcola il WON e aggiorna judo-performance.json
+        continue-on-error: true     # se fallisce, la mappa si aggiorna comunque
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: python aggiorna_judo_performance.py
       - name: Salva data.json nel repository
         id: salva
         run: |
@@ -53,6 +58,7 @@ jobs:
           git add data.json wrestling.json tennis.json
           git add calendario.json 2>/dev/null || true
           git add qualificati.json 2>/dev/null || true
+          git add judo-performance.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "cambiato=0" >> "$GITHUB_OUTPUT"
           else

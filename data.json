@@ -375,25 +375,26 @@
   },
   "Shooting": {
    "quota": 340,
-   "atleti": 24,
+   "atleti": 27,
    "M": 12,
-   "W": 12,
+   "W": 15,
    "O": 0,
-   "pass": 24,
+   "pass": 27,
    "noc": {
     "CZE": 2,
     "IND": 1,
     "SRB": 1,
-    "CHN": 5,
+    "CHN": 6,
     "JPN": 1,
     "KUW": 1,
     "EGY": 1,
     "SVK": 2,
-    "KOR": 2,
+    "KOR": 3,
     "FRA": 2,
     "KAZ": 1,
     "GER": 1,
     "DEN": 1,
+    "VIE": 1,
     "HUN": 1,
     "IRI": 1,
     "CRO": 1
@@ -484,13 +485,14 @@
   },
   "Tennis": {
    "quota": 172,
-   "atleti": 1,
-   "M": 0,
+   "atleti": 2,
+   "M": 1,
    "W": 1,
    "O": 0,
-   "pass": 1,
+   "pass": 2,
    "noc": {
-    "CHN": 1
+    "CHN": 1,
+    "HKG": 1
    }
   },
   "Trampoline": {
@@ -567,9 +569,9 @@
   }
  },
  "totali": {
-  "atleti": 896,
-  "pass": 154,
-  "noc": 44
+  "atleti": 900,
+  "pass": 158,
+  "noc": 46
  },
  "noc": {
   "USA": {
@@ -2400,8 +2402,8 @@
   },
   "CHN": {
    "nome": "Cina",
-   "atleti": 19,
-   "pass": 12,
+   "atleti": 20,
+   "pass": 13,
    "righe": [
     {
      "nome": "CHN Recurve Mixed",
@@ -2599,6 +2601,26 @@
      },
      "gare": {
       "Men's 10m Air Rifle": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "ZHANG Yueyue",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Women's 25m Pistol"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's 25m Pistol": "W"
      },
      "atleti": 1,
      "squadra": false,
@@ -3278,84 +3300,10 @@
     }
    ]
   },
-  "SUI": {
-   "nome": "Svizzera",
-   "atleti": 6,
-   "pass": 2,
-   "righe": [
-    {
-     "nome": "SUI Eventing Team",
-     "sport": "Equestrian",
-     "card": "Equestrian",
-     "discipline": [
-      "Eventing Team"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 0,
-      "O": 3
-     },
-     "gare": {
-      "Eventing Team": "O"
-     },
-     "atleti": 3,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "SUI Jumping Team",
-     "sport": "Equestrian",
-     "card": "Equestrian",
-     "discipline": [
-      "Jumping Team"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 0,
-      "O": 3
-     },
-     "gare": {
-      "Jumping Team": "O"
-     },
-     "atleti": 3,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
-  "ESP": {
-   "nome": "Spagna",
-   "atleti": 5,
-   "pass": 1,
-   "righe": [
-    {
-     "nome": "ESP RGI Group",
-     "sport": "Gym Rhythmic",
-     "card": "Gym Rhythmic",
-     "discipline": [
-      "Group All-Around"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 5,
-      "O": 0
-     },
-     "gare": {
-      "Group All-Around": "W"
-     },
-     "atleti": 5,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
   "KOR": {
    "nome": "Corea del Sud",
-   "atleti": 5,
-   "pass": 6,
+   "atleti": 6,
+   "pass": 7,
    "righe": [
     {
      "nome": "KOR Recurve Mixed",
@@ -3474,6 +3422,100 @@
      },
      "atleti": 1,
      "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "YANG Jiin",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Women's 25m Pistol"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's 25m Pistol": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "SUI": {
+   "nome": "Svizzera",
+   "atleti": 6,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "SUI Eventing Team",
+     "sport": "Equestrian",
+     "card": "Equestrian",
+     "discipline": [
+      "Eventing Team"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 0,
+      "O": 3
+     },
+     "gare": {
+      "Eventing Team": "O"
+     },
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "SUI Jumping Team",
+     "sport": "Equestrian",
+     "card": "Equestrian",
+     "discipline": [
+      "Jumping Team"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 0,
+      "O": 3
+     },
+     "gare": {
+      "Jumping Team": "O"
+     },
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "ESP": {
+   "nome": "Spagna",
+   "atleti": 5,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "ESP RGI Group",
+     "sport": "Gym Rhythmic",
+     "card": "Gym Rhythmic",
+     "discipline": [
+      "Group All-Around"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 5,
+      "O": 0
+     },
+     "gare": {
+      "Group All-Around": "W"
+     },
+     "atleti": 5,
+     "squadra": true,
      "ospitante": false,
      "nota": ""
     }
@@ -3831,6 +3873,33 @@
     }
    ]
   },
+  "HKG": {
+   "nome": "RAS di Hong Kong",
+   "atleti": 1,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Coleman WONG",
+     "sport": "Tennis",
+     "card": "Tennis",
+     "discipline": [
+      "🎾Men's Singles"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "🎾Men's Singles": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
   "HUN": {
    "nome": "Ungheria",
    "atleti": 1,
@@ -3964,6 +4033,33 @@
      "gare": {
       "Women's 10m Air Rifle": "W",
       "Women's 50m Rifle 3 Positions": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "VIE": {
+   "nome": "Vietnam",
+   "atleti": 1,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "TRINH Thu Vinh",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Women's 25m Pistol"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's 25m Pistol": "W"
      },
      "atleti": 1,
      "squadra": false,

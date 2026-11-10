@@ -1,13 +1,13 @@
 {
  "aggiornato": "2026-11-10",
  "totali": {
-  "posti_qualificati": 896,
-  "noc": 44,
-  "rimanenti": 10302,
+  "posti_qualificati": 900,
+  "noc": 46,
+  "rimanenti": 10298,
   "posti_totali": 11198,
-  "righe": 154,
-  "athlete_quota": 5,
-  "noc_quota": 45,
+  "righe": 158,
+  "athlete_quota": 6,
+  "noc_quota": 48,
   "team_quota": 104
  },
  "fonte_regole": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
@@ -2458,6 +2458,66 @@
    "notion": "https://app.notion.com/p/Aleksandra-STOJADINOVIC-3fef48c9aad9809fa24fef0b20443426"
   },
   {
+   "chiave": "2c5f48c9aad981da8f0ecfc56e511aad",
+   "nome": "ZHANG Yueyue",
+   "noc": "CHN",
+   "bandiera": "🇨🇳",
+   "paese": "Cina",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 25m Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/ZHANG-Yueyue-2c5f48c9aad981da8f0ecfc56e511aad"
+  },
+  {
+   "chiave": "2c5f48c9aad981398025ec618d1dfebb",
+   "nome": "YANG Jiin",
+   "noc": "KOR",
+   "bandiera": "🇰🇷",
+   "paese": "Corea del Sud",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 25m Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/YANG-Jiin-2c5f48c9aad981398025ec618d1dfebb"
+  },
+  {
+   "chiave": "2c5f48c9aad98123ad74e292a8a5d7c9",
+   "nome": "TRINH Thu Vinh",
+   "noc": "VIE",
+   "bandiera": "🇻🇳",
+   "paese": "Vietnam",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 25m Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/TRINH-Thu-Vinh-2c5f48c9aad98123ad74e292a8a5d7c9"
+  },
+  {
    "chiave": "2c5f48c9aad981ad97d5df3a58b10505",
    "nome": "Haniyeh ROSTAMIYAN",
    "noc": "IRI",
@@ -2717,6 +2777,26 @@
    "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TTE-LA28-Qualification-System.pdf",
    "verifica": false,
    "notion": "https://app.notion.com/p/USA-Mixed-Team-3a5f48c9aad98007a7e0e12a0bf04152"
+  },
+  {
+   "chiave": "3eff48c9aad980599b3ff530434cb255",
+   "nome": "Coleman WONG",
+   "noc": "HKG",
+   "bandiera": "🇭🇰",
+   "paese": "RAS di Hong Kong",
+   "sport": "Tennis",
+   "gare": [
+    "Men's Singles"
+   ],
+   "tipo": "Athlete Quota",
+   "via": "Continental",
+   "evento": "2026 Asian Games",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti nominativi (anche doppi e misto); solo l'universalità va all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/TEN-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Coleman-WONG-3eff48c9aad980599b3ff530434cb255"
   },
   {
    "chiave": "3eff48c9aad980398034d48b844c42ec",

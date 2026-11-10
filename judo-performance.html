@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Performance Judo · indice WON</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
+<style>
+/* Stessa veste di judo.html (rosso pastello). Dati: rosso; Italia: azzurro (coppia validata per daltonismo). */
+:root {
+  --bg: #ffffff; --fg: #3b2224; --muted: #7b6466; --line: #f0dcdc; --card: #fffafa; --soft: #fbefef; --track: #f4e4e4;
+  --ink: #cf6b6e; --ink-2: #f2a9ab; --ink-t: #b04a4e; --gold: #a8782a; --ita: #2a78d6; --grid: #f1e4e4;
+  --shadow: rgba(110, 40, 44, .10);
+  --font: "Quicksand", "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1c1213; --fg: #f1e3e3; --muted: #b59c9e; --line: #433032; --card: #241819; --soft: #2b1d1e; --track: #3a2a2c;
+  --ink: #d9686c; --ink-2: #f6c0c1; --ink-t: #f2a9ab; --gold: #e3c15c; --ita: #3987e5; --grid: #33242a;
+  --shadow: rgba(0, 0, 0, .4); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1c1213; --fg: #f1e3e3; --muted: #b59c9e; --line: #433032; --card: #241819; --soft: #2b1d1e; --track: #3a2a2c;
+  --ink: #d9686c; --ink-2: #f6c0c1; --ink-t: #f2a9ab; --gold: #e3c15c; --ita: #3987e5; --grid: #33242a;
+  --shadow: rgba(0, 0, 0, .4); color-scheme: dark }
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 500 16px/1.4 var(--font) }
+h1, h2, h3, p { margin: 0 }
+button { font: inherit; color: inherit }
+.guscio { max-width: 1320px; margin: 0 auto; display: grid; gap: 16px; padding-block: 18px 28px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.testa { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px }
+.titolo { flex: 1 1 320px; min-width: 0 }
+.occhiello { font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-t) }
+h1 { font: 600 2.1rem/1.2 var(--font); text-wrap: balance }
+.vai { flex: 1 1 200px; max-width: 290px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 10px; padding: 11px 16px; color: inherit; text-decoration: none; text-align: left; background: none; border: 1.5px solid var(--line); border-radius: 18px; cursor: pointer }
+.vai:hover { border-color: var(--ink) }
+.vai b { font-weight: 600 } .vai span { grid-column: 1; font-size: .84rem; color: var(--muted) } .vai i { grid-row: 1 / 3; grid-column: 2; font-style: normal; color: var(--ink-t); font-size: 1.2rem }
+
+.totali { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1.5px solid var(--line); border-radius: 22px }
+.totale { padding: 12px 18px; text-align: center; border-right: 1px solid var(--line) } .totale:last-child { border-right: 0 }
+.totale b { display: block; font: 600 1.9rem/1.2 var(--font); font-variant-numeric: tabular-nums }
+.totale span { font-size: .78rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted) }
+
+.filtri { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px }
+#cerca { flex: 1 1 240px; min-width: 0; max-width: 420px; height: 42px; padding: 0 16px; font: inherit; color: inherit; background: var(--bg); border: 1.5px solid var(--line); border-radius: 999px }
+#cerca:focus { outline: none; border-color: var(--ink) }
+.gruppo { display: inline-flex; padding: 3px; gap: 2px; background: var(--soft); border: 1px solid var(--line); border-radius: 999px }
+.gruppo button, .cat button { padding: 6px 14px; background: none; border: 0; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: .92rem; color: var(--muted) }
+.gruppo button[aria-pressed="true"], .cat button[aria-pressed="true"] { background: var(--ink); color: #fff }
+.cat { display: flex; flex-wrap: wrap; gap: 6px }
+.cat button { border: 1px solid var(--line); background: var(--bg); font-variant-numeric: tabular-nums }
+.cat button small { font-weight: 500; opacity: .75; margin-left: 4px }
+
+.fascia { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); background: var(--soft); border: 1.5px solid var(--line); border-radius: 24px }
+.leader { padding: 22px 26px; display: grid; align-content: start; gap: 10px }
+.etichetta { font-size: .78rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-t) }
+.leader h2 { font: 600 1.6rem/1.2 var(--font); overflow-wrap: anywhere }
+.leader .grande { font: 700 2.6rem/1 var(--font); color: var(--ink-t); font-variant-numeric: tabular-nums }
+.leader .grande small { font: 600 .9rem var(--font); color: var(--muted); margin-left: 6px }
+.leader p { color: var(--muted) }
+.badge { display: inline-flex; gap: 6px; flex-wrap: wrap }
+.chip { display: inline-block; padding: 3px 10px; font-size: .84rem; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; font-variant-numeric: tabular-nums }
+.chip.q { border-color: var(--ink); color: var(--ink-t); font-weight: 700 }
+.distacco { padding: 22px 26px; border-left: 1.5px solid var(--line); min-width: 0 }
+
+.pannelli { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px }
+.pannello { background: var(--card); border: 1.5px solid var(--line); border-radius: 22px; padding: 18px 20px; min-width: 0 }
+.pannello h3 { font: 600 1.2rem/1.25 var(--font) }
+.pannello > p.sotto { color: var(--muted); font-size: .9rem; margin: 2px 0 8px }
+.legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .84rem; color: var(--muted); margin-bottom: 4px }
+.legenda i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: -1px }
+.l-dati { background: var(--ink) } .l-ita { background: var(--ita) }
+svg.grafico { width: 100%; height: auto; display: block; overflow: visible; font-family: var(--font) }
+svg .asse { stroke: var(--line) } svg .griglia { stroke: var(--grid) } svg .mediana { stroke: var(--muted); stroke-dasharray: 4 4; opacity: .6 }
+svg text { fill: var(--muted); font-size: 11px }
+svg text.nome { fill: var(--fg); font-size: 12px; font-weight: 600 }
+svg text.val { fill: var(--fg); font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums }
+svg text.angolo { fill: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; opacity: .8 }
+svg text.alone { paint-order: stroke; stroke: var(--card); stroke-width: 4px; stroke-linejoin: round }
+svg .barra { fill: var(--ink) } svg .barra.ita { fill: var(--ita) } svg .barra.capo { fill: var(--ink-t) }
+svg .punto { fill: var(--ink); stroke: var(--card); stroke-width: 2 } svg .punto.ita { fill: var(--ita) }
+svg .punto.sel, svg .barra.sel { stroke: var(--fg); stroke-width: 2.5 }
+svg .bersaglio { fill: transparent; cursor: pointer }
+svg .riga-hover:hover .barra { opacity: .8 }
+
+.classifica { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums }
+.classifica th { text-align: left; font-size: .76rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 6px 8px; border-bottom: 1.5px solid var(--line) }
+.classifica td { padding: 7px 8px; border-bottom: 1px solid var(--line) }
+.classifica tr { cursor: pointer } .classifica tbody tr:hover { background: var(--soft) }
+.classifica tr.ita td:first-child { box-shadow: inset 4px 0 0 var(--ita) }
+.classifica tr.sel { background: var(--soft) }
+.classifica .num { text-align: right }
+.classifica .pos { color: var(--muted); font-weight: 700; width: 34px }
+.classifica b { font-weight: 600 }
+.altri { margin-top: 10px; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer; color: var(--muted) }
+
+.italia { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; margin-top: 8px }
+.card-ita { padding: 12px 14px; background: var(--bg); border: 1px solid var(--line); border-radius: 16px; box-shadow: inset 4px 0 0 var(--ita); cursor: pointer }
+.card-ita:hover { border-color: var(--ita) }
+.card-ita b { font-weight: 600 } .card-ita small { display: block; color: var(--muted); font-size: .82rem }
+.card-ita .pos { font: 700 1.4rem/1 var(--font); color: var(--ita); float: right; text-align: right }
+.card-ita .pos small { font-size: .72rem }
+
+#tip { position: fixed; z-index: 10; pointer-events: none; max-width: 260px; padding: 9px 12px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 6px 20px var(--shadow); font-size: .86rem; opacity: 0; transition: opacity .1s }
+#tip b { display: block; font-weight: 600 } #tip span { color: var(--muted) }
+dialog { max-width: 560px; width: calc(100% - 32px); border: 1.5px solid var(--line); border-radius: 22px; background: var(--bg); color: var(--fg); padding: 20px 22px }
+dialog::backdrop { background: rgba(30, 10, 12, .35) }
+dialog h3 { font: 600 1.35rem/1.25 var(--font) }
+dialog table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: .9rem; font-variant-numeric: tabular-nums }
+dialog td, dialog th { padding: 6px 6px; border-bottom: 1px solid var(--line); text-align: left } dialog th { font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted) }
+dialog .num { text-align: right }
+dialog .chiudi { float: right; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer }
+.nota { color: var(--muted); font-size: .86rem; line-height: 1.55 }
+.firma { text-align: right; font-size: .78rem; letter-spacing: .08em; color: var(--muted) }
+
+@media (max-width: 900px) {
+  .fascia, .pannelli { grid-template-columns: minmax(0, 1fr) }
+  .distacco { border-left: 0; border-top: 1.5px solid var(--line) }
+  .totali { grid-template-columns: repeat(2, minmax(0, 1fr)) } .totale:nth-child(2) { border-right: 0 } .totale:nth-child(-n+2) { border-bottom: 1px solid var(--line) }
+  h1 { font-size: 1.6rem }
+}
+@media print {
+  .filtri, .cat, .vai, .altri, #tip { display: none !important }
+  .pannello, .fascia { break-inside: avoid }
+}
+</style>
+</head>
+<body>
+<div class="guscio">
+  <header class="testa">
+    <div class="titolo">
+      <p class="occhiello" id="data">Road to LA28 · indice WON</p>
+      <h1>🥋 Performance Judo</h1>
+    </div>
+    <a class="vai" href="judo.html"><b>Qualificati judo</b><span>Simulazione LA28</span><i>›</i></a>
+    <a class="vai" href="index.html"><b>Mappa</b><span>Qualificati nel mondo</span><i>›</i></a>
+    <button class="vai" id="pdf" type="button" title="Si apre la stampa: scegli «Salva come PDF»"><b>Scarica PDF</b><span>La categoria selezionata</span><i>↓</i></button>
+  </header>
+
+  <section class="totali" id="totali"></section>
+
+  <div class="filtri">
+    <input id="cerca" type="search" placeholder="Cerca un atleta o un NOC…" autocomplete="off" aria-label="Cerca un atleta o un NOC" list="nomi">
+    <datalist id="nomi"></datalist>
+    <div class="gruppo" id="genere" role="group" aria-label="Genere"></div>
+  </div>
+  <div class="cat" id="categorie" role="group" aria-label="Categoria di peso"></div>
+
+  <section class="fascia">
+    <div class="leader" id="leader"></div>
+    <div class="distacco">
+      <p class="etichetta">Distacco in vetta · top 10 per WON</p>
+      <div class="legenda"><span><i class="l-dati"></i>Atleti</span><span><i class="l-ita"></i>Italia</span></div>
+      <div id="g-barre"></div>
+    </div>
+  </section>
+
+  <section class="pannelli">
+    <div class="pannello">
+      <h3>Quadrante della performance</h3>
+      <p class="sotto">Tornei disputati (asse orizzontale) contro punti WON per torneo (asse verticale). Le linee tratteggiate sono le mediane della categoria.</p>
+      <div class="legenda"><span><i class="l-dati"></i>Atleti</span><span><i class="l-ita"></i>Italia</span></div>
+      <div id="g-quadrante"></div>
+    </div>
+    <div class="pannello">
+      <h3>Qualità del field</h3>
+      <p class="sotto">Forza media dei tornei disputati (🏟️ Rating) contro piazzamento medio. In alto a destra chi fa risultato nei tornei più forti.</p>
+      <div class="legenda"><span><i class="l-dati"></i>Atleti</span><span><i class="l-ita"></i>Italia</span></div>
+      <div id="g-field"></div>
+    </div>
+  </section>
+
+  <section class="pannello">
+    <h3 id="titolo-classifica">Classifica WON</h3>
+    <p class="sotto">Clicca un atleta per vedere i tornei che compongono il suo punteggio.</p>
+    <div style="overflow-x:auto"><table class="classifica" id="classifica"></table></div>
+    <button class="altri" id="altri" type="button"></button>
+  </section>
+
+  <section class="pannelli">
+    <div class="pannello">
+      <h3>Forza delle nazioni</h3>
+      <p class="sotto" id="sotto-noc">Somma dei punti WON dei judoka di ogni NOC.</p>
+      <div id="g-noc"></div>
+    </div>
+    <div class="pannello">
+      <h3>🇮🇹 Focus Italia</h3>
+      <p class="sotto">Il miglior azzurro di ogni categoria e la sua posizione nella classifica WON.</p>
+      <div class="italia" id="italia"></div>
+    </div>
+  </section>
+
+  <p class="nota" id="nota"></p>
+  <p class="firma">VIERSTATICS powered by CLAUDE</p>
+</div>
+<div id="tip" role="tooltip"></div>
+<dialog id="scheda"></dialog>
+
+<script id="dati-inline" type="application/json">null</script>
+<script>
+(async function () {
+  const $ = (id) => document.getElementById(id);
+  const NS = "http://www.w3.org/2000/svg";
+  const fmt = (n, d = 1) => n == null ? "—" : n.toLocaleString("it-IT", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const el = (tag, cls, testo) => { const e = document.createElement(tag); if (cls) e.className = cls; if (testo != null) e.textContent = testo; return e; };
+  const sv = (tag, attrs = {}, testo) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (testo != null) e.textContent = testo; return e; };
+  const cognome = (n) => { const p = n.replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹ˣᵒᶜʷ⁺⛔️🧪]/g, "").trim().split(" "); const up = p.filter((w) => w.length > 1 && w === w.toUpperCase()); return (up.length ? up.join(" ") : p[p.length - 1]); };
+  const pulito = (n) => n.replace(/\s*[⁰¹²³⁴⁵⁶⁷⁸⁹ˣᵒᶜʷ⁺]+.*$/, "").replace(/[⛔️🧪]/g, "").trim();
+
+  let dati;
+  try { dati = await fetch("judo-performance.json?v=" + Date.now()).then((r) => { if (!r.ok) throw 0; return r.json(); }); }
+  catch (e) { try { dati = JSON.parse($("dati-inline").textContent); } catch (e2) { dati = null; } }
+  if (!dati || !dati.atleti) { $("nota").textContent = "Dati non ancora disponibili: lancia «Aggiorna mappa LA28» da GitHub Actions."; return; }
+
+  const A = dati.atleti;
+  const ORD = { U: ["-60 kg", "-66 kg", "-73 kg", "-81 kg", "-90 kg", "-100 kg", "+100 kg"], D: ["-48 kg", "-52 kg", "-57 kg", "-63 kg", "-70 kg", "-78 kg", "+78 kg"] };
+  const stato = { genere: "U", cat: "-90 kg", sel: null, tutti: false };
+  const perCat = (g, c) => A.filter((a) => a.genere === g && a.cat === c).sort((x, y) => y.won - x.won);
+  const isIta = (a) => a.noc === "ITA";
+
+  // intestazione e totali
+  const d = new Date(dati.aggiornato);
+  $("data").textContent = "Road to LA28 · indice WON · aggiornato al " + d.toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" });
+  const tot = [[A.length, "Atleti"], [dati.n_risultati, "Risultati"], [dati.eventi.length, "Tornei"], [new Set(A.map((a) => a.noc)).size, "NOC"]];
+  tot.forEach(([n, t]) => { const b = el("div", "totale"); b.append(el("b", null, n.toLocaleString("it-IT")), el("span", null, t)); $("totali").append(b); });
+  A.forEach((a) => { const o = el("option"); o.value = pulito(a.nome); $("nomi").append(o); });
+
+  // tooltip
+  const tip = $("tip");
+  function mostra(ev, a) {
+    tip.innerHTML = "";
+    tip.append(el("b", null, `${a.flag} ${pulito(a.nome)}`), el("span", null, `${a.noc} · ${a.genere === "U" ? "Uomini" : "Donne"} ${a.cat}`));
+    const r = el("div"); r.innerHTML = `WON <b style="display:inline">${fmt(a.won, 2)}</b> · ${a.gare} tornei<br>Field medio ${a.field ?? "—"} · piazz. medio ${fmt(a.piazz)}<br>🥇${a.ori} 🥈${a.arg} 🥉${a.bro}`;
+    tip.append(r); tip.style.opacity = 1; sposta(ev);
+  }
+  function sposta(ev) { const x = Math.min(ev.clientX + 14, innerWidth - 270), y = Math.min(ev.clientY + 14, innerHeight - 130); tip.style.left = x + "px"; tip.style.top = y + "px"; }
+  const nascondi = () => (tip.style.opacity = 0);
+  const aggancia = (nodo, a) => { nodo.addEventListener("mousemove", (e) => mostra(e, a)); nodo.addEventListener("mouseleave", nascondi); nodo.addEventListener("click", () => scheda(a)); };
+
+  // scheda atleta
+  function scheda(a) {
+    const dlg = $("scheda"); dlg.innerHTML = "";
+    const ch = el("button", "chiudi", "Chiudi"); ch.onclick = () => dlg.close();
+    const lista = perCat(a.genere, a.cat), pos = lista.indexOf(a) + 1;
+    dlg.append(ch, el("p", "etichetta", `${a.genere === "U" ? "Uomini" : "Donne"} ${a.cat} · ${pos}° su ${lista.length}`), el("h3", null, `${a.flag} ${a.nome}`));
+    const info = el("p", "nota"); info.textContent = `WON ${fmt(a.won, 2)} · ${a.gare} tornei · field medio ${a.field ?? "—"}${a.eta ? " · " + a.eta + " anni" : ""}${a.q ? " · Q LA28" : ""}`; dlg.append(info);
+    const t = el("table"); t.innerHTML = "<thead><tr><th>Torneo</th><th>Anno</th><th>Ris.</th><th class='num'>Rating</th><th class='num'>WON</th></tr></thead>";
+    const tb = el("tbody");
+    [...a.storia].sort((x, y) => y[4] - x[4]).forEach(([ev, anno, ris, rat, w]) => { const tr = el("tr"); [ev, anno, ris, rat ?? "—", fmt(w, 2)].forEach((v, i) => { const td = el("td", i > 2 ? "num" : null, v); tr.append(td); }); tb.append(tr); });
+    t.append(tb); dlg.append(t); dlg.showModal();
+  }
+
+  // filtri
+  function bottoni(contenitore, voci, chiave, dopo) {
+    contenitore.innerHTML = "";
+    voci.forEach(([v, testo, extra]) => {
+      const b = el("button"); b.type = "button"; b.textContent = testo; if (extra) b.append(el("small", null, extra));
+      b.setAttribute("aria-pressed", stato[chiave] === v); b.onclick = () => { stato[chiave] = v; if (dopo) dopo(); disegna(); };
+      contenitore.append(b);
+    });
+  }
+  function filtri() {
+    bottoni($("genere"), [["U", "Uomini"], ["D", "Donne"]], "genere", () => { if (!ORD[stato.genere].includes(stato.cat)) stato.cat = ORD[stato.genere][0]; stato.tutti = false; });
+    bottoni($("categorie"), ORD[stato.genere].map((c) => [c, c, String(perCat(stato.genere, c).length)]), "cat", () => (stato.tutti = false));
+  }
+  $("cerca").addEventListener("change", (e) => {
+    const q = e.target.value.trim().toLowerCase(); if (!q) return;
+    const a = A.find((x) => pulito(x.nome).toLowerCase() === q) || A.find((x) => x.nome.toLowerCase().includes(q));
+    if (a) { stato.genere = a.genere; stato.cat = a.cat; stato.sel = a.id; disegna(); scheda(a); return; }
+    const n = A.find((x) => x.noc.toLowerCase() === q);
+    if (n) { stato.sel = null; $("nota").scrollIntoView(); }
+  });
+  $("pdf").onclick = () => print();
+
+  // grafico a barre orizzontali
+  function barre(box, righe, opz) {
+    box.innerHTML = "";
+    const W = Math.max(320, box.clientWidth || 600), passo = 28, top = 6, sx = opz.etichetta || 170, dx = 64;
+    const H = top + righe.length * passo;
+    const s = sv("svg", { class: "grafico", viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": opz.aria });
+    const max = Math.max(...righe.map((r) => r.v)) || 1, L = W - sx - dx;
+    righe.forEach((r, i) => {
+      const y = top + i * passo, w = Math.max(3, r.v / max * L), g = sv("g", { class: "riga-hover" });
+      g.append(sv("text", { x: sx - 10, y: y + 15, "text-anchor": "end", class: "nome" }, r.etichetta));
+      g.append(sv("path", { class: "barra " + (r.cls || ""), d: `M${sx},${y + 4} h${w - 4} a4,4 0 0 1 4,4 v6 a4,4 0 0 1 -4,4 h${-(w - 4)} z` }));
+      g.append(sv("text", { x: sx + w + 8, y: y + 15, class: "val" }, r.testo));
+      const hit = sv("rect", { class: "bersaglio", x: 0, y, width: W, height: passo }); g.append(hit);
+      if (r.a) aggancia(hit, r.a); else if (r.tip) { hit.addEventListener("mousemove", (e) => { tip.innerHTML = r.tip; tip.style.opacity = 1; sposta(e); }); hit.addEventListener("mouseleave", nascondi); }
+      s.append(g);
+    });
+    box.append(s);
+  }
+
+  // grafico a dispersione con quadranti
+  function dispersione(box, punti, opz) {
+    box.innerHTML = "";
+    const W = Math.max(320, box.clientWidth || 560), H = Math.round(W * 0.74), m = { l: 46, r: 16, t: 30, b: 40 };
+    const s = sv("svg", { class: "grafico", viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": opz.aria });
+    const xs = punti.map((p) => p.x), ys = punti.map((p) => p.y);
+    const [x0, x1] = opz.xDom(xs), [y0, y1] = opz.yDom(ys);
+    const X = (v) => m.l + (opz.xT(v) - opz.xT(x0)) / (opz.xT(x1) - opz.xT(x0)) * (W - m.l - m.r);
+    const Y = (v) => { const t = (opz.yT(v) - opz.yT(y0)) / (opz.yT(y1) - opz.yT(y0)); return opz.yInv ? m.t + t * (H - m.t - m.b) : H - m.b - t * (H - m.t - m.b); };
+    opz.xTicks(x0, x1).forEach((v) => { s.append(sv("line", { class: "griglia", x1: X(v), x2: X(v), y1: m.t, y2: H - m.b })); s.append(sv("text", { x: X(v), y: H - m.b + 16, "text-anchor": "middle" }, opz.xF ? opz.xF(v) : v)); });
+    opz.yTicks(y0, y1).forEach((v) => { s.append(sv("line", { class: "griglia", x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v) })); s.append(sv("text", { x: m.l - 8, y: Y(v) + 4, "text-anchor": "end" }, opz.yF ? opz.yF(v) : v)); });
+    s.append(sv("line", { class: "asse", x1: m.l, x2: W - m.r, y1: H - m.b, y2: H - m.b }));
+    s.append(sv("text", { x: (m.l + W - m.r) / 2, y: H - 4, "text-anchor": "middle" }, opz.xL));
+    s.append(sv("text", { x: 12, y: (m.t + H - m.b) / 2, "text-anchor": "middle", transform: `rotate(-90 12 ${(m.t + H - m.b) / 2})` }, opz.yL));
+    const med = (v) => { const o = [...v].sort((a, b) => a - b); return o[Math.floor(o.length / 2)]; };
+    const mx = med(xs), my = med(ys);
+    s.append(sv("line", { class: "mediana", x1: X(mx), x2: X(mx), y1: m.t, y2: H - m.b }));
+    s.append(sv("line", { class: "mediana", x1: m.l, x2: W - m.r, y1: Y(my), y2: Y(my) }));
+    // nomi dei quadranti: in alto fuori dall'area dati, in basso con alone sopra la griglia
+    const [tl, tr, bl, br] = opz.angoli, stretto = W < 480;
+    const largh = (t) => t.length * 7 + 14;
+    if (!stretto) {
+      s.append(sv("text", { x: m.l + 2, y: m.t - 8, class: "angolo" }, "↖ " + tl));
+      s.append(sv("text", { x: W - m.r, y: m.t - 8, class: "angolo", "text-anchor": "end" }, tr + " ↗"));
+      s.append(sv("text", { x: m.l + 6, y: H - m.b - 8, class: "angolo alone" }, "↙ " + bl));
+      s.append(sv("text", { x: W - m.r - 6, y: H - m.b - 8, class: "angolo alone", "text-anchor": "end" }, br + " ↘"));
+    }
+    const angoliOcc = stretto ? [] : [[m.l + 6, H - m.b - 20, m.l + 6 + largh(bl), H - m.b - 4], [W - m.r - 6 - largh(br), H - m.b - 20, W - m.r - 6, H - m.b - 4]];
+    // prima gli altri, poi Italia e selezionato sopra
+    const ordine = [...punti].sort((a, b) => (isIta(a.a) + (a.a.id === stato.sel) * 2) - (isIta(b.a) + (b.a.id === stato.sel) * 2));
+    // punti, poi etichette in un secondo passaggio (evita che un punto copra un nome)
+    const posati = [];
+    ordine.forEach((p) => {
+      const cx = X(p.x) + (p.j || 0), cy = Y(p.y), ita = isIta(p.a), sel = p.a.id === stato.sel;
+      p.cx = cx; p.cy = cy;
+      s.append(sv("circle", { class: "punto" + (ita ? " ita" : "") + (sel ? " sel" : ""), cx, cy, r: sel ? 7 : 5.5 }));
+      const hit = sv("circle", { class: "bersaglio", cx, cy, r: 11 }); aggancia(hit, p.a); s.append(hit);
+    });
+    // riquadri già occupati: le etichette dei quadranti
+    const occupati = [[m.l, m.t - 22, W - m.r, m.t - 4], ...angoliOcc];
+    const sovrappone = (b) => occupati.some((o) => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
+    const daEtichettare = ordine.filter((p) => p.etich || isIta(p.a) || p.a.id === stato.sel).reverse();
+    daEtichettare.forEach((p) => {
+      const txt = cognome(p.a.nome), w = txt.length * 8.4 + 6, h = 15;
+      const prove = [[p.cx + 9, p.cy + 4, "start"], [p.cx - 9, p.cy + 4, "end"], [p.cx, p.cy - 11, "middle"], [p.cx, p.cy + 19, "middle"]];
+      for (const [x, y, an] of prove) {
+        const x0 = an === "start" ? x : an === "end" ? x - w : x - w / 2, b = [x0, y - 11, x0 + w, y - 11 + h];
+        if (b[0] < m.l || b[2] > W - m.r + 4 || b[1] < m.t - 2 || b[3] > H - m.b) continue;
+        if (sovrappone(b)) continue;
+        occupati.push(b);
+        s.append(sv("text", { x, y, class: "nome alone", "text-anchor": an, "pointer-events": "none" }, txt));
+        break;
+      }
+    });
+    box.append(s);
+  }
+  const tickLin = (a, b, n = 5) => { const step = Math.pow(10, Math.floor(Math.log10((b - a) / n || 1))); const k = [1, 2, 5, 10].map((f) => f * step).find((f) => (b - a) / f <= n) || step * 10; const t = []; for (let v = Math.ceil(a / k) * k; v <= b + 1e-9; v += k) t.push(+v.toFixed(6)); return t; };
+
+  function disegna() {
+    filtri();
+    const lista = perCat(stato.genere, stato.cat), etiq = `${stato.genere === "U" ? "Uomini" : "Donne"} ${stato.cat}`;
+    // leader
+    const L = $("leader"); L.innerHTML = "";
+    if (lista.length) {
+      const a = lista[0], b = lista[1];
+      L.append(el("p", "etichetta", `N° 1 · ${etiq}`), el("h2", null, `${a.flag} ${a.nome}`));
+      const g = el("div", "grande", fmt(a.won, 2)); g.append(el("small", null, "punti WON")); L.append(g);
+      if (b) L.append(el("p", null, `${fmt((a.won / b.won - 1) * 100, 0)}% di vantaggio su ${pulito(b.nome)} (${b.noc}). ${a.won / b.won > 1.25 ? "Categoria con un dominatore." : a.won / b.won > 1.08 ? "Leader con un margine discreto." : "Vetta apertissima."}`));
+      const bd = el("div", "badge"); bd.append(el("span", "chip", `${a.gare} tornei`), el("span", "chip", `🥇${a.ori} 🥈${a.arg} 🥉${a.bro}`), el("span", "chip", `field ${a.field ?? "—"}`));
+      if (a.q) bd.append(el("span", "chip q", "Q LA28")); L.append(bd);
+      const v = el("button", "altri", "Vedi i tornei"); v.onclick = () => scheda(a); L.append(v);
+    }
+    // barre top 10
+    barre($("g-barre"), lista.slice(0, 10).map((a, i) => ({ v: a.won, etichetta: `${i + 1}. ${a.flag} ${cognome(a.nome)}`, testo: fmt(a.won, 1), cls: (isIta(a) ? "ita" : i === 0 ? "capo" : "") + (a.id === stato.sel ? " sel" : ""), a })), { aria: "Top 10 per punti WON" });
+    // quadrante
+    const conGare = lista.filter((a) => a.gare > 0);
+    const top5 = new Set(lista.slice(0, 5).map((a) => a.id));
+    const contatore = {};
+    dispersione($("g-quadrante"), conGare.map((a) => { const k = a.gare + "|" + Math.round(a.won / a.gare); contatore[k] = (contatore[k] || 0) + 1; return { a, x: a.gare, y: a.won / a.gare, j: (contatore[k] - 1) * 5, etich: top5.has(a.id) }; }), {
+      aria: "Quadrante tornei disputati contro punti per torneo",
+      xDom: (v) => [0, Math.max(...v) + 1], yDom: (v) => [0, Math.max(...v) * 1.08], xT: (v) => v, yT: (v) => v,
+      xTicks: (a, b) => tickLin(a, b, 6).filter((t) => Number.isInteger(t)), yTicks: (a, b) => tickLin(a, b, 5),
+      xL: "Tornei disputati", yL: "WON per torneo", angoli: ["Pochi tornei, molto efficienti", "Forti e costanti", "Outsider", "Accumulatori di tornei"]
+    });
+    // field
+    const conField = lista.filter((a) => a.field && a.piazz);
+    const LOG = (v) => Math.log2(v);
+    dispersione($("g-field"), conField.map((a) => ({ a, x: a.field, y: a.piazz, etich: top5.has(a.id) })), {
+      aria: "Forza media del field contro piazzamento medio",
+      xDom: (v) => [Math.floor(Math.min(...v) / 50) * 50, Math.ceil(Math.max(...v) / 50) * 50], yDom: () => [1, 33], xT: (v) => v, yT: LOG, yInv: true,
+      xTicks: (a, b) => tickLin(a, b, 5), yTicks: () => [1, 2, 3, 5, 9, 17, 33], yF: (v) => v + "°",
+      xL: "Rating medio dei tornei disputati", yL: "Piazzamento medio", angoli: ["Vince nei tornei minori", "Vince nei tornei forti", "Fatica nei tornei minori", "Fatica nei tornei forti"]
+    });
+    // classifica
+    $("titolo-classifica").textContent = `Classifica WON · ${etiq}`;
+    const T = $("classifica"); T.innerHTML = "<thead><tr><th>#</th><th>Atleta</th><th>NOC</th><th class='num'>WON</th><th class='num'>Tornei</th><th class='num'>🥇🥈🥉</th><th class='num'>Field medio</th><th class='num'>Età</th><th>LA28</th></tr></thead>";
+    const tb = el("tbody"), n = stato.tutti ? lista.length : Math.min(20, lista.length);
+    lista.slice(0, n).forEach((a, i) => {
+      const tr = el("tr", (isIta(a) ? "ita " : "") + (a.id === stato.sel ? "sel" : ""));
+      const c = [[i + 1, "pos"], [null], [`${a.flag} ${a.noc}`], [fmt(a.won, 2), "num"], [a.gare, "num"], [`${a.ori}·${a.arg}·${a.bro}`, "num"], [a.field ?? "—", "num"], [a.eta ?? "—", "num"], [a.q ? "Q" : ""]];
+      c.forEach(([v, cls], k) => { const td = el("td", cls); if (k === 1) td.append(el("b", null, a.nome)); else td.textContent = v; tr.append(td); });
+      tr.onclick = () => scheda(a); tb.append(tr);
+    });
+    T.append(tb);
+    $("altri").style.display = lista.length > 20 ? "" : "none";
+    $("altri").textContent = stato.tutti ? "Mostra solo i primi 20" : `Mostra tutti i ${lista.length}`;
+    $("altri").onclick = () => { stato.tutti = !stato.tutti; disegna(); };
+    // nazioni (per genere)
+    const nz = {};
+    A.filter((a) => a.genere === stato.genere).forEach((a) => { const k = a.noc; (nz[k] ||= { noc: k, flag: a.flag, won: 0, n: 0 }); nz[k].won += a.won; nz[k].n++; });
+    const topN = Object.values(nz).sort((x, y) => y.won - x.won).slice(0, 15);
+    $("sotto-noc").textContent = `Somma dei punti WON dei judoka di ogni NOC · ${stato.genere === "U" ? "Uomini" : "Donne"}, primi 15.`;
+    barre($("g-noc"), topN.map((x) => ({ v: x.won, etichetta: `${x.flag} ${x.noc}`, testo: fmt(x.won, 0), cls: x.noc === "ITA" ? "ita" : "", tip: `<b>${x.flag} ${x.noc}</b><span>${x.n} judoka · WON ${fmt(x.won, 1)}</span>` })), { aria: "Somma WON per nazione", etichetta: 90 });
+    // Italia
+    const I = $("italia"); I.innerHTML = "";
+    [...ORD.U.map((c) => ["U", c]), ...ORD.D.map((c) => ["D", c])].forEach(([g, c]) => {
+      const l = perCat(g, c), a = l.find(isIta); if (!a) return;
+      const card = el("div", "card-ita"), p = el("div", "pos", l.indexOf(a) + 1 + "°"); p.append(el("small", null, `su ${l.length}`));
+      card.append(p, el("b", null, pulito(a.nome)), el("small", null, `${g === "U" ? "Uomini" : "Donne"} ${c} · WON ${fmt(a.won, 1)}`));
+      card.onclick = () => { stato.genere = g; stato.cat = c; stato.sel = a.id; disegna(); window.scrollTo({ top: 0, behavior: "smooth" }); };
+      I.append(card);
+    });
+    $("nota").textContent = `Indice WON calcolato con le formule dei db Risultati A e B: rating del torneo (🏟️) × peso del piazzamento (dal 18% per l'oro all'1% oltre il 16° posto) × prestigio (Mondiali 1,5; continentali 1,25; Risultati B 0,55) × peso dell'anno (2025: 0,4; 2026: 0,6; 2027: 0,8; 2028: 1). Solo categoria senior. Tornei considerati: ${dati.eventi.join(", ")}.`;
+  }
+
+  disegna();
+  let t; addEventListener("resize", () => { clearTimeout(t); t = setTimeout(disegna, 150); });
+})();
+</script>
+</body>
+</html>

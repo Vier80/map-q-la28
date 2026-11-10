@@ -162,13 +162,13 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   <section class="pannelli">
     <div class="pannello">
       <h3>Quadrante della performance</h3>
-      <p class="sotto">Tornei disputati (asse orizzontale) contro punti WON per torneo (asse verticale). Le linee tratteggiate sono le mediane della categoria.</p>
+      <p class="sotto">Quante volte l'atleta è entrato nei primi 5 (asse orizzontale) contro quanto pesa in media ognuno di quei risultati in punti WON (asse verticale). Le linee tratteggiate sono le mediane della categoria.</p>
       <div class="legenda"><span><i class="l-dati"></i>Atleti</span><span><i class="l-ita"></i>Italia</span></div>
       <div id="g-quadrante"></div>
     </div>
     <div class="pannello">
       <h3>Qualità del field</h3>
-      <p class="sotto">Forza media dei tornei disputati (🏟️ Rating) contro piazzamento medio. In alto a destra chi fa risultato nei tornei più forti.</p>
+      <p class="sotto">Solo i piazzamenti tra i primi 5: forza media di quei tornei (🏟️ Rating) contro piazzamento medio. In alto a destra chi vince nei tornei più forti.</p>
       <div class="legenda"><span><i class="l-dati"></i>Atleti</span><span><i class="l-ita"></i>Italia</span></div>
       <div id="g-field"></div>
     </div>
@@ -217,6 +217,17 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   if (!dati || !dati.atleti) { $("nota").textContent = "Dati non ancora disponibili: lancia «Aggiorna mappa LA28» da GitHub Actions."; return; }
 
   const A = dati.atleti;
+  // Nel db sono registrati di norma solo i primi 5 di ogni categoria (tutti i turni solo ai Mondiali):
+  // per confrontare gli atleti sulla stessa base, quadrante e field usano solo i piazzamenti tra i primi 5.
+  const TRAD = { SF: 3, QF: 5, R16: 9, R32: 17, R64: 33, R128: 65 };
+  const posto = (r) => { const t = (r || "").trim(); const n = TRAD[t] ?? parseFloat(t); return Number.isFinite(n) ? n : null; };
+  A.forEach((a) => {
+    const el = a.storia.filter((s) => { const p = posto(s[2]); return p && p <= 5; });
+    const rat = el.map((s) => s[3]).filter(Boolean);
+    a.el = { n: el.length, won: el.reduce((t, s) => t + s[4], 0),
+      field: rat.length ? Math.round(rat.reduce((t, v) => t + v, 0) / rat.length) : null,
+      piazz: el.length ? el.reduce((t, s) => t + posto(s[2]), 0) / el.length : null };
+  });
   const ORD = { U: ["-60 kg", "-66 kg", "-73 kg", "-81 kg", "-90 kg", "-100 kg", "+100 kg"], D: ["-48 kg", "-52 kg", "-57 kg", "-63 kg", "-70 kg", "-78 kg", "+78 kg"] };
   const stato = { genere: "U", cat: "-90 kg", sel: null, tutti: false };
   const perCat = (g, c) => A.filter((a) => a.genere === g && a.cat === c).sort((x, y) => y.won - x.won);
@@ -234,7 +245,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   function mostra(ev, a) {
     tip.innerHTML = "";
     tip.append(el("b", null, `${a.flag} ${pulito(a.nome)}`), el("span", null, `${a.noc} · ${a.genere === "U" ? "Uomini" : "Donne"} ${a.cat}`));
-    const r = el("div"); r.innerHTML = `WON <b style="display:inline">${fmt(a.won, 2)}</b> · ${a.gare} tornei<br>Field medio ${a.field ?? "—"} · piazz. medio ${fmt(a.piazz)}<br>🥇${a.ori} 🥈${a.arg} 🥉${a.bro}`;
+    const r = el("div"); r.innerHTML = `WON <b style="display:inline">${fmt(a.won, 2)}</b> · ${a.gare} risultati registrati<br>Top 5: ${a.el.n} · field medio ${a.el.field ?? "—"}<br>🥇${a.ori} 🥈${a.arg} 🥉${a.bro}`;
     tip.append(r); tip.style.opacity = 1; sposta(ev);
   }
   function sposta(ev) { const x = Math.min(ev.clientX + 14, innerWidth - 270), y = Math.min(ev.clientY + 14, innerHeight - 130); tip.style.left = x + "px"; tip.style.top = y + "px"; }
@@ -247,7 +258,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
     const ch = el("button", "chiudi", "Chiudi"); ch.onclick = () => dlg.close();
     const lista = perCat(a.genere, a.cat), pos = lista.indexOf(a) + 1;
     dlg.append(ch, el("p", "etichetta", `${a.genere === "U" ? "Uomini" : "Donne"} ${a.cat} · ${pos}° su ${lista.length}`), el("h3", null, `${a.flag} ${a.nome}`));
-    const info = el("p", "nota"); info.textContent = `WON ${fmt(a.won, 2)} · ${a.gare} tornei · field medio ${a.field ?? "—"}${a.eta ? " · " + a.eta + " anni" : ""}${a.q ? " · Q LA28" : ""}`; dlg.append(info);
+    const info = el("p", "nota"); info.textContent = `WON ${fmt(a.won, 2)} · ${a.gare} risultati registrati · field medio ${a.field ?? "—"}${a.eta ? " · " + a.eta + " anni" : ""}${a.q ? " · Q LA28" : ""}`; dlg.append(info);
     const t = el("table"); t.innerHTML = "<thead><tr><th>Torneo</th><th>Anno</th><th>Ris.</th><th class='num'>Rating</th><th class='num'>WON</th></tr></thead>";
     const tb = el("tbody");
     [...a.storia].sort((x, y) => y[4] - x[4]).forEach(([ev, anno, ris, rat, w]) => { const tr = el("tr"); [ev, anno, ris, rat ?? "—", fmt(w, 2)].forEach((v, i) => { const td = el("td", i > 2 ? "num" : null, v); tr.append(td); }); tb.append(tr); });
@@ -363,34 +374,33 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       L.append(el("p", "etichetta", `N° 1 · ${etiq}`), el("h2", null, `${a.flag} ${a.nome}`));
       const g = el("div", "grande", fmt(a.won, 2)); g.append(el("small", null, "punti WON")); L.append(g);
       if (b) L.append(el("p", null, `${fmt((a.won / b.won - 1) * 100, 0)}% di vantaggio su ${pulito(b.nome)} (${b.noc}). ${a.won / b.won > 1.25 ? "Categoria con un dominatore." : a.won / b.won > 1.08 ? "Leader con un margine discreto." : "Vetta apertissima."}`));
-      const bd = el("div", "badge"); bd.append(el("span", "chip", `${a.gare} tornei`), el("span", "chip", `🥇${a.ori} 🥈${a.arg} 🥉${a.bro}`), el("span", "chip", `field ${a.field ?? "—"}`));
+      const bd = el("div", "badge"); bd.append(el("span", "chip", `${a.gare} risultati`), el("span", "chip", `🥇${a.ori} 🥈${a.arg} 🥉${a.bro}`), el("span", "chip", `field ${a.field ?? "—"}`));
       if (a.q) bd.append(el("span", "chip q", "Q LA28")); L.append(bd);
       const v = el("button", "altri", "Vedi i tornei"); v.onclick = () => scheda(a); L.append(v);
     }
     // barre top 10
     barre($("g-barre"), lista.slice(0, 10).map((a, i) => ({ v: a.won, etichetta: `${i + 1}. ${a.flag} ${cognome(a.nome)}`, testo: fmt(a.won, 1), cls: (isIta(a) ? "ita" : i === 0 ? "capo" : "") + (a.id === stato.sel ? " sel" : ""), a })), { aria: "Top 10 per punti WON" });
     // quadrante
-    const conGare = lista.filter((a) => a.gare > 0);
+    const conGare = lista.filter((a) => a.el.n > 0);
     const top5 = new Set(lista.slice(0, 5).map((a) => a.id));
     const contatore = {};
-    dispersione($("g-quadrante"), conGare.map((a) => { const k = a.gare + "|" + Math.round(a.won / a.gare); contatore[k] = (contatore[k] || 0) + 1; return { a, x: a.gare, y: a.won / a.gare, j: (contatore[k] - 1) * 5, etich: top5.has(a.id) }; }), {
-      aria: "Quadrante tornei disputati contro punti per torneo",
+    dispersione($("g-quadrante"), conGare.map((a) => { const y = a.el.won / a.el.n, k = a.el.n + "|" + Math.round(y); contatore[k] = (contatore[k] || 0) + 1; return { a, x: a.el.n, y, j: (contatore[k] - 1) * 5, etich: top5.has(a.id) }; }), {
+      aria: "Quadrante risultati da top 5 contro punti WON medi per risultato",
       xDom: (v) => [0, Math.max(...v) + 1], yDom: (v) => [0, Math.max(...v) * 1.08], xT: (v) => v, yT: (v) => v,
       xTicks: (a, b) => tickLin(a, b, 6).filter((t) => Number.isInteger(t)), yTicks: (a, b) => tickLin(a, b, 5),
-      xL: "Tornei disputati", yL: "WON per torneo", angoli: ["Pochi tornei, molto efficienti", "Forti e costanti", "Outsider", "Accumulatori di tornei"]
+      xL: "Risultati da top 5", yL: "WON medio per risultato", angoli: ["Pochi risultati, molto pesanti", "Sempre in élite", "Emergenti", "Costanti nei tornei minori"]
     });
     // field
-    const conField = lista.filter((a) => a.field && a.piazz);
-    const LOG = (v) => Math.log2(v);
-    dispersione($("g-field"), conField.map((a) => ({ a, x: a.field, y: a.piazz, etich: top5.has(a.id) })), {
+    const conField = lista.filter((a) => a.el.field && a.el.piazz);
+    dispersione($("g-field"), conField.map((a) => ({ a, x: a.el.field, y: a.el.piazz, etich: top5.has(a.id) })), {
       aria: "Forza media del field contro piazzamento medio",
-      xDom: (v) => [Math.floor(Math.min(...v) / 50) * 50, Math.ceil(Math.max(...v) / 50) * 50], yDom: () => [1, 33], xT: (v) => v, yT: LOG, yInv: true,
-      xTicks: (a, b) => tickLin(a, b, 5), yTicks: () => [1, 2, 3, 5, 9, 17, 33], yF: (v) => v + "°",
-      xL: "Rating medio dei tornei disputati", yL: "Piazzamento medio", angoli: ["Vince nei tornei minori", "Vince nei tornei forti", "Fatica nei tornei minori", "Fatica nei tornei forti"]
+      xDom: (v) => [Math.floor(Math.min(...v) / 50) * 50, Math.ceil(Math.max(...v) / 50) * 50], yDom: () => [0.6, 5.6], xT: (v) => v, yT: (v) => v, yInv: true,
+      xTicks: (a, b) => tickLin(a, b, 5), yTicks: () => [1, 2, 3, 4, 5], yF: (v) => v + "°",
+      xL: "Rating medio dei tornei con piazzamento top 5", yL: "Piazzamento medio (top 5)", angoli: ["Vince nei tornei minori", "Vince nei tornei forti", "Podio nei tornei minori", "Podio nei tornei forti"]
     });
     // classifica
     $("titolo-classifica").textContent = `Classifica WON · ${etiq}`;
-    const T = $("classifica"); T.innerHTML = "<thead><tr><th>#</th><th>Atleta</th><th>NOC</th><th class='num'>WON</th><th class='num'>Tornei</th><th class='num'>🥇🥈🥉</th><th class='num'>Field medio</th><th class='num'>Età</th><th>LA28</th></tr></thead>";
+    const T = $("classifica"); T.innerHTML = "<thead><tr><th>#</th><th>Atleta</th><th>NOC</th><th class='num'>WON</th><th class='num'>Risultati</th><th class='num'>🥇🥈🥉</th><th class='num'>Field medio</th><th class='num'>Età</th><th>LA28</th></tr></thead>";
     const tb = el("tbody"), n = stato.tutti ? lista.length : Math.min(20, lista.length);
     lista.slice(0, n).forEach((a, i) => {
       const tr = el("tr", (isIta(a) ? "ita " : "") + (a.id === stato.sel ? "sel" : ""));
@@ -417,7 +427,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       card.onclick = () => { stato.genere = g; stato.cat = c; stato.sel = a.id; disegna(); window.scrollTo({ top: 0, behavior: "smooth" }); };
       I.append(card);
     });
-    $("nota").textContent = `Indice WON calcolato con le formule dei db Risultati A e B: rating del torneo (🏟️) × peso del piazzamento (dal 18% per l'oro all'1% oltre il 16° posto) × prestigio (Mondiali 1,5; continentali 1,25; Risultati B 0,55) × peso dell'anno (2025: 0,4; 2026: 0,6; 2027: 0,8; 2028: 1). Solo categoria senior. Tornei considerati: ${dati.eventi.join(", ")}.`;
+    $("nota").textContent = `Indice WON calcolato con le formule dei db Risultati A e B: rating del torneo (🏟️) × peso del piazzamento (dal 18% per l'oro all'1% oltre il 16° posto) × prestigio (Mondiali 1,5; continentali 1,25; Risultati B 0,55) × peso dell'anno (2025: 0,4; 2026: 0,6; 2027: 0,8; 2028: 1). Solo categoria senior. Nel database sono registrati di norma i primi 5 di ogni categoria (tutti i turni solo ai Mondiali): per questo il quadrante e la qualità del field usano solo i piazzamenti tra i primi 5, così ogni atleta è confrontato sulla stessa base. Tornei considerati: ${dati.eventi.join(", ")}.`;
   }
 
   disegna();

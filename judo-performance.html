@@ -111,7 +111,11 @@ dialog td, dialog th { padding: 6px 6px; border-bottom: 1px solid var(--line); t
 dialog .num { text-align: right }
 dialog .chiudi { float: right; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer }
 .nota { color: var(--muted); font-size: .86rem; line-height: 1.55 }
-.firma { text-align: right; font-size: .78rem; letter-spacing: .08em; color: var(--muted) }
+.firma { display: flex; justify-content: flex-end; align-items: center; gap: 10px; font-size: .78rem; letter-spacing: .08em; color: var(--muted) }
+.firma img { height: 36px; width: auto; display: block }
+.firma .logo-scuro { display: none }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .firma .logo-chiaro { display: none } :root:not([data-theme="light"]) .firma .logo-scuro { display: block } }
+:root[data-theme="dark"] .firma .logo-chiaro { display: none } :root[data-theme="dark"] .firma .logo-scuro { display: block }
 
 @media (max-width: 900px) {
   .fascia, .pannelli { grid-template-columns: minmax(0, 1fr) }
@@ -191,7 +195,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   </section>
 
   <p class="nota" id="nota"></p>
-  <p class="firma">VIERSTATICS powered by CLAUDE</p>
+  <p class="firma"><img class="logo-chiaro" src="vierstatics-logo.png" alt="VIERSTATICS"><img class="logo-scuro" src="vierstatics-logo-scuro.png" alt="VIERSTATICS"><span>powered by CLAUDE</span></p>
 </div>
 <div id="tip" role="tooltip"></div>
 <dialog id="scheda"></dialog>

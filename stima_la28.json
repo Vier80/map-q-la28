@@ -1,11 +1,11 @@
 {
- "aggiornato": "2026-11-11 05:45 UTC",
+ "aggiornato": "2026-11-11 13:59 UTC",
  "totali": {
-  "Certo": 3,
+  "Certo": 4,
   "Probabile": 84,
-  "Possibile": 180,
+  "Possibile": 179,
   "Remoto": 183,
-  "Fuori": 366,
+  "Fuori": 368,
   "Dati insufficienti": 29
  },
  "sport": [
@@ -42,9 +42,9 @@
   {
    "nome": "Athletics",
    "n": 121,
-   "Certo": 0,
+   "Certo": 1,
    "Probabile": 2,
-   "Possibile": 42,
+   "Possibile": 41,
    "Remoto": 59,
    "Fuori": 10,
    "Dati insufficienti": 8
@@ -241,12 +241,12 @@
   },
   {
    "nome": "Open Water Swimming",
-   "n": 11,
+   "n": 12,
    "Certo": 0,
    "Probabile": 3,
    "Possibile": 1,
    "Remoto": 0,
-   "Fuori": 6,
+   "Fuori": 7,
    "Dati insufficienti": 1
   },
   {
@@ -301,12 +301,12 @@
   },
   {
    "nome": "Shooting",
-   "n": 50,
+   "n": 51,
    "Certo": 0,
    "Probabile": 6,
    "Possibile": 10,
    "Remoto": 10,
-   "Fuori": 22,
+   "Fuori": 23,
    "Dati insufficienti": 2
   },
   {
@@ -473,6 +473,844 @@
   "Atletica: quote e standard sono provvisori fino a dicembre 2026. E' una stima euristica per orientarsi, non un calcolo ufficiale: i regolamenti completi sono sul sito del CIO."
  ],
  "note": [],
+ "quote": {
+  "livelli": [
+   "Certo",
+   "Probabile",
+   "Possibile",
+   "Remoto"
+  ],
+  "sport": [
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 6,
+    "Remoto": 2,
+    "Totale": 8,
+    "nome": "Archery",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 3,
+      "Remoto": 1,
+      "Totale": 4
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 3,
+      "Remoto": 1,
+      "Totale": 4
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 7,
+    "Possibile": 3,
+    "Remoto": 0,
+    "Totale": 10,
+    "nome": "Artistic Gymnastics",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 2,
+      "Possibile": 3,
+      "Remoto": 0,
+      "Totale": 5
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 5,
+      "Possibile": 0,
+      "Remoto": 0,
+      "Totale": 5
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 8,
+    "Possibile": 0,
+    "Remoto": 0,
+    "Totale": 8,
+    "nome": "Artistic Swimming",
+    "genere": {
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 8,
+      "Possibile": 0,
+      "Remoto": 0,
+      "Totale": 8
+     }
+    }
+   },
+   {
+    "Certo": 1,
+    "Probabile": 2,
+    "Possibile": 36,
+    "Remoto": 58,
+    "Totale": 97,
+    "nome": "Athletics",
+    "genere": {
+     "Uomini": {
+      "Certo": 1,
+      "Probabile": 1,
+      "Possibile": 20,
+      "Remoto": 28,
+      "Totale": 50
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 1,
+      "Possibile": 16,
+      "Remoto": 30,
+      "Totale": 47
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 0,
+    "Remoto": 6,
+    "Totale": 6,
+    "nome": "Badminton",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 0,
+      "Remoto": 2,
+      "Totale": 2
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 0,
+      "Remoto": 4,
+      "Totale": 4
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 24,
+    "Remoto": 0,
+    "Totale": 24,
+    "nome": "Baseball",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 24,
+      "Remoto": 0,
+      "Totale": 24
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 0,
+    "Remoto": 12,
+    "Totale": 12,
+    "nome": "Basketball",
+    "genere": {
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 0,
+      "Remoto": 12,
+      "Totale": 12
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 6,
+    "Possibile": 0,
+    "Remoto": 2,
+    "Totale": 8,
+    "nome": "Beach Volleyball",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 2,
+      "Possibile": 0,
+      "Remoto": 2,
+      "Totale": 4
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 4,
+      "Possibile": 0,
+      "Remoto": 0,
+      "Totale": 4
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 1,
+    "Possibile": 1,
+    "Remoto": 2,
+    "Totale": 4,
+    "nome": "Boxing",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 1,
+      "Remoto": 1,
+      "Totale": 2
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 1,
+      "Possibile": 0,
+      "Remoto": 1,
+      "Totale": 2
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 9,
+    "Possibile": 3,
+    "Remoto": 1,
+    "Totale": 13,
+    "nome": "Canoeing",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 6,
+      "Possibile": 2,
+      "Remoto": 0,
+      "Totale": 8
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 3,
+      "Possibile": 1,
+      "Remoto": 1,
+      "Totale": 5
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 11,
+    "Possibile": 0,
+    "Remoto": 5,
+    "Totale": 16,
+    "nome": "Cycling",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 6,
+      "Possibile": 0,
+      "Remoto": 3,
+      "Totale": 9
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 5,
+      "Possibile": 0,
+      "Remoto": 2,
+      "Totale": 7
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 5,
+    "Possibile": 3,
+    "Remoto": 3,
+    "Totale": 11,
+    "nome": "Diving",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 2,
+      "Possibile": 3,
+      "Remoto": 3,
+      "Totale": 8
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 3,
+      "Possibile": 0,
+      "Remoto": 0,
+      "Totale": 3
+     }
+    }
+   },
+   {
+    "Certo": 3,
+    "Probabile": 0,
+    "Possibile": 3,
+    "Remoto": 1,
+    "Totale": 7,
+    "nome": "Equestrian",
+    "genere": {
+     "Misto": {
+      "Certo": 3,
+      "Probabile": 0,
+      "Possibile": 3,
+      "Remoto": 1,
+      "Totale": 7
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 11,
+    "Possibile": 7,
+    "Remoto": 0,
+    "Totale": 18,
+    "nome": "Fencing",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 4,
+      "Possibile": 5,
+      "Remoto": 0,
+      "Totale": 9
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 7,
+      "Possibile": 2,
+      "Remoto": 0,
+      "Totale": 9
+     }
+    }
+   },
+   {
+    "Certo": 10,
+    "Probabile": 0,
+    "Possibile": 0,
+    "Remoto": 0,
+    "Totale": 10,
+    "nome": "Flag Football",
+    "genere": {
+     "Uomini": {
+      "Certo": 10,
+      "Probabile": 0,
+      "Possibile": 0,
+      "Remoto": 0,
+      "Totale": 10
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 0,
+    "Remoto": 7,
+    "Totale": 7,
+    "nome": "Golf",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 0,
+      "Remoto": 3,
+      "Totale": 3
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 0,
+      "Remoto": 4,
+      "Totale": 4
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 9,
+    "Possibile": 3,
+    "Remoto": 0,
+    "Totale": 12,
+    "nome": "Judo",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 4,
+      "Possibile": 2,
+      "Remoto": 0,
+      "Totale": 6
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 5,
+      "Possibile": 1,
+      "Remoto": 0,
+      "Totale": 6
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 3,
+    "Remoto": 1,
+    "Totale": 4,
+    "nome": "Modern Pentathlon",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 2,
+      "Remoto": 0,
+      "Totale": 2
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 1,
+      "Remoto": 1,
+      "Totale": 2
+     }
+    }
+   },
+   {
+    "Certo": 1,
+    "Probabile": 0,
+    "Possibile": 6,
+    "Remoto": 0,
+    "Totale": 7,
+    "nome": "Rhythmic Gymnastics",
+    "genere": {
+     "Donne": {
+      "Certo": 1,
+      "Probabile": 0,
+      "Possibile": 6,
+      "Remoto": 0,
+      "Totale": 7
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 8,
+    "Possibile": 14,
+    "Remoto": 20,
+    "Totale": 42,
+    "nome": "Rowing",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 6,
+      "Possibile": 11,
+      "Remoto": 6,
+      "Totale": 23
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 2,
+      "Possibile": 3,
+      "Remoto": 14,
+      "Totale": 19
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 10,
+    "Remoto": 4,
+    "Totale": 14,
+    "nome": "Sailing",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 5,
+      "Remoto": 2,
+      "Totale": 7
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 5,
+      "Remoto": 2,
+      "Totale": 7
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 7,
+    "Possibile": 10,
+    "Remoto": 7,
+    "Totale": 24,
+    "nome": "Shooting",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 3,
+      "Possibile": 6,
+      "Remoto": 3,
+      "Totale": 12
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 4,
+      "Possibile": 4,
+      "Remoto": 4,
+      "Totale": 12
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 2,
+    "Possibile": 1,
+    "Remoto": 2,
+    "Totale": 5,
+    "nome": "Skateboarding",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 2,
+      "Possibile": 1,
+      "Remoto": 2,
+      "Totale": 5
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 15,
+    "Remoto": 0,
+    "Totale": 15,
+    "nome": "Softball",
+    "genere": {
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 15,
+      "Remoto": 0,
+      "Totale": 15
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 3,
+    "Remoto": 5,
+    "Totale": 8,
+    "nome": "Sport Climbing",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 2,
+      "Remoto": 2,
+      "Totale": 4
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 1,
+      "Remoto": 3,
+      "Totale": 4
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 1,
+    "Remoto": 0,
+    "Totale": 1,
+    "nome": "Surfing",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 1,
+      "Remoto": 0,
+      "Totale": 1
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 3,
+    "Possibile": 22,
+    "Remoto": 16,
+    "Totale": 41,
+    "nome": "Swimming",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 2,
+      "Possibile": 13,
+      "Remoto": 5,
+      "Totale": 20
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 1,
+      "Possibile": 9,
+      "Remoto": 11,
+      "Totale": 21
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 3,
+    "Remoto": 3,
+    "Totale": 6,
+    "nome": "Table Tennis",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 0,
+      "Remoto": 3,
+      "Totale": 3
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 3,
+      "Remoto": 0,
+      "Totale": 3
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 1,
+    "Possibile": 0,
+    "Remoto": 0,
+    "Totale": 1,
+    "nome": "Taekwondo",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 1,
+      "Possibile": 0,
+      "Remoto": 0,
+      "Totale": 1
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 9,
+    "Possibile": 0,
+    "Remoto": 0,
+    "Totale": 9,
+    "nome": "Tennis",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 6,
+      "Possibile": 0,
+      "Remoto": 0,
+      "Totale": 6
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 3,
+      "Possibile": 0,
+      "Remoto": 0,
+      "Totale": 3
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 1,
+    "Remoto": 1,
+    "Totale": 2,
+    "nome": "Trampoline",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 0,
+      "Remoto": 1,
+      "Totale": 1
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 1,
+      "Remoto": 0,
+      "Totale": 1
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 2,
+    "Remoto": 1,
+    "Totale": 3,
+    "nome": "Triathlon",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 1,
+      "Remoto": 1,
+      "Totale": 2
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 1,
+      "Remoto": 0,
+      "Totale": 1
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 24,
+    "Possibile": 0,
+    "Remoto": 0,
+    "Totale": 24,
+    "nome": "Volleyball",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 12,
+      "Possibile": 0,
+      "Remoto": 0,
+      "Totale": 12
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 12,
+      "Possibile": 0,
+      "Remoto": 0,
+      "Totale": 12
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 22,
+    "Remoto": 0,
+    "Totale": 22,
+    "nome": "Water Polo",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 11,
+      "Remoto": 0,
+      "Totale": 11
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 11,
+      "Remoto": 0,
+      "Totale": 11
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 3,
+    "Remoto": 3,
+    "Totale": 6,
+    "nome": "Weightlifting",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 0,
+      "Remoto": 3,
+      "Totale": 3
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 3,
+      "Remoto": 0,
+      "Totale": 3
+     }
+    }
+   },
+   {
+    "Certo": 0,
+    "Probabile": 0,
+    "Possibile": 4,
+    "Remoto": 4,
+    "Totale": 8,
+    "nome": "Wrestling",
+    "genere": {
+     "Uomini": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 1,
+      "Remoto": 3,
+      "Totale": 4
+     },
+     "Donne": {
+      "Certo": 0,
+      "Probabile": 0,
+      "Possibile": 3,
+      "Remoto": 1,
+      "Totale": 4
+     }
+    }
+   }
+  ],
+  "totale": {
+   "Certo": 15,
+   "Probabile": 123,
+   "Possibile": 209,
+   "Remoto": 166,
+   "Totale": 513,
+   "genere": {
+    "Uomini": {
+     "Certo": 11,
+     "Probabile": 59,
+     "Possibile": 117,
+     "Remoto": 74,
+     "Totale": 261
+    },
+    "Donne": {
+     "Certo": 1,
+     "Probabile": 64,
+     "Possibile": 89,
+     "Remoto": 91,
+     "Totale": 245
+    },
+    "Misto": {
+     "Certo": 3,
+     "Probabile": 0,
+     "Possibile": 3,
+     "Remoto": 1,
+     "Totale": 7
+    }
+   }
+  },
+  "avvisi": [
+   "[DA VERIFICARE] Cycling: le righe della simulazione sono per nazione, senza nomi: sprint/keirin, MTB e BMX valgono 1 atleta per riga; la strada non ha righe nella Stima."
+  ],
+  "metodo": "Si contano i posti-atleta, non le righe: un atleta conta una volta sola per sport, al suo livello migliore (anche se e' stimato in piu' prove o discipline dello stesso sport). Una squadra vale i suoi componenti (la rosa olimpica negli sport di squadra); se una squadra si qualifica, i suoi componenti coprono anche le prove individuali e non si sommano. Le prove miste valgono meta' uomini e meta' donne. Mai oltre il massimo di atleti per nazione. Fuori e Dati insufficienti non sono contati."
+ },
  "righe": [
   {
    "sport": "Archery",
@@ -1901,6 +2739,21 @@
   },
   {
    "sport": "Athletics",
+   "disciplina": "Men's 10000m",
+   "nome": "Yemaneberhan CRIPPA",
+   "tipo": "Atleta",
+   "livello": "Certo",
+   "p": 100.0,
+   "via": "Ranking da punteggi Athletes",
+   "rank": 7,
+   "margine": null,
+   "stato": "Stima da punteggi",
+   "nota": "in Athletes la colonna Pass LA28 e' Q: qualificazione acquisita",
+   "pass": "Q",
+   "fine": "2028-06-29"
+  },
+  {
+   "sport": "Athletics",
    "disciplina": "Men's 800m",
    "nome": "Francesco PERNICI",
    "tipo": "Atleta",
@@ -2166,21 +3019,6 @@
    "margine": 14,
    "stato": "Stima da punteggi",
    "nota": "PFM 1:23.49, posizione 6 su 18 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +14); 20 mesi alla fine del periodo. Nel db ci sono solo 18 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
-   "pass": "",
-   "fine": "2028-06-29"
-  },
-  {
-   "sport": "Athletics",
-   "disciplina": "Men's 10000m",
-   "nome": "Yemaneberhan CRIPPA",
-   "tipo": "Atleta",
-   "livello": "Possibile",
-   "p": 50.2,
-   "via": "Ranking da punteggi Athletes",
-   "rank": 7,
-   "margine": 13,
-   "stato": "Stima da punteggi",
-   "nota": "PFM 28:08.56, posizione 7 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +13); 20 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -5430,12 +6268,12 @@
    "nome": "Michela BATTISTON [R]",
    "tipo": "Atleta",
    "livello": "Probabile",
-   "p": 72.7,
+   "p": 70.7,
    "via": "Ranking da punteggi Athletes",
-   "rank": 15,
-   "margine": 9,
+   "rank": 16,
+   "margine": 8,
    "stato": "Stima da punteggi",
-   "nota": "99.56 FEN, posizione 15 su 44 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +9); 18 mesi alla fine del periodo.",
+   "nota": "99.56 FEN, posizione 16 su 44 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +8); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -7047,7 +7885,7 @@
   {
    "sport": "Modern Pentathlon",
    "disciplina": "Women's Modern Pentathlon",
-   "nome": "Elena MICHELI",
+   "nome": "Elena MICHELI ²ˣʷᶜ",
    "tipo": "Atleta",
    "livello": "Fuori",
    "p": 3.0,
@@ -7160,7 +7998,7 @@
    "rank": 1,
    "margine": 6,
    "stato": "Stima da punteggi",
-   "nota": "148 pt, posizione 1 su 15 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +6); 21 mesi alla fine del periodo.",
+   "nota": "154 pt, posizione 1 su 18 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +6); 21 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-07-30"
   },
@@ -7175,7 +8013,7 @@
    "rank": 3,
    "margine": 4,
    "stato": "Stima da punteggi",
-   "nota": "41.5 pt, posizione 3 su 12 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +4); 21 mesi alla fine del periodo.",
+   "nota": "43.4 pt, posizione 3 su 13 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +4); 21 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-07-30"
   },
@@ -7190,7 +8028,7 @@
    "rank": 5,
    "margine": 2,
    "stato": "Stima da punteggi",
-   "nota": "24.3 pt, posizione 5 su 12 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +2); 21 mesi alla fine del periodo.",
+   "nota": "27.9 pt, posizione 5 su 13 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +2); 21 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-07-30"
   },
@@ -7205,7 +8043,7 @@
    "rank": 6,
    "margine": 1,
    "stato": "Stima da punteggi",
-   "nota": "34.4 pt, posizione 6 su 15 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +1); 21 mesi alla fine del periodo.",
+   "nota": "34.4 pt, posizione 6 su 18 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +1); 21 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-07-30"
   },
@@ -7243,6 +8081,21 @@
    "sport": "Open Water Swimming",
    "disciplina": "Men's Open Water",
    "nome": "Domenico ACERENZA",
+   "tipo": "Atleta",
+   "livello": "Fuori",
+   "p": 3.0,
+   "via": "Ranking da punteggi Athletes",
+   "rank": null,
+   "margine": null,
+   "stato": "Stima da punteggi",
+   "nota": "oltre il limite di 2 per nazione in questa prova: passa solo se un connazionale rinuncia",
+   "pass": "",
+   "fine": "2028-07-30"
+  },
+  {
+   "sport": "Open Water Swimming",
+   "disciplina": "Men's Open Water",
+   "nome": "Fabio DALU",
    "tipo": "Atleta",
    "livello": "Fuori",
    "p": 3.0,
@@ -8531,21 +9384,6 @@
   },
   {
    "sport": "Shooting",
-   "disciplina": "Men's 50m Rifle 3 Positions",
-   "nome": "Edoardo BONAZZI",
-   "tipo": "Atleta",
-   "livello": "Remoto",
-   "p": 31.6,
-   "via": "Ranking da punteggi Athletes",
-   "rank": 26,
-   "margine": -9,
-   "stato": "Stima da punteggi",
-   "nota": "3.8 pt, posizione 26 su 33 in classifica per questa prova; posti decisi dal ranking 17 su 28 (margine -9); 18 mesi alla fine del periodo.",
-   "pass": "",
-   "fine": "2028-05-01"
-  },
-  {
-   "sport": "Shooting",
    "disciplina": "Women's 50m Rifle 3 Positions",
    "nome": "Martina ZIVIANI",
    "tipo": "Atleta",
@@ -8576,21 +9414,6 @@
   },
   {
    "sport": "Shooting",
-   "disciplina": "Men's 50m Rifle 3 Positions",
-   "nome": "Simon WEITHALER",
-   "tipo": "Atleta",
-   "livello": "Remoto",
-   "p": 29.4,
-   "via": "Ranking da punteggi Athletes",
-   "rank": 27,
-   "margine": -10,
-   "stato": "Stima da punteggi",
-   "nota": "3.2 pt, posizione 27 su 33 in classifica per questa prova; posti decisi dal ranking 17 su 28 (margine -10); 18 mesi alla fine del periodo.",
-   "pass": "",
-   "fine": "2028-05-01"
-  },
-  {
-   "sport": "Shooting",
    "disciplina": "Women's 10m Air Rifle",
    "nome": "Sofia CECCARELLO",
    "tipo": "Atleta",
@@ -8601,6 +9424,36 @@
    "margine": -10,
    "stato": "Stima da punteggi",
    "nota": "1 pt, posizione 27 su 27 in classifica per questa prova; posti decisi dal ranking 17 su 28 (margine -10); 18 mesi alla fine del periodo.",
+   "pass": "",
+   "fine": "2028-05-01"
+  },
+  {
+   "sport": "Shooting",
+   "disciplina": "Men's 50m Rifle 3 Positions",
+   "nome": "Edoardo BONAZZI",
+   "tipo": "Atleta",
+   "livello": "Remoto",
+   "p": 27.5,
+   "via": "Ranking da punteggi Athletes",
+   "rank": 28,
+   "margine": -11,
+   "stato": "Stima da punteggi",
+   "nota": "4.5 pt, posizione 28 su 34 in classifica per questa prova; posti decisi dal ranking 17 su 28 (margine -11); 18 mesi alla fine del periodo.",
+   "pass": "",
+   "fine": "2028-05-01"
+  },
+  {
+   "sport": "Shooting",
+   "disciplina": "Men's 50m Rifle 3 Positions",
+   "nome": "Simon WEITHALER",
+   "tipo": "Atleta",
+   "livello": "Remoto",
+   "p": 25.7,
+   "via": "Ranking da punteggi Athletes",
+   "rank": 29,
+   "margine": -12,
+   "stato": "Stima da punteggi",
+   "nota": "3.2 pt, posizione 29 su 34 in classifica per questa prova; posti decisi dal ranking 17 su 28 (margine -12); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-01"
   },
@@ -8952,6 +9805,21 @@
   {
    "sport": "Shooting",
    "disciplina": "Men's 10m Air Rifle",
+   "nome": "Michele BERNARDI",
+   "tipo": "Atleta",
+   "livello": "Fuori",
+   "p": 3.0,
+   "via": "Ranking da punteggi Athletes",
+   "rank": null,
+   "margine": null,
+   "stato": "Stima da punteggi",
+   "nota": "oltre il limite di 2 per nazione in questa prova: passa solo se un connazionale rinuncia",
+   "pass": "",
+   "fine": "2028-05-01"
+  },
+  {
+   "sport": "Shooting",
+   "disciplina": "Men's 50m Rifle 3 Positions",
    "nome": "Michele BERNARDI",
    "tipo": "Atleta",
    "livello": "Fuori",

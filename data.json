@@ -28,12 +28,15 @@
   },
   "Athletics": {
    "quota": 1810,
-   "atleti": 0,
-   "M": 0,
+   "atleti": 2,
+   "M": 2,
    "W": 0,
    "O": 0,
-   "pass": 0,
-   "noc": {}
+   "pass": 2,
+   "noc": {
+    "ITA": 1,
+    "SWE": 1
+   }
   },
   "Badminton": {
    "quota": 172,
@@ -177,9 +180,9 @@
    "pass": 24,
    "noc": {
     "AUS": 3,
+    "ITA": 3,
     "USA": 9,
     "NZL": 3,
-    "ITA": 3,
     "GBR": 9,
     "FRA": 3,
     "NED": 3,
@@ -208,10 +211,10 @@
    "O": 0,
    "pass": 6,
    "noc": {
+    "ITA": 10,
     "USA": 20,
     "MEX": 10,
-    "CAN": 20,
-    "ITA": 10
+    "CAN": 20
    }
   },
   "Football": {
@@ -260,9 +263,9 @@
    "pass": 7,
    "noc": {
     "JPN": 5,
+    "ITA": 1,
     "USA": 5,
     "BRA": 5,
-    "ITA": 1,
     "GER": 1,
     "ESP": 5,
     "BUL": 1
@@ -375,19 +378,20 @@
   },
   "Shooting": {
    "quota": 340,
-   "atleti": 27,
-   "M": 12,
+   "atleti": 30,
+   "M": 15,
    "W": 15,
    "O": 0,
-   "pass": 27,
+   "pass": 30,
    "noc": {
     "CZE": 2,
-    "IND": 1,
+    "IND": 2,
     "SRB": 1,
     "CHN": 6,
     "JPN": 1,
     "KUW": 1,
     "EGY": 1,
+    "RUS": 1,
     "SVK": 2,
     "KOR": 3,
     "FRA": 2,
@@ -397,6 +401,7 @@
     "VIE": 1,
     "HUN": 1,
     "IRI": 1,
+    "NOR": 1,
     "CRO": 1
    }
   },
@@ -569,9 +574,9 @@
   }
  },
  "totali": {
-  "atleti": 900,
-  "pass": 158,
-  "noc": 46
+  "atleti": 905,
+  "pass": 163,
+  "noc": 47
  },
  "noc": {
   "USA": {
@@ -1441,6 +1446,153 @@
     }
    ]
   },
+  "IND": {
+   "nome": "India",
+   "atleti": 52,
+   "pass": 7,
+   "righe": [
+    {
+     "nome": "Chikitha TANIPARTHI/Sahil Rajesh JADHAV",
+     "sport": "Archery",
+     "card": "Archery",
+     "discipline": [
+      "Compound Mixed Team"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Compound Mixed Team": "X"
+     },
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Kumkum Anil MOHOD",
+     "sport": "Archery",
+     "card": "Archery",
+     "discipline": [
+      "Women's Recurve Individual"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's Recurve Individual": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "IND Women's Cricket",
+     "sport": "Cricket",
+     "card": "Cricket",
+     "discipline": [
+      "Women's Cricket T20"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 15,
+      "O": 0
+     },
+     "gare": {
+      "Women's Cricket T20": "W"
+     },
+     "atleti": 15,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "IND Men's Team",
+     "sport": "Hockey Field",
+     "card": "Hockey Field",
+     "discipline": [
+      "Men's Hockey Field"
+     ],
+     "genere": {
+      "M": 16,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Hockey Field": "M"
+     },
+     "atleti": 16,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "IND Women's Team",
+     "sport": "Hockey Field",
+     "card": "Hockey Field",
+     "discipline": [
+      "Women's Hockey Field"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 16,
+      "O": 0
+     },
+     "gare": {
+      "Women's Hockey Field": "W"
+     },
+     "atleti": 16,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Jaypal MALVIYA",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's 10m Air Pistol"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's 10m Air Pistol": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Niraj KUMAR",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's 50m Rifle 3 Positions"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's 50m Rifle 3 Positions": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
   "BRA": {
    "nome": "Brasile",
    "atleti": 51,
@@ -1563,133 +1715,6 @@
      },
      "atleti": 12,
      "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
-  "IND": {
-   "nome": "India",
-   "atleti": 51,
-   "pass": 6,
-   "righe": [
-    {
-     "nome": "Chikitha TANIPARTHI/Sahil Rajesh JADHAV",
-     "sport": "Archery",
-     "card": "Archery",
-     "discipline": [
-      "Compound Mixed Team"
-     ],
-     "genere": {
-      "M": 1,
-      "W": 1,
-      "O": 0
-     },
-     "gare": {
-      "Compound Mixed Team": "X"
-     },
-     "atleti": 2,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "Kumkum Anil MOHOD",
-     "sport": "Archery",
-     "card": "Archery",
-     "discipline": [
-      "Women's Recurve Individual"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 1,
-      "O": 0
-     },
-     "gare": {
-      "Women's Recurve Individual": "W"
-     },
-     "atleti": 1,
-     "squadra": false,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "IND Women's Cricket",
-     "sport": "Cricket",
-     "card": "Cricket",
-     "discipline": [
-      "Women's Cricket T20"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 15,
-      "O": 0
-     },
-     "gare": {
-      "Women's Cricket T20": "W"
-     },
-     "atleti": 15,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "IND Men's Team",
-     "sport": "Hockey Field",
-     "card": "Hockey Field",
-     "discipline": [
-      "Men's Hockey Field"
-     ],
-     "genere": {
-      "M": 16,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "Men's Hockey Field": "M"
-     },
-     "atleti": 16,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "IND Women's Team",
-     "sport": "Hockey Field",
-     "card": "Hockey Field",
-     "discipline": [
-      "Women's Hockey Field"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 16,
-      "O": 0
-     },
-     "gare": {
-      "Women's Hockey Field": "W"
-     },
-     "atleti": 16,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "Jaypal MALVIYA",
-     "sport": "Shooting",
-     "card": "Shooting",
-     "discipline": [
-      "Men's 10m Air Pistol"
-     ],
-     "genere": {
-      "M": 1,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "Men's 10m Air Pistol": "M"
-     },
-     "atleti": 1,
-     "squadra": false,
      "ospitante": false,
      "nota": ""
     }
@@ -2696,38 +2721,33 @@
     }
    ]
   },
-  "RSA": {
-   "nome": "Sudafrica",
+  "ITA": {
+   "nome": "Italia",
    "atleti": 15,
-   "pass": 1,
+   "pass": 4,
    "righe": [
     {
-     "nome": "RSA Women's Cricket",
-     "sport": "Cricket",
-     "card": "Cricket",
+     "nome": "Yemaneberhan CRIPPA",
+     "sport": "Athletics",
+     "card": "Athletics",
      "discipline": [
-      "Women's Cricket T20"
+      "Men's 10000m",
+      "Men's Marathon"
      ],
      "genere": {
-      "M": 0,
-      "W": 15,
+      "M": 1,
+      "W": 0,
       "O": 0
      },
      "gare": {
-      "Women's Cricket T20": "W"
+      "Men's 10000m": "M",
+      "Men's Marathon": "M"
      },
-     "atleti": 15,
-     "squadra": true,
+     "atleti": 1,
+     "squadra": false,
      "ospitante": false,
      "nota": ""
-    }
-   ]
-  },
-  "ITA": {
-   "nome": "Italia",
-   "atleti": 14,
-   "pass": 3,
-   "righe": [
+    },
     {
      "nome": "ITA Jumping Team",
      "sport": "Equestrian",
@@ -2785,6 +2805,33 @@
      },
      "atleti": 1,
      "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "RSA": {
+   "nome": "Sudafrica",
+   "atleti": 15,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "RSA Women's Cricket",
+     "sport": "Cricket",
+     "card": "Cricket",
+     "discipline": [
+      "Women's Cricket T20"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 15,
+      "O": 0
+     },
+     "gare": {
+      "Women's Cricket T20": "W"
+     },
+     "atleti": 15,
+     "squadra": true,
      "ospitante": false,
      "nota": ""
     }
@@ -3188,9 +3235,33 @@
   },
   "SWE": {
    "nome": "Svezia",
-   "atleti": 8,
-   "pass": 3,
+   "atleti": 9,
+   "pass": 4,
    "righe": [
+    {
+     "nome": "Andreas ALMGREN",
+     "sport": "Athletics",
+     "card": "Athletics",
+     "discipline": [
+      "Men's 5000m",
+      "Men's 10000m",
+      "Men's Marathon"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's 5000m": "M",
+      "Men's 10000m": "M",
+      "Men's Marathon": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
     {
      "nome": "Jacob HOLTING N/Elmer ANDERSSON",
      "sport": "Beachvolley",
@@ -3447,6 +3518,53 @@
     }
    ]
   },
+  "RUS": {
+   "nome": "Russia",
+   "atleti": 6,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "RUS MAG Team",
+     "sport": "Gym Artistic",
+     "card": "Gym Artistic",
+     "discipline": [
+      "MAG Team"
+     ],
+     "genere": {
+      "M": 5,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "MAG Team": "M"
+     },
+     "atleti": 5,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Dmitrii PIMENOV",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's 50m Rifle 3 Positions"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's 50m Rifle 3 Positions": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
   "SUI": {
    "nome": "Svizzera",
    "atleti": 6,
@@ -3513,33 +3631,6 @@
      },
      "gare": {
       "Group All-Around": "W"
-     },
-     "atleti": 5,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
-  "RUS": {
-   "nome": "Russia",
-   "atleti": 5,
-   "pass": 1,
-   "righe": [
-    {
-     "nome": "RUS MAG Team",
-     "sport": "Gym Artistic",
-     "card": "Gym Artistic",
-     "discipline": [
-      "MAG Team"
-     ],
-     "genere": {
-      "M": 5,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "MAG Team": "M"
      },
      "atleti": 5,
      "squadra": true,
@@ -4004,6 +4095,35 @@
      },
      "gare": {
       "Men's Skeet": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "NOR": {
+   "nome": "Norvegia",
+   "atleti": 1,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Jon-Hermann HEGG",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's 10m Air Rifle",
+      "Men's 50m Rifle 3 Positions"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's 10m Air Rifle": "M",
+      "Men's 50m Rifle 3 Positions": "M"
      },
      "atleti": 1,
      "squadra": false,

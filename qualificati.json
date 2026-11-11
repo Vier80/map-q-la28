@@ -1,13 +1,13 @@
 {
  "aggiornato": "2026-11-11",
  "totali": {
-  "posti_qualificati": 900,
-  "noc": 46,
-  "rimanenti": 10298,
+  "posti_qualificati": 905,
+  "noc": 47,
+  "rimanenti": 10293,
   "posti_totali": 11198,
-  "righe": 158,
+  "righe": 163,
   "athlete_quota": 6,
-  "noc_quota": 48,
+  "noc_quota": 53,
   "team_quota": 104
  },
  "fonte_regole": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
@@ -271,6 +271,49 @@
    "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/ARC-LA28-Qualification-System.pdf",
    "verifica": false,
    "notion": "https://app.notion.com/p/USA-Women-s-Recurve-2fbf48c9aad9809fbf56d8d9de6e7ce2"
+  },
+  {
+   "chiave": "3c6f48c9aad9804d9e24c6c739d917f0",
+   "nome": "Yemaneberhan CRIPPA",
+   "noc": "ITA",
+   "bandiera": "🇮🇹",
+   "paese": "Italia",
+   "sport": "Athletics",
+   "gare": [
+    "Men's 10000m",
+    "Men's Marathon"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Regolamento LA28 non ancora pubblicato sul sito CIO: considerato posto NOC (da verificare).",
+   "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+   "verifica": true,
+   "notion": "https://app.notion.com/p/Yemaneberhan-CRIPPA-3c6f48c9aad9804d9e24c6c739d917f0"
+  },
+  {
+   "chiave": "2c5f48c9aad98026bbebefb24b4415b7",
+   "nome": "Andreas ALMGREN",
+   "noc": "SWE",
+   "bandiera": "🇸🇪",
+   "paese": "Svezia",
+   "sport": "Athletics",
+   "gare": [
+    "Men's 5000m",
+    "Men's 10000m",
+    "Men's Marathon"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Regolamento LA28 non ancora pubblicato sul sito CIO: considerato posto NOC (da verificare).",
+   "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+   "verifica": true,
+   "notion": "https://app.notion.com/p/Andreas-ALMGREN-2c5f48c9aad98026bbebefb24b4415b7"
   },
   {
    "chiave": "2c5f48c9aad980c680b7f94ef3d16945",
@@ -2173,6 +2216,27 @@
    "notion": "https://app.notion.com/p/Miran-MARICIC-2c5f48c9aad981e098d3f00556774c76"
   },
   {
+   "chiave": "2c5f48c9aad981efaef5f1464b9420b0",
+   "nome": "Jon-Hermann HEGG",
+   "noc": "NOR",
+   "bandiera": "🇳🇴",
+   "paese": "Norvegia",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 10m Air Rifle",
+    "Men's 50m Rifle 3 Positions"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Jon-Hermann-HEGG-2c5f48c9aad981efaef5f1464b9420b0"
+  },
+  {
    "chiave": "2c5f48c9aad9818fbc10f997c532e379",
    "nome": "Matej RAMPULA",
    "noc": "CZE",
@@ -2231,6 +2295,46 @@
    "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
    "verifica": false,
    "notion": "https://app.notion.com/p/Florian-PETER-2c5f48c9aad98167a3b9d9c1a36ac101"
+  },
+  {
+   "chiave": "2c5f48c9aad981db8872fb7bd3394e73",
+   "nome": "Niraj KUMAR",
+   "noc": "IND",
+   "bandiera": "🇮🇳",
+   "paese": "India",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 50m Rifle 3 Positions"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Niraj-KUMAR-2c5f48c9aad981db8872fb7bd3394e73"
+  },
+  {
+   "chiave": "340f48c9aad98066abc0d5cbd440dca6",
+   "nome": "Dmitrii PIMENOV",
+   "noc": "RUS",
+   "bandiera": "🇷🇺",
+   "paese": "Russia",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 50m Rifle 3 Positions"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Dmitrii-PIMENOV-340f48c9aad98066abc0d5cbd440dca6"
   },
   {
    "chiave": "2c5f48c9aad9819baf40c3e2af91128b",

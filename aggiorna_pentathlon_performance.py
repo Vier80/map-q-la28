@@ -7,7 +7,7 @@ pentathlon-performance.json, che userà la pagina pentathlon-performance.html.
 Come si ottiene il PTS di ogni riga:
 1. lo script legge il valore della formula PTS direttamente dall'API di Notion;
 2. legge anche "Punti Base" (un'altra formula) e rifà il conto di PTS con le stesse formule
-   di Notion (sezione FORMULA PTS qui sotto);
+   di Notion (sezione FORMULA PTS qui sotto); se Punti Base manca, lo calcola dal piazzamento;
 3. usa il valore di Notion; se manca, usa quello ricalcolato. Se i due valori non coincidono
    lo segnala nel log con un AVVISO: vuol dire che la formula qui sotto e quella di Notion
    sono diverse. Se cambi la formula PTS in Notion, cambia anche la sezione FORMULA PTS.
@@ -59,7 +59,7 @@ FILE_JSON = "pentathlon-performance.json"
 
 
 # ---------------------------------------------------------------- FORMULA PTS
-# Trascrizione delle formule PTS di Notion (testo fornito da Gualtiero l'11/11/2026).
+# Trascrizione delle formule PTS e Punti Base di Notion (testo fornito da Gualtiero l'11/11/2026).
 # In Notion contains(Evento, "x") vuol dire "il nome dell'evento contiene x" (maiuscole
 # comprese): in Python si scrive "x" in evento.
 
@@ -119,11 +119,44 @@ def bonus_B(evento):
     return 1.5 if "🌐" in (evento or "") else 1
 
 
+def punti_base_A(result):
+    """Punti Base di Risultati A: 1° 100, 2° 75, 3° 60, poi turni o posto numerico."""
+    res = result or ""                       # in Notion il confronto è sul testo esatto di Result
+    fissi = {"1": 100, "2": 75, "3": 60, "SF": 45, "QF": 30, "R16": 20, "R32": 12, "R64": 7}
+    if res in fissi:
+        return fissi[res]
+    return punti_da_posto(res, 150)
+
+
+def punti_base_B(result):
+    """Punti Base di Risultati B: 1° 50, 2° 35, 3° 25, poi turni o posto numerico."""
+    res = result or ""
+    fissi = {"1° 🥇": 50, "1": 50, "2° 🥈": 35, "2": 35, "3° 🥉": 25, "3": 25,
+             "SF": 20, "QF": 12, "R16": 8, "R32": 5, "R64": 3, "R128": 1}
+    if res in fissi:
+        return fissi[res]
+    return punti_da_posto(res, 75)
+
+
+def punti_da_posto(res, numeratore):
+    """Posto scritto come numero: dal 4° al 25° round(numeratore / (posto + 1)), oltre il 25° 1 punto,
+    testo non numerico 0 punti (come toNumber() vuoto in Notion)."""
+    try:
+        n = float(res)
+    except ValueError:
+        return 0
+    if 3 < n <= 25:
+        return math.floor(numeratore / (n + 1) + 0.5)    # round() di Notion: il 5 va verso l'alto
+    if n > 25:
+        return 1
+    return 0
+
+
 def pts_calcolato(r):
-    """Rifà il PTS di una riga partendo da Punti Base. None se Punti Base manca."""
+    """Rifà il PTS di una riga. Usa Punti Base letto da Notion; se manca, lo calcola da Result."""
     base = r.get("base")
     if base is None:
-        return None
+        base = punti_base_A(r["result"]) if r["db"] == "A" else punti_base_B(r["result"])
     if r["db"] == "A":
         return arrotonda_1(base * peso_anno_A(r["anno"]) * molt_A(r["ev"]))
     peso = peso_anno_B(r["anno"])
@@ -252,8 +285,7 @@ def scegli_pts(res):
             print(f"  {r['db']} · {r['ev']} · {r['disc']} · posto {r['result']}: "
                   f"Notion {r['pts']} · ricalcolo {pts_calcolato(r)} · Punti Base {r['base']}")
     if res and da_notion + calcolati == 0:
-        print("AVVISO nessun PTS disponibile né da Notion né dal ricalcolo: "
-              "serve il testo della formula Punti Base.")
+        print("AVVISO nessun PTS disponibile né da Notion né dal ricalcolo.")
 
 
 # ---------------------------------------------------------------- AGGREGAZIONE

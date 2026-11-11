@@ -420,7 +420,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       I.append(card);
     });
     if (!I.children.length) I.append(el("p", "nota", "Nessun azzurro con risultati tra i primi " + MAX + "."));
-    $("nota").textContent = `Indice PTS calcolato in Notion per ogni risultato: Punti Base × peso dell'anno (2025: 0,6; 2026: 0,8; 2027: 1,0; 2028: 1,2) × peso dell'evento. Risultati A: Mondiali 0,90; continentali 0,675; altri grandi eventi 0,54. Risultati B (tappe di Coppa del Mondo): 0,30; eventi regionali 0,37; eventi mondiali ×1,5. Valore arrotondato a 1 decimale. Il PTS dell'atleta è la somma dei suoi risultati. Di ogni evento contano solo i primi ${MAX} classificati. Eventi considerati: ${dati.eventi.join(", ")}.`;
+    $("nota").textContent = `Indice PTS calcolato in Notion per ogni risultato: Punti Base del piazzamento (Risultati A: 1° 100, 2° 75, 3° 60, dal 4° al 25° 150 ÷ (posto + 1), per esempio 4° 30 e 8° 17; Risultati B: 1° 50, 2° 35, 3° 25, dal 4° 75 ÷ (posto + 1), per esempio 4° 15 e 8° 8) × peso dell'anno (2025: 0,6; 2026: 0,8; 2027: 1,0; 2028: 1,2) × peso dell'evento. Risultati A: Mondiali 0,90; continentali 0,675; altri grandi eventi 0,54. Risultati B (tappe di Coppa del Mondo): 0,30; eventi regionali 0,37; eventi mondiali ×1,5. Valore arrotondato a 1 decimale. Il PTS dell'atleta è la somma dei suoi risultati. Di ogni evento contano solo i primi ${MAX} classificati. Eventi considerati: ${dati.eventi.join(", ")}.`;
   }
 
   disegna();

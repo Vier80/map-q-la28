@@ -53,3 +53,52 @@ Indirizzo: `https://vier80.github.io/map-q-la28/wrestling.html` (si raggiunge an
 
 Una volta sola: in Notion apri il database **LA28 Tennis**, `•••` > Connessioni, aggiungi la stessa connessione della mappa.
 Indirizzo: `https://vier80.github.io/map-q-la28/tennis.html` (si raggiunge anche da Qualificati per sport > Tennis).
+
+## Pagina Calendario delle qualificazioni
+
+- `calendario.html`: calendario degli eventi che assegnano posti diretti per LA28 (2026, 2027, 2028), con filtri per anno, stato, sport e ricerca, e pulsante Scarica PDF; stessa grafica di `stima.html`, in lilla
+- `calendario.json`: gli eventi, riscritto a ogni aggiornamento
+- `aggiorna_calendario.py`: legge il db Notion **Calendario Qualificazioni LA28** e scrive `calendario.json`
+
+Una volta sola: in Notion apri il database **Calendario Qualificazioni LA28**, `•••` > Connessioni, aggiungi la stessa connessione della mappa.
+Il database è riempito dall'agente del repository privato `agente-calendario-la28`, che legge le pagine di Totallympics salvate a mano (il sito blocca i server di GitHub): istruzioni nella guida di quel repository.
+Indirizzo: `https://vier80.github.io/map-q-la28/calendario.html`
+
+## Pagina Qualificati LA28 (tipo di quota)
+
+- `qualificati.html`: atleti e squadre con la Q in `🎟️Pass LA28`, con il tipo di quota (Athlete Quota, NOC Quota, Team Quota) secondo i sistemi di qualificazione CIO e pulsante Download PDF
+- `qualificati.json`: i dati, riscritto a ogni aggiornamento
+- `aggiorna_qualificati.py`: legge i qualificati del db Athletes e gli eventi collegati del db **🎟️ Direct Q Events 🇺🇸LA28**, decide il tipo di quota, scrive `qualificati.json` e aggiorna il db Notion **🎟️ Qualificati LA28** (aggiunge, corregge e manda nel cestino le righe che hanno perso la Q)
+- `quote_la28.py`: le regole CIO sport per sport, usate da `aggiorna_qualificati.py`; lo script usa anche funzioni di `aggiorna_dati.py`, che deve restare nella stessa cartella
+
+Una volta sola: in Notion apri i database **🎟️ Direct Q Events 🇺🇸LA28** e **🎟️ Qualificati LA28**, `•••` > Connessioni, aggiungi la stessa connessione della mappa.
+Se nel registro dell'esecuzione compare `AVVISO: Sport senza regola`, aggiungi lo sport in `quote_la28.py`. Se compare `AVVISO: Non riesco a leggere il db "Direct Q Events"`, controlla la connessione di quel database.
+Indirizzo: `https://vier80.github.io/map-q-la28/qualificati.html`
+
+## Pagina Performance Judo
+
+- `judo-performance.html`: classifica WON per categoria di peso, distacco in vetta, quadrante della performance, qualità del field, forza delle nazioni e focus Italia, nella grafica rosso pastello di `judo.html`
+- `judo-performance.json`: i dati, riscritto a ogni aggiornamento
+- `aggiorna_judo_performance.py`: legge i judoka del db Athletes e i loro risultati nei db **Risultati A** (MASTER RESULTS) e **Risultati B** (MASTER MINOR), ricalcola il WON 🔺 con le stesse formule di Notion e scrive `judo-performance.json`
+
+Una volta sola: in Notion apri i database **Risultati A** e **Risultati B**, `•••` > Connessioni, aggiungi la stessa connessione della mappa.
+Lo script ricalcola il WON con le stesse formule di Notion: se modifichi la formula WON in Notion, va modificata anche la sezione FORMULA dello script.
+Le righe senza 🏟️ Rating valgono 0 punti: nel registro dell'esecuzione compaiono come `AVVISO`.
+Indirizzo: `https://vier80.github.io/map-q-la28/judo-performance.html`
+
+## Pagina Performance Badminton
+
+- `badminton-performance.html`: classifica WON per specialità (singolari e doppi), distacco in vetta, quadrante della performance, qualità del field, forza delle nazioni e focus Italia, nel verde menta di `badminton.html`
+- `badminton-performance.json`: i dati, riscritto a ogni aggiornamento
+- `aggiorna_badminton_performance.py`: legge atleti e coppie di badminton del db Athletes e i loro risultati nei db **Risultati A** e **Risultati B**, ricalcola il WON 🔺 con le funzioni di `aggiorna_judo_performance.py` (che deve restare nella stessa cartella) e scrive `badminton-performance.json`
+
+Indirizzo: `https://vier80.github.io/map-q-la28/badminton-performance.html`
+
+## Pagina Performance Pentathlon Moderno
+
+- `pentathlon-performance.html`: classifica PTS per genere, distacco in vetta, quadrante della performance, grandi eventi contro Coppa del Mondo, forza delle nazioni e focus Italia, in grigio pastello
+- `pentathlon-performance.json`: i dati, riscritto a ogni aggiornamento
+- `aggiorna_pentathlon_performance.py`: legge i pentatleti del db Athletes e i loro risultati nei db **Risultati A** e **Risultati B** (solo i primi 8 di ogni evento), prende la formula **PTS** da Notion e la ricontrolla con le stesse formule; scrive `pentathlon-performance.json`. Usa le funzioni di `aggiorna_judo_performance.py`, che deve restare nella stessa cartella
+
+Se modifichi la formula PTS o Punti Base in Notion, la pagina resta giusta (il PTS viene letto da Notion), ma nel registro dell'esecuzione compare un `AVVISO … diverso dal ricalcolo`: in quel caso aggiorna la sezione FORMULA PTS dello script.
+Indirizzo: `https://vier80.github.io/map-q-la28/pentathlon-performance.html`

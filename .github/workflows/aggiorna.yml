@@ -60,6 +60,11 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: python aggiorna_pentathlon_performance.py
+      - name: Performance Scherma - ricalcola il FEN e aggiorna scherma-performance.json
+        continue-on-error: true     # se fallisce, la mappa si aggiorna comunque
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: python aggiorna_scherma_performance.py
       - name: Salva data.json nel repository
         id: salva
         run: |
@@ -71,6 +76,7 @@ jobs:
           git add judo-performance.json 2>/dev/null || true
           git add badminton-performance.json 2>/dev/null || true
           git add pentathlon-performance.json 2>/dev/null || true
+          git add scherma-performance.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "cambiato=0" >> "$GITHUB_OUTPUT"
           else

@@ -179,13 +179,13 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   <section class="pannelli">
     <div class="pannello">
       <h3>Quanto dominano i campioni</h3>
-      <p class="sotto">Differenza punti per incontro: punti segnati meno punti subiti, diviso gli incontri lottati. Gli incontri vinti senza combattere (forfait, infortunio, squalifica) non entrano nel conto.</p>
-      <div class="legenda"><span><i class="l-dati"></i>Campioni</span><span><i class="l-ita"></i>Italia</span></div>
+      <p class="sotto" id="sotto-dominio"></p>
+      <div class="legenda"><span><i class="l-dati"></i>Migliore della categoria</span><span><i class="l-ita"></i>Italia</span></div>
       <div id="g-dominio"></div>
     </div>
     <div class="pannello">
       <h3>Come vincono i campioni</h3>
-      <p class="sotto">Le vittorie di ogni campione nel torneo, divise per tipo: dalla più netta (schienata) a quelle senza combattere.</p>
+      <p class="sotto" id="sotto-tipi"></p>
       <div class="legenda"><span><i class="l-vfa"></i>Schienata</span><span><i class="l-vsu"></i>Superiorità tecnica</span><span><i class="l-vpo"></i>Ai punti</span><span><i class="l-sc"></i>Senza combattere</span></div>
       <div id="g-tipi"></div>
     </div>
@@ -197,7 +197,6 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
     <div class="percorsi" id="percorsi"></div>
     <p class="sotto" id="sotto-classifica"></p>
     <div style="overflow-x:auto"><table class="tab classifica" id="classifica"></table></div>
-    <button class="altri" id="altri" type="button"></button>
   </section>
 
   <section class="pannello">
@@ -235,7 +234,15 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   // ------------------------------------------------------------ dati e nomi
   const TOT = dati.totale;                       // "Tutti i tornei"
   const T = dati.tornei;                         // [{nome, dal, al, incontri}] in ordine di data
-  const S = dati.statistiche;                    // una riga per lottatore, stile, categoria e torneo (più il totale)
+  // Solo le 18 categorie olimpiche (LA28, provvisorie: scheda 03_qualificazioni). Le altre restano nel JSON ma non si mostrano.
+  const OLIMPICHE = { "Freestyle": ["57 kg", "65 kg", "74 kg", "86 kg", "97 kg", "125 kg"],
+    "Greco-Roman": ["60 kg", "67 kg", "77 kg", "87 kg", "97 kg", "130 kg"],
+    "Women's Wrestling": ["50 kg", "53 kg", "57 kg", "62 kg", "68 kg", "76 kg"] };
+  const olimpica = (stile, cat) => (OLIMPICHE[stile] || []).includes(cat);
+  const S = dati.statistiche.filter((s) => olimpica(s.stile, s.cat));   // una riga per lottatore, stile, categoria e torneo (più il totale)
+  const CAMPIONI = dati.campioni.filter((c) => olimpica(c.stile, c.cat));
+  const STILI = dati.stili.filter((st) => OLIMPICHE[st]);
+  const SIGLA = { "Freestyle": "Libera", "Greco-Roman": "Greco", "Women's Wrestling": "Femm." };
   const STILE = { "Freestyle": "Stile libero", "Greco-Roman": "Greco-romana", "Women's Wrestling": "Femminile" };
   const MED = { oro: "🥇", argento: "🥈", bronzo: "🥉" };
   const TURNO = { "Qualif.": "Qualificazione", "1/16 Final": "Sedicesimi", "1/8 Final": "Ottavi", "1/4 Final": "Quarti",
@@ -250,6 +257,10 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
     if (n === TOT) return TOT;
     const t = T.find((x) => x.nome === n), anno = t && t.dal ? " " + t.dal.slice(0, 4) : "";
     if (/world championships/i.test(n)) return "Mondiali" + anno;
+    if (/european championships/i.test(n)) return "Europei" + anno;
+    if (/asian championships/i.test(n)) return "Asiatici" + anno;
+    if (/african championships/i.test(n)) return "Africani" + anno;
+    if (/pan.?american championships/i.test(n)) return "Panamericani" + anno;
     if (/poly[aá]k/i.test(n)) return "Polyák Memorial" + anno;
     return n;
   };
@@ -263,7 +274,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   const nomeData = (d) => d ? new Date(d).toLocaleDateString("it-IT", { day: "numeric", month: "short" }) : "";
 
   // incontri compatti: [n° torneo, stile, cat, turno, data, P1, NOC1, P2, NOC2, punti1, punti2, tipo, vincitore 1/2]
-  const I = dati.incontri.map((r) => ({ torneo: T[r[0]] ? T[r[0]].nome : "?", stile: r[1], cat: r[2], turno: r[3], data: r[4],
+  const I = dati.incontri.filter((r) => olimpica(r[1], r[2])).map((r) => ({ torneo: T[r[0]] ? T[r[0]].nome : "?", stile: r[1], cat: r[2], turno: r[3], data: r[4],
     p: [r[5], r[7]], noc: [r[6], r[8]], punti: [r[9], r[10]], tipo: r[11], w: r[12] }));
   // l'incontro visto da un lottatore: avversario, punteggio con i suoi punti per primi, vinto o perso
   const visto = (b, nome) => {
@@ -278,12 +289,12 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   const incontriDi = (nome, stile, cat, torneo) => I.filter((b) => b.p.includes(nome) && b.stile === stile && b.cat === cat && (torneo === TOT || b.torneo === torneo))
     .sort((a, b) => posT(a.torneo) - posT(b.torneo) || (ORD_TURNO[a.turno] ?? +((a.turno.match(/\d+/) || [9])[0])) - (ORD_TURNO[b.turno] ?? +((b.turno.match(/\d+/) || [9])[0])));
 
-  const stato = { stile: dati.stili[0], torneo: TOT, cat: null, tutti: false };
+  const stato = { stile: STILI[0], torneo: TOT, cat: null };
 
   // ------------------------------------------------------------ intestazione e totali
   $("data").textContent = "Road to LA28 · risultati UWW · aggiornato al " + new Date(dati.aggiornato).toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" });
   const nocs = new Set(S.filter((s) => s.torneo === TOT).map((s) => s.noc));
-  [[dati.n_incontri, "Incontri"], [dati.n_lottatori, "Lottatori"], [T.length, "Tornei"], [nocs.size, "NOC"]].forEach(([n, t]) => {
+  [[I.length, "Incontri"], [new Set(S.map((s) => s.nome)).size, "Lottatori"], [T.length, "Tornei"], [nocs.size, "NOC"]].forEach(([n, t]) => {
     const b = el("div", "totale"); b.append(el("b", null, n.toLocaleString("it-IT")), el("span", null, t)); $("totali").append(b);
   });
   [...new Set(S.map((s) => s.nome))].sort().forEach((n) => { const o = el("option"); o.value = n; $("nomi").append(o); });
@@ -328,20 +339,20 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
     });
   }
   function filtri() {
-    bottoni($("stili"), dati.stili.map((s) => [s, STILE[s] || s]), stato.stile, (v) => { stato.stile = v; stato.cat = null; stato.tutti = false; disegna(); });
-    bottoni($("tornei"), [...T.map((t) => [t.nome, breve(t.nome)]), [TOT, TOT]], stato.torneo, (v) => { stato.torneo = v; stato.tutti = false; disegna(); });
+    bottoni($("stili"), STILI.map((s) => [s, STILE[s] || s]), stato.stile, (v) => { stato.stile = v; stato.cat = null; disegna(); });
+    bottoni($("tornei"), [...T.map((t) => [t.nome, breve(t.nome)]), [TOT, TOT]], stato.torneo, (v) => { stato.torneo = v; disegna(); });
   }
   $("cerca").addEventListener("change", (e) => {
     const q = e.target.value.trim().toLowerCase(); if (!q) return;
     const s = S.find((x) => x.torneo === TOT && x.nome.toLowerCase() === q) || S.find((x) => x.torneo === TOT && x.nome.toLowerCase().includes(q));
     if (!s) return;
-    stato.stile = s.stile; stato.cat = s.cat; stato.torneo = TOT; stato.tutti = false; disegna();
+    stato.stile = s.stile; stato.cat = s.cat; stato.torneo = TOT; disegna();
     apri(s.nome, s.stile, s.cat, TOT);
   });
   $("pdf").onclick = () => print();
 
   // campioni dello stile e del torneo scelti, per categoria
-  const campioni = () => dati.campioni.filter((c) => c.stile === stato.stile && (stato.torneo === TOT || c.torneo === stato.torneo))
+  const campioni = () => CAMPIONI.filter((c) => c.stile === stato.stile && (stato.torneo === TOT || c.torneo === stato.torneo))
     .sort((a, b) => kg(a.cat) - kg(b.cat) || posT(a.torneo) - posT(b.torneo));
 
   // ------------------------------------------------------------ grafico a barre orizzontali (semplici o divise in parti)
@@ -350,13 +361,16 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
     if (!righe.length) { box.append(el("p", "nota", "Nessun campione per questa scelta.")); return; }
     const W = Math.max(320, box.clientWidth || 600), passo = 28, top = 4, dx = 56;
     const sx = Math.min(opz.etichetta || 230, Math.round(W * 0.45)), maxc = Math.floor((sx - 14) / 7.2);
-    const H = top + righe.length * passo + 2;
+    const salti = righe.filter((r, i) => i > 0 && r.gruppo !== righe[i - 1].gruppo).length, stacco = 12;   // spazio tra gli stili
+    const H = top + righe.length * passo + salti * stacco + 2;
     const s = sv("svg", { class: "grafico", viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": opz.aria });
     const tot = (r) => r.parti.reduce((t, x) => t + x.v, 0);
     const max = Math.max(...righe.map(tot)) || 1, L = W - sx - dx;
-    s.append(sv("line", { class: "zero", x1: sx, x2: sx, y1: 0, y2: H }));
+    s.append(sv("line", { class: "zero", x1: sx, x2: sx, y1: 0, y2: H }));   // linea dello zero
+    let scarto = 0;
     righe.forEach((r, i) => {
-      const y = top + i * passo, g = sv("g", { class: "riga-hover" });
+      if (i > 0 && r.gruppo !== righe[i - 1].gruppo) { scarto += stacco; s.append(sv("line", { class: "zero", x1: 0, x2: W, y1: top + i * passo + scarto - stacco / 2, y2: top + i * passo + scarto - stacco / 2 })); }
+      const y = top + i * passo + scarto, g = sv("g", { class: "riga-hover" });
       const testo = r.etichetta.length > maxc ? r.etichetta.slice(0, maxc - 1) + "…" : r.etichetta;
       g.append(sv("text", { x: sx - 10, y: y + 15, "text-anchor": "end", class: "nome" }, testo));
       const parti = r.parti.filter((p) => p.v > 0);
@@ -381,7 +395,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   // ------------------------------------------------------------ disegno della pagina
   function disegna() {
     filtri();
-    const cats = dati.categorie[stato.stile] || [];
+    const cats = OLIMPICHE[stato.stile] || [];
     if (!stato.cat || !cats.includes(stato.cat)) stato.cat = cats[0];
     const etiq = `${STILE[stato.stile] || stato.stile} · ${breve(stato.torneo)}`;
     const C = campioni();
@@ -410,32 +424,51 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
         }
         carta.append(b);
       });
-      carta.onclick = () => { stato.cat = cat; stato.tutti = false; disegna(); $("sezione-cat").scrollIntoView({ behavior: "smooth" }); };
+      carta.onclick = () => { stato.cat = cat; disegna(); $("sezione-cat").scrollIntoView({ behavior: "smooth" }); };
       albo.append(carta);
     });
 
-    // grafici sui campioni
-    const etichetta = (c) => `${c.cat}${stato.torneo === TOT ? " " + corto(c.torneo) : ""} · ${cognome(c.nome)}`;
-    const conScheda = C.map((c) => ({ c, s: scheda(c.stile, c.cat, c.torneo, c.nome) })).filter((x) => x.s);
-    const lungo = stato.torneo === TOT ? 250 : 200;
-    barre($("g-dominio"), conScheda.map(({ c, s }) => {
-      const v = s.inc_punti ? s.dp / s.inc_punti : 0;
-      return { etichetta: etichetta(c), testo: (v > 0 ? "+" : "") + fmt(v, 1), parti: [{ v: Math.max(0, v), cls: "barra" + (isIta(c.noc) ? " ita" : "") }],
-        tip: [`${c.nome} (${c.noc})`, `${c.cat} · ${breve(c.torneo)}`, punti(s), `${s.inc_punti} incontri lottati su ${s.inc}`],
-        clic: () => apri(c.nome, c.stile, c.cat, c.torneo) };
-    }), { aria: "Differenza punti per incontro dei campioni", etichetta: lungo });
-    barre($("g-tipi"), conScheda.map(({ c, s }) => {
-      const vpo = Math.max(0, s.v - s.vfa - s.vsu - s.v_sc);
-      return { etichetta: etichetta(c), testo: s.v + " V",
+    // grafici sui campioni: il migliore di ogni categoria olimpica, tutti e 3 gli stili (18 righe).
+    // Un solo torneo: il campione. Tutti i tornei: tra i campioni della categoria, chi ha più titoli;
+    // a pari titoli ha sempre la precedenza il campione del mondo; poi più vittorie nella categoria,
+    // poi la differenza punti per incontro più alta (statistiche di tutti i tornei).
+    const migliori = [];
+    STILI.forEach((st) => OLIMPICHE[st].forEach((cat) => {
+      const cand = CAMPIONI.filter((c) => c.stile === st && c.cat === cat && (stato.torneo === TOT || c.torneo === stato.torneo))
+        .map((c) => ({ c, s: scheda(st, cat, stato.torneo === TOT ? TOT : c.torneo, c.nome) })).filter((x) => x.s);
+      const dpi = (s) => s.inc_punti ? s.dp / s.inc_punti : 0;
+      const unici = [...new Map(cand.map((x) => [x.c.nome, x])).values()];      // un campione con più titoli conta una volta
+      // campione del mondo della categoria (torneo "World Championships"): 1 = sì, 0 = no
+      const mondo = (x) => cand.some((y) => y.c.nome === x.c.nome && /world championships/i.test(y.c.torneo)) ? 1 : 0;
+      unici.sort((a, b) => stato.torneo === TOT ? (b.s.titoli - a.s.titoli) || (mondo(b) - mondo(a)) || (b.s.v - a.s.v) || (dpi(b.s) - dpi(a.s)) : 0);
+      if (unici.length) migliori.push({ ...unici[0], st, cat });
+    }));
+    const etichetta = ({ st, cat, c }) => `${SIGLA[st] || st} ${cat} · ${cognome(c.nome)}`;
+    const sottoTitolo = (x) => stato.torneo === TOT
+      ? `${SIGLA[x.st]} ${x.cat} · ${x.s.titoli} ${x.s.titoli === 1 ? "titolo" : "titoli"}${CAMPIONI.some((c) => c.nome === x.c.nome && c.stile === x.st && c.cat === x.cat && /world championships/i.test(c.torneo)) ? " · campione del mondo" : ""} · tutti i tornei`
+      : `${SIGLA[x.st]} ${x.cat} · campione ${breve(x.c.torneo)}`;
+    barre($("g-dominio"), migliori.map((x) => {
+      const v = x.s.inc_punti ? x.s.dp / x.s.inc_punti : 0;
+      return { gruppo: x.st, etichetta: etichetta(x), testo: (v > 0 ? "+" : "") + fmt(v, 1), parti: [{ v: Math.max(0, v), cls: "barra" + (isIta(x.c.noc) ? " ita" : "") }],
+        tip: [`${x.c.nome} (${x.c.noc})`, sottoTitolo(x), punti(x.s), `${x.s.inc_punti} incontri lottati su ${x.s.inc}`],
+        clic: () => apri(x.c.nome, x.st, x.cat, stato.torneo === TOT ? TOT : x.c.torneo) };
+    }), { aria: "Differenza punti per incontro del migliore di ogni categoria", etichetta: 230 });
+    barre($("g-tipi"), migliori.map((x) => {
+      const s = x.s, vpo = Math.max(0, s.v - s.vfa - s.vsu - s.v_sc);
+      return { gruppo: x.st, etichetta: etichetta(x), testo: s.v + " V",
         parti: [{ v: s.vfa, cls: "s-vfa" }, { v: s.vsu, cls: "s-vsu" }, { v: vpo, cls: "s-vpo" }, { v: s.v_sc, cls: "s-sc" }],
-        tip: [`${c.nome} (${c.noc})`, `${c.cat} · ${breve(c.torneo)} · ${s.v} vittorie`, `Schienata ${s.vfa} · Superiorità tecnica ${s.vsu}`, `Ai punti ${vpo} · Senza combattere ${s.v_sc}`],
-        clic: () => apri(c.nome, c.stile, c.cat, c.torneo) };
-    }), { aria: "Vittorie dei campioni per tipo", etichetta: lungo });
+        tip: [`${x.c.nome} (${x.c.noc})`, `${sottoTitolo(x)} · ${s.v} vittorie`, `Schienata ${s.vfa} · Superiorità tecnica ${s.vsu}`, `Ai punti ${vpo} · Senza combattere ${s.v_sc}`],
+        clic: () => apri(x.c.nome, x.st, x.cat, stato.torneo === TOT ? TOT : x.c.torneo) };
+    }), { aria: "Vittorie del migliore di ogni categoria, per tipo", etichetta: 230 });
+    const quale = stato.torneo === TOT ? "il migliore di ogni categoria olimpica (più titoli; a pari titoli il campione del mondo, poi più vittorie), con i dati di tutti i tornei"
+      : `il campione di ogni categoria olimpica a ${breve(stato.torneo)}`;
+    $("sotto-dominio").textContent = `Tutti e 3 gli stili, ${quale}. Differenza punti per incontro: punti segnati meno punti subiti, diviso gli incontri lottati (esclusi forfait, infortunio e squalifica).`;
+    $("sotto-tipi").textContent = `Tutti e 3 gli stili, ${quale}. Vittorie divise per tipo, dalla più netta (schienata) a quelle senza combattere.`;
 
     // dettaglio della categoria
     $("titolo-cat").textContent = `Categoria ${stato.cat} · ${etiq}`;
     bottoni($("categorie"), cats.map((c) => [c, c, S.filter((s) => s.stile === stato.stile && s.cat === c && s.torneo === stato.torneo).length]), stato.cat,
-      (v) => { stato.cat = v; stato.tutti = false; disegna(); });
+      (v) => { stato.cat = v; disegna(); });
     const P = $("percorsi"); P.innerHTML = "";
     C.filter((c) => c.cat === stato.cat).forEach((c) => {
       const box = el("div", "percorso");
@@ -454,10 +487,8 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       .sort((a, b) => stato.torneo === TOT
         ? (b.titoli - a.titoli) || (b.medaglie[1] - a.medaglie[1]) || (b.medaglie[2] - a.medaglie[2]) || (b.v - a.v) || (b.dp - a.dp)
         : ((ordMed[a.medaglia] ?? 9) - (ordMed[b.medaglia] ?? 9)) || (b.v - a.v) || (b.dp - a.dp));
-    const medagliati = lista.filter((s) => stato.torneo === TOT ? s.medaglie.some((m) => m > 0) : s.medaglia);
-    const mostrati = stato.tutti ? lista : medagliati;
-    $("sotto-classifica").textContent = stato.tutti ? `Tutti i ${lista.length} lottatori della categoria. Clicca un nome per vedere i suoi incontri.`
-      : `I medagliati (${medagliati.length} su ${lista.length} lottatori). Clicca un nome per vedere i suoi incontri.`;
+    const mostrati = lista.slice(0, 10);       // solo i primi 10
+    $("sotto-classifica").textContent = `Top 10 della categoria (su ${lista.length} lottatori): prima i medagliati, poi per vittorie e differenza punti. Clicca un nome per vedere i suoi incontri.`;
     const T2 = $("classifica"); T2.innerHTML = "";
     const th = el("thead"), trh = el("tr");
     [["#"], ["Lottatore"], ["NOC"], ["Medaglie"], ["Incontri", 1], ["V", 1], ["S", 1], ["Punti +", 1], ["Punti −", 1], ["Diff.", 1], ["Media", 1], ["Schienate", 1], ["Sup. tecn.", 1], ["Senza comb.", 1]]
@@ -474,12 +505,9 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       tr.onclick = () => apri(s.nome, s.stile, s.cat, s.torneo); tb.append(tr);
     });
     T2.append(tb);
-    $("altri").style.display = lista.length > medagliati.length ? "" : "none";
-    $("altri").textContent = stato.tutti ? "Mostra solo i medagliati" : `Mostra tutti i ${lista.length} lottatori`;
-    $("altri").onclick = () => { stato.tutti = !stato.tutti; disegna(); };
 
     // testa a testa (tutti i tornei: per definizione si incontrano più volte)
-    const tutti = new Set(dati.campioni.map((c) => c.nome));
+    const tutti = new Set(dati.campioni.map((c) => c.nome));   // testa a testa: tutte le categorie, come prima
     const H2 = $("h2h"); H2.innerHTML = "";
     const coppie = dati.h2h.filter((h) => h.incontri.some((i) => i.stile === stato.stile));
     $("titolo-h2h").textContent = `Testa a testa · ${STILE[stato.stile] || stato.stile} · ${coppie.length} ${coppie.length === 1 ? "coppia" : "coppie"}`;
@@ -515,6 +543,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       `Il vincitore è sempre quello indicato nel referto, non il primo lottatore elencato. Campione = vincitore della finale; nelle categorie a girone all'italiana, chi vince più incontri del girone. ` +
       `Punti e medie contano solo gli incontri lottati: le vittorie per forfait (VFO), infortunio (VIN) e squalifica (DSQ) valgono come vittorie e sconfitte ma i loro punti sono esclusi; la vittoria per 3 ammonizioni (VCA) è trattata come una vittoria normale. ` +
       `Schienata = VFA; superiorità tecnica = VSU e VSU1; ai punti = VPO, VPO1 e VCA. Nel totale "${TOT}" un lottatore che ha cambiato categoria compare in ciascuna categoria. ` +
+      `Sono mostrate solo le 18 categorie olimpiche (Libera 57, 65, 74, 86, 97, 125 kg; Greco-romana 60, 67, 77, 87, 97, 130 kg; Femminile 50, 53, 57, 62, 68, 76 kg); il testa a testa comprende tutte le categorie. ` +
       `Tornei considerati: ${T.map((t) => `${t.nome} (${nomeData(t.dal)} – ${nomeData(t.al)} ${t.al ? t.al.slice(0, 4) : ""})`).join("; ")}.`;
   }
 

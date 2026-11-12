@@ -1,13 +1,13 @@
 {
  "aggiornato": "2026-11-12",
  "totali": {
-  "posti_qualificati": 912,
-  "noc": 49,
-  "rimanenti": 10286,
+  "posti_qualificati": 918,
+  "noc": 50,
+  "rimanenti": 10280,
   "posti_totali": 11198,
-  "righe": 170,
+  "righe": 176,
   "athlete_quota": 6,
-  "noc_quota": 60,
+  "noc_quota": 66,
   "team_quota": 104
  },
  "fonte_regole": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
@@ -2558,6 +2558,66 @@
    "notion": "https://app.notion.com/p/Abdulaziz-ALSAAD-3d5f48c9aad980f18ab5d4e1af607c11"
   },
   {
+   "chiave": "2c5f48c9aad98132a264c7bac9928e3d",
+   "nome": "QI Ying",
+   "noc": "CHN",
+   "bandiera": "🇨🇳",
+   "paese": "Cina",
+   "sport": "Shooting",
+   "gare": [
+    "Men's Trap"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/QI-Ying-2c5f48c9aad98132a264c7bac9928e3d"
+  },
+  {
+   "chiave": "416f48c9aad980dc9304f86cf1242f9f",
+   "nome": "Vivaan KAPOOR",
+   "noc": "IND",
+   "bandiera": "🇮🇳",
+   "paese": "India",
+   "sport": "Shooting",
+   "gare": [
+    "Men's Trap"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Vivaan-KAPOOR-416f48c9aad980dc9304f86cf1242f9f"
+  },
+  {
+   "chiave": "39cf48c9aad980d6bbf5fde3d6214e55",
+   "nome": "Abdulrahman ALFAIHAN",
+   "noc": "KUW",
+   "bandiera": "🇰🇼",
+   "paese": "Kuwait",
+   "sport": "Shooting",
+   "gare": [
+    "Men's Trap"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Abdulrahman-ALFAIHAN-39cf48c9aad980d6bbf5fde3d6214e55"
+  },
+  {
    "chiave": "2c5f48c9aad9819ea53affc268819027",
    "nome": "JIANG Ranxin",
    "noc": "CHN",
@@ -2861,6 +2921,66 @@
    "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
    "verifica": false,
    "notion": "https://app.notion.com/p/Monika-STIBRAVA-3a7f48c9aad980f39c50d33b6e9c7e34"
+  },
+  {
+   "chiave": "2c5f48c9aad981f4884ce2a4d95dd347",
+   "nome": "Adriana RUANO OLIVA",
+   "noc": "GUA",
+   "bandiera": "🇬🇹",
+   "paese": "Guatemala",
+   "sport": "Shooting",
+   "gare": [
+    "Women's Trap"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Adriana-RUANO-OLIVA-2c5f48c9aad981f4884ce2a4d95dd347"
+  },
+  {
+   "chiave": "2c5f48c9aad98133920de07ef5d82ee4",
+   "nome": "Jessica ROSSI",
+   "noc": "ITA",
+   "bandiera": "🇮🇹",
+   "paese": "Italia",
+   "sport": "Shooting",
+   "gare": [
+    "Women's Trap"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Jessica-ROSSI-2c5f48c9aad98133920de07ef5d82ee4"
+  },
+  {
+   "chiave": "3f7f48c9aad98012a741d1a9796de694",
+   "nome": "Daria SEMIANOVA",
+   "noc": "RUS",
+   "bandiera": "🇷🇺",
+   "paese": "Russia",
+   "sport": "Shooting",
+   "gare": [
+    "Women's Trap"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Daria-SEMIANOVA-3f7f48c9aad98012a741d1a9796de694"
   },
   {
    "chiave": "2fbf48c9aad980059ef2eda1b92b3b53",

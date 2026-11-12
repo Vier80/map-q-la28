@@ -10,8 +10,8 @@
    "O": 0,
    "pass": 13,
    "noc": {
-    "USA": 8,
     "IND": 3,
+    "USA": 8,
     "CHN": 2,
     "JPN": 1,
     "KOR": 2
@@ -141,9 +141,9 @@
    "O": 0,
    "pass": 5,
    "noc": {
+    "IND": 15,
     "USA": 15,
     "AUS": 15,
-    "IND": 15,
     "GBR": 15,
     "RSA": 15
    }
@@ -253,9 +253,9 @@
    "pass": 6,
    "noc": {
     "USA": 5,
+    "RUS": 5,
     "CHN": 10,
-    "JPN": 10,
-    "RUS": 5
+    "JPN": 10
    }
   },
   "Gym Rhythmic": {
@@ -294,8 +294,8 @@
    "O": 0,
    "pass": 6,
    "noc": {
-    "USA": 32,
     "IND": 32,
+    "USA": 32,
     "NED": 16,
     "BEL": 16
    }
@@ -382,26 +382,28 @@
   },
   "Shooting": {
    "quota": 340,
-   "atleti": 30,
-   "M": 15,
-   "W": 15,
+   "atleti": 36,
+   "M": 18,
+   "W": 18,
    "O": 0,
-   "pass": 30,
+   "pass": 36,
    "noc": {
+    "IND": 3,
     "CZE": 2,
-    "IND": 2,
     "SRB": 1,
-    "CHN": 6,
+    "RUS": 2,
+    "CHN": 7,
     "JPN": 1,
-    "KUW": 1,
+    "KUW": 2,
     "EGY": 1,
-    "RUS": 1,
+    "ITA": 1,
     "SVK": 2,
     "KOR": 3,
     "FRA": 2,
     "KAZ": 1,
     "GER": 1,
     "DEN": 1,
+    "GUA": 1,
     "VIE": 1,
     "HUN": 1,
     "IRI": 1,
@@ -578,9 +580,9 @@
   }
  },
  "totali": {
-  "atleti": 912,
-  "pass": 170,
-  "noc": 49
+  "atleti": 918,
+  "pass": 176,
+  "noc": 50
  },
  "noc": {
   "USA": {
@@ -1472,8 +1474,8 @@
   },
   "IND": {
    "nome": "India",
-   "atleti": 52,
-   "pass": 7,
+   "atleti": 53,
+   "pass": 8,
    "righe": [
     {
      "nome": "Chikitha TANIPARTHI/Sahil Rajesh JADHAV",
@@ -1609,6 +1611,26 @@
      },
      "gare": {
       "Men's 50m Rifle 3 Positions": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Vivaan KAPOOR",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's Trap"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Trap": "M"
      },
      "atleti": 1,
      "squadra": false,
@@ -2402,77 +2424,10 @@
     }
    ]
   },
-  "NED": {
-   "nome": "Paesi Bassi",
-   "atleti": 21,
-   "pass": 3,
-   "righe": [
-    {
-     "nome": "Katja STAM/Raisa SCHOON",
-     "sport": "Beachvolley",
-     "card": "Beachvolley",
-     "discipline": [
-      "Beach Volley Women's"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 2,
-      "O": 0
-     },
-     "gare": {
-      "Beach Volley Women's": "W"
-     },
-     "atleti": 2,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "NED Dressage Team",
-     "sport": "Equestrian",
-     "card": "Equestrian",
-     "discipline": [
-      "Dressage Team"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 0,
-      "O": 3
-     },
-     "gare": {
-      "Dressage Team": "O"
-     },
-     "atleti": 3,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "NED Women's Team",
-     "sport": "Hockey Field",
-     "card": "Hockey Field",
-     "discipline": [
-      "Women's Hockey Field"
-     ],
-     "genere": {
-      "M": 0,
-      "W": 16,
-      "O": 0
-     },
-     "gare": {
-      "Women's Hockey Field": "W"
-     },
-     "atleti": 16,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
   "CHN": {
    "nome": "Cina",
-   "atleti": 20,
-   "pass": 13,
+   "atleti": 21,
+   "pass": 14,
    "righe": [
     {
      "nome": "CHN Recurve Mixed",
@@ -2657,6 +2612,26 @@
      "nota": ""
     },
     {
+     "nome": "QI Ying",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's Trap"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Trap": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
      "nome": "SHENG Lihao",
      "sport": "Shooting",
      "card": "Shooting",
@@ -2738,6 +2713,73 @@
     }
    ]
   },
+  "NED": {
+   "nome": "Paesi Bassi",
+   "atleti": 21,
+   "pass": 3,
+   "righe": [
+    {
+     "nome": "Katja STAM/Raisa SCHOON",
+     "sport": "Beachvolley",
+     "card": "Beachvolley",
+     "discipline": [
+      "Beach Volley Women's"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 2,
+      "O": 0
+     },
+     "gare": {
+      "Beach Volley Women's": "W"
+     },
+     "atleti": 2,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "NED Dressage Team",
+     "sport": "Equestrian",
+     "card": "Equestrian",
+     "discipline": [
+      "Dressage Team"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 0,
+      "O": 3
+     },
+     "gare": {
+      "Dressage Team": "O"
+     },
+     "atleti": 3,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "NED Women's Team",
+     "sport": "Hockey Field",
+     "card": "Hockey Field",
+     "discipline": [
+      "Women's Hockey Field"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 16,
+      "O": 0
+     },
+     "gare": {
+      "Women's Hockey Field": "W"
+     },
+     "atleti": 16,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
   "COL": {
    "nome": "Colombia",
    "atleti": 18,
@@ -2767,8 +2809,8 @@
   },
   "ITA": {
    "nome": "Italia",
-   "atleti": 15,
-   "pass": 4,
+   "atleti": 16,
+   "pass": 5,
    "righe": [
     {
      "nome": "Yemaneberhan CRIPPA",
@@ -2846,6 +2888,26 @@
      },
      "gare": {
       "Individual All-Around": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Jessica ROSSI",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Women's Trap"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's Trap": "W"
      },
      "atleti": 1,
      "squadra": false,
@@ -3368,6 +3430,73 @@
     }
    ]
   },
+  "RUS": {
+   "nome": "Russia",
+   "atleti": 7,
+   "pass": 3,
+   "righe": [
+    {
+     "nome": "RUS MAG Team",
+     "sport": "Gym Artistic",
+     "card": "Gym Artistic",
+     "discipline": [
+      "MAG Team"
+     ],
+     "genere": {
+      "M": 5,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "MAG Team": "M"
+     },
+     "atleti": 5,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Daria SEMIANOVA",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Women's Trap"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's Trap": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Dmitrii PIMENOV",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's 50m Rifle 3 Positions"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's 50m Rifle 3 Positions": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
   "IRL": {
    "nome": "Irlanda",
    "atleti": 6,
@@ -3554,53 +3683,6 @@
      },
      "gare": {
       "Women's 25m Pistol": "W"
-     },
-     "atleti": 1,
-     "squadra": false,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
-  "RUS": {
-   "nome": "Russia",
-   "atleti": 6,
-   "pass": 2,
-   "righe": [
-    {
-     "nome": "RUS MAG Team",
-     "sport": "Gym Artistic",
-     "card": "Gym Artistic",
-     "discipline": [
-      "MAG Team"
-     ],
-     "genere": {
-      "M": 5,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "MAG Team": "M"
-     },
-     "atleti": 5,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    },
-    {
-     "nome": "Dmitrii PIMENOV",
-     "sport": "Shooting",
-     "card": "Shooting",
-     "discipline": [
-      "Men's 50m Rifle 3 Positions"
-     ],
-     "genere": {
-      "M": 1,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "Men's 50m Rifle 3 Positions": "M"
      },
      "atleti": 1,
      "squadra": false,
@@ -3891,6 +3973,53 @@
     }
    ]
   },
+  "KUW": {
+   "nome": "Kuwait",
+   "atleti": 2,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "Abdulaziz ALSAAD",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's Skeet"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Skeet": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Abdulrahman ALFAIHAN",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's Trap"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Trap": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
   "MAR": {
    "nome": "Marocco",
    "atleti": 2,
@@ -4095,6 +4224,33 @@
     }
    ]
   },
+  "GUA": {
+   "nome": "Guatemala",
+   "atleti": 1,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Adriana RUANO OLIVA",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Women's Trap"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's Trap": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
   "HKG": {
    "nome": "RAS di Hong Kong",
    "atleti": 1,
@@ -4199,33 +4355,6 @@
      },
      "gare": {
       "Women's Skeet": "W"
-     },
-     "atleti": 1,
-     "squadra": false,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
-  "KUW": {
-   "nome": "Kuwait",
-   "atleti": 1,
-   "pass": 1,
-   "righe": [
-    {
-     "nome": "Abdulaziz ALSAAD",
-     "sport": "Shooting",
-     "card": "Shooting",
-     "discipline": [
-      "Men's Skeet"
-     ],
-     "genere": {
-      "M": 1,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "Men's Skeet": "M"
      },
      "atleti": 1,
      "squadra": false,

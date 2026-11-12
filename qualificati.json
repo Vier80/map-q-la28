@@ -1,13 +1,13 @@
 {
  "aggiornato": "2026-11-12",
  "totali": {
-  "posti_qualificati": 905,
-  "noc": 47,
-  "rimanenti": 10293,
+  "posti_qualificati": 912,
+  "noc": 49,
+  "rimanenti": 10286,
   "posti_totali": 11198,
-  "righe": 163,
+  "righe": 170,
   "athlete_quota": 6,
-  "noc_quota": 53,
+  "noc_quota": 60,
   "team_quota": 104
  },
  "fonte_regole": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
@@ -284,8 +284,8 @@
     "Men's Marathon"
    ],
    "tipo": "NOC Quota",
-   "via": "Not specified",
-   "evento": "",
+   "via": "Other event",
+   "evento": "2026 New York City Marathon",
    "posti": 1,
    "nota": "",
    "regola": "Regolamento LA28 non ancora pubblicato sul sito CIO: considerato posto NOC (da verificare).",
@@ -306,14 +306,154 @@
     "Men's Marathon"
    ],
    "tipo": "NOC Quota",
-   "via": "Not specified",
-   "evento": "",
+   "via": "Other event",
+   "evento": "2026 New York City Marathon",
    "posti": 1,
    "nota": "",
    "regola": "Regolamento LA28 non ancora pubblicato sul sito CIO: considerato posto NOC (da verificare).",
    "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
    "verifica": true,
    "notion": "https://app.notion.com/p/Andreas-ALMGREN-2c5f48c9aad98026bbebefb24b4415b7"
+  },
+  {
+   "chiave": "416f48c9aad98058985fe516d3e95bfd",
+   "nome": "Haftu STRINTZOS",
+   "noc": "AUS",
+   "bandiera": "🇦🇺",
+   "paese": "Australia",
+   "sport": "Athletics",
+   "gare": [
+    "Men's Marathon"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Other event",
+   "evento": "2026 New York City Marathon",
+   "posti": 1,
+   "nota": "",
+   "regola": "Regolamento LA28 non ancora pubblicato sul sito CIO: considerato posto NOC (da verificare).",
+   "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+   "verifica": true,
+   "notion": "https://app.notion.com/p/Haftu-STRINTZOS-416f48c9aad98058985fe516d3e95bfd"
+  },
+  {
+   "chiave": "2c5f48c9aad98097a2afc4ae9c4bf39e",
+   "nome": "Benson KIPRUTO",
+   "noc": "KEN",
+   "bandiera": "🇰🇪",
+   "paese": "Kenya",
+   "sport": "Athletics",
+   "gare": [
+    "Men's Marathon"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Other event",
+   "evento": "2026 New York City Marathon",
+   "posti": 1,
+   "nota": "",
+   "regola": "Regolamento LA28 non ancora pubblicato sul sito CIO: considerato posto NOC (da verificare).",
+   "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+   "verifica": true,
+   "notion": "https://app.notion.com/p/Benson-KIPRUTO-2c5f48c9aad98097a2afc4ae9c4bf39e"
+  },
+  {
+   "chiave": "416f48c9aad980c9834de314ecac94fe",
+   "nome": "Kamohelo MOFOLO",
+   "noc": "LES",
+   "bandiera": "🇱🇸",
+   "paese": "Lesotho",
+   "sport": "Athletics",
+   "gare": [
+    "Men's Marathon"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Other event",
+   "evento": "2026 New York City Marathon",
+   "posti": 1,
+   "nota": "",
+   "regola": "Regolamento LA28 non ancora pubblicato sul sito CIO: considerato posto NOC (da verificare).",
+   "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+   "verifica": true,
+   "notion": "https://app.notion.com/p/Kamohelo-MOFOLO-416f48c9aad980c9834de314ecac94fe"
+  },
+  {
+   "chiave": "416f48c9aad98002abf6d1a79a922574",
+   "nome": "Edna Ngeringwony KIPLAGAT",
+   "noc": "KEN",
+   "bandiera": "🇰🇪",
+   "paese": "Kenya",
+   "sport": "Athletics",
+   "gare": [
+    "Women's Marathon"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Other event",
+   "evento": "2026 New York City Marathon",
+   "posti": 1,
+   "nota": "",
+   "regola": "Regolamento LA28 non ancora pubblicato sul sito CIO: considerato posto NOC (da verificare).",
+   "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+   "verifica": true,
+   "notion": "https://app.notion.com/p/Edna-Ngeringwony-KIPLAGAT-416f48c9aad98002abf6d1a79a922574"
+  },
+  {
+   "chiave": "2c5f48c9aad9806dbb9dc119db87deaa",
+   "nome": "Hellen OBIRI",
+   "noc": "KEN",
+   "bandiera": "🇰🇪",
+   "paese": "Kenya",
+   "sport": "Athletics",
+   "gare": [
+    "Women's Marathon"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Other event",
+   "evento": "2026 New York City Marathon",
+   "posti": 1,
+   "nota": "",
+   "regola": "Regolamento LA28 non ancora pubblicato sul sito CIO: considerato posto NOC (da verificare).",
+   "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+   "verifica": true,
+   "notion": "https://app.notion.com/p/Hellen-OBIRI-2c5f48c9aad9806dbb9dc119db87deaa"
+  },
+  {
+   "chiave": "416f48c9aad98086a544c61541eb1a85",
+   "nome": "Sheila CHEPKIRUI",
+   "noc": "KEN",
+   "bandiera": "🇰🇪",
+   "paese": "Kenya",
+   "sport": "Athletics",
+   "gare": [
+    "Women's Marathon"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Other event",
+   "evento": "2026 New York City Marathon",
+   "posti": 1,
+   "nota": "",
+   "regola": "Regolamento LA28 non ancora pubblicato sul sito CIO: considerato posto NOC (da verificare).",
+   "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+   "verifica": true,
+   "notion": "https://app.notion.com/p/Sheila-CHEPKIRUI-416f48c9aad98086a544c61541eb1a85"
+  },
+  {
+   "chiave": "416f48c9aad9805d9e9acc589668508e",
+   "nome": "Jessica MCCLAIN",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Athletics",
+   "gare": [
+    "Women's Marathon"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Other event",
+   "evento": "2026 New York City Marathon",
+   "posti": 1,
+   "nota": "",
+   "regola": "Regolamento LA28 non ancora pubblicato sul sito CIO: considerato posto NOC (da verificare).",
+   "documento": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
+   "verifica": true,
+   "notion": "https://app.notion.com/p/Jessica-MCCLAIN-416f48c9aad9805d9e9acc589668508e"
   },
   {
    "chiave": "2c5f48c9aad980c680b7f94ef3d16945",

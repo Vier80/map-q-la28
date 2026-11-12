@@ -10,10 +10,10 @@
    "O": 0,
    "pass": 13,
    "noc": {
+    "USA": 8,
     "IND": 3,
     "CHN": 2,
     "JPN": 1,
-    "USA": 8,
     "KOR": 2
    }
   },
@@ -28,12 +28,16 @@
   },
   "Athletics": {
    "quota": 1810,
-   "atleti": 2,
-   "M": 2,
-   "W": 0,
+   "atleti": 9,
+   "M": 5,
+   "W": 4,
    "O": 0,
-   "pass": 2,
+   "pass": 9,
    "noc": {
+    "KEN": 4,
+    "USA": 1,
+    "LES": 1,
+    "AUS": 1,
     "ITA": 1,
     "SWE": 1
    }
@@ -92,10 +96,10 @@
    "O": 0,
    "pass": 10,
    "noc": {
+    "USA": 2,
     "AUS": 4,
     "MAR": 2,
     "NGR": 2,
-    "USA": 2,
     "BRA": 4,
     "CAN": 2,
     "NED": 2,
@@ -137,9 +141,9 @@
    "O": 0,
    "pass": 5,
    "noc": {
-    "IND": 15,
-    "AUS": 15,
     "USA": 15,
+    "AUS": 15,
+    "IND": 15,
     "GBR": 15,
     "RSA": 15
    }
@@ -179,9 +183,9 @@
    "O": 72,
    "pass": 24,
    "noc": {
+    "USA": 9,
     "AUS": 3,
     "ITA": 3,
-    "USA": 9,
     "NZL": 3,
     "GBR": 9,
     "FRA": 3,
@@ -211,8 +215,8 @@
    "O": 0,
    "pass": 6,
    "noc": {
-    "ITA": 10,
     "USA": 20,
+    "ITA": 10,
     "MEX": 10,
     "CAN": 20
    }
@@ -248,10 +252,10 @@
    "O": 0,
    "pass": 6,
    "noc": {
+    "USA": 5,
     "CHN": 10,
     "JPN": 10,
-    "RUS": 5,
-    "USA": 5
+    "RUS": 5
    }
   },
   "Gym Rhythmic": {
@@ -262,9 +266,9 @@
    "O": 0,
    "pass": 7,
    "noc": {
+    "USA": 5,
     "JPN": 5,
     "ITA": 1,
-    "USA": 5,
     "BRA": 5,
     "GER": 1,
     "ESP": 5,
@@ -290,8 +294,8 @@
    "O": 0,
    "pass": 6,
    "noc": {
-    "IND": 32,
     "USA": 32,
+    "IND": 32,
     "NED": 16,
     "BEL": 16
    }
@@ -371,8 +375,8 @@
    "O": 0,
    "pass": 7,
    "noc": {
-    "THA": 1,
     "USA": 5,
+    "THA": 1,
     "KOR": 1
    }
   },
@@ -517,9 +521,9 @@
    "O": 0,
    "pass": 4,
    "noc": {
+    "USA": 4,
     "CHN": 1,
     "JPN": 1,
-    "USA": 4,
     "FRA": 4
    }
   },
@@ -531,12 +535,12 @@
    "O": 0,
    "pass": 12,
    "noc": {
+    "USA": 24,
     "THA": 12,
     "JPN": 12,
     "TUN": 12,
     "CUB": 12,
     "EGY": 12,
-    "USA": 24,
     "BRA": 24,
     "CAN": 12,
     "TUR": 12,
@@ -574,15 +578,15 @@
   }
  },
  "totali": {
-  "atleti": 905,
-  "pass": 163,
-  "noc": 47
+  "atleti": 912,
+  "pass": 170,
+  "noc": 49
  },
  "noc": {
   "USA": {
    "nome": "Stati Uniti",
-   "atleti": 341,
-   "pass": 43,
+   "atleti": 342,
+   "pass": 44,
    "righe": [
     {
      "nome": "Alexis RUIZ/Stephan HANSEN",
@@ -662,6 +666,26 @@
      "atleti": 3,
      "squadra": true,
      "ospitante": true,
+     "nota": ""
+    },
+    {
+     "nome": "Jessica MCCLAIN",
+     "sport": "Athletics",
+     "card": "Athletics",
+     "discipline": [
+      "Women's Marathon"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's Marathon": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
      "nota": ""
     },
     {
@@ -2273,9 +2297,29 @@
   },
   "AUS": {
    "nome": "Australia",
-   "atleti": 22,
-   "pass": 4,
+   "atleti": 23,
+   "pass": 5,
    "righe": [
+    {
+     "nome": "Haftu STRINTZOS",
+     "sport": "Athletics",
+     "card": "Athletics",
+     "discipline": [
+      "Men's Marathon"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Marathon": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
     {
      "nome": "Mark NICOLAIDIS/Izac CARRACHER",
      "sport": "Beachvolley",
@@ -3686,6 +3730,93 @@
     }
    ]
   },
+  "KEN": {
+   "nome": "Kenya",
+   "atleti": 4,
+   "pass": 4,
+   "righe": [
+    {
+     "nome": "Benson KIPRUTO",
+     "sport": "Athletics",
+     "card": "Athletics",
+     "discipline": [
+      "Men's Marathon"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Marathon": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Edna Ngeringwony KIPLAGAT",
+     "sport": "Athletics",
+     "card": "Athletics",
+     "discipline": [
+      "Women's Marathon"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's Marathon": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Hellen OBIRI",
+     "sport": "Athletics",
+     "card": "Athletics",
+     "discipline": [
+      "Women's Marathon"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's Marathon": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Sheila CHEPKIRUI",
+     "sport": "Athletics",
+     "card": "Athletics",
+     "discipline": [
+      "Women's Marathon"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's Marathon": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
   "NZL": {
    "nome": "Nuova Zelanda",
    "atleti": 3,
@@ -4095,6 +4226,33 @@
      },
      "gare": {
       "Men's Skeet": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "LES": {
+   "nome": "Lesotho",
+   "atleti": 1,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Kamohelo MOFOLO",
+     "sport": "Athletics",
+     "card": "Athletics",
+     "discipline": [
+      "Men's Marathon"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Marathon": "M"
      },
      "atleti": 1,
      "squadra": false,

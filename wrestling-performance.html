@@ -113,9 +113,11 @@ svg .riga-hover:hover .barra, svg .riga-hover:hover [class^="s-"] { opacity: .8 
 .h2h { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 10px; margin-top: 8px }
 .duello { padding: 12px 14px; background: var(--bg); border: 1px solid var(--line); border-radius: 16px }
 .duello .testa-d { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 8px }
-.duello .chi { font-weight: 700; overflow-wrap: anywhere } .duello .chi small { display: block; font-weight: 600; color: var(--muted); font-size: .78rem }
+/* nomi in carattere più piccolo, uguale per tutte le carte; si va a capo solo tra le parole */
+.duello .chi { font-size: .86rem; line-height: 1.3; font-weight: 700; overflow-wrap: break-word; hyphens: none }
+.duello .chi small { display: block; font-weight: 600; color: var(--muted); font-size: .74rem }
 .duello .chi.dx { text-align: right }
-.duello .bil { font: 700 1.4rem/1 var(--font); color: var(--ink-t); font-variant-numeric: tabular-nums; white-space: nowrap }
+.duello .bil { font: 700 1.2rem/1 var(--font); color: var(--ink-t); font-variant-numeric: tabular-nums; white-space: nowrap }
 .duello ul { list-style: none; margin: 8px 0 0; padding: 8px 0 0; border-top: 1px solid var(--line); display: grid; gap: 4px; font-size: .84rem; color: var(--muted) }
 .duello li b { color: var(--fg); font-weight: 600; font-variant-numeric: tabular-nums }
 .duello.ita { box-shadow: inset 4px 0 0 var(--ita) }
@@ -507,15 +509,14 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
     T2.append(tb);
 
     // testa a testa (tutti i tornei: per definizione si incontrano più volte)
-    const tutti = new Set(dati.campioni.map((c) => c.nome));   // testa a testa: tutte le categorie, come prima
     const H2 = $("h2h"); H2.innerHTML = "";
     const coppie = dati.h2h.filter((h) => h.incontri.some((i) => i.stile === stato.stile));
     $("titolo-h2h").textContent = `Testa a testa · ${STILE[stato.stile] || stato.stile} · ${coppie.length} ${coppie.length === 1 ? "coppia" : "coppie"}`;
     coppie.forEach((h) => {
       const d = el("div", "duello" + (isIta(h.noc_a) || isIta(h.noc_b) ? " ita" : ""));
       const tt = el("div", "testa-d");
-      const a = el("span", "chi", (tutti.has(h.a) ? "🏆 " : "") + h.a); a.append(el("small", null, h.noc_a));
-      const b = el("span", "chi dx", (tutti.has(h.b) ? "🏆 " : "") + h.b); b.append(el("small", null, h.noc_b));
+      const a = el("span", "chi", h.a); a.append(el("small", null, h.noc_a));
+      const b = el("span", "chi dx", h.b); b.append(el("small", null, h.noc_b));
       tt.append(a, el("span", "bil", `${h.v_a} – ${h.v_b}`), b); d.append(tt);
       const ul = el("ul");
       h.incontri.forEach((i) => {

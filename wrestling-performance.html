@@ -431,9 +431,9 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
     });
 
     // grafici sui campioni: il migliore di ogni categoria olimpica, tutti e 3 gli stili (18 righe).
-    // Un solo torneo: il campione. Tutti i tornei: tra i campioni della categoria, chi ha più titoli;
-    // a pari titoli ha sempre la precedenza il campione del mondo; poi più vittorie nella categoria,
-    // poi la differenza punti per incontro più alta (statistiche di tutti i tornei).
+    // Un solo torneo: il campione. Tutti i tornei: tra i campioni della categoria ha SEMPRE la precedenza
+    // il campione del mondo (anche su chi ha vinto più tornei minori); poi più titoli, poi più vittorie
+    // nella categoria, poi la differenza punti per incontro più alta (statistiche di tutti i tornei).
     const migliori = [];
     STILI.forEach((st) => OLIMPICHE[st].forEach((cat) => {
       const cand = CAMPIONI.filter((c) => c.stile === st && c.cat === cat && (stato.torneo === TOT || c.torneo === stato.torneo))
@@ -442,7 +442,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       const unici = [...new Map(cand.map((x) => [x.c.nome, x])).values()];      // un campione con più titoli conta una volta
       // campione del mondo della categoria (torneo "World Championships"): 1 = sì, 0 = no
       const mondo = (x) => cand.some((y) => y.c.nome === x.c.nome && /world championships/i.test(y.c.torneo)) ? 1 : 0;
-      unici.sort((a, b) => stato.torneo === TOT ? (b.s.titoli - a.s.titoli) || (mondo(b) - mondo(a)) || (b.s.v - a.s.v) || (dpi(b.s) - dpi(a.s)) : 0);
+      unici.sort((a, b) => stato.torneo === TOT ? (mondo(b) - mondo(a)) || (b.s.titoli - a.s.titoli) || (b.s.v - a.s.v) || (dpi(b.s) - dpi(a.s)) : 0);
       if (unici.length) migliori.push({ ...unici[0], st, cat });
     }));
     const etichetta = ({ st, cat, c }) => `${SIGLA[st] || st} ${cat} · ${cognome(c.nome)}`;
@@ -462,7 +462,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
         tip: [`${x.c.nome} (${x.c.noc})`, `${sottoTitolo(x)} · ${s.v} vittorie`, `Schienata ${s.vfa} · Superiorità tecnica ${s.vsu}`, `Ai punti ${vpo} · Senza combattere ${s.v_sc}`],
         clic: () => apri(x.c.nome, x.st, x.cat, stato.torneo === TOT ? TOT : x.c.torneo) };
     }), { aria: "Vittorie del migliore di ogni categoria, per tipo", etichetta: 230 });
-    const quale = stato.torneo === TOT ? "il migliore di ogni categoria olimpica (più titoli; a pari titoli il campione del mondo, poi più vittorie), con i dati di tutti i tornei"
+    const quale = stato.torneo === TOT ? "il migliore di ogni categoria olimpica (il campione del mondo; se manca, chi ha più titoli e poi più vittorie), con i dati di tutti i tornei"
       : `il campione di ogni categoria olimpica a ${breve(stato.torneo)}`;
     $("sotto-dominio").textContent = `Tutti e 3 gli stili, ${quale}. Differenza punti per incontro: punti segnati meno punti subiti, diviso gli incontri lottati (esclusi forfait, infortunio e squalifica).`;
     $("sotto-tipi").textContent = `Tutti e 3 gli stili, ${quale}. Vittorie divise per tipo, dalla più netta (schienata) a quelle senza combattere.`;

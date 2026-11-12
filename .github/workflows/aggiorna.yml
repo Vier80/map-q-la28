@@ -65,6 +65,11 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: python aggiorna_scherma_performance.py
+      - name: Performance Wrestling - statistiche incontri e aggiorna wrestling-performance.json
+        continue-on-error: true     # se fallisce, la mappa si aggiorna comunque
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: python aggiorna_wrestling_performance.py
       - name: Salva data.json nel repository
         id: salva
         run: |
@@ -77,6 +82,7 @@ jobs:
           git add badminton-performance.json 2>/dev/null || true
           git add pentathlon-performance.json 2>/dev/null || true
           git add scherma-performance.json 2>/dev/null || true
+          git add wrestling-performance.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "cambiato=0" >> "$GITHUB_OUTPUT"
           else

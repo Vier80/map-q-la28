@@ -8,6 +8,16 @@ Perché ricalcolare: l'API di Notion non restituisce il valore delle formule, qu
 script rifà lo stesso conto partendo da Result, Anno, Evento e 🏟️ Rating.
 Se cambi la formula WON in Notion, cambia anche le funzioni qui sotto (sezione FORMULA).
 
+NOVITÀ del 13/11/2026 (scheda 19, sessione 3, passo 3): ELO
+-----------------------------------------------------------
+Se nella cartella c'è judo-elo.json (lo salva il workflow "ELO Judo" ogni lunedì), lo script
+aggiunge a judo-performance.json l'ELO di ogni judoka. Il collegamento passa dal campo
+"notion" di judo-elo.json, che è l'id della riga di Athletes, cioè lo stesso "id" usato qui.
+Regola della scheda 19 §5.7 e §5.11: il valore dell'ELO viene messo nel JSON della pagina
+SOLO per i livelli "provvisorio" (10-19 incontri) e "stabile" (20 o più); per chi ha meno di
+10 incontri o un solo torneo si scrivono solo i numeri di incontri e tornei, e la pagina mostra «—».
+Se judo-elo.json manca o non si legge, la pagina funziona lo stesso, senza ELO.
+
 Uso:
   NOTION_TOKEN=... python aggiorna_judo_performance.py
   python aggiorna_judo_performance.py --da-raw raw.json    prova con dati salvati
@@ -37,6 +47,10 @@ NOMI_DB = {DB_ATHLETES: "Athletes", DB_RISULTATI["A"]: "Risultati A (MASTER RESU
 PESI_KG = {"Men": ["-60", "-66", "-73", "-81", "-90", "-100", "+100"],
            "Women": ["-48", "-52", "-57", "-63", "-70", "-78", "+78"]}
 DISCIPLINE_JUDO = [f"{g}'s {kg}kg" for g, kgs in PESI_KG.items() for kg in kgs]
+
+# ---------------------------------------------------------------- ELO (novità sessione 3)
+FILE_ELO = CARTELLA / "judo-elo.json"   # prodotto da elo_judo.py nello stesso repository
+TOP_ELO = 10                            # quanti judoka nella "Classifica ELO · top 10" di ogni categoria
 
 # ---------------------------------------------------------------- FORMULA WON 🔺
 TRAD = {"SF": "3", "QF": "5", "R16": "9", "R32": "17", "R64": "33", "R128": "65"}
@@ -173,6 +187,12 @@ def categoria(disc):
     return (m.group(1), m.group(2) + " kg") if m else (None, None)
 
 
+def bandiera_e_noc(noc_notion):
+    """'🇮🇹ITA' (valore di Athletes) -> ('🇮🇹', 'ITA'). Se il formato non torna: ('', valore così com'è)."""
+    m = re.match(r"^(\W*?)([A-Z]{3})$", noc_notion or "")
+    return (m.group(1), m.group(2)) if m else ("", noc_notion or "—")
+
+
 def aggrega(ath, res, oggi):
     gruppi = {}
     for r in res:
@@ -202,10 +222,10 @@ def aggrega(ath, res, oggi):
         if info["dob"]:
             d = datetime.date.fromisoformat(info["dob"][:10])
             eta = oggi.year - d.year - ((oggi.month, oggi.day) < (d.month, d.day))
-        m = re.match(r"^(\W*?)([A-Z]{3})$", info["noc"] or "")
+        flag, noc = bandiera_e_noc(info["noc"])
         atleti.append({
             "id": i, "nome": re.sub(r"\s+", " ", info["nome"]).strip(),
-            "flag": m.group(1) if m else "", "noc": m.group(2) if m else (info["noc"] or "—"),
+            "flag": flag, "noc": noc,
             "genere": "U" if g == "Men" else "D", "cat": cat,
             "won": round(sum(ws), 2), "gare": len(righe),
             "ori": pl.count(1), "arg": pl.count(2), "bro": pl.count(3),
@@ -222,6 +242,88 @@ def aggrega(ath, res, oggi):
             "n_risultati": sum(a["gare"] for a in atleti)}
 
 
+# ---------------------------------------------------------------- ELO (novità sessione 3)
+def dati_elo_atleta(e):
+    """Dati ELO di un judoka per la pagina, nel formato compatto di judo-performance.json.
+
+    liv = livello ("stabile", "provvisorio", "nascosto"); n = incontri; t = tornei.
+    Solo se il livello non è "nascosto": v = ELO, max = ELO massimo, vit = vittorie,
+    ult = data dell'ultimo incontro, st = storico [[data, ELO dopo il torneo, id torneo], ...].
+    """
+    out = {"liv": e.get("livello"), "n": e.get("incontri", 0), "t": e.get("tornei", 0)}
+    if e.get("livello") in ("stabile", "provvisorio"):
+        out.update(v=e.get("elo"), max=e.get("elo_max"), vit=e.get("vittorie"), ult=e.get("ultimo"),
+                   st=e.get("storico") or [])
+    return out
+
+
+def aggiungi_elo(dati, ath):
+    """Aggiunge a judo-performance.json l'ELO di judo-elo.json (scheda 19 §5.11).
+
+    - a ogni atleta della classifica WON collegato all'ELO aggiunge il campo "elo";
+    - in dati["elo"] mette la data dell'ELO, i nomi dei tornei dello storico e la top 10 ELO
+      di ogni categoria (anche judoka senza punti WON), per il pannello "Classifica ELO".
+    """
+    if not FILE_ELO.exists():
+        print("AVVISO judo-elo.json non trovato: la pagina mostrerà «—» nella colonna ELO.")
+        dati["elo"] = None
+        return
+    try:
+        raw = json.loads(FILE_ELO.read_text(encoding="utf-8"))
+        elenco = raw["atleti"]
+    except (OSError, ValueError, KeyError, TypeError) as e:
+        print(f"AVVISO judo-elo.json non leggibile ({e}): la pagina mostrerà «—» nella colonna ELO.")
+        dati["elo"] = None
+        return
+
+    # 1. collegamento con la classifica WON: "notion" (ELO) = "id" (WON) = id della riga di Athletes
+    per_notion = {e["notion"]: e for e in elenco if e.get("notion")}
+    tornei_usati, collegati, mostrati = set(), 0, 0
+    for a in dati["atleti"]:
+        e = per_notion.get(a["id"])
+        if not e:
+            continue                      # nessun incontro dal 1/1/2026 (o judoka non abbinato)
+        a["elo"] = dati_elo_atleta(e)
+        collegati += 1
+        if "v" in a["elo"]:
+            mostrati += 1
+            tornei_usati.update(str(c) for _, _, c in a["elo"]["st"])
+
+    # 2. top 10 ELO di ogni categoria: categoria dell'ultimo incontro (§5.8), solo ELO mostrabili
+    per_cat = {}
+    for e in elenco:
+        if e.get("livello") not in ("stabile", "provvisorio") or not e.get("cat"):
+            continue
+        per_cat.setdefault(f"{e.get('genere')}|{e['cat']}", []).append(e)
+    top = {}
+    for chiave, lista in per_cat.items():
+        lista.sort(key=lambda e: -e["elo"])
+        righe = []
+        for e in lista[:TOP_ELO]:
+            info = ath.get(e.get("notion") or "")
+            if info:                      # nome e bandiera come in Athletes
+                flag, noc = bandiera_e_noc(info["noc"])
+                nome = re.sub(r"\s+", " ", info["nome"]).strip()
+                if noc == "—":            # NOC vuoto in Athletes: uso quello dell'IJF
+                    noc = e.get("noc") or "—"
+            else:                         # judoka incerto, non ancora in Athletes: dati IJF
+                flag, noc, nome = "", e.get("noc") or "—", e.get("nome", "")
+            righe.append({"id": e.get("notion"), "nome": nome, "flag": flag, "noc": noc,
+                          "v": e["elo"], "liv": e["livello"], "n": e.get("incontri", 0)})
+        top[chiave] = righe
+
+    nomi_tornei = {str(cid): (t or {}).get("nome", "") for cid, t in (raw.get("tornei") or {}).items()}
+    dati["elo"] = {
+        "aggiornato": raw.get("aggiornato"),
+        "judoka": len(elenco),
+        "mostrati": sum(1 for e in elenco if e.get("livello") in ("stabile", "provvisorio")),
+        "tornei": {cid: nomi_tornei.get(cid, "") for cid in sorted(tornei_usati)},
+        "top": top,
+    }
+    print(f"ELO (judo-elo.json del {raw.get('aggiornato')}): {collegati} atleti della classifica WON "
+          f"collegati, {mostrati} con ELO mostrato; top {TOP_ELO} ELO in {len(top)} categorie")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--da-raw", help="file con {ath, res} salvati, per le prove")
@@ -233,6 +335,7 @@ def main():
         ath, res = leggi_notion()
     oggi = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=1))).date()
     dati = aggrega(ath, res, oggi)
+    aggiungi_elo(dati, ath)               # novità sessione 3
     (CARTELLA / "judo-performance.json").write_text(
         json.dumps(dati, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"judo-performance.json: {len(dati['atleti'])} atleti, {dati['n_risultati']} risultati, "

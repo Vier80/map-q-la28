@@ -481,9 +481,13 @@ def abbina(A, athletes):
                                        # (es. "Babalay" / "Balabay", "Shar" / "Shannon")
             elif simile(c + n, r["_c"] + r["_n"]) >= 0.88:
                 simili.append(r)
-        buoni = [r for r in esatti if r["_codice"] == a["noc"] and r["_disc"] & discipline]
+        # Regola del 13/11/2026 (decisione di Gualtiero): se in Athletes il NOC è VUOTO basta che
+        # coincidano nome e categoria; il NOC mancante verrà compilato nel lancio vero.
+        buoni = [r for r in esatti
+                 if (r["_codice"] == a["noc"] or not r["_codice"]) and r["_disc"] & discipline]
         if len(buoni) == 1 and len(esatti) == 1:
-            esiti[pid] = {"esito": "abbinato", "page": buoni[0]["page"], "motivo": "nome + NOC + categoria",
+            come = "nome + NOC + categoria" if buoni[0]["_codice"] else "nome + categoria (NOC vuoto in Athletes)"
+            esiti[pid] = {"esito": "abbinato", "page": buoni[0]["page"], "motivo": come,
                           "candidati": buoni}
             certi_per_riga[buoni[0]["page"]].append(pid)
         elif esatti or simili:
@@ -649,6 +653,10 @@ def main():
     log("ABBINAMENTO CON IL DB ATHLETES (§5.9)")
     log("=" * 78)
     log(f"Abbinati: {len(ab)}  ({Counter(esiti[p]['motivo'] for p in ab)})")
+    noc_da_compilare = [p for p in ab if not per_page[esiti[p]["page"]]["noc"]]
+    if noc_da_compilare:
+        log(f"  di cui con NOC vuoto in Athletes, che il lancio vero compilerà: {len(noc_da_compilare)} → "
+            + ", ".join(f"{A[p]['nome']} ({A[p]['noc']})" for p in noc_da_compilare[:20]))
     log(f"Da creare: {len(dc)}  (di cui con ELO mostrato nella pagina: "
         f"{sum(1 for p in dc if A[p]['livello'] != 'nascosto')})")
     log(f"Incerti: {len(inc)}  (di cui con ELO mostrato: {sum(1 for p in inc if A[p]['livello'] != 'nascosto')})")

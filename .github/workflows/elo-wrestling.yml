@@ -1,0 +1,93 @@
+name: ELO Wrestling
+
+# Repo map-q-la28, file .github/workflows/elo-wrestling.yml (versione 1 del 14/11/2026, scheda 24).
+# Parte in due modi:
+#   - a mano: Actions -> ELO Wrestling -> Run workflow;
+#   - (dalla sessione 3) da solo alla fine di ogni lancio vero dell'agente wrestling (repo agente-wrestling).
+on:
+  workflow_dispatch:
+    inputs:
+      solo_prova:
+        description: "Solo prova: calcola l'ELO e prepara gli elenchi, senza scrivere su Notion"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write          # serve per salvare wrestling-elo.json nel repository
+  actions: write           # serve per avviare "Aggiorna mappa LA28" alla fine
+
+# due calcoli ELO contemporanei scriverebbero due volte in Athletes: il secondo aspetta il primo
+concurrency:
+  group: elo-wrestling
+  cancel-in-progress: false
+
+jobs:
+  elo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Calcola l'ELO (e, se non è una prova, scrive in Athletes)
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          # format('{0}', ...) trasforma il valore in testo: funziona sia con il lancio a mano
+          # (vero/falso) sia con l'avvio dall'agente (testo "false")
+          DRY_RUN: ${{ format('{0}', inputs.solo_prova) }}
+          TEMPO_MAX_MINUTI: "165"
+        # lo script scrive da solo il rapporto in rapporto_elo_wrestling.txt
+        run: python -u elo_wrestling.py
+
+      - name: Conserva rapporto ed elenchi (Artifacts in fondo alla pagina del lancio)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: elo-wrestling
+          path: |
+            rapporto_elo_wrestling.txt
+            elo_wrestling_abbinati.csv
+            elo_wrestling_da_creare.csv
+            elo_wrestling_incerti.csv
+            wrestling-elo.json
+          if-no-files-found: ignore
+
+      - name: Salva wrestling-elo.json nel repository (solo nel lancio vero)
+        id: salva
+        # "always()" = anche se lo script ha avuto qualche errore di scrittura: il JSON è comunque valido
+        if: always() && format('{0}', inputs.solo_prova) == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add wrestling-elo.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "wrestling-elo.json invariato"
+            echo "salvato=0" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git commit -m "Aggiorna l'ELO wrestling"
+          # il workflow della mappa salva file ogni 15 minuti: prima di salvare prendo le sue modifiche
+          for tentativo in 1 2 3; do
+            if git pull --rebase && git push; then
+              echo "salvato=1" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "Non sono riuscito a salvare wrestling-elo.json"
+          exit 1
+
+      - name: Ripubblica subito il sito (avvia "Aggiorna mappa LA28")
+        # Solo se wrestling-elo.json è stato davvero salvato. Dalla sessione 3 la mappa unirà l'ELO a
+        # wrestling-performance.json; già oggi ripubblica GitHub Pages, compreso wrestling-elo.json.
+        # Se questo passaggio fallisce non succede nulla di grave: ci pensa il giro dei 15 minuti.
+        if: always() && steps.salva.outputs.salvato == '1'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run aggiorna.yml --repo "${{ github.repository }}" \
+            && echo "Ho avviato 'Aggiorna mappa LA28': il sito si aggiorna entro pochi minuti." \
+            || echo "ATTENZIONE: non sono riuscito ad avviare la mappa; si aggiornerà al prossimo giro (15-30 minuti)."

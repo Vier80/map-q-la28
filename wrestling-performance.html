@@ -133,6 +133,18 @@ dialog { max-width: 640px; width: calc(100% - 32px); border: 1.5px solid var(--l
 dialog::backdrop { background: rgba(40, 20, 5, .35) }
 dialog h3 { font: 600 1.35rem/1.25 var(--font) }
 dialog .chiudi { float: right; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer }
+/* ELO (scheda 24, sessione 3): provvisorio = barra più chiara; andamento nella scheda del lottatore */
+svg .barra.prov { opacity: .45 } svg .barra.prov.ita { opacity: .55 }
+svg .griglia { stroke: var(--grid) }
+svg .linea { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round }
+svg .rif { stroke: var(--muted); stroke-dasharray: 3 4; opacity: .6 }
+svg .punto-st { fill: var(--ink); stroke: var(--bg); stroke-width: 1.5 }
+.legenda i.l-prov { background: var(--ink); opacity: .45 }
+.tab .elo { white-space: nowrap }
+.tab .elo small, .prov { display: block; font-size: .7rem; font-weight: 600; letter-spacing: .03em; color: var(--muted) }
+.camp .chip { margin-top: 2px; justify-self: start }
+.elo-box { margin: 10px 0 4px; padding: 10px 12px; background: var(--soft); border: 1px solid var(--line); border-radius: 14px }
+.elo-box p { color: var(--muted); font-size: .9rem } .elo-box b { color: var(--fg) }
 .nota { color: var(--muted); font-size: .86rem; line-height: 1.55 }
 .firma { display: flex; justify-content: flex-end; align-items: center; gap: 10px; font-size: .78rem; letter-spacing: .08em; color: var(--muted) }
 .firma img { height: 36px; width: auto; display: block }
@@ -201,6 +213,14 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
     <div style="overflow-x:auto"><table class="tab classifica" id="classifica"></table></div>
   </section>
 
+  <!-- ELO (scheda 24, sessione 3): nascosto se wrestling-elo.json non è ancora disponibile -->
+  <section class="pannello" id="sezione-elo">
+    <h3 id="titolo-elo">Classifica ELO · top 10</h3>
+    <p class="sotto" id="sotto-elo"></p>
+    <div class="legenda"><span><i class="l-dati"></i>ELO stabile</span><span><i class="l-prov"></i>ELO provvisorio</span><span><i class="l-ita"></i>Italia</span></div>
+    <div id="g-elo-top"></div>
+  </section>
+
   <section class="pannello">
     <h3 id="titolo-h2h">Testa a testa</h3>
     <p class="sotto">Le coppie di lottatori che si sono affrontate almeno 2 volte. Il punteggio di ogni incontro è scritto dal punto di vista del lottatore a sinistra.</p>
@@ -249,7 +269,10 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   const MED = { oro: "🥇", argento: "🥈", bronzo: "🥉" };
   const TURNO = { "Qualif.": "Qualificazione", "1/16 Final": "Sedicesimi", "1/8 Final": "Ottavi", "1/4 Final": "Quarti",
     "1/2 Final": "Semifinale", "Repechage": "Ripescaggio", "Final 3-5": "Finale per il bronzo", "Final 1-2": "Finale",
+    "Final 3-4": "Finale per il bronzo",
     "Round 1": "Girone, 1° turno", "Round 2": "Girone, 2° turno", "Round 3": "Girone, 3° turno", "Round 4": "Girone, 4° turno", "Round 5": "Girone, 5° turno" };
+  // turni dei tornei a due gironi: "A | Round 2" -> "Girone A, 2° turno"
+  const turnoIt = (t) => { if (TURNO[t]) return TURNO[t]; const m = /^([AB]) \| Round (\d+)$/.exec(t || ""); return m ? `Girone ${m[1]}, ${m[2]}° turno` : t; };
   const TIPO = { VPO: "ai punti", VPO1: "ai punti", VSU: "superiorità tecnica", VSU1: "superiorità tecnica", VFA: "schienata",
     VFO: "forfait", VIN: "infortunio", DSQ: "squalifica", VCA: "3 ammonizioni" };
   const kg = (c) => parseInt(c, 10) || 999;
@@ -276,8 +299,9 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   const nomeData = (d) => d ? new Date(d).toLocaleDateString("it-IT", { day: "numeric", month: "short" }) : "";
 
   // incontri compatti: [n° torneo, stile, cat, turno, data, P1, NOC1, P2, NOC2, punti1, punti2, tipo, vincitore 1/2]
-  const I = dati.incontri.filter((r) => olimpica(r[1], r[2])).map((r) => ({ torneo: T[r[0]] ? T[r[0]].nome : "?", stile: r[1], cat: r[2], turno: r[3], data: r[4],
+  const I_TUTTI = dati.incontri.map((r) => ({ torneo: T[r[0]] ? T[r[0]].nome : "?", stile: r[1], cat: r[2], turno: r[3], data: r[4],
     p: [r[5], r[7]], noc: [r[6], r[8]], punti: [r[9], r[10]], tipo: r[11], w: r[12] }));
+  const I = I_TUTTI.filter((b) => olimpica(b.stile, b.cat));     // solo categorie olimpiche (totali)
   // l'incontro visto da un lottatore: avversario, punteggio con i suoi punti per primi, vinto o perso
   const visto = (b, nome) => {
     const l = b.p.indexOf(nome);
@@ -286,20 +310,70 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   };
   // cella "punteggio" con sotto l'esito (V/S e tipo di vittoria): su telefono resta tutto visibile
   const cellaEsito = (x) => { const td = el("td", "esito " + (x.vinto ? "v" : "p")); td.append(el("b", null, x.score), el("small", null, `${x.vinto ? "V" : "S"} · ${TIPO[x.tipo] || x.tipo || "?"}`)); return td; };
-  const cellaAvv = (b, x, conTorneo) => { const td = el("td", "chi-turno"); td.append(el("small", null, (conTorneo ? corto(b.torneo) + " · " : "") + (TURNO[b.turno] || b.turno)), `${x.avv} (${x.nocAvv})`); return td; };
-  const ORD_TURNO = { "Qualif.": 0, "1/16 Final": 1, "1/8 Final": 2, "1/4 Final": 3, "1/2 Final": 4, "Repechage": 5, "Final 3-5": 6, "Final 1-2": 7 };
-  const incontriDi = (nome, stile, cat, torneo) => I.filter((b) => b.p.includes(nome) && b.stile === stile && b.cat === cat && (torneo === TOT || b.torneo === torneo))
+  const cellaAvv = (b, x, conTorneo) => { const td = el("td", "chi-turno"); td.append(el("small", null, (conTorneo ? corto(b.torneo) + " · " : "") + turnoIt(b.turno)), `${x.avv} (${x.nocAvv})`); return td; };
+  const ORD_TURNO = { "Qualif.": 0, "1/16 Final": 1, "1/8 Final": 2, "1/4 Final": 3, "1/2 Final": 4, "Repechage": 5, "Final 3-5": 6, "Final 3-4": 6, "Final 1-2": 7 };
+  const incontriDi = (nome, stile, cat, torneo) => I_TUTTI.filter((b) => b.p.includes(nome) && b.stile === stile && b.cat === cat && (torneo === TOT || b.torneo === torneo))
     .sort((a, b) => posT(a.torneo) - posT(b.torneo) || (ORD_TURNO[a.turno] ?? +((a.turno.match(/\d+/) || [9])[0])) - (ORD_TURNO[b.turno] ?? +((b.turno.match(/\d+/) || [9])[0])));
+
+  // ------------------------------------------------------------ ELO (scheda 22 §5 e scheda 24)
+  // dati.elo è null se wrestling-elo.json non c'era. Un lottatore si trova con eloDi(stile, nome):
+  // { liv: "stabile" | "provvisorio" | "nascosto", n: incontri, t: tornei, cat: categoria di riferimento,
+  //   e solo se l'ELO è mostrato: v (ELO), max, vit (vittorie), ult (ultimo incontro), st (storico) }
+  const ELO = dati.elo || null;
+  const nf = (n) => Math.round(n).toLocaleString("it-IT");                // 1500, senza punto delle migliaia
+  const eloDi = (stile, nome) => (ELO && ELO.atleti[`${stile}|${nome}`]) || null;
+  const eloV = (e) => (e && e.v != null ? e.v : null);                    // valore da mostrare, o null → «—»
+  const eloProv = (e) => !!(e && e.liv === "provvisorio");
+  const eloTesto = (e) => (eloV(e) == null ? "—" : nf(eloV(e)) + (eloProv(e) ? " (provvisorio)" : ""));
+  const minInc = ELO && ELO.regole ? ELO.regole.soglia_provvisorio || 6 : 6, stab = ELO && ELO.regole ? ELO.regole.soglia_stabile || 12 : 12;
+  function eloSpiega(e) {
+    if (!ELO) return "ELO non ancora disponibile";
+    if (!e) return "ELO non disponibile: nessun incontro valido per l'ELO collegato a questo lottatore";
+    const base = `${e.n} incontri in ${e.t} ${e.t === 1 ? "torneo" : "tornei"} nello stile`;
+    if (e.liv === "nascosto") return `${base}: l'ELO compare da ${minInc} incontri in almeno 2 tornei`;
+    if (e.liv === "provvisorio") return `${base}: ELO provvisorio fino a ${stab} incontri`;
+    return base;
+  }
+  // cella ELO della classifica: valore, con «provvisorio» sotto; «—» con la spiegazione al passaggio del mouse
+  const cellaElo = (e) => { const td = el("td", "num elo", eloV(e) == null ? "—" : nf(eloV(e))); if (eloProv(e)) td.append(el("small", null, "provvisorio")); td.title = eloSpiega(e); return td; };
+  const tickLin = (a, b, n = 5) => { const step = Math.pow(10, Math.floor(Math.log10((b - a) / n || 1))); const k = [1, 2, 5, 10].map((f) => f * step).find((f) => (b - a) / f <= n) || step * 10; const t = []; for (let v = Math.ceil(a / k) * k; v <= b + 1e-9; v += k) t.push(+v.toFixed(6)); return t; };
+  // andamento dell'ELO nella scheda: un punto per torneo (st = [[data, ELO, torneo], ...]).
+  // La scheda è una finestra in primo piano: al posto del riquadro #tip si usano i suggerimenti
+  // nativi del browser (<title>): passando sopra un punto compaiono torneo, data ed ELO.
+  function graficoElo(st) {
+    const W = 500, H = 150, m = { l: 42, r: 14, t: 12, b: 24 };
+    const tempo = st.map(([dt]) => new Date(dt + "T12:00:00").getTime()), val = st.map((p) => p[1]);
+    const t0 = Math.min(...tempo), t1 = Math.max(...tempo);
+    const lo = Math.min(1500, ...val) - 20, hi = Math.max(1500, ...val) + 20;
+    const X = (x) => m.l + (t1 === t0 ? 0.5 : (x - t0) / (t1 - t0)) * (W - m.l - m.r);
+    const Y = (y) => H - m.b - (y - lo) / (hi - lo) * (H - m.t - m.b);
+    const s = sv("svg", { class: "grafico", viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Andamento dell'ELO torneo per torneo" });
+    tickLin(lo, hi, 4).forEach((v) => { s.append(sv("line", { class: "griglia", x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v) })); s.append(sv("text", { x: m.l - 6, y: Y(v) + 4, "text-anchor": "end" }, nf(v))); });
+    s.append(sv("line", { class: "rif", x1: m.l, x2: W - m.r, y1: Y(1500), y2: Y(1500) }));   // punto di partenza
+    s.append(sv("text", { x: W - m.r, y: Y(1500) - 4, "text-anchor": "end" }, "partenza 1500"));
+    s.append(sv("path", { class: "linea", d: st.map((p, i) => `${i ? "L" : "M"}${X(tempo[i]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(" ") }));
+    const giorno = (dt) => new Date(dt + "T12:00:00").toLocaleDateString("it-IT", { day: "numeric", month: "short" });
+    st.forEach(([dt, v, slug], i) => {
+      const c = sv("circle", { class: "punto-st", cx: X(tempo[i]), cy: Y(v), r: 3.5 });
+      c.append(sv("title", {}, `${breve((ELO.tornei || {})[slug] || slug)} · ${giorno(dt)} · ELO ${nf(v)}`));
+      s.append(c);
+    });
+    s.append(sv("text", { x: m.l, y: H - 6 }, giorno(st[0][0])));
+    s.append(sv("text", { x: W - m.r, y: H - 6, "text-anchor": "end" }, giorno(st[st.length - 1][0])));
+    return s;
+  }
+  if (!ELO) $("sezione-elo").style.display = "none";
 
   const stato = { stile: STILI[0], torneo: TOT, cat: null };
 
   // ------------------------------------------------------------ intestazione e totali
-  $("data").textContent = "Road to LA28 · risultati UWW · aggiornato al " + new Date(dati.aggiornato).toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" });
+  $("data").textContent = "Road to LA28 · risultati UWW" + (ELO ? " ed ELO" : "") + " · aggiornato al " + new Date(dati.aggiornato).toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" });
   const nocs = new Set(S.filter((s) => s.torneo === TOT).map((s) => s.noc));
   [[I.length, "Incontri"], [new Set(S.map((s) => s.nome)).size, "Lottatori"], [T.length, "Tornei"], [nocs.size, "NOC"]].forEach(([n, t]) => {
     const b = el("div", "totale"); b.append(el("b", null, n.toLocaleString("it-IT")), el("span", null, t)); $("totali").append(b);
   });
-  [...new Set(S.map((s) => s.nome))].sort().forEach((n) => { const o = el("option"); o.value = n; $("nomi").append(o); });
+  // nomi suggeriti nella ricerca: tutti i lottatori, anche quelli delle sole categorie non olimpiche
+  [...new Set(dati.statistiche.map((s) => s.nome))].sort().forEach((n) => { const o = el("option"); o.value = n; $("nomi").append(o); });
 
   // ------------------------------------------------------------ tooltip
   const tip = $("tip");
@@ -314,13 +388,29 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
 
   // ------------------------------------------------------------ scheda di un lottatore (finestra)
   function apri(nome, stile, cat, torneo) {
-    const s = scheda(stile, cat, torneo, nome) || scheda(stile, cat, TOT, nome); if (!s) return;
+    // anche un lottatore della top 10 ELO senza incontri in quella categoria olimpica: si usa la sua
+    // categoria con più incontri (anche non olimpica)
+    const s = scheda(stile, cat, torneo, nome) || scheda(stile, cat, TOT, nome)
+      || dati.statistiche.filter((x) => x.torneo === TOT && x.stile === stile && x.nome === nome).sort((a, b) => b.inc - a.inc)[0];
+    if (!s) return;
+    cat = s.cat;
     const dlg = $("scheda"); dlg.innerHTML = "";
     const ch = el("button", "chiudi", "Chiudi"); ch.onclick = () => dlg.close();
     const tutte = s.medaglie ? "🥇".repeat(s.medaglie[0]) + "🥈".repeat(s.medaglie[1]) + "🥉".repeat(s.medaglie[2]) : "";
     const med = s.medaglia ? " · " + MED[s.medaglia] : tutte ? " · " + tutte : "";
     dlg.append(ch, el("p", "etichetta", `${STILE[stile] || stile} ${cat} · ${breve(s.torneo)}${med}`), el("h3", null, `${nome} (${s.noc})`));
     dlg.append(el("p", "nota", `${s.inc} incontri · ${bilancio(s)} · ${punti(s)} · ${vittorie(s)}`));
+    // riquadro ELO: valore, livello e andamento torneo per torneo (solo se l'ELO è mostrato)
+    if (ELO) {
+      const e = eloDi(stile, nome), box = el("div", "elo-box"), p = el("p");
+      if (eloV(e) != null) {
+        p.append("ELO ", el("b", null, nf(eloV(e))), `${eloProv(e) ? " provvisorio" : ""} · massimo ${nf(e.max)} · ${e.vit} vittorie su ${e.n} incontri in ${e.t} tornei · ` +
+          `${{ "Freestyle": "stile libero", "Women's Wrestling": "lotta femminile", "Greco-Roman": "greco-romana" }[stile] || stile}, tutte le categorie`);
+      } else p.textContent = eloSpiega(e);
+      box.append(p);
+      if (eloV(e) != null && e.st && e.st.length > 1) box.append(graficoElo(e.st));
+      dlg.append(box);
+    }
     const t = el("table", "tab"); const th = el("thead"); const trh = el("tr");
     [["Turno e avversario"], ["Punteggio", 1]].forEach(([h, n]) => trh.append(el("th", n ? "num" : null, h)));
     th.append(trh); t.append(th); const tb = el("tbody");
@@ -347,7 +437,16 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   $("cerca").addEventListener("change", (e) => {
     const q = e.target.value.trim().toLowerCase(); if (!q) return;
     const s = S.find((x) => x.torneo === TOT && x.nome.toLowerCase() === q) || S.find((x) => x.torneo === TOT && x.nome.toLowerCase().includes(q));
-    if (!s) return;
+    if (!s) {
+      // lottatore delle sole categorie non olimpiche (es. 72 kg femminile): si apre la sua scheda e la pagina
+      // passa alla sua categoria olimpica di riferimento dell'ELO, se c'è
+      const t = dati.statistiche.find((x) => x.torneo === TOT && x.nome.toLowerCase() === q) || dati.statistiche.find((x) => x.torneo === TOT && x.nome.toLowerCase().includes(q));
+      if (!t) return;
+      const e = eloDi(t.stile, t.nome);
+      stato.stile = t.stile; stato.cat = e && olimpica(t.stile, e.cat) ? e.cat : null; stato.torneo = TOT; disegna();
+      apri(t.nome, t.stile, t.cat, TOT);
+      return;
+    }
     stato.stile = s.stile; stato.cat = s.cat; stato.torneo = TOT; disegna();
     apri(s.nome, s.stile, s.cat, TOT);
   });
@@ -416,6 +515,8 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
         const b = el("div", "camp" + (isIta(c.noc) ? " ita" : ""));
         if (stato.torneo === TOT) b.append(el("span", "torneo", breve(c.torneo)));
         const nm = el("span", "nome", "🥇 " + c.nome); nm.append(el("small", null, c.noc || "")); b.append(nm);
+        const e = eloDi(c.stile, c.nome);
+        if (eloV(e) != null) { const ch = el("span", "chip", `ELO ${eloTesto(e)}`); ch.title = eloSpiega(e); b.append(ch); }
         const fin = el("span", "riga");
         if (c.score != null) { fin.append(c.girone ? "Girone all'italiana · decisivo " : "Finale "); fin.append(el("b", null, c.score)); fin.append(` su ${c.avversario} (${c.noc_avv})`); }
         b.append(fin);
@@ -490,10 +591,10 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
         ? (b.titoli - a.titoli) || (b.medaglie[1] - a.medaglie[1]) || (b.medaglie[2] - a.medaglie[2]) || (b.v - a.v) || (b.dp - a.dp)
         : ((ordMed[a.medaglia] ?? 9) - (ordMed[b.medaglia] ?? 9)) || (b.v - a.v) || (b.dp - a.dp));
     const mostrati = lista.slice(0, 10);       // solo i primi 10
-    $("sotto-classifica").textContent = `Top 10 della categoria (su ${lista.length} lottatori): prima i medagliati, poi per vittorie e differenza punti. Clicca un nome per vedere i suoi incontri.`;
+    $("sotto-classifica").textContent = `Top 10 della categoria (su ${lista.length} lottatori): prima i medagliati, poi per vittorie e differenza punti.${ELO ? " La colonna ELO è il valore di oggi, uguale per tutti i tornei." : ""} Clicca un nome per vedere i suoi incontri.`;
     const T2 = $("classifica"); T2.innerHTML = "";
     const th = el("thead"), trh = el("tr");
-    [["#"], ["Lottatore"], ["NOC"], ["Medaglie"], ["Incontri", 1], ["V", 1], ["S", 1], ["Punti +", 1], ["Punti −", 1], ["Diff.", 1], ["Media", 1], ["Schienate", 1], ["Sup. tecn.", 1], ["Senza comb.", 1]]
+    [["#"], ["Lottatore"], ["NOC"], ...(ELO ? [["ELO", 1]] : []), ["Medaglie"], ["Incontri", 1], ["V", 1], ["S", 1], ["Punti +", 1], ["Punti −", 1], ["Diff.", 1], ["Media", 1], ["Schienate", 1], ["Sup. tecn.", 1], ["Senza comb.", 1]]
       .forEach(([h, n]) => trh.append(el("th", n ? "num" : null, h)));
     th.append(trh); T2.append(th);
     const tb = el("tbody");
@@ -503,10 +604,28 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       const tr = el("tr", (isIta(s.noc) ? "ita " : "") + (oro ? "oro" : ""));
       [[i + 1, "pos"], [s.nome], [s.noc], [med], [s.inc, "num"], [s.v, "num"], [s.s, "num"], [s.ps, "num"], [s.pp, "num"],
         [(s.dp > 0 ? "+" : "") + s.dp, "num"], [fmt(s.media, 1), "num"], [s.vfa, "num"], [s.vsu, "num"], [s.v_sc, "num"]]
-        .forEach(([v, cls]) => tr.append(el("td", cls || null, v)));
+        .forEach(([v, cls], k) => { tr.append(el("td", cls || null, v)); if (k === 2 && ELO) tr.append(cellaElo(eloDi(s.stile, s.nome))); });
       tr.onclick = () => apri(s.nome, s.stile, s.cat, s.torneo); tb.append(tr);
     });
     T2.append(tb);
+
+    // top 10 ELO della categoria: lottatori la cui categoria olimpica di riferimento è questa (quella in cui
+    // hanno lottato più spesso). Le barre partono poco sotto il più basso (al massimo da 1500), così le differenze si vedono.
+    if (ELO) {
+      const top = (ELO.top || {})[`${stato.stile}|${stato.cat}`] || [], box2 = $("g-elo-top");
+      $("titolo-elo").textContent = `Classifica ELO · top 10 · ${STILE[stato.stile] || stato.stile} ${stato.cat}`;
+      if (!top.length) { box2.innerHTML = ""; box2.append(el("p", "nota", "Nessun ELO mostrato in questa categoria.")); $("sotto-elo").textContent = ""; }
+      else {
+        const base = Math.min(1500, Math.min(...top.map((x) => x.v)) - 30);
+        $("sotto-elo").textContent = `I dieci ELO più alti dei lottatori che hanno nei ${stato.cat} la loro categoria olimpica (quella in cui hanno lottato più spesso). ` +
+          `L'ELO è quello di oggi, con tutti i tornei: il filtro del torneo non lo cambia. Le barre partono da ${nf(base)}.`;
+        barre(box2, top.map((x, i) => ({
+          gruppo: 1, etichetta: `${i + 1}. ${cognome(x.nome)} (${x.noc})`, testo: nf(x.v) + (x.liv === "provvisorio" ? " P" : ""),
+          parti: [{ v: x.v - base, cls: "barra" + (isIta(x.noc) ? " ita" : "") + (x.liv === "provvisorio" ? " prov" : "") }],
+          tip: [`${x.nome} (${x.noc})`, `ELO ${nf(x.v)}${x.liv === "provvisorio" ? " (provvisorio)" : ""} · massimo ${nf(x.max)}`, `${x.n} incontri in ${x.t} tornei`],
+          clic: () => apri(x.nome, stato.stile, stato.cat, TOT) })), { aria: "Top 10 per ELO", etichetta: 230 });
+      }
+    }
 
     // testa a testa (tutti i tornei: per definizione si incontrano più volte)
     const H2 = $("h2h"); H2.innerHTML = "";
@@ -520,7 +639,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       tt.append(a, el("span", "bil", `${h.v_a} – ${h.v_b}`), b); d.append(tt);
       const ul = el("ul");
       h.incontri.forEach((i) => {
-        const li = el("li"); li.append(`${breve(i.torneo)} · ${TURNO[i.turno] || i.turno} · ${i.cat} · `);
+        const li = el("li"); li.append(`${breve(i.torneo)} · ${turnoIt(i.turno)} · ${i.cat} · `);
         li.append(el("b", null, i.score || "—")); li.append(` · vince ${cognome(i.vincitore)}`); ul.append(li);
       });
       d.append(ul); H2.append(d);
@@ -545,6 +664,12 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       `Punti e medie contano solo gli incontri lottati: le vittorie per forfait (VFO), infortunio (VIN) e squalifica (DSQ) valgono come vittorie e sconfitte ma i loro punti sono esclusi; la vittoria per 3 ammonizioni (VCA) è trattata come una vittoria normale. ` +
       `Schienata = VFA; superiorità tecnica = VSU e VSU1; ai punti = VPO, VPO1 e VCA. Nel totale "${TOT}" un lottatore che ha cambiato categoria compare in ciascuna categoria. ` +
       `Sono mostrate solo le 18 categorie olimpiche (Libera 57, 65, 74, 86, 97, 125 kg; Greco-romana 60, 67, 77, 87, 97, 130 kg; Femminile 50, 53, 57, 62, 68, 76 kg); il testa a testa comprende tutte le categorie. ` +
+      (ELO ? `ELO (aggiornato al ${new Date(ELO.aggiornato).toLocaleDateString("it-IT")}): tutti partono da 1500 e ogni incontro sposta il punteggio secondo il risultato atteso; ` +
+        `il peso dell'incontro dipende dal torneo (Olimpiadi 1,5; Mondiali 1,25; Campionati e Giochi continentali 1,0; Ranking Series 0,9; altri tornei 0,8), ` +
+        `dal modo di vittoria (schienata 1,5; superiorità tecnica 1,3; ai punti da 1,0 a 1,15 secondo lo scarto; per criterio 0,9; squalifica 0,85, diviso per la media dello stile), ` +
+        `con un 10% in più in semifinali e finali di Olimpiadi e Mondiali e un 50% in più nei primi 8 incontri di ogni lottatore. Forfait e ritiri per infortunio non contano. ` +
+        `C'è un ELO per lo stile libero (maschile e femminile) e uno per la greco-romana; un cambio di categoria e l'inattività oltre i 9 mesi avvicinano il valore a 1500. ` +
+        `L'ELO compare da ${minInc} incontri in almeno 2 tornei (provvisorio fino a ${stab - 1}); la top 10 ELO usa la categoria olimpica in cui il lottatore ha lottato più spesso. ` : "") +
       `Tornei considerati: ${T.map((t) => `${t.nome} (${nomeData(t.dal)} – ${nomeData(t.al)} ${t.al ? t.al.slice(0, 4) : ""})`).join("; ")}.`;
   }
 

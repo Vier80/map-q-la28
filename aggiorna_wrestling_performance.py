@@ -3,6 +3,12 @@
 (popolato dall'agente wrestling con i risultati UWW) e scrive wrestling-performance.json,
 che userà la pagina wrestling-performance.html.
 
+Versione 2 del 14/11/2026 (scheda 24, sessione 3 dell'ELO wrestling):
+  - unisce l'ELO calcolato da elo_wrestling.py (file wrestling-elo.json nella cartella del repo);
+  - riconosce i turni nuovi arrivati con gli Asian Games: "Final 3-4" (finale per il bronzo)
+    e i gironi a due gruppi "A | Round n" / "B | Round n";
+  - legge anche "ID UWW 1" e "ID UWW 2", che servono a collegare i lottatori all'ELO.
+
 Non crea né modifica nulla in Notion: legge soltanto.
 
 Cosa calcola (per stile, categoria e torneo, più il totale di tutti i tornei):
@@ -12,10 +18,12 @@ Cosa calcola (per stile, categoria e torneo, più il totale di tutti i tornei):
   3. vittorie senza combattere (VFO forfait, VIN infortunio, DSQ squalifica): contano come
      vittorie ma i loro punti NON entrano nelle statistiche dei punti;
   4. il campione di ogni categoria in ogni torneo (vincitore del turno "Final 1-2"),
-     con argento e bronzi; per le categorie a girone all'italiana ("Round 1, 2, 3...")
-     il campione è chi vince più incontri del girone;
+     con argento e bronzi (vincitori di "Final 3-5" e "Final 3-4"); per le categorie a girone
+     all'italiana ("Round 1, 2, 3...") il campione è chi vince più incontri del girone;
   5. gli H2H: le coppie di lottatori che si sono incontrate almeno 2 volte, con bilancio
-     e punteggi di ogni incontro.
+     e punteggi di ogni incontro;
+  6. l'ELO di ogni lottatore (da wrestling-elo.json): valore, livello, storico e la top 10 ELO
+     di ogni categoria olimpica. Se il file manca, la pagina funziona come prima, senza ELO.
 
 Regole importanti sui dati:
   - "Score" ha il formato "6-2 (VPO1)": il primo numero sono i punti del Player 1, il secondo
@@ -44,12 +52,14 @@ from pathlib import Path
 
 CARTELLA = Path(__file__).resolve().parent
 FILE_JSON = "wrestling-performance.json"
+FILE_ELO = "wrestling-elo.json"          # prodotto da elo_wrestling.py (workflow "ELO Wrestling")
 NOTION_VERSION = "2025-09-03"
 DB_WRESTLING = "40ef48c9-aad9-809e-995f-000b5420780c"   # data source "Agente Wrestling"
 
-# Colonne del db "Agente Wrestling" lette dallo script (nomi ESATTI, verificati il 12/11/2026)
+# Colonne del db "Agente Wrestling" lette dallo script (nomi ESATTI, verificati il 12/11/2026;
+# "ID UWW 1" e "ID UWW 2" aggiunte il 13/11/2026, scheda 22 §4.1)
 COLONNE = ["Incontro", "Player 1", "NOC 1", "Player 2", "NOC 2", "Gender", "Stile", "Categoria",
-           "Score", "Vincitore", "Turno", "Torneo", "Data", "Fonte", "ID Univoco"]
+           "Score", "Vincitore", "Turno", "Torneo", "Data", "Fonte", "ID Univoco", "ID UWW 1", "ID UWW 2"]
 
 STILI = ["Freestyle", "Greco-Roman", "Women's Wrestling"]   # ordine di presentazione
 TOTALE = "Tutti i tornei"                                  # nome della riga "totale"
@@ -66,10 +76,17 @@ SENZA_COMBATTERE = {"VFO", "VIN", "DSQ"}   # vittorie "a tavolino": contano come
 SENZA_PUNTI = set(SENZA_COMBATTERE)
 TIPI_NOTI = {"VPO", "VPO1", "VSU", "VSU1", "VFA", "VFO", "VIN", "DSQ", "VCA"}
 
-# Ordine dei turni dentro un torneo (serve solo per mettere in fila gli incontri)
+# Ordine dei turni dentro un torneo (serve solo per mettere in fila gli incontri).
+# I gironi ("Round n", "A | Round n", "B | Round n") sono gestiti da ordine_turno().
 ORDINE_TURNO = {"Qualif.": 0, "1/16 Final": 1, "1/8 Final": 2, "1/4 Final": 3, "1/2 Final": 4,
-                "Repechage": 5, "Final 3-5": 6, "Final 1-2": 7,
-                "Round 1": 1, "Round 2": 2, "Round 3": 3, "Round 4": 4, "Round 5": 5}
+                "Repechage": 5, "Final 3-5": 6, "Final 3-4": 6, "Final 1-2": 7}
+FINALE = "Final 1-2"
+BRONZO = {"Final 3-5", "Final 3-4"}       # "Final 3-4": finale per il bronzo dei tornei a due gironi
+# turni di girone: "Round 2" (girone unico all'italiana) oppure "A | Round 2" / "B | Round 2" (due gironi)
+RE_GIRONE = re.compile(r"^(?:([AB]) \| )?Round (\d+)$")
+
+# ELO (scheda 22 §5.8): stili e "pool" dell'ELO; FS = libera maschile e femminile, GR = greco-romana
+POOL_DI_STILE = {"Freestyle": "FS", "Women's Wrestling": "FS", "Greco-Roman": "GR"}
 
 
 # ---------------------------------------------------------------- NOTION
@@ -159,6 +176,14 @@ def leggi_score(score):
     return p1, p2, (m.group(3) or "").upper(), True
 
 
+def ordine_turno(turno):
+    """Posizione del turno nel torneo: i gironi prima di tutto il resto (Round 1 = 0,01 ... Round 5 = 0,05)."""
+    if turno in ORDINE_TURNO:
+        return ORDINE_TURNO[turno]
+    m = RE_GIRONE.match(turno or "")
+    return int(m.group(2)) / 100 if m else 9
+
+
 def kg(categoria):
     """'125 kg' -> 125 (per ordinare le categorie)."""
     m = re.match(r"\d+", categoria or "")
@@ -201,12 +226,13 @@ def prepara(righe, avvisi):
             "cat": pulisci(r.get("Categoria")) or "?", "turno": pulisci(r.get("Turno")),
             "data": (r.get("Data") or "")[:10],
             "p": [p1, p2], "noc": [pulisci(r.get("NOC 1")), pulisci(r.get("NOC 2"))],
+            "id": [pulisci(r.get("ID UWW 1")), pulisci(r.get("ID UWW 2"))],     # per collegare l'ELO
             "punti": [s1, s2], "tipo": tipo, "w": chi_vince, "con_punti": con_punti})
     for tipo, n in sorted(tipi_parziali.items()):
         print(f"NOTA {n} incontri {tipo} hanno un punteggio parziale: i punti sono esclusi dalle statistiche")
     # ordine cronologico: data, poi turno
     incontri.sort(key=lambda b: (b["data"], b["torneo"], b["stile"], kg(b["cat"]),
-                                 ORDINE_TURNO.get(b["turno"], 9)))
+                                 ordine_turno(b["turno"])))
     return incontri
 
 
@@ -257,7 +283,7 @@ def calcola_statistiche(incontri):
 
 # ---------------------------------------------------------------- CAMPIONI E MEDAGLIE
 def classifica_girone(bouts):
-    """Girone all'italiana (turni "Round 1, 2, 3..."): ordina per vittorie;
+    """Girone all'italiana (turni "Round 1, 2, 3..." o "A | Round 1..."): ordina per vittorie;
     a parità tra DUE lottatori decide lo scontro diretto, altrimenti la differenza punti.
     [DA VERIFICARE] è una semplificazione dei criteri UWW (che usano anche i punti di classifica)."""
     vitt, dp, nomi, noc = {}, {}, [], {}
@@ -297,16 +323,21 @@ def calcola_medaglie(incontri, avvisi):
         gruppi.setdefault((inc["torneo"], inc["stile"], inc["cat"]), []).append(inc)
     medaglie, campioni = {}, []
     for (torneo, stile, cat), bouts in gruppi.items():
-        finali = [b for b in bouts if b["turno"] == "Final 1-2"]
-        girone = [b for b in bouts if b["turno"].startswith("Round")]
+        finali = [b for b in bouts if b["turno"] == FINALE]
+        girone = [b for b in bouts if RE_GIRONE.match(b["turno"])]
         if finali:
             if len(finali) > 1:
                 avvisi.append(f"{len(finali)} finali 1-2 in {torneo} {stile} {cat}: uso l'ultima")
             f = finali[-1]
             oro, argento = f["p"][f["w"] - 1], f["p"][2 - f["w"]]
-            bronzi = [b["p"][b["w"] - 1] for b in bouts if b["turno"] == "Final 3-5"]
+            # bronzi: vincitori di "Final 3-5" (due bronzi) o di "Final 3-4" (tornei a due gironi: un bronzo)
+            bronzi = [b["p"][b["w"] - 1] for b in bouts if b["turno"] in BRONZO]
             finale, nel_girone = f, False
         elif girone:
+            gruppi_girone = {RE_GIRONE.match(b["turno"]).group(1) for b in girone}
+            if len(gruppi_girone) > 1:
+                avvisi.append(f"Due gironi senza finale in {torneo} {stile} {cat}: classifica unica dei due gironi "
+                              f"[DA VERIFICARE]")
             ordine, _ = classifica_girone(girone)
             oro, argento, bronzi = ordine[0], ordine[1] if len(ordine) > 1 else None, ordine[2:3]
             # l'incontro "decisivo" mostrato per il campione: quello tra oro e argento
@@ -361,6 +392,67 @@ def calcola_h2h(incontri):
     return risultato
 
 
+# ---------------------------------------------------------------- ELO (da wrestling-elo.json)
+def unisci_elo(incontri, avvisi):
+    """Legge wrestling-elo.json e prepara i dati ELO per la pagina.
+
+    Collega ogni lottatore della pagina (stile + nome, come nelle statistiche) al suo record ELO
+    attraverso l'ID UWW: per ogni nome si usa l'ID dell'incontro più recente.
+    Restituisce None se il file manca o non si legge (la pagina funziona come prima, senza ELO).
+    """
+    percorso = CARTELLA / FILE_ELO
+    try:
+        elo = json.loads(percorso.read_text(encoding="utf-8"))
+        record = elo["atleti"]
+    except FileNotFoundError:
+        avvisi.append(f"{FILE_ELO} non trovato: la pagina resta senza ELO (lancia il workflow \"ELO Wrestling\")")
+        return None
+    except (ValueError, KeyError) as errore:
+        avvisi.append(f"{FILE_ELO} non leggibile ({errore}): la pagina resta senza ELO")
+        return None
+    per_id = {(r["pool"], str(r["id_uww"])): r for r in record}
+
+    # nome usato nella pagina -> ID UWW (gli incontri sono in ordine di data: resta il più recente)
+    id_di = {}
+    for inc in incontri:
+        for lato in (0, 1):
+            if inc["id"][lato]:
+                id_di[(inc["stile"], inc["p"][lato])] = inc["id"][lato]
+
+    def compatto(r):
+        """Dati ELO di un lottatore come li usa la pagina. Valore e storico solo se l'ELO è mostrato."""
+        e = {"liv": r["livello"], "n": r["incontri"], "t": r["tornei"], "cat": r["cat"]}
+        if r["livello"] != "nascosto":
+            e.update({"v": r["elo"], "max": r["elo_max"], "vit": r["vittorie"], "ult": r["ultimo"],
+                      "st": r["storico"]})
+        return e
+
+    atleti, senza = {}, 0
+    for (stile, nome), pid in id_di.items():
+        r = per_id.get((POOL_DI_STILE.get(stile), pid))
+        if r:
+            atleti[f"{stile}|{nome}"] = compatto(r)
+        else:
+            senza += 1
+    # top 10 ELO di ogni categoria (categoria di riferimento del lottatore, scheda 22 §5.10)
+    top = {}
+    for r in sorted(record, key=lambda r: -r["elo"]):
+        if r["livello"] == "nascosto":
+            continue
+        lista = top.setdefault(f"{r['stile']}|{r['cat']}", [])
+        if len(lista) < 10:
+            lista.append({"nome": r["nome"], "noc": r["noc"], "v": r["elo"], "max": r["elo_max"],
+                          "liv": r["livello"], "n": r["incontri"], "t": r["tornei"]})
+    if senza:
+        avvisi.append(f"{senza} lottatori della pagina senza record ELO (manca l'ID UWW o non sono nel calcolo)")
+    mostrati = sum(1 for r in record if r["livello"] != "nascosto")
+    print(f"ELO: {len(record)} record in {FILE_ELO} (aggiornato al {elo.get('aggiornato')}), {mostrati} mostrati; "
+          f"collegati alla pagina {len(atleti)} lottatori")
+    tornei = {slug: t.get("nome", slug) for slug, t in (elo.get("tornei") or {}).items()}
+    return {"aggiornato": elo.get("aggiornato"), "n": len(record), "mostrati": mostrati,
+            "regole": elo.get("regole", {}), "tornei": tornei, "atleti": atleti, "top": top}
+
+
 # ---------------------------------------------------------------- MESSA INSIEME
 def aggrega(righe, oggi):
     avvisi = []
@@ -410,6 +502,7 @@ def aggrega(righe, oggi):
     for inc in incontri:
         categorie.setdefault(inc["stile"], set()).add(inc["cat"])
     h2h = calcola_h2h(incontri)
+    elo = unisci_elo(incontri, avvisi)
 
     # elenco compatto di tutti gli incontri, utile alla pagina per le schede dei lottatori:
     # [n° torneo, stile, categoria, turno, data, Player 1, NOC 1, Player 2, NOC 2, punti 1, punti 2, tipo, vincitore (1 o 2)]
@@ -425,7 +518,7 @@ def aggrega(righe, oggi):
             "n_incontri": len(incontri),
             "n_lottatori": len({n for i in incontri for n in i["p"]}),
             "statistiche": statistiche, "campioni": campioni, "h2h": h2h,
-            "incontri": elenco, "avvisi": avvisi}
+            "incontri": elenco, "elo": elo, "avvisi": avvisi}
 
 
 def main():

@@ -1,11 +1,11 @@
 {
- "aggiornato": "2026-11-14 05:45 UTC",
+ "aggiornato": "2026-11-15 05:45 UTC",
  "totali": {
   "Certo": 5,
-  "Probabile": 85,
-  "Possibile": 179,
+  "Probabile": 84,
+  "Possibile": 180,
   "Remoto": 183,
-  "Fuori": 387,
+  "Fuori": 390,
   "Dati insufficienti": 29
  },
  "sport": [
@@ -151,12 +151,12 @@
   },
   {
    "nome": "Fencing",
-   "n": 47,
+   "n": 48,
    "Certo": 0,
-   "Probabile": 15,
-   "Possibile": 8,
+   "Probabile": 14,
+   "Possibile": 9,
    "Remoto": 1,
-   "Fuori": 23,
+   "Fuori": 24,
    "Dati insufficienti": 0
   },
   {
@@ -211,12 +211,12 @@
   },
   {
    "nome": "Judo",
-   "n": 64,
+   "n": 65,
    "Certo": 0,
    "Probabile": 9,
    "Possibile": 3,
    "Remoto": 0,
-   "Fuori": 52,
+   "Fuori": 53,
    "Dati insufficienti": 0
   },
   {
@@ -451,12 +451,12 @@
   },
   {
    "nome": "Wrestling",
-   "n": 29,
+   "n": 30,
    "Certo": 0,
    "Probabile": 0,
    "Possibile": 4,
    "Remoto": 4,
-   "Fuori": 16,
+   "Fuori": 17,
    "Dati insufficienti": 5
   }
  ],
@@ -767,8 +767,8 @@
    },
    {
     "Certo": 0,
-    "Probabile": 11,
-    "Possibile": 7,
+    "Probabile": 10,
+    "Possibile": 8,
     "Remoto": 0,
     "Totale": 18,
     "nome": "Fencing",
@@ -782,8 +782,8 @@
      },
      "Donne": {
       "Certo": 0,
-      "Probabile": 7,
-      "Possibile": 2,
+      "Probabile": 6,
+      "Possibile": 3,
       "Remoto": 0,
       "Totale": 9
      }
@@ -1278,8 +1278,8 @@
   ],
   "totale": {
    "Certo": 16,
-   "Probabile": 124,
-   "Possibile": 209,
+   "Probabile": 123,
+   "Possibile": 210,
    "Remoto": 166,
    "Totale": 515,
    "genere": {
@@ -1292,8 +1292,8 @@
     },
     "Donne": {
      "Certo": 2,
-     "Probabile": 64,
-     "Possibile": 89,
+     "Probabile": 63,
+     "Possibile": 90,
      "Remoto": 91,
      "Totale": 246
     },
@@ -1588,7 +1588,7 @@
    "nome": "Elisa IORIO",
    "tipo": "Atleta",
    "livello": "Probabile",
-   "p": 87.4,
+   "p": 87.5,
    "via": "Ranking da punteggi Athletes",
    "rank": 4,
    "margine": 13,
@@ -2728,7 +2728,7 @@
    "nome": "Enrica PICCOLI/Sarah Maria RIZEA",
    "tipo": "Squadra",
    "livello": "Remoto",
-   "p": 32.6,
+   "p": 32.5,
    "via": "Ranking da punteggi Athletes",
    "rank": 19,
    "margine": -6,
@@ -2763,7 +2763,7 @@
    "rank": 9,
    "margine": 11,
    "stato": "Stima da punteggi",
-   "nota": "PFM 1:42.67, posizione 9 su 31 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +11); 20 mesi alla fine del periodo.",
+   "nota": "PFM 1:42.67, posizione 9 su 31 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +11); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2778,7 +2778,7 @@
    "rank": 12,
    "margine": 8,
    "stato": "Stima da punteggi",
-   "nota": "PFM 6413, posizione 12 su 33 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +8); 20 mesi alla fine del periodo.",
+   "nota": "PFM 6413, posizione 12 su 33 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +8); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2793,7 +2793,7 @@
    "rank": 1,
    "margine": 19,
    "stato": "Stima da punteggi",
-   "nota": "PFM 18.15, posizione 1 su 22 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +19); 20 mesi alla fine del periodo. Nel db ci sono solo 22 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 18.15, posizione 1 su 22 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +19); 19 mesi alla fine del periodo. Nel db ci sono solo 22 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2808,7 +2808,7 @@
    "rank": 1,
    "margine": 19,
    "stato": "Stima da punteggi",
-   "nota": "PFM 2.37, posizione 1 su 26 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +19); 20 mesi alla fine del periodo. Nel db ci sono solo 26 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 2.37, posizione 1 su 26 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +19); 19 mesi alla fine del periodo. Nel db ci sono solo 26 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2823,7 +2823,7 @@
    "rank": 1,
    "margine": 7,
    "stato": "Stima da punteggi",
-   "nota": "54 pt, posizione 1 su 8 in classifica per questa prova; posti decisi dal ranking 8 su 16 (margine +7); 20 mesi alla fine del periodo. Nel db ci sono solo 8 atleti con punteggio per questa prova (posti da ranking: 8): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "54 pt, posizione 1 su 8 in classifica per questa prova; posti decisi dal ranking 8 su 16 (margine +7); 19 mesi alla fine del periodo. Nel db ci sono solo 8 atleti con punteggio per questa prova (posti da ranking: 8): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2838,7 +2838,7 @@
    "rank": 2,
    "margine": 18,
    "stato": "Stima da punteggi",
-   "nota": "PFM 7.12, posizione 2 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +18); 20 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 7.12, posizione 2 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +18); 19 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2853,7 +2853,7 @@
    "rank": 2,
    "margine": 18,
    "stato": "Stima da punteggi",
-   "nota": "PFM 22.74, posizione 2 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +18); 20 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 22.74, posizione 2 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +18); 19 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2868,7 +2868,7 @@
    "rank": 18,
    "margine": 2,
    "stato": "Stima da punteggi",
-   "nota": "PFM 8318, posizione 18 su 30 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +2); 20 mesi alla fine del periodo.",
+   "nota": "PFM 8318, posizione 18 su 30 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +2); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2883,7 +2883,7 @@
    "rank": 2,
    "margine": 33,
    "stato": "Stima da punteggi",
-   "nota": "PFM 2:09.18, posizione 2 su 11 in classifica per questa prova; posti decisi dal ranking 35 su 70 (margine +33); 20 mesi alla fine del periodo. Nel db ci sono solo 11 atleti con punteggio per questa prova (posti da ranking: 35): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 2:09.18, posizione 2 su 11 in classifica per questa prova; posti decisi dal ranking 35 su 70 (margine +33); 19 mesi alla fine del periodo. Nel db ci sono solo 11 atleti con punteggio per questa prova (posti da ranking: 35): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2898,7 +2898,7 @@
    "rank": 3,
    "margine": 17,
    "stato": "Stima da punteggi",
-   "nota": "PFM 30:38.23, posizione 3 su 16 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +17); 20 mesi alla fine del periodo. Nel db ci sono solo 16 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 30:38.23, posizione 3 su 16 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +17); 19 mesi alla fine del periodo. Nel db ci sono solo 16 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2913,7 +2913,7 @@
    "rank": 5,
    "margine": 15,
    "stato": "Stima da punteggi",
-   "nota": "PFM 17.64, posizione 5 su 22 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +15); 20 mesi alla fine del periodo. Nel db ci sono solo 22 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 17.64, posizione 5 su 22 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +15); 19 mesi alla fine del periodo. Nel db ci sono solo 22 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2928,7 +2928,7 @@
    "rank": 22,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "PFM 4:01.64, posizione 22 su 31 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 20 mesi alla fine del periodo.",
+   "nota": "PFM 4:01.64, posizione 22 su 31 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2943,7 +2943,7 @@
    "rank": 6,
    "margine": 14,
    "stato": "Stima da punteggi",
-   "nota": "PFM 8.43, posizione 6 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +14); 20 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 8.43, posizione 6 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +14); 19 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2958,7 +2958,7 @@
    "rank": 5,
    "margine": 15,
    "stato": "Stima da punteggi",
-   "nota": "PFM 1:23.36, posizione 5 su 18 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +15); 20 mesi alla fine del periodo. Nel db ci sono solo 18 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 1:23.36, posizione 5 su 18 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +15); 19 mesi alla fine del periodo. Nel db ci sono solo 18 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2973,7 +2973,7 @@
    "rank": 7,
    "margine": 13,
    "stato": "Stima da punteggi",
-   "nota": "PFM 14.60, posizione 7 su 24 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +13); 20 mesi alla fine del periodo. Nel db ci sono solo 24 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 14.60, posizione 7 su 24 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +13); 19 mesi alla fine del periodo. Nel db ci sono solo 24 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -2988,7 +2988,7 @@
    "rank": 3,
    "margine": 5,
    "stato": "Stima da punteggi",
-   "nota": "32.4 pt, posizione 3 su 8 in classifica per questa prova; posti decisi dal ranking 8 su 16 (margine +5); 20 mesi alla fine del periodo. Nel db ci sono solo 8 atleti con punteggio per questa prova (posti da ranking: 8): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "32.4 pt, posizione 3 su 8 in classifica per questa prova; posti decisi dal ranking 8 su 16 (margine +5); 19 mesi alla fine del periodo. Nel db ci sono solo 8 atleti con punteggio per questa prova (posti da ranking: 8): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3003,7 +3003,7 @@
    "rank": 20,
    "margine": 0,
    "stato": "Stima da punteggi",
-   "nota": "PFM 20.26, posizione 20 su 33 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +0); 20 mesi alla fine del periodo.",
+   "nota": "PFM 20.26, posizione 20 su 33 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +0); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3018,7 +3018,7 @@
    "rank": 6,
    "margine": 14,
    "stato": "Stima da punteggi",
-   "nota": "PFM 1:23.49, posizione 6 su 18 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +14); 20 mesi alla fine del periodo. Nel db ci sono solo 18 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 1:23.49, posizione 6 su 18 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +14); 19 mesi alla fine del periodo. Nel db ci sono solo 18 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3033,7 +3033,7 @@
    "rank": 10,
    "margine": 10,
    "stato": "Stima da punteggi",
-   "nota": "PFM 11.01, posizione 10 su 29 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +10); 20 mesi alla fine del periodo. Nel db ci sono solo 29 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 11.01, posizione 10 su 29 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +10); 19 mesi alla fine del periodo. Nel db ci sono solo 29 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3048,7 +3048,7 @@
    "rank": 10,
    "margine": 10,
    "stato": "Stima da punteggi",
-   "nota": "PFM 2.29, posizione 10 su 26 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +10); 20 mesi alla fine del periodo. Nel db ci sono solo 26 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 2.29, posizione 10 su 26 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +10); 19 mesi alla fine del periodo. Nel db ci sono solo 26 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3063,7 +3063,7 @@
    "rank": 12,
    "margine": 8,
    "stato": "Stima da punteggi",
-   "nota": "PFM 9.96, posizione 12 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +8); 20 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 9.96, posizione 12 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +8); 19 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3078,7 +3078,7 @@
    "rank": 3,
    "margine": 17,
    "stato": "Stima da punteggi",
-   "nota": "PFM 22.96, posizione 3 su 5 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +17); 20 mesi alla fine del periodo. Nel db ci sono solo 5 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 22.96, posizione 3 su 5 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +17); 19 mesi alla fine del periodo. Nel db ci sono solo 5 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3093,7 +3093,7 @@
    "rank": 9,
    "margine": 11,
    "stato": "Stima da punteggi",
-   "nota": "PFM 21.13, posizione 9 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +11); 20 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 21.13, posizione 9 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +11); 19 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3108,7 +3108,7 @@
    "rank": 25,
    "margine": -5,
    "stato": "Stima da punteggi",
-   "nota": "PFM 20.42, posizione 25 su 33 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 20 mesi alla fine del periodo.",
+   "nota": "PFM 20.42, posizione 25 su 33 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3123,7 +3123,7 @@
    "rank": 9,
    "margine": 11,
    "stato": "Stima da punteggi",
-   "nota": "PFM 74.35, posizione 9 su 19 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +11); 20 mesi alla fine del periodo. Nel db ci sono solo 19 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 74.35, posizione 9 su 19 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +11); 19 mesi alla fine del periodo. Nel db ci sono solo 19 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3138,7 +3138,7 @@
    "rank": 4,
    "margine": 4,
    "stato": "Stima da punteggi",
-   "nota": "16.2 pt, posizione 4 su 7 in classifica per questa prova; posti decisi dal ranking 8 su 16 (margine +4); 20 mesi alla fine del periodo. Nel db ci sono solo 7 atleti con punteggio per questa prova (posti da ranking: 8): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "16.2 pt, posizione 4 su 7 in classifica per questa prova; posti decisi dal ranking 8 su 16 (margine +4); 19 mesi alla fine del periodo. Nel db ci sono solo 7 atleti con punteggio per questa prova (posti da ranking: 8): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3153,7 +3153,7 @@
    "rank": 11,
    "margine": 9,
    "stato": "Stima da punteggi",
-   "nota": "PFM 1:31.04, posizione 11 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +9); 20 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 1:31.04, posizione 11 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +9); 19 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3168,7 +3168,7 @@
    "rank": 14,
    "margine": 6,
    "stato": "Stima da punteggi",
-   "nota": "PFM 13.22, posizione 14 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +6); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 13.22, posizione 14 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +6); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3183,7 +3183,7 @@
    "rank": 27,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "PFM 4:06.24, posizione 27 su 31 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -7); 20 mesi alla fine del periodo.",
+   "nota": "PFM 4:06.24, posizione 27 su 31 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -7); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3198,7 +3198,7 @@
    "rank": 14,
    "margine": 6,
    "stato": "Stima da punteggi",
-   "nota": "PFM 8.04, posizione 14 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +6); 20 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 8.04, posizione 14 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +6); 19 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3213,7 +3213,7 @@
    "rank": 12,
    "margine": 8,
    "stato": "Stima da punteggi",
-   "nota": "PFM 14:40.05, posizione 12 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +8); 20 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 14:40.05, posizione 12 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +8); 19 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3228,7 +3228,7 @@
    "rank": 14,
    "margine": 6,
    "stato": "Stima da punteggi",
-   "nota": "PFM 1:32.10, posizione 14 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +6); 20 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 1:32.10, posizione 14 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +6); 19 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3243,7 +3243,7 @@
    "rank": 28,
    "margine": -8,
    "stato": "Stima da punteggi",
-   "nota": "PFM 4:06.25, posizione 28 su 31 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -8); 20 mesi alla fine del periodo.",
+   "nota": "PFM 4:06.25, posizione 28 su 31 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -8); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3258,7 +3258,7 @@
    "rank": 15,
    "margine": 5,
    "stato": "Stima da punteggi",
-   "nota": "PFM 54.29, posizione 15 su 24 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +5); 20 mesi alla fine del periodo. Nel db ci sono solo 24 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 54.29, posizione 15 su 24 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +5); 19 mesi alla fine del periodo. Nel db ci sono solo 24 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3273,7 +3273,7 @@
    "rank": 13,
    "margine": 7,
    "stato": "Stima da punteggi",
-   "nota": "PFM 20.76, posizione 13 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +7); 20 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 20.76, posizione 13 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +7); 19 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3288,7 +3288,7 @@
    "rank": 4,
    "margine": 16,
    "stato": "Stima da punteggi",
-   "nota": "PFM 23.25, posizione 4 su 5 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +16); 20 mesi alla fine del periodo. Nel db ci sono solo 5 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 23.25, posizione 4 su 5 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +16); 19 mesi alla fine del periodo. Nel db ci sono solo 5 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3303,7 +3303,7 @@
    "rank": 9,
    "margine": 26,
    "stato": "Stima da punteggi",
-   "nota": "PFM 2:27.55, posizione 9 su 13 in classifica per questa prova; posti decisi dal ranking 35 su 70 (margine +26); 20 mesi alla fine del periodo. Nel db ci sono solo 13 atleti con punteggio per questa prova (posti da ranking: 35): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 2:27.55, posizione 9 su 13 in classifica per questa prova; posti decisi dal ranking 35 su 70 (margine +26); 19 mesi alla fine del periodo. Nel db ci sono solo 13 atleti con punteggio per questa prova (posti da ranking: 35): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3318,7 +3318,7 @@
    "rank": 6,
    "margine": 2,
    "stato": "Stima da punteggi",
-   "nota": "11.3 pt, posizione 6 su 8 in classifica per questa prova; posti decisi dal ranking 8 su 16 (margine +2); 20 mesi alla fine del periodo. Nel db ci sono solo 8 atleti con punteggio per questa prova (posti da ranking: 8): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "11.3 pt, posizione 6 su 8 in classifica per questa prova; posti decisi dal ranking 8 su 16 (margine +2); 19 mesi alla fine del periodo. Nel db ci sono solo 8 atleti con punteggio per questa prova (posti da ranking: 8): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3333,7 +3333,7 @@
    "rank": 18,
    "margine": 2,
    "stato": "Stima da punteggi",
-   "nota": "PFM 50.62, posizione 18 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +2); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 50.62, posizione 18 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +2); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3348,7 +3348,7 @@
    "rank": 18,
    "margine": 2,
    "stato": "Stima da punteggi",
-   "nota": "PFM 1.88, posizione 18 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +2); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 1.88, posizione 18 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +2); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3363,7 +3363,7 @@
    "rank": 30,
    "margine": -10,
    "stato": "Stima da punteggi",
-   "nota": "PFM 7495, posizione 30 su 30 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -10); 20 mesi alla fine del periodo.",
+   "nota": "PFM 7495, posizione 30 su 30 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -10); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3378,7 +3378,7 @@
    "rank": 30,
    "margine": -10,
    "stato": "Stima da punteggi",
-   "nota": "PFM 20.58, posizione 30 su 33 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -10); 20 mesi alla fine del periodo.",
+   "nota": "PFM 20.58, posizione 30 su 33 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -10); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3393,7 +3393,7 @@
    "rank": 30,
    "margine": -10,
    "stato": "Stima da punteggi",
-   "nota": "PFM 1:46.10, posizione 30 su 31 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -10); 20 mesi alla fine del periodo.",
+   "nota": "PFM 1:46.10, posizione 30 su 31 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -10); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3408,7 +3408,7 @@
    "rank": 19,
    "margine": 1,
    "stato": "Stima da punteggi",
-   "nota": "PFM 1.88, posizione 19 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +1); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 1.88, posizione 19 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +1); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3423,7 +3423,7 @@
    "rank": 31,
    "margine": -11,
    "stato": "Stima da punteggi",
-   "nota": "PFM 1:46.44, posizione 31 su 31 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -11); 20 mesi alla fine del periodo.",
+   "nota": "PFM 1:46.44, posizione 31 su 31 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -11); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3438,7 +3438,7 @@
    "rank": 10,
    "margine": 25,
    "stato": "Stima da punteggi",
-   "nota": "PFM 2:28.02, posizione 10 su 13 in classifica per questa prova; posti decisi dal ranking 35 su 70 (margine +25); 20 mesi alla fine del periodo. Nel db ci sono solo 13 atleti con punteggio per questa prova (posti da ranking: 35): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 2:28.02, posizione 10 su 13 in classifica per questa prova; posti decisi dal ranking 35 su 70 (margine +25); 19 mesi alla fine del periodo. Nel db ci sono solo 13 atleti con punteggio per questa prova (posti da ranking: 35): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3453,7 +3453,7 @@
    "rank": 17,
    "margine": 3,
    "stato": "Stima da punteggi",
-   "nota": "PFM 12.90, posizione 17 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +3); 20 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 12.90, posizione 17 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +3); 19 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3468,7 +3468,7 @@
    "rank": 15,
    "margine": 5,
    "stato": "Stima da punteggi",
-   "nota": "PFM 15:40.65, posizione 15 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +5); 20 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 15:40.65, posizione 15 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +5); 19 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3483,7 +3483,7 @@
    "rank": 20,
    "margine": 0,
    "stato": "Stima da punteggi",
-   "nota": "PFM 1:58.42, posizione 20 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +0); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 1:58.42, posizione 20 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +0); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3498,7 +3498,7 @@
    "rank": 21,
    "margine": -1,
    "stato": "Stima da punteggi",
-   "nota": "PFM 58.91, posizione 21 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -1); 20 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 58.91, posizione 21 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -1); 19 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3513,7 +3513,7 @@
    "rank": 13,
    "margine": 7,
    "stato": "Stima da punteggi",
-   "nota": "PFM 32:00.06, posizione 13 su 16 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +7); 20 mesi alla fine del periodo. Nel db ci sono solo 16 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 32:00.06, posizione 13 su 16 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +7); 19 mesi alla fine del periodo. Nel db ci sono solo 16 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3528,7 +3528,7 @@
    "rank": 22,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "PFM 77.56, posizione 22 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 20 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 77.56, posizione 22 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 19 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3543,7 +3543,7 @@
    "rank": 22,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "PFM 4.45, posizione 22 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 20 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 4.45, posizione 22 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 19 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3558,7 +3558,7 @@
    "rank": 22,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "PFM 51.42, posizione 22 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 51.42, posizione 22 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3573,7 +3573,7 @@
    "rank": 19,
    "margine": 1,
    "stato": "Stima da punteggi",
-   "nota": "PFM 12.93, posizione 19 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +1); 20 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 12.93, posizione 19 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +1); 19 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3588,7 +3588,7 @@
    "rank": 19,
    "margine": 1,
    "stato": "Stima da punteggi",
-   "nota": "PFM 1:35.36, posizione 19 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +1); 20 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 1:35.36, posizione 19 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +1); 19 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3603,7 +3603,7 @@
    "rank": 23,
    "margine": -3,
    "stato": "Stima da punteggi",
-   "nota": "PFM 4.45, posizione 23 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -3); 20 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 4.45, posizione 23 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -3); 19 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3618,7 +3618,7 @@
    "rank": 23,
    "margine": -3,
    "stato": "Stima da punteggi",
-   "nota": "PFM 76.56, posizione 23 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -3); 20 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 76.56, posizione 23 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -3); 19 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3633,7 +3633,7 @@
    "rank": 24,
    "margine": -4,
    "stato": "Stima da punteggi",
-   "nota": "PFM 45.32, posizione 24 su 29 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -4); 20 mesi alla fine del periodo. Nel db ci sono solo 29 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 45.32, posizione 24 su 29 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -4); 19 mesi alla fine del periodo. Nel db ci sono solo 29 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3648,7 +3648,7 @@
    "rank": 21,
    "margine": -1,
    "stato": "Stima da punteggi",
-   "nota": "PFM 49.83, posizione 21 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -1); 20 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 49.83, posizione 21 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -1); 19 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3663,7 +3663,7 @@
    "rank": 5,
    "margine": 15,
    "stato": "Stima da punteggi",
-   "nota": "PFM 23.70, posizione 5 su 5 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +15); 20 mesi alla fine del periodo. Nel db ci sono solo 5 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 23.70, posizione 5 su 5 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +15); 19 mesi alla fine del periodo. Nel db ci sono solo 5 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3678,7 +3678,7 @@
    "rank": 14,
    "margine": 6,
    "stato": "Stima da punteggi",
-   "nota": "PFM 32:01.42, posizione 14 su 16 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +6); 20 mesi alla fine del periodo. Nel db ci sono solo 16 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 32:01.42, posizione 14 su 16 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +6); 19 mesi alla fine del periodo. Nel db ci sono solo 16 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3693,7 +3693,7 @@
    "rank": 10,
    "margine": 25,
    "stato": "Stima da punteggi",
-   "nota": "PFM 2:11.45, posizione 10 su 11 in classifica per questa prova; posti decisi dal ranking 35 su 70 (margine +25); 20 mesi alla fine del periodo. Nel db ci sono solo 11 atleti con punteggio per questa prova (posti da ranking: 35): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 2:11.45, posizione 10 su 11 in classifica per questa prova; posti decisi dal ranking 35 su 70 (margine +25); 19 mesi alla fine del periodo. Nel db ci sono solo 11 atleti con punteggio per questa prova (posti da ranking: 35): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3708,7 +3708,7 @@
    "rank": 22,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "PFM 50.12, posizione 22 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 20 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 50.12, posizione 22 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 19 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3723,7 +3723,7 @@
    "rank": 22,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "PFM 57.41, posizione 22 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 20 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 57.41, posizione 22 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 19 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3738,7 +3738,7 @@
    "rank": 23,
    "margine": -3,
    "stato": "Stima da punteggi",
-   "nota": "PFM 59.52, posizione 23 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -3); 20 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 59.52, posizione 23 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -3); 19 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3753,7 +3753,7 @@
    "rank": 25,
    "margine": -5,
    "stato": "Stima da punteggi",
-   "nota": "PFM 51.47, posizione 25 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 51.47, posizione 25 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3768,7 +3768,7 @@
    "rank": 25,
    "margine": -5,
    "stato": "Stima da punteggi",
-   "nota": "PFM 13:33.30, posizione 25 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 13:33.30, posizione 25 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3783,7 +3783,7 @@
    "rank": 25,
    "margine": -5,
    "stato": "Stima da punteggi",
-   "nota": "PFM 1.83, posizione 25 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 1.83, posizione 25 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3798,7 +3798,7 @@
    "rank": 25,
    "margine": -5,
    "stato": "Stima da punteggi",
-   "nota": "PFM 8:33.25, posizione 25 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 8:33.25, posizione 25 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3813,7 +3813,7 @@
    "rank": 26,
    "margine": -6,
    "stato": "Stima da punteggi",
-   "nota": "PFM 10.34, posizione 26 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -6); 20 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 10.34, posizione 26 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -6); 19 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3828,7 +3828,7 @@
    "rank": 27,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "PFM 11.37, posizione 27 su 29 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -7); 20 mesi alla fine del periodo. Nel db ci sono solo 29 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 11.37, posizione 27 su 29 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -7); 19 mesi alla fine del periodo. Nel db ci sono solo 29 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3843,7 +3843,7 @@
    "rank": 11,
    "margine": 24,
    "stato": "Stima da punteggi",
-   "nota": "PFM 2:14.33, posizione 11 su 11 in classifica per questa prova; posti decisi dal ranking 35 su 70 (margine +24); 20 mesi alla fine del periodo. Nel db ci sono solo 11 atleti con punteggio per questa prova (posti da ranking: 35): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 2:14.33, posizione 11 su 11 in classifica per questa prova; posti decisi dal ranking 35 su 70 (margine +24); 19 mesi alla fine del periodo. Nel db ci sono solo 11 atleti con punteggio per questa prova (posti da ranking: 35): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3858,7 +3858,7 @@
    "rank": 21,
    "margine": -1,
    "stato": "Stima da punteggi",
-   "nota": "PFM 23.27, posizione 21 su 22 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -1); 20 mesi alla fine del periodo. Nel db ci sono solo 22 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 23.27, posizione 21 su 22 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -1); 19 mesi alla fine del periodo. Nel db ci sono solo 22 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3873,7 +3873,7 @@
    "rank": 22,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "PFM 15.69, posizione 22 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 20 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 15.69, posizione 22 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 19 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3888,7 +3888,7 @@
    "rank": 23,
    "margine": -3,
    "stato": "Stima da punteggi",
-   "nota": "PFM 55.50, posizione 23 su 24 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -3); 20 mesi alla fine del periodo. Nel db ci sono solo 24 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 55.50, posizione 23 su 24 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -3); 19 mesi alla fine del periodo. Nel db ci sono solo 24 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3903,7 +3903,7 @@
    "rank": 23,
    "margine": -3,
    "stato": "Stima da punteggi",
-   "nota": "PFM 13.48, posizione 23 su 24 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -3); 20 mesi alla fine del periodo. Nel db ci sono solo 24 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 13.48, posizione 23 su 24 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -3); 19 mesi alla fine del periodo. Nel db ci sono solo 24 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3918,7 +3918,7 @@
    "rank": 24,
    "margine": -4,
    "stato": "Stima da punteggi",
-   "nota": "PFM 50.41, posizione 24 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -4); 20 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 50.41, posizione 24 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -4); 19 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3933,7 +3933,7 @@
    "rank": 25,
    "margine": -5,
    "stato": "Stima da punteggi",
-   "nota": "PFM 2.18, posizione 25 su 26 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 20 mesi alla fine del periodo. Nel db ci sono solo 26 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 2.18, posizione 25 su 26 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 19 mesi alla fine del periodo. Nel db ci sono solo 26 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3948,7 +3948,7 @@
    "rank": 13,
    "margine": 22,
    "stato": "Stima da punteggi",
-   "nota": "PFM 2:33.02, posizione 13 su 13 in classifica per questa prova; posti decisi dal ranking 35 su 70 (margine +22); 20 mesi alla fine del periodo. Nel db ci sono solo 13 atleti con punteggio per questa prova (posti da ranking: 35): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 2:33.02, posizione 13 su 13 in classifica per questa prova; posti decisi dal ranking 35 su 70 (margine +22); 19 mesi alla fine del periodo. Nel db ci sono solo 13 atleti con punteggio per questa prova (posti da ranking: 35): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3963,7 +3963,7 @@
    "rank": 25,
    "margine": -5,
    "stato": "Stima da punteggi",
-   "nota": "PFM 5.55, posizione 25 su 26 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 20 mesi alla fine del periodo. Nel db ci sono solo 26 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 5.55, posizione 25 su 26 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 19 mesi alla fine del periodo. Nel db ci sono solo 26 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3978,7 +3978,7 @@
    "rank": 25,
    "margine": -5,
    "stato": "Stima da punteggi",
-   "nota": "PFM 3:38.15, posizione 25 su 26 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 20 mesi alla fine del periodo. Nel db ci sono solo 26 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 3:38.15, posizione 25 su 26 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 19 mesi alla fine del periodo. Nel db ci sono solo 26 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -3993,7 +3993,7 @@
    "rank": 26,
    "margine": -6,
    "stato": "Stima da punteggi",
-   "nota": "PFM 8:34.65, posizione 26 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -6); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 8:34.65, posizione 26 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -6); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4008,7 +4008,7 @@
    "rank": 26,
    "margine": -6,
    "stato": "Stima da punteggi",
-   "nota": "PFM 13:39.79, posizione 26 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -6); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 13:39.79, posizione 26 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -6); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4023,7 +4023,7 @@
    "rank": 27,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "PFM 10.58, posizione 27 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -7); 20 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 10.58, posizione 27 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -7); 19 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4038,7 +4038,7 @@
    "rank": 18,
    "margine": 2,
    "stato": "Stima da punteggi",
-   "nota": "PFM 1:29.14, posizione 18 su 18 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +2); 20 mesi alla fine del periodo. Nel db ci sono solo 18 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 1:29.14, posizione 18 su 18 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +2); 19 mesi alla fine del periodo. Nel db ci sono solo 18 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4053,7 +4053,7 @@
    "rank": 19,
    "margine": 1,
    "stato": "Stima da punteggi",
-   "nota": "PFM 60.25, posizione 19 su 19 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +1); 20 mesi alla fine del periodo. Nel db ci sono solo 19 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 60.25, posizione 19 su 19 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +1); 19 mesi alla fine del periodo. Nel db ci sono solo 19 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4068,7 +4068,7 @@
    "rank": 20,
    "margine": 0,
    "stato": "Stima da punteggi",
-   "nota": "PFM 15:49.11, posizione 20 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +0); 20 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 15:49.11, posizione 20 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +0); 19 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4083,7 +4083,7 @@
    "rank": 20,
    "margine": 0,
    "stato": "Stima da punteggi",
-   "nota": "PFM 29:33.43, posizione 20 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +0); 20 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 29:33.43, posizione 20 su 20 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine +0); 19 mesi alla fine del periodo. Nel db ci sono solo 20 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4098,7 +4098,7 @@
    "rank": 21,
    "margine": -1,
    "stato": "Stima da punteggi",
-   "nota": "PFM 71.83, posizione 21 su 21 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -1); 20 mesi alla fine del periodo. Nel db ci sono solo 21 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 71.83, posizione 21 su 21 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -1); 19 mesi alla fine del periodo. Nel db ci sono solo 21 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4113,7 +4113,7 @@
    "rank": 22,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "PFM 10:18.90, posizione 22 su 22 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 20 mesi alla fine del periodo. Nel db ci sono solo 22 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 10:18.90, posizione 22 su 22 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -2); 19 mesi alla fine del periodo. Nel db ci sono solo 22 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4128,7 +4128,7 @@
    "rank": 23,
    "margine": -3,
    "stato": "Stima da punteggi",
-   "nota": "PFM 13.19, posizione 23 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -3); 20 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 13.19, posizione 23 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -3); 19 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4143,7 +4143,7 @@
    "rank": 23,
    "margine": -3,
    "stato": "Stima da punteggi",
-   "nota": "PFM 15.49, posizione 23 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -3); 20 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 15.49, posizione 23 su 23 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -3); 19 mesi alla fine del periodo. Nel db ci sono solo 23 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4158,7 +4158,7 @@
    "rank": 24,
    "margine": -4,
    "stato": "Stima da punteggi",
-   "nota": "PFM 56.24, posizione 24 su 24 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -4); 20 mesi alla fine del periodo. Nel db ci sono solo 24 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 56.24, posizione 24 su 24 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -4); 19 mesi alla fine del periodo. Nel db ci sono solo 24 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4173,7 +4173,7 @@
    "rank": 25,
    "margine": -5,
    "stato": "Stima da punteggi",
-   "nota": "PFM 55.77, posizione 25 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 20 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 55.77, posizione 25 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 19 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4188,7 +4188,7 @@
    "rank": 25,
    "margine": -5,
    "stato": "Stima da punteggi",
-   "nota": "PFM 58.35, posizione 25 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 20 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 58.35, posizione 25 su 25 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -5); 19 mesi alla fine del periodo. Nel db ci sono solo 25 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4203,7 +4203,7 @@
    "rank": 26,
    "margine": -6,
    "stato": "Stima da punteggi",
-   "nota": "PFM 3:39.01, posizione 26 su 26 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -6); 20 mesi alla fine del periodo. Nel db ci sono solo 26 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 3:39.01, posizione 26 su 26 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -6); 19 mesi alla fine del periodo. Nel db ci sono solo 26 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4218,7 +4218,7 @@
    "rank": 27,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "PFM 14.03, posizione 27 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -7); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 14.03, posizione 27 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -7); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4233,7 +4233,7 @@
    "rank": 27,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "PFM 13:41.30, posizione 27 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -7); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 13:41.30, posizione 27 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -7); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4248,7 +4248,7 @@
    "rank": 27,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "PFM 8:36.15, posizione 27 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -7); 20 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 8:36.15, posizione 27 su 27 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -7); 19 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4263,7 +4263,7 @@
    "rank": 28,
    "margine": -8,
    "stato": "Stima da punteggi",
-   "nota": "PFM 4.25, posizione 28 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -8); 20 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 4.25, posizione 28 su 28 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -8); 19 mesi alla fine del periodo. Nel db ci sono solo 28 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -4278,7 +4278,7 @@
    "rank": 29,
    "margine": -9,
    "stato": "Stima da punteggi",
-   "nota": "PFM 46.23, posizione 29 su 29 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -9); 20 mesi alla fine del periodo. Nel db ci sono solo 29 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "PFM 46.23, posizione 29 su 29 in classifica per questa prova; posti decisi dal ranking 20 su 40 (margine -9); 19 mesi alla fine del periodo. Nel db ci sono solo 29 atleti con punteggio per questa prova (posti da ranking: 20): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-06-29"
   },
@@ -6093,7 +6093,7 @@
    "rank": 2,
    "margine": 22,
    "stato": "Stima da punteggi",
-   "nota": "283.44 FEN, posizione 2 su 48 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +22); 18 mesi alla fine del periodo.",
+   "nota": "318 FEN, posizione 2 su 48 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +22); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6108,7 +6108,7 @@
    "rank": 3,
    "margine": 21,
    "stato": "Stima da punteggi",
-   "nota": "258.48 FEN, posizione 3 su 36 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +21); 18 mesi alla fine del periodo.",
+   "nota": "273.84 FEN, posizione 3 su 36 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +21); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6123,7 +6123,7 @@
    "rank": 1,
    "margine": 23,
    "stato": "Stima da punteggi",
-   "nota": "320.68 FEN, posizione 1 su 36 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +23); 18 mesi alla fine del periodo.",
+   "nota": "341.8 FEN, posizione 1 su 36 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +23); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6138,7 +6138,7 @@
    "rank": 3,
    "margine": 21,
    "stato": "Stima da punteggi",
-   "nota": "181.78 FEN, posizione 3 su 55 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +21); 18 mesi alla fine del periodo.",
+   "nota": "208.66 FEN, posizione 3 su 56 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +21); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6198,7 +6198,7 @@
    "rank": 5,
    "margine": 19,
    "stato": "Stima da punteggi",
-   "nota": "168.53 FEN, posizione 5 su 55 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +19); 18 mesi alla fine del periodo.",
+   "nota": "168.53 FEN, posizione 5 su 56 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +19); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6234,21 +6234,6 @@
   },
   {
    "sport": "Fencing",
-   "disciplina": "Men's Individual Epee",
-   "nome": "Davide di VEROLI [L]",
-   "tipo": "Atleta",
-   "livello": "Probabile",
-   "p": 87.2,
-   "via": "Ranking da punteggi Athletes",
-   "rank": 6,
-   "margine": 18,
-   "stato": "Stima da punteggi",
-   "nota": "139.98 FEN, posizione 6 su 55 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +18); 18 mesi alla fine del periodo.",
-   "pass": "",
-   "fine": "2028-04-30"
-  },
-  {
-   "sport": "Fencing",
    "disciplina": "Men's Individual Foil",
    "nome": "Guillaume BIANCHI [R]",
    "tipo": "Atleta",
@@ -6259,6 +6244,36 @@
    "margine": 18,
    "stato": "Stima da punteggi",
    "nota": "182.76 FEN, posizione 6 su 42 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +18); 18 mesi alla fine del periodo.",
+   "pass": "",
+   "fine": "2028-04-30"
+  },
+  {
+   "sport": "Fencing",
+   "disciplina": "Men's Individual Epee",
+   "nome": "Davide di VEROLI [L]",
+   "tipo": "Atleta",
+   "livello": "Probabile",
+   "p": 84.7,
+   "via": "Ranking da punteggi Athletes",
+   "rank": 8,
+   "margine": 16,
+   "stato": "Stima da punteggi",
+   "nota": "139.98 FEN, posizione 8 su 56 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +16); 18 mesi alla fine del periodo.",
+   "pass": "",
+   "fine": "2028-04-30"
+  },
+  {
+   "sport": "Fencing",
+   "disciplina": "Men's Individual Foil",
+   "nome": "Tommaso MARINI [R]",
+   "tipo": "Atleta",
+   "livello": "Probabile",
+   "p": 84.7,
+   "via": "Ranking da punteggi Athletes",
+   "rank": 8,
+   "margine": 16,
+   "stato": "Stima da punteggi",
+   "nota": "149.16 FEN, posizione 8 su 42 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +16); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6279,31 +6294,16 @@
   },
   {
    "sport": "Fencing",
-   "disciplina": "Men's Individual Foil",
-   "nome": "Tommaso MARINI [R]",
-   "tipo": "Atleta",
-   "livello": "Probabile",
-   "p": 80.2,
-   "via": "Ranking da punteggi Athletes",
-   "rank": 11,
-   "margine": 13,
-   "stato": "Stima da punteggi",
-   "nota": "122.28 FEN, posizione 11 su 42 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +13); 18 mesi alla fine del periodo.",
-   "pass": "",
-   "fine": "2028-04-30"
-  },
-  {
-   "sport": "Fencing",
    "disciplina": "Women's Individual Sabre",
    "nome": "Michela BATTISTON [R]",
    "tipo": "Atleta",
-   "livello": "Probabile",
-   "p": 70.7,
+   "livello": "Possibile",
+   "p": 68.5,
    "via": "Ranking da punteggi Athletes",
-   "rank": 16,
-   "margine": 8,
+   "rank": 17,
+   "margine": 7,
    "stato": "Stima da punteggi",
-   "nota": "99.56 FEN, posizione 16 su 44 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +8); 18 mesi alla fine del periodo.",
+   "nota": "99.56 FEN, posizione 17 su 44 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +7); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6433,12 +6433,12 @@
    "nome": "Manuela SPICA",
    "tipo": "Atleta",
    "livello": "Remoto",
-   "p": 26.9,
+   "p": 25.4,
    "via": "Ranking da punteggi Athletes",
-   "rank": 38,
-   "margine": -14,
+   "rank": 39,
+   "margine": -15,
    "stato": "Stima da punteggi",
-   "nota": "28.89 FEN, posizione 38 su 44 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine -14); 18 mesi alla fine del periodo.",
+   "nota": "28.89 FEN, posizione 39 su 44 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine -15); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6491,6 +6491,21 @@
    "sport": "Fencing",
    "disciplina": "Women's Individual Foil",
    "nome": "Anna CRISTINO [L]",
+   "tipo": "Atleta",
+   "livello": "Fuori",
+   "p": 3.0,
+   "via": "Ranking da punteggi Athletes",
+   "rank": null,
+   "margine": null,
+   "stato": "Stima da punteggi",
+   "nota": "oltre il limite di 3 per nazione in questa prova: passa solo se un connazionale rinuncia",
+   "pass": "",
+   "fine": "2028-04-30"
+  },
+  {
+   "sport": "Fencing",
+   "disciplina": "Women's Individual Foil",
+   "nome": "Aurora GRANDIS",
    "tipo": "Atleta",
    "livello": "Fuori",
    "p": 3.0,
@@ -7944,6 +7959,21 @@
   },
   {
    "sport": "Judo",
+   "disciplina": "Women's -70kg",
+   "nome": "Sara CORBO",
+   "tipo": "Atleta",
+   "livello": "Fuori",
+   "p": 1.0,
+   "via": "",
+   "rank": null,
+   "margine": null,
+   "stato": "Non in classifica",
+   "nota": "non compare nella simulazione: fuori dalle posizioni utili del ranking olimpico",
+   "pass": "",
+   "fine": "2028-06-12"
+  },
+  {
+   "sport": "Judo",
    "disciplina": "Women's -63kg",
    "nome": "Savita RUSSO",
    "tipo": "Atleta",
@@ -8313,7 +8343,7 @@
    "rank": 1,
    "margine": 6,
    "stato": "Stima da punteggi",
-   "nota": "154 pt, posizione 1 su 18 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +6); 21 mesi alla fine del periodo.",
+   "nota": "154 pt, posizione 1 su 18 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +6); 20 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-07-30"
   },
@@ -8328,7 +8358,7 @@
    "rank": 3,
    "margine": 4,
    "stato": "Stima da punteggi",
-   "nota": "43.4 pt, posizione 3 su 13 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +4); 21 mesi alla fine del periodo.",
+   "nota": "43.4 pt, posizione 3 su 13 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +4); 20 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-07-30"
   },
@@ -8343,7 +8373,7 @@
    "rank": 5,
    "margine": 2,
    "stato": "Stima da punteggi",
-   "nota": "27.9 pt, posizione 5 su 13 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +2); 21 mesi alla fine del periodo.",
+   "nota": "27.9 pt, posizione 5 su 13 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +2); 20 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-07-30"
   },
@@ -8358,7 +8388,7 @@
    "rank": 6,
    "margine": 1,
    "stato": "Stima da punteggi",
-   "nota": "34.4 pt, posizione 6 su 18 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +1); 21 mesi alla fine del periodo.",
+   "nota": "34.4 pt, posizione 6 su 18 in classifica per questa prova; posti decisi dal ranking 7 su 22 (margine +1); 20 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-07-30"
   },
@@ -9718,7 +9748,7 @@
    "nome": "Martina ZIVIANI",
    "tipo": "Atleta",
    "livello": "Remoto",
-   "p": 31.6,
+   "p": 31.5,
    "via": "Ranking da punteggi Athletes",
    "rank": 26,
    "margine": -9,
@@ -10273,7 +10303,7 @@
    "nome": "Rafael Tomé",
    "tipo": "Atleta",
    "livello": "Remoto",
-   "p": 28.6,
+   "p": 28.5,
    "via": "Riserva",
    "rank": 34.0,
    "margine": -3.0,
@@ -13578,7 +13608,7 @@
    "rank": 5,
    "margine": 0,
    "stato": "Stima da punteggi",
-   "nota": "52.4 pt, posizione 5 su 16 in classifica per questa prova; posti decisi dal ranking 5 su 12 (margine +0); 21 mesi alla fine del periodo.",
+   "nota": "52.4 pt, posizione 5 su 16 in classifica per questa prova; posti decisi dal ranking 5 su 12 (margine +0); 20 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-07-30"
   },
@@ -13593,7 +13623,7 @@
    "rank": 7,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "42.4 pt, posizione 7 su 16 in classifica per questa prova; posti decisi dal ranking 5 su 12 (margine -2); 21 mesi alla fine del periodo.",
+   "nota": "42.4 pt, posizione 7 su 16 in classifica per questa prova; posti decisi dal ranking 5 su 12 (margine -2); 20 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-07-30"
   },
@@ -13648,7 +13678,7 @@
    "nome": "Noemi FILIPPAZZO",
    "tipo": "Atleta",
    "livello": "Possibile",
-   "p": 38.3,
+   "p": 38.2,
    "via": "Ranking da punteggi Athletes",
    "rank": 13,
    "margine": -3,
@@ -13933,12 +13963,12 @@
    "nome": "Enrica RINALDI",
    "tipo": "Atleta",
    "livello": "Possibile",
-   "p": 53.0,
+   "p": 47.7,
    "via": "Ranking da punteggi Athletes",
-   "rank": 11,
-   "margine": -1,
+   "rank": 12,
+   "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "29 UWW, posizione 11 su 25 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -1); 20 mesi alla fine del periodo.",
+   "nota": "29 UWW, posizione 12 su 25 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -2); 20 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -13953,7 +13983,7 @@
    "rank": 12,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "23.5 UWW, posizione 12 su 21 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -2); 20 mesi alla fine del periodo.",
+   "nota": "23.5 UWW, posizione 12 su 22 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -2); 20 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -14156,6 +14186,21 @@
    "sport": "Wrestling",
    "disciplina": "Men's 97kg FS",
    "nome": "Davide COSSU",
+   "tipo": "Atleta",
+   "livello": "Fuori",
+   "p": 2.0,
+   "via": "",
+   "rank": null,
+   "margine": null,
+   "stato": "Senza punti nel ranking",
+   "nota": "nella colonna di riferimento (WON/FEN/WB/UWW/KG) ha 0 punti: non e' in classifica; passa solo con una via diversa dal ranking",
+   "pass": "",
+   "fine": "2028-06-30"
+  },
+  {
+   "sport": "Wrestling",
+   "disciplina": "Men's 77kg GR",
+   "nome": "Giovanni Paolo ALESSIO",
    "tipo": "Atleta",
    "livello": "Fuori",
    "p": 2.0,

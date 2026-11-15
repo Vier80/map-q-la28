@@ -1,0 +1,4068 @@
+{
+ "aggiornato": "2026-11-08",
+ "fine_periodo": "2028-05-07",
+ "oqr_finale": "2028-05-29",
+ "eventi": [
+  {
+   "nome": "Mondiali 2026 Ningbo",
+   "periodo": "P1",
+   "fine": "2026-11-08"
+  }
+ ],
+ "categorie": {
+  "M 65": {
+   "genere": "M",
+   "kg": "65",
+   "nome": "65 kg",
+   "atleti": [
+    {
+     "nome": "PAK Myong Jin",
+     "noc": "PRK",
+     "continente": "Asia",
+     "rank": 1,
+     "punti": 331,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "1º nell'OQR della categoria · nato/a il 02.04.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 331 kg (gara 65 kg, 1º)"
+    },
+    {
+     "nome": "OZBEK Muhammed Furkan",
+     "noc": "TUR",
+     "continente": "Europa",
+     "rank": 2,
+     "punti": 330,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "2º nell'OQR della categoria · nato/a il 24.01.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 330 kg (gara 65 kg, 2º)"
+    },
+    {
+     "nome": "MORRIS Hampton Miller",
+     "noc": "USA",
+     "continente": "Americhe",
+     "rank": 3,
+     "punti": 328,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "3º nell'OQR della categoria · nato/a il 17.02.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 328 kg (gara 65 kg, 3º)"
+    },
+    {
+     "nome": "DING Hongjie",
+     "noc": "CHN",
+     "continente": "Asia",
+     "rank": 4,
+     "punti": 325,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "4º nell'OQR della categoria · nato/a il 30.01.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 325 kg (gara 65 kg, 4º)"
+    },
+    {
+     "nome": "TRAN Minh Tri",
+     "noc": "VIE",
+     "continente": "Asia",
+     "rank": 5,
+     "punti": 316,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "5º nell'OQR della categoria · nato/a il 13.10.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 316 kg (gara 65 kg, 5º)"
+    },
+    {
+     "nome": "SAPUTRA Ricko",
+     "noc": "INA",
+     "continente": "Asia",
+     "rank": 6,
+     "punti": 306,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "6º nell'OQR della categoria · nato/a il 21.01.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 306 kg (gara 65 kg, 7º)"
+    },
+    {
+     "nome": "MOSQUERA VALENCIA Francisco Antonio",
+     "noc": "COL",
+     "continente": "Americhe",
+     "rank": 7,
+     "punti": 305,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "7º nell'OQR della categoria · nato/a il 01.04.1992 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 305 kg (gara 65 kg, 8º)"
+    },
+    {
+     "nome": "SATO Kotaro",
+     "noc": "JPN",
+     "continente": "Asia",
+     "rank": 8,
+     "punti": 295,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "8º nell'OQR della categoria · nato/a il 07.05.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 295 kg (gara 65 kg, 11º)"
+    },
+    {
+     "nome": "BARU Morea",
+     "noc": "PNG",
+     "continente": "Oceania",
+     "rank": 20,
+     "punti": 275,
+     "tipo": "C",
+     "via": "Rappresentanza continentale",
+     "stato": "Provvisorio",
+     "nota": "Oceania non e' rappresentata tra i primi 8; 20º nell'OQR · nato/a il 15.04.1990 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 275 kg (gara 65 kg, 24º)"
+    },
+    {
+     "nome": "RAMIARIMANANA Jean Elariont Ricardo",
+     "noc": "MAD",
+     "continente": "Africa",
+     "rank": 21,
+     "punti": 257,
+     "tipo": "C",
+     "via": "Rappresentanza continentale (posto ospitante riassegnato)",
+     "stato": "Provvisorio",
+     "nota": "posto ospitante non usato da USA, riassegnato (21º nell'OQR) · nato/a il 22.07.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 257 kg (gara 65 kg, 27º)"
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "LUGO RODRIGUEZ Wilkeinner Nahun",
+     "noc": "VEN",
+     "continente": "Americhe",
+     "rank": 9,
+     "punti": 294,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.1: entra se si libera un posto · nato/a il 25.03.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 294 kg (gara 65 kg, 12º)"
+    },
+    {
+     "nome": "CHEN Wang-Heng",
+     "noc": "TPE",
+     "continente": "Asia",
+     "rank": 10,
+     "punti": 293,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.2: entra se si libera un posto · nato/a il 05.08.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 293 kg (gara 65 kg, 13º)"
+    },
+    {
+     "nome": "MUNOZ MARTINEZ Jonathan Antonio",
+     "noc": "MEX",
+     "continente": "Americhe",
+     "rank": 11,
+     "punti": 291,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.3: entra se si libera un posto · nato/a il 10.11.1995 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 291 kg (gara 65 kg, 14º)"
+    }
+   ],
+   "attesa": [],
+   "fuori": [
+    {
+     "nome": "KINGUE MATAM Bernardin Ledoux",
+     "noc": "FRA",
+     "continente": "Europa",
+     "rank": 12,
+     "punti": 290,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 20.05.1990 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 290 kg (gara 65 kg, 15º)"
+    },
+    {
+     "nome": "MASSIDDA Sergio",
+     "noc": "ITA",
+     "continente": "Europa",
+     "rank": 13,
+     "punti": 290,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 26.01.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 290 kg (gara 65 kg, 16º)"
+    },
+    {
+     "nome": "YOUN Yeowon",
+     "noc": "KOR",
+     "continente": "Asia",
+     "rank": 14,
+     "punti": 289,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC KOR ha gia' 3 posti (uomini) · nato/a il 12.08.1995 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 289 kg (gara 65 kg, 17º)"
+    },
+    {
+     "nome": "CHOLAKYAN Garnik",
+     "noc": "ARM",
+     "continente": "Europa",
+     "rank": 15,
+     "punti": 285,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 21.12.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 285 kg (gara 65 kg, 18º)"
+    },
+    {
+     "nome": "SHARKOV Albert",
+     "noc": "RUS",
+     "continente": "Europa",
+     "rank": 16,
+     "punti": 282,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 28.01.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 282 kg (gara 65 kg, 19º)"
+    },
+    {
+     "nome": "VASQUEZ MORALES Orlando Antonio",
+     "noc": "NCA",
+     "continente": "Americhe",
+     "rank": 17,
+     "punti": 279,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 28.10.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 279 kg (gara 65 kg, 21º)"
+    },
+    {
+     "nome": "KALITIT Ali Majeed M",
+     "noc": "KSA",
+     "continente": "Asia",
+     "rank": 18,
+     "punti": 275,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 19.11.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 275 kg (gara 65 kg, 22º)"
+    },
+    {
+     "nome": "GARCIA BRITO Luis Alberto",
+     "noc": "DOM",
+     "continente": "Americhe",
+     "rank": 19,
+     "punti": 275,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 19.04.1995 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 275 kg (gara 65 kg, 23º)"
+    },
+    {
+     "nome": "ODIKADZE Giga",
+     "noc": "GEO",
+     "continente": "Europa",
+     "rank": 22,
+     "punti": 255,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 20.02.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 255 kg (gara 60 kg, 9º)"
+    },
+    {
+     "nome": "WAKANIBUA Apakuki Tabuwaiwai",
+     "noc": "FIJ",
+     "continente": "Oceania",
+     "rank": 23,
+     "punti": 220,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 12.03.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 220 kg (gara 65 kg, 28º)"
+    },
+    {
+     "nome": "ALOTAIBI Fahad H T H",
+     "noc": "KUW",
+     "continente": "Asia",
+     "rank": 24,
+     "punti": 216,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 20.06.2008 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 216 kg (gara 65 kg, 29º)"
+    },
+    {
+     "nome": "MOYENGWA Jomson",
+     "noc": "BOT",
+     "continente": "Africa",
+     "rank": 25,
+     "punti": 165,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 28.01.2007 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 165 kg (gara 60 kg, 11º)"
+    }
+   ]
+  },
+  "M 75": {
+   "genere": "M",
+   "kg": "75",
+   "nome": "75 kg",
+   "atleti": [
+    {
+     "nome": "RI Ryong Hyon",
+     "noc": "PRK",
+     "continente": "Asia",
+     "rank": 1,
+     "punti": 365,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "1º nell'OQR della categoria · nato/a il 25.01.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 365 kg (gara 75 kg, 1º)"
+    },
+    {
+     "nome": "ABDULLAH Rahmat Erwin",
+     "noc": "INA",
+     "continente": "Asia",
+     "rank": 2,
+     "punti": 359,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "2º nell'OQR della categoria · nato/a il 13.10.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 359 kg (gara 75 kg, 2º)"
+    },
+    {
+     "nome": "WICHUMA Weeraphon",
+     "noc": "THA",
+     "continente": "Asia",
+     "rank": 3,
+     "punti": 355,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "3º nell'OQR della categoria · nato/a il 10.08.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 355 kg (gara 75 kg, 3º)"
+    },
+    {
+     "nome": "MONTES HURTADO Hugo Fernando",
+     "noc": "COL",
+     "continente": "Americhe",
+     "rank": 4,
+     "punti": 346,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "4º nell'OQR della categoria · nato/a il 29.01.1990 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 346 kg (gara 75 kg, 4º)"
+    },
+    {
+     "nome": "MIYAMOTO Masanori",
+     "noc": "JPN",
+     "continente": "Asia",
+     "rank": 5,
+     "punti": 343,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "5º nell'OQR della categoria · nato/a il 03.02.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 343 kg (gara 75 kg, 5º)"
+    },
+    {
+     "nome": "SON Hyeonho",
+     "noc": "KOR",
+     "continente": "Asia",
+     "rank": 6,
+     "punti": 341,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "6º nell'OQR della categoria · nato/a il 21.06.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 341 kg (gara 75 kg, 6º)"
+    },
+    {
+     "nome": "JUMABAYEV Didarbek",
+     "noc": "TKM",
+     "continente": "Asia",
+     "rank": 7,
+     "punti": 340,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "7º nell'OQR della categoria · nato/a il 26.05.2008 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 340 kg (gara 75 kg, 7º)"
+    },
+    {
+     "nome": "PAPOU Yahor",
+     "noc": "BLR",
+     "continente": "Europa",
+     "rank": 9,
+     "punti": 337,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "9º nell'OQR della categoria · nato/a il 15.09.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 337 kg (gara 75 kg, 8º)"
+    },
+    {
+     "nome": "NASAR Ahmed",
+     "noc": "EGY",
+     "continente": "Africa",
+     "rank": 20,
+     "punti": 325,
+     "tipo": "C",
+     "via": "Rappresentanza continentale",
+     "stato": "Provvisorio",
+     "nota": "Africa non e' rappresentata tra i primi 8; 20º nell'OQR · nato/a il 01.01.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 325 kg (gara 75 kg, 20º)"
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "GARAEV Zulfat",
+     "noc": "RUS",
+     "continente": "Europa",
+     "rank": 10,
+     "punti": 336,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.1: entra se si libera un posto · nato/a il 12.01.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 336 kg (gara 75 kg, 9º)"
+    },
+    {
+     "nome": "KAHRIMAN Kaan",
+     "noc": "TUR",
+     "continente": "Europa",
+     "rank": 12,
+     "punti": 334,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.2: entra se si libera un posto · nato/a il 12.09.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 334 kg (gara 75 kg, 12º)"
+    },
+    {
+     "nome": "DELOS SANTOS Albert Ian",
+     "noc": "PHI",
+     "continente": "Asia",
+     "rank": 13,
+     "punti": 331,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.3: entra se si libera un posto · nato/a il 12.08.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 331 kg (gara 70 kg, 4º)"
+    }
+   ],
+   "attesa": [
+    {
+     "nome": "(da assegnare) Universality uomini 75 kg",
+     "noc": "",
+     "continente": "",
+     "rank": null,
+     "punti": null,
+     "tipo": "U",
+     "via": "Universality",
+     "stato": "In attesa",
+     "nota": "assegnato dalla Commissione Tripartita (richieste entro il 15/1/2028, decisione il 20/6/2028)"
+    }
+   ],
+   "fuori": [
+    {
+     "nome": "HE Baozhen",
+     "noc": "CHN",
+     "continente": "Asia",
+     "rank": 8,
+     "punti": 339,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC CHN ha gia' 3 atleti (uomini) meglio piazzati · nato/a il 15.03.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 339 kg (gara 70 kg, 3º)"
+    },
+    {
+     "nome": "GRIMSLAND Ryan Henry",
+     "noc": "USA",
+     "continente": "Americhe",
+     "rank": 11,
+     "punti": 334,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC USA ha gia' 3 posti (uomini) · nato/a il 03.04.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 334 kg (gara 75 kg, 11º)"
+    },
+    {
+     "nome": "KHREBTOV Petr",
+     "noc": "KAZ",
+     "continente": "Asia",
+     "rank": 14,
+     "punti": 331,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC KAZ ha gia' 3 posti (uomini) · nato/a il 30.09.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 331 kg (gara 75 kg, 14º)"
+    },
+    {
+     "nome": "ARANGO MENDEZ Reinner Josue",
+     "noc": "VEN",
+     "continente": "Americhe",
+     "rank": 15,
+     "punti": 330,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 24.03.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 330 kg (gara 75 kg, 15º)"
+    },
+    {
+     "nome": "CHIANG Tsung-Han",
+     "noc": "TPE",
+     "continente": "Asia",
+     "rank": 16,
+     "punti": 330,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 27.07.1996 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 330 kg (gara 75 kg, 16º)"
+    },
+    {
+     "nome": "DONOSE Tiberiu Ionut",
+     "noc": "ROU",
+     "continente": "Europa",
+     "rank": 17,
+     "punti": 327,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 12.05.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 327 kg (gara 75 kg, 17º)"
+    },
+    {
+     "nome": "REYES VIDAL Jair Abimelet",
+     "noc": "ECU",
+     "continente": "Americhe",
+     "rank": 18,
+     "punti": 326,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 07.11.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 326 kg (gara 75 kg, 18º)"
+    },
+    {
+     "nome": "GUTU Roberto",
+     "noc": "GER",
+     "continente": "Europa",
+     "rank": 19,
+     "punti": 326,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 27.07.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 326 kg (gara 75 kg, 19º)"
+    },
+    {
+     "nome": "LAZUGA Konrad",
+     "noc": "POL",
+     "continente": "Europa",
+     "rank": 21,
+     "punti": 324,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 03.02.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 324 kg (gara 75 kg, 21º)"
+    },
+    {
+     "nome": "ANDRIATSITOHAINA Tojonirina Alain",
+     "noc": "MAD",
+     "continente": "Africa",
+     "rank": 22,
+     "punti": 315,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 26.02.1995 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 315 kg (gara 75 kg, 23º)"
+    },
+    {
+     "nome": "MURRAY Christopher John",
+     "noc": "GBR",
+     "continente": "Europa",
+     "rank": 23,
+     "punti": 312,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 05.02.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 312 kg (gara 75 kg, 24º)"
+    },
+    {
+     "nome": "MOSES Ezekiel",
+     "noc": "NRU",
+     "continente": "Oceania",
+     "rank": 24,
+     "punti": 310,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 02.07.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 310 kg (gara 75 kg, 25º)"
+    },
+    {
+     "nome": "CARES VALDES Sergio Andres",
+     "noc": "CHI",
+     "continente": "Americhe",
+     "rank": 25,
+     "punti": 296,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 07.01.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 296 kg (gara 75 kg, 26º)"
+    },
+    {
+     "nome": "MCGROGAN Harrison",
+     "noc": "IRL",
+     "continente": "Europa",
+     "rank": 26,
+     "punti": 291,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 12.02.2008 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 291 kg (gara 75 kg, 27º)"
+    },
+    {
+     "nome": "TODOROVIC Nikola",
+     "noc": "CRO",
+     "continente": "Europa",
+     "rank": 27,
+     "punti": 282,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 26.04.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 282 kg (gara 75 kg, 28º)"
+    },
+    {
+     "nome": "CANDRA Roy Joydev",
+     "noc": "BAN",
+     "continente": "Asia",
+     "rank": 28,
+     "punti": 252,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 01.10.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 252 kg (gara 70 kg, 7º)"
+    }
+   ]
+  },
+  "M 85": {
+   "genere": "M",
+   "kg": "85",
+   "nome": "85 kg",
+   "atleti": [
+    {
+     "nome": "ELSAYED ABDELRAHMAN Mohamed Younes",
+     "noc": "EGY",
+     "continente": "Africa",
+     "rank": 1,
+     "punti": 390,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "1º nell'OQR della categoria · nato/a il 14.11.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 390 kg (gara 85 kg, 1º)"
+    },
+    {
+     "nome": "LOPEZ LOPEZ Yeison",
+     "noc": "COL",
+     "continente": "Americhe",
+     "rank": 2,
+     "punti": 387,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "2º nell'OQR della categoria · nato/a il 09.01.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 387 kg (gara 85 kg, 2º)"
+    },
+    {
+     "nome": "LEI Jiangqing",
+     "noc": "CHN",
+     "continente": "Asia",
+     "rank": 3,
+     "punti": 382,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "3º nell'OQR della categoria · nato/a il 13.08.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 382 kg (gara 85 kg, 3º)"
+    },
+    {
+     "nome": "CHURKIN Alexey",
+     "noc": "KAZ",
+     "continente": "Asia",
+     "rank": 4,
+     "punti": 378,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "4º nell'OQR della categoria · nato/a il 19.03.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 378 kg (gara 85 kg, 4º)"
+    },
+    {
+     "nome": "RO Kwang Ryol",
+     "noc": "PRK",
+     "continente": "Asia",
+     "rank": 5,
+     "punti": 378,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "5º nell'OQR della categoria · nato/a il 30.04.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 378 kg (gara 85 kg, 5º)"
+    },
+    {
+     "nome": "ROBU Marin",
+     "noc": "MDA",
+     "continente": "Europa",
+     "rank": 6,
+     "punti": 373,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "6º nell'OQR della categoria · nato/a il 19.03.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 373 kg (gara 85 kg, 7º)"
+    },
+    {
+     "nome": "MSKHALADZE Zurab",
+     "noc": "GEO",
+     "continente": "Europa",
+     "rank": 9,
+     "punti": 362,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "9º nell'OQR della categoria · nato/a il 28.06.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 362 kg (gara 85 kg, 10º)"
+    },
+    {
+     "nome": "RODRIGUEZ Angel",
+     "noc": "VEN",
+     "continente": "Americhe",
+     "rank": 10,
+     "punti": 361,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "10º nell'OQR della categoria · nato/a il 24.08.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 361 kg (gara 85 kg, 11º)"
+    },
+    {
+     "nome": "MCTAGGART Cameron David",
+     "noc": "NZL",
+     "continente": "Oceania",
+     "rank": 26,
+     "punti": 320,
+     "tipo": "C",
+     "via": "Rappresentanza continentale",
+     "stato": "Provvisorio",
+     "nota": "Oceania non e' rappresentata tra i primi 8; 26º nell'OQR · nato/a il 30.09.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 320 kg (gara 85 kg, 30º)"
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "ALMAMMADOV Ravin",
+     "noc": "AZE",
+     "continente": "Europa",
+     "rank": 11,
+     "punti": 360,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.1: entra se si libera un posto · nato/a il 15.02.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 360 kg (gara 85 kg, 12º)"
+    },
+    {
+     "nome": "TORAYEV Gaygysyz",
+     "noc": "TKM",
+     "continente": "Asia",
+     "rank": 12,
+     "punti": 358,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.2: entra se si libera un posto · nato/a il 11.04.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 358 kg (gara 85 kg, 14º)"
+    },
+    {
+     "nome": "AZUMA Rakuei",
+     "noc": "JPN",
+     "continente": "Asia",
+     "rank": 14,
+     "punti": 348,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.3: entra se si libera un posto · nato/a il 17.06.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 348 kg (gara 85 kg, 17º)"
+    }
+   ],
+   "attesa": [
+    {
+     "nome": "(da assegnare) Universality uomini 85 kg",
+     "noc": "",
+     "continente": "",
+     "rank": null,
+     "punti": null,
+     "tipo": "U",
+     "via": "Universality",
+     "stato": "In attesa",
+     "nota": "assegnato dalla Commissione Tripartita (richieste entro il 15/1/2028, decisione il 20/6/2028)"
+    }
+   ],
+   "fuori": [
+    {
+     "nome": "ZAFARJONOV Sarvarbek",
+     "noc": "UZB",
+     "continente": "Asia",
+     "rank": 7,
+     "punti": 364,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC UZB ha gia' 3 atleti (uomini) meglio piazzati · nato/a il 26.07.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 364 kg (gara 85 kg, 8º)"
+    },
+    {
+     "nome": "BEIRANVAND Abdollah",
+     "noc": "IRI",
+     "continente": "Asia",
+     "rank": 8,
+     "punti": 363,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC IRI ha gia' 3 atleti (uomini) meglio piazzati · nato/a il 05.05.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 363 kg (gara 85 kg, 9º)"
+    },
+    {
+     "nome": "KIM Sungmin",
+     "noc": "KOR",
+     "continente": "Asia",
+     "rank": 13,
+     "punti": 355,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC KOR ha gia' 3 posti (uomini) · nato/a il 25.02.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 355 kg (gara 85 kg, 15º)"
+    },
+    {
+     "nome": "CAHOY Caden Taiyo",
+     "noc": "USA",
+     "continente": "Americhe",
+     "rank": 15,
+     "punti": 348,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC USA ha gia' 3 posti (uomini) · nato/a il 31.01.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 348 kg (gara 85 kg, 18º)"
+    },
+    {
+     "nome": "SEROBIAN Gevorg",
+     "noc": "RUS",
+     "continente": "Europa",
+     "rank": 16,
+     "punti": 347,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 09.11.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 347 kg (gara 85 kg, 19º)"
+    },
+    {
+     "nome": "MUELLER Lucas",
+     "noc": "GER",
+     "continente": "Europa",
+     "rank": 17,
+     "punti": 347,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 31.07.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 347 kg (gara 85 kg, 20º)"
+    },
+    {
+     "nome": "KARAPETYAN Andranik",
+     "noc": "BIH",
+     "continente": "Europa",
+     "rank": 18,
+     "punti": 346,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 15.12.1995 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 346 kg (gara 85 kg, 21º)"
+    },
+    {
+     "nome": "HARUTYUNYAN Rafik",
+     "noc": "ARM",
+     "continente": "Europa",
+     "rank": 19,
+     "punti": 345,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 17.05.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 345 kg (gara 85 kg, 22º)"
+    },
+    {
+     "nome": "HSIEH Meng-En",
+     "noc": "TPE",
+     "continente": "Asia",
+     "rank": 20,
+     "punti": 336,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 31.05.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 336 kg (gara 85 kg, 24º)"
+    },
+    {
+     "nome": "MUHAMMAD Erry Hidayat",
+     "noc": "MAS",
+     "continente": "Asia",
+     "rank": 21,
+     "punti": 335,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 24.11.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 335 kg (gara 85 kg, 25º)"
+    },
+    {
+     "nome": "GREFA VARGAS Neiser Javier",
+     "noc": "ECU",
+     "continente": "Americhe",
+     "rank": 22,
+     "punti": 335,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 24.02.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 335 kg (gara 85 kg, 26º)"
+    },
+    {
+     "nome": "SUEPSUAN Natthawut",
+     "noc": "THA",
+     "continente": "Asia",
+     "rank": 23,
+     "punti": 331,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 02.07.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 331 kg (gara 85 kg, 27º)"
+    },
+    {
+     "nome": "GONZALEZ AYUSO Javier",
+     "noc": "ESP",
+     "continente": "Europa",
+     "rank": 24,
+     "punti": 330,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 31.03.1993 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 330 kg (gara 85 kg, 28º)"
+    },
+    {
+     "nome": "KACINSKAS Irmantas",
+     "noc": "LTU",
+     "continente": "Europa",
+     "rank": 25,
+     "punti": 321,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 23.02.1992 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 321 kg (gara 85 kg, 29º)"
+    },
+    {
+     "nome": "MARECEK Petr",
+     "noc": "CZE",
+     "continente": "Europa",
+     "rank": 27,
+     "punti": 315,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 12.07.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 315 kg (gara 85 kg, 31º)"
+    },
+    {
+     "nome": "SUHAREVS Ritvars",
+     "noc": "LAT",
+     "continente": "Europa",
+     "rank": 28,
+     "punti": 308,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 11.01.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 308 kg (gara 85 kg, 32º)"
+    },
+    {
+     "nome": "LOH Yuan Yee",
+     "noc": "SGP",
+     "continente": "Asia",
+     "rank": 29,
+     "punti": 306,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 22.10.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 306 kg (gara 85 kg, 33º)"
+    },
+    {
+     "nome": "DARSIGNY Shad",
+     "noc": "CAN",
+     "continente": "Americhe",
+     "rank": 30,
+     "punti": 306,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 20.04.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 306 kg (gara 85 kg, 34º)"
+    },
+    {
+     "nome": "FUNAKI Uaealesi",
+     "noc": "TGA",
+     "continente": "Oceania",
+     "rank": 31,
+     "punti": 294,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 04.11.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 294 kg (gara 85 kg, 35º)"
+    },
+    {
+     "nome": "SVERRISSON Bergur",
+     "noc": "ISL",
+     "continente": "Europa",
+     "rank": 32,
+     "punti": 293,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 16.12.1994 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 293 kg (gara 85 kg, 36º)"
+    },
+    {
+     "nome": "BALUSHI Issa Rajab Mohammed Al Balushi",
+     "noc": "UAE",
+     "continente": "Asia",
+     "rank": 33,
+     "punti": 290,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 27.06.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 290 kg (gara 85 kg, 37º)"
+    },
+    {
+     "nome": "RAHIM Md",
+     "noc": "BAN",
+     "continente": "Asia",
+     "rank": 34,
+     "punti": 270,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 06.07.2008 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 270 kg (gara 85 kg, 38º)"
+    },
+    {
+     "nome": "SHAW Daniel Zackariah Anthony",
+     "noc": "FIJ",
+     "continente": "Oceania",
+     "rank": 35,
+     "punti": 270,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 18.06.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 270 kg (gara 85 kg, 39º)"
+    },
+    {
+     "nome": "ATETE Franklin",
+     "noc": "KEN",
+     "continente": "Africa",
+     "rank": 36,
+     "punti": 255,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 19.07.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 255 kg (gara 85 kg, 40º)"
+    },
+    {
+     "nome": "ALOTAIBI Khallaf B",
+     "noc": "KUW",
+     "continente": "Asia",
+     "rank": 37,
+     "punti": 200,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 24.05.2010 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 200 kg (gara 85 kg, 41º)"
+    }
+   ]
+  },
+  "M 95": {
+   "genere": "M",
+   "kg": "95",
+   "nome": "95 kg",
+   "atleti": [
+    {
+     "nome": "NASAR Karlos May",
+     "noc": "BUL",
+     "continente": "Europa",
+     "rank": 1,
+     "punti": 415,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "1º nell'OQR della categoria · nato/a il 05.12.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 415 kg (gara 95 kg, 1º)"
+    },
+    {
+     "nome": "ADILETULY Nurgissa",
+     "noc": "KAZ",
+     "continente": "Asia",
+     "rank": 2,
+     "punti": 399,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "2º nell'OQR della categoria · nato/a il 09.10.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 399 kg (gara 95 kg, 2º)"
+    },
+    {
+     "nome": "ALIPOUR Ali",
+     "noc": "IRI",
+     "continente": "Asia",
+     "rank": 3,
+     "punti": 396,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "3º nell'OQR della categoria · nato/a il 26.11.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 396 kg (gara 95 kg, 3º)"
+    },
+    {
+     "nome": "QIAN Feixiang",
+     "noc": "CHN",
+     "continente": "Asia",
+     "rank": 4,
+     "punti": 385,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "4º nell'OQR della categoria · nato/a il 10.05.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 385 kg (gara 95 kg, 4º)"
+    },
+    {
+     "nome": "LEE Seongwon",
+     "noc": "KOR",
+     "continente": "Asia",
+     "rank": 5,
+     "punti": 385,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "5º nell'OQR della categoria · nato/a il 25.07.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 385 kg (gara 95 kg, 5º)"
+    },
+    {
+     "nome": "JAJVANI Goga",
+     "noc": "GEO",
+     "continente": "Europa",
+     "rank": 6,
+     "punti": 375,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "6º nell'OQR della categoria · nato/a il 07.01.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 375 kg (gara 95 kg, 6º)"
+    },
+    {
+     "nome": "TOSHTEMIROV Mukhammadkodir",
+     "noc": "UZB",
+     "continente": "Asia",
+     "rank": 7,
+     "punti": 373,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "7º nell'OQR della categoria · nato/a il 17.09.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 373 kg (gara 95 kg, 7º)"
+    },
+    {
+     "nome": "ROSTAMI Kianoush",
+     "noc": "KOS",
+     "continente": "Europa",
+     "rank": 8,
+     "punti": 371,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "8º nell'OQR della categoria · nato/a il 23.07.1991 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 371 kg (gara 95 kg, 9º)"
+    },
+    {
+     "nome": "VALLENILLA SANCHEZ Keydomar Giovanni",
+     "noc": "VEN",
+     "continente": "Americhe",
+     "rank": 9,
+     "punti": 370,
+     "tipo": "C",
+     "via": "Rappresentanza continentale",
+     "stato": "Provvisorio",
+     "nota": "Americhe non e' rappresentata tra i primi 8; 9º nell'OQR · nato/a il 08.10.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 370 kg (gara 95 kg, 10º)"
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "ALBORNOZ QUINTO Jokser Manuel",
+     "noc": "BRN",
+     "continente": "Asia",
+     "rank": 10,
+     "punti": 365,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.1: entra se si libera un posto · nato/a il 30.04.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 365 kg (gara 95 kg, 12º)"
+    },
+    {
+     "nome": "ELBAKH Fares Ibrahim E H",
+     "noc": "QAT",
+     "continente": "Asia",
+     "rank": 11,
+     "punti": 365,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.2: entra se si libera un posto · nato/a il 04.06.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 365 kg (gara 95 kg, 13º)"
+    },
+    {
+     "nome": "DZHANKHOTOV Ramazan",
+     "noc": "RUS",
+     "continente": "Europa",
+     "rank": 12,
+     "punti": 363,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.3: entra se si libera un posto · nato/a il 28.11.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 363 kg (gara 95 kg, 14º)"
+    }
+   ],
+   "attesa": [
+    {
+     "nome": "(da assegnare) Universality uomini 95 kg",
+     "noc": "",
+     "continente": "",
+     "rank": null,
+     "punti": null,
+     "tipo": "U",
+     "via": "Universality",
+     "stato": "In attesa",
+     "nota": "assegnato dalla Commissione Tripartita (richieste entro il 15/1/2028, decisione il 20/6/2028)"
+    }
+   ],
+   "fuori": [
+    {
+     "nome": "KOLECKI Daniel Szymon",
+     "noc": "POL",
+     "continente": "Europa",
+     "rank": 13,
+     "punti": 362,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 01.12.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 362 kg (gara 95 kg, 15º)"
+    },
+    {
+     "nome": "EZZEDDIN Alghafeer",
+     "noc": "UAE",
+     "continente": "Asia",
+     "rank": 14,
+     "punti": 360,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 03.07.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 360 kg (gara 95 kg, 16º)"
+    },
+    {
+     "nome": "HOVHANNISYAN Davit",
+     "noc": "ARM",
+     "continente": "Europa",
+     "rank": 15,
+     "punti": 360,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 14.01.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 360 kg (gara 95 kg, 17º)"
+    },
+    {
+     "nome": "NISHIKAWA Masashi",
+     "noc": "JPN",
+     "continente": "Asia",
+     "rank": 16,
+     "punti": 360,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 15.02.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 360 kg (gara 95 kg, 18º)"
+    },
+    {
+     "nome": "DOMBROVSKYI Maksym",
+     "noc": "UKR",
+     "continente": "Europa",
+     "rank": 17,
+     "punti": 356,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 20.04.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 356 kg (gara 95 kg, 20º)"
+    },
+    {
+     "nome": "MEZINSKIS Armands",
+     "noc": "LAT",
+     "continente": "Europa",
+     "rank": 18,
+     "punti": 353,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 08.09.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 353 kg (gara 95 kg, 21º)"
+    },
+    {
+     "nome": "GARCES FRANCO Oscar Andres",
+     "noc": "COL",
+     "continente": "Americhe",
+     "rank": 19,
+     "punti": 353,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC COL ha gia' 3 posti (uomini) · nato/a il 22.09.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 353 kg (gara 95 kg, 22º)"
+    },
+    {
+     "nome": "ERTJAN Kofsha",
+     "noc": "ALB",
+     "continente": "Europa",
+     "rank": 20,
+     "punti": 350,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 09.04.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 350 kg (gara 95 kg, 24º)"
+    },
+    {
+     "nome": "RAMOS CHAIRES Jonathan David",
+     "noc": "MEX",
+     "continente": "Americhe",
+     "rank": 21,
+     "punti": 348,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 24.09.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 348 kg (gara 95 kg, 25º)"
+    },
+    {
+     "nome": "HUANG Pin-Hsun",
+     "noc": "TPE",
+     "continente": "Asia",
+     "rank": 22,
+     "punti": 346,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 23.04.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 346 kg (gara 95 kg, 27º)"
+    },
+    {
+     "nome": "SANTAVY Bradyn James",
+     "noc": "CAN",
+     "continente": "Americhe",
+     "rank": 23,
+     "punti": 345,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 12.05.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 345 kg (gara 95 kg, 28º)"
+    },
+    {
+     "nome": "GUADAMUD PICO Erik Ismael",
+     "noc": "ESP",
+     "continente": "Europa",
+     "rank": 24,
+     "punti": 343,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 17.04.2010 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 343 kg (gara 95 kg, 29º)"
+    },
+    {
+     "nome": "KORDUSAS Lukas",
+     "noc": "LTU",
+     "continente": "Europa",
+     "rank": 25,
+     "punti": 341,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 14.07.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 341 kg (gara 95 kg, 30º)"
+    },
+    {
+     "nome": "FEKECS Szilard",
+     "noc": "HUN",
+     "continente": "Europa",
+     "rank": 26,
+     "punti": 331,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 05.02.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 331 kg (gara 95 kg, 33º)"
+    },
+    {
+     "nome": "SAXTON Oliver Riley",
+     "noc": "AUS",
+     "continente": "Oceania",
+     "rank": 27,
+     "punti": 330,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 16.02.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 330 kg (gara 95 kg, 34º)"
+    },
+    {
+     "nome": "ITSIMAERA Kyle Franklin",
+     "noc": "NRU",
+     "continente": "Oceania",
+     "rank": 28,
+     "punti": 290,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 01.10.2008 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 290 kg (gara 95 kg, 35º)"
+    },
+    {
+     "nome": "GORDON Adam",
+     "noc": "JAM",
+     "continente": "Americhe",
+     "rank": 29,
+     "punti": 271,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 05.09.1996 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 271 kg (gara 95 kg, 36º)"
+    },
+    {
+     "nome": "SAID Will Murat",
+     "noc": "AFG",
+     "continente": "Asia",
+     "rank": 30,
+     "punti": 255,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 13.07.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 255 kg (gara 95 kg, 37º)"
+    }
+   ]
+  },
+  "M 110": {
+   "genere": "M",
+   "kg": "110",
+   "nome": "110 kg",
+   "atleti": [
+    {
+     "nome": "DJURAEV Akbar",
+     "noc": "UZB",
+     "continente": "Asia",
+     "rank": 1,
+     "punti": 432,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "1º nell'OQR della categoria · nato/a il 08.10.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 432 kg (gara 110 kg, 1º)"
+    },
+    {
+     "nome": "NASIRI Alireza",
+     "noc": "IRI",
+     "continente": "Asia",
+     "rank": 2,
+     "punti": 418,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "2º nell'OQR della categoria · nato/a il 14.12.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 418 kg (gara 110 kg, 2º)"
+    },
+    {
+     "nome": "MATYAKUBOV Shahzadbek",
+     "noc": "TKM",
+     "continente": "Asia",
+     "rank": 3,
+     "punti": 417,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "3º nell'OQR della categoria · nato/a il 01.03.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 417 kg (gara 110 kg, 3º)"
+    },
+    {
+     "nome": "LAURET RODRIGUEZ Luis Manuel",
+     "noc": "ROU",
+     "continente": "Europa",
+     "rank": 4,
+     "punti": 416,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "4º nell'OQR della categoria · nato/a il 20.01.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 416 kg (gara 110 kg, 4º)"
+    },
+    {
+     "nome": "CHEN Po-Jen",
+     "noc": "TPE",
+     "continente": "Asia",
+     "rank": 5,
+     "punti": 410,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "5º nell'OQR della categoria · nato/a il 11.05.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 410 kg (gara 110 kg, 5º)"
+    },
+    {
+     "nome": "FERGUSON Kolbi Malik Kwame",
+     "noc": "USA",
+     "continente": "Americhe",
+     "rank": 7,
+     "punti": 397,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "7º nell'OQR della categoria · nato/a il 01.12.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 397 kg (gara 110 kg, 7º)"
+    },
+    {
+     "nome": "ANTROPOV Artyom",
+     "noc": "KAZ",
+     "continente": "Asia",
+     "rank": 8,
+     "punti": 393,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "8º nell'OQR della categoria · nato/a il 23.01.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 393 kg (gara 110 kg, 8º)"
+    },
+    {
+     "nome": "TEBLOEV Sarmat",
+     "noc": "RUS",
+     "continente": "Europa",
+     "rank": 9,
+     "punti": 392,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "9º nell'OQR della categoria · nato/a il 29.11.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 392 kg (gara 110 kg, 9º)"
+    },
+    {
+     "nome": "ELBASYOUNI AHMED Gamal Mohamed Elmetwall",
+     "noc": "EGY",
+     "continente": "Africa",
+     "rank": 11,
+     "punti": 390,
+     "tipo": "C",
+     "via": "Rappresentanza continentale",
+     "stato": "Provvisorio",
+     "nota": "Africa non e' rappresentata tra i primi 8; 11º nell'OQR · nato/a il 04.03.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 390 kg (gara 110 kg, 11º)"
+    },
+    {
+     "nome": "RAINIBOGI Taniela Tuisuva",
+     "noc": "FIJ",
+     "continente": "Oceania",
+     "rank": 14,
+     "punti": 375,
+     "tipo": "C",
+     "via": "Rappresentanza continentale (posto ospitante riassegnato)",
+     "stato": "Provvisorio",
+     "nota": "posto ospitante non usato da USA, riassegnato (14º nell'OQR) · nato/a il 19.04.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 375 kg (gara 110 kg, 15º)"
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "VIKINGSSON SJOEBLOM Joen Carl Erik",
+     "noc": "SWE",
+     "continente": "Europa",
+     "rank": 10,
+     "punti": 390,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.1: entra se si libera un posto · nato/a il 02.05.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 390 kg (gara 110 kg, 10º)"
+    },
+    {
+     "nome": "MOCHIDA Ryunosuke",
+     "noc": "JPN",
+     "continente": "Asia",
+     "rank": 12,
+     "punti": 385,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.2: entra se si libera un posto · nato/a il 18.06.1993 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 385 kg (gara 110 kg, 13º)"
+    },
+    {
+     "nome": "VEKUA Gurami",
+     "noc": "GEO",
+     "continente": "Europa",
+     "rank": 13,
+     "punti": 380,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.3: entra se si libera un posto · nato/a il 05.01.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 380 kg (gara 110 kg, 14º)"
+    }
+   ],
+   "attesa": [],
+   "fuori": [
+    {
+     "nome": "LIU Huanhua",
+     "noc": "CHN",
+     "continente": "Asia",
+     "rank": 6,
+     "punti": 405,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC CHN ha gia' 3 atleti (uomini) meglio piazzati · nato/a il 20.08.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 405 kg (gara 110 kg, 6º)"
+    },
+    {
+     "nome": "TCHATCHET II Cyrille Fagat",
+     "noc": "GBR",
+     "continente": "Europa",
+     "rank": 15,
+     "punti": 371,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 01.08.1995 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 371 kg (gara 110 kg, 16º)"
+    },
+    {
+     "nome": "KOLAR Josef",
+     "noc": "CZE",
+     "continente": "Europa",
+     "rank": 16,
+     "punti": 366,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 01.10.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 366 kg (gara 110 kg, 17º)"
+    },
+    {
+     "nome": "MEDINA ANDUEZA Josue Said",
+     "noc": "MEX",
+     "continente": "Americhe",
+     "rank": 17,
+     "punti": 365,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 15.06.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 365 kg (gara 110 kg, 18º)"
+    },
+    {
+     "nome": "MUGURDUMOV Artur",
+     "noc": "ISR",
+     "continente": "Europa",
+     "rank": 18,
+     "punti": 356,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 06.06.1988 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 356 kg (gara 110 kg, 19º)"
+    },
+    {
+     "nome": "VIERA ESPINOZA Hernan Moises",
+     "noc": "PER",
+     "continente": "Americhe",
+     "rank": 19,
+     "punti": 344,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 16.01.1993 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 344 kg (gara 110 kg, 20º)"
+    },
+    {
+     "nome": "GINEIKIS Neilas",
+     "noc": "LTU",
+     "continente": "Europa",
+     "rank": 20,
+     "punti": 341,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 13.10.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 341 kg (gara 110 kg, 21º)"
+    },
+    {
+     "nome": "KAMANDE Eric",
+     "noc": "KEN",
+     "continente": "Africa",
+     "rank": 21,
+     "punti": 242,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 10.10.1996 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 242 kg (gara 110 kg, 23º)"
+    }
+   ]
+  },
+  "M +110": {
+   "genere": "M",
+   "kg": "+110",
+   "nome": "+110 kg",
+   "atleti": [
+    {
+     "nome": "RUBAIAWI Ali Ammar Yusur",
+     "noc": "IRQ",
+     "continente": "Asia",
+     "rank": 1,
+     "punti": 466,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "1º nell'OQR della categoria · nato/a il 02.08.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 466 kg (gara +110 kg, 1º)"
+    },
+    {
+     "nome": "YOUSEFI Alireza",
+     "noc": "IRI",
+     "continente": "Asia",
+     "rank": 2,
+     "punti": 458,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "2º nell'OQR della categoria · nato/a il 27.08.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 458 kg (gara +110 kg, 2º)"
+    },
+    {
+     "nome": "LALAYAN Varazdat",
+     "noc": "ARM",
+     "continente": "Europa",
+     "rank": 3,
+     "punti": 457,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "3º nell'OQR della categoria · nato/a il 01.05.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 457 kg (gara +110 kg, 3º)"
+    },
+    {
+     "nome": "VAGAITSEV Daniil",
+     "noc": "RUS",
+     "continente": "Europa",
+     "rank": 4,
+     "punti": 431,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "4º nell'OQR della categoria · nato/a il 13.11.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 431 kg (gara +110 kg, 5º)"
+    },
+    {
+     "nome": "TARANENKO Bohdan",
+     "noc": "UKR",
+     "continente": "Europa",
+     "rank": 5,
+     "punti": 422,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "5º nell'OQR della categoria · nato/a il 14.03.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 422 kg (gara +110 kg, 6º)"
+    },
+    {
+     "nome": "AMRIDDINOV Sharofiddin",
+     "noc": "UZB",
+     "continente": "Asia",
+     "rank": 6,
+     "punti": 416,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "6º nell'OQR della categoria · nato/a il 28.06.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 416 kg (gara +110 kg, 7º)"
+    },
+    {
+     "nome": "HWANG Wooman",
+     "noc": "KOR",
+     "continente": "Asia",
+     "rank": 7,
+     "punti": 415,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "7º nell'OQR della categoria · nato/a il 12.07.1995 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 415 kg (gara +110 kg, 8º)"
+    },
+    {
+     "nome": "WILLIAMS Aaron",
+     "noc": "USA",
+     "continente": "Americhe",
+     "rank": 9,
+     "punti": 405,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "9º nell'OQR della categoria · nato/a il 01.06.1995 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 405 kg (gara +110 kg, 11º)"
+    },
+    {
+     "nome": "DONG Bing-Cheng",
+     "noc": "TPE",
+     "continente": "Asia",
+     "rank": 10,
+     "punti": 403,
+     "tipo": "C",
+     "via": "Rappresentanza continentale (posto ospitante riassegnato)",
+     "stato": "Provvisorio",
+     "nota": "posto ospitante non usato da USA, riassegnato (10º nell'OQR) · nato/a il 20.03.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 403 kg (gara +110 kg, 13º)"
+    },
+    {
+     "nome": "MANUMUA JR Sikoti",
+     "noc": "TGA",
+     "continente": "Oceania",
+     "rank": 22,
+     "punti": 325,
+     "tipo": "C",
+     "via": "Rappresentanza continentale",
+     "stato": "Provvisorio",
+     "nota": "Oceania non e' rappresentata tra i primi 8; 22º nell'OQR · nato/a il 07.11.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 325 kg (gara +110 kg, 26º)"
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "HOLME Ragnar Gamlestoel",
+     "noc": "NOR",
+     "continente": "Europa",
+     "rank": 11,
+     "punti": 394,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.1: entra se si libera un posto · nato/a il 19.06.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 394 kg (gara +110 kg, 14º)"
+    },
+    {
+     "nome": "ALNAJJAR M Moayad M",
+     "noc": "UAE",
+     "continente": "Asia",
+     "rank": 12,
+     "punti": 387,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.2: entra se si libera un posto · nato/a il 22.02.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 387 kg (gara +110 kg, 15º)"
+    },
+    {
+     "nome": "SAWANOBORI Kentaro",
+     "noc": "JPN",
+     "continente": "Asia",
+     "rank": 13,
+     "punti": 385,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.3: entra se si libera un posto · nato/a il 28.04.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 385 kg (gara +110 kg, 16º)"
+    }
+   ],
+   "attesa": [],
+   "fuori": [
+    {
+     "nome": "CERRO CASTILLO Rafael De Jesus",
+     "noc": "COL",
+     "continente": "Americhe",
+     "rank": 8,
+     "punti": 415,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC COL ha gia' 3 atleti (uomini) meglio piazzati · nato/a il 16.05.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 415 kg (gara +110 kg, 9º)"
+    },
+    {
+     "nome": "KUCERA Kamil",
+     "noc": "CZE",
+     "continente": "Europa",
+     "rank": 14,
+     "punti": 381,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 19.03.1985 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 381 kg (gara +110 kg, 17º)"
+    },
+    {
+     "nome": "STONKUS Karolis",
+     "noc": "LTU",
+     "continente": "Europa",
+     "rank": 15,
+     "punti": 380,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 12.04.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 380 kg (gara +110 kg, 18º)"
+    },
+    {
+     "nome": "LOVEPREET Singh",
+     "noc": "IND",
+     "continente": "Asia",
+     "rank": 16,
+     "punti": 375,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 06.09.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 375 kg (gara +110 kg, 19º)"
+    },
+    {
+     "nome": "BIZAMA CONEJERO Alonso Javier",
+     "noc": "CHI",
+     "continente": "Americhe",
+     "rank": 17,
+     "punti": 373,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 10.11.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 373 kg (gara +110 kg, 20º)"
+    },
+    {
+     "nome": "SAADI MONROY Karim Alejandro",
+     "noc": "MEX",
+     "continente": "Americhe",
+     "rank": 18,
+     "punti": 370,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 14.07.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 370 kg (gara +110 kg, 21º)"
+    },
+    {
+     "nome": "KESKITALO Hanno Matias",
+     "noc": "FIN",
+     "continente": "Europa",
+     "rank": 19,
+     "punti": 345,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 01.07.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 345 kg (gara +110 kg, 23º)"
+    },
+    {
+     "nome": "OTTOSSON Hugo Harald",
+     "noc": "SWE",
+     "continente": "Europa",
+     "rank": 20,
+     "punti": 340,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 03.10.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 340 kg (gara +110 kg, 24º)"
+    },
+    {
+     "nome": "NOWLAN Rooney Cian",
+     "noc": "IRL",
+     "continente": "Europa",
+     "rank": 21,
+     "punti": 340,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 05.02.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 340 kg (gara +110 kg, 25º)"
+    }
+   ]
+  },
+  "F 53": {
+   "genere": "F",
+   "kg": "53",
+   "nome": "53 kg",
+   "atleti": [
+    {
+     "nome": "ULREY Miranda Eleanor",
+     "noc": "USA",
+     "continente": "Americhe",
+     "rank": 2,
+     "punti": 220,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "2º nell'OQR della categoria · nato/a il 23.09.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 220 kg (gara 53 kg, 2º)"
+    },
+    {
+     "nome": "KIM So Hyon",
+     "noc": "PRK",
+     "continente": "Asia",
+     "rank": 3,
+     "punti": 214,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "3º nell'OQR della categoria · nato/a il 14.07.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 214 kg (gara 53 kg, 3º)"
+    },
+    {
+     "nome": "KHAMBAO Surodchana",
+     "noc": "THA",
+     "continente": "Asia",
+     "rank": 4,
+     "punti": 212,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "4º nell'OQR della categoria · nato/a il 23.12.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 212 kg (gara 53 kg, 4º)"
+    },
+    {
+     "nome": "RAMOS Rosegie",
+     "noc": "PHI",
+     "continente": "Asia",
+     "rank": 5,
+     "punti": 211,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "5º nell'OQR della categoria · nato/a il 15.12.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 211 kg (gara 53 kg, 5º)"
+    },
+    {
+     "nome": "ABDULLAEVA Nigora",
+     "noc": "UZB",
+     "continente": "Asia",
+     "rank": 6,
+     "punti": 201,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "6º nell'OQR della categoria · nato/a il 13.05.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 201 kg (gara 53 kg, 6º)"
+    },
+    {
+     "nome": "CAMBEI Mihaela-Valentina",
+     "noc": "ROU",
+     "continente": "Europa",
+     "rank": 7,
+     "punti": 200,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "7º nell'OQR della categoria · nato/a il 18.11.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 200 kg (gara 53 kg, 7º)"
+    },
+    {
+     "nome": "YADAV Gyaneshwari",
+     "noc": "IND",
+     "continente": "Asia",
+     "rank": 8,
+     "punti": 198,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "8º nell'OQR della categoria · nato/a il 08.03.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 198 kg (gara 53 kg, 8º)"
+    },
+    {
+     "nome": "ORTIZ Dahiana",
+     "noc": "DOM",
+     "continente": "Americhe",
+     "rank": 9,
+     "punti": 198,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "9º nell'OQR della categoria · nato/a il 27.11.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 198 kg (gara 53 kg, 9º)"
+    },
+    {
+     "nome": "RANDAFIARISON Rosina",
+     "noc": "MAD",
+     "continente": "Africa",
+     "rank": 29,
+     "punti": 162,
+     "tipo": "C",
+     "via": "Rappresentanza continentale",
+     "stato": "Provvisorio",
+     "nota": "Africa non e' rappresentata tra i primi 8; 29º nell'OQR · nato/a il 29.12.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 162 kg (gara 53 kg, 31º)"
+    },
+    {
+     "nome": "TOUA Loa Dika",
+     "noc": "PNG",
+     "continente": "Oceania",
+     "rank": 31,
+     "punti": 161,
+     "tipo": "C",
+     "via": "Rappresentanza continentale (posto ospitante riassegnato)",
+     "stato": "Provvisorio",
+     "nota": "posto ospitante non usato da USA, riassegnato (31º nell'OQR) · nato/a il 23.06.1984 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 161 kg (gara 53 kg, 32º)"
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "LIN Cheng Jing",
+     "noc": "TPE",
+     "continente": "Asia",
+     "rank": 10,
+     "punti": 197,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.1: entra se si libera un posto · nato/a il 20.01.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 197 kg (gara 53 kg, 10º)"
+    },
+    {
+     "nome": "ABE Nozomi",
+     "noc": "JPN",
+     "continente": "Asia",
+     "rank": 11,
+     "punti": 196,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.2: entra se si libera un posto · nato/a il 01.08.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 196 kg (gara 53 kg, 11º)"
+    },
+    {
+     "nome": "OZKAN Cansel",
+     "noc": "TUR",
+     "continente": "Europa",
+     "rank": 12,
+     "punti": 194,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.3: entra se si libera un posto · nato/a il 26.02.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 194 kg (gara 53 kg, 12º)"
+    }
+   ],
+   "attesa": [],
+   "fuori": [
+    {
+     "nome": "ZHANG Haiqin",
+     "noc": "CHN",
+     "continente": "Asia",
+     "rank": 1,
+     "punti": 221,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC CHN ha gia' 3 atleti (donne) meglio piazzati · nato/a il 06.01.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 221 kg (gara 53 kg, 1º)"
+    },
+    {
+     "nome": "DE LA HERRAN MARTINEZ Andrea",
+     "noc": "MEX",
+     "continente": "Americhe",
+     "rank": 13,
+     "punti": 193,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 12.09.1996 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 193 kg (gara 53 kg, 13º)"
+    },
+    {
+     "nome": "WIJAYANA Luluk Diana Tri",
+     "noc": "INA",
+     "continente": "Asia",
+     "rank": 14,
+     "punti": 193,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 09.08.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 193 kg (gara 53 kg, 14º)"
+    },
+    {
+     "nome": "STRATOUDAKI Maria",
+     "noc": "GRE",
+     "continente": "Europa",
+     "rank": 15,
+     "punti": 191,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 05.06.2008 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 191 kg (gara 53 kg, 16º)"
+    },
+    {
+     "nome": "ROSA FIGUEIREDO Nathasha",
+     "noc": "BRA",
+     "continente": "Americhe",
+     "rank": 16,
+     "punti": 191,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 16.01.1996 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 191 kg (gara 53 kg, 17º)"
+    },
+    {
+     "nome": "NGUYEN Hoai Huong",
+     "noc": "VIE",
+     "continente": "Asia",
+     "rank": 17,
+     "punti": 190,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 20.04.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 190 kg (gara 53 kg, 18º)"
+    },
+    {
+     "nome": "ECHANDIA ZARATE Katherin Oriana",
+     "noc": "VEN",
+     "continente": "Americhe",
+     "rank": 18,
+     "punti": 190,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 14.08.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 190 kg (gara 53 kg, 19º)"
+    },
+    {
+     "nome": "AMANOVA Ogulshat",
+     "noc": "TKM",
+     "continente": "Asia",
+     "rank": 19,
+     "punti": 189,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 29.11.2009 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 189 kg (gara 53 kg, 20º)"
+    },
+    {
+     "nome": "KATSIANIOVA Yuliya",
+     "noc": "BLR",
+     "continente": "Europa",
+     "rank": 20,
+     "punti": 189,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 13.08.2007 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 189 kg (gara 53 kg, 21º)"
+    },
+    {
+     "nome": "RIGAUD Garance",
+     "noc": "FRA",
+     "continente": "Europa",
+     "rank": 21,
+     "punti": 184,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 11.12.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 184 kg (gara 53 kg, 23º)"
+    },
+    {
+     "nome": "SANCHEZ FERRER Alba",
+     "noc": "ESP",
+     "continente": "Europa",
+     "rank": 22,
+     "punti": 183,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 10.01.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 183 kg (gara 53 kg, 24º)"
+    },
+    {
+     "nome": "JACOBSEN Rebekka Tao",
+     "noc": "NOR",
+     "continente": "Europa",
+     "rank": 23,
+     "punti": 183,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 12.09.1996 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 183 kg (gara 53 kg, 25º)"
+    },
+    {
+     "nome": "NOVITSKAIA Kristina",
+     "noc": "RUS",
+     "continente": "Europa",
+     "rank": 24,
+     "punti": 182,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 22.09.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 182 kg (gara 53 kg, 27º)"
+    },
+    {
+     "nome": "MYJAK Malgorzata Katarzyna",
+     "noc": "POL",
+     "continente": "Europa",
+     "rank": 25,
+     "punti": 179,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 25.09.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 179 kg (gara 53 kg, 28º)"
+    },
+    {
+     "nome": "ARVA Cintia Andrea",
+     "noc": "HUN",
+     "continente": "Europa",
+     "rank": 26,
+     "punti": 165,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 31.12.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 165 kg (gara 49 kg, 10º)"
+    },
+    {
+     "nome": "ZAGORAC Radmila",
+     "noc": "SRB",
+     "continente": "Europa",
+     "rank": 27,
+     "punti": 165,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 24.01.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 165 kg (gara 53 kg, 30º)"
+    },
+    {
+     "nome": "HENRY Irene Jane",
+     "noc": "MAS",
+     "continente": "Asia",
+     "rank": 28,
+     "punti": 164,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 28.06.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 164 kg (gara 49 kg, 11º)"
+    },
+    {
+     "nome": "STRZYKALA Mara",
+     "noc": "LUX",
+     "continente": "Europa",
+     "rank": 30,
+     "punti": 161,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 13.03.1992 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 161 kg (gara 49 kg, 12º)"
+    },
+    {
+     "nome": "DEIRERAGEA Jo-Beth",
+     "noc": "NRU",
+     "continente": "Oceania",
+     "rank": 32,
+     "punti": 157,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 25.12.2007 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 157 kg (gara 53 kg, 33º)"
+    },
+    {
+     "nome": "GARCIA SUAREZ Macarena",
+     "noc": "CHI",
+     "continente": "Americhe",
+     "rank": 33,
+     "punti": 154,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 09.02.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 154 kg (gara 49 kg, 13º)"
+    },
+    {
+     "nome": "ODUOR Janet Atieno",
+     "noc": "KEN",
+     "continente": "Africa",
+     "rank": 34,
+     "punti": 137,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 23.12.1993 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 137 kg (gara 53 kg, 34º)"
+    },
+    {
+     "nome": "ALSHAREEFI Amal J",
+     "noc": "KUW",
+     "continente": "Asia",
+     "rank": 35,
+     "punti": 129,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 05.08.1993 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 129 kg (gara 53 kg, 35º)"
+    },
+    {
+     "nome": "ALHASHMI Zahra Faisal Hisain Yahya",
+     "noc": "UAE",
+     "continente": "Asia",
+     "rank": 36,
+     "punti": 110,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 26.02.1994 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 110 kg (gara 53 kg, 36º)"
+    }
+   ]
+  },
+  "F 61": {
+   "genere": "F",
+   "kg": "61",
+   "nome": "61 kg",
+   "atleti": [
+    {
+     "nome": "PAK Jin Hae",
+     "noc": "PRK",
+     "continente": "Asia",
+     "rank": 2,
+     "punti": 243,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "2º nell'OQR della categoria · nato/a il 08.11.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 243 kg (gara 61 kg, 3º)"
+    },
+    {
+     "nome": "KUO Hsing-Chun",
+     "noc": "TPE",
+     "continente": "Asia",
+     "rank": 3,
+     "punti": 241,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "3º nell'OQR della categoria · nato/a il 26.11.1993 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 241 kg (gara 61 kg, 4º)"
+    },
+    {
+     "nome": "MOSQUERA CACERES Karen Tatiana",
+     "noc": "COL",
+     "continente": "Americhe",
+     "rank": 4,
+     "punti": 236,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "4º nell'OQR della categoria · nato/a il 27.12.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 236 kg (gara 61 kg, 5º)"
+    },
+    {
+     "nome": "CHARRON Maude G",
+     "noc": "CAN",
+     "continente": "Americhe",
+     "rank": 6,
+     "punti": 231,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "6º nell'OQR della categoria · nato/a il 28.04.1993 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 231 kg (gara 61 kg, 7º)"
+    },
+    {
+     "nome": "KONOTOP Kamila",
+     "noc": "UKR",
+     "continente": "Europa",
+     "rank": 7,
+     "punti": 228,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "7º nell'OQR della categoria · nato/a il 23.03.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 228 kg (gara 61 kg, 8º)"
+    },
+    {
+     "nome": "ANDO Elreen Ann",
+     "noc": "PHI",
+     "continente": "Asia",
+     "rank": 8,
+     "punti": 227,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "8º nell'OQR della categoria · nato/a il 01.11.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 227 kg (gara 61 kg, 9º)"
+    },
+    {
+     "nome": "YODSARN Suratwadee",
+     "noc": "THA",
+     "continente": "Asia",
+     "rank": 9,
+     "punti": 226,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "9º nell'OQR della categoria · nato/a il 15.07.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 226 kg (gara 61 kg, 10º)"
+    },
+    {
+     "nome": "MICHEL Maelyn Delia Angeline",
+     "noc": "FRA",
+     "continente": "Europa",
+     "rank": 10,
+     "punti": 220,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "10º nell'OQR della categoria · nato/a il 25.02.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 220 kg (gara 61 kg, 12º)"
+    },
+    {
+     "nome": "FEMLIY Crystie Notte",
+     "noc": "NRU",
+     "continente": "Oceania",
+     "rank": 23,
+     "punti": 205,
+     "tipo": "C",
+     "via": "Rappresentanza continentale",
+     "stato": "Provvisorio",
+     "nota": "Oceania non e' rappresentata tra i primi 8; 23º nell'OQR · nato/a il 25.04.2009 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 205 kg (gara 61 kg, 26º)"
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "SHCHAPANAVA Alina",
+     "noc": "BLR",
+     "continente": "Europa",
+     "rank": 11,
+     "punti": 217,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.1: entra se si libera un posto · nato/a il 12.04.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 217 kg (gara 61 kg, 14º)"
+    },
+    {
+     "nome": "OZKAN Aysel",
+     "noc": "TUR",
+     "continente": "Europa",
+     "rank": 12,
+     "punti": 217,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.2: entra se si libera un posto · nato/a il 26.02.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 217 kg (gara 61 kg, 15º)"
+    },
+    {
+     "nome": "BETEYOB Natasya",
+     "noc": "INA",
+     "continente": "Asia",
+     "rank": 13,
+     "punti": 217,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.3: entra se si libera un posto · nato/a il 10.09.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 217 kg (gara 61 kg, 16º)"
+    }
+   ],
+   "attesa": [
+    {
+     "nome": "(da assegnare) Universality donne 61 kg",
+     "noc": "",
+     "continente": "",
+     "rank": null,
+     "punti": null,
+     "tipo": "U",
+     "via": "Universality",
+     "stato": "In attesa",
+     "nota": "assegnato dalla Commissione Tripartita (richieste entro il 15/1/2028, decisione il 20/6/2028)"
+    }
+   ],
+   "fuori": [
+    {
+     "nome": "PEI Xinyi",
+     "noc": "CHN",
+     "continente": "Asia",
+     "rank": 1,
+     "punti": 254,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC CHN ha gia' 3 atleti (donne) meglio piazzati · nato/a il 10.01.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 254 kg (gara 61 kg, 1º)"
+    },
+    {
+     "nome": "ESTEP Katharine Emily",
+     "noc": "USA",
+     "continente": "Americhe",
+     "rank": 5,
+     "punti": 234,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC USA ha gia' 3 atleti (donne) meglio piazzati · nato/a il 18.08.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 234 kg (gara 61 kg, 6º)"
+    },
+    {
+     "nome": "TE Olga",
+     "noc": "RUS",
+     "continente": "Europa",
+     "rank": 14,
+     "punti": 215,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 05.03.1996 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 215 kg (gara 61 kg, 17º)"
+    },
+    {
+     "nome": "COTRUTA Andreea",
+     "noc": "ROU",
+     "continente": "Europa",
+     "rank": 15,
+     "punti": 214,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 11.11.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 214 kg (gara 61 kg, 18º)"
+    },
+    {
+     "nome": "USHA Usha",
+     "noc": "IND",
+     "continente": "Asia",
+     "rank": 16,
+     "punti": 212,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 02.09.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 212 kg (gara 61 kg, 19º)"
+    },
+    {
+     "nome": "ENDO Riri",
+     "noc": "JPN",
+     "continente": "Asia",
+     "rank": 17,
+     "punti": 212,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 11.02.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 212 kg (gara 61 kg, 20º)"
+    },
+    {
+     "nome": "IBRAHIMA Rebeka",
+     "noc": "LAT",
+     "continente": "Europa",
+     "rank": 18,
+     "punti": 211,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 19.05.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 211 kg (gara 61 kg, 22º)"
+    },
+    {
+     "nome": "MAGISTRIS Lucrezia",
+     "noc": "ITA",
+     "continente": "Europa",
+     "rank": 19,
+     "punti": 209,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 21.04.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 209 kg (gara 61 kg, 23º)"
+    },
+    {
+     "nome": "BECERRA ROMERO Jenifer Samanta",
+     "noc": "ECU",
+     "continente": "Americhe",
+     "rank": 20,
+     "punti": 207,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 31.12.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 207 kg (gara 61 kg, 24º)"
+    },
+    {
+     "nome": "FELIZ VASQUEZ Alicia",
+     "noc": "DOM",
+     "continente": "Americhe",
+     "rank": 21,
+     "punti": 206,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC DOM ha gia' 3 posti (donne) · nato/a il 01.10.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 206 kg (gara 61 kg, 25º)"
+    },
+    {
+     "nome": "GRIGORYAN Aleksandra",
+     "noc": "ARM",
+     "continente": "Europa",
+     "rank": 22,
+     "punti": 205,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 01.08.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 205 kg (gara 57 kg, 4º)"
+    },
+    {
+     "nome": "KERIMBAYEVA Shabnam",
+     "noc": "TKM",
+     "continente": "Asia",
+     "rank": 24,
+     "punti": 201,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 26.12.2009 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 201 kg (gara 57 kg, 5º)"
+    },
+    {
+     "nome": "AGRAIT CALO Issi Massei",
+     "noc": "PUR",
+     "continente": "Americhe",
+     "rank": 25,
+     "punti": 201,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 21.12.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 201 kg (gara 61 kg, 27º)"
+    },
+    {
+     "nome": "LOPEZ GONZALEZ Joseline",
+     "noc": "MEX",
+     "continente": "Americhe",
+     "rank": 26,
+     "punti": 199,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 08.11.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 199 kg (gara 61 kg, 28º)"
+    },
+    {
+     "nome": "KUSTERER Sabine Beate",
+     "noc": "LUX",
+     "continente": "Europa",
+     "rank": 27,
+     "punti": 198,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 04.01.1991 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 198 kg (gara 61 kg, 29º)"
+    },
+    {
+     "nome": "HONCHAROVA Veronika",
+     "noc": "AUT",
+     "continente": "Europa",
+     "rank": 28,
+     "punti": 197,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 30.01.2008 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 197 kg (gara 61 kg, 30º)"
+    },
+    {
+     "nome": "MEGO CONTRERAS Shoely Mabel",
+     "noc": "PER",
+     "continente": "Americhe",
+     "rank": 29,
+     "punti": 194,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 12.08.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 194 kg (gara 57 kg, 6º)"
+    },
+    {
+     "nome": "KETILSDOTTIR Katla Bjoerk",
+     "noc": "ISL",
+     "continente": "Europa",
+     "rank": 30,
+     "punti": 189,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 08.11.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 189 kg (gara 61 kg, 31º)"
+    },
+    {
+     "nome": "VANDENABEELE Annelien",
+     "noc": "BEL",
+     "continente": "Europa",
+     "rank": 31,
+     "punti": 188,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 26.11.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 188 kg (gara 57 kg, 10º)"
+    },
+    {
+     "nome": "SCHUILWERVE Marlous",
+     "noc": "NED",
+     "continente": "Europa",
+     "rank": 32,
+     "punti": 182,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 15.01.1995 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 182 kg (gara 57 kg, 11º)"
+    },
+    {
+     "nome": "BERGLUND Irma Donna Wiktoria",
+     "noc": "SWE",
+     "continente": "Europa",
+     "rank": 33,
+     "punti": 175,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 28.11.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 175 kg (gara 57 kg, 12º)"
+    },
+    {
+     "nome": "COFFEY O CONNOR Molly",
+     "noc": "IRL",
+     "continente": "Europa",
+     "rank": 34,
+     "punti": 175,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 24.01.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 175 kg (gara 61 kg, 32º)"
+    },
+    {
+     "nome": "FAJRESLAM Maha",
+     "noc": "MAR",
+     "continente": "Africa",
+     "rank": 35,
+     "punti": 172,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 07.04.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 172 kg (gara 61 kg, 33º)"
+    },
+    {
+     "nome": "ALMADANI Mai Ahmad Essa Ahmad",
+     "noc": "UAE",
+     "continente": "Asia",
+     "rank": 36,
+     "punti": 155,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 26.07.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 155 kg (gara 61 kg, 34º)"
+    },
+    {
+     "nome": "CHENG Ching To",
+     "noc": "HKG",
+     "continente": "Asia",
+     "rank": 37,
+     "punti": 152,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 09.07.1990 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 152 kg (gara 61 kg, 35º)"
+    },
+    {
+     "nome": "KAMSHAD Alzahraa M N A",
+     "noc": "KUW",
+     "continente": "Asia",
+     "rank": 38,
+     "punti": 133,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 24.08.1991 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 133 kg (gara 61 kg, 36º)"
+    }
+   ]
+  },
+  "F 69": {
+   "genere": "F",
+   "kg": "69",
+   "nome": "69 kg",
+   "atleti": [
+    {
+     "nome": "SONG Kuk Hyang",
+     "noc": "PRK",
+     "continente": "Asia",
+     "rank": 1,
+     "punti": 275,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "1º nell'OQR della categoria · nato/a il 01.02.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 275 kg (gara 69 kg, 1º)"
+    },
+    {
+     "nome": "RODRIGUEZ QUINTERO Julieth Alejandra",
+     "noc": "COL",
+     "continente": "Americhe",
+     "rank": 2,
+     "punti": 245,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "2º nell'OQR della categoria · nato/a il 20.02.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 245 kg (gara 69 kg, 3º)"
+    },
+    {
+     "nome": "VALODZKA Siuzanna",
+     "noc": "BLR",
+     "continente": "Europa",
+     "rank": 3,
+     "punti": 244,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "3º nell'OQR della categoria · nato/a il 17.08.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 244 kg (gara 69 kg, 4º)"
+    },
+    {
+     "nome": "IBANEZ Emily",
+     "noc": "KOS",
+     "continente": "Europa",
+     "rank": 4,
+     "punti": 240,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "4º nell'OQR della categoria · nato/a il 27.12.2010 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 240 kg (gara 69 kg, 5º)"
+    },
+    {
+     "nome": "MATIAS MARCIAL Fransheska Mari",
+     "noc": "DOM",
+     "continente": "Americhe",
+     "rank": 5,
+     "punti": 240,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "5º nell'OQR della categoria · nato/a il 21.12.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 240 kg (gara 69 kg, 6º)"
+    },
+    {
+     "nome": "GUSALOVA Zarina",
+     "noc": "RUS",
+     "continente": "Europa",
+     "rank": 6,
+     "punti": 239,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "6º nell'OQR della categoria · nato/a il 01.09.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 239 kg (gara 69 kg, 7º)"
+    },
+    {
+     "nome": "SIMONEAU Charlotte",
+     "noc": "CAN",
+     "continente": "Americhe",
+     "rank": 7,
+     "punti": 238,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "7º nell'OQR della categoria · nato/a il 30.05.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 238 kg (gara 69 kg, 8º)"
+    },
+    {
+     "nome": "ABDELTAWWAB Roufida Fathi Taha",
+     "noc": "EGY",
+     "continente": "Africa",
+     "rank": 8,
+     "punti": 238,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "8º nell'OQR della categoria · nato/a il 01.10.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 238 kg (gara 69 kg, 9º)"
+    },
+    {
+     "nome": "HAYMAN Nya Phebe",
+     "noc": "AUS",
+     "continente": "Oceania",
+     "rank": 21,
+     "punti": 221,
+     "tipo": "C",
+     "via": "Rappresentanza continentale",
+     "stato": "Provvisorio",
+     "nota": "Oceania non e' rappresentata tra i primi 8; 21º nell'OQR · nato/a il 14.05.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 221 kg (gara 69 kg, 23º)"
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "KARIMI Reihaneh",
+     "noc": "IRI",
+     "continente": "Asia",
+     "rank": 9,
+     "punti": 236,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.1: entra se si libera un posto · nato/a il 11.12.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 236 kg (gara 69 kg, 10º)"
+    },
+    {
+     "nome": "SEGURA GRUESO Ingrid Vanesa",
+     "noc": "BRN",
+     "continente": "Asia",
+     "rank": 10,
+     "punti": 233,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.2: entra se si libera un posto · nato/a il 29.06.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 233 kg (gara 69 kg, 11º)"
+    },
+    {
+     "nome": "CHEN Wen-Huei",
+     "noc": "TPE",
+     "continente": "Asia",
+     "rank": 11,
+     "punti": 232,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.3: entra se si libera un posto · nato/a il 23.02.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 232 kg (gara 69 kg, 12º)"
+    }
+   ],
+   "attesa": [
+    {
+     "nome": "(da assegnare) Universality donne 69 kg",
+     "noc": "",
+     "continente": "",
+     "rank": null,
+     "punti": null,
+     "tipo": "U",
+     "via": "Universality",
+     "stato": "In attesa",
+     "nota": "assegnato dalla Commissione Tripartita (richieste entro il 15/1/2028, decisione il 20/6/2028)"
+    }
+   ],
+   "fuori": [
+    {
+     "nome": "GUNGOR Nuray",
+     "noc": "TUR",
+     "continente": "Europa",
+     "rank": 12,
+     "punti": 231,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 08.05.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 231 kg (gara 69 kg, 13º)"
+    },
+    {
+     "nome": "PAREDES ARREAGA Bella Nancy",
+     "noc": "ECU",
+     "continente": "Americhe",
+     "rank": 13,
+     "punti": 230,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 25.02.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 230 kg (gara 69 kg, 14º)"
+    },
+    {
+     "nome": "RENGIFO CHIRINOS Claudia Alejandra",
+     "noc": "VEN",
+     "continente": "Americhe",
+     "rank": 14,
+     "punti": 230,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 01.12.2007 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 230 kg (gara 69 kg, 15º)"
+    },
+    {
+     "nome": "SCHWEIZER Lisa Marie",
+     "noc": "GER",
+     "continente": "Europa",
+     "rank": 15,
+     "punti": 229,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 18.07.1995 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 229 kg (gara 69 kg, 16º)"
+    },
+    {
+     "nome": "MIYAGOE Yui",
+     "noc": "JPN",
+     "continente": "Asia",
+     "rank": 16,
+     "punti": 228,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 09.12.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 228 kg (gara 69 kg, 17º)"
+    },
+    {
+     "nome": "ARRASATE YARNOZ Naroa",
+     "noc": "ESP",
+     "continente": "Europa",
+     "rank": 17,
+     "punti": 226,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 11.02.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 226 kg (gara 69 kg, 18º)"
+    },
+    {
+     "nome": "ENKILEDA Carja",
+     "noc": "ALB",
+     "continente": "Europa",
+     "rank": 18,
+     "punti": 223,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 23.01.2008 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 223 kg (gara 69 kg, 20º)"
+    },
+    {
+     "nome": "MACROHON Kristel",
+     "noc": "PHI",
+     "continente": "Asia",
+     "rank": 19,
+     "punti": 223,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 02.09.1996 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 223 kg (gara 69 kg, 21º)"
+    },
+    {
+     "nome": "AMANOVA Medine",
+     "noc": "TKM",
+     "continente": "Asia",
+     "rank": 20,
+     "punti": 222,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 05.03.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 222 kg (gara 69 kg, 22º)"
+    },
+    {
+     "nome": "DAVIES Sarah",
+     "noc": "GBR",
+     "continente": "Europa",
+     "rank": 22,
+     "punti": 220,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 19.08.1992 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 220 kg (gara 69 kg, 25º)"
+    },
+    {
+     "nome": "SELEMAIA Olivia Shalom",
+     "noc": "NZL",
+     "continente": "Oceania",
+     "rank": 23,
+     "punti": 219,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 26.02.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 219 kg (gara 69 kg, 27º)"
+    },
+    {
+     "nome": "GOMEZ VALDIVIA Janeth",
+     "noc": "MEX",
+     "continente": "Americhe",
+     "rank": 24,
+     "punti": 218,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 26.10.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 218 kg (gara 69 kg, 28º)"
+    },
+    {
+     "nome": "AFRIZA Indah",
+     "noc": "INA",
+     "continente": "Asia",
+     "rank": 25,
+     "punti": 217,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 17.04.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 217 kg (gara 69 kg, 29º)"
+    },
+    {
+     "nome": "BOLDBAATAR Khongorzul",
+     "noc": "MGL",
+     "continente": "Asia",
+     "rank": 26,
+     "punti": 214,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 17.07.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 214 kg (gara 69 kg, 31º)"
+    },
+    {
+     "nome": "CELIS GUTIERREZ Constanza",
+     "noc": "CHI",
+     "continente": "Americhe",
+     "rank": 27,
+     "punti": 208,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 08.02.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 208 kg (gara 69 kg, 34º)"
+    },
+    {
+     "nome": "JAKAITE Lijana",
+     "noc": "LTU",
+     "continente": "Europa",
+     "rank": 28,
+     "punti": 204,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 02.08.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 204 kg (gara 69 kg, 36º)"
+    },
+    {
+     "nome": "TIMMERMANS Myrthe",
+     "noc": "NED",
+     "continente": "Europa",
+     "rank": 29,
+     "punti": 201,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 05.01.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 201 kg (gara 69 kg, 38º)"
+    },
+    {
+     "nome": "MCMONAGLE Gina",
+     "noc": "IRL",
+     "continente": "Europa",
+     "rank": 30,
+     "punti": 200,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 26.08.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 200 kg (gara 69 kg, 39º)"
+    },
+    {
+     "nome": "ECH-CHACHOUIY Ech-Chaibia",
+     "noc": "MAR",
+     "continente": "Africa",
+     "rank": 31,
+     "punti": 196,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 10.03.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 196 kg (gara 69 kg, 41º)"
+    },
+    {
+     "nome": "SIM Rachelle",
+     "noc": "SGP",
+     "continente": "Asia",
+     "rank": 32,
+     "punti": 188,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 15.08.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 188 kg (gara 69 kg, 42º)"
+    },
+    {
+     "nome": "TALIE CLARIS Turanivalu",
+     "noc": "FIJ",
+     "continente": "Oceania",
+     "rank": 33,
+     "punti": 182,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 03.12.2009 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 182 kg (gara 69 kg, 43º)"
+    },
+    {
+     "nome": "KERUBO Mercy",
+     "noc": "KEN",
+     "continente": "Africa",
+     "rank": 34,
+     "punti": 174,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 01.01.2009 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 174 kg (gara 69 kg, 44º)"
+    }
+   ]
+  },
+  "F 77": {
+   "genere": "F",
+   "kg": "77",
+   "nome": "77 kg",
+   "atleti": [
+    {
+     "nome": "YANG Qiuxia",
+     "noc": "CHN",
+     "continente": "Asia",
+     "rank": 1,
+     "punti": 265,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "1º nell'OQR della categoria · nato/a il 29.07.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 265 kg (gara 77 kg, 1º)"
+    },
+    {
+     "nome": "AHMED Sara Samir Elsayed Mohamed",
+     "noc": "EGY",
+     "continente": "Africa",
+     "rank": 2,
+     "punti": 258,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "2º nell'OQR della categoria · nato/a il 01.01.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 258 kg (gara 77 kg, 3º)"
+    },
+    {
+     "nome": "MENA MOSQUERA Maria Fernanda",
+     "noc": "COL",
+     "continente": "Americhe",
+     "rank": 3,
+     "punti": 254,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "3º nell'OQR della categoria · nato/a il 25.02.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 254 kg (gara 77 kg, 4º)"
+    },
+    {
+     "nome": "KUZMINOVA Varvara",
+     "noc": "RUS",
+     "continente": "Europa",
+     "rank": 4,
+     "punti": 253,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "4º nell'OQR della categoria · nato/a il 08.07.2008 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 253 kg (gara 77 kg, 5º)"
+    },
+    {
+     "nome": "ROGERS Martha Ann",
+     "noc": "USA",
+     "continente": "Americhe",
+     "rank": 5,
+     "punti": 251,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "5º nell'OQR della categoria · nato/a il 23.08.1995 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 251 kg (gara 77 kg, 7º)"
+    },
+    {
+     "nome": "YLISOINI Anna Janette Tellervo",
+     "noc": "FIN",
+     "continente": "Europa",
+     "rank": 6,
+     "punti": 245,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "6º nell'OQR della categoria · nato/a il 06.04.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 245 kg (gara 77 kg, 9º)"
+    },
+    {
+     "nome": "FUENTES ZAVALA Aremi",
+     "noc": "MEX",
+     "continente": "Americhe",
+     "rank": 7,
+     "punti": 241,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "7º nell'OQR della categoria · nato/a il 23.05.1993 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 241 kg (gara 77 kg, 10º)"
+    },
+    {
+     "nome": "NASCIMENTO AMARO Laura",
+     "noc": "BRA",
+     "continente": "Americhe",
+     "rank": 8,
+     "punti": 239,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "8º nell'OQR della categoria · nato/a il 27.10.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 239 kg (gara 77 kg, 11º)"
+    },
+    {
+     "nome": "KIM Iseul",
+     "noc": "KOR",
+     "continente": "Asia",
+     "rank": 9,
+     "punti": 238,
+     "tipo": "C",
+     "via": "Rappresentanza continentale (riassegnata)",
+     "stato": "Provvisorio",
+     "nota": "tutti i continenti sono gia' rappresentati: il posto va al successivo dell'OQR (9º) · nato/a il 25.02.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 238 kg (gara 77 kg, 12º)"
+    },
+    {
+     "nome": "KHORAVA Nana",
+     "noc": "GEO",
+     "continente": "Europa",
+     "rank": 10,
+     "punti": 235,
+     "tipo": "C",
+     "via": "Rappresentanza continentale (posto ospitante riassegnato)",
+     "stato": "Provvisorio",
+     "nota": "posto ospitante non usato da USA, riassegnato (10º nell'OQR) · nato/a il 12.08.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 235 kg (gara 77 kg, 14º)"
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "BROWN Isabella Beatrice",
+     "noc": "GBR",
+     "continente": "Europa",
+     "rank": 11,
+     "punti": 233,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.1: entra se si libera un posto · nato/a il 02.08.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 233 kg (gara 77 kg, 15º)"
+    },
+    {
+     "nome": "KAKAMYRADOVA Gulalek",
+     "noc": "TKM",
+     "continente": "Asia",
+     "rank": 12,
+     "punti": 232,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.2: entra se si libera un posto · nato/a il 15.01.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 232 kg (gara 77 kg, 16º)"
+    },
+    {
+     "nome": "NAUMAVA Darya",
+     "noc": "BLR",
+     "continente": "Europa",
+     "rank": 13,
+     "punti": 231,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.3: entra se si libera un posto · nato/a il 26.08.1995 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 231 kg (gara 77 kg, 17º)"
+    }
+   ],
+   "attesa": [],
+   "fuori": [
+    {
+     "nome": "SERRANO Daiana",
+     "noc": "DOM",
+     "continente": "Americhe",
+     "rank": 14,
+     "punti": 229,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC DOM ha gia' 3 posti (donne) · nato/a il 22.03.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 229 kg (gara 77 kg, 18º)"
+    },
+    {
+     "nome": "ZHUMAGALI Ayanat",
+     "noc": "KAZ",
+     "continente": "Asia",
+     "rank": 15,
+     "punti": 227,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 11.02.2007 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 227 kg (gara 77 kg, 19º)"
+    },
+    {
+     "nome": "LOWIK Nikki Merel Elisabeth",
+     "noc": "NED",
+     "continente": "Europa",
+     "rank": 16,
+     "punti": 224,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 30.01.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 224 kg (gara 77 kg, 20º)"
+    },
+    {
+     "nome": "GOLD Celia Henna",
+     "noc": "ISR",
+     "continente": "Europa",
+     "rank": 17,
+     "punti": 222,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 10.02.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 222 kg (gara 77 kg, 21º)"
+    },
+    {
+     "nome": "BRAZAITE Gintare",
+     "noc": "LTU",
+     "continente": "Europa",
+     "rank": 18,
+     "punti": 221,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 19.08.1992 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 221 kg (gara 77 kg, 22º)"
+    },
+    {
+     "nome": "BEAUDOIN Rose",
+     "noc": "CAN",
+     "continente": "Americhe",
+     "rank": 19,
+     "punti": 218,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 26.08.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 218 kg (gara 77 kg, 23º)"
+    },
+    {
+     "nome": "ZIELINSKA Weronika",
+     "noc": "POL",
+     "continente": "Europa",
+     "rank": 20,
+     "punti": 216,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 16.05.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 216 kg (gara 77 kg, 24º)"
+    },
+    {
+     "nome": "JERABKOVA Simona",
+     "noc": "CZE",
+     "continente": "Europa",
+     "rank": 21,
+     "punti": 212,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 29.09.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 212 kg (gara 77 kg, 25º)"
+    },
+    {
+     "nome": "STEFANSDOTTIR Gudny Bjork",
+     "noc": "ISL",
+     "continente": "Europa",
+     "rank": 22,
+     "punti": 211,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 08.08.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 211 kg (gara 77 kg, 26º)"
+    },
+    {
+     "nome": "TOLSTRUP Laura Vest",
+     "noc": "DEN",
+     "continente": "Europa",
+     "rank": 23,
+     "punti": 208,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 12.09.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 208 kg (gara 77 kg, 28º)"
+    },
+    {
+     "nome": "GAVRAN Ivona",
+     "noc": "CRO",
+     "continente": "Europa",
+     "rank": 24,
+     "punti": 181,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 03.04.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 181 kg (gara 77 kg, 30º)"
+    },
+    {
+     "nome": "SAUNDERS Kaitlin",
+     "noc": "IRL",
+     "continente": "Europa",
+     "rank": 25,
+     "punti": 180,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 30.07.1994 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 180 kg (gara 77 kg, 31º)"
+    },
+    {
+     "nome": "THOMAS Kia T Nique",
+     "noc": "ISV",
+     "continente": "Americhe",
+     "rank": 26,
+     "punti": 168,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 18.07.1991 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 168 kg (gara 77 kg, 32º)"
+    },
+    {
+     "nome": "BOJUBARAH J Maryam",
+     "noc": "KUW",
+     "continente": "Asia",
+     "rank": 27,
+     "punti": 95,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 18.06.1993 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 95 kg (gara 77 kg, 33º)"
+    }
+   ]
+  },
+  "F 86": {
+   "genere": "F",
+   "kg": "86",
+   "nome": "86 kg",
+   "atleti": [
+    {
+     "nome": "LIAO Guifang",
+     "noc": "CHN",
+     "continente": "Asia",
+     "rank": 1,
+     "punti": 291,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "1º nell'OQR della categoria · nato/a il 05.10.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 291 kg (gara 86 kg, 1º)"
+    },
+    {
+     "nome": "MARUSHCHAK Alina",
+     "noc": "BRN",
+     "continente": "Asia",
+     "rank": 2,
+     "punti": 272,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "2º nell'OQR della categoria · nato/a il 06.03.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 272 kg (gara 86 kg, 2º)"
+    },
+    {
+     "nome": "MEJIA PEGUERO Yudelina",
+     "noc": "DOM",
+     "continente": "Americhe",
+     "rank": 3,
+     "punti": 266,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "3º nell'OQR della categoria · nato/a il 04.06.1997 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 266 kg (gara 86 kg, 3º)"
+    },
+    {
+     "nome": "NICHOLSON Ella",
+     "noc": "USA",
+     "continente": "Americhe",
+     "rank": 4,
+     "punti": 265,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "4º nell'OQR della categoria · nato/a il 07.07.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 265 kg (gara 86 kg, 4º)"
+    },
+    {
+     "nome": "RUSTAMOVA Anamjan",
+     "noc": "TKM",
+     "continente": "Asia",
+     "rank": 5,
+     "punti": 264,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "5º nell'OQR della categoria · nato/a il 08.05.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 264 kg (gara 86 kg, 5º)"
+    },
+    {
+     "nome": "KIM Suhyeon",
+     "noc": "KOR",
+     "continente": "Asia",
+     "rank": 6,
+     "punti": 258,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "6º nell'OQR della categoria · nato/a il 06.02.1995 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 258 kg (gara 86 kg, 6º)"
+    },
+    {
+     "nome": "NGAKE Madias Dodo Nzesso",
+     "noc": "GBR",
+     "continente": "Europa",
+     "rank": 7,
+     "punti": 253,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "7º nell'OQR della categoria · nato/a il 20.04.1992 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 253 kg (gara 86 kg, 7º)"
+    },
+    {
+     "nome": "POGHOSYAN Emma",
+     "noc": "ARM",
+     "continente": "Europa",
+     "rank": 8,
+     "punti": 249,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "8º nell'OQR della categoria · nato/a il 26.08.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 249 kg (gara 86 kg, 8º)"
+    },
+    {
+     "nome": "NACAGILEVU Litia Sipola",
+     "noc": "NZL",
+     "continente": "Oceania",
+     "rank": 20,
+     "punti": 230,
+     "tipo": "C",
+     "via": "Rappresentanza continentale",
+     "stato": "Provvisorio",
+     "nota": "Oceania non e' rappresentata tra i primi 8; 20º nell'OQR · nato/a il 27.09.2007 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 230 kg (gara 86 kg, 21º)"
+    },
+    {
+     "nome": "ENOCK Rachel Achieng",
+     "noc": "KEN",
+     "continente": "Africa",
+     "rank": 26,
+     "punti": 199,
+     "tipo": "C",
+     "via": "Rappresentanza continentale (posto ospitante riassegnato)",
+     "stato": "Provvisorio",
+     "nota": "posto ospitante non usato da USA, riassegnato (26º nell'OQR) · nato/a il 12.09.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 199 kg (gara 86 kg, 30º)"
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "ADASHBAEVA Rigina",
+     "noc": "UZB",
+     "continente": "Asia",
+     "rank": 9,
+     "punti": 248,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.1: entra se si libera un posto · nato/a il 29.10.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 248 kg (gara 86 kg, 9º)"
+    },
+    {
+     "nome": "HERNANDEZ LIZARRAGA Mairyn Vanessa",
+     "noc": "MEX",
+     "continente": "Americhe",
+     "rank": 10,
+     "punti": 247,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.2: entra se si libera un posto · nato/a il 30.07.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 247 kg (gara 86 kg, 10º)"
+    },
+    {
+     "nome": "JAMALI GALEH Yekta",
+     "noc": "GER",
+     "continente": "Europa",
+     "rank": 11,
+     "punti": 246,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.3: entra se si libera un posto · nato/a il 16.12.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 246 kg (gara 86 kg, 11º)"
+    }
+   ],
+   "attesa": [],
+   "fuori": [
+    {
+     "nome": "NAGASHIMA Wakana",
+     "noc": "JPN",
+     "continente": "Asia",
+     "rank": 12,
+     "punti": 244,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 11.02.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 244 kg (gara 86 kg, 12º)"
+    },
+    {
+     "nome": "FEGUE Marie Josephe",
+     "noc": "FRA",
+     "continente": "Europa",
+     "rank": 13,
+     "punti": 243,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 28.05.1991 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 243 kg (gara 86 kg, 13º)"
+    },
+    {
+     "nome": "DOMBROVSKA Iryna",
+     "noc": "UKR",
+     "continente": "Europa",
+     "rank": 14,
+     "punti": 243,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 16.05.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 243 kg (gara 86 kg, 14º)"
+    },
+    {
+     "nome": "MURGVLIANI Mariam",
+     "noc": "GEO",
+     "continente": "Europa",
+     "rank": 15,
+     "punti": 239,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 05.12.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 239 kg (gara 86 kg, 15º)"
+    },
+    {
+     "nome": "GRUZDOVA Mariia",
+     "noc": "RUS",
+     "continente": "Europa",
+     "rank": 16,
+     "punti": 234,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 01.05.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 234 kg (gara 86 kg, 17º)"
+    },
+    {
+     "nome": "HORMAVIRTA Minni Maria Alexandra",
+     "noc": "FIN",
+     "continente": "Europa",
+     "rank": 17,
+     "punti": 232,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 08.09.2008 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 232 kg (gara 86 kg, 18º)"
+    },
+    {
+     "nome": "JENSEN Anne Sofie Vejsgaard",
+     "noc": "DEN",
+     "continente": "Europa",
+     "rank": 18,
+     "punti": 231,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 16.07.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 231 kg (gara 86 kg, 19º)"
+    },
+    {
+     "nome": "CAN Busra",
+     "noc": "TUR",
+     "continente": "Europa",
+     "rank": 19,
+     "punti": 231,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 04.05.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 231 kg (gara 86 kg, 20º)"
+    },
+    {
+     "nome": "LKHAGVAJAV Bolortuya",
+     "noc": "MGL",
+     "continente": "Asia",
+     "rank": 21,
+     "punti": 226,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 22.02.2007 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 226 kg (gara 86 kg, 24º)"
+    },
+    {
+     "nome": "LO Ying-Yuan",
+     "noc": "TPE",
+     "continente": "Asia",
+     "rank": 22,
+     "punti": 221,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 07.05.1996 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 221 kg (gara 86 kg, 25º)"
+    },
+    {
+     "nome": "MITYKO Veronika",
+     "noc": "HUN",
+     "continente": "Europa",
+     "rank": 23,
+     "punti": 220,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 26.07.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 220 kg (gara 86 kg, 26º)"
+    },
+    {
+     "nome": "SENICOVA Nikola",
+     "noc": "SVK",
+     "continente": "Europa",
+     "rank": 24,
+     "punti": 217,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 27.05.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 217 kg (gara 86 kg, 28º)"
+    },
+    {
+     "nome": "PRITCHARD LOLO Ajah",
+     "noc": "VAN",
+     "continente": "Oceania",
+     "rank": 25,
+     "punti": 207,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 10.08.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 207 kg (gara 86 kg, 29º)"
+    },
+    {
+     "nome": "RODRIGUES Ana Rita",
+     "noc": "POR",
+     "continente": "Europa",
+     "rank": 27,
+     "punti": 194,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 15.01.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 194 kg (gara 86 kg, 31º)"
+    }
+   ]
+  },
+  "F +86": {
+   "genere": "F",
+   "kg": "+86",
+   "nome": "+86 kg",
+   "atleti": [
+    {
+     "nome": "LI Yan",
+     "noc": "CHN",
+     "continente": "Asia",
+     "rank": 1,
+     "punti": 317,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "1º nell'OQR della categoria · nato/a il 01.09.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 317 kg (gara +86 kg, 1º)"
+    },
+    {
+     "nome": "PARK Hyejeong",
+     "noc": "KOR",
+     "continente": "Asia",
+     "rank": 2,
+     "punti": 286,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "2º nell'OQR della categoria · nato/a il 12.03.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 286 kg (gara +86 kg, 2º)"
+    },
+    {
+     "nome": "PEREZ REVERON Naryury Alexandra",
+     "noc": "VEN",
+     "continente": "Americhe",
+     "rank": 3,
+     "punti": 270,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "3º nell'OQR della categoria · nato/a il 29.09.1992 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 270 kg (gara +86 kg, 4º)"
+    },
+    {
+     "nome": "WANG Ling-Chen",
+     "noc": "TPE",
+     "continente": "Asia",
+     "rank": 4,
+     "punti": 270,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "4º nell'OQR della categoria · nato/a il 19.06.2003 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 270 kg (gara +86 kg, 5º)"
+    },
+    {
+     "nome": "KOVALCHUK Lyubov",
+     "noc": "KAZ",
+     "continente": "Asia",
+     "rank": 5,
+     "punti": 263,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "5º nell'OQR della categoria · nato/a il 10.05.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 263 kg (gara +86 kg, 6º)"
+    },
+    {
+     "nome": "SARRIA RUIZ Marifelix",
+     "noc": "CUB",
+     "continente": "Americhe",
+     "rank": 6,
+     "punti": 261,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "6º nell'OQR della categoria · nato/a il 25.08.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 261 kg (gara +86 kg, 7º)"
+    },
+    {
+     "nome": "JUSTINO DE LIMA Taiane",
+     "noc": "BRA",
+     "continente": "Americhe",
+     "rank": 7,
+     "punti": 260,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "7º nell'OQR della categoria · nato/a il 16.02.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 260 kg (gara +86 kg, 8º)"
+    },
+    {
+     "nome": "ELSAYED Rahma Ahmed Abdelrazek Hassan",
+     "noc": "EGY",
+     "continente": "Africa",
+     "rank": 8,
+     "punti": 259,
+     "tipo": "D",
+     "via": "Ranking olimpico (OQR)",
+     "stato": "Provvisorio",
+     "nota": "8º nell'OQR della categoria · nato/a il 04.01.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 259 kg (gara +86 kg, 9º)"
+    },
+    {
+     "nome": "KISIL Valentyna",
+     "noc": "UKR",
+     "continente": "Europa",
+     "rank": 12,
+     "punti": 250,
+     "tipo": "C",
+     "via": "Rappresentanza continentale",
+     "stato": "Provvisorio",
+     "nota": "Europa non e' rappresentata tra i primi 8; 12º nell'OQR · nato/a il 05.07.1998 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 250 kg (gara +86 kg, 14º)"
+    }
+   ],
+   "riserve": [
+    {
+     "nome": "RODRIGUEZ LUGO Adbeel Noemi",
+     "noc": "MEX",
+     "continente": "Americhe",
+     "rank": 11,
+     "punti": 256,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.1: entra se si libera un posto · nato/a il 23.05.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 256 kg (gara +86 kg, 13º)"
+    },
+    {
+     "nome": "SITI AQILAH Farhana Binti Draman",
+     "noc": "MAS",
+     "continente": "Asia",
+     "rank": 13,
+     "punti": 250,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.2: entra se si libera un posto · nato/a il 09.07.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 250 kg (gara +86 kg, 15º)"
+    },
+    {
+     "nome": "SUREN Tuana",
+     "noc": "TUR",
+     "continente": "Europa",
+     "rank": 14,
+     "punti": 249,
+     "tipo": "R",
+     "via": "Riserva (OQR)",
+     "stato": "Riserva",
+     "nota": "riserva n.3: entra se si libera un posto · nato/a il 01.05.2006 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 249 kg (gara +86 kg, 16º)"
+    }
+   ],
+   "attesa": [
+    {
+     "nome": "(da assegnare) Universality donne +86 kg",
+     "noc": "",
+     "continente": "",
+     "rank": null,
+     "punti": null,
+     "tipo": "U",
+     "via": "Universality",
+     "stato": "In attesa",
+     "nota": "assegnato dalla Commissione Tripartita (richieste entro il 15/1/2028, decisione il 20/6/2028)"
+    }
+   ],
+   "fuori": [
+    {
+     "nome": "THEISEN LAPPEN Mary Anne",
+     "noc": "USA",
+     "continente": "Americhe",
+     "rank": 9,
+     "punti": 258,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC USA ha gia' 3 posti (donne) · nato/a il 03.11.1990 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 258 kg (gara +86 kg, 10º)"
+    },
+    {
+     "nome": "SANTANA PEGUERO Crismery Dominga",
+     "noc": "DOM",
+     "continente": "Americhe",
+     "rank": 10,
+     "punti": 257,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "la NOC DOM ha gia' 3 posti (donne) · nato/a il 20.04.1995 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 257 kg (gara +86 kg, 11º)"
+    },
+    {
+     "nome": "LOVE Etta Mae",
+     "noc": "CAN",
+     "continente": "Americhe",
+     "rank": 15,
+     "punti": 245,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 28.08.2007 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 245 kg (gara +86 kg, 17º)"
+    },
+    {
+     "nome": "PEDERSEN Aurelia Rebekka",
+     "noc": "DEN",
+     "continente": "Europa",
+     "rank": 16,
+     "punti": 244,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 30.01.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 244 kg (gara +86 kg, 19º)"
+    },
+    {
+     "nome": "ZEMBOVA Lenka",
+     "noc": "SVK",
+     "continente": "Europa",
+     "rank": 17,
+     "punti": 229,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 18.01.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 229 kg (gara +86 kg, 20º)"
+    },
+    {
+     "nome": "FISCHER Sarah",
+     "noc": "AUT",
+     "continente": "Europa",
+     "rank": 18,
+     "punti": 227,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 09.11.2000 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 227 kg (gara +86 kg, 21º)"
+    },
+    {
+     "nome": "AGUSTSDOTTIR Erla",
+     "noc": "ISL",
+     "continente": "Europa",
+     "rank": 19,
+     "punti": 224,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 22.05.2001 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 224 kg (gara +86 kg, 22º)"
+    },
+    {
+     "nome": "GENDENDAMBA Chinbolor",
+     "noc": "MGL",
+     "continente": "Asia",
+     "rank": 20,
+     "punti": 221,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 13.11.2008 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 221 kg (gara +86 kg, 23º)"
+    },
+    {
+     "nome": "SEDA Pavlina",
+     "noc": "CZE",
+     "continente": "Europa",
+     "rank": 21,
+     "punti": 211,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 11.02.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 211 kg (gara +86 kg, 26º)"
+    },
+    {
+     "nome": "DOMONATANI Leyna-May T R",
+     "noc": "FIJ",
+     "continente": "Oceania",
+     "rank": 22,
+     "punti": 206,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 01.01.2005 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 206 kg (gara +86 kg, 27º)"
+    },
+    {
+     "nome": "ONGONGA Juliana Anyango",
+     "noc": "KEN",
+     "continente": "Africa",
+     "rank": 23,
+     "punti": 184,
+     "tipo": "F",
+     "via": "Fuori dai posti",
+     "stato": "Fuori",
+     "nota": "oltre i posti disponibili · nato/a il 17.05.2004 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 184 kg (gara +86 kg, 28º)"
+    }
+   ]
+  }
+ },
+ "note": [
+  "NMI non e' un Comitato Olimpico: esclusi 1 atleti (CRISTOBAL Leowell Ladringan)",
+  "WRT non e' un Comitato Olimpico: esclusi 2 atleti (KESHAVARZ Fatemeh, NOUMBISSI Clementine Meukeugni)",
+  "Uomini: USA ha gia' 3 posti dall'OQR, quindi i posti ospitanti scendono a 0; gli altri sono riassegnati (art. F.2)",
+  "Donne: USA ha gia' 3 posti dall'OQR, quindi i posti ospitanti scendono a 0; gli altri sono riassegnati (art. F.2)",
+  "Ranking calcolato dai results book: 3 migliori Totali del Periodo 1 + 2 del Periodo 2 nella stessa categoria olimpica, un atleta per NOC. Puo' differire di poco dal ranking ufficiale IWF (squalifiche, idoneita').",
+  "Best Lifter: il posto aggiuntivo per NOC (4º atleta) dipende dal titolo annunciato l'11/5/2028 e non e' simulato: limite di 3 atleti per NOC e genere.",
+  "Atleti russi e bielorussi in simulazione con NOC RUS/BLR (gareggiano come neutrali).",
+  "Periodo 1 in corso: nessuno e' escluso per il numero di Totali (servono 3 Totali nel Periodo 1 e 2 nel Periodo 2 nella stessa categoria)."
+ ]
+}

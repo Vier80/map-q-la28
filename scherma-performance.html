@@ -84,6 +84,18 @@ svg .punto { fill: var(--ink); stroke: var(--card); stroke-width: 2 } svg .punto
 svg .punto.sel, svg .barra.sel { stroke: var(--fg); stroke-width: 2.5 }
 svg .bersaglio { fill: transparent; cursor: pointer }
 svg .riga-hover:hover .barra { opacity: .8 }
+/* ELO (scheda 26, sessione 3): provvisorio = cerchio vuoto o barra chiara; linea dello storico nella scheda */
+svg .punto.prov { fill: var(--card); stroke: var(--ink); stroke-width: 2.2 } svg .punto.prov.ita { stroke: var(--ita) }
+svg .punto.prov.sel { stroke: var(--fg); stroke-width: 2.5 }
+svg .barra.prov { fill: var(--ink-2) } svg .barra.prov.ita { fill: var(--ita); opacity: .55 }
+svg .linea { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round }
+svg .rif { stroke: var(--muted); stroke-dasharray: 3 4; opacity: .6 }
+svg .punto-st { fill: var(--ink); stroke: var(--bg); stroke-width: 1.5 }
+.legenda i.l-prov { background: var(--card); border: 2px solid var(--ink); box-sizing: border-box }
+.classifica .elo { white-space: nowrap }
+.classifica .prov, .prov { display: block; font-size: .7rem; font-weight: 600; letter-spacing: .03em; color: var(--muted) }
+.elo-box { margin-top: 10px; padding: 10px 12px; background: var(--soft); border: 1px solid var(--line); border-radius: 14px }
+.elo-box p { color: var(--muted); font-size: .9rem } .elo-box b { color: var(--fg) }
 
 .classifica { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums }
 .classifica th { text-align: left; font-size: .76rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 6px 8px; border-bottom: 1.5px solid var(--line); white-space: nowrap }
@@ -175,6 +187,22 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
     </div>
   </section>
 
+  <!-- ELO (scheda 26, sessione 3): nascosto se scherma-elo.json non è ancora disponibile -->
+  <section class="pannelli" id="sezione-elo">
+    <div class="pannello">
+      <h3>ELO e FEN a confronto</h3>
+      <p class="sotto">Schermidori della gara con ELO mostrato. A destra chi vince più assalti, contando la forza degli avversari (ELO, stagioni FIE 2026 e 2027); in alto chi ha i piazzamenti più pesanti (FEN). Le linee tratteggiate sono le mediane.</p>
+      <div class="legenda"><span><i class="l-dati"></i>ELO stabile</span><span><i class="l-prov"></i>ELO provvisorio</span><span><i class="l-ita"></i>Italia</span></div>
+      <div id="g-elo-fen"></div>
+    </div>
+    <div class="pannello">
+      <h3>Classifica ELO · top 10</h3>
+      <p class="sotto" id="sotto-elo">I dieci ELO più alti della gara.</p>
+      <div class="legenda"><span><i class="l-dati"></i>ELO stabile</span><span><i class="l-prov" style="background:var(--ink-2);border:0"></i>ELO provvisorio</span><span><i class="l-ita"></i>Italia</span></div>
+      <div id="g-elo-top"></div>
+    </div>
+  </section>
+
   <section class="pannello">
     <h3 id="titolo-classifica">Classifica FEN</h3>
     <p class="sotto">Clicca uno schermidore per vedere le gare che compongono il suo punteggio.</p>
@@ -242,9 +270,30 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   const nRis = (n) => n + (n === 1 ? " risultato" : " risultati");
   const gara = (a) => `${a.arma} ${a.genere === "U" ? "maschile" : "femminile"}`;
 
+  // ---- ELO (scheda 26, sessione 3). dati.elo è null se scherma-elo.json non c'era.
+  // a.elo = { liv: "stabile" | "provvisorio" | "nascosto", n: incontri, t: gare, v: ELO (solo se mostrabile),
+  //           max, vit, ult, st: [[data, ELO, id gara], ...], arma (solo se diversa dall'arma FEN) }
+  const ELO = dati.elo || null;
+  const REG = (ELO && ELO.regole) || {};
+  const S_PROV = REG.soglia_provvisorio || 10, S_STAB = REG.soglia_stabile || 20, S_GARE = REG.min_gare || 3;
+  const nf = (n) => String(Math.round(n));                                  // ELO senza punto delle migliaia
+  const eloV = (a) => (a.elo && a.elo.v != null ? a.elo.v : null);          // valore da mostrare, o null → «—»
+  const eloProv = (a) => !!(a.elo && a.elo.liv === "provvisorio");
+  const eloArma = (a) => (a.elo && a.elo.arma ? ` (${a.elo.arma.toLowerCase()})` : "");   // caso raro: ELO di un'altra arma
+  const eloTesto = (a) => (eloV(a) == null ? "—" : nf(eloV(a)) + eloArma(a) + (eloProv(a) ? " (provvisorio)" : ""));
+  function eloSpiega(a) {
+    if (!ELO) return "ELO non ancora disponibile";
+    if (!a.elo) return "ELO non disponibile: nessun assalto FIE delle stagioni 2026-2027 collegato a questo schermidore";
+    const base = `${a.elo.n} assalti in ${a.elo.t} ${a.elo.t === 1 ? "gara" : "gare"} (stagioni FIE 2026-2027)`;
+    if (a.elo.liv === "nascosto") return base + `: l'ELO compare da ${S_PROV} assalti in almeno ${S_GARE} gare`;
+    if (a.elo.liv === "provvisorio") return base + `: ELO provvisorio fino a ${S_STAB} assalti`;
+    return base;
+  }
+  if (!ELO) $("sezione-elo").style.display = "none";
+
   // intestazione e totali
   const d = new Date(dati.aggiornato);
-  $("data").textContent = "Road to LA28 · indice FEN · aggiornato al " + d.toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" });
+  $("data").textContent = "Road to LA28 · indice FEN" + (ELO ? " ed ELO" : "") + " · aggiornato al " + d.toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" });
   const tot = [[A.length, "Schermidori"], [dati.n_risultati, "Risultati"], [dati.eventi.length, "Tornei"], [new Set(A.map((a) => a.noc)).size, "NOC"]];
   tot.forEach(([n, t]) => { const b = el("div", "totale"); b.append(el("b", null, n.toLocaleString("it-IT")), el("span", null, t)); $("totali").append(b); });
   A.forEach((a) => { const o = el("option"); o.value = pulito(a.nome); $("nomi").append(o); });
@@ -254,7 +303,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   function mostra(ev, a) {
     tip.innerHTML = "";
     tip.append(el("b", null, `${a.flag} ${pulito(a.nome)}`), el("span", null, `${a.noc} · ${gara(a)}`));
-    const r = el("div"); r.innerHTML = `FEN <b style="display:inline">${fmt(a.fen, 2)}</b> · ${nRis(a.gare)}<br>Dai quarti in su: ${a.el.n} · field medio ${a.el.field ?? "—"}<br>🥇${a.ori} 🥈${a.arg} 🥉${a.bro}`;
+    const r = el("div"); r.innerHTML = `FEN <b style="display:inline">${fmt(a.fen, 2)}</b> · ${nRis(a.gare)}<br>` + (ELO ? `ELO <b style="display:inline">${eloTesto(a)}</b>${a.elo ? ` · ${a.elo.n} assalti` : ""}<br>` : "") + `Dai quarti in su: ${a.el.n} · field medio ${a.el.field ?? "—"}<br>🥇${a.ori} 🥈${a.arg} 🥉${a.bro}`;
     tip.append(r); tip.style.opacity = 1; sposta(ev);
   }
   function sposta(ev) { const x = Math.min(ev.clientX + 14, innerWidth - 270), y = Math.min(ev.clientY + 14, innerHeight - 130); tip.style.left = x + "px"; tip.style.top = y + "px"; }
@@ -269,10 +318,46 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
     dlg.append(ch, el("p", "etichetta", `${gara(a)} · ${pos}° su ${lista.length}`), el("h3", null, `${a.flag} ${pulito(a.nome)}`));
     const m = mano(a.nome);
     const info = el("p", "nota"); info.textContent = `FEN ${fmt(a.fen, 2)} · ${nRis(a.gare)} · field medio ${a.field ?? "—"}${m ? " · " + m : ""}${a.eta ? " · " + a.eta + " anni" : ""}${a.q ? " · Q LA28" : ""}`; dlg.append(info);
+    // riquadro ELO: valore, livello e andamento gara per gara (solo se l'ELO è mostrabile)
+    if (ELO) {
+      const box = el("div", "elo-box"), p = el("p");
+      if (eloV(a) != null) {
+        p.append("ELO ", el("b", null, nf(eloV(a))), `${eloArma(a)}${eloProv(a) ? " provvisorio" : ""} · massimo ${nf(a.elo.max)} · ${a.elo.vit} vittorie su ${a.elo.n} assalti in ${a.elo.t} gare`);
+      } else p.textContent = eloSpiega(a);
+      box.append(p);
+      if (eloV(a) != null && a.elo.st && a.elo.st.length > 1) box.append(graficoElo(a.elo.st));
+      dlg.append(box);
+    }
     const t = el("table"); t.innerHTML = "<thead><tr><th>Torneo</th><th>Anno</th><th>Ris.</th><th class='num'>Rating</th><th class='num'>FEN</th></tr></thead>";
     const tb = el("tbody");
     [...a.storia].sort((x, y) => y[4] - x[4]).forEach(([ev, anno, ris, rat, w]) => { const tr = el("tr"); [ev, anno, ris, rat ?? "—", fmt(w, 2)].forEach((v, i) => { const td = el("td", i > 2 ? "num" : null, v); tr.append(td); }); tb.append(tr); });
     t.append(tb); dlg.append(t); dlg.showModal();
+  }
+
+  // andamento dell'ELO nella scheda: un punto per gara (st = [[data, ELO, id gara], ...]).
+  // La scheda è una finestra in primo piano, quindi al posto del riquadro #tip usa i suggerimenti
+  // nativi del browser (<title>): passando sopra un punto compaiono gara, data ed ELO.
+  function graficoElo(st) {
+    const W = 500, H = 150, m = { l: 42, r: 14, t: 12, b: 24 };
+    const tempo = st.map(([dt]) => new Date(dt + "T12:00:00").getTime()), val = st.map((p) => p[1]);
+    const t0 = Math.min(...tempo), t1 = Math.max(...tempo);
+    const lo = Math.min(1500, ...val) - 20, hi = Math.max(1500, ...val) + 20;
+    const X = (x) => m.l + (t1 === t0 ? 0.5 : (x - t0) / (t1 - t0)) * (W - m.l - m.r);
+    const Y = (y) => H - m.b - (y - lo) / (hi - lo) * (H - m.t - m.b);
+    const s = sv("svg", { class: "grafico", viewBox: `0 0 ${W} ${H}`, role: "img", "aria-label": "Andamento dell'ELO gara per gara" });
+    tickLin(lo, hi, 4).forEach((v) => { s.append(sv("line", { class: "griglia", x1: m.l, x2: W - m.r, y1: Y(v), y2: Y(v) })); s.append(sv("text", { x: m.l - 6, y: Y(v) + 4, "text-anchor": "end" }, nf(v))); });
+    s.append(sv("line", { class: "rif", x1: m.l, x2: W - m.r, y1: Y(1500), y2: Y(1500) }));   // punto di partenza
+    s.append(sv("text", { x: W - m.r, y: Y(1500) - 4, "text-anchor": "end" }, "partenza 1500"));
+    s.append(sv("path", { class: "linea", d: st.map((p, i) => `${i ? "L" : "M"}${X(tempo[i]).toFixed(1)},${Y(p[1]).toFixed(1)}`).join(" ") }));
+    const giorno = (dt) => new Date(dt + "T12:00:00").toLocaleDateString("it-IT", { day: "numeric", month: "short", year: "2-digit" });
+    st.forEach(([dt, v, cid], i) => {
+      const c = sv("circle", { class: "punto-st", cx: X(tempo[i]), cy: Y(v), r: 3.5 });
+      c.append(sv("title", {}, `${(ELO.tornei || {})[cid] || "Gara " + cid} · ${giorno(dt)} · ELO ${nf(v)}`));
+      s.append(c);
+    });
+    s.append(sv("text", { x: m.l, y: H - 6 }, giorno(st[0][0])));
+    s.append(sv("text", { x: W - m.r, y: H - 6, "text-anchor": "end" }, giorno(st[st.length - 1][0])));
+    return s;
   }
 
   // filtri: Uomini/Donne e le 3 armi
@@ -354,7 +439,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
     ordine.forEach((p) => {
       const cx = X(p.x) + (p.j || 0), cy = Y(p.y), ita = isIta(p.a), sel = p.a.id === stato.sel;
       p.cx = cx; p.cy = cy;
-      s.append(sv("circle", { class: "punto" + (ita ? " ita" : "") + (sel ? " sel" : ""), cx, cy, r: sel ? 7 : 5.5 }));
+      s.append(sv("circle", { class: "punto" + (p.cls ? " " + p.cls : "") + (ita ? " ita" : "") + (sel ? " sel" : ""), cx, cy, r: sel ? 7 : 5.5 }));
       const hit = sv("circle", { class: "bersaglio", cx, cy, r: 11 }); aggancia(hit, p.a); s.append(hit);
     });
     // etichette in un secondo passaggio, evitando le zone già occupate
@@ -378,6 +463,37 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   const tickLin = (a, b, n = 5) => { const step = Math.pow(10, Math.floor(Math.log10((b - a) / n || 1))); const k = [1, 2, 5, 10].map((f) => f * step).find((f) => (b - a) / f <= n) || step * 10; const t = []; for (let v = Math.ceil(a / k) * k; v <= b + 1e-9; v += k) t.push(+v.toFixed(6)); return t; };
   const POSTO = { 1: "1°", 2: "2°", 3: "SF", 5: "QF" };
 
+  // pannelli ELO della gara selezionata
+  function disegnaElo(lista, etiq, top5) {
+    // 1. dispersione ELO (asse orizzontale) contro FEN (asse verticale): solo ELO mostrabili della stessa arma
+    const conElo = lista.filter((a) => eloV(a) != null && !a.elo.arma), box = $("g-elo-fen");
+    if (conElo.length < 3) {
+      box.innerHTML = "";
+      box.append(el("p", "nota", conElo.length ? `Solo ${conElo.length} schermidori di questa gara con ELO mostrato: troppo pochi per il confronto.` : "Nessuno schermidore di questa gara ha ancora un ELO mostrato."));
+    } else {
+      const top3elo = new Set([...conElo].sort((x, y) => eloV(y) - eloV(x)).slice(0, 3).map((a) => a.id));
+      dispersione(box, conElo.map((a) => ({ a, x: eloV(a), y: a.fen, cls: eloProv(a) ? "prov" : "", etich: top5.has(a.id) || top3elo.has(a.id) })), {
+        aria: "ELO contro punti FEN",
+        xDom: (v) => [Math.floor((Math.min(...v) - 10) / 50) * 50, Math.ceil((Math.max(...v) + 10) / 50) * 50], yDom: (v) => [0, Math.max(...v) * 1.08],
+        xTicks: (a, b) => tickLin(a, b, 5), yTicks: (a, b) => tickLin(a, b, 5), xF: (v) => nf(v),
+        xL: "ELO", yL: "Punti FEN", angoli: ["FEN alto, ELO più basso", "Forti in tutti e due", "Sotto le due mediane", "ELO alto, FEN più basso"]
+      });
+    }
+    // 2. top 10 ELO: chi ha nella gara la sua arma principale, anche senza punti FEN.
+    //    Le barre partono poco sotto il decimo ELO (al massimo da 1500), così le differenze si vedono.
+    const top = (ELO.top || {})[`${stato.genere}|${stato.arma}`] || [], box2 = $("g-elo-top");
+    if (!top.length) { box2.innerHTML = ""; $("sotto-elo").textContent = "I dieci ELO più alti della gara."; box2.append(el("p", "nota", "Nessun ELO mostrato in questa gara.")); return; }
+    const base = Math.min(1500, Math.min(...top.map((x) => x.v)) - 30);
+    $("sotto-elo").textContent = `I dieci ELO più alti ${stato.arma === "Fioretto" ? "nel" : "nella"} ${etiq.toLowerCase()} (arma principale di ogni schermidore), anche senza punti FEN. Le barre partono da ${nf(base)}.`;
+    const perId = new Map(A.map((a) => [a.id, a]));
+    barre(box2, top.map((x, i) => ({
+      v: x.v - base, etichetta: `${i + 1}. ${x.flag} ${cognome(x.nome)}`, testo: nf(x.v),
+      cls: [x.noc === "ITA" ? "ita" : i === 0 ? "capo" : "", x.liv === "provvisorio" ? "prov" : "", x.id && x.id === stato.sel ? "sel" : ""].join(" "),
+      a: perId.get(x.id),             // se ha anche punti FEN: tooltip completo e scheda al clic
+      tip: `<b>${x.flag} ${pulito(x.nome)}</b><span>${x.noc} · ELO ${nf(x.v)}${x.liv === "provvisorio" ? " (provvisorio)" : ""} · ${x.n} assalti · nessun punto FEN</span>`
+    })), { aria: "Top 10 per ELO", etichetta: 200 });
+  }
+
   function disegna() {
     filtri();
     const lista = perGara(stato.genere, stato.arma), etiq = `${stato.arma} ${stato.genere === "U" ? "maschile" : "femminile"}`;
@@ -389,6 +505,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       const g = el("div", "grande", fmt(a.fen, 2)); g.append(el("small", null, "punti FEN")); L.append(g);
       if (b) L.append(el("p", null, `${fmt((a.fen / b.fen - 1) * 100, 0)}% di vantaggio su ${pulito(b.nome)} (${b.noc}). ${a.fen / b.fen > 1.25 ? "Gara con un dominatore." : a.fen / b.fen > 1.08 ? "Leader con un margine discreto." : "Vetta apertissima."}`));
       const bd = el("div", "badge"); bd.append(el("span", "chip", nRis(a.gare)), el("span", "chip", `🥇${a.ori} 🥈${a.arg} 🥉${a.bro}`), el("span", "chip", `field ${a.field ?? "—"}`));
+      if (eloV(a) != null) { const ch = el("span", "chip", `ELO ${eloTesto(a)}`); ch.title = eloSpiega(a); bd.append(ch); }
       if (a.q) bd.append(el("span", "chip q", "Q LA28")); L.append(bd);
       const v = el("button", "altri", "Vedi le gare"); v.onclick = () => scheda(a); L.append(v);
     } else L.append(el("p", null, "Nessun risultato registrato in questa gara."));
@@ -412,14 +529,25 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       xTicks: (a, b) => tickLin(a, b, 5), yTicks: () => [1, 2, 3, 5], yF: (v) => POSTO[v] || v,
       xL: "Rating medio delle gare con risultato dai quarti in su", yL: "Piazzamento medio", angoli: ["Vince nelle gare minori", "Vince nelle gare forti", "Quarti nelle gare minori", "Quarti nelle gare forti"]
     });
+    // ELO e FEN a confronto + classifica ELO della gara (solo se scherma-elo.json c'è)
+    if (ELO) disegnaElo(lista, etiq, top5);
     // classifica
     $("titolo-classifica").textContent = `Classifica FEN · ${etiq}`;
-    const T = $("classifica"); T.innerHTML = "<thead><tr><th>#</th><th>Schermidore</th><th>NOC</th><th class='num'>FEN</th><th class='num'>Risultati</th><th class='num'>🥇🥈🥉</th><th class='num'>Field medio</th><th class='num'>Età</th><th>LA28</th></tr></thead>";
+    const T = $("classifica"); T.innerHTML = "<thead><tr><th>#</th><th>Schermidore</th><th>NOC</th><th class='num'>ELO</th><th class='num'>FEN</th><th class='num'>Risultati</th><th class='num'>🥇🥈🥉</th><th class='num'>Field medio</th><th class='num'>Età</th><th>LA28</th></tr></thead>";
     const tb = el("tbody"), n = stato.tutti ? lista.length : Math.min(20, lista.length);
     lista.slice(0, n).forEach((a, i) => {
       const tr = el("tr", (isIta(a) ? "ita " : "") + (a.id === stato.sel ? "sel" : ""));
-      const c = [[i + 1, "pos"], [null], [`${a.flag} ${a.noc}`], [fmt(a.fen, 2), "num"], [a.gare, "num"], [`${a.ori}·${a.arg}·${a.bro}`, "num"], [a.field ?? "—", "num"], [a.eta ?? "—", "num"], [a.q ? "Q" : ""]];
-      c.forEach(([v, cls], k) => { const td = el("td", cls); if (k === 1) td.append(el("b", null, pulito(a.nome))); else td.textContent = v; tr.append(td); });
+      const c = [[i + 1, "pos"], [null], [`${a.flag} ${a.noc}`], [null, "num elo"], [fmt(a.fen, 2), "num"], [a.gare, "num"], [`${a.ori}·${a.arg}·${a.bro}`, "num"], [a.field ?? "—", "num"], [a.eta ?? "—", "num"], [a.q ? "Q" : ""]];
+      c.forEach(([v, cls], k) => {
+        const td = el("td", cls);
+        if (k === 1) td.append(el("b", null, pulito(a.nome)));
+        else if (k === 3) {                 // ELO: valore, «provvisorio» sotto, oppure «—» con il motivo nel suggerimento
+          td.textContent = eloV(a) == null ? "—" : nf(eloV(a)) + eloArma(a);
+          if (eloProv(a)) td.append(el("span", "prov", "provvisorio"));
+          td.title = eloSpiega(a);
+        } else td.textContent = v;
+        tr.append(td);
+      });
       tr.onclick = () => scheda(a); tb.append(tr);
     });
     T.append(tb);
@@ -442,7 +570,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       I.append(card);
     }));
     if (!I.children.length) I.append(el("p", "nota", "Nessun azzurro con risultati registrati."));
-    $("nota").textContent = `Indice FEN calcolato con le formule dei db Risultati A e B: rating della gara (🏟️) × peso del piazzamento (1° 18%, 2° 14%, semifinale 11%, quarti 8%, ottavi 4,5%, sedicesimi 2%, trentaduesimi 1%, oltre 0,5%) × prestigio (Mondiali 1,5; continentali 1,25; Grand Prix, Coppe del Mondo e altri eventi 1,0) × peso dell'anno (2025: 0,4; 2026: 0,6; 2027: 0,8; 2028: 1). Solo gare individuali senior. Nel database sono registrati di norma i primi 8 di ogni gara; tutti i turni solo ai Mondiali: per questo quadrante e qualità del field usano solo i risultati dai quarti in su. Tornei considerati: ${dati.eventi.join(", ")}.`;
+    $("nota").textContent = `Indice FEN calcolato con le formule dei db Risultati A e B: rating della gara (🏟️) × peso del piazzamento (1° 18%, 2° 14%, semifinale 11%, quarti 8%, ottavi 4,5%, sedicesimi 2%, trentaduesimi 1%, oltre 0,5%) × prestigio (Mondiali 1,5; continentali 1,25; Grand Prix, Coppe del Mondo e altri eventi 1,0) × peso dell'anno (2025: 0,4; 2026: 0,6; 2027: 0,8; 2028: 1). Solo gare individuali senior. Nel database sono registrati di norma i primi 8 di ogni gara; tutti i turni solo ai Mondiali: per questo quadrante e qualità del field usano solo i risultati dai quarti in su. Tornei considerati: ${dati.eventi.join(", ")}.` + (ELO ? ` ELO: calcolato su ogni assalto delle gare individuali FIE delle stagioni 2026 e 2027 (Olimpiadi, Mondiali, Grand Prix, Coppe del Mondo, campionati e Giochi continentali; tabellone a eliminazione diretta, senza gironi; esclusi abbandoni e assalti non disputati). Il ranking FIE non è usato. Tutti partono da 1500 e ogni assalto sposta il punteggio secondo la forza dell'avversario, il tipo di gara e lo scarto di stoccate; dopo 6 mesi senza assalti il valore torna piano piano verso 1500. C'è un ELO per ogni arma: la pagina mostra quello dell'arma della classifica FEN, e nella top 10 ELO ogni schermidore compare solo nell'arma in cui ha più assalti. È mostrato da ${S_PROV} assalti in almeno ${S_GARE} gare («provvisorio» fino a ${S_STAB} assalti), altrimenti compare «—». ELO aggiornato al ${new Date(ELO.aggiornato + "T12:00:00").toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" })}: ${ELO.mostrati.toLocaleString("it-IT")} ELO mostrati su ${ELO.schermidori.toLocaleString("it-IT")} schermidori.` : "");
   }
 
   disegna();

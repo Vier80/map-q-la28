@@ -11,6 +11,13 @@ sezione FORMULA FEN qui sotto.
 Nota: il FEN 🔸 di Athletes somma TUTTE le righe collegate; lo script tiene solo le gare
 individuali senior, con un torneo e senza w/o (per la scherma oggi coincidono).
 
+NOVITÀ del 16/11/2026 (scheda 26, sessione 3): ELO
+Se nella cartella c'è scherma-elo.json (lo salva il workflow "ELO Scherma" ogni lunedì), lo
+script aggiunge a scherma-performance.json l'ELO di ogni schermidore. Il collegamento passa dal
+campo "notion" di scherma-elo.json, che è l'id della riga di Athletes, cioè lo stesso "id" usato
+qui, e dall'arma (un ELO per ogni arma). Se scherma-elo.json manca o non si legge, la pagina
+funziona lo stesso, senza ELO.
+
 Le 6 gare: spada, fioretto e sciabola individuali, uomini e donne.
 Le prove a squadre NON sono considerate.
 
@@ -47,6 +54,10 @@ DISCIPLINE_SCHERMA = [f"{g}'s Individual {a}" for g in ("Men", "Women") for a in
 # Riconosce genere e arma da un nome di disciplina. Accetta anche il refuso presente
 # in Athletes "Women' Individual Epee" (manca la s dopo l'apostrofo).
 RE_DISCIPLINA = re.compile(r"^(Men|Women)'?s? Individual (Epee|Foil|Sabre)$")
+
+# ---------------------------------------------------------------- ELO (novità sessione 3)
+FILE_ELO = CARTELLA / "scherma-elo.json"   # prodotto da elo_scherma.py nello stesso repository
+TOP_ELO = 10                               # quanti schermidori nella "Classifica ELO · top 10" di ogni gara
 
 
 # ================================================================ FORMULA FEN
@@ -222,6 +233,108 @@ def aggrega(ath, res, oggi):
             "atleti": atleti, "eventi": eventi, "n_risultati": sum(a["gare"] for a in atleti)}
 
 
+# ================================================================ ELO (novità sessione 3)
+def dati_elo_atleta(e):
+    """Dati ELO di uno schermidore per la pagina, nel formato compatto di scherma-performance.json.
+
+    liv = livello ("stabile", "provvisorio", "nascosto"); n = incontri; t = gare.
+    Solo se il livello non è "nascosto": v = ELO, max = ELO massimo, vit = vittorie,
+    ult = data dell'ultimo incontro, st = storico [[data, ELO dopo la gara, id gara], ...].
+    """
+    out = {"liv": e.get("livello"), "n": e.get("incontri", 0), "t": e.get("gare", 0)}
+    if e.get("livello") in ("stabile", "provvisorio"):
+        out.update(v=e.get("elo"), max=e.get("elo_max"), vit=e.get("vittorie"), ult=e.get("ultimo"),
+                   st=e.get("storico") or [])
+    return out
+
+
+def bandiera_e_noc(noc_notion):
+    """'🇮🇹ITA' (valore di Athletes) -> ('🇮🇹', 'ITA'). Se il formato non torna: ('', valore così com'è)."""
+    m = re.match(r"^(\W*?)([A-Z]{3})$", (noc_notion or "").strip())
+    return (m.group(1), m.group(2)) if m else ("", noc_notion or "—")
+
+
+def aggiungi_elo(dati, ath):
+    """Aggiunge a scherma-performance.json l'ELO di scherma-elo.json (scheda 26).
+
+    - a ogni schermidore della classifica FEN collegato all'ELO aggiunge il campo "elo",
+      scegliendo l'ELO della STESSA arma della classifica FEN; se in quell'arma non ha incontri,
+      usa l'ELO dell'arma principale (quella con più incontri);
+    - in dati["elo"] mette la data dell'ELO, i nomi delle gare dello storico e la top 10 ELO
+      di ognuna delle 6 gare (anche schermidori senza punti FEN), per il pannello "Classifica ELO".
+      Nella top 10 entra solo l'arma principale di ogni schermidore (regola della scheda 26:
+      uno schermidore compare nell'arma in cui ha più incontri).
+    """
+    if not FILE_ELO.exists():
+        print("AVVISO scherma-elo.json non trovato: la pagina mostrerà «—» nella colonna ELO.")
+        dati["elo"] = None
+        return
+    try:
+        raw = json.loads(FILE_ELO.read_text(encoding="utf-8"))
+        elenco = raw["atleti"]
+    except (OSError, ValueError, KeyError, TypeError) as e:
+        print(f"AVVISO scherma-elo.json non leggibile ({e}): la pagina mostrerà «—» nella colonna ELO.")
+        dati["elo"] = None
+        return
+
+    # 1. collegamento con la classifica FEN: "notion" (ELO) = "id" (FEN) = id della riga di Athletes.
+    #    Uno schermidore può avere più ELO (uno per arma): li raccolgo per (id Athletes, arma).
+    per_arma, principale = {}, {}
+    for e in elenco:
+        if not e.get("notion"):
+            continue
+        per_arma[(e["notion"], e.get("arma"))] = e
+        if e.get("principale"):
+            principale[e["notion"]] = e
+    gare_usate, collegati, mostrati = set(), 0, 0
+    for a in dati["atleti"]:
+        e = per_arma.get((a["id"], a["arma"])) or principale.get(a["id"])
+        if not e:
+            continue                      # nessun incontro nelle stagioni FIE lette (o non abbinato)
+        a["elo"] = dati_elo_atleta(e)
+        if e.get("arma") != a["arma"]:
+            a["elo"]["arma"] = e.get("arma")   # caso raro: la pagina scrive l'arma accanto all'ELO
+        collegati += 1
+        if "v" in a["elo"]:
+            mostrati += 1
+            gare_usate.update(str(c) for _, _, c in a["elo"]["st"])
+
+    # 2. top 10 ELO di ognuna delle 6 gare: solo ELO mostrabili e solo l'arma principale
+    per_gara = {}
+    for e in elenco:
+        if e.get("livello") not in ("stabile", "provvisorio") or not e.get("principale"):
+            continue
+        per_gara.setdefault(f"{e.get('genere')}|{e.get('arma')}", []).append(e)
+    top = {}
+    for chiave, lista in per_gara.items():
+        lista.sort(key=lambda e: -e["elo"])
+        righe = []
+        for e in lista[:TOP_ELO]:
+            info = ath.get(e.get("notion") or "")
+            if info:                      # nome e bandiera come in Athletes
+                flag, noc = bandiera_e_noc(info["noc"])
+                nome = re.sub(r"\s+", " ", info["nome"]).strip()
+                if noc == "—":            # NOC vuoto in Athletes: uso quello della FIE
+                    noc = e.get("noc") or "—"
+            else:                         # schermidore non ancora in Athletes: dati della FIE
+                flag, noc, nome = "", e.get("noc") or "—", e.get("nome", "")
+            righe.append({"id": e.get("notion"), "nome": nome, "flag": flag, "noc": noc,
+                          "v": e["elo"], "liv": e["livello"], "n": e.get("incontri", 0)})
+        top[chiave] = righe
+
+    nomi_gare = {str(cid): (t or {}).get("nome", "") for cid, t in (raw.get("tornei") or {}).items()}
+    dati["elo"] = {
+        "aggiornato": raw.get("aggiornato"),
+        "schermidori": len({e.get("id_fie") for e in elenco}),
+        "mostrati": sum(1 for e in elenco if e.get("livello") in ("stabile", "provvisorio")),
+        "regole": raw.get("regole") or {},
+        "tornei": {cid: nomi_gare.get(cid, "") for cid in sorted(gare_usate)},
+        "top": top,
+    }
+    print(f"ELO (scherma-elo.json del {raw.get('aggiornato')}): {collegati} schermidori della classifica "
+          f"FEN collegati, {mostrati} con ELO mostrato; top {TOP_ELO} ELO in {len(top)} gare")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--da-raw", help="file con {ath, res} salvati, per le prove")
@@ -235,6 +348,7 @@ def main():
         print("AVVISO formula FEN PROVVISORIA (struttura del WON): i punti non sono ancora quelli di Notion")
     oggi = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=1))).date()
     dati = aggrega(ath, res, oggi)
+    aggiungi_elo(dati, ath)               # novità sessione 3
     (CARTELLA / "scherma-performance.json").write_text(
         json.dumps(dati, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"scherma-performance.json: {len(dati['atleti'])} schermidori, {dati['n_risultati']} risultati, "

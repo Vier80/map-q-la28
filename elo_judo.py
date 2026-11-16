@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""ELO Judo (scheda 19, sessione 2) – repo map-q-la28
+"""ELO Judo (scheda 19, sessione 2) – repo map-q-la28 – versione 2.1 del 16/11/2026
+
+Versione 2.1 (16/11/2026): l'API di Notion restituisce al massimo 10.000 righe per ricerca.
+La lettura degli incontri (leggi_incontri) è divisa in 14 ricerche, una per categoria di peso
+(Gender × Categoria), più una ricerca di controllo per le righe con categoria vuota o anomala.
+Ogni ricerca (anche quella su Athletes) che arriva a 10.000 righe ferma lo script, invece di
+calcolare un ELO incompleto senza avvisare. Nessuna modifica alle regole dell'ELO.
 
 Che cosa fa
 -----------
@@ -167,8 +173,15 @@ def valore(p):
     return None
 
 
-def interroga(ds, filtro=None):
-    """Tutte le righe di un data source (100 alla volta)."""
+LIMITE_NOTION = 10000   # una ricerca dell'API Notion restituisce al massimo 10.000 righe (verificato il 16/11/2026)
+
+
+def interroga(ds, filtro=None, etichetta=""):
+    """Tutte le righe di un data source (100 alla volta) che rispettano il filtro.
+
+    Se la ricerca arriva a 10.000 righe (limite dell'API Notion) lo script si ferma: le righe
+    oltre la 10.000ª non verrebbero lette e i calcoli sarebbero incompleti senza avviso.
+    """
     pagine, cursore = [], None
     while True:
         corpo = {"page_size": 100}
@@ -179,8 +192,13 @@ def interroga(ds, filtro=None):
         r = chiama("POST", f"data_sources/{ds}/query", corpo)
         pagine += r["results"]
         if not r.get("has_more"):
-            return pagine
+            break
         cursore = r["next_cursor"]
+    if len(pagine) >= LIMITE_NOTION:
+        sys.exit(f'ERRORE: la ricerca "{etichetta or NOMI_DB.get(ds, ds)}" ha restituito {len(pagine)} righe, '
+                 f"cioè il limite dell'API Notion: alcune righe non sono state lette. Bisogna dividere "
+                 f"ancora la lettura (per esempio per anno o per tipo di torneo).")
+    return pagine
 
 
 def controlla_colonne(ds, attese):
@@ -192,21 +210,60 @@ def controlla_colonne(ds, attese):
     return props
 
 
+def fette_incontri():
+    """Le ricerche in cui è divisa la lettura del db Agente Judo: [(etichetta, filtro), ...].
+
+    - 14 ricerche, una per categoria di peso (Gender × Categoria), circa 600 righe l'una;
+    - 1 ricerca "di controllo" per le righe che non rientrano nelle 14 (Gender o Categoria vuoti,
+      scritti in modo diverso o in coppia sbagliata). Di norma trova 0 righe, ma garantisce che
+      nessun incontro resti fuori. Le 15 ricerche coprono tutto il db e non si sovrappongono.
+    """
+    g, c = COL_J["gender"], COL_J["cat"]
+    fette, nessuna = [], []
+    for genere, pesi in PESI.items():
+        for kg in pesi:
+            categoria = f"{kg} kg"                     # come lo scrive l'agente dei risultati
+            fette.append((f"{genere} {categoria}",
+                          {"and": [{"property": g, "select": {"equals": genere}},
+                                   {"property": c, "select": {"equals": categoria}}]}))
+            # per la ricerca di controllo: "non è questa coppia"
+            nessuna.append({"or": [{"property": g, "select": {"does_not_equal": genere}},
+                                   {"property": c, "select": {"does_not_equal": categoria}},
+                                   {"property": g, "select": {"is_empty": True}},
+                                   {"property": c, "select": {"is_empty": True}}]})
+    fette.append(("altre (Gender o Categoria vuoti o anomali)", {"and": nessuna}))
+    return fette
+
+
 def leggi_incontri():
-    """Righe del db Agente Judo nel formato interno dello script."""
+    """Righe del db Agente Judo nel formato interno dello script.
+
+    Versione 2.1: lettura divisa in 15 ricerche (fette_incontri), perché una ricerca dell'API Notion
+    restituisce al massimo 10.000 righe e il db Agente Judo le supererà presto (8.709 il 16/11/2026).
+    """
     controlla_colonne(DS_AGENTE_JUDO, COL_J.values())
-    incontri = []
-    for pg in interroga(DS_AGENTE_JUDO):
-        p = pg["properties"]
-        v = {k: valore(p.get(c)) or "" for k, c in COL_J.items()}
-        # chi ha vinto: il nome in Winner è uguale a Player 1 (bianco) o a Player 2 (blu)
-        vince = 1 if v["winner"] == v["p1"] else 2 if v["winner"] == v["p2"] else 0
-        incontri.append({
-            "uid": v["uid"], "cid": v["uid"].split("|")[0], "data": v["data"], "turno": v["turno"],
-            "tipo": v["tipo"], "gender": v["gender"], "cat": v["cat"], "score": v["score"],
-            "torneo": v["torneo"], "vince": vince,
-            "id1": v["id1"], "nome1": v["p1"], "noc1": v["noc1"],
-            "id2": v["id2"], "nome2": v["p2"], "noc2": v["noc2"]})
+    incontri, viste, conteggi = [], set(), []
+    for etichetta, filtro in fette_incontri():
+        pagine = interroga(DS_AGENTE_JUDO, filtro, etichetta)   # si ferma da sola a 10.000 righe
+        conteggi.append((etichetta, len(pagine)))
+        for pg in pagine:
+            if pg["id"] in viste:          # una pagina non viene mai contata due volte
+                continue
+            viste.add(pg["id"])
+            p = pg["properties"]
+            v = {k: valore(p.get(c)) or "" for k, c in COL_J.items()}
+            # chi ha vinto: il nome in Winner è uguale a Player 1 (bianco) o a Player 2 (blu)
+            vince = 1 if v["winner"] == v["p1"] else 2 if v["winner"] == v["p2"] else 0
+            incontri.append({
+                "uid": v["uid"], "cid": v["uid"].split("|")[0], "data": v["data"], "turno": v["turno"],
+                "tipo": v["tipo"], "gender": v["gender"], "cat": v["cat"], "score": v["score"],
+                "torneo": v["torneo"], "vince": vince,
+                "id1": v["id1"], "nome1": v["p1"], "noc1": v["noc1"],
+                "id2": v["id2"], "nome2": v["p2"], "noc2": v["noc2"]})
+    # riepilogo: il totale deve coincidere con il numero di righe del db in Notion
+    log(f"Lettura del db Agente Judo in {len(conteggi)} ricerche (la più grande: "
+        f"{max(n for _, n in conteggi)} righe; limite di Notion {LIMITE_NOTION}):")
+    log("  " + " · ".join(f"{e} {n}" for e, n in conteggi))
     return incontri
 
 
@@ -217,7 +274,10 @@ def leggi_athletes():
                "disc": [o["name"] for o in props[COL_A["disc"]]["multi_select"]["options"]],
                "sport": [o["name"] for o in props[COL_A["sport"]]["select"]["options"]]}
     atleti = []
-    for pg in interroga(DS_ATHLETES, {"property": COL_A["sport"], "select": {"equals": "Judo"}}):
+    # Athletes ha più di 16.000 righe: lo leggo SEMPRE con il filtro Sport = Judo (circa 2.500 righe);
+    # anche qui interroga si ferma se la ricerca arrivasse a 10.000 righe
+    for pg in interroga(DS_ATHLETES, {"property": COL_A["sport"], "select": {"equals": "Judo"}},
+                        "Athletes, Sport = Judo"):
         p = pg["properties"]
         atleti.append({"page": pg["id"], "nome": valore(p.get(COL_A["nome"])) or "",
                        "noc": valore(p.get(COL_A["noc"])) or "",

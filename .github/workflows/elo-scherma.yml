@@ -1,10 +1,13 @@
 name: ELO Scherma
 
 # Repo map-q-la28, file .github/workflows/elo-scherma.yml
-# (versione 1 del 16/11/2026, scheda 26, sessione 2).
-# Parte a mano: Actions -> ELO Scherma -> Run workflow.
-# L'avvio automatico alla fine dell'agente scherma e la ripubblicazione della pagina
-# arrivano nella sessione 3 (come per "ELO Judo").
+# (versione 2 del 16/11/2026, scheda 26, sessione 3).
+# Parte in due modi:
+#   - a mano: Actions -> ELO Scherma -> Run workflow;
+#   - da solo alla fine di ogni lancio vero dell'agente dei risultati (repo agente-scherma),
+#     quindi ogni lunedì mattina grazie a cron-job.org.
+# NOVITÀ della sessione 3: se scherma-elo.json è stato salvato, alla fine avvia
+# "Aggiorna mappa LA28", che rifà scherma-performance.json con l'ELO e ripubblica la pagina.
 on:
   workflow_dispatch:
     inputs:
@@ -15,6 +18,7 @@ on:
 
 permissions:
   contents: write          # serve per salvare scherma-elo.json nel repository
+  actions: write           # NOVITÀ sessione 3: serve per avviare "Aggiorna mappa LA28" alla fine
 
 # due calcoli contemporanei scriverebbero due volte in Athletes: il secondo aspetta il primo
 concurrency:
@@ -53,6 +57,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Salva scherma-elo.json nel repository (solo nel lancio vero)
+        id: salva
         # "always()" = anche se lo script ha avuto qualche errore di scrittura: il JSON è comunque valido
         if: always() && format('{0}', inputs.solo_prova) == 'false'
         run: |
@@ -61,15 +66,34 @@ jobs:
           git add scherma-elo.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "scherma-elo.json invariato"
+            echo "salvato=0" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git commit -m "Aggiorna l'ELO scherma"
           # il workflow della mappa salva file ogni 15 minuti: prima di salvare prendo le sue modifiche
           for tentativo in 1 2 3; do
             if git pull --rebase && git push; then
+              echo "salvato=1" >> "$GITHUB_OUTPUT"
               exit 0
             fi
             sleep 10
           done
           echo "Non sono riuscito a salvare scherma-elo.json"
           exit 1
+
+      # ------------------------------------------------------------------ NOVITÀ della sessione 3
+      - name: Ripubblica subito il sito (avvia "Aggiorna mappa LA28")
+        # Solo se scherma-elo.json è stato davvero salvato. La mappa rifà scherma-performance.json con
+        # il nuovo ELO (aggiorna_scherma_performance.py) e ripubblica GitHub Pages.
+        # Il token automatico github.token non fa partire altri workflow con un push, ma può farlo
+        # con "workflow run" (permesso actions: write qui sopra).
+        # Se questo passaggio fallisce non succede nulla di grave: ci pensa il giro dei 15 minuti.
+        if: always() && steps.salva.outputs.salvato == '1'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run aggiorna.yml --repo "${{ github.repository }}" \
+            && echo "Ho avviato 'Aggiorna mappa LA28': la pagina si aggiorna entro pochi minuti." \
+            || echo "ATTENZIONE: non sono riuscito ad avviare la mappa; si aggiornerà al prossimo giro (15-30 minuti)."
+

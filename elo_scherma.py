@@ -80,7 +80,7 @@ MOLT_NUOVO = 1.5                      # ... 1,5 (chi parte da 1500 si avvicina p
 SCALA_MOV = [(10, 1.15), (7, 1.11), (5, 1.08), (3, 1.04), (1, 1.00)]   # (scarto minimo, valore)
 MESI_SENZA_EFFETTO = 6                # inattività: nessun effetto per 6 mesi interi...
 CALO_MENSILE = 0.02                   # ... poi -2% al mese della distanza da 1500
-# Soglie per mostrare l'ELO nella pagina: PROVVISORIE, da confermare dopo la "Solo prova"
+# Soglie per mostrare l'ELO nella pagina: confermate da Gualtiero il 16/11/2026 dopo la "Solo prova"
 SOGLIA_MOSTRA = 10                    # da 10 incontri (e MIN_GARE gare) l'ELO è "provvisorio"
 SOGLIA_STABILE = 20                   # da 20 incontri è "stabile"
 MIN_GARE = 3
@@ -199,14 +199,35 @@ def controlla_colonne(ds, attese):
     return props
 
 
+LIMITE_NOTION = 10000   # una ricerca dell'API Notion restituisce al massimo 10.000 righe (verificato il 16/11/2026)
+
+
 def leggi_incontri():
-    """Incontri individuali del db Agente Scherma, nel formato interno dello script."""
+    """Incontri individuali del db Agente Scherma, nel formato interno dello script.
+
+    L'API di Notion non restituisce più di 10.000 righe per ricerca: con una ricerca sola si
+    perdevano 1.773 incontri (prima «Solo prova» del 16/11/2026). Per questo la lettura è divisa
+    in 6 ricerche, una per arma e genere (circa 2.000 righe ciascuna). Se una di esse arrivasse
+    al limite, lo script si ferma invece di calcolare un ELO incompleto.
+    """
     controlla_colonne(DS_SCHERMA, COL_S.values())
-    filtro = {"property": COL_S["gara"], "select": {"equals": "Individuale"}}
-    incontri = []
-    for pg in interroga(DS_SCHERMA, filtro):
-        p = pg["properties"]
-        incontri.append({k: (valore(p.get(c)) or "") for k, c in COL_S.items() if k != "gara"})
+    incontri, visti = [], set()
+    for arma in ARMI_EN:
+        for genere in ("Men", "Women"):
+            filtro = {"and": [{"property": COL_S["gara"], "select": {"equals": "Individuale"}},
+                              {"property": COL_S["arma"], "select": {"equals": arma}},
+                              {"property": COL_S["gender"], "select": {"equals": genere}}]}
+            pagine = interroga(DS_SCHERMA, filtro)
+            if len(pagine) >= LIMITE_NOTION:
+                sys.exit(f"ERRORE: {arma} {genere}: {len(pagine)} righe, è il limite di Notion. "
+                         "Bisogna dividere ancora la lettura (per esempio per stagione).")
+            for pg in pagine:
+                if pg["id"] in visti:
+                    continue
+                visti.add(pg["id"])
+                p = pg["properties"]
+                incontri.append({k: (valore(p.get(c)) or "") for k, c in COL_S.items() if k != "gara"})
+            log(f"  letti {arma} {genere}: {len(pagine)} incontri")
     return incontri
 
 

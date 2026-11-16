@@ -1,12 +1,12 @@
 {
  "aggiornato": "2026-11-16",
  "totali": {
-  "posti_qualificati": 918,
-  "noc": 50,
-  "rimanenti": 10280,
+  "posti_qualificati": 920,
+  "noc": 51,
+  "rimanenti": 10278,
   "posti_totali": 11198,
-  "righe": 176,
-  "athlete_quota": 6,
+  "righe": 178,
+  "athlete_quota": 8,
   "noc_quota": 66,
   "team_quota": 104
  },
@@ -3101,6 +3101,46 @@
    "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SRF-LA28-Qualification-System.pdf",
    "verifica": false,
    "notion": "https://app.notion.com/p/Kanoa-IGARASHI-2c5f48c9aad981558994cdf21cc5574e"
+  },
+  {
+   "chiave": "41af48c9aad98035a014df2dd58bddf8",
+   "nome": "Lucca MESINAS",
+   "noc": "PER",
+   "bandiera": "🇵🇪",
+   "paese": "Perù",
+   "sport": "Surfing",
+   "gare": [
+    "Men's Surfing"
+   ],
+   "tipo": "Athlete Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti nominativi (WSL, ISA Games, continentali); ospitante, universalità e squadra ISA all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SRF-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Lucca-MESINAS-41af48c9aad98035a014df2dd58bddf8"
+  },
+  {
+   "chiave": "41af48c9aad9809bb3d9c2b2b4cd8c71",
+   "nome": "Leihani ZORIC",
+   "noc": "AUS",
+   "bandiera": "🇦🇺",
+   "paese": "Australia",
+   "sport": "Surfing",
+   "gare": [
+    "Women's Surfing"
+   ],
+   "tipo": "Athlete Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti nominativi (WSL, ISA Games, continentali); ospitante, universalità e squadra ISA all'NOC.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SRF-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Leihani-ZORIC-41af48c9aad9809bb3d9c2b2b4cd8c71"
   },
   {
    "chiave": "3eaf48c9aad980439a48de089d6f1e63",

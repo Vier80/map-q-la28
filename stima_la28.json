@@ -1,12 +1,12 @@
 {
- "aggiornato": "2026-11-15 05:45 UTC",
+ "aggiornato": "2026-11-16 05:45 UTC",
  "totali": {
   "Certo": 5,
   "Probabile": 84,
-  "Possibile": 180,
-  "Remoto": 183,
-  "Fuori": 390,
-  "Dati insufficienti": 29
+  "Possibile": 176,
+  "Remoto": 180,
+  "Fuori": 388,
+  "Dati insufficienti": 36
  },
  "sport": [
   {
@@ -441,13 +441,13 @@
   },
   {
    "nome": "Weightlifting",
-   "n": 20,
+   "n": 18,
    "Certo": 0,
    "Probabile": 0,
-   "Possibile": 4,
-   "Remoto": 5,
-   "Fuori": 8,
-   "Dati insufficienti": 3
+   "Possibile": 0,
+   "Remoto": 2,
+   "Fuori": 6,
+   "Dati insufficienti": 10
   },
   {
    "nome": "Wrestling",
@@ -462,13 +462,13 @@
  ],
  "metodo": [
   "Il livello Certo vale solo se in Athletes la colonna Pass LA28 e' Q. La colonna Status LA28 non viene usata.",
-  "Beach volley, canoa, ciclismo, judo, skateboarding, squash, taekwondo e tennis partono dalle simulazioni gia' presenti in Notion (ranking olimpico attuale): il margine e' la distanza in posti tra l'atleta, la coppia o la nazione e l'ultimo posto utile della stessa categoria. Le riserve valgono in base alla distanza da quel posto; chi e' candidato a un torneo finale (Q-Series del beach volley, torneo finale dello squash) riceve la sua quota dei posti del torneo in proporzione al ranking, piu' la chance di rientrare dal ranking diretto; i posti ipotizzati (es. vincitore continentale non ancora deciso) hanno una stima prudenziale fissa.",
+  "Beach volley, canoa, ciclismo, judo, skateboarding, squash, taekwondo, tennis e sollevamento pesi partono dalle simulazioni gia' presenti in Notion (ranking olimpico attuale): il margine e' la distanza in posti tra l'atleta, la coppia o la nazione e l'ultimo posto utile della stessa categoria. Le riserve valgono in base alla distanza da quel posto; chi e' candidato a un torneo finale (Q-Series del beach volley, torneo finale dello squash) riceve la sua quota dei posti del torneo in proporzione al ranking, piu' la chance di rientrare dal ranking diretto; i posti ipotizzati (es. vincitore continentale non ancora deciso) hanno una stima prudenziale fissa.",
   "Tutte le altre discipline estive, lotta compresa, usano i regolamenti di qualificazione del CIO (posti per prova, limite per nazione, data di chiusura) applicati ai punteggi del db Athletes: per ogni prova si ordinano gli atleti di tutte le nazioni, si applica il limite per nazione e si guarda se l'atleta e' entro i posti assegnati dal ranking.",
   "Negli sport di squadra ogni nazione e' una riga-squadra in Athletes (es. 'ITA Men's Volley') e si usano i suoi punti; nelle prove a squadre degli sport individuali (staffette, scherma a squadre) si sommano i punti dei migliori atleti; le coppie sono formate dai due migliori atleti della stessa nazione.",
   "Il margine diventa una percentuale con una curva logistica: piu' mesi mancano alla chiusura delle qualificazioni, piu' la curva e' dolce; i punteggi di Athletes sono un'approssimazione del ranking ufficiale, quindi la curva e' ancora piu' prudente e la probabilita' non supera il 90% prima del Pass.",
   "Una parte dei posti non dipende dal ranking (paese ospitante, universality, continentali, ripescaggi): chi e' fuori ma vicino alla soglia conserva una piccola chance residua.",
   "Livelli: Probabile 70% o piu', Possibile 35-69%, Remoto 8-34%, Fuori sotto l'8%. Se mancano punteggi o ranking l'agente scrive 'Dati insufficienti' invece di inventare un numero.",
-  "Per alcuni sport il punteggio non e' la colonna 'Punti per Disciplina' ma una colonna dedicata di Athletes: WON (badminton, tennis tavolo, vela, arrampicata, arco individuale, triathlon, golf), FEN (scherma), WB (pugilato), UWW (lotta), KG (pesi), SCORE (tuffi, nuoto artistico), PFM (nuoto e atletica: tempo piu' basso = meglio per nuoto, corsa, marcia; misura piu' alta = meglio per salti, lanci e prove multiple).",
+  "Per alcuni sport il punteggio non e' la colonna 'Punti per Disciplina' ma una colonna dedicata di Athletes: WON (badminton, tennis tavolo, vela, arrampicata, arco individuale, triathlon, golf), FEN (scherma), WB (pugilato), UWW (lotta), SCORE (tuffi, nuoto artistico), PFM (nuoto e atletica: tempo piu' basso = meglio per nuoto, corsa, marcia; misura piu' alta = meglio per salti, lanci e prove multiple).",
   "Sono elencate anche le prove del programma LA28 in cui in Athletes non c'e' nessun atleta o squadra italiana: compaiono come 'Fuori' con la nota 'Nessun italiano'.",
   "Atletica: quote e standard sono provvisori fino a dicembre 2026. E' una stima euristica per orientarsi, non un calcolo ufficiale: i regolamenti completi sono sul sito del CIO."
  ],
@@ -1230,24 +1230,24 @@
    {
     "Certo": 0,
     "Probabile": 0,
-    "Possibile": 3,
-    "Remoto": 3,
-    "Totale": 6,
+    "Possibile": 0,
+    "Remoto": 2,
+    "Totale": 2,
     "nome": "Weightlifting",
     "genere": {
      "Uomini": {
       "Certo": 0,
       "Probabile": 0,
       "Possibile": 0,
-      "Remoto": 3,
-      "Totale": 3
+      "Remoto": 1,
+      "Totale": 1
      },
      "Donne": {
       "Certo": 0,
       "Probabile": 0,
-      "Possibile": 3,
-      "Remoto": 0,
-      "Totale": 3
+      "Possibile": 0,
+      "Remoto": 1,
+      "Totale": 1
      }
     }
    },
@@ -1279,23 +1279,23 @@
   "totale": {
    "Certo": 16,
    "Probabile": 123,
-   "Possibile": 210,
-   "Remoto": 166,
-   "Totale": 515,
+   "Possibile": 207,
+   "Remoto": 165,
+   "Totale": 511,
    "genere": {
     "Uomini": {
      "Certo": 11,
      "Probabile": 60,
      "Possibile": 117,
-     "Remoto": 74,
-     "Totale": 262
+     "Remoto": 72,
+     "Totale": 260
     },
     "Donne": {
      "Certo": 2,
      "Probabile": 63,
-     "Possibile": 90,
-     "Remoto": 91,
-     "Totale": 246
+     "Possibile": 87,
+     "Remoto": 92,
+     "Totale": 244
     },
     "Misto": {
      "Certo": 3,
@@ -1558,12 +1558,12 @@
    "nome": "Gabriele TARGHETTA",
    "tipo": "Atleta",
    "livello": "Probabile",
-   "p": 88.9,
+   "p": 89.0,
    "via": "Ranking da punteggi Athletes",
    "rank": 3,
    "margine": 14,
    "stato": "Stima da punteggi",
-   "nota": "163.2 pt, posizione 3 su 38 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +14); 19 mesi alla fine del periodo.",
+   "nota": "163.2 pt, posizione 3 su 38 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +14); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1573,12 +1573,12 @@
    "nome": "Manila ESPOSITO",
    "tipo": "Atleta",
    "livello": "Probabile",
-   "p": 88.9,
+   "p": 89.0,
    "via": "Ranking da punteggi Athletes",
    "rank": 3,
    "margine": 14,
    "stato": "Stima da punteggi",
-   "nota": "94.5 pt, posizione 3 su 51 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +14); 19 mesi alla fine del periodo.",
+   "nota": "94.5 pt, posizione 3 su 51 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +14); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1593,7 +1593,7 @@
    "rank": 4,
    "margine": 13,
    "stato": "Stima da punteggi",
-   "nota": "64.7 pt, posizione 4 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +13); 19 mesi alla fine del periodo.",
+   "nota": "64.7 pt, posizione 4 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +13); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1608,7 +1608,7 @@
    "rank": 5,
    "margine": 12,
    "stato": "Stima da punteggi",
-   "nota": "57.9 pt, posizione 5 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +12); 19 mesi alla fine del periodo.",
+   "nota": "57.9 pt, posizione 5 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +12); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1623,7 +1623,7 @@
    "rank": 5,
    "margine": 12,
    "stato": "Stima da punteggi",
-   "nota": "78.2 pt, posizione 5 su 45 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +12); 19 mesi alla fine del periodo.",
+   "nota": "78.2 pt, posizione 5 su 45 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +12); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1638,7 +1638,7 @@
    "rank": 4,
    "margine": 4,
    "stato": "Stima da punteggi",
-   "nota": "94.7 pt, posizione 4 su 19 in classifica per questa prova; posti decisi dal ranking 8 su 12 (margine +4); 19 mesi alla fine del periodo.",
+   "nota": "94.7 pt, posizione 4 su 19 in classifica per questa prova; posti decisi dal ranking 8 su 12 (margine +4); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1653,7 +1653,7 @@
    "rank": 11,
    "margine": 6,
    "stato": "Stima da punteggi",
-   "nota": "24.3 pt, posizione 11 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +6); 19 mesi alla fine del periodo.",
+   "nota": "24.3 pt, posizione 11 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +6); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1668,7 +1668,7 @@
    "rank": 12,
    "margine": 5,
    "stato": "Stima da punteggi",
-   "nota": "18.8 pt, posizione 12 su 36 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +5); 19 mesi alla fine del periodo.",
+   "nota": "18.8 pt, posizione 12 su 36 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +5); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1683,7 +1683,7 @@
    "rank": 13,
    "margine": 4,
    "stato": "Stima da punteggi",
-   "nota": "40.5 pt, posizione 13 su 30 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +4); 19 mesi alla fine del periodo.",
+   "nota": "40.5 pt, posizione 13 su 30 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +4); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1698,7 +1698,7 @@
    "rank": 13,
    "margine": 4,
    "stato": "Stima da punteggi",
-   "nota": "14.8 pt, posizione 13 su 36 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +4); 19 mesi alla fine del periodo.",
+   "nota": "14.8 pt, posizione 13 su 36 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +4); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1713,7 +1713,7 @@
    "rank": 13,
    "margine": 4,
    "stato": "Stima da punteggi",
-   "nota": "24.3 pt, posizione 13 su 45 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +4); 19 mesi alla fine del periodo.",
+   "nota": "24.3 pt, posizione 13 su 45 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +4); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1728,7 +1728,7 @@
    "rank": 14,
    "margine": 3,
    "stato": "Stima da punteggi",
-   "nota": "17.1 pt, posizione 14 su 38 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +3); 19 mesi alla fine del periodo.",
+   "nota": "17.1 pt, posizione 14 su 38 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +3); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1743,7 +1743,7 @@
    "rank": 16,
    "margine": 1,
    "stato": "Stima da punteggi",
-   "nota": "18.2 pt, posizione 16 su 31 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +1); 19 mesi alla fine del periodo.",
+   "nota": "18.2 pt, posizione 16 su 31 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +1); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1758,7 +1758,7 @@
    "rank": 16,
    "margine": 1,
    "stato": "Stima da punteggi",
-   "nota": "18.9 pt, posizione 16 su 42 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +1); 19 mesi alla fine del periodo.",
+   "nota": "18.9 pt, posizione 16 su 42 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +1); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1773,7 +1773,7 @@
    "rank": 8,
    "margine": 0,
    "stato": "Stima da punteggi",
-   "nota": "51.3 pt, posizione 8 su 21 in classifica per questa prova; posti decisi dal ranking 8 su 12 (margine +0); 19 mesi alla fine del periodo.",
+   "nota": "51.3 pt, posizione 8 su 21 in classifica per questa prova; posti decisi dal ranking 8 su 12 (margine +0); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1788,7 +1788,7 @@
    "rank": 18,
    "margine": -1,
    "stato": "Stima da punteggi",
-   "nota": "9.8 pt, posizione 18 su 36 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -1); 19 mesi alla fine del periodo.",
+   "nota": "9.8 pt, posizione 18 su 36 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -1); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1803,7 +1803,7 @@
    "rank": 17,
    "margine": 0,
    "stato": "Stima da punteggi",
-   "nota": "12.3 pt, posizione 17 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +0); 19 mesi alla fine del periodo.",
+   "nota": "12.3 pt, posizione 17 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +0); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1818,7 +1818,7 @@
    "rank": 20,
    "margine": -3,
    "stato": "Stima da punteggi",
-   "nota": "18.2 pt, posizione 20 su 30 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -3); 19 mesi alla fine del periodo.",
+   "nota": "18.2 pt, posizione 20 su 30 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -3); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1833,7 +1833,7 @@
    "rank": 22,
    "margine": -5,
    "stato": "Stima da punteggi",
-   "nota": "13.5 pt, posizione 22 su 30 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -5); 19 mesi alla fine del periodo.",
+   "nota": "13.5 pt, posizione 22 su 30 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -5); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1848,7 +1848,7 @@
    "rank": 22,
    "margine": -5,
    "stato": "Stima da punteggi",
-   "nota": "7.7 pt, posizione 22 su 36 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -5); 19 mesi alla fine del periodo.",
+   "nota": "7.7 pt, posizione 22 su 36 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -5); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1863,7 +1863,7 @@
    "rank": 23,
    "margine": -6,
    "stato": "Stima da punteggi",
-   "nota": "13.3 pt, posizione 23 su 30 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -6); 19 mesi alla fine del periodo.",
+   "nota": "13.3 pt, posizione 23 su 30 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -6); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1878,7 +1878,7 @@
    "rank": 23,
    "margine": -6,
    "stato": "Stima da punteggi",
-   "nota": "8.5 pt, posizione 23 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -6); 19 mesi alla fine del periodo.",
+   "nota": "8.5 pt, posizione 23 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -6); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1893,7 +1893,7 @@
    "rank": 24,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "11.3 pt, posizione 24 su 42 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -7); 19 mesi alla fine del periodo.",
+   "nota": "11.3 pt, posizione 24 su 42 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -7); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1908,7 +1908,7 @@
    "rank": 24,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "13.7 pt, posizione 24 su 51 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -7); 19 mesi alla fine del periodo.",
+   "nota": "13.7 pt, posizione 24 su 51 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -7); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1923,7 +1923,7 @@
    "rank": 24,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "12.6 pt, posizione 24 su 45 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -7); 19 mesi alla fine del periodo.",
+   "nota": "12.6 pt, posizione 24 su 45 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -7); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1938,7 +1938,7 @@
    "rank": 24,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "8.9 pt, posizione 24 su 45 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -7); 19 mesi alla fine del periodo.",
+   "nota": "8.9 pt, posizione 24 su 45 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -7); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1953,7 +1953,7 @@
    "rank": 24,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "8.1 pt, posizione 24 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -7); 19 mesi alla fine del periodo.",
+   "nota": "8.1 pt, posizione 24 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -7); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1968,7 +1968,7 @@
    "rank": 24,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "5.8 pt, posizione 24 su 37 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -7); 19 mesi alla fine del periodo.",
+   "nota": "5.8 pt, posizione 24 su 37 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -7); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1983,7 +1983,7 @@
    "rank": 24,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "4.3 pt, posizione 24 su 38 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -7); 19 mesi alla fine del periodo.",
+   "nota": "4.3 pt, posizione 24 su 38 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -7); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -1998,7 +1998,7 @@
    "rank": 25,
    "margine": -8,
    "stato": "Stima da punteggi",
-   "nota": "8.5 pt, posizione 25 su 45 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -8); 19 mesi alla fine del periodo.",
+   "nota": "8.5 pt, posizione 25 su 45 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -8); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2013,7 +2013,7 @@
    "rank": 25,
    "margine": -8,
    "stato": "Stima da punteggi",
-   "nota": "12.4 pt, posizione 25 su 51 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -8); 19 mesi alla fine del periodo.",
+   "nota": "12.4 pt, posizione 25 su 51 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -8); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2028,7 +2028,7 @@
    "rank": 27,
    "margine": -10,
    "stato": "Stima da punteggi",
-   "nota": "3.1 pt, posizione 27 su 37 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -10); 19 mesi alla fine del periodo.",
+   "nota": "3.1 pt, posizione 27 su 37 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -10); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2043,7 +2043,7 @@
    "rank": 27,
    "margine": -10,
    "stato": "Stima da punteggi",
-   "nota": "4.9 pt, posizione 27 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -10); 19 mesi alla fine del periodo.",
+   "nota": "4.9 pt, posizione 27 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -10); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2053,12 +2053,12 @@
    "nome": "Tommaso BRUGNAMI",
    "tipo": "Atleta",
    "livello": "Remoto",
-   "p": 25.3,
+   "p": 25.2,
    "via": "Ranking da punteggi Athletes",
    "rank": 28,
    "margine": -11,
    "stato": "Stima da punteggi",
-   "nota": "4.9 pt, posizione 28 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -11); 19 mesi alla fine del periodo.",
+   "nota": "4.9 pt, posizione 28 su 40 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -11); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2073,7 +2073,7 @@
    "rank": 29,
    "margine": -12,
    "stato": "Stima da punteggi",
-   "nota": "10.1 pt, posizione 29 su 51 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -12); 19 mesi alla fine del periodo.",
+   "nota": "10.1 pt, posizione 29 su 51 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -12); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2088,7 +2088,7 @@
    "rank": 29,
    "margine": -12,
    "stato": "Stima da punteggi",
-   "nota": "4.9 pt, posizione 29 su 31 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -12); 19 mesi alla fine del periodo.",
+   "nota": "4.9 pt, posizione 29 su 31 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -12); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2103,7 +2103,7 @@
    "rank": 30,
    "margine": -13,
    "stato": "Stima da punteggi",
-   "nota": "3.2 pt, posizione 30 su 31 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -13); 19 mesi alla fine del periodo.",
+   "nota": "3.2 pt, posizione 30 su 31 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -13); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2118,7 +2118,7 @@
    "rank": 31,
    "margine": -14,
    "stato": "Stima da punteggi",
-   "nota": "3.2 pt, posizione 31 su 31 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -14); 19 mesi alla fine del periodo.",
+   "nota": "3.2 pt, posizione 31 su 31 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -14); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2133,7 +2133,7 @@
    "rank": 33,
    "margine": -16,
    "stato": "Stima da punteggi",
-   "nota": "4.3 pt, posizione 33 su 48 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -16); 19 mesi alla fine del periodo.",
+   "nota": "4.3 pt, posizione 33 su 48 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -16); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2148,7 +2148,7 @@
    "rank": 34,
    "margine": -17,
    "stato": "Stima da punteggi",
-   "nota": "3.2 pt, posizione 34 su 42 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -17); 19 mesi alla fine del periodo.",
+   "nota": "3.2 pt, posizione 34 su 42 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -17); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2163,7 +2163,7 @@
    "rank": 36,
    "margine": -19,
    "stato": "Stima da punteggi",
-   "nota": "0.5 pt, posizione 36 su 37 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -19); 19 mesi alla fine del periodo.",
+   "nota": "0.5 pt, posizione 36 su 37 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -19); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2178,7 +2178,7 @@
    "rank": 37,
    "margine": -20,
    "stato": "Stima da punteggi",
-   "nota": "0.5 pt, posizione 37 su 37 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -20); 19 mesi alla fine del periodo.",
+   "nota": "0.5 pt, posizione 37 su 37 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -20); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2193,7 +2193,7 @@
    "rank": 38,
    "margine": -21,
    "stato": "Stima da punteggi",
-   "nota": "0.5 pt, posizione 38 su 38 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -21); 19 mesi alla fine del periodo.",
+   "nota": "0.5 pt, posizione 38 su 38 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -21); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2208,7 +2208,7 @@
    "rank": 41,
    "margine": -24,
    "stato": "Stima da punteggi",
-   "nota": "2.2 pt, posizione 41 su 45 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -24); 19 mesi alla fine del periodo.",
+   "nota": "2.2 pt, posizione 41 su 45 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -24); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2223,7 +2223,7 @@
    "rank": 42,
    "margine": -25,
    "stato": "Stima da punteggi",
-   "nota": "0.5 pt, posizione 42 su 42 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -25); 19 mesi alla fine del periodo.",
+   "nota": "0.5 pt, posizione 42 su 42 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -25); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2238,7 +2238,7 @@
    "rank": 46,
    "margine": -29,
    "stato": "Stima da punteggi",
-   "nota": "0.5 pt, posizione 46 su 48 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -29); 19 mesi alla fine del periodo.",
+   "nota": "0.5 pt, posizione 46 su 48 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -29); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2253,7 +2253,7 @@
    "rank": 47,
    "margine": -30,
    "stato": "Stima da punteggi",
-   "nota": "0.5 pt, posizione 47 su 48 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -30); 19 mesi alla fine del periodo.",
+   "nota": "0.5 pt, posizione 47 su 48 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -30); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -2268,7 +2268,7 @@
    "rank": 48,
    "margine": -31,
    "stato": "Stima da punteggi",
-   "nota": "0.5 pt, posizione 48 su 48 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -31); 19 mesi alla fine del periodo.",
+   "nota": "0.5 pt, posizione 48 su 48 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine -31); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -4563,7 +4563,7 @@
    "rank": 21,
    "margine": 11,
    "stato": "Stima da punteggi",
-   "nota": "9.19 WON, posizione 21 su 27 in classifica per questa prova; posti decisi dal ranking 32 su 35 (margine +11); 18 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 32): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "9.19 WON, posizione 21 su 27 in classifica per questa prova; posti decisi dal ranking 32 su 35 (margine +11); 17 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 32): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -4578,7 +4578,7 @@
    "rank": 25,
    "margine": 7,
    "stato": "Stima da punteggi",
-   "nota": "10.24 WON, posizione 25 su 32 in classifica per questa prova; posti decisi dal ranking 32 su 35 (margine +7); 18 mesi alla fine del periodo. Nel db ci sono solo 32 atleti con punteggio per questa prova (posti da ranking: 32): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "10.24 WON, posizione 25 su 32 in classifica per questa prova; posti decisi dal ranking 32 su 35 (margine +7); 17 mesi alla fine del periodo. Nel db ci sono solo 32 atleti con punteggio per questa prova (posti da ranking: 32): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -4593,7 +4593,7 @@
    "rank": 21,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "5.95 pt, posizione 21 su 26 in classifica per questa prova; posti decisi dal ranking 14 su 16 (margine -7); 18 mesi alla fine del periodo.",
+   "nota": "5.95 pt, posizione 21 su 26 in classifica per questa prova; posti decisi dal ranking 14 su 16 (margine -7); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -4608,7 +4608,7 @@
    "rank": 28,
    "margine": 4,
    "stato": "Stima da punteggi",
-   "nota": "7.03 WON, posizione 28 su 32 in classifica per questa prova; posti decisi dal ranking 32 su 35 (margine +4); 18 mesi alla fine del periodo. Nel db ci sono solo 32 atleti con punteggio per questa prova (posti da ranking: 32): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "7.03 WON, posizione 28 su 32 in classifica per questa prova; posti decisi dal ranking 32 su 35 (margine +4); 17 mesi alla fine del periodo. Nel db ci sono solo 32 atleti con punteggio per questa prova (posti da ranking: 32): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -4623,7 +4623,7 @@
    "rank": 27,
    "margine": 5,
    "stato": "Stima da punteggi",
-   "nota": "1.16 WON, posizione 27 su 27 in classifica per questa prova; posti decisi dal ranking 32 su 35 (margine +5); 18 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 32): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "1.16 WON, posizione 27 su 27 in classifica per questa prova; posti decisi dal ranking 32 su 35 (margine +5); 17 mesi alla fine del periodo. Nel db ci sono solo 27 atleti con punteggio per questa prova (posti da ranking: 32): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -4683,7 +4683,7 @@
    "rank": 4,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "49.8 pt, posizione 4 su 22 in classifica per questa prova; posti decisi dal ranking 2 su 6 (margine -2); 17 mesi alla fine del periodo.",
+   "nota": "49.8 pt, posizione 4 su 22 in classifica per questa prova; posti decisi dal ranking 2 su 6 (margine -2); 16 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-03-31"
   },
@@ -4783,7 +4783,7 @@
    "nome": "Scampoli / Bianchi",
    "tipo": "Squadra",
    "livello": "Probabile",
-   "p": 92.3,
+   "p": 92.4,
    "via": "Ranking olimpico",
    "rank": 15.0,
    "margine": 7.0,
@@ -4833,7 +4833,7 @@
    "rank": 5,
    "margine": 6,
    "stato": "Stima da punteggi",
-   "nota": "165 WB, posizione 5 su 34 in classifica per questa prova; posti decisi dal ranking 11 su 18 (margine +6); 19 mesi alla fine del periodo.",
+   "nota": "165 WB, posizione 5 su 34 in classifica per questa prova; posti decisi dal ranking 11 su 18 (margine +6); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -4848,7 +4848,7 @@
    "rank": 10,
    "margine": 2,
    "stato": "Stima da punteggi",
-   "nota": "95 WB, posizione 10 su 40 in classifica per questa prova; posti decisi dal ranking 12 su 20 (margine +2); 19 mesi alla fine del periodo.",
+   "nota": "95 WB, posizione 10 su 40 in classifica per questa prova; posti decisi dal ranking 12 su 20 (margine +2); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -4863,7 +4863,7 @@
    "rank": 18,
    "margine": -8,
    "stato": "Stima da punteggi",
-   "nota": "80 pt, posizione 18 su 51 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -8); 19 mesi alla fine del periodo.",
+   "nota": "80 pt, posizione 18 su 51 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -8); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -4878,7 +4878,7 @@
    "rank": 19,
    "margine": -9,
    "stato": "Stima da punteggi",
-   "nota": "50 WB, posizione 19 su 37 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -9); 19 mesi alla fine del periodo.",
+   "nota": "50 WB, posizione 19 su 37 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -9); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -4893,7 +4893,7 @@
    "rank": 23,
    "margine": -13,
    "stato": "Stima da punteggi",
-   "nota": "30 WB, posizione 23 su 39 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -13); 19 mesi alla fine del periodo.",
+   "nota": "30 WB, posizione 23 su 39 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -13); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -4903,12 +4903,12 @@
    "nome": "Martina VASSALLO",
    "tipo": "Atleta",
    "livello": "Fuori",
-   "p": 5.8,
+   "p": 5.7,
    "via": "Ranking da punteggi Athletes",
    "rank": 26,
    "margine": -15,
    "stato": "Stima da punteggi",
-   "nota": "30 WB, posizione 26 su 35 in classifica per questa prova; posti decisi dal ranking 11 su 18 (margine -15); 19 mesi alla fine del periodo.",
+   "nota": "30 WB, posizione 26 su 35 in classifica per questa prova; posti decisi dal ranking 11 su 18 (margine -15); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -4923,7 +4923,7 @@
    "rank": 30,
    "margine": -19,
    "stato": "Stima da punteggi",
-   "nota": "30 WB, posizione 30 su 42 in classifica per questa prova; posti decisi dal ranking 11 su 18 (margine -19); 19 mesi alla fine del periodo.",
+   "nota": "30 WB, posizione 30 su 42 in classifica per questa prova; posti decisi dal ranking 11 su 18 (margine -19); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -4978,12 +4978,12 @@
    "nome": "Dean NWOKEDI CHIME",
    "tipo": "Atleta",
    "livello": "Fuori",
-   "p": 2.2,
+   "p": 2.1,
    "via": "Ranking da punteggi Athletes",
    "rank": 37,
    "margine": -27,
    "stato": "Stima da punteggi",
-   "nota": "7.5 WB, posizione 37 su 37 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -27); 19 mesi alla fine del periodo.",
+   "nota": "7.5 WB, posizione 37 su 37 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -27); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -5103,7 +5103,7 @@
    "rank": 47,
    "margine": -36,
    "stato": "Stima da punteggi",
-   "nota": "15 WB, posizione 47 su 48 in classifica per questa prova; posti decisi dal ranking 11 su 18 (margine -36); 19 mesi alla fine del periodo.",
+   "nota": "15 WB, posizione 47 su 48 in classifica per questa prova; posti decisi dal ranking 11 su 18 (margine -36); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -5178,7 +5178,7 @@
    "rank": 6.0,
    "margine": 10.0,
    "stato": "Qualificato",
-   "nota": "ranking 6, ultimo posto utile 16: margine +10; 20 mesi alla fine del periodo",
+   "nota": "ranking 6, ultimo posto utile 16: margine +10; 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5193,7 +5193,7 @@
    "rank": 1.0,
    "margine": 7.0,
    "stato": "Qualificato",
-   "nota": "ranking 1, ultimo posto utile 8: margine +7; 20 mesi alla fine del periodo",
+   "nota": "ranking 1, ultimo posto utile 8: margine +7; 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5208,7 +5208,7 @@
    "rank": 4.0,
    "margine": 5.0,
    "stato": "Qualificato",
-   "nota": "ranking 4, ultimo posto utile 9: margine +5; 20 mesi alla fine del periodo",
+   "nota": "ranking 4, ultimo posto utile 9: margine +5; 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5223,7 +5223,7 @@
    "rank": 4.0,
    "margine": 4.0,
    "stato": "Qualificato",
-   "nota": "ranking 4, ultimo posto utile 8: margine +4; 20 mesi alla fine del periodo",
+   "nota": "ranking 4, ultimo posto utile 8: margine +4; 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5238,7 +5238,7 @@
    "rank": 15.0,
    "margine": 0.0,
    "stato": "Qualificato",
-   "nota": "ranking 15, ultimo posto utile 15: margine +0; 20 mesi alla fine del periodo",
+   "nota": "ranking 15, ultimo posto utile 15: margine +0; 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5253,7 +5253,7 @@
    "rank": 4.0,
    "margine": 2.0,
    "stato": "Qualificato",
-   "nota": "ranking 4, ultimo posto utile 6: margine +2; 20 mesi alla fine del periodo",
+   "nota": "ranking 4, ultimo posto utile 6: margine +2; 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5268,7 +5268,7 @@
    "rank": 11.0,
    "margine": 0.0,
    "stato": "Qualificato",
-   "nota": "ranking 11, ultimo posto utile 11: margine +0; 20 mesi alla fine del periodo",
+   "nota": "ranking 11, ultimo posto utile 11: margine +0; 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5283,7 +5283,7 @@
    "rank": 12.0,
    "margine": 4.0,
    "stato": "Riserva",
-   "nota": "riserva: ranking 12, ultimo posto utile 16 (margine +4); 20 mesi alla fine del periodo",
+   "nota": "riserva: ranking 12, ultimo posto utile 16 (margine +4); 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5313,7 +5313,7 @@
    "rank": 35.0,
    "margine": -28.0,
    "stato": "Riserva",
-   "nota": "riserva: ranking 35, ultimo posto utile 7 (margine -28); 20 mesi alla fine del periodo",
+   "nota": "riserva: ranking 35, ultimo posto utile 7 (margine -28); 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5328,7 +5328,7 @@
    "rank": 13.0,
    "margine": -7.0,
    "stato": "Riserva",
-   "nota": "riserva: ranking 13, ultimo posto utile 6 (margine -7); 20 mesi alla fine del periodo",
+   "nota": "riserva: ranking 13, ultimo posto utile 6 (margine -7); 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5358,7 +5358,7 @@
    "rank": 14,
    "margine": -12,
    "stato": "Stima da punteggi",
-   "nota": "14.4 pt, posizione 14 su 20 in classifica per questa prova; posti decisi dal ranking 2 su 6 (margine -12); 16 mesi alla fine del periodo.",
+   "nota": "14.4 pt, posizione 14 su 20 in classifica per questa prova; posti decisi dal ranking 2 su 6 (margine -12); 15 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-03-01"
   },
@@ -5388,7 +5388,7 @@
    "rank": 6.0,
    "margine": 11.0,
    "stato": "Qualificato",
-   "nota": "ranking 6, ultimo posto utile 17: margine +11; 20 mesi alla fine del periodo",
+   "nota": "ranking 6, ultimo posto utile 17: margine +11; 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5403,7 +5403,7 @@
    "rank": 2.0,
    "margine": 6.0,
    "stato": "Qualificato",
-   "nota": "ranking 2, ultimo posto utile 8: margine +6; 20 mesi alla fine del periodo; candidati (i punti UCI sono della nazione, formazione non determinabile): Elisa BALSAMO, Vittoria GUAZZINI, Chiara CONSONNI, Martina FIDANZA",
+   "nota": "ranking 2, ultimo posto utile 8: margine +6; 19 mesi alla fine del periodo; candidati (i punti UCI sono della nazione, formazione non determinabile): Elisa BALSAMO, Vittoria GUAZZINI, Chiara CONSONNI, Martina FIDANZA",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5418,7 +5418,7 @@
    "rank": 2.0,
    "margine": 6.0,
    "stato": "Qualificato",
-   "nota": "ranking 2, ultimo posto utile 8: margine +6; 20 mesi alla fine del periodo; candidati (i punti UCI sono della nazione, formazione non determinabile): Francesco LAMON, Filippo GANNA, Jonathan MILAN, Alessio MAGAGNOTTI",
+   "nota": "ranking 2, ultimo posto utile 8: margine +6; 19 mesi alla fine del periodo; candidati (i punti UCI sono della nazione, formazione non determinabile): Francesco LAMON, Filippo GANNA, Jonathan MILAN, Alessio MAGAGNOTTI",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5433,7 +5433,7 @@
    "rank": 3.0,
    "margine": 16.0,
    "stato": "Qualificato",
-   "nota": "ranking 3, ultimo posto utile 19: margine +16; 20 mesi alla fine del periodo",
+   "nota": "ranking 3, ultimo posto utile 19: margine +16; 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5448,7 +5448,7 @@
    "rank": 2.0,
    "margine": 17.0,
    "stato": "Qualificato",
-   "nota": "ranking 2, ultimo posto utile 19: margine +17; 20 mesi alla fine del periodo",
+   "nota": "ranking 2, ultimo posto utile 19: margine +17; 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5463,7 +5463,7 @@
    "rank": 3.0,
    "margine": 16.0,
    "stato": "Qualificato",
-   "nota": "ranking 3, ultimo posto utile 19: margine +16; 20 mesi alla fine del periodo",
+   "nota": "ranking 3, ultimo posto utile 19: margine +16; 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5478,7 +5478,7 @@
    "rank": 5.0,
    "margine": 14.0,
    "stato": "Qualificato",
-   "nota": "ranking 5, ultimo posto utile 19: margine +14; 20 mesi alla fine del periodo",
+   "nota": "ranking 5, ultimo posto utile 19: margine +14; 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5493,7 +5493,7 @@
    "rank": 2.0,
    "margine": 17.0,
    "stato": "Qualificato",
-   "nota": "ranking 2, ultimo posto utile 19: margine +17; 20 mesi alla fine del periodo",
+   "nota": "ranking 2, ultimo posto utile 19: margine +17; 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5508,7 +5508,7 @@
    "rank": 21.0,
    "margine": 11.0,
    "stato": "Qualificato",
-   "nota": "ranking 21, ultimo posto utile 32: margine +11; 20 mesi alla fine del periodo",
+   "nota": "ranking 21, ultimo posto utile 32: margine +11; 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5553,7 +5553,7 @@
    "rank": 34.0,
    "margine": -4.0,
    "stato": "Riserva",
-   "nota": "riserva: ranking 34, ultimo posto utile 30 (margine -4); 20 mesi alla fine del periodo",
+   "nota": "riserva: ranking 34, ultimo posto utile 30 (margine -4); 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5568,7 +5568,7 @@
    "rank": 10.0,
    "margine": -2.0,
    "stato": "Riserva",
-   "nota": "riserva: ranking 10, ultimo posto utile 8 (margine -2); 20 mesi alla fine del periodo",
+   "nota": "riserva: ranking 10, ultimo posto utile 8 (margine -2); 19 mesi alla fine del periodo",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -5613,7 +5613,7 @@
    "rank": 3,
    "margine": 9,
    "stato": "Stima da punteggi",
-   "nota": "SCORE 358.05, posizione 3 su 21 in classifica per questa prova; posti decisi dal ranking 12 su 16 (margine +9); 19 mesi alla fine del periodo.",
+   "nota": "SCORE 358.05, posizione 3 su 21 in classifica per questa prova; posti decisi dal ranking 12 su 16 (margine +9); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -5628,7 +5628,7 @@
    "rank": 2,
    "margine": 4,
    "stato": "Stima da punteggi",
-   "nota": "308.07 pt, posizione 2 su 14 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine +4); 19 mesi alla fine del periodo.",
+   "nota": "308.07 pt, posizione 2 su 14 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine +4); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -5638,12 +5638,12 @@
    "nome": "Sarah JODOIN di MARIA",
    "tipo": "Atleta",
    "livello": "Probabile",
-   "p": 71.4,
+   "p": 71.5,
    "via": "Ranking da punteggi Athletes",
    "rank": 8,
    "margine": 4,
    "stato": "Stima da punteggi",
-   "nota": "SCORE 333.4, posizione 8 su 22 in classifica per questa prova; posti decisi dal ranking 12 su 16 (margine +4); 19 mesi alla fine del periodo.",
+   "nota": "SCORE 333.4, posizione 8 su 22 in classifica per questa prova; posti decisi dal ranking 12 su 16 (margine +4); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -5658,7 +5658,7 @@
    "rank": 4,
    "margine": 2,
    "stato": "Stima da punteggi",
-   "nota": "416.46 pt, posizione 4 su 19 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine +2); 19 mesi alla fine del periodo.",
+   "nota": "416.46 pt, posizione 4 su 19 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine +2); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -5673,7 +5673,7 @@
    "rank": 13,
    "margine": -1,
    "stato": "Stima da punteggi",
-   "nota": "SCORE 455.75, posizione 13 su 22 in classifica per questa prova; posti decisi dal ranking 12 su 16 (margine -1); 19 mesi alla fine del periodo.",
+   "nota": "SCORE 455.75, posizione 13 su 22 in classifica per questa prova; posti decisi dal ranking 12 su 16 (margine -1); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -5688,7 +5688,7 @@
    "rank": 14,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "SCORE 306.25, posizione 14 su 21 in classifica per questa prova; posti decisi dal ranking 12 su 16 (margine -2); 19 mesi alla fine del periodo.",
+   "nota": "SCORE 306.25, posizione 14 su 21 in classifica per questa prova; posti decisi dal ranking 12 su 16 (margine -2); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -5703,7 +5703,7 @@
    "rank": 14,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "SCORE 425.25, posizione 14 su 21 in classifica per questa prova; posti decisi dal ranking 12 su 16 (margine -2); 19 mesi alla fine del periodo.",
+   "nota": "SCORE 425.25, posizione 14 su 21 in classifica per questa prova; posti decisi dal ranking 12 su 16 (margine -2); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -5718,7 +5718,7 @@
    "rank": 15,
    "margine": -3,
    "stato": "Stima da punteggi",
-   "nota": "SCORE 424.2, posizione 15 su 21 in classifica per questa prova; posti decisi dal ranking 12 su 16 (margine -3); 19 mesi alla fine del periodo.",
+   "nota": "SCORE 424.2, posizione 15 su 21 in classifica per questa prova; posti decisi dal ranking 12 su 16 (margine -3); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -5733,7 +5733,7 @@
    "rank": 9,
    "margine": -3,
    "stato": "Stima da punteggi",
-   "nota": "386.7 pt, posizione 9 su 18 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine -3); 19 mesi alla fine del periodo.",
+   "nota": "386.7 pt, posizione 9 su 18 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine -3); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -5748,7 +5748,7 @@
    "rank": 10,
    "margine": -4,
    "stato": "Stima da punteggi",
-   "nota": "386.07 pt, posizione 10 su 18 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine -4); 19 mesi alla fine del periodo.",
+   "nota": "386.07 pt, posizione 10 su 18 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine -4); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -5763,7 +5763,7 @@
    "rank": 19,
    "margine": -7,
    "stato": "Stima da punteggi",
-   "nota": "SCORE 420.15, posizione 19 su 22 in classifica per questa prova; posti decisi dal ranking 12 su 16 (margine -7); 19 mesi alla fine del periodo.",
+   "nota": "SCORE 420.15, posizione 19 su 22 in classifica per questa prova; posti decisi dal ranking 12 su 16 (margine -7); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -5778,7 +5778,7 @@
    "rank": 14,
    "margine": -8,
    "stato": "Stima da punteggi",
-   "nota": "378.45 pt, posizione 14 su 19 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine -8); 19 mesi alla fine del periodo.",
+   "nota": "378.45 pt, posizione 14 su 19 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine -8); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -6093,7 +6093,7 @@
    "rank": 2,
    "margine": 22,
    "stato": "Stima da punteggi",
-   "nota": "318 FEN, posizione 2 su 48 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +22); 18 mesi alla fine del periodo.",
+   "nota": "318 FEN, posizione 2 su 48 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +22); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6108,7 +6108,7 @@
    "rank": 3,
    "margine": 21,
    "stato": "Stima da punteggi",
-   "nota": "273.84 FEN, posizione 3 su 36 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +21); 18 mesi alla fine del periodo.",
+   "nota": "273.84 FEN, posizione 3 su 36 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +21); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6123,7 +6123,7 @@
    "rank": 1,
    "margine": 23,
    "stato": "Stima da punteggi",
-   "nota": "341.8 FEN, posizione 1 su 36 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +23); 18 mesi alla fine del periodo.",
+   "nota": "341.8 FEN, posizione 1 su 36 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +23); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6138,7 +6138,7 @@
    "rank": 3,
    "margine": 21,
    "stato": "Stima da punteggi",
-   "nota": "208.66 FEN, posizione 3 su 56 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +21); 18 mesi alla fine del periodo.",
+   "nota": "208.66 FEN, posizione 3 su 56 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +21); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6153,7 +6153,7 @@
    "rank": 4,
    "margine": 20,
    "stato": "Stima da punteggi",
-   "nota": "257.73 FEN, posizione 4 su 36 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +20); 18 mesi alla fine del periodo.",
+   "nota": "257.73 FEN, posizione 4 su 36 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +20); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6168,7 +6168,7 @@
    "rank": 5,
    "margine": 19,
    "stato": "Stima da punteggi",
-   "nota": "194.22 FEN, posizione 5 su 42 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +19); 18 mesi alla fine del periodo.",
+   "nota": "194.22 FEN, posizione 5 su 42 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +19); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6183,7 +6183,7 @@
    "rank": 5,
    "margine": 19,
    "stato": "Stima da punteggi",
-   "nota": "178.5 FEN, posizione 5 su 48 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +19); 18 mesi alla fine del periodo.",
+   "nota": "178.5 FEN, posizione 5 su 48 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +19); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6198,7 +6198,7 @@
    "rank": 5,
    "margine": 19,
    "stato": "Stima da punteggi",
-   "nota": "168.53 FEN, posizione 5 su 56 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +19); 18 mesi alla fine del periodo.",
+   "nota": "168.53 FEN, posizione 5 su 56 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +19); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6213,7 +6213,7 @@
    "rank": 1,
    "margine": 5,
    "stato": "Stima da punteggi",
-   "nota": "224.4 pt, posizione 1 su 16 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine +5); 18 mesi alla fine del periodo.",
+   "nota": "224.4 pt, posizione 1 su 16 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine +5); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6228,7 +6228,7 @@
    "rank": 1,
    "margine": 5,
    "stato": "Stima da punteggi",
-   "nota": "225.3 pt, posizione 1 su 18 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine +5); 18 mesi alla fine del periodo.",
+   "nota": "225.3 pt, posizione 1 su 18 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine +5); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6243,7 +6243,7 @@
    "rank": 6,
    "margine": 18,
    "stato": "Stima da punteggi",
-   "nota": "182.76 FEN, posizione 6 su 42 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +18); 18 mesi alla fine del periodo.",
+   "nota": "182.76 FEN, posizione 6 su 42 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +18); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6258,7 +6258,7 @@
    "rank": 8,
    "margine": 16,
    "stato": "Stima da punteggi",
-   "nota": "139.98 FEN, posizione 8 su 56 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +16); 18 mesi alla fine del periodo.",
+   "nota": "139.98 FEN, posizione 8 su 56 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +16); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6273,7 +6273,7 @@
    "rank": 8,
    "margine": 16,
    "stato": "Stima da punteggi",
-   "nota": "149.16 FEN, posizione 8 su 42 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +16); 18 mesi alla fine del periodo.",
+   "nota": "149.16 FEN, posizione 8 su 42 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +16); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6288,7 +6288,7 @@
    "rank": 2,
    "margine": 4,
    "stato": "Stima da punteggi",
-   "nota": "132.4 pt, posizione 2 su 21 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine +4); 18 mesi alla fine del periodo.",
+   "nota": "135 pt, posizione 2 su 21 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine +4); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6303,7 +6303,7 @@
    "rank": 17,
    "margine": 7,
    "stato": "Stima da punteggi",
-   "nota": "99.56 FEN, posizione 17 su 44 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +7); 18 mesi alla fine del periodo.",
+   "nota": "99.56 FEN, posizione 17 su 44 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +7); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6318,7 +6318,7 @@
    "rank": 5,
    "margine": 1,
    "stato": "Stima da punteggi",
-   "nota": "103.9 pt, posizione 5 su 24 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine +1); 18 mesi alla fine del periodo.",
+   "nota": "109.9 pt, posizione 5 su 24 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine +1); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6333,7 +6333,7 @@
    "rank": 21,
    "margine": 3,
    "stato": "Stima da punteggi",
-   "nota": "58.17 FEN, posizione 21 su 48 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +3); 18 mesi alla fine del periodo.",
+   "nota": "58.17 FEN, posizione 21 su 48 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +3); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6348,7 +6348,7 @@
    "rank": 25,
    "margine": -1,
    "stato": "Stima da punteggi",
-   "nota": "58.26 FEN, posizione 25 su 43 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine -1); 18 mesi alla fine del periodo.",
+   "nota": "58.26 FEN, posizione 25 su 43 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine -1); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6363,7 +6363,7 @@
    "rank": 24,
    "margine": 0,
    "stato": "Stima da punteggi",
-   "nota": "55.98 FEN, posizione 24 su 44 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +0); 18 mesi alla fine del periodo.",
+   "nota": "55.98 FEN, posizione 24 su 44 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +0); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6378,7 +6378,7 @@
    "rank": 24,
    "margine": 0,
    "stato": "Stima da punteggi",
-   "nota": "60.09 FEN, posizione 24 su 43 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +0); 18 mesi alla fine del periodo.",
+   "nota": "60.09 FEN, posizione 24 su 43 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine +0); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6393,7 +6393,7 @@
    "rank": 7,
    "margine": -1,
    "stato": "Stima da punteggi",
-   "nota": "91 pt, posizione 7 su 20 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine -1); 18 mesi alla fine del periodo.",
+   "nota": "91 pt, posizione 7 su 20 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine -1); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6408,7 +6408,7 @@
    "rank": 28,
    "margine": -4,
    "stato": "Stima da punteggi",
-   "nota": "50.7 FEN, posizione 28 su 43 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine -4); 18 mesi alla fine del periodo.",
+   "nota": "50.7 FEN, posizione 28 su 43 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine -4); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6423,7 +6423,7 @@
    "rank": 8,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "63.5 pt, posizione 8 su 17 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine -2); 18 mesi alla fine del periodo.",
+   "nota": "63.5 pt, posizione 8 su 17 in classifica per questa prova; posti decisi dal ranking 6 su 8 (margine -2); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -6438,7 +6438,7 @@
    "rank": 39,
    "margine": -15,
    "stato": "Stima da punteggi",
-   "nota": "28.89 FEN, posizione 39 su 44 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine -15); 18 mesi alla fine del periodo.",
+   "nota": "28.89 FEN, posizione 39 su 44 in classifica per questa prova; posti decisi dal ranking 24 su 34 (margine -15); 17 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-04-30"
   },
@@ -7243,7 +7243,7 @@
    "nome": "PARLATI Manuel",
    "tipo": "Atleta",
    "livello": "Probabile",
-   "p": 85.1,
+   "p": 85.2,
    "via": "Qualificazione diretta (ranking olimpico)",
    "rank": 18.0,
    "margine": 5.0,
@@ -7288,7 +7288,7 @@
    "nome": "ACCOGLI Valerio",
    "tipo": "Atleta",
    "livello": "Possibile",
-   "p": 68.1,
+   "p": 68.2,
    "via": "Qualificazione diretta (ranking olimpico)",
    "rank": 22.0,
    "margine": 2.0,
@@ -8148,7 +8148,7 @@
    "rank": 9,
    "margine": 4,
    "stato": "Stima da punteggi",
-   "nota": "37.4 pt, posizione 9 su 27 in classifica per questa prova; posti decisi dal ranking 13 su 32 (margine +4); 20 mesi alla fine del periodo.",
+   "nota": "37.4 pt, posizione 9 su 27 in classifica per questa prova; posti decisi dal ranking 13 su 32 (margine +4); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -8163,7 +8163,7 @@
    "rank": 18,
    "margine": -5,
    "stato": "Stima da punteggi",
-   "nota": "9.9 pt, posizione 18 su 26 in classifica per questa prova; posti decisi dal ranking 13 su 32 (margine -5); 20 mesi alla fine del periodo.",
+   "nota": "9.9 pt, posizione 18 su 26 in classifica per questa prova; posti decisi dal ranking 13 su 32 (margine -5); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -8178,7 +8178,7 @@
    "rank": 19,
    "margine": -6,
    "stato": "Stima da punteggi",
-   "nota": "8.5 pt, posizione 19 su 26 in classifica per questa prova; posti decisi dal ranking 13 su 32 (margine -6); 20 mesi alla fine del periodo.",
+   "nota": "8.5 pt, posizione 19 su 26 in classifica per questa prova; posti decisi dal ranking 13 su 32 (margine -6); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -8193,7 +8193,7 @@
    "rank": 22,
    "margine": -9,
    "stato": "Stima da punteggi",
-   "nota": "7.7 pt, posizione 22 su 27 in classifica per questa prova; posti decisi dal ranking 13 su 32 (margine -9); 20 mesi alla fine del periodo.",
+   "nota": "7.7 pt, posizione 22 su 27 in classifica per questa prova; posti decisi dal ranking 13 su 32 (margine -9); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -8538,7 +8538,7 @@
    "rank": 6,
    "margine": 11,
    "stato": "Stima da punteggi",
-   "nota": "40 pt, posizione 6 su 24 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +11); 19 mesi alla fine del periodo. Nel db ci sono solo 24 atleti con punteggio per questa prova (posti da ranking: 17): stima prudente, migliora quando si aggiungono i risultati.",
+   "nota": "40 pt, posizione 6 su 24 in classifica per questa prova; posti decisi dal ranking 17 su 24 (margine +11); 18 mesi alla fine del periodo. Nel db ci sono solo 24 atleti con punteggio per questa prova (posti da ranking: 17): stima prudente, migliora quando si aggiungono i risultati.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -8553,7 +8553,7 @@
    "rank": 12,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "37.5 pt, posizione 12 su 22 in classifica per questa prova; posti decisi dal ranking 10 su 14 (margine -2); 19 mesi alla fine del periodo.",
+   "nota": "37.5 pt, posizione 12 su 22 in classifica per questa prova; posti decisi dal ranking 10 su 14 (margine -2); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -8578,7 +8578,7 @@
    "nome": "Matteo LODO/Giovanni CODATO",
    "tipo": "Squadra",
    "livello": "Probabile",
-   "p": 81.5,
+   "p": 81.6,
    "via": "Ranking da punteggi Athletes",
    "rank": 4,
    "margine": 5,
@@ -8653,7 +8653,7 @@
    "nome": "Italia (donne)",
    "tipo": "Squadra",
    "livello": "Remoto",
-   "p": 34.3,
+   "p": 34.2,
    "via": "Ranking da punteggi Athletes",
    "rank": 10,
    "margine": -3,
@@ -9658,7 +9658,7 @@
    "nome": "Debora CROSATO",
    "tipo": "Atleta",
    "livello": "Possibile",
-   "p": 44.9,
+   "p": 44.8,
    "via": "Ranking da punteggi Athletes",
    "rank": 21,
    "margine": -4,
@@ -10518,7 +10518,7 @@
    "rank": 1,
    "margine": 1,
    "stato": "Stima da punteggi",
-   "nota": "76.6 pt, posizione 1 su 13 in classifica per questa prova; posti decisi dal ranking 2 su 6 (margine +1); 17 mesi alla fine del periodo.",
+   "nota": "76.6 pt, posizione 1 su 13 in classifica per questa prova; posti decisi dal ranking 2 su 6 (margine +1); 16 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-03-31"
   },
@@ -10588,7 +10588,7 @@
    "nome": "Camilla MORONI",
    "tipo": "Atleta",
    "livello": "Remoto",
-   "p": 27.7,
+   "p": 27.6,
    "via": "Ranking da punteggi Athletes",
    "rank": 12,
    "margine": -5,
@@ -13263,7 +13263,7 @@
    "rank": 6.0,
    "margine": 64.0,
    "stato": "Qualificato",
-   "nota": "ranking 6, ultimo posto utile 70: margine +64; 20 mesi alla fine del periodo; singolare 6, doppio 364",
+   "nota": "ranking 6, ultimo posto utile 70: margine +64; 19 mesi alla fine del periodo; singolare 6, doppio 364",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -13278,7 +13278,7 @@
    "rank": 16.0,
    "margine": 101.0,
    "stato": "Qualificato",
-   "nota": "ranking 16, ultimo posto utile 117: margine +101; 20 mesi alla fine del periodo; Flavio Cobolli (S6/D364) + Simone Bolelli (S-/D10); somma dei migliori ranking = 16 | ATP doppio: classifica LIVE (live-tennis.eu), non quella ufficiale",
+   "nota": "ranking 16, ultimo posto utile 117: margine +101; 19 mesi alla fine del periodo; Flavio Cobolli (S6/D364) + Simone Bolelli (S-/D10); somma dei migliori ranking = 16 | ATP doppio: classifica LIVE (live-tennis.eu), non quella ufficiale",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -13293,7 +13293,7 @@
    "rank": 2.0,
    "margine": 68.0,
    "stato": "Qualificato",
-   "nota": "ranking 2, ultimo posto utile 70: margine +68; 20 mesi alla fine del periodo; singolare 2",
+   "nota": "ranking 2, ultimo posto utile 70: margine +68; 19 mesi alla fine del periodo; singolare 2",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -13308,7 +13308,7 @@
    "rank": 9.0,
    "margine": 108.0,
    "stato": "Qualificato",
-   "nota": "ranking 9, ultimo posto utile 117: margine +108; 20 mesi alla fine del periodo; Jannik Sinner (S2/D-) + Andrea Vavassori (S601/D7); somma dei migliori ranking = 9 | ATP doppio: classifica LIVE (live-tennis.eu), non quella ufficiale",
+   "nota": "ranking 9, ultimo posto utile 117: margine +108; 19 mesi alla fine del periodo; Jannik Sinner (S2/D-) + Andrea Vavassori (S601/D7); somma dei migliori ranking = 9 | ATP doppio: classifica LIVE (live-tennis.eu), non quella ufficiale",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -13323,7 +13323,7 @@
    "rank": 35.0,
    "margine": 36.0,
    "stato": "Qualificato",
-   "nota": "ranking 35, ultimo posto utile 71: margine +36; 20 mesi alla fine del periodo; singolare 35, doppio 25",
+   "nota": "ranking 35, ultimo posto utile 71: margine +36; 19 mesi alla fine del periodo; singolare 35, doppio 25",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -13338,7 +13338,7 @@
    "rank": 24.0,
    "margine": 46.0,
    "stato": "Qualificato",
-   "nota": "ranking 24, ultimo posto utile 70: margine +46; 20 mesi alla fine del periodo; singolare 24, doppio 211",
+   "nota": "ranking 24, ultimo posto utile 70: margine +46; 19 mesi alla fine del periodo; singolare 24, doppio 211",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -13353,7 +13353,7 @@
    "rank": 21.0,
    "margine": 49.0,
    "stato": "Qualificato",
-   "nota": "ranking 21, ultimo posto utile 70: margine +49; 20 mesi alla fine del periodo; singolare 21, doppio 191",
+   "nota": "ranking 21, ultimo posto utile 70: margine +49; 19 mesi alla fine del periodo; singolare 21, doppio 191",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -13368,7 +13368,7 @@
    "rank": 37.0,
    "margine": 110.0,
    "stato": "Qualificato",
-   "nota": "ranking 37, ultimo posto utile 147: margine +110; 20 mesi alla fine del periodo; Sara Errani (S-/D12) + Jasmine Paolini (S35/D25); somma dei migliori ranking = 37",
+   "nota": "ranking 37, ultimo posto utile 147: margine +110; 19 mesi alla fine del periodo; Sara Errani (S-/D12) + Jasmine Paolini (S35/D25); somma dei migliori ranking = 37",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -13428,7 +13428,7 @@
    "rank": 12,
    "margine": -1,
    "stato": "Stima da punteggi",
-   "nota": "23.2 pt, posizione 12 su 27 in classifica per questa prova; posti decisi dal ranking 11 su 16 (margine -1); 19 mesi alla fine del periodo.",
+   "nota": "23.2 pt, posizione 12 su 27 in classifica per questa prova; posti decisi dal ranking 11 su 16 (margine -1); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -13443,7 +13443,7 @@
    "rank": 20,
    "margine": -9,
    "stato": "Stima da punteggi",
-   "nota": "8.4 pt, posizione 20 su 28 in classifica per questa prova; posti decisi dal ranking 11 su 16 (margine -9); 19 mesi alla fine del periodo.",
+   "nota": "8.4 pt, posizione 20 su 28 in classifica per questa prova; posti decisi dal ranking 11 su 16 (margine -9); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -13458,7 +13458,7 @@
    "rank": 27,
    "margine": -16,
    "stato": "Stima da punteggi",
-   "nota": "2.4 pt, posizione 27 su 28 in classifica per questa prova; posti decisi dal ranking 11 su 16 (margine -16); 19 mesi alla fine del periodo.",
+   "nota": "2.4 pt, posizione 27 su 28 in classifica per questa prova; posti decisi dal ranking 11 su 16 (margine -16); 18 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-05-31"
   },
@@ -13629,166 +13629,31 @@
   },
   {
    "sport": "Weightlifting",
-   "disciplina": "Women's 69kg",
-   "nome": "Genna Romida TOKO KEGNE",
-   "tipo": "Atleta",
-   "livello": "Possibile",
-   "p": 53.1,
-   "via": "Ranking da punteggi Athletes",
-   "rank": 10,
-   "margine": 0,
-   "stato": "Stima da punteggi",
-   "nota": "235 KG, posizione 10 su 17 in classifica per questa prova; posti decisi dal ranking 10 su 12 (margine +0); 18 mesi alla fine del periodo.",
-   "pass": "",
-   "fine": "2028-05-07"
-  },
-  {
-   "sport": "Weightlifting",
-   "disciplina": "Women's -48kg IWF",
-   "nome": "Giulia IMPERIO",
-   "tipo": "Atleta",
-   "livello": "Possibile",
-   "p": 49.9,
-   "via": "Ranking da punteggi Athletes",
-   "rank": 5,
-   "margine": 5,
-   "stato": "Stima da punteggi",
-   "nota": "54 pt, posizione 5 su 13 in classifica per questa prova; posti decisi dal ranking 10 su 12 (margine +5); 18 mesi alla fine del periodo. Nel db ci sono solo 13 atleti con punteggio per questa prova (posti da ranking: 10): stima prudente, migliora quando si aggiungono i risultati.",
-   "pass": "",
-   "fine": "2028-05-07"
-  },
-  {
-   "sport": "Weightlifting",
-   "disciplina": "Women's 77kg",
-   "nome": "Genna Romida TOKO KEGNE",
-   "tipo": "Atleta",
-   "livello": "Possibile",
-   "p": 43.8,
-   "via": "Ranking da punteggi Athletes",
-   "rank": 12,
-   "margine": -2,
-   "stato": "Stima da punteggi",
-   "nota": "235 KG, posizione 12 su 15 in classifica per questa prova; posti decisi dal ranking 10 su 12 (margine -2); 18 mesi alla fine del periodo.",
-   "pass": "",
-   "fine": "2028-05-07"
-  },
-  {
-   "sport": "Weightlifting",
-   "disciplina": "Women's -58kg IWF",
-   "nome": "Noemi FILIPPAZZO",
-   "tipo": "Atleta",
-   "livello": "Possibile",
-   "p": 38.2,
-   "via": "Ranking da punteggi Athletes",
-   "rank": 13,
-   "margine": -3,
-   "stato": "Stima da punteggi",
-   "nota": "16.2 pt, posizione 13 su 16 in classifica per questa prova; posti decisi dal ranking 10 su 12 (margine -3); 18 mesi alla fine del periodo.",
-   "pass": "",
-   "fine": "2028-05-07"
-  },
-  {
-   "sport": "Weightlifting",
-   "disciplina": "Men's 110kg",
-   "nome": "Simone Karol ABATI",
+   "disciplina": "Uomini 65 kg",
+   "nome": "MASSIDDA Sergio",
    "tipo": "Atleta",
    "livello": "Remoto",
-   "p": 33.1,
-   "via": "Ranking da punteggi Athletes",
-   "rank": 14,
-   "margine": -4,
-   "stato": "Stima da punteggi",
-   "nota": "373 KG, posizione 14 su 15 in classifica per questa prova; posti decisi dal ranking 10 su 12 (margine -4); 18 mesi alla fine del periodo.",
+   "p": 12.4,
+   "via": "Fuori dai posti",
+   "rank": 13.0,
+   "margine": -5.0,
+   "stato": "Fuori",
+   "nota": "fuori dai posti: ranking 13, soglia 8 (margine -5), piu' chance residua di altre vie; oltre i posti disponibili · nato/a il 26.01.2002 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 290 kg (gara 65 kg, 16º)",
    "pass": "",
    "fine": "2028-05-07"
   },
   {
    "sport": "Weightlifting",
-   "disciplina": "Men's 65kg IWF",
-   "nome": "Sergio MASSIDDA",
+   "disciplina": "Donne 61 kg",
+   "nome": "MAGISTRIS Lucrezia",
    "tipo": "Atleta",
    "livello": "Remoto",
-   "p": 32.1,
-   "via": "Ranking da punteggi Athletes",
-   "rank": 11,
-   "margine": -1,
-   "stato": "Stima da punteggi",
-   "nota": "290 KG, posizione 11 su 14 in classifica per questa prova; posti decisi dal ranking 10 su 12 (margine -1); 18 mesi alla fine del periodo. Nel db ci sono solo 14 atleti con punteggio per questa prova (posti da ranking: 10): stima prudente, migliora quando si aggiungono i risultati.",
-   "pass": "",
-   "fine": "2028-05-07"
-  },
-  {
-   "sport": "Weightlifting",
-   "disciplina": "Men's 88kg IWF",
-   "nome": "Cristiano Giuseppe FICCO",
-   "tipo": "Atleta",
-   "livello": "Remoto",
-   "p": 28.8,
-   "via": "Ranking da punteggi Athletes",
-   "rank": 11,
-   "margine": -1,
-   "stato": "Stima da punteggi",
-   "nota": "13.5 pt, posizione 11 su 13 in classifica per questa prova; posti decisi dal ranking 10 su 12 (margine -1); 18 mesi alla fine del periodo. Nel db ci sono solo 13 atleti con punteggio per questa prova (posti da ranking: 10): stima prudente, migliora quando si aggiungono i risultati.",
-   "pass": "",
-   "fine": "2028-05-07"
-  },
-  {
-   "sport": "Weightlifting",
-   "disciplina": "Women's 61kg",
-   "nome": "Lucrezia MAGISTRIS",
-   "tipo": "Atleta",
-   "livello": "Remoto",
-   "p": 26.8,
-   "via": "Ranking da punteggi Athletes",
-   "rank": 5,
-   "margine": 5,
-   "stato": "Stima da punteggi",
-   "nota": "209 KG, posizione 5 su 5 in classifica per questa prova; posti decisi dal ranking 10 su 12 (margine +5); 18 mesi alla fine del periodo. Nel db ci sono solo 5 atleti con punteggio per questa prova (posti da ranking: 10): stima prudente, migliora quando si aggiungono i risultati.",
-   "pass": "",
-   "fine": "2028-05-07"
-  },
-  {
-   "sport": "Weightlifting",
-   "disciplina": "Men's -65kg",
-   "nome": "Sergio MASSIDDA",
-   "tipo": "Atleta",
-   "livello": "Remoto",
-   "p": 16.0,
-   "via": "Ranking da punteggi Athletes",
-   "rank": 14,
-   "margine": -4,
-   "stato": "Stima da punteggi",
-   "nota": "6.5 pt, posizione 14 su 14 in classifica per questa prova; posti decisi dal ranking 10 su 12 (margine -4); 18 mesi alla fine del periodo. Nel db ci sono solo 14 atleti con punteggio per questa prova (posti da ranking: 10): stima prudente, migliora quando si aggiungono i risultati.",
-   "pass": "",
-   "fine": "2028-05-07"
-  },
-  {
-   "sport": "Weightlifting",
-   "disciplina": "Women's 69kg",
-   "nome": "Giulia MISERENDINO",
-   "tipo": "Atleta",
-   "livello": "Fuori",
-   "p": 2.0,
-   "via": "",
-   "rank": null,
-   "margine": null,
-   "stato": "Senza punti nel ranking",
-   "nota": "nella colonna di riferimento (WON/FEN/WB/UWW/KG) ha 0 punti: non e' in classifica; passa solo con una via diversa dal ranking",
-   "pass": "",
-   "fine": "2028-05-07"
-  },
-  {
-   "sport": "Weightlifting",
-   "disciplina": "Women's 86kg",
-   "nome": "Sara DAL BO",
-   "tipo": "Atleta",
-   "livello": "Fuori",
-   "p": 2.0,
-   "via": "",
-   "rank": null,
-   "margine": null,
-   "stato": "Senza punti nel ranking",
-   "nota": "nella colonna di riferimento (WON/FEN/WB/UWW/KG) ha 0 punti: non e' in classifica; passa solo con una via diversa dal ranking",
+   "p": 8.3,
+   "via": "Fuori dai posti",
+   "rank": 19.0,
+   "margine": -9.0,
+   "stato": "Fuori",
+   "nota": "fuori dai posti: ranking 19, soglia 10 (margine -9), piu' chance residua di altre vie; oltre i posti disponibili · nato/a il 21.04.1999 · Totali validi: P1 1/3, P2 0/2 · Mondiali 2026 Ningbo: 209 kg (gara 61 kg, 23º)",
    "pass": "",
    "fine": "2028-05-07"
   },
@@ -13892,8 +13757,68 @@
    "via": "",
    "rank": null,
    "margine": null,
-   "stato": "Senza punteggio",
-   "nota": "in Athletes non ci sono punti per la prova: serve un ranking o un risultato per stimare",
+   "stato": "Senza simulazione",
+   "nota": "la simulazione non ha una riga per questo atleta",
+   "pass": "",
+   "fine": "2028-05-07"
+  },
+  {
+   "sport": "Weightlifting",
+   "disciplina": "🔴Men's 88kg IWF",
+   "nome": "Cristiano Giuseppe FICCO",
+   "tipo": "Atleta",
+   "livello": "Dati insufficienti",
+   "p": null,
+   "via": "",
+   "rank": null,
+   "margine": null,
+   "stato": "Senza simulazione",
+   "nota": "la simulazione non ha una riga per questo atleta",
+   "pass": "",
+   "fine": "2028-05-07"
+  },
+  {
+   "sport": "Weightlifting",
+   "disciplina": "Women's 77kg, Women's 69kg",
+   "nome": "Genna Romida TOKO KEGNE",
+   "tipo": "Atleta",
+   "livello": "Dati insufficienti",
+   "p": null,
+   "via": "",
+   "rank": null,
+   "margine": null,
+   "stato": "Senza simulazione",
+   "nota": "la simulazione non ha una riga per questo atleta",
+   "pass": "",
+   "fine": "2028-05-07"
+  },
+  {
+   "sport": "Weightlifting",
+   "disciplina": "🔴Women's 49kg IWF",
+   "nome": "Giulia IMPERIO",
+   "tipo": "Atleta",
+   "livello": "Dati insufficienti",
+   "p": null,
+   "via": "",
+   "rank": null,
+   "margine": null,
+   "stato": "Senza simulazione",
+   "nota": "la simulazione non ha una riga per questo atleta",
+   "pass": "",
+   "fine": "2028-05-07"
+  },
+  {
+   "sport": "Weightlifting",
+   "disciplina": "Women's 69kg",
+   "nome": "Giulia MISERENDINO",
+   "tipo": "Atleta",
+   "livello": "Dati insufficienti",
+   "p": null,
+   "via": "",
+   "rank": null,
+   "margine": null,
+   "stato": "Senza simulazione",
+   "nota": "la simulazione non ha una riga per questo atleta",
    "pass": "",
    "fine": "2028-05-07"
   },
@@ -13907,8 +13832,23 @@
    "via": "",
    "rank": null,
    "margine": null,
-   "stato": "Senza punteggio",
-   "nota": "in Athletes non ci sono punti per la prova: serve un ranking o un risultato per stimare",
+   "stato": "Senza simulazione",
+   "nota": "la simulazione non ha una riga per questo atleta",
+   "pass": "",
+   "fine": "2028-05-07"
+  },
+  {
+   "sport": "Weightlifting",
+   "disciplina": "🔴Women's 57kg IWF",
+   "nome": "Noemi FILIPPAZZO",
+   "tipo": "Atleta",
+   "livello": "Dati insufficienti",
+   "p": null,
+   "via": "",
+   "rank": null,
+   "margine": null,
+   "stato": "Senza simulazione",
+   "nota": "la simulazione non ha una riga per questo atleta",
    "pass": "",
    "fine": "2028-05-07"
   },
@@ -13922,8 +13862,38 @@
    "via": "",
    "rank": null,
    "margine": null,
-   "stato": "Senza punteggio",
-   "nota": "in Athletes non ci sono punti per la prova: serve un ranking o un risultato per stimare",
+   "stato": "Senza simulazione",
+   "nota": "la simulazione non ha una riga per questo atleta",
+   "pass": "",
+   "fine": "2028-05-07"
+  },
+  {
+   "sport": "Weightlifting",
+   "disciplina": "Women's 86kg",
+   "nome": "Sara DAL BO",
+   "tipo": "Atleta",
+   "livello": "Dati insufficienti",
+   "p": null,
+   "via": "",
+   "rank": null,
+   "margine": null,
+   "stato": "Senza simulazione",
+   "nota": "la simulazione non ha una riga per questo atleta",
+   "pass": "",
+   "fine": "2028-05-07"
+  },
+  {
+   "sport": "Weightlifting",
+   "disciplina": "Men's 110kg",
+   "nome": "Simone Karol ABATI",
+   "tipo": "Atleta",
+   "livello": "Dati insufficienti",
+   "p": null,
+   "via": "",
+   "rank": null,
+   "margine": null,
+   "stato": "Senza simulazione",
+   "nota": "la simulazione non ha una riga per questo atleta",
    "pass": "",
    "fine": "2028-05-07"
   },
@@ -13938,7 +13908,7 @@
    "rank": 9,
    "margine": 1,
    "stato": "Stima da punteggi",
-   "nota": "33.12 UWW, posizione 9 su 22 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine +1); 20 mesi alla fine del periodo.",
+   "nota": "33.12 UWW, posizione 9 su 22 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine +1); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -13953,7 +13923,7 @@
    "rank": 10,
    "margine": 0,
    "stato": "Stima da punteggi",
-   "nota": "24.8 UWW, posizione 10 su 30 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine +0); 20 mesi alla fine del periodo.",
+   "nota": "24.8 UWW, posizione 10 su 30 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine +0); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -13968,7 +13938,7 @@
    "rank": 12,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "29 UWW, posizione 12 su 25 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -2); 20 mesi alla fine del periodo.",
+   "nota": "29 UWW, posizione 12 su 25 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -2); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -13983,7 +13953,7 @@
    "rank": 12,
    "margine": -2,
    "stato": "Stima da punteggi",
-   "nota": "23.5 UWW, posizione 12 su 22 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -2); 20 mesi alla fine del periodo.",
+   "nota": "23.5 UWW, posizione 12 su 22 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -2); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -13998,7 +13968,7 @@
    "rank": 15,
    "margine": -5,
    "stato": "Stima da punteggi",
-   "nota": "17.4 UWW, posizione 15 su 25 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -5); 20 mesi alla fine del periodo.",
+   "nota": "17.4 UWW, posizione 15 su 25 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -5); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -14013,7 +13983,7 @@
    "rank": 18,
    "margine": -8,
    "stato": "Stima da punteggi",
-   "nota": "16.1 UWW, posizione 18 su 28 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -8); 20 mesi alla fine del periodo.",
+   "nota": "16.1 UWW, posizione 18 su 28 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -8); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -14028,7 +13998,7 @@
    "rank": 19,
    "margine": -9,
    "stato": "Stima da punteggi",
-   "nota": "17.4 UWW, posizione 19 su 25 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -9); 20 mesi alla fine del periodo.",
+   "nota": "17.4 UWW, posizione 19 su 25 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -9); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -14043,7 +14013,7 @@
    "rank": 20,
    "margine": -10,
    "stato": "Stima da punteggi",
-   "nota": "10 UWW, posizione 20 su 24 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -10); 20 mesi alla fine del periodo.",
+   "nota": "10 UWW, posizione 20 su 24 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -10); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -14058,7 +14028,7 @@
    "rank": 22,
    "margine": -12,
    "stato": "Stima da punteggi",
-   "nota": "7 UWW, posizione 22 su 27 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -12); 20 mesi alla fine del periodo.",
+   "nota": "7 UWW, posizione 22 su 27 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -12); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -14073,7 +14043,7 @@
    "rank": 24,
    "margine": -14,
    "stato": "Stima da punteggi",
-   "nota": "9.4 UWW, posizione 24 su 29 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -14); 20 mesi alla fine del periodo.",
+   "nota": "9.4 UWW, posizione 24 su 29 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -14); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -14088,7 +14058,7 @@
    "rank": 25,
    "margine": -15,
    "stato": "Stima da punteggi",
-   "nota": "8.5 UWW, posizione 25 su 31 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -15); 20 mesi alla fine del periodo.",
+   "nota": "8.5 UWW, posizione 25 su 31 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -15); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },
@@ -14103,7 +14073,7 @@
    "rank": 29,
    "margine": -19,
    "stato": "Stima da punteggi",
-   "nota": "2.7 pt, posizione 29 su 29 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -19); 20 mesi alla fine del periodo.",
+   "nota": "2.7 pt, posizione 29 su 29 in classifica per questa prova; posti decisi dal ranking 10 su 16 (margine -19); 19 mesi alla fine del periodo.",
    "pass": "",
    "fine": "2028-06-30"
   },

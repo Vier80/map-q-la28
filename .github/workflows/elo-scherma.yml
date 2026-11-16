@@ -1,0 +1,75 @@
+name: ELO Scherma
+
+# Repo map-q-la28, file .github/workflows/elo-scherma.yml
+# (versione 1 del 16/11/2026, scheda 26, sessione 2).
+# Parte a mano: Actions -> ELO Scherma -> Run workflow.
+# L'avvio automatico alla fine dell'agente scherma e la ripubblicazione della pagina
+# arrivano nella sessione 3 (come per "ELO Judo").
+on:
+  workflow_dispatch:
+    inputs:
+      solo_prova:
+        description: "Solo prova: calcola l'ELO e prepara gli elenchi, senza scrivere su Notion"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write          # serve per salvare scherma-elo.json nel repository
+
+# due calcoli contemporanei scriverebbero due volte in Athletes: il secondo aspetta il primo
+concurrency:
+  group: elo-scherma
+  cancel-in-progress: false
+
+jobs:
+  elo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Calcola l'ELO (e, se non è una prova, scrive in Athletes)
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          DRY_RUN: ${{ inputs.solo_prova }}
+          TEMPO_MAX_MINUTI: "165"
+        # lo script scrive da solo il rapporto in rapporto_elo_scherma.txt
+        run: python -u elo_scherma.py
+
+      - name: Conserva rapporto ed elenchi (Artifacts in fondo alla pagina del lancio)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: elo-scherma
+          path: |
+            rapporto_elo_scherma.txt
+            scherma_elo_abbinati.csv
+            scherma_elo_da_creare.csv
+            scherma_elo_incerti.csv
+            scherma-elo.json
+          if-no-files-found: ignore
+
+      - name: Salva scherma-elo.json nel repository (solo nel lancio vero)
+        # "always()" = anche se lo script ha avuto qualche errore di scrittura: il JSON è comunque valido
+        if: always() && format('{0}', inputs.solo_prova) == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scherma-elo.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "scherma-elo.json invariato"
+            exit 0
+          fi
+          git commit -m "Aggiorna l'ELO scherma"
+          # il workflow della mappa salva file ogni 15 minuti: prima di salvare prendo le sue modifiche
+          for tentativo in 1 2 3; do
+            if git pull --rebase && git push; then
+              exit 0
+            fi
+            sleep 10
+          done
+          echo "Non sono riuscito a salvare scherma-elo.json"
+          exit 1

@@ -11,6 +11,12 @@ Le 5 specialità: singolare maschile e femminile, doppio maschile, femminile e m
 Nei doppi la coppia è una sola pagina del db Athletes (es. "SEO Seung-jae/CHAE Yu-jung"),
 quindi viene trattata come un unico "atleta".
 
+NOVITÀ del 17/11/2026 (scheda 33, ELO badminton sessione 3): ELO
+Se nella cartella c'è badminton-elo.json (lo salva il workflow "ELO Badminton" ogni lunedì), lo
+script aggiunge a badminton-performance.json l'ELO di ogni atleta o coppia. Il collegamento passa
+dal campo "notion" di badminton-elo.json, che è l'id della pagina di Athletes, cioè lo stesso "id"
+usato qui. Se badminton-elo.json manca o non si legge, la pagina funziona lo stesso, senza ELO.
+
 Uso:
   NOTION_TOKEN=... python aggiorna_badminton_performance.py
   python aggiorna_badminton_performance.py --da-raw raw.json    prova con dati salvati
@@ -33,6 +39,10 @@ from aggiorna_judo_performance import (DB_ATHLETES, DB_RISULTATI, NON_PRESENTATI
 # nome della Disciplina in Notion -> sigla usata dalla pagina
 SPECIALITA = {"🏸Men's Singles": "MS", "🏸Women's Singles": "WS", "🏸Men's Doubles": "MD",
               "🏸Women's Doubles": "WD", "🏸Mixed Doubles": "XD"}
+
+# ---------------------------------------------------------------- ELO (novità del 17/11/2026)
+FILE_ELO = CARTELLA / "badminton-elo.json"   # prodotto da elo_badminton.py nello stesso repository
+TOP_ELO = 10                                 # quanti nella "Classifica ELO · top 10" di ogni specialità
 
 
 # ---------------------------------------------------------------- NOTION
@@ -111,6 +121,99 @@ def aggrega(ath, res, oggi):
             "n_risultati": sum(a["gare"] for a in atleti)}
 
 
+# ---------------------------------------------------------------- ELO (novità del 17/11/2026)
+def dati_elo_atleta(e):
+    """Dati ELO di un atleta o coppia per la pagina, nel formato compatto di badminton-performance.json.
+
+    liv = livello ("stabile", "provvisorio", "nascosto"); n = incontri; t = tornei.
+    Solo se il livello non è "nascosto": v = ELO, max = ELO massimo, vit = vittorie,
+    ult = data dell'ultimo incontro, st = storico [[data, ELO dopo il torneo, codice torneo], ...].
+    """
+    out = {"liv": e.get("livello"), "n": e.get("incontri", 0), "t": e.get("tornei", 0)}
+    if e.get("livello") in ("stabile", "provvisorio"):
+        out.update(v=e.get("elo"), max=e.get("elo_max"), vit=e.get("vittorie"), ult=e.get("ultimo"),
+                   st=e.get("storico") or [])
+    return out
+
+
+def bandiera_e_noc(noc_notion):
+    """'🇮🇹ITA' (valore di Athletes) -> ('🇮🇹', 'ITA'). Se il formato non torna: ('', valore così com'è)."""
+    m = re.match(r"^(\W*?)([A-Z]{3})$", (noc_notion or "").strip())
+    return (m.group(1), m.group(2)) if m else ("", noc_notion or "—")
+
+
+def aggiungi_elo(dati, ath):
+    """Aggiunge a badminton-performance.json l'ELO di badminton-elo.json (scheda 33).
+
+    - a ogni atleta o coppia della classifica WON collegato all'ELO aggiunge il campo "elo";
+      se la specialità dell'ELO è diversa da quella della classifica WON (caso raro), la scrive
+      nel campo "spec" dell'ELO, così la pagina la mostra accanto al numero;
+    - in dati["elo"] mette la data dell'ELO, le regole, i nomi dei tornei dello storico e la top 10
+      ELO di ognuna delle 5 specialità (anche chi non ha punti WON o non è in Athletes).
+    """
+    if not FILE_ELO.exists():
+        print("AVVISO badminton-elo.json non trovato: la pagina mostrerà «—» nella colonna ELO.")
+        dati["elo"] = None
+        return
+    try:
+        raw = json.loads(FILE_ELO.read_text(encoding="utf-8"))
+        elenco = raw["atleti"]
+    except (OSError, ValueError, KeyError, TypeError) as e:
+        print(f"AVVISO badminton-elo.json non leggibile ({e}): la pagina mostrerà «—» nella colonna ELO.")
+        dati["elo"] = None
+        return
+
+    # 1. collegamento con la classifica WON: "notion" (ELO) = "id" (WON) = id della pagina di Athletes
+    per_pagina = {e["notion"]: e for e in elenco if e.get("notion")}
+    tornei_usati, collegati, mostrati = set(), 0, 0
+    for a in dati["atleti"]:
+        e = per_pagina.get(a["id"])
+        if not e:
+            continue                      # nessun incontro nei tornei BWF letti (o pagina non abbinata)
+        a["elo"] = dati_elo_atleta(e)
+        if e.get("spec") != a["spec"]:
+            a["elo"]["spec"] = e.get("spec")   # caso raro: la pagina scrive la specialità accanto all'ELO
+        collegati += 1
+        if "v" in a["elo"]:
+            mostrati += 1
+            tornei_usati.update(str(c) for _, _, c in a["elo"]["st"])
+
+    # 2. top 10 ELO di ognuna delle 5 specialità: solo ELO mostrabili
+    per_spec = {}
+    for e in elenco:
+        if e.get("livello") in ("stabile", "provvisorio"):
+            per_spec.setdefault(e.get("spec"), []).append(e)
+    top = {}
+    for spec, lista in per_spec.items():
+        lista.sort(key=lambda e: -e["elo"])
+        righe = []
+        for e in lista[:TOP_ELO]:
+            info = ath.get(e.get("notion") or "")
+            if info:                      # nome e bandiera come in Athletes
+                flag, noc = bandiera_e_noc(info["noc"])
+                nome = re.sub(r"\s+", " ", info["nome"]).replace(" / ", "/").strip()
+                if noc == "—":            # NOC vuoto in Athletes: uso quello del sito BWF
+                    noc = e.get("noc") or "—"
+            else:                         # non ancora in Athletes: dati del sito BWF
+                flag, noc = "", e.get("noc") or "—"
+                nome = re.sub(r"\s*/\s*", "/", e.get("nome", "")).strip()
+            righe.append({"id": e.get("notion"), "nome": nome, "flag": flag, "noc": noc,
+                          "v": e["elo"], "liv": e["livello"], "n": e.get("incontri", 0)})
+        top[spec] = righe
+
+    nomi_tornei = {str(cid): (t or {}).get("nome", "") for cid, t in (raw.get("tornei") or {}).items()}
+    dati["elo"] = {
+        "aggiornato": raw.get("aggiornato"),
+        "giocatori": len(elenco),
+        "mostrati": sum(1 for e in elenco if e.get("livello") in ("stabile", "provvisorio")),
+        "regole": raw.get("regole") or {},
+        "tornei": {cid: nomi_tornei.get(cid, "") for cid in sorted(tornei_usati)},
+        "top": top,
+    }
+    print(f"ELO (badminton-elo.json del {raw.get('aggiornato')}): {collegati} atleti/coppie della classifica "
+          f"WON collegati, {mostrati} con ELO mostrato; top {TOP_ELO} ELO in {len(top)} specialità")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--da-raw", help="file con {ath, res} salvati, per le prove")
@@ -122,6 +225,7 @@ def main():
         ath, res = leggi_notion()
     oggi = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=1))).date()
     dati = aggrega(ath, res, oggi)
+    aggiungi_elo(dati, ath)               # novità del 17/11/2026
     (CARTELLA / "badminton-performance.json").write_text(
         json.dumps(dati, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"badminton-performance.json: {len(dati['atleti'])} atleti/coppie, {dati['n_risultati']} risultati, "

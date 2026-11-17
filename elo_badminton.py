@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""ELO Badminton (scheda 32, sessione 2) – repo map-q-la28 · versione 1.0 del 17/11/2026
+"""ELO Badminton (scheda 32, sessione 2) – repo map-q-la28 · versione 1.1 del 17/11/2026
+
+Novità della versione 1.1 (dopo la prima «Solo prova» del 17/11/2026), solo nell'abbinamento:
+  - lettere nordiche e tedesche uguali alla loro trascrizione: Ø = O/OE, Æ = AE, Ü = U/UE, ß = SS
+    (es. "Alexandra BØJE" = "Alexandra BOEJE", "Lærke" = "Laerke", "Højmark" = "Hojmark");
+  - NOC: GBR in Athletes vale per ENG, SCO, WAL e NIR del sito BWF (e viceversa);
+  - nomi scritti in modo più lungo da una parte (es. "GAYATRI GOPICHAND PULLELA" contro
+    "Gayatri PULLELA"): finiscono tra gli INCERTI invece che tra i «da creare».
+  Soglie 10 / 20 / 3 confermate da Gualtiero.
 
 Che cosa fa
 -----------
@@ -106,7 +114,7 @@ MOLT_NUOVO = 1.5                      # ... 1,5 (chi parte da 1500 si avvicina p
 GIORNI_SENZA_EFFETTO = 70             # inattività: nessun effetto per 70 giorni...
 GIORNI_PER_CALO = 30                  # ... poi ogni 30 giorni interi...
 CALO = 0.02                           # ... -2% della distanza da 1500
-# Soglie per mostrare l'ELO nella pagina: PROVVISORIE, da confermare dopo la "Solo prova"
+# Soglie per mostrare l'ELO nella pagina: confermate da Gualtiero il 17/11/2026 dopo la "Solo prova"
 SOGLIA_MOSTRA = 10                    # da 10 incontri (e MIN_TORNEI tornei) l'ELO è "provvisorio"
 SOGLIA_STABILE = 20                   # da 20 incontri è "stabile"
 MIN_TORNEI = 3
@@ -119,6 +127,10 @@ ORDINE_TURNI = {GIRONE: 0, "Round of 64": 1, "Round of 32": 2, "Round of 16": 3,
 
 # Sigle dei titoli che in Athletes possono stare nel nome (es. "... WC"): non fanno parte del nome
 TITOLI = {"WC", "OLY", "OC", "EC"}
+# Lettere che la scomposizione degli accenti non trasforma: le trascrivo a mano (versione 1.1)
+TRASCRIZIONI = {"Ø": "O", "Æ": "AE", "Œ": "OE", "ẞ": "SS", "Ð": "D", "Đ": "D", "Ł": "L", "Þ": "TH"}
+# Gran Bretagna: il sito BWF usa le quattro nazioni, Athletes a volte GBR (versione 1.1)
+NAZIONI_GB = {"ENG", "SCO", "WAL", "NIR"}
 
 PAUSA_NOTION = 0.35
 LIMITE_NOTION = 10000   # una ricerca dell'API Notion restituisce al massimo 10.000 righe (verificato il 16/11/2026)
@@ -548,12 +560,22 @@ def lettere(testo):
 
 
 def senza_accenti(testo):
-    t = unicodedata.normalize("NFKD", testo)
-    return "".join(c for c in t if not unicodedata.combining(c)).upper()
+    """Maiuscolo, senza accenti e con le lettere speciali trascritte, per confrontare i nomi.
+
+    Versione 1.1: "BØJE", "BOEJE" e "BOJE" danno tutti "BOJE"; "Lærke" e "Laerke" danno "LARKE";
+    "HÜBSCH" e "HUEBSCH" danno "HUBSCH". Le coppie AE, OE, UE diventano A, O, U su ENTRAMBI i nomi
+    confrontati, quindi due nomi uguali restano uguali.
+    """
+    t = unicodedata.normalize("NFKD", (testo or "").upper())
+    t = "".join(TRASCRIZIONI.get(c, c) for c in t if not unicodedata.combining(c))
+    t = t.replace("SS", "S")                  # "ß".upper() = "SS": "STRAßE" e "STRASSE" coincidono
+    for doppia, semplice in (("AE", "A"), ("OE", "O"), ("UE", "U")):
+        t = t.replace(doppia, semplice)
+    return t
 
 
 def parti_nome(nome):
-    """Divide il nome di UN giocatore in (COGNOME, Nome, tutte le parole in ordine alfabetico).
+    """Divide il nome di UN giocatore in (COGNOME, Nome, parole in ordine alfabetico, insieme delle parole).
 
     Il cognome si riconosce dalle MAIUSCOLE, quindi vale sia per "SHI Yu Qi" sia per "Viktor AXELSEN".
     Spazi, trattini e accenti non contano: "Seung-jae" e "Seung Jae" coincidono.
@@ -566,7 +588,7 @@ def parti_nome(nome):
     c = senza_accenti("".join(cognome))
     n = senza_accenti("".join(altri))
     insieme = "".join(sorted(senza_accenti(p) for p in parole))
-    return c, n, insieme
+    return c, n, insieme, frozenset(senza_accenti(p) for p in parole)
 
 
 def giocatori(nome):
@@ -580,10 +602,15 @@ def simile(x, y):
 
 def confronta_giocatore(g1, g2):
     """'esatto', 'simile' o None tra due giocatori (ciascuno = parti_nome)."""
-    c, n, ins = g1
-    rc, rn, rins = g2
+    c, n, ins, parole = g1
+    rc, rn, rins, rparole = g2
     if (c == rc and n == rn) or (ins and ins == rins) or (c + n and c + n in (rc + rn, rn + rc)):
         return "esatto"
+    # versione 1.1: tutte le parole di un nome (almeno 2) compaiono nell'altro, che ne ha di più
+    # (es. "Gayatri PULLELA" dentro "GAYATRI GOPICHAND PULLELA"): stessa persona probabile, non certa
+    corto, lungo = sorted((parole, rparole), key=len)
+    if len(corto) >= 2 and corto < lungo:
+        return "simile"
     if c == rc and (not n or not rn or n.startswith(rn) or rn.startswith(n) or simile(n, rn) >= 0.75):
         return "simile"
     if n and n == rn and (simile(c, rc) >= 0.8 or c in rc or rc in c):
@@ -615,6 +642,18 @@ def codice_noc(valore_noc):
     """'🇮🇹ITA' -> 'ITA' (ultime tre lettere maiuscole)."""
     m = re.search(r"([A-Z]{2,3})$", valore_noc or "")
     return m.group(1) if m else ""
+
+
+def noc_compatibile(codice_athletes, nocs_bwf):
+    """True se il NOC di Athletes va bene per i NOC del sito BWF (per le coppie miste ne basta uno).
+
+    NOC vuoto in Athletes: va bene (come judo e scherma). Versione 1.1: GBR vale per ENG, SCO, WAL, NIR.
+    """
+    if not codice_athletes or codice_athletes in nocs_bwf:
+        return True
+    if codice_athletes == "GBR" and nocs_bwf & NAZIONI_GB:
+        return True
+    return codice_athletes in NAZIONI_GB and "GBR" in nocs_bwf
 
 
 def specialita_athletes(disc):
@@ -672,7 +711,7 @@ def abbina(A, athletes):
             elif e == "simile":
                 simili.append(r)
         # certo: stesso nome + stessa specialità + stesso NOC (oppure NOC vuoto in Athletes)
-        buoni = [r for r in esatti if (not r["_codice"] or r["_codice"] in nocs) and spec in r["_spec"]]
+        buoni = [r for r in esatti if noc_compatibile(r["_codice"], nocs) and spec in r["_spec"]]
         if len(buoni) == 1 and len(esatti) == 1:
             come = "nome + NOC + specialità" if buoni[0]["_codice"] else "nome + specialità (NOC vuoto in Athletes)"
             esiti[chiave] = {"esito": "abbinato", "page": buoni[0]["page"], "motivo": come, "candidati": buoni}
@@ -681,7 +720,7 @@ def abbina(A, athletes):
             motivi = []
             for r in esatti:
                 diff = []
-                if r["_codice"] and r["_codice"] not in nocs:
+                if not noc_compatibile(r["_codice"], nocs):
                     diff.append(f"NOC {r['_codice']}")
                 if spec not in r["_spec"]:
                     diff.append("specialità diversa")
@@ -830,7 +869,7 @@ def main():
     solo_prova = os.getenv("DRY_RUN", "true").strip().lower() != "false" or bool(args.da_raw)
     oggi = dt.date.fromisoformat(args.oggi) if args.oggi else dt.date.today()
 
-    log(f"ELO Badminton 1.0 · {'SOLO PROVA: non scrivo nulla su Notion' if solo_prova else 'SCRITTURA su Notion'} "
+    log(f"ELO Badminton 1.1 ·{'SOLO PROVA: non scrivo nulla su Notion' if solo_prova else 'SCRITTURA su Notion'} "
         f"· data del calcolo {oggi.isoformat()}")
 
     # 1. lettura

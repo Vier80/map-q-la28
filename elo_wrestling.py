@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 """ELO Wrestling (scheda 22 regole §5, scheda 24 sessione 2) – repo map-q-la28
 
+Versione 1.1 del 16/11/2026 (limite di 10.000 righe dell'API Notion, scheda 28 §3):
+una ricerca dell'API Notion restituisce al massimo 10.000 righe. La lettura degli incontri
+(leggi_incontri) è ora divisa per Stile (Freestyle, Greco-Roman, Women's Wrestling, più due
+ricerche di controllo per uno stile diverso o vuoto); se una ricerca arriva a 10.000 righe lo
+script si ferma invece di calcolare un ELO incompleto. Le regole dell'ELO sono invariate.
+
 Che cosa fa
 -----------
 1. Legge da Notion tutti gli incontri del db "🤼 Agente Wrestling" (scritti dall'agente UWW).
@@ -213,8 +219,16 @@ def valore(p):
     return None
 
 
-def interroga(ds, filtro=None):
-    """Tutte le righe di un data source (100 alla volta)."""
+LIMITE_NOTION = 10000   # una ricerca dell'API Notion restituisce al massimo 10.000 righe (verificato il 16/11/2026)
+
+
+def interroga(ds, filtro=None, etichetta=""):
+    """Tutte le righe di un data source (100 alla volta) che rispettano il filtro.
+
+    Versione 1.1: se la ricerca arriva a 10.000 righe (limite dell'API Notion) lo script si ferma,
+    perché le righe oltre la 10.000ª non verrebbero lette e l'ELO sarebbe incompleto senza avviso.
+    Vale per tutte le ricerche: gli incontri (divisi per Stile) e Athletes (Sport = Wrestling).
+    """
     pagine, cursore = [], None
     while True:
         corpo = {"page_size": 100}
@@ -225,8 +239,14 @@ def interroga(ds, filtro=None):
         r = chiama("POST", f"data_sources/{ds}/query", corpo)
         pagine += r["results"]
         if not r.get("has_more"):
-            return pagine
+            break
         cursore = r["next_cursor"]
+    if len(pagine) >= LIMITE_NOTION:
+        sys.exit(f"ERRORE: la ricerca «{etichetta or NOMI_DB.get(ds, ds)}» ha restituito {len(pagine)} righe, "
+                 f"è il limite di una ricerca dell'API Notion ({LIMITE_NOTION}). Le righe oltre il limite non "
+                 "sono state lette e l'ELO sarebbe incompleto: mi fermo. Bisogna dividere ancora la lettura "
+                 "(per esempio per Stile e Torneo).")
+    return pagine
 
 
 def controlla_colonne(ds, attese):
@@ -238,13 +258,48 @@ def controlla_colonne(ds, attese):
     return props
 
 
+# Valori ESATTI della colonna "Stile" del db Agente Wrestling (scheda 22 §2.1): una ricerca per ciascuno
+STILI_DB = ["Freestyle", "Greco-Roman", "Women's Wrestling"]
+
+
+def fette_per_stile(nome_col, tipo_col):
+    """Le ricerche in cui dividere la lettura del db Agente Wrestling.
+
+    Restituisce un elenco di (etichetta, filtro Notion): una ricerca per ciascuno dei 3 stili,
+    più "altri stili" (Stile diverso dai tre) e "Stile vuoto". Le ultime due oggi sono vuote:
+    sono una rete di sicurezza, perché senza di esse una riga con uno stile nuovo non verrebbe
+    letta e il conteggio non tornerebbe. Il filtro si adatta al tipo della colonna (oggi "select").
+    """
+    t = tipo_col if tipo_col in ("select", "rich_text") else "select"
+    fette = [(s, {"property": nome_col, t: {"equals": s}}) for s in STILI_DB]
+    fette.append(("altri stili", {"and": [{"property": nome_col, t: {"does_not_equal": s}} for s in STILI_DB]
+                                  + [{"property": nome_col, t: {"is_not_empty": True}}]}))
+    fette.append(("Stile vuoto", {"property": nome_col, t: {"is_empty": True}}))
+    return fette
+
+
 def leggi_incontri():
-    """Righe del db Agente Wrestling nel formato interno dello script."""
-    controlla_colonne(DS_AGENTE_WRESTLING, COL_W.values())
-    incontri = []
-    for pg in interroga(DS_AGENTE_WRESTLING):
-        p = pg["properties"]
-        incontri.append({k: (valore(p.get(c)) or "") for k, c in COL_W.items()})
+    """Righe del db Agente Wrestling nel formato interno dello script.
+
+    Versione 1.1: l'API di Notion non restituisce più di 10.000 righe per ricerca. Con una
+    ricerca sola, oltre quel numero l'ELO verrebbe calcolato su una parte degli incontri senza
+    accorgersene. Per questo la lettura è divisa per Stile (fette_per_stile); se una ricerca
+    arriva al limite lo script si ferma (il controllo è in interroga).
+    """
+    props = controlla_colonne(DS_AGENTE_WRESTLING, COL_W.values())
+    tipo_stile = props[COL_W["stile"]]["type"]
+    incontri, viste, conteggi = [], set(), []
+    for etichetta, filtro in fette_per_stile(COL_W["stile"], tipo_stile):
+        pagine = interroga(DS_AGENTE_WRESTLING, filtro, f"Agente Wrestling, Stile {etichetta}")
+        conteggi.append((etichetta, len(pagine)))
+        for pg in pagine:
+            if pg["id"] in viste:          # una pagina non viene mai contata due volte
+                continue
+            viste.add(pg["id"])
+            p = pg["properties"]
+            incontri.append({k: (valore(p.get(c)) or "") for k, c in COL_W.items()})
+    log("Righe lette dal db Agente Wrestling per Stile: "
+        + " · ".join(f"{e} {n}" for e, n in conteggi) + f" · totale {len(incontri)}")
     return incontri
 
 
@@ -257,7 +312,8 @@ def leggi_athletes():
     if SPORT not in opzioni["sport"]:
         sys.exit(f"ERRORE: in Athletes la colonna Sport non ha l'opzione '{SPORT}'.")
     atleti = []
-    for pg in interroga(DS_ATHLETES, {"property": COL_A["sport"], "select": {"equals": SPORT}}):
+    for pg in interroga(DS_ATHLETES, {"property": COL_A["sport"], "select": {"equals": SPORT}},
+                        f"Athletes, Sport = {SPORT}"):
         p = pg["properties"]
         atleti.append({"page": pg["id"], "nome": valore(p.get(COL_A["nome"])) or "",
                        "noc": valore(p.get(COL_A["noc"])) or "",

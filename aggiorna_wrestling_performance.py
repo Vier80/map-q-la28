@@ -3,6 +3,13 @@
 (popolato dall'agente wrestling con i risultati UWW) e scrive wrestling-performance.json,
 che userà la pagina wrestling-performance.html.
 
+Versione 2.1 del 16/11/2026 (limite di 10.000 righe dell'API Notion, scheda 28 §3):
+  - una ricerca dell'API Notion restituisce al massimo 10.000 righe: la lettura (leggi_notion)
+    è ora divisa per Stile (Freestyle, Greco-Roman, Women's Wrestling, più due ricerche di
+    controllo per uno stile diverso o vuoto);
+  - se una ricerca arriva a 10.000 righe lo script si ferma invece di pubblicare una pagina
+    con una parte degli incontri. Il resto è invariato.
+
 Versione 2 del 14/11/2026 (scheda 24, sessione 3 dell'ELO wrestling):
   - unisce l'ELO calcolato da elo_wrestling.py (file wrestling-elo.json nella cartella del repo);
   - riconosce i turni nuovi arrivati con gli Asian Games: "Final 3-4" (finale per il bronzo)
@@ -90,13 +97,17 @@ POOL_DI_STILE = {"Freestyle": "FS", "Women's Wrestling": "FS", "Greco-Roman": "G
 
 
 # ---------------------------------------------------------------- NOTION
-def chiama(percorso, corpo):
-    """Manda una richiesta all'API di Notion e restituisce la risposta (dizionario)."""
+def chiama(percorso, corpo, metodo="POST"):
+    """Manda una richiesta all'API di Notion e restituisce la risposta (dizionario).
+
+    metodo = "POST" per le ricerche (come prima); "GET" per leggere lo schema del db (novità 2.1).
+    """
     token = os.environ.get("NOTION_TOKEN")
     if not token:
         sys.exit("Manca NOTION_TOKEN.")
+    dati = json.dumps(corpo).encode() if corpo is not None else None
     richiesta = urllib.request.Request(
-        f"https://api.notion.com/v1/{percorso}", data=json.dumps(corpo).encode(), method="POST",
+        f"https://api.notion.com/v1/{percorso}", data=dati, method=metodo,
         headers={"Authorization": f"Bearer {token}", "Notion-Version": NOTION_VERSION,
                  "Content-Type": "application/json"})
     for tentativo in range(5):
@@ -138,20 +149,59 @@ def valore(p):
     return None
 
 
+LIMITE_NOTION = 10000   # una ricerca dell'API Notion restituisce al massimo 10.000 righe (verificato il 16/11/2026)
+
+
+def fette_per_stile(tipo_col):
+    """Le ricerche in cui dividere la lettura del db (novità 2.1).
+
+    Restituisce un elenco di (etichetta, filtro Notion): una ricerca per ciascuno dei 3 stili,
+    più "altri stili" (Stile diverso dai tre) e "Stile vuoto". Le ultime due oggi sono vuote:
+    sono una rete di sicurezza, così nessuna riga resta fuori. Il filtro si adatta al tipo
+    della colonna "Stile" (oggi "select").
+    """
+    t = tipo_col if tipo_col in ("select", "rich_text") else "select"
+    fette = [(s, {"property": "Stile", t: {"equals": s}}) for s in STILI]
+    fette.append(("altri stili", {"and": [{"property": "Stile", t: {"does_not_equal": s}} for s in STILI]
+                                  + [{"property": "Stile", t: {"is_not_empty": True}}]}))
+    fette.append(("Stile vuoto", {"property": "Stile", t: {"is_empty": True}}))
+    return fette
+
+
 def leggi_notion():
-    """Legge TUTTE le righe del db "Agente Wrestling" (100 alla volta)."""
-    righe, cursore = [], None
-    while True:
-        corpo = {"page_size": 100}
-        if cursore:
-            corpo["start_cursor"] = cursore
-        r = chiama(f"data_sources/{DB_WRESTLING}/query", corpo)
-        for pg in r["results"]:
-            p = pg["properties"]
-            righe.append({c: valore(p.get(c)) for c in COLONNE})
-        if not r.get("has_more"):
-            break
-        cursore = r["next_cursor"]
+    """Legge TUTTE le righe del db "Agente Wrestling" (100 alla volta).
+
+    Versione 2.1: l'API di Notion non restituisce più di 10.000 righe per ricerca. Per questo
+    la lettura è divisa per Stile; se una ricerca arriva al limite lo script si ferma (la pagina
+    resta quella dell'aggiornamento precedente, invece di mostrare una parte degli incontri).
+    """
+    # tipo della colonna "Stile", per scrivere il filtro nel formato giusto
+    schema = chiama(f"data_sources/{DB_WRESTLING}", None, metodo="GET")
+    tipo_stile = ((schema.get("properties") or {}).get("Stile") or {}).get("type", "select")
+    righe, viste, conteggi = [], set(), []
+    for etichetta, filtro in fette_per_stile(tipo_stile):
+        lette, cursore = 0, None
+        while True:
+            corpo = {"page_size": 100, "filter": filtro}
+            if cursore:
+                corpo["start_cursor"] = cursore
+            r = chiama(f"data_sources/{DB_WRESTLING}/query", corpo)
+            for pg in r["results"]:
+                lette += 1
+                if pg["id"] in viste:          # una pagina non viene mai contata due volte
+                    continue
+                viste.add(pg["id"])
+                p = pg["properties"]
+                righe.append({c: valore(p.get(c)) for c in COLONNE})
+            if not r.get("has_more"):
+                break
+            cursore = r["next_cursor"]
+        if lette >= LIMITE_NOTION:
+            sys.exit(f"ERRORE: Stile «{etichetta}»: {lette} righe lette, è il limite di una ricerca dell'API "
+                     f"Notion ({LIMITE_NOTION}). La pagina mostrerebbe solo una parte degli incontri: mi fermo. "
+                     "Bisogna dividere ancora la lettura (per esempio per Stile e Torneo) in leggi_notion.")
+        conteggi.append((etichetta, lette))
+    print("Agente Wrestling, righe lette per Stile: " + " · ".join(f"{e} {n}" for e, n in conteggi))
     print(f"Agente Wrestling: {len(righe)} incontri letti da Notion")
     return righe
 

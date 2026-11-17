@@ -69,6 +69,19 @@ a.chip:hover, button.chip:hover { border-color: var(--ink) }
 .tipo-D { background: var(--ink) } .tipo-C { background: var(--ink-2) } .tipo-H { background: var(--gold) } .tipo-Q { background: var(--q) }
 .tipo-U { background: var(--u) } .tipo-R, .tipo-F { background: var(--open) }
 details.resto { margin-top: 12px }
+/* Best Lifter: distintivo dorato nelle righe, bordo dorato, riquadro nella vista iniziale */
+.bl-badge { display: inline-block; margin-left: 6px; padding: 1px 8px; font-size: .74rem; font-weight: 700; color: var(--bg); background: var(--gold); border-radius: 999px; vertical-align: 1px; white-space: nowrap }
+.riga.bl { border-color: var(--gold); box-shadow: inset 4px 0 0 var(--gold) }
+.riga.bl .perc b { color: var(--gold) }
+.riga.cliccabile { cursor: pointer } .riga.cliccabile:hover { border-color: var(--ink) }
+.bl-come { margin-top: 8px; font-size: .84rem; color: var(--muted) }
+.bl-come summary { cursor: pointer; font-weight: 600 }
+.bl-come p { margin: 6px 0 }
+.bl-come table { width: 100%; border-collapse: collapse; margin-top: 6px; font-variant-numeric: tabular-nums }
+.bl-come th, .bl-come td { text-align: left; padding: 3px 6px; border-bottom: 1px solid var(--line) }
+.bl-come td.n, .bl-come th.n { text-align: right }
+.bl-come tr.primo td { color: var(--fg); font-weight: 700 }
+.carta .bl-mini { color: var(--gold); font-weight: 700 }
 details.resto summary { cursor: pointer; font-size: .78rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--muted) }
 details.resto summary:hover { color: var(--ink-t) }
 
@@ -185,6 +198,7 @@ button.vai { font: inherit; text-align: left; background: none; cursor: pointer 
     <span><i class="tipo-H"></i>Paese ospitante (USA)</span>
     <span><i class="tipo-Q"></i>Già qualificato (Q)</span>
     <span><i class="tipo-U"></i>Universality, in attesa</span>
+    <span><span class="bl-badge" style="margin-left:0">🏆 Best Lifter</span>titolo provvisorio: un posto in più alla sua nazione</span>
   </div>
 
   <div class="griglia" id="griglia"></div>
@@ -236,6 +250,13 @@ button.vai { font: inherit; text-align: left; background: none; cursor: pointer 
   const maxCap = Math.max(1, ...cat.map((c) => c.cap));
   const noc = new Set(tutti.map((a) => a.noc));
   const conta = (t) => tutti.filter((a) => a.tipo === t).length;
+  // Best Lifter provvisori (uno per genere): calcolati dall'agente con l'Allegato "Best Lifter" del regolamento
+  const BL = dati.best_lifter || {};
+  const blDi = (c) => c.atleti.find((a) => a.bl);            // il Best Lifter della categoria, se c'è
+  const plurale = (n, uno, tanti) => `${n} ${n === 1 ? uno : tanti}`;
+  const recordTesto = (b) => [b.record_totale ? plurale(b.record_totale, "record del Totale", "record del Totale") : "",
+    b.record_strappo ? plurale(b.record_strappo, "di strappo", "di strappo") : "",
+    b.record_slancio ? plurale(b.record_slancio, "di slancio", "di slancio") : ""].filter(Boolean).join(", ") || "nessun record del mondo";
 
   const fmtData = (iso) => new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "long", year: "numeric" }).format(new Date(iso + "T12:00:00"));
   const dataIt = fmtData(dati.aggiornato);
@@ -270,20 +291,25 @@ button.vai { font: inherit; text-align: left; background: none; cursor: pointer 
       testo.append(el("p", "etichetta", "Categoria selezionata"), el("h2", "", `🏋️ ${c.nome} · ${GEN[c.genere]}`),
         el("p", "", `${c.diretti.length} dal ranking, ${c.cont.length} continentali` + (c.ospit.length ? `, ${c.ospit.length} ospitante` : "") +
           (c.q.length ? `, ${c.q.length} già qualificati` : "") + (c.attesa.length ? " · 1 posto Universality in attesa" : "") + ` · soglia ${pt(c.soglia)} punti`));
+      const b = blDi(c);
+      if (b) testo.append(el("p", "", `🏆 In questa categoria c'è il Best Lifter provvisorio: ${b.nome} (${b.noc}).`));
     } else {
       testo.append(el("p", "etichetta", "Simulazione di oggi"), el("h2", "", `${num(tutti.length)} atleti di ${num(noc.size)} NOC`),
         el("p", "", `${num(conta("D"))} dal ranking · ${num(conta("C"))} continentali · ${num(conta("H"))} ospitanti` +
           (conta("Q") ? ` · ${num(conta("Q"))} già qualificati` : "") + `. In attesa: ${inAttesa} posti Universality.`));
       if (eventi.length) testo.append(el("p", "", "Eventi considerati: " + eventi.join(", ")));
+      const bl = ["M", "F"].filter((g) => BL[g]).map((g) => `${BL[g].nome} (${BL[g].noc}, ${BL[g].cat})`);
+      if (bl.length) testo.append(el("p", "", "🏆 Best Lifter provvisori: " + bl.join(" · ")));
     }
   }
 
   // ---------------------------------------------------------------- una riga di un elenco
   // pos = numero mostrato a sinistra (ordine nei posti, oppure posizione nel ranking per riserve e resto)
   function riga(a, pos, q, extra) {
-    const li = el("li", "riga" + (extra ? " " + extra : "") + (corrisponde(a, q) ? " cerca-ok" : ""));
+    const li = el("li", "riga" + (extra ? " " + extra : "") + (a.bl ? " bl" : "") + (corrisponde(a, q) ? " cerca-ok" : ""));
     const chi = el("div", "chi"), nome = el("b", "", a.nome);
     if (a.noc) { const n = el("a", "chip noc", a.noc); n.href = "scheda.html#" + a.noc; nome.append(n); }
+    if (a.bl) nome.append(el("span", "bl-badge", "🏆 Best Lifter"));
     chi.append(nome);
     const v = el("span", "via"); v.append(el("i", "tipo-" + a.tipo), el("span", "", accenti(a.via)));
     const sm = el("small"); sm.append(v);
@@ -299,6 +325,50 @@ button.vai { font: inherit; text-align: left; background: none; cursor: pointer 
     return li;
   }
 
+  // ---------------------------------------------------------------- Best Lifter (vista iniziale)
+  function bestLifter() {
+    const box = el("div");
+    const generi = ["M", "F"].filter((g) => BL[g]);
+    if (!generi.length) return box;
+    box.append(el("p", "sezione", "🏆 Best Lifter provvisori"));
+    const ol = el("ol", "classifica");
+    generi.forEach((g) => {
+      const b = BL[g];
+      const c = cat.find((x) => x.genere === g && x.kg === b.kg);
+      const li = el("li", "riga bl cliccabile"); li.title = "Apri la categoria";
+      const chi = el("div", "chi"), nome = el("b", "", b.nome);
+      const n = el("a", "chip noc", b.noc); n.href = "scheda.html#" + b.noc; nome.append(n, el("span", "bl-badge", "🏆 Best Lifter"));
+      chi.append(nome, el("small", "", `${GEN[g]} ${b.cat} · ${recordTesto(b)} · ${accenti(b.effetto)}`));
+      const perc = el("div", "perc"); perc.append(el("b", "", String(b.punti)), el("small", "", "punti record"));
+      li.append(el("span", "pos", g === "M" ? "U" : "D"), chi, perc);
+      if (c) li.addEventListener("click", () => { scelto = c.chiave; dettaglio(); griglia(); });
+      ol.append(li);
+    });
+    box.append(ol);
+    // spiegazione e classifica dei candidati (i primi di ogni categoria)
+    const d = el("details", "bl-come");
+    d.append(el("summary", "", "Come si calcola e chi sono i candidati"));
+    d.append(el("p", "", "Il titolo di Best Lifter (uno per gli uomini e uno per le donne) sarà annunciato dall'IWF l'" +
+      fmtData(dati.annuncio_best_lifter || "2028-05-11") + ". Possono vincerlo solo i primi del ranking olimpico di ogni categoria. " +
+      "Contano i record del mondo Senior battuti negli eventi di qualificazione che fanno parte dei 5 risultati validi: " +
+      "3 punti per il record del Totale, 1 per lo strappo, 1 per lo slancio. A parità: più record del Totale, di strappo, di slancio, " +
+      "poi il miglior punteggio GAMX in una gara. Se la nazione del Best Lifter ha già 3 atleti in quel genere, riceve un 4º posto."));
+    generi.forEach((g) => {
+      const t = el("table"), h = el("tr");
+      [["Candidati " + GEN[g].toLowerCase(), ""], ["Cat.", ""], ["Tot.", "n"], ["Str.", "n"], ["Sl.", "n"], ["Punti", "n"]].forEach(([x, cl]) => h.append(el("th", cl, x)));
+      t.append(h);
+      (BL[g].candidati || []).forEach((x, i) => {
+        const r = el("tr", i === 0 ? "primo" : "");
+        r.append(el("td", "", `${x.nome} (${x.noc})`), el("td", "", x.cat), el("td", "n", String(x.record_totale)),
+          el("td", "n", String(x.record_strappo)), el("td", "n", String(x.record_slancio)), el("td", "n", String(x.punti)));
+        t.append(r);
+      });
+      d.append(t);
+    });
+    box.append(d);
+    return box;
+  }
+
   // ---------------------------------------------------------------- italiani (vista iniziale)
   function italiani() {
     const lista = cat.flatMap((c) => tuttiDellaCat(c).filter((a) => a.noc === "ITA").map((a) => ({ ...a, c })));
@@ -308,7 +378,7 @@ button.vai { font: inherit; text-align: left; background: none; cursor: pointer 
     const ol = el("ol", "classifica");
     lista.forEach((a) => {
       const r = riga({ ...a, via: `${GEN[a.c.genere]} ${a.c.nome} · ${a.via}` }, a.rank, domanda(), a.tipo === "F" ? "fuori" : "");
-      r.style.cursor = "pointer"; r.title = "Apri la categoria";
+      r.classList.add("cliccabile"); r.title = "Apri la categoria";
       r.addEventListener("click", () => { scelto = a.c.chiave; dettaglio(); griglia(); });
       ol.append(r);
     });
@@ -324,14 +394,14 @@ button.vai { font: inherit; text-align: left; background: none; cursor: pointer 
     if (!c) {
       box.append(el("p", "etichetta", "Qualificati della categoria"), el("h2", "", "Clicca una carta qui sotto"),
         el("p", "", "Qui compaiono i 10 posti di ogni categoria con la via di qualificazione, le riserve e il resto del ranking olimpico."),
-        italiani());
+        bestLifter(), italiani());
       return;
     }
     const q = domanda();
     box.append(el("p", "etichetta", `Soglia del ranking olimpico ${pt(c.soglia)} punti`), el("h2", "", `🏋️ ${c.nome} · ${GEN[c.genere]}`));
     const ol = el("ol", "classifica");
     c.atleti.forEach((a, i) => ol.append(riga(a, i + 1, q)));
-    c.attesa.forEach((a) => ol.append(riga({ ...a, nome: "Posto Universality", via: "Universality · in attesa" }, null, q, "attesa")));
+    c.attesa.forEach((a) => ol.append(riga({ ...a, nome: "Posto Universality", via: "Universality · in attesa", stato: "" }, null, q, "attesa")));
     box.append(ol);
     if (c.riserve.length) {
       box.append(el("p", "sezione", "Riserve"));
@@ -361,8 +431,9 @@ button.vai { font: inherit; text-align: left; background: none; cursor: pointer 
     });
     const ic = el("span", "icona", "🏋️"); ic.setAttribute("aria-hidden", "true");
     const h = el("h3", "", c.nome), s = el("small"); s.append(el("i", "dot " + c.genere), GEN[c.genere]); h.prepend(s);
+    if (blDi(c)) s.append(" · ", el("span", "bl-mini", "🏆 Best Lifter"));
     b.append(ic, h, m, barra, cifre);
-    b.title = `Soglia del ranking olimpico: ${pt(c.soglia)} punti`;
+    b.title = `Soglia del ranking olimpico: ${pt(c.soglia)} punti` + (blDi(c) ? ` · Best Lifter provvisorio: ${blDi(c).nome}` : "");
     b.addEventListener("click", () => {
       scelto = scelto === c.chiave ? null : c.chiave; dettaglio(); griglia();
       if (scelto && window.innerWidth < 900) $("dettaglio").scrollIntoView({ block: "center" });
@@ -420,7 +491,8 @@ button.vai { font: inherit; text-align: left; background: none; cursor: pointer 
     `(versione del 2 ottobre 2026) al ranking olimpico ricostruito dai results book degli eventi di qualificazione: ` +
     `punti = somma dei 3 migliori Totali del Periodo 1 e dei 2 migliori del Periodo 2 nella stessa categoria, un atleta per NOC. ` +
     `In ogni categoria entrano i primi 8 del ranking e 1 atleta per la rappresentanza continentale; il Paese ospitante (USA) ha 3 posti per genere, ` +
-    `ridotti dei posti già ottenuti (quelli non usati sono riassegnati); 3 posti per genere sono Universality. Massimo 3 atleti per NOC e genere. ` +
+    `ridotti dei posti già ottenuti (quelli non usati sono riassegnati); 3 posti per genere sono Universality. Massimo 3 atleti per NOC e genere, ` +
+    `4 per la nazione del Best Lifter (titolo provvisorio, calcolato con i record del mondo Senior come dice l'Allegato del regolamento). ` +
     `Il periodo di qualificazione termina il ${fmtData(dati.fine_periodo)} e il ranking finale esce il ${fmtData(dati.oqr_finale)}: fino ad allora tutto è provvisorio. ` +
     `Passa il mouse su un atleta per vedere i Totali che contano.`;
   // note dell'agente, senza quelle tecniche che servono solo nel log
@@ -435,8 +507,9 @@ button.vai { font: inherit; text-align: left; background: none; cursor: pointer 
     const box = $("stampa"); box.textContent = "";
     box.append(el("p", "s-occ", "Road to LA28 · ranking del " + dataIt), el("h1", "", "🏋️ Qualificati Sollevamento pesi LA28 · simulazione"));
     box.append(el("p", "s-sint", `${num(tutti.length)} atleti di ${num(noc.size)} NOC: ${num(conta("D"))} dal ranking, ${num(conta("C"))} continentali, ${num(conta("H"))} ospitanti` +
-      (conta("Q") ? `, ${num(conta("Q"))} già qualificati` : "") + `. In attesa: ${inAttesa} posti Universality.` + (eventi.length ? " Eventi: " + eventi.join(", ") + "." : "")));
-    box.append(el("p", "s-leg", "D = ranking olimpico (primi 8) · C = rappresentanza continentale · H = Paese ospitante · Q = già qualificato · R = riserva · * = posto riassegnato"));
+      (conta("Q") ? `, ${num(conta("Q"))} già qualificati` : "") + `. In attesa: ${inAttesa} posti Universality.` + (eventi.length ? " Eventi: " + eventi.join(", ") + "." : "") +
+      (["M", "F"].some((g) => BL[g]) ? " Best Lifter provvisori: " + ["M", "F"].filter((g) => BL[g]).map((g) => `${BL[g].nome} (${BL[g].noc}, ${GEN[g].toLowerCase()} ${BL[g].cat}, ${BL[g].punti} punti record)`).join(" · ") + "." : "")));
+    box.append(el("p", "s-leg", "D = ranking olimpico (primi 8) · C = rappresentanza continentale · H = Paese ospitante · Q = già qualificato · R = riserva · * = posto riassegnato · BL = Best Lifter provvisorio"));
     const gr = el("div", "s-griglia");
     cat.forEach((c) => {
       const sec = el("section", "s-cat");
@@ -447,7 +520,7 @@ button.vai { font: inherit; text-align: left; background: none; cursor: pointer 
       tb.append(th);
       const r = (a, i) => {
         const tr = el("tr");
-        tr.append(el("td", "n", i), el("td", "", a.nome), el("td", "", a.noc), el("td", "v " + a.tipo, a.tipo + (riassegnato(a) ? "*" : "")), el("td", "n", a.rank != null ? a.rank : "–"), el("td", "n", pt(a.punti)));
+        tr.append(el("td", "n", i), el("td", "", a.nome), el("td", "", a.noc), el("td", "v " + a.tipo, a.tipo + (riassegnato(a) ? "*" : "") + (a.bl ? " BL" : "")), el("td", "n", a.rank != null ? a.rank : "–"), el("td", "n", pt(a.punti)));
         return tr;
       };
       c.atleti.forEach((a, i) => tb.append(r(a, i + 1)));

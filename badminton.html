@@ -3,30 +3,37 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Risultati Badminton BWF · Super 300 e 500</title>
+<title>Risultati Badminton BWF · World Tour e Mondiali</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
 <style>
-/* Stessa veste di squash.html, in verde menta pastello: testata, fascia con anello e dettaglio, quattro totali, carte. */
+/* Versione 2.0 (18/11/2026, scheda 37): sei categorie e tabellone ufficiale ad albero.
+   Stessa veste di squash.html, in verde menta pastello: testata, fascia con anello e dettaglio,
+   tabellone, quattro totali, carte. */
 :root {
   --bg: #ffffff; --fg: #1f3a31; --muted: #5f776e; --line: #d5ece3; --card: #f9fdfb; --soft: #edf8f3; --track: #dcefe7;
   --ink: #5fb89a; --ink-2: #a8dcc9; --ink-t: #2f8a6c; --gold: #a8782a;
   --MS: #7da9e8; --WS: #e39bbd; --MD: #a993dc; --WD: #e8a08a; --XD: #d9c060; --shadow: rgba(30, 90, 70, .10);
+  /* colori delle categorie (pallino nelle carte) */
+  --c-mon: #c9962e; --c-fin: #b48ad8; --c-1000: #2f8a6c; --c-750: #4fa88a; --c-500: #5fb89a; --c-300: #a8dcc9;
   --font: "Quicksand", "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #121a17; --fg: #e2f2ec; --muted: #93aca2; --line: #2c3d36; --card: #18221e; --soft: #1c2823; --track: #2a3a33;
   --ink: #7fd1b3; --ink-2: #b5e6d4; --ink-t: #9fe0c8; --gold: #e3c15c;
-  --MS: #8fb6ee; --WS: #eab0cb; --MD: #b9a6e6; --WD: #eeb09e; --XD: #e3cd77; --shadow: rgba(0, 0, 0, .4); color-scheme: dark } }
+  --MS: #8fb6ee; --WS: #eab0cb; --MD: #b9a6e6; --WD: #eeb09e; --XD: #e3cd77; --shadow: rgba(0, 0, 0, .4);
+  --c-mon: #e3c15c; --c-fin: #c9a6ea; --c-1000: #9fe0c8; --c-750: #8fd8bd; --c-500: #7fd1b3; --c-300: #b5e6d4; color-scheme: dark } }
 :root[data-theme="dark"] {
   --bg: #121a17; --fg: #e2f2ec; --muted: #93aca2; --line: #2c3d36; --card: #18221e; --soft: #1c2823; --track: #2a3a33;
   --ink: #7fd1b3; --ink-2: #b5e6d4; --ink-t: #9fe0c8; --gold: #e3c15c;
-  --MS: #8fb6ee; --WS: #eab0cb; --MD: #b9a6e6; --WD: #eeb09e; --XD: #e3cd77; --shadow: rgba(0, 0, 0, .4); color-scheme: dark }
+  --MS: #8fb6ee; --WS: #eab0cb; --MD: #b9a6e6; --WD: #eeb09e; --XD: #e3cd77; --shadow: rgba(0, 0, 0, .4);
+  --c-mon: #e3c15c; --c-fin: #c9a6ea; --c-1000: #9fe0c8; --c-750: #8fd8bd; --c-500: #7fd1b3; --c-300: #b5e6d4; color-scheme: dark }
 * { box-sizing: border-box }
 body { margin: 0; background: var(--bg); color: var(--fg); font: 500 16px/1.4 var(--font) }
 h1, h2, h3, p { margin: 0 }
 .guscio { max-width: 1320px; margin: 0 auto; display: grid; gap: 16px; padding-block: 18px 28px;
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.guscio > * { min-width: 0 }
 .testa { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px }
 .titolo { flex: 1 1 320px; min-width: 0 }
 .occhiello { font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-t) }
@@ -51,6 +58,7 @@ button.vai { font: inherit; text-align: left; background: none; cursor: pointer 
 .dettaglio h2 { font: 600 1.45rem/1.25 var(--font) }
 .dettaglio .etichetta { color: var(--gold) }
 .dettaglio > p { color: var(--muted) }
+.dettaglio .vai-tab { display: inline-block; margin-top: 12px; color: var(--ink-t); font-weight: 600 }
 .chip { display: inline-block; padding: 3px 10px; font-size: .86rem; color: inherit; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; text-decoration: none; font-variant-numeric: tabular-nums }
 a.chip:hover, button.chip:hover { border-color: var(--ink) }
 button.chip { font: inherit; font-size: .86rem; cursor: pointer }
@@ -67,9 +75,58 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
 .perc { text-align: right; font-variant-numeric: tabular-nums } .perc b { font: 700 1.1rem/1.1 var(--font); color: var(--ink-t) } .perc small { display: block; font-size: .76rem; color: var(--muted); white-space: nowrap }
 .riga .noc { font-size: .78rem; padding: 1px 8px; margin-left: 4px; vertical-align: 1px }
 .sezione { margin: 14px 0 0; font-size: .78rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--muted) }
-.schede { display: inline-flex; flex-wrap: wrap; gap: 2px; margin-top: 14px; padding: 4px; background: var(--soft); border-radius: 14px }
-.schede button, .gruppo button { padding: 6px 12px; font: 600 .9rem var(--font); color: var(--muted); background: none; border: 0; border-radius: 10px; cursor: pointer }
-.schede button[aria-pressed="true"], .gruppo button[aria-pressed="true"] { color: var(--fg); background: var(--bg); box-shadow: 0 1px 3px var(--shadow) }
+.gruppo { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 4px; background: var(--soft); border-radius: 14px }
+.gruppo button { padding: 6px 12px; font: 600 .9rem var(--font); color: var(--muted); background: none; border: 0; border-radius: 10px; cursor: pointer }
+.gruppo button[aria-pressed="true"] { color: var(--fg); background: var(--bg); box-shadow: 0 1px 3px var(--shadow) }
+.gruppo button:disabled { opacity: .45; cursor: not-allowed }
+
+/* ------------------------------------------------------------- tabellone (novità 2.0) */
+.tabellone { display: grid; gap: 14px; padding: 20px 22px; background: var(--card); border: 1.5px solid var(--line); border-radius: 24px }
+.tab-testa { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 20px }
+.tab-testa h2 { font: 600 1.35rem/1.25 var(--font); overflow-wrap: anywhere }
+.tab-testa p.sotto { font-size: .88rem; color: var(--muted) }
+.tab-comandi { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px }
+.tab-legenda { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: .8rem; color: var(--muted) }
+.tab-legenda b { color: var(--gold) }
+.tab-vuoto { padding: 18px; color: var(--muted); background: var(--bg); border: 1px dashed var(--line); border-radius: 16px }
+.albero-scorri { overflow-x: auto; padding-bottom: 6px; overscroll-behavior-x: contain }
+.albero { position: relative; margin: 0 auto }
+.albero svg.linee { position: absolute; inset: 0; overflow: visible; pointer-events: none }
+.linee path { fill: none; stroke: var(--ink-2); stroke-width: 1.5 }
+.etic-turno { position: absolute; top: 0; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: nowrap }
+.box { position: absolute; display: grid; grid-template-rows: 1fr 1fr; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; font-size: .8rem; line-height: 1.15 }
+.box.statico { position: static; height: 54px }
+.box.da-giocare { border-style: dashed }
+.box.trovato { border-color: var(--ink); box-shadow: inset 3px 0 0 var(--ink) }
+.sq { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto auto; align-items: center; gap: 0 6px; min-width: 0; padding: 0 8px 0 3px }
+.sq + .sq { border-top: 1px solid var(--line) }
+.sq .ts { font-size: .66rem; font-weight: 700; color: var(--gold); text-align: center; font-variant-numeric: tabular-nums }
+.sq .nm { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.sq .nm small { font-size: .64rem; font-weight: 600; color: var(--muted); margin-left: 4px }
+.sq .el { font-size: .66rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--ink-t); padding: 0 4px; border: 1px solid var(--line); border-radius: 6px }
+.sq .el.prov { font-style: italic; color: var(--muted) }
+.sq .el.nuovo { color: var(--muted); border-style: dashed }
+.sq .st { display: flex; gap: 2px; font-size: .74rem; font-variant-numeric: tabular-nums; color: var(--muted) }
+.sq .st i { font-style: normal; min-width: 16px; text-align: right } .sq .st i.v { color: var(--fg); font-weight: 700 }
+.sq .st .es { font-size: .62rem; font-weight: 700; color: var(--gold); align-self: center }
+.sq.vince .nm { font-weight: 700 }
+.sq.vince .nm::after { content: " ●"; color: var(--ink); font-size: .6rem; vertical-align: 1px }
+.sq.perde .nm { color: var(--muted) }
+.sq.assente .nm { color: var(--muted); font-style: italic }
+.sq.trovato { background: var(--soft) }
+.turni-mobile { margin-bottom: 2px }
+.turno-lista { display: grid; gap: 8px }
+.gironi { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 14px }
+.girone { display: grid; gap: 8px; align-content: start; padding: 14px; background: var(--bg); border: 1px solid var(--line); border-radius: 18px }
+.girone h3, .tabellone h3 { font: 600 1.05rem/1.2 var(--font) }
+.girone table { width: 100%; border-collapse: collapse; font-size: .84rem; font-variant-numeric: tabular-nums }
+.girone th { text-align: right; font-size: .72rem; font-weight: 700; color: var(--muted); padding: 2px 4px; border-bottom: 1px solid var(--line) }
+.girone th:nth-child(2), .girone td:nth-child(2) { text-align: left }
+.girone td { text-align: right; padding: 4px; border-bottom: 1px solid var(--line); white-space: nowrap }
+.girone td:nth-child(2) { max-width: 0; width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.girone tr.passa td { font-weight: 700 } .girone tr.passa td:first-child { color: var(--ink-t) }
+.girone tr.trovato td { background: var(--soft) }
+.girone .giornata { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 4px }
 
 .totali { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1.5px solid var(--line); border-radius: 22px }
 .totale { padding: 12px 18px; text-align: center; border-right: 1px solid var(--line) } .totale:last-child { border-right: 0 }
@@ -79,7 +136,6 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
 .filtri { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px }
 #cerca { flex: 1 1 240px; min-width: 0; max-width: 460px; height: 44px; padding: 0 16px; font: 500 1rem var(--font); color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 14px }
 #cerca::placeholder { color: var(--muted) }
-.gruppo { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 4px; background: var(--soft); border-radius: 14px }
 
 .griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 14px }
 .carta { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; width: 100%; padding: 16px; text-align: left; font: inherit; color: inherit; background: var(--card); border: 1.5px solid var(--line); border-radius: 20px; cursor: pointer }
@@ -89,7 +145,9 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
 .icona { display: grid; place-items: center; width: 50px; height: 50px; font-size: 1.7rem; background: var(--bg); border: 1px solid var(--line); border-radius: 13px }
 .carta h3 { font: 600 1.15rem/1.2 var(--font); overflow-wrap: anywhere }
 .carta h3 small { display: block; font-size: .8rem; font-weight: 600; color: var(--muted) }
-.cat { display: inline-block; width: 9px; height: 9px; margin-right: 5px; border-radius: 50%; vertical-align: 1px; background: var(--ink) } .cat.s300 { background: var(--ink-2) }
+.cat { display: inline-block; width: 9px; height: 9px; margin-right: 5px; border-radius: 50%; vertical-align: 1px; background: var(--ink) }
+.cat.c-mon { background: var(--c-mon) } .cat.c-fin { background: var(--c-fin) } .cat.c-1000 { background: var(--c-1000) }
+.cat.c-750 { background: var(--c-750) } .cat.c-500 { background: var(--c-500) } .cat.c-300 { background: var(--c-300) }
 .mini { position: relative; width: 58px; height: 58px; display: grid; place-items: center; font-size: .9rem; font-weight: 700; font-variant-numeric: tabular-nums }
 .mini svg { position: absolute; inset: 0; transform: rotate(-90deg) }
 .barra { grid-column: 1 / -1; display: flex; height: 9px; background: var(--track); border-radius: 999px; overflow: hidden }
@@ -107,17 +165,32 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
 .nota { max-width: 90ch; font-size: .86rem; color: var(--muted) }
 :focus-visible { outline: 3px solid var(--ink); outline-offset: 2px }
 
-#stampa { display: none }
+/* ------------------------------------------------------------- stampa
+   Due stampe diverse:
+   - «Scarica PDF» in alto (o Ctrl+P): albo d'oro della stagione, A4 verticale (#stampa);
+   - «Stampa tabellone»: il tabellone mostrato, A4 orizzontale (#stampa-tab; la classe
+     stampa-tabellone sul body e la regola @page orizzontale le aggiunge lo script). */
+#stampa, #stampa-tab { display: none }
 @media print {
   @page { size: A4; margin: 11mm }
-  :root:not([data-theme="x"]) { color-scheme: light !important }
+  :root:not([data-theme="x"]) { color-scheme: light !important;
+    --bg: #fff; --fg: #1f3a31; --muted: #5f776e; --line: #cfe6dc; --card: #fff; --soft: #edf8f3; --ink: #5fb89a; --ink-2: #9fd3bf; --ink-t: #2f8a6c; --gold: #a8782a }
   html, body { background: #fff !important; color: #1f3a31 !important; font-size: 9pt }
   .guscio { display: block; max-width: none; padding: 0 }
-  .guscio > :not(#stampa) { display: none !important }
+  .guscio > :not(#stampa):not(#stampa-tab) { display: none !important }
   #stampa { display: block; -webkit-print-color-adjust: exact; print-color-adjust: exact }
+  body.stampa-tabellone #stampa { display: none }
+  body.stampa-tabellone #stampa-tab { display: block; -webkit-print-color-adjust: exact; print-color-adjust: exact }
   .s-occ { font-size: 8pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #2f8a6c }
-  #stampa h1 { font: 700 18pt/1.2 var(--font); margin: 1mm 0 2mm }
+  #stampa h1, #stampa-tab h1 { font: 700 18pt/1.2 var(--font); margin: 1mm 0 2mm }
+  #stampa-tab h1 { font-size: 15pt; margin: 0 0 1mm }
   .s-sint { font-size: 9pt; margin: 0 0 4mm; padding-bottom: 3mm; border-bottom: 1.5pt solid #5fb89a }
+  #stampa-tab .s-sint { margin-bottom: 3mm; padding-bottom: 2mm; font-size: 8pt }
+  .s-pagina { break-after: page; page-break-after: always }
+  .s-pagina:last-child { break-after: auto; page-break-after: auto }
+  .s-pagina h2 { font: 700 10pt/1.2 var(--font); margin: 0 0 2mm; color: #2f8a6c }
+  .s-pagina .box { border-color: #b9d9cc }
+  .s-pagina .gironi { grid-template-columns: 1fr 1fr }
   .s-griglia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 8mm; align-items: start }
   .s-cat { break-inside: avoid; page-break-inside: avoid; margin: 0 0 4mm }
   .s-cat h2 { font: 700 10pt/1.2 var(--font); margin: 0; padding: 1.2mm 2mm; background: #edf8f3; border-left: 2.5pt solid #5fb89a; color: #1f3a31 }
@@ -136,7 +209,7 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
   .totali { grid-template-columns: repeat(2, minmax(0, 1fr)) } .totale:nth-child(2) { border-right: 0 } .totale:nth-child(-n+2) { border-bottom: 1px solid var(--line) }
   .vai { max-width: none }
 }
-@media (max-width: 520px) { .avanz { flex-direction: column; text-align: center; padding: 18px } .dettaglio { padding: 18px } }
+@media (max-width: 520px) { .girone th:last-child, .girone td:last-child { display: none } .avanz { flex-direction: column; text-align: center; padding: 18px } .dettaglio { padding: 18px } .tabellone { padding: 16px 12px } }
 </style>
 </head>
 <body>
@@ -144,7 +217,7 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
   <header class="testa">
     <div class="titolo">
       <p class="occhiello" id="data">BWF World Tour</p>
-      <h1>🏸 Risultati Badminton · Super 300 e 500</h1>
+      <h1>🏸 Risultati Badminton · World Tour e Mondiali</h1>
     </div>
     <a class="vai" href="https://bwfbadminton.com/calendar/" target="_blank" rel="noopener"><b>Calendario BWF</b><span>Il sito ufficiale</span><i>↗</i></a>
     <a class="vai" href="index.html"><b>Mappa</b><span>Qualificati LA28 nel mondo</span><i>›</i></a>
@@ -158,6 +231,9 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     </div>
     <div class="dettaglio" id="dettaglio" aria-live="polite"></div>
   </section>
+
+  <!-- novità 2.0: tabellone ufficiale del torneo scelto (albero o elenco) -->
+  <section class="tabellone" id="tabellone" aria-label="Tabellone del torneo"></section>
 
   <section class="totali" id="totali"></section>
 
@@ -179,10 +255,12 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
   <section class="nazioni" id="nazioni"></section>
   <p class="nota" id="nota"></p>
   <div id="stampa"></div>
+  <div id="stampa-tab"></div>
 </div>
 
 <script>
 (async function () {
+  // ---------------------------------------------------------------- strumenti
   const $ = (id) => document.getElementById(id);
   const el = (tag, cls, testo) => { const e = document.createElement(tag); if (cls) e.className = cls; if (testo != null) e.textContent = testo; return e; };
   const num = (n) => n.toLocaleString("it-IT");
@@ -199,15 +277,28 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     return s;
   }
 
+  // ---------------------------------------------------------------- dati
   let dati;
   try { dati = await fetch("badminton.json?v=" + Date.now()).then((r) => { if (!r.ok) throw 0; return r.json(); }); }
   catch (e) { $("nota").textContent = "I risultati non si caricano: ricarica la pagina."; return; }
+  // ELO (facoltativo): se badminton-elo.json manca, la pagina funziona lo stesso, senza ELO
+  let elo = null;
+  try { elo = await fetch("badminton-elo.json?v=" + Date.now()).then((r) => (r.ok ? r.json() : null)); } catch (e) { elo = null; }
 
   const DISC = { MS: "Singolare maschile", WS: "Singolare femminile", MD: "Doppio maschile", WD: "Doppio femminile", XD: "Doppio misto" };
   const ORD_DISC = Object.keys(DISC);
-  const TURNI = { "Final": ["F", 0], "Semi Final": ["SF", 1], "Quarter Final": ["QF", 2], "Round of 16": ["16", 3], "Round of 32": ["32", 4], "Round of 64": ["64", 5] };
-  const PER_TORNEO = 155;   // 5 tabelloni da 32: 31 incontri ciascuno
+  const DOPPI = new Set(["MD", "WD", "XD"]);
+  const TURNI = { "Final": ["F", 0], "Semi Final": ["SF", 1], "Quarter Final": ["QF", 2], "Round of 16": ["16", 3], "Round of 32": ["32", 4], "Round of 64": ["64", 5], "Group Stage": ["G", 6] };
+  // nomi dei turni del tabellone (codici del sito BWF) in italiano
+  const TURNO_IT = { R64: "Trentaduesimi", R32: "Sedicesimi", R16: "Ottavi", QF: "Quarti", SF: "Semifinali", Final: "Finale", F: "Finale" };
+  const TURNO_BREVE = { Final: "F" };
+  // categorie: ordine dei filtri, classe del pallino, incontri attesi se manca il tabellone
+  const CAT_ORD = ["Mondiali", "World Tour Finals", "Super 1000", "Super 750", "Super 500", "Super 300"];
+  const CAT_CLASSE = { "Mondiali": "c-mon", "World Tour Finals": "c-fin", "Super 1000": "c-1000", "Super 750": "c-750", "Super 500": "c-500", "Super 300": "c-300" };
+  const CAT_BREVE = { "World Tour Finals": "Finals" };
+  const attesi = (t) => t.attesi || ({ "Mondiali": 315, "World Tour Finals": 75 }[t.categoria] || 155);
 
+  const TAB = dati.tabelloni || {};   // tabelloni ufficiali per nome del torneo (novità 2.0)
   const incontri = (dati.incontri || []).map(([t, d, r, p1, n1, p2, n2, s, data]) => ({ t, d, r, p1, n1, p2, n2, s, data }));
   const perTorneo = {};
   incontri.forEach((m) => { (perTorneo[m.t] = perTorneo[m.t] || []).push(m); });
@@ -215,7 +306,7 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     const ms = (perTorneo[t.nome] || []).slice().sort((a, b) => ORD_DISC.indexOf(a.d) - ORD_DISC.indexOf(b.d) || (TURNI[a.r] || ["", 9])[1] - (TURNI[b.r] || ["", 9])[1] || a.data.localeCompare(b.data));
     const finali = {}; ms.filter((m) => m.r === "Final").forEach((m) => { finali[m.d] = m; });
     const conta = {}; ms.forEach((m) => { conta[m.d] = (conta[m.d] || 0) + 1; });
-    return { ...t, ms, finali, conta };
+    return { ...t, ms, finali, conta, tab: TAB[t.nome] || null };
   });
   const validi = tornei.filter((t) => t.stato !== "annullato");
   const conclusi = validi.filter((t) => t.stato === "concluso");
@@ -241,15 +332,44 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     const d = el("div", "totale"); d.append(el("b", "", typeof n === "number" ? (n ? num(n) : "–") : n), el("span", "", t)); $("totali").append(d);
   });
 
-  // stato della pagina
+  // ---------------------------------------------------------------- ELO a inizio torneo
+  // badminton-elo.json: un atleta (o una coppia) per specialità, con lo storico torneo per torneo:
+  // storico = [[data, ELO dopo il torneo, codice BWF del torneo], ...]. L'ELO "a inizio torneo" è
+  // l'ultimo valore PRIMA del torneo. Nessun valore prima = primo torneo nei dati (si parte da 1500).
+  const eloPer = new Map();
+  (elo && elo.atleti || []).forEach((a) => eloPer.set(`${a.id_bwf}|${a.spec}`, a));
+  const MIN_TORNEI = (elo && elo.regole && elo.regole.min_tornei) || 3;
+  function eloInizio(idBwf, spec, t) {
+    if (!elo || !idBwf) return null;
+    const a = eloPer.get(`${idBwf}|${spec}`);
+    if (!a) return null;
+    const st = a.storico || [];
+    const i = t.id ? st.findIndex((e) => String(e[2]) === String(t.id)) : -1;
+    const prima = i >= 0 ? st.slice(0, i) : st.filter((e) => e[0] < (t.inizio || ""));
+    if (!prima.length) return { nuovo: true };
+    const ultimo = prima[prima.length - 1];
+    return { v: ultimo[1], tornei: prima.length, prov: prima.length < MIN_TORNEI };
+  }
+
+  // ---------------------------------------------------------------- stato della pagina
   const ultimo = conclusi.length ? conclusi[conclusi.length - 1] : null;
   const inCorso = validi.find((t) => t.stato === "in corso");
-  let scelto = (inCorso && inCorso.ms.length ? inCorso : ultimo || validi[0] || {}).nome || null;
+  let scelto = (inCorso && (inCorso.ms.length || inCorso.tab) ? inCorso : ultimo || validi[0] || {}).nome || null;
   let categoria = "tutte", statof = "tutti", disc = "MS";
-  const CATEGORIE = { tutte: "Tutte", "Super 500": "Super 500", "Super 300": "Super 300" };
+  let vista = "albero";          // "albero" o "elenco"
+  let turnoMobile = null;        // colonna mostrata sul cellulare (null = scelta automatica)
+  const presenti = new Set(tornei.map((t) => t.categoria));
+  const CATEGORIE = { tutte: "Tutte" };
+  CAT_ORD.filter((c) => presenti.has(c)).forEach((c) => { CATEGORIE[c] = CAT_BREVE[c] || c; });
   const STATI = { tutti: "Tutti", concluso: "Conclusi", futuri: "Da giocare" };
   const domanda = () => $("cerca").value.trim().toLowerCase();
   const corrisponde = (m, q) => q && (m.p1.toLowerCase().includes(q) || m.p2.toLowerCase().includes(q) || nocDi(m.n1).some((n) => n.toLowerCase() === q) || nocDi(m.n2).some((n) => n.toLowerCase() === q));
+  const squadraTrovata = (s, q) => q && s && (s[0].toLowerCase().includes(q) || nocDi(s[1]).some((n) => n.toLowerCase() === q));
+  const trovatoNelTabellone = (t, q) => {
+    if (!q || !t.tab) return false;
+    return (t.tab.squadre || []).some((s) => squadraTrovata(s, q));
+  };
+  const cellulare = window.matchMedia("(max-width: 759px)");
 
   function punteggio(s) {
     const m = /^(\d+-\d+)\s*\((.*)\)$/.exec(s || "");
@@ -283,13 +403,14 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     return li;
   }
 
+  // ---------------------------------------------------------------- fascia: anello e campioni
   function anello(t) {
     const box = $("anello"), testo = $("sintesi"); box.textContent = ""; testo.textContent = "";
     const dentro = el("div");
     if (t) {
-      const n = t.ms.length;
-      dentro.append(el("small", "", "incontri"), el("b", "", num(n)), el("small", "", "su " + PER_TORNEO));
-      box.append(cerchio(168, 16, n / PER_TORNEO * 100), dentro);
+      const n = t.ms.length, tot = attesi(t);
+      dentro.append(el("small", "", "incontri"), el("b", "", num(n)), el("small", "", "su " + num(tot)));
+      box.append(cerchio(168, 16, n / tot * 100), dentro);
       testo.append(el("p", "etichetta", `${t.categoria} · ${t.stato}`), el("h2", "", `🏸 ${t.nome}`),
         el("p", "", [periodo(t) + " " + (t.inizio || "").slice(0, 4), t.luogo].filter(Boolean).join(" · ")));
       if (t.url) { const a = el("a", "", "Risultati sul sito BWF ↗"); a.href = t.url.replace(/\/?$/, "/") + "results/"; a.target = "_blank"; a.rel = "noopener"; const p = el("p"); p.append(a); testo.append(p); }
@@ -301,19 +422,25 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     }
   }
 
+  function linkTabellone(testo) {
+    const a = el("a", "vai-tab", testo); a.href = "#tabellone";
+    return a;
+  }
+
   function dettaglio() {
     const box = $("dettaglio"); box.textContent = "";
     const t = tornei.find((x) => x.nome === scelto);
     anello(t);
     if (!t) {
       box.append(el("p", "etichetta", "Campioni del torneo"), el("h2", "", "Clicca una carta qui sotto"),
-        el("p", "", "Qui compaiono i vincitori delle cinque specialità e tutti gli incontri del tabellone principale."));
+        el("p", "", "Qui compaiono i vincitori delle cinque specialità; il tabellone completo è nella sezione sotto."));
       return;
     }
     const q = domanda();
     if (!t.ms.length) {
       box.append(el("p", "etichetta", t.stato === "annullato" ? "Torneo annullato" : t.stato === "da giocare" ? "Da giocare" : "In attesa dei risultati"),
         el("h2", "", t.nome), el("p", "", t.stato === "da giocare" ? `Si gioca dal ${dataLunga.format(giorno(t.inizio))} al ${dataLunga.format(giorno(t.fine))}. I risultati arriveranno qui ogni mattina.` : "Nessun incontro concluso per ora."));
+      if (t.tab) box.append(linkTabellone("Il tabellone è già uscito: guardalo qui sotto ↓"));
       return;
     }
     if (q) {
@@ -327,34 +454,293 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     box.append(el("p", "etichetta", fin.length === 5 ? "Campioni" : "Finali giocate"), el("h2", "", t.nome));
     if (fin.length) { const ol = el("ol", "classifica"); fin.forEach((d) => ol.append(riga(t.finali[d], q, "disc"))); box.append(ol); }
     else box.append(el("p", "", "Le finali non sono ancora state giocate."));
-    const schede = el("div", "schede"); schede.setAttribute("role", "group"); schede.setAttribute("aria-label", "Specialità");
-    ORD_DISC.filter((d) => t.conta[d]).forEach((d) => {
-      const b = el("button", "", d); b.type = "button"; b.title = DISC[d]; b.setAttribute("aria-pressed", d === disc);
-      b.addEventListener("click", () => { disc = d; dettaglio(); }); schede.append(b);
-    });
-    if (!t.conta[disc]) disc = ORD_DISC.find((d) => t.conta[d]);
-    box.append(schede, el("p", "sezione", `${DISC[disc]} · tabellone principale (${t.conta[disc]} incontri)`));
-    const ol = el("ol", "classifica lunga"); t.ms.filter((m) => m.d === disc).forEach((m) => ol.append(riga(m, q, "turno"))); box.append(ol);
+    box.append(linkTabellone("Tabellone completo qui sotto ↓"));
   }
 
+  // ---------------------------------------------------------------- tabellone (novità 2.0)
+  // Formato di una casella (vedi "campi_casella" in badminton.json):
+  // [colonna, posizione, squadra_a, testa_a, squadra_b, testa_b, vincitore, stato, esito, set, data]
+  const L = { bw: 226, bh: 48, gap: 22, slot: 60, testa: 26 };           // misure dell'albero sullo schermo
+  const LS = { bw: 232, bh: 44, gap: 22, slot: 50, testa: 22 };          // misure in stampa (più compatte)
+  const ESITO_BREVE = { walkover: "w.o.", ritiro: "rit.", squalifica: "sq.", "non disputato": "n.d." };
+
+  const cognome = (n) => { const c = n.split(/\s+/).filter((w) => w.length > 1 && w === w.toUpperCase() && /\p{L}/u.test(w)); return c.length ? c.join(" ") : n; };
+  // Nei doppi solo i cognomi ("STOEVA / STOEVA"); nei singoli il nome intero, ma se è lungo
+  // i nomi propri diventano iniziali ("Anders ANTONSEN" -> "A. ANTONSEN"). Il nome intero resta
+  // nel suggerimento che compare passando sopra con il mouse.
+  const iniziali = (n) => n.split(/\s+/).map((w) => (w.length > 1 && w === w.toUpperCase() && /\p{L}/u.test(w)) ? w : w.split("-").map((x) => x.charAt(0) + ".").join("-")).join(" ");
+  const nomeBreve = (nome, doppio) => (doppio ? nome.split(" / ").map(cognome).join(" / ") : nome.length > 13 ? iniziali(nome) : nome);
+
+  function rigaSquadra(ctx, c, lato, largo) {
+    // lato 0 = squadra_a (colonne 2-3), lato 1 = squadra_b (colonne 4-5)
+    const idx = c[2 + lato * 2], testa = c[3 + lato * 2], s = idx >= 0 ? ctx.squadre[idx] : null;
+    const altro = c[4 - lato * 2];
+    const giocato = c[7] === "F", vince = giocato && c[6] === lato + 1, perde = giocato && c[6] && c[6] !== lato + 1;
+    const r = el("div", "sq" + (vince ? " vince" : perde ? " perde" : "") + (!s ? " assente" : "") + (squadraTrovata(s, ctx.q) ? " trovato" : ""));
+    r.append(el("span", "ts", testa ? `[${testa}]` : ""));
+    const nm = el("span", "nm");
+    if (s) {
+      nm.textContent = largo && !ctx.doppio ? s[0] : nomeBreve(s[0], ctx.doppio);   // riquadro largo: nome intero
+      nm.append(el("small", "", s[1]));
+    } else nm.textContent = giocato && altro >= 0 ? "bye" : "—";
+    r.append(nm);
+    // ELO a inizio torneo
+    const e = s ? eloInizio(s[2], ctx.disc, ctx.t) : null;
+    if (e && e.nuovo) { const x = el("span", "el nuovo", "—"); x.title = "Primo torneo nei dati ELO (parte da 1500)"; r.append(x); }
+    else if (e) { const x = el("span", "el" + (e.prov ? " prov" : ""), String(e.v)); x.title = `ELO a inizio torneo: ${e.v}` + (e.prov ? ` (provvisorio: ${e.tornei} ${e.tornei === 1 ? "torneo" : "tornei"} prima)` : ""); r.append(x); }
+    else r.append(el("span"));
+    // set
+    const st = el("span", "st");
+    (c[9] || "").split(" ").filter(Boolean).forEach((x) => {
+      const p = x.split("-").map(Number); const mio = p[lato], suo = p[1 - lato];
+      st.append(el("i", mio > suo ? "v" : "", String(mio)));
+    });
+    if (vince && c[8]) st.append(el("span", "es", ESITO_BREVE[c[8]] || c[8]));
+    r.append(st);
+    if (s) {
+      r.title = `${testa ? "[" + testa + "] " : ""}${s[0]} (${s[1]})` + (e && !e.nuovo ? ` · ELO a inizio torneo ${e.v}` : "");
+    }
+    return r;
+  }
+
+  function scatola(ctx, c, statica) {
+    const vuota = [0, 0, -1, "", -1, "", 0, "N", "", "", ""];
+    c = c || vuota;
+    const trovato = [c[2], c[4]].some((i) => i >= 0 && squadraTrovata(ctx.squadre[i], ctx.q));
+    const b = el("div", "box" + (statica ? " statico" : "") + (c[7] !== "F" ? " da-giocare" : "") + (trovato ? " trovato" : ""));
+    b.append(rigaSquadra(ctx, c, 0, statica), rigaSquadra(ctx, c, 1, statica));
+    const quando = c[10] ? dataLunga.format(giorno(c[10])) : "";
+    b.setAttribute("aria-label", [ctx.squadre[c[2]] ? ctx.squadre[c[2]][0] : "da definire", "contro", ctx.squadre[c[4]] ? ctx.squadre[c[4]][0] : "da definire", c[9], c[8], quando].filter(Boolean).join(" "));
+    if (c[7] !== "F" && quando) b.title = "In programma il " + quando;
+    return b;
+  }
+
+  // Albero (o sotto-albero) di un tabellone a eliminazione. opz.radice = [colonna, posizione] della
+  // casella da cui partire (serve per stampare in due metà i tabelloni da 64); opz.stampa = misure compatte.
+  function albero(ctx, voce, opz = {}) {
+    const M = opz.stampa ? LS : L;
+    const per = new Map(voce.c.map((c) => [c[0] + "-" + c[1], c]));
+    const ncol = Math.max(voce.turni.length, ...voce.c.map((c) => c[0] + 1));
+    const [c0, p0] = opz.radice || [ncol - 1, 0];
+    const n0 = 2 ** c0, H = n0 * M.slot, W = (c0 + 1) * (M.bw + M.gap) - M.gap;
+    const box = el("div", "albero"); box.style.width = W + "px"; box.style.height = (H + M.testa) + "px";
+    const svg = document.createElementNS(NS, "svg"); svg.setAttribute("class", "linee"); svg.setAttribute("width", W); svg.setAttribute("height", H + M.testa); svg.setAttribute("aria-hidden", "true");
+    const path = document.createElementNS(NS, "path"); let d = "";
+    box.append(svg);
+    for (let col = 0; col <= c0; col++) {
+      const quante = 2 ** (c0 - col), x = col * (M.bw + M.gap);
+      const et = el("span", "etic-turno", TURNO_IT[voce.turni[col]] || voce.turni[col] || ""); et.style.left = x + "px"; box.append(et);
+      for (let k = 0; k < quante; k++) {
+        const pos = p0 * quante + k, yc = M.testa + (k + 0.5) * H / quante;
+        const b = scatola(ctx, per.get(col + "-" + pos));
+        b.style.left = x + "px"; b.style.top = (yc - M.bh / 2) + "px"; b.style.width = M.bw + "px"; b.style.height = M.bh + "px";
+        box.append(b);
+        if (col > 0) {   // linee verso le due caselle del turno prima
+          const y1 = M.testa + (2 * k + 0.5) * H / (2 * quante), y2 = M.testa + (2 * k + 1.5) * H / (2 * quante);
+          const xr = x - M.gap, xm = x - M.gap / 2;
+          d += `M${xr} ${y1}H${xm}V${y2}M${xr} ${y2}H${xm}M${xm} ${yc}H${x}`;
+        }
+      }
+    }
+    path.setAttribute("d", d); svg.append(path);
+    box.dataset.larghezza = W; box.dataset.altezza = H + M.testa;
+    return box;
+  }
+
+  // Sul cellulare: un turno alla volta, con i pulsanti dei turni
+  function colonnaIniziale(voce) {
+    const ncol = Math.max(voce.turni.length, ...voce.c.map((c) => c[0] + 1));
+    for (let col = 0; col < ncol; col++) {     // turno in corso: il primo con incontri in programma già definiti
+      if (voce.c.some((c) => c[0] === col && c[7] !== "F" && c[2] >= 0 && c[4] >= 0)) return col;
+    }
+    for (let col = 0; col < ncol; col++) if (voce.c.some((c) => c[0] === col && c[7] !== "F")) return Math.max(0, col - 1);
+    return 0;
+  }
+  function perTurno(ctx, voce, chiave) {
+    const ncol = Math.max(voce.turni.length, ...voce.c.map((c) => c[0] + 1));
+    if (turnoMobile == null || turnoMobile >= ncol) turnoMobile = colonnaIniziale(voce);
+    const frag = document.createDocumentFragment();
+    const g = el("div", "gruppo turni-mobile"); g.setAttribute("role", "group"); g.setAttribute("aria-label", "Turno");
+    for (let col = 0; col < ncol; col++) {
+      const sigla = voce.turni[col] || String(col + 1);
+      const b = el("button", "", TURNO_BREVE[sigla] || sigla); b.type = "button"; b.title = TURNO_IT[sigla] || sigla;
+      b.setAttribute("aria-pressed", col === turnoMobile);
+      b.addEventListener("click", () => { turnoMobile = col; disegnaTabellone(); });
+      g.append(b);
+    }
+    frag.append(g, el("p", "sezione", TURNO_IT[voce.turni[turnoMobile]] || ""));
+    const lista = el("div", "turno-lista");
+    const quante = 2 ** (ncol - 1 - turnoMobile);
+    const per = new Map(voce.c.map((c) => [c[0] + "-" + c[1], c]));
+    for (let k = 0; k < quante; k++) lista.append(scatola(ctx, per.get(turnoMobile + "-" + k), true));
+    frag.append(lista);
+    return frag;
+  }
+
+  // World Tour Finals: classifiche dei due gironi, incontri dei gironi, semifinali e finale
+  function finals(ctx, voce, opz = {}) {
+    const frag = document.createDocumentFragment();
+    const gr = el("div", "gironi");
+    (voce.gironi || []).forEach((g) => {
+      const box = el("div", "girone");
+      box.append(el("h3", "", g.nome.replace(/^Group/i, "Girone")));
+      const tb = el("table"), th = el("tr");
+      [["#", "Posizione"], ["Squadra", ""], ["G", "Giocati"], ["V", "Vinti"], ["P", "Persi"], ["Set", "Set vinti-persi"], ["Punti", "Punti fatti-subiti"]].forEach(([x, t]) => { const h = el("th", "", x); if (t) h.title = t; th.append(h); });
+      tb.append(th);
+      g.classifica.forEach((r) => {
+        const s = ctx.squadre[r[1]];
+        const tr = el("tr", (r[0] <= 2 && r[2] ? "passa" : "") + (squadraTrovata(s, ctx.q) ? " trovato" : ""));
+        const e = s ? eloInizio(s[2], ctx.disc, ctx.t) : null;
+        const nome = s ? `${nomeBreve(s[0], ctx.doppio)} (${s[1]})` + (e && !e.nuovo ? ` · ${e.v}` : "") : "—";
+        [r[0], nome, r[2], r[3], r[4], `${r[5]}-${r[6]}`, `${r[7]}-${r[8]}`].forEach((v, i) => { const td = el("td", "", String(v)); if (i === 1 && s) td.title = s[0]; tr.append(td); });
+        tb.append(tr);
+      });
+      box.append(tb);
+      const giornate = [...new Set(g.c.map((c) => c[0]))].sort((a, b) => a - b);
+      giornate.forEach((gg) => {
+        box.append(el("p", "giornata", `${gg + 1}ª giornata`));
+        const lista = el("div", "turno-lista");
+        g.c.filter((c) => c[0] === gg).forEach((c) => lista.append(scatola(ctx, c, true)));
+        box.append(lista);
+      });
+      gr.append(box);
+    });
+    frag.append(gr);
+    if (voce.c && voce.c.length) {
+      frag.append(el("h3", "", "Semifinali e finale"));
+      if (cellulare.matches && !opz.stampa) frag.append(perTurno(ctx, voce));
+      else { const sc = el("div", "albero-scorri"); sc.append(albero(ctx, voce, opz)); frag.append(sc); }
+    }
+    return frag;
+  }
+
+  function gruppoBottoni(voci, attivo, al_click, etichetta, disattivi = new Set()) {
+    const g = el("div", "gruppo"); g.setAttribute("role", "group"); g.setAttribute("aria-label", etichetta);
+    Object.entries(voci).forEach(([k, testo]) => {
+      const b = el("button", "", testo); b.type = "button"; b.setAttribute("aria-pressed", k === attivo);
+      if (disattivi.has(k)) { b.disabled = true; b.title = "Tabellone ufficiale non disponibile per questo torneo"; }
+      b.addEventListener("click", () => al_click(k)); g.append(b);
+    });
+    return g;
+  }
+
+  function disegnaTabellone() {
+    const sec = $("tabellone"); sec.textContent = "";
+    const t = tornei.find((x) => x.nome === scelto);
+    if (!t) {
+      sec.append(el("p", "etichetta", "Tabellone"), el("p", "tab-vuoto", "Scegli un torneo tra le carte qui sotto per vedere il suo tabellone."));
+      return;
+    }
+    const q = domanda();
+    const specTab = t.tab ? Object.keys(t.tab.spec || {}) : [];
+    const specOk = ORD_DISC.filter((d) => specTab.includes(d) || t.conta[d]);
+    if (specOk.length && !specOk.includes(disc)) disc = specOk[0];
+    const voce = t.tab && t.tab.spec[disc];
+    const vistaReale = voce ? vista : "elenco";
+
+    // intestazione: titolo, specialità, albero/elenco, stampa
+    const testa = el("div", "tab-testa"), tit = el("div");
+    tit.append(el("p", "etichetta", "Tabellone"), el("h2", "", `${t.nome} · ${DISC[disc]}`),
+      el("p", "sotto", [t.categoria, periodo(t) + " " + (t.inizio || "").slice(0, 4), voce && voce.tipo === "E" ? `tabellone da ${voce.misura}` : voce ? "gironi + semifinali" : ""].filter(Boolean).join(" · ")));
+    const com = el("div", "tab-comandi");
+    const voci = {}; ORD_DISC.forEach((d) => { voci[d] = d; });
+    const nonDisponibili = new Set(ORD_DISC.filter((d) => !specOk.includes(d)));
+    com.append(gruppoBottoni(voci, disc, (k) => { disc = k; turnoMobile = null; disegnaTabellone(); }, "Specialità", nonDisponibili));
+    com.append(gruppoBottoni({ albero: "Albero", elenco: "Elenco" }, vistaReale, (k) => { vista = k; disegnaTabellone(); }, "Vista", voce ? new Set() : new Set(["albero"])));
+    if (voce) {
+      const st = el("button", "chip", "Stampa tabellone ↓ PDF"); st.type = "button"; st.title = "Si apre la stampa in A4 orizzontale: scegli «Salva come PDF»";
+      st.addEventListener("click", () => stampaTabellone(t, disc));
+      com.append(st);
+    }
+    testa.append(tit, com); sec.append(testa);
+
+    if (vistaReale === "elenco") {
+      const ms = t.ms.filter((m) => m.d === disc);
+      if (!voce && t.tab === null && t.ms.length) sec.append(el("p", "sotto", "Tabellone ufficiale non ancora disponibile: ecco l'elenco degli incontri."));
+      if (!ms.length) { sec.append(el("p", "tab-vuoto", t.stato === "da giocare" ? "Il torneo non è ancora iniziato." : "Nessun incontro concluso in questa specialità.")); return; }
+      sec.append(el("p", "sezione", `${DISC[disc]} · ${ms.length} incontri conclusi`));
+      const ol = el("ol", "classifica lunga"); ms.forEach((m) => ol.append(riga(m, q, "turno"))); sec.append(ol);
+      return;
+    }
+
+    const ctx = { t, disc, doppio: DOPPI.has(disc), squadre: t.tab.squadre || [], q };
+    const leg = el("div", "tab-legenda");
+    leg.append(el("span", "", "[1] testa di serie"), el("span", "", elo ? "riquadro = ELO a inizio torneo (corsivo = provvisorio, — = primo torneo)" : "ELO non disponibile"),
+      el("span", "", "● vincitore"), el("span", "", "bye = passaggio diretto · w.o. = walkover · rit. = ritiro"), el("span", "", "bordo tratteggiato = da giocare"));
+    if (voce.tipo === "G") { sec.append(finals(ctx, voce), leg); return; }
+    if (cellulare.matches) { sec.append(perTurno(ctx, voce), leg); return; }
+    const sc = el("div", "albero-scorri"); sc.append(albero(ctx, voce)); sec.append(sc, leg);
+  }
+
+  // ---------------------------------------------------------------- stampa del tabellone (A4 orizzontale)
+  function stampaTabellone(t, d) {
+    const voce = t.tab && t.tab.spec[d];
+    if (!voce) return;
+    const box = $("stampa-tab"); box.textContent = "";
+    const ctx = { t, disc: d, doppio: DOPPI.has(d), squadre: t.tab.squadre || [], q: "" };
+    const testa = () => {
+      const f = document.createDocumentFragment();
+      f.append(el("p", "s-occ", $("data").textContent), el("h1", "", `🏸 ${t.nome} · ${DISC[d]} (${d})`),
+        el("p", "s-sint", [t.categoria, periodo(t) + " " + (t.inizio || "").slice(0, 4), t.luogo, "[n] testa di serie", elo ? "riquadro = ELO a inizio torneo" : ""].filter(Boolean).join(" · ")));
+      return f;
+    };
+    // spazio utile di una pagina A4 orizzontale (297 x 210 mm, margini 8 mm), in pixel, tolta
+    // l'intestazione; altMax più basso quando sotto all'albero va anche la finale
+    const LARGH = 1040, ALT = 570;
+    const pagina = (titolo, contenuto, larghezza, altezza, altMax = ALT) => {
+      const p = el("section", "s-pagina"); p.append(testa());
+      if (titolo) p.append(el("h2", "", titolo));
+      const z = Math.min(1, LARGH / larghezza, altMax / altezza);
+      contenuto.style.zoom = z;                     // rimpicciolisce per stare in una pagina
+      p.append(contenuto); box.append(p);
+    };
+    if (voce.tipo === "G") {
+      const c = el("div"); c.append(finals(ctx, voce, { stampa: true }));
+      pagina("", c, 1040, 900);
+    } else {
+      const ncol = Math.max(voce.turni.length, ...voce.c.map((c) => c[0] + 1));
+      if (ncol >= 6) {          // tabellone da 64: due metà, una per pagina, poi la finale
+        [0, 1].forEach((meta) => {
+          const a = albero(ctx, voce, { stampa: true, radice: [ncol - 2, meta] });
+          pagina(meta ? "Parte bassa del tabellone" : "Parte alta del tabellone", a, +a.dataset.larghezza, +a.dataset.altezza, meta ? ALT - 80 : ALT);
+        });
+        const fin = voce.c.find((c) => c[0] === ncol - 1);
+        if (fin) { const f = scatola(ctx, fin, true); f.style.maxWidth = "360px"; const s = box.lastChild; s.append(el("h2", "", "Finale"), f); }
+      } else {
+        const a = albero(ctx, voce, { stampa: true });
+        pagina("", a, +a.dataset.larghezza, +a.dataset.altezza);
+      }
+    }
+    // pagina orizzontale solo per questa stampa: la regola si toglie dopo
+    const stile = el("style"); stile.id = "pagina-orizzontale"; stile.textContent = "@page { size: A4 landscape; margin: 8mm }";
+    document.head.append(stile);
+    document.body.classList.add("stampa-tabellone");
+    const titoloPagina = document.title;
+    document.title = `Tabellone ${t.nome} ${d}`;
+    const fine = () => { document.body.classList.remove("stampa-tabellone"); stile.remove(); document.title = titoloPagina; window.removeEventListener("afterprint", fine); };
+    window.addEventListener("afterprint", fine);
+    window.print();
+  }
+
+  // ---------------------------------------------------------------- carte dei tornei
   function carta(t) {
     const futuro = !t.ms.length;
+    const tot = attesi(t);
     const b = el("button", "carta" + (futuro ? " futuro" : "")); b.type = "button"; b.setAttribute("aria-pressed", t.nome === scelto);
-    const ic = el("span", "icona", t.stato === "annullato" ? "✖️" : futuro ? "🗓️" : "🏸"); ic.setAttribute("aria-hidden", "true");
-    const h = el("h3", "", t.nome), s = el("small"); s.append(el("i", "cat" + (t.categoria === "Super 300" ? " s300" : "")), `${t.categoria} · ${periodo(t)}`); h.prepend(s);
-    const m = el("span", "mini", futuro ? "–" : String(t.ms.length)); m.prepend(cerchio(58, 6, t.ms.length / PER_TORNEO * 100));
+    const ic = el("span", "icona", t.stato === "annullato" ? "✖️" : futuro ? "🗓️" : t.categoria === "Mondiali" ? "🏆" : "🏸"); ic.setAttribute("aria-hidden", "true");
+    const h = el("h3", "", t.nome), s = el("small"); s.append(el("i", "cat " + (CAT_CLASSE[t.categoria] || "")), `${t.categoria} · ${periodo(t)}`); h.prepend(s);
+    const m = el("span", "mini", futuro ? "–" : String(t.ms.length)); m.prepend(cerchio(58, 6, t.ms.length / tot * 100));
     const barra = el("div", "barra");
-    ORD_DISC.forEach((d) => { if (!t.conta[d]) return; const i = el("i", d); i.style.width = (t.conta[d] / PER_TORNEO * 100) + "%"; i.title = `${d}: ${t.conta[d]}`; barra.append(i); });
+    ORD_DISC.forEach((d) => { if (!t.conta[d]) return; const i = el("i", d); i.style.width = (t.conta[d] / tot * 100) + "%"; i.title = `${d}: ${t.conta[d]}`; barra.append(i); });
     const cifre = el("div", "cifre");
-    const cognome = (n) => { const c = n.split(/\s+/).filter((w) => w.length > 1 && w === w.toUpperCase() && /\p{L}/u.test(w)); return c.length ? c.join(" ") : n; };
     const vince = (d) => (t.finali[d] ? cognome(t.finali[d].p1) : "–");
     [[vince("MS"), "Vince MS"], [vince("WS"), "Vince WS"], [futuro ? t.stato : (t.luogo || "").split(",")[0] || t.stato, futuro ? "Stato" : "Sede"]].forEach(([n, l]) => {
       const d = el("div"); d.append(el("b", "", n), el("span", "", l)); d.title = n; cifre.append(d);
     });
     b.append(ic, h, m, barra, cifre);
-    b.title = futuro ? t.stato : `${t.ms.length} incontri`;
+    b.title = futuro ? t.stato : `${t.ms.length} incontri su ${tot}`;
     b.addEventListener("click", () => {
-      scelto = scelto === t.nome ? null : t.nome; dettaglio(); griglia();
+      scelto = scelto === t.nome ? null : t.nome; turnoMobile = null; tutto();
       if (scelto && window.innerWidth < 900) $("dettaglio").scrollIntoView({ block: "center" });
     });
     return b;
@@ -365,7 +751,7 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     const lista = tornei
       .filter((t) => categoria === "tutte" || t.categoria === categoria)
       .filter((t) => statof === "tutti" || (statof === "concluso" ? t.stato === "concluso" : t.stato !== "concluso"))
-      .filter((t) => !q || t.ms.some((m) => corrisponde(m, q)));
+      .filter((t) => !q || t.ms.some((m) => corrisponde(m, q)) || trovatoNelTabellone(t, q));
     const g = $("griglia"); g.textContent = "";
     lista.forEach((t) => g.append(carta(t)));
     if (!lista.length) g.append(el("p", "vuoto", "Nessun torneo corrisponde ai filtri."));
@@ -388,6 +774,8 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     $("cerca").value = testo; $("cerca").dispatchEvent(new Event("input"));
   }
 
+  function tutto() { dettaglio(); disegnaTabellone(); griglia(); }
+
   function bottoni(id, voci, get, set) {
     const box = $(id);
     const disegna = () => { box.textContent = ""; Object.entries(voci).forEach(([k, t]) => { const b = el("button", "", t); b.type = "button"; b.setAttribute("aria-pressed", k === get()); b.addEventListener("click", () => { set(k); disegna(); griglia(); }); box.append(b); }); };
@@ -398,18 +786,21 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
   $("cerca").addEventListener("input", () => {
     const q = domanda();
     const qui = tornei.find((t) => t.nome === scelto);
-    if (q && !(qui && qui.ms.some((m) => corrisponde(m, q)))) {
-      const trovati = tornei.filter((t) => t.ms.some((m) => corrisponde(m, q)));
-      if (trovati.length) scelto = trovati[trovati.length - 1].nome;
+    const c = (t) => t.ms.some((m) => corrisponde(m, q)) || trovatoNelTabellone(t, q);
+    if (q && !(qui && c(qui))) {
+      const trovati = tornei.filter(c);
+      if (trovati.length) { scelto = trovati[trovati.length - 1].nome; turnoMobile = null; }
     }
-    dettaglio(); griglia();
+    tutto();
   });
+  cellulare.addEventListener("change", () => disegnaTabellone());   // passaggio telefono <-> computer
 
-  $("nota").textContent = `Risultati del tabellone principale dei tornei BWF World Tour Super 500 e Super 300 (qualificazioni escluse), letti ogni mattina dall'agente badminton dal sito ufficiale BWF e salvati nel database Notion «Agente Badminton». In ogni riga il vincitore è scritto per primo; «b.» significa «batte». Nei doppi con giocatori di nazioni diverse compaiono entrambi i NOC. w.o. = walkover, rit. = ritiro.`;
+  $("nota").textContent = `Risultati del tabellone principale dei tornei BWF World Tour (Super 300, 500, 750, 1000 e World Tour Finals, gironi compresi) e dei Mondiali (qualificazioni escluse), letti ogni mattina dall'agente badminton dal sito ufficiale BWF e salvati nel database Notion «Agente Badminton». Il tabellone ad albero è quello ufficiale del sito BWF: stesso ordine, teste di serie tra parentesi quadre, passaggi diretti (bye) e incontri in programma. Accanto ai nomi c'è l'ELO badminton del progetto LA28 a inizio torneo (l'ultimo valore prima del torneo; in corsivo se il giocatore aveva meno di ${MIN_TORNEI} tornei alle spalle). Nell'elenco il vincitore è scritto per primo; «b.» significa «batte». Nei doppi con giocatori di nazioni diverse compaiono entrambi i NOC. w.o. = walkover, rit. = ritiro.`;
 
+  // ---------------------------------------------------------------- stampa dell'albo d'oro (A4 verticale)
   function stampa() {
     const box = $("stampa"); box.textContent = "";
-    box.append(el("p", "s-occ", $("data").textContent), el("h1", "", "🏸 Albo d'oro · BWF Super 300 e 500"));
+    box.append(el("p", "s-occ", $("data").textContent), el("h1", "", "🏸 Albo d'oro · BWF World Tour e Mondiali"));
     box.append(el("p", "s-sint", `${num(conclusi.length)} tornei conclusi su ${num(validi.length)} in calendario, ${num(incontri.length)} incontri, ${num(nocTutti.size)} NOC.` + (classificaTitoli.length ? ` Titoli: ${classificaTitoli.slice(0, 8).map(([n, k]) => n + " " + k).join(", ")}.` : "")));
     const gr = el("div", "s-griglia");
     tornei.filter((t) => Object.keys(t.finali).length).forEach((t) => {
@@ -429,11 +820,11 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
   }
   stampa();
   const titoloPagina = document.title;
-  window.addEventListener("beforeprint", () => { document.title = "Albo d'oro badminton BWF " + dati.aggiornato; });
-  window.addEventListener("afterprint", () => { document.title = titoloPagina; });
+  window.addEventListener("beforeprint", () => { if (!document.body.classList.contains("stampa-tabellone")) document.title = "Albo d'oro badminton BWF " + dati.aggiornato; });
+  window.addEventListener("afterprint", () => { if (!document.body.classList.contains("stampa-tabellone")) document.title = titoloPagina; });
   $("pdf").addEventListener("click", () => window.print());
 
-  nazioni(); dettaglio(); griglia();
+  nazioni(); tutto();
 })();
 </script>
 </body>

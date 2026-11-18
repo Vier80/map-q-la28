@@ -1,4 +1,8 @@
 name: Aggiorna mappa LA28
+
+# Repo map-q-la28, file .github/workflows/aggiorna.yml.
+# Correzione del 18/11/2026 (scheda 37): il passaggio "Salva data.json nel repository" riprende
+# le modifiche salvate da altri nel frattempo prima di salvare (prima falliva con "rejected").
 on:
   workflow_dispatch:   # lancio a mano da Actions > Run workflow
   schedule:
@@ -85,11 +89,26 @@ jobs:
           git add wrestling-performance.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "cambiato=0" >> "$GITHUB_OUTPUT"
-          else
-            git commit -m "Aggiorna i qualificati LA28"
-            git push
-            echo "cambiato=1" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
+          git commit -m "Aggiorna i qualificati LA28"
+          # CORREZIONE del 18/11/2026 (scheda 37): mentre questo lancio lavora, altri possono salvare
+          # file nel repository (l'agente badminton salva badminton.json, i calcoli ELO del lunedì i
+          # loro *-elo.json). Allora GitHub rifiuta il salvataggio ("rejected ... fetch first").
+          # Prima di salvare riprendo quindi le loro modifiche ("git pull --rebase"): sono file
+          # diversi dai nostri, quindi si uniscono da soli. Fino a 3 tentativi, a 10 secondi
+          # di distanza (stesso sistema dei workflow ELO).
+          for tentativo in 1 2 3; do
+            if git pull --rebase && git push; then
+              echo "cambiato=1" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            git rebase --abort 2>/dev/null || true   # se l'unione non riesce, rimetto tutto com'era e riprovo
+            echo "Tentativo $tentativo non riuscito: riprovo tra 10 secondi"
+            sleep 10
+          done
+          echo "Non sono riuscito a salvare i file: ci riprova il prossimo lancio (ogni 15 minuti)"
+          exit 1
       - if: steps.salva.outputs.cambiato == '1' || github.event_name == 'workflow_dispatch'
         uses: actions/configure-pages@v5
       - if: steps.salva.outputs.cambiato == '1' || github.event_name == 'workflow_dispatch'

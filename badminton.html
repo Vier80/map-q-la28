@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
 <style>
 /* Versione 2.0 (18/11/2026, scheda 37): sei categorie e tabellone ufficiale ad albero.
+   Versione 2.0.1 (19/11/2026): il pulsante della vista ad albero si chiama «Draw» (prima «Albero»).
    Stessa veste di squash.html, in verde menta pastello: testata, fascia con anello e dettaglio,
    tabellone, quattro totali, carte. */
 :root {
@@ -646,7 +647,7 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     const voci = {}; ORD_DISC.forEach((d) => { voci[d] = d; });
     const nonDisponibili = new Set(ORD_DISC.filter((d) => !specOk.includes(d)));
     com.append(gruppoBottoni(voci, disc, (k) => { disc = k; turnoMobile = null; disegnaTabellone(); }, "Specialità", nonDisponibili));
-    com.append(gruppoBottoni({ albero: "Albero", elenco: "Elenco" }, vistaReale, (k) => { vista = k; disegnaTabellone(); }, "Vista", voce ? new Set() : new Set(["albero"])));
+    com.append(gruppoBottoni({ albero: "Draw", elenco: "Elenco" }, vistaReale, (k) => { vista = k; disegnaTabellone(); }, "Vista", voce ? new Set() : new Set(["albero"])));
     if (voce) {
       const st = el("button", "chip", "Stampa tabellone ↓ PDF"); st.type = "button"; st.title = "Si apre la stampa in A4 orizzontale: scegli «Salva come PDF»";
       st.addEventListener("click", () => stampaTabellone(t, disc));

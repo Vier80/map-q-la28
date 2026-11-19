@@ -1,6 +1,8 @@
 name: ELO Vela
 
-# Repo map-q-la28, file .github/workflows/elo-vela.yml (versione 1 del 18/11/2026, scheda 38).
+# Repo map-q-la28, file .github/workflows/elo-vela.yml (versione 2 del 19/11/2026, scheda 39).
+# NOVITÀ della versione 2: se vela-elo.json è stato salvato, alla fine avvia "Aggiorna mappa LA28",
+# che rifà vela-performance.json con il nuovo ELO e ripubblica la pagina vela-performance.html.
 # Parte SOLO a mano (decisione di Gualtiero, foglio punto 22): Actions -> ELO Vela -> Run workflow.
 # Legge il db "⛵ Agente Vela", calcola l'ELO e (se non è una prova) scrive "ELO Vela" e "ID WS" in Athletes.
 on:
@@ -13,6 +15,7 @@ on:
 
 permissions:
   contents: write          # serve per salvare vela-elo.json nel repository (lancio vero)
+  actions: write           # NOVITÀ v2: serve per avviare "Aggiorna mappa LA28" alla fine
 
 # due calcoli contemporanei scriverebbero due volte in Athletes: il secondo aspetta il primo
 concurrency:
@@ -53,7 +56,8 @@ jobs:
           if-no-files-found: ignore
 
       - name: Salva vela-elo.json nel repository (solo nel lancio vero)
-        # servirà alla pagina performance della vela (sessione 3)
+        # serve alla pagina performance della vela
+        id: salva
         if: always() && format('{0}', inputs.solo_prova) == 'false'
         run: |
           git config user.name "github-actions[bot]"
@@ -61,15 +65,32 @@ jobs:
           git add vela-elo.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "vela-elo.json invariato"
+            echo "salvato=0" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git commit -m "Aggiorna l'ELO vela"
           # il workflow della mappa salva file ogni 15 minuti: prima di salvare prendo le sue modifiche
           for tentativo in 1 2 3; do
             if git pull --rebase && git push; then
+              echo "salvato=1" >> "$GITHUB_OUTPUT"
               exit 0
             fi
             sleep 10
           done
           echo "Non sono riuscito a salvare vela-elo.json"
           exit 1
+
+      # ------------------------------------------------------------------ NOVITÀ della versione 2
+      - name: Ripubblica subito il sito (avvia "Aggiorna mappa LA28")
+        # Solo se vela-elo.json è stato davvero salvato. La mappa rifà vela-performance.json con il nuovo
+        # ELO (aggiorna_vela_performance.py) e ripubblica GitHub Pages. Il token automatico github.token
+        # non fa partire altri workflow con un push, ma può farlo con "workflow run" (permesso actions: write).
+        # Se questo passaggio fallisce non succede nulla di grave: ci pensa il giro dei 15 minuti.
+        if: always() && steps.salva.outputs.salvato == '1'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run aggiorna.yml --repo "${{ github.repository }}" \
+            && echo "Ho avviato 'Aggiorna mappa LA28': la pagina si aggiorna entro pochi minuti." \
+            || echo "ATTENZIONE: non sono riuscito ad avviare la mappa; si aggiornerà al prossimo giro (15-30 minuti)."

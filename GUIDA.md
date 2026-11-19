@@ -102,3 +102,13 @@ Indirizzo: `https://vier80.github.io/map-q-la28/badminton-performance.html`
 
 Se modifichi la formula PTS o Punti Base in Notion, la pagina resta giusta (il PTS viene letto da Notion), ma nel registro dell'esecuzione compare un `AVVISO … diverso dal ricalcolo`: in quel caso aggiorna la sezione FORMULA PTS dello script.
 Indirizzo: `https://vier80.github.io/map-q-la28/pentathlon-performance.html`
+
+## Pagina Performance Vela
+
+- `vela-performance.html`: classifica WON per classe (le 10 classi olimpiche; negli equipaggi la barca conta come un atleta), distacco in vetta, quadrante della performance, qualità del field, ELO e WON a confronto, classifica ELO top 10, forza delle nazioni e focus Italia, in verde acqua
+- `vela-performance.json`: i dati, riscritto a ogni aggiornamento
+- `aggiorna_vela_performance.py`: legge atleti ed equipaggi di vela del db Athletes (Sport = Sailing) e i loro risultati nei db **Risultati A** e **Risultati B** (solo senior), ricalcola il WON 🔺 con le funzioni di `aggiorna_judo_performance.py` (che deve restare nella stessa cartella), aggiunge l'ELO di `vela-elo.json` e scrive `vela-performance.json`
+- `elo_vela.py` e il workflow **ELO Vela** (`elo-vela.yml`, solo a mano): calcolano l'ELO dalle classifiche complete del db «⛵ Agente Vela», scrivono `ELO Vela` e `ID WS` in Athletes e salvano `vela-elo.json`; alla fine avviano «Aggiorna mappa LA28», che ripubblica la pagina
+
+Senza `vela-elo.json` la pagina funziona lo stesso, con «—» nella colonna ELO.
+Indirizzo: `https://vier80.github.io/map-q-la28/vela-performance.html`

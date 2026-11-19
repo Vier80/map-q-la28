@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
-"""ELO Vela (scheda 38, sessione 2) – repo map-q-la28 · versione 1.0 del 18/11/2026
+"""ELO Vela (scheda 38, sessione 2) – repo map-q-la28 · versione 1.1 del 19/11/2026
+
+Novità della versione 1.1 (decisioni di Gualtiero del 19/11/2026, dopo la prima Solo prova):
+  - K base 64 invece di 32: con 32 i valori restavano troppo vicini a 1500 (ILCA 7 da 1437 a 1615);
+  - soglie confermate: provvisorio da 3 eventi, stabile da 6; sconto equipaggio nuovo confermato al 20%;
+  - abbinamento con Athletes: se c'è UNA SOLA pagina candidata con lo stesso NOC (o NOC vuoto) si
+    abbina anche quando
+      · il nome è quasi uguale (Matt/Matthew WEARN, Gian/Gian Andrea STRAGIOTTI), oppure
+      · in Athletes la Disciplina è vuota;
+    se mancano sia il nome identico sia la Disciplina, serve lo stesso NOC (non vuoto);
+  - nel rapporto e nel JSON ogni atleta compare con il nome scritto più spesso (preferendo la forma
+    "Nome COGNOME"), non con quello dell'ultima regata.
 
 Che cosa fa
 -----------
@@ -19,12 +30,12 @@ Che cosa fa
      - ogni regata = confronti a coppie tra tutte le barche della classifica finale:
        chi è arrivato davanti "ha battuto" chi è arrivato dietro (pari merito = mezzo punto);
      - variazione = K / (N − 1) × somma di (risultato − atteso) contro le altre N − 1 barche,
-       con K = 32 × coefficiente dell'evento (Olimpiadi 1,5 · Mondiali 1,25 · Sailing Grand Slam 1,0 ·
+       con K = 64 × coefficiente dell'evento (Olimpiadi 1,5 · Mondiali 1,25 · Sailing Grand Slam 1,0 ·
        Europei 0,9 · Giochi continentali 0,9 · Altre regate 0,8);
      - tutti i rating di una regata si aggiornano INSIEME, partendo dai valori prima della regata;
      - barche "mai partite" (DNC/DNS in tutte le prove) escluse;
      - equipaggio nuovo: parte dalla media degli ultimi ELO dei suoi due atleti in quella classe
-       (1500 per chi non ne ha), avvicinata a 1500 dello SCONTO_CAMBIO [DA DECIDERE, oggi 20%];
+       (1500 per chi non ne ha), avvicinata a 1500 dello SCONTO_CAMBIO (20%, deciso il 19/11);
      - inattività come il judo: 6 mesi interi senza effetto, poi −2% al mese della distanza da 1500.
 4. Misura quanto bene l'ELO prevede l'ordine d'arrivo e confronta qualche variante dei parametri.
 5. Abbina ogni barca (atleta o equipaggio) a una pagina del db Athletes (Sport = Sailing) e divide in
@@ -95,13 +106,13 @@ SIGLA = {"Men's Laser ILCA 7": "ILCA 7", "Women's Laser Radial ILCA 6": "ILCA 6"
 
 # --- regole di calcolo (scheda 34 §8, decise da Gualtiero il 17/11/2026) ---
 ELO_PARTENZA = 1500
-K_BASE = 32
+K_BASE = 64                   # 32 deciso il 17/11, portato a 64 il 19/11 dopo la Solo prova
 COEFF_EVENTO = {"Olimpiadi": 1.5, "Mondiali": 1.25, "Sailing Grand Slam": 1.0,
                 "Europei": 0.9, "Giochi continentali": 0.9, "Altre regate": 0.8}
-SCONTO_CAMBIO = 0.20          # [DA DECIDERE] equipaggio nuovo: quota della distanza da 1500 che si perde
+SCONTO_CAMBIO = 0.20          # (deciso il 19/11) equipaggio nuovo: quota della distanza da 1500 che si perde
 MESI_SENZA_EFFETTO = 6        # inattività come il judo: 6 mesi interi senza effetto...
 CALO = 0.02                   # ... poi -2% al mese della distanza da 1500
-# Soglie per mostrare l'ELO nella pagina, in NUMERO DI EVENTI (foglio, punto 15) [DA DECIDERE dopo la Solo prova]
+# Soglie per mostrare l'ELO nella pagina, in NUMERO DI EVENTI (foglio, punto 15; confermate il 19/11)
 SOGLIA_MOSTRA = 3             # da 3 eventi l'ELO è "provvisorio"
 SOGLIA_STABILE = 6            # da 6 eventi è "stabile"
 DATA_VERIFICA = "2026-07-01"  # da qui si misura la bontà delle previsioni
@@ -357,6 +368,24 @@ class Unione:
             self.padre[max(ra, rb)] = min(ra, rb)
 
 
+# Un ID World Sailing è il codice della nazione + le iniziali + un numero (es. AUSGM33, ITARP80).
+# Alcune pagine (Mondiali iQFOiL 2025) collegano invece il numero velico ("AUS81"): non è un ID.
+RE_ID_WS = re.compile(r"^[A-Z]{3}[A-Z]{1,5}\d{1,4}$")
+
+
+ID_SCARTATI = []      # ID non validi trovati nelle righe (solo per il rapporto)
+
+
+def id_valido(ident, scarti):
+    """L'ID se ha la forma giusta, altrimenti "" (la riga resta nel calcolo, l'ID no)."""
+    ident = (ident or "").strip().upper()
+    if ident and not RE_ID_WS.match(ident):
+        scarti["nota: ID World Sailing non valido ignorato (la riga resta nel calcolo)"] += 1
+        ID_SCARTATI.append(ident)
+        return ""
+    return ident
+
+
 def prepara_righe(grezze):
     """Controlla le righe lette e le porta al formato interno. Restituisce (righe, scarti per motivo)."""
     righe, scarti = [], Counter()
@@ -378,7 +407,7 @@ def prepara_righe(grezze):
             scarti["barca mai partita (DNC/DNS in tutte le prove)"] += 1
         else:
             righe.append({**r, "pos": int(pos), "data": data, "id_evento": uid.split("|")[0] or r.get("evento"),
-                          "id1": (r.get("id1") or "").strip().upper(), "id2": (r.get("id2") or "").strip().upper(),
+                          "id1": id_valido(r.get("id1"), scarti), "id2": id_valido(r.get("id2"), scarti),
                           "noc": (r.get("noc") or "").strip().upper(), "pro": r.get("pro") or ""})
     return righe, scarti
 
@@ -706,10 +735,28 @@ def abbina(B, persone, athletes):
                 simili.append(r)
         noc = b["noc"]
         buoni = [r for r in esatti if (not r["_codice"] or r["_codice"] == noc) and classe in r["_classi"]]
-        if len(buoni) == 1 and len(esatti) == 1:
+        # versione 1.1: una sola pagina candidata, accettata anche se il nome è quasi uguale oppure
+        # la Disciplina è vuota (decisione del 19/11/2026); se mancano entrambe le cose serve lo stesso NOC
+        unica = (esatti + simili)[0] if len(esatti) + len(simili) == 1 else None
+        if unica is not None:
+            stesso_noc = unica["_codice"] == noc
+            noc_ok = stesso_noc or not unica["_codice"]
+            classe_ok = classe in unica["_classi"]
+            disc_vuota = not unica["_classi"]
+            nome_ok = bool(esatti)
+            accetta = noc_ok and (classe_ok or disc_vuota) and (nome_ok or classe_ok or stesso_noc)
+        else:
+            accetta = False
+        if len(buoni) == 1 and len(esatti) == 1 and not simili:
             come = "nome + NOC + classe" if buoni[0]["_codice"] else "nome + classe (NOC vuoto in Athletes)"
             esiti[k] = {"esito": "abbinato", "page": buoni[0]["page"], "motivo": come, "candidati": buoni}
             certi_per_pagina[buoni[0]["page"]].append(k)
+        elif accetta:
+            parti = ["nome" if nome_ok else "nome quasi uguale",
+                     "NOC" if stesso_noc else "NOC vuoto in Athletes",
+                     "classe" if classe_ok else "Disciplina vuota in Athletes"]
+            esiti[k] = {"esito": "abbinato", "page": unica["page"], "motivo": " + ".join(parti), "candidati": [unica]}
+            certi_per_pagina[unica["page"]].append(k)
         elif esatti or simili:
             motivi = []
             for r in esatti:
@@ -726,12 +773,21 @@ def abbina(B, persone, athletes):
             esiti[k] = {"esito": "incerto", "page": None, "motivo": "; ".join(motivi), "candidati": esatti + simili}
         else:
             esiti[k] = {"esito": "da creare", "page": None, "motivo": "nessuna pagina somigliante", "candidati": []}
-    # due barche abbinate con certezza alla STESSA pagina (es. vecchio e nuovo equipaggio con nomi uguali)
+    # più barche abbinate alla STESSA pagina (es. "Bruno FESTO" e, in una sola regata, "Bruno FEDTO"):
+    # versione 1.1: la pagina resta alla barca abbinata per nome identico e, a parità, a quella con più
+    # eventi; le altre diventano incerte. Se nessuna prevale, sono tutte incerte (come prima).
     for page, chiavi in certi_per_pagina.items():
-        if len(chiavi) > 1:
-            for k in chiavi:
-                esiti[k].update(esito="incerto", page=None,
-                                motivo=f"{len(chiavi)} barche con lo stesso nome e la stessa classe")
+        if len(chiavi) < 2:
+            continue
+        ordine = sorted(chiavi, key=lambda k: (not esiti[k]["motivo"].startswith("nome +"), -B[k]["n"]))
+        primo, secondo = ordine[0], ordine[1]
+        prevale = ((esiti[primo]["motivo"].startswith("nome +") and not esiti[secondo]["motivo"].startswith("nome +"))
+                   or B[primo]["n"] > B[secondo]["n"])
+        for k in (ordine[1:] if prevale else ordine):
+            esiti[k].update(esito="incerto", page=None,
+                            motivo=(f"pagina già abbinata a {nome_barca(B[primo])} ({B[primo]['n']} eventi): "
+                                    "forse la stessa barca scritta in modo diverso") if prevale
+                            else f"{len(chiavi)} barche con lo stesso nome e la stessa classe")
     prese = {e["page"] for e in esiti.values() if e["esito"] == "abbinato"}
     for e in esiti.values():
         if e["esito"] != "incerto" or e["motivo"].startswith("ID WS"):
@@ -763,8 +819,32 @@ def id_ws_barca(b, persone):
 
 
 # ====================================================================== USCITE
+NOMI_SCELTI = {}      # nome della barca "come lo scrive di solito" (preparato da scegli_nomi)
+
+
+def nome_migliore(scheda_persona):
+    """Il nome scritto più spesso nelle classifiche; a parità preferisce la forma con il COGNOME in
+    maiuscolo ('Lorenzo Brando CHIAVARINI' invece di 'Lorenzo Brando Chiavarini')."""
+    def punteggio(item):
+        nome, volte = item
+        maiuscolo = any(len(w) > 1 and w == w.upper() and w != w.lower() for w in nome.split())
+        tutto_maiuscolo = nome == nome.upper()
+        return (volte + (2 if maiuscolo and not tutto_maiuscolo else 0), not tutto_maiuscolo)
+    return max(scheda_persona["nomi"].items(), key=punteggio)[0]
+
+
+def scegli_nomi(B, persone):
+    """Per ogni barca: timoniere e prodiere (ordine dell'ultima regata) con il loro nome più usato."""
+    for k, b in B.items():
+        pers = [p for p in k[1] if not p.startswith("?")]
+        t_ultimo = parole_nome((b["nomi"] or ("", ""))[0])
+        ordinati = sorted(pers, key=lambda p: 0 if any(parole_nome(n) == t_ultimo for n in persone[p]["nomi"]) else 1)
+        nomi = [nome_migliore(persone[p]) for p in ordinati]
+        NOMI_SCELTI[k] = (nomi[0] if nomi else "?", nomi[1] if len(nomi) > 1 else "")
+
+
 def nome_barca(b):
-    t, p = b["nomi"] or ("?", "")
+    t, p = NOMI_SCELTI.get(b["chiave"]) or b["nomi"] or ("?", "")
     return f"{t} / {p}" if p else t
 
 
@@ -775,7 +855,7 @@ def nome_athletes(b):
         if any(p == p.upper() and len(p) > 1 for p in parole):
             return " ".join(parole)
         return " ".join(parole[:-1] + [parole[-1].upper()]) if len(parole) > 1 else n
-    t, p = b["nomi"] or ("", "")
+    t, p = NOMI_SCELTI.get(b["chiave"]) or b["nomi"] or ("", "")
     return formato(t) + (f"/{formato(p)}" if p else "")
 
 
@@ -831,7 +911,7 @@ def salva_elenchi(B, esiti, per_page, persone):
         b = B[k]
         return [nome_barca(b), b["noc"], b["classe"], round(b["elo"]), b["n"], b["miglior_pos"], b["livello"],
                 id_ws_barca(b, persone) or ""]
-    intest = ["Barca (nomi più recenti)", "NOC", "Classe", "ELO", "Eventi", "Miglior posizione", "Livello", "ID WS"]
+    intest = ["Barca", "NOC", "Classe", "ELO", "Eventi", "Miglior posizione", "Livello", "ID WS"]
     ordina = lambda k: (-B[k]["n"], nome_barca(B[k]))
     ab = sorted((k for k, e in esiti.items() if e["esito"] == "abbinato"), key=ordina)
     dc = sorted((k for k, e in esiti.items() if e["esito"] == "da creare"), key=ordina)
@@ -856,7 +936,7 @@ def salva_json(B, esiti, eventi, persone, oggi):
     barche = []
     for k, b in sorted(B.items(), key=lambda x: -x[1]["elo"]):
         e = esiti.get(k, {})
-        t, p = b["nomi"] or ("", "")
+        t, p = NOMI_SCELTI.get(k) or b["nomi"] or ("", "")
         barche.append({"nome": nome_barca(b), "timoniere": t, "prodiere": p or None, "noc": b["noc"],
                        "classe": b["classe"], "equipaggio": b["classe"] in DOPPI,
                        "notion": (e.get("page") or "").replace("-", "") or None, "id_ws": id_ws_barca(b, persone),
@@ -882,7 +962,7 @@ def main():
     args = ap.parse_args()
     solo_prova = os.getenv("DRY_RUN", "true").strip().lower() != "false" or bool(args.da_raw)
     oggi = dt.date.fromisoformat(args.oggi) if args.oggi else dt.date.today()
-    log(f"ELO Vela 1.0 · {'SOLO PROVA: non scrivo nulla su Notion' if solo_prova else 'SCRITTURA su Notion'} "
+    log(f"ELO Vela 1.1 · {'SOLO PROVA: non scrivo nulla su Notion' if solo_prova else 'SCRITTURA su Notion'} "
         f"· data del calcolo {oggi.isoformat()}")
 
     # 1. lettura
@@ -909,7 +989,10 @@ def main():
     righe, scarti = prepara_righe(grezze)
     log(f"Righe usate: {len(righe)}")
     for motivo, n in scarti.most_common():
-        log(f"  escluse {n}: {motivo}")
+        if motivo.startswith("nota: "):
+            log(f"  nota {n}: {motivo[6:]}: {', '.join(ID_SCARTATI[:15])}")
+        else:
+            log(f"  escluse {n}: {motivo}")
     persone, uniti = riconosci_persone(righe)
     piu_id = [p for p in persone.values() if len(p["ids"]) > 1]
     log(f"Atleti riconosciuti: {len(persone)} · con ID World Sailing: "
@@ -931,6 +1014,7 @@ def main():
 
     # 3. calcolo
     B, prev = calcola_elo(eventi, oggi, verifica_da=DATA_VERIFICA)
+    scegli_nomi(B, persone)
     livelli = Counter(b["livello"] for b in B.values())
     log(f"\nBarche con un ELO: {len(B)} · stabili {livelli['stabile']} · provvisorie {livelli['provvisorio']} "
         f"· non mostrate {livelli['nascosto']}")
@@ -944,8 +1028,8 @@ def main():
     log(f"BONTÀ DELLE PREVISIONI (eventi dal {DATA_VERIFICA}, coppie di barche con almeno "
         f"{SOGLIA_MOSTRA} eventi alle spalle)")
     log("=" * 78)
-    log(f"  Regole decise (K 32, sconto {SCONTO_CAMBIO:.0%}):      {testo_previsioni(prev)}")
-    varianti = [("K 24", dict(k_base=24)), ("K 48", dict(k_base=48)),
+    log(f"  Regole decise (K {K_BASE}, sconto {SCONTO_CAMBIO:.0%}):      {testo_previsioni(prev)}")
+    varianti = [("K 32", dict(k_base=32)), ("K 96", dict(k_base=96)),
                 ("K ×1,5 nei primi 3 eventi", dict(molt_nuovo=1.5, prime=3)),
                 ("senza coefficienti evento", dict(usa_coeff=False)),
                 ("sconto equipaggio 0%", dict(sconto=0.0)), ("sconto equipaggio 50%", dict(sconto=0.5))]

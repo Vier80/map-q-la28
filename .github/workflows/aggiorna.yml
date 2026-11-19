@@ -1,6 +1,7 @@
 name: Aggiorna mappa LA28
 
 # Repo map-q-la28, file .github/workflows/aggiorna.yml.
+# Novità del 19/11/2026 (scheda 39): passaggio "Performance Vela" (aggiorna_vela_performance.py).
 # Correzione del 18/11/2026 (scheda 37): il passaggio "Salva data.json nel repository" riprende
 # le modifiche salvate da altri nel frattempo prima di salvare (prima falliva con "rejected").
 on:
@@ -74,6 +75,12 @@ jobs:
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: python aggiorna_wrestling_performance.py
+      - name: Performance Vela - ricalcola il WON, aggiunge l'ELO e aggiorna vela-performance.json
+        # NOVITÀ del 19/11/2026 (scheda 39)
+        continue-on-error: true     # se fallisce, la mappa si aggiorna comunque
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: python aggiorna_vela_performance.py
       - name: Salva data.json nel repository
         id: salva
         run: |
@@ -87,6 +94,7 @@ jobs:
           git add pentathlon-performance.json 2>/dev/null || true
           git add scherma-performance.json 2>/dev/null || true
           git add wrestling-performance.json 2>/dev/null || true
+          git add vela-performance.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "cambiato=0" >> "$GITHUB_OUTPUT"
             exit 0

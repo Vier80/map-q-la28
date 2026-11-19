@@ -1,5 +1,14 @@
 #!/usr/bin/env python3
-"""ELO Tennis Tavolo (scheda 42, sessione 2) – repo map-q-la28 · versione 1.0 del 19/11/2026
+"""ELO Tennis Tavolo (scheda 42, sessione 2) – repo map-q-la28 · versione 1.1 del 19/11/2026
+
+Novità della versione 1.1 (dopo la prima «Solo prova» del 19/11/2026), solo nell'abbinamento e negli
+elenchi; regole, calcolo e scrittura invariati:
+  - per l'abbinamento usa TUTTI i nomi con cui il sito ha scritto un giocatore o una coppia, non solo
+    l'ultimo (es. Mattias FALCK, oggi «KARLSSON Mattias»; Barbora BALAZOVA, oggi «VARADY Barbora»);
+  - le specialità di Athletes valgono solo con 🏓 davanti: nel file «da creare» la colonna
+    «Disciplina da scegliere» mostrava per errore le opzioni del badminton (🏸);
+  - il rapporto elenca gli ID ITTF scritti dal sito con nomi diversi nei singolari (cambi di cognome
+    o possibili errori del sito, come due giocatori diversi con lo stesso ID).
 
 Stessa struttura dell'ELO badminton (elo_badminton.py 1.1, schede 32-33), con le regole decise da
 Gualtiero nel foglio «Tennistavolo LA28 – punti da decidere e verificare» (19/11/2026).
@@ -507,8 +516,10 @@ def calcola_elo(validi, oggi, k_base=K_BASE, usa_turno=True, usa_torneo=True, us
             a = A[chiave] = {"id": pid, "disc": disc, "nome": nome, "noc": noc,
                              "rating": float(ELO_PARTENZA), "n": 0, "v": 0, "wo": 0, "ritiri": 0,
                              "ultima": None, "tornei": [], "storico": [], "max": float(ELO_PARTENZA),
-                             "nocs": set()}
+                             "nocs": set(), "nomi": set()}
         a["nome"], a["noc"] = nome or a["nome"], noc or a["noc"]     # tengo i dati più recenti
+        if nome:
+            a["nomi"].add(nome)                                      # tutti i nomi visti (FALCK -> KARLSSON)
         a["nocs"].update(x for x in (noc or "").split("/") if x)    # tutti i NOC visti (AIN -> RUS...)
         return a
 
@@ -683,6 +694,8 @@ def specialita_athletes(disc):
     """Disciplina (multi-select) di una pagina di Athletes -> insieme di sigle (MS, WS, MD, WD, XD)."""
     out = set()
     for d in disc:
+        if "🏓" not in (d or ""):
+            continue                         # solo le opzioni del tennistavolo (non 🏸, 🎾 o senza emoji)
         m = RE_SPECIALITA.search(d or "")
         if m:
             out.add(SIGLA_DA_TESTO[(m.group(1).lower(), m.group(2).lower())])
@@ -723,11 +736,12 @@ def abbina(A, athletes):
                              {"esito": "incerto", "page": None, "candidati": righe,
                               "motivo": f"ID ITTF presente in {len(righe)} pagine di Athletes"})
             continue
-        gs = giocatori(a["nome"])
+        tutti_gs = [giocatori(n) for n in sorted(a.get("nomi") or {a["nome"]})]   # tutti i nomi visti sul sito
         nocs = set(a["nocs"]) or {x for x in (a["noc"] or "").split("/") if x}
         esatti, simili = [], []
         for r in liberi:
-            e = confronta(gs, r["_gioc"])
+            confronti = [confronta(gs, r["_gioc"]) for gs in tutti_gs]
+            e = "esatto" if "esatto" in confronti else ("simile" if "simile" in confronti else None)
             if e == "esatto":
                 esatti.append(r)
             elif e == "simile":
@@ -895,7 +909,7 @@ def main():
     solo_prova = os.getenv("DRY_RUN", "true").strip().lower() != "false" or bool(args.da_raw)
     oggi = dt.date.fromisoformat(args.oggi) if args.oggi else dt.date.today()
 
-    log(f"ELO Tennis Tavolo 1.0 · {'SOLO PROVA: non scrivo nulla su Notion' if solo_prova else 'SCRITTURA su Notion'} "
+    log(f"ELO Tennis Tavolo 1.1 · {'SOLO PROVA: non scrivo nulla su Notion' if solo_prova else 'SCRITTURA su Notion'} "
         f"· data del calcolo {oggi.isoformat()}")
 
     # 1. lettura
@@ -985,6 +999,10 @@ def main():
         log(f"  · {a['nome']} ({a['noc']}, {a['disc']}, {a['n']} inc., ELO {a['elo']:.0f}) → {esiti[k]['motivo']}")
     log("\nDa creare con ELO mostrato e NOC ITA: " + (", ".join(
         A[k]["nome"] for k in dc if mostrato(k) and "ITA" in (A[k]["noc"] or "").split("/")) or "nessuno"))
+    cambi = [A[k] for k in A if k[1] in ("MS", "WS") and len(A[k].get("nomi", ())) > 1]
+    log("\nStesso ID ITTF scritto dal sito con nomi diversi nei singolari (cambio di cognome o errore del sito): "
+        + ("; ".join(f"{a['id']} {' = '.join(sorted(a['nomi']))} ({a['noc']}, {a['disc']})"
+                     for a in sorted(cambi, key=lambda a: a["nome"])) or "nessuno"))
     righe_no = [r for r in athletes if r["page"] not in usate]
     log(f"\nPagine di Athletes NON abbinate ({len(righe_no)}): "
         + "; ".join(f"{r['nome']} ({codice_noc(r['noc']) or '-'})" for r in righe_no[:80]))

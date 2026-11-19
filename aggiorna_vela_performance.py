@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Pagina Performance Vela (scheda 39, ELO vela sessione 3) – repo map-q-la28 · versione 1.0 del 19/11/2026
+"""Pagina Performance Vela (scheda 39, ELO vela sessione 3) – repo map-q-la28 · versione 1.1 del 19/11/2026
+
+Correzione 1.1: i risultati si leggono una classe alla volta. Nella 1.0 un'unica ricerca con tutte le
+classi falliva ("validation_error") perché "Women's Laser Radial ILCA6" non è un'opzione di Risultati B.
 
 Che cosa fa
 -----------
@@ -60,10 +63,20 @@ def leggi_notion():
             "disc": valore(p.get("Disciplina")) or [], "pas": valore(p.get("🎟️Pass LA28")) or "",
             "dob": valore(p.get("DOB")) or "", "hon": valore(p.get("Honours")) or []}
     print(f"Athletes: {len(ath)} atleti ed equipaggi di vela")
-    filtro = {"or": [{"property": "Disciplina", "select": {"equals": d}} for d in SPECIALITA]}
     res = []
     for sigla, db in DB_RISULTATI.items():
-        pagine = interroga(db, filtro)
+        # CORREZIONE 1.1 (19/11/2026): una classe alla volta. Se una classe non è tra le opzioni di
+        # "Disciplina" di quel db (es. "Women's Laser Radial ILCA6" esiste solo in Risultati A),
+        # Notion rifiuta tutta la ricerca con "validation_error": così salto solo quella classe.
+        pagine = []
+        for d in SPECIALITA:
+            try:
+                pagine += interroga(db, {"property": "Disciplina", "select": {"equals": d}})
+            except SystemExit as errore:      # la funzione di judo si ferma con sys.exit: qui lo intercetto
+                if "validation_error" in str(errore):
+                    print(f"  Risultati {sigla}: «{d}» non è tra le opzioni di Disciplina, saltata")
+                else:
+                    raise
         for pg in pagine:
             p = pg["properties"]
             res.append({"db": sigla, "ids": valore(p.get("Athlete")) or [], "ev": valore(p.get("Evento")) or "",

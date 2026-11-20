@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Risultati Squash PSA · Mondiali, Tour Finals, Diamond, Platinum e Gold</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
+<style>
+/* squash-risultati.html · versione 1.0 (20/11/2026, scheda 45). Creata da tennistavolo.html 1.0.1 con
+   crea_squash_risultati_html.py: colore LILLA (come squash.html), solo singolari, niente ELO, categorie PSA.
+   --- Note della pagina di partenza ---
+   tennistavolo.html · versione 1.0 (19/11/2026, scheda 43).
+   Copia di badminton.html 2.0.1 (schede 36-37) adattata al tennistavolo WTT: sette categorie,
+   tabellone ufficiale ad albero (anche delle qualificazioni), gironi di WTT Finals e World Cup,
+   partite vinte al posto dei set, ELO tennistavolo a inizio torneo.
+   Colore: GIALLO (diverso dal sabbia della vela e dagli altri colori già usati).
+   Versione 1.0.1 (20/11/2026): Contender con gironi di qualificazione: il turno finale (QER) si vede
+   nella vista Qualificazioni, i gironi restano nell'Elenco. */
+:root {
+  --bg: #ffffff; --fg: #2e2438; --muted: #6f6479; --line: #e6dcf0; --card: #fcfaff; --soft: #f4eefa; --track: #ebe2f4;
+  --ink: #9b7ccf; --ink-2: #cbb7ec; --ink-t: #7a58b3; --gold: #a8782a;
+  --MS: #7da9e8; --WS: #e39bbd; --MD: #a993dc; --WD: #e8a08a; --XD: #6cc3b8; --shadow: rgba(70, 40, 110, .10);
+  /* colori delle categorie PSA (pallino nelle carte) */
+  --c-mon: #a8782a; --c-fin: #a8782a; --c-dia: #2a78d6; --c-pla: #7a58b3; --c-gold: #d9a400; --c-sil: #9aa0a8; --c-bro: #b0764a; --c-alt: #cbb7ec;
+  --font: "Quicksand", "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #18141d; --fg: #ece4f3; --muted: #a99bb6; --line: #3a3045; --card: #201a27; --soft: #261f2e; --track: #352c40;
+  --ink: #b9a0e6; --ink-2: #d9c9f4; --ink-t: #cbb7ec; --gold: #e3c15c;
+  --MS: #8fb6ee; --WS: #eab0cb; --MD: #b9a6e6; --WD: #eeb09e; --XD: #84d3c8; --shadow: rgba(0, 0, 0, .4);
+  --c-mon: #e3c15c; --c-fin: #ee8a4f; --c-dia: #6aa8f0; --c-pla: #cbb7ec; --c-gold: #f5d23a; --c-sil: #b8bec6; --c-bro: #d79a6e; --c-alt: #6f6082; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #18141d; --fg: #ece4f3; --muted: #a99bb6; --line: #3a3045; --card: #201a27; --soft: #261f2e; --track: #352c40;
+  --ink: #b9a0e6; --ink-2: #d9c9f4; --ink-t: #cbb7ec; --gold: #e3c15c;
+  --MS: #8fb6ee; --WS: #eab0cb; --MD: #b9a6e6; --WD: #eeb09e; --XD: #84d3c8; --shadow: rgba(0, 0, 0, .4);
+  --c-mon: #e3c15c; --c-fin: #ee8a4f; --c-dia: #6aa8f0; --c-pla: #cbb7ec; --c-gold: #f5d23a; --c-sil: #b8bec6; --c-bro: #d79a6e; --c-alt: #6f6082; color-scheme: dark }
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 500 16px/1.4 var(--font) }
+h1, h2, h3, p { margin: 0 }
+.guscio { max-width: 1320px; margin: 0 auto; display: grid; gap: 16px; padding-block: 18px 28px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.guscio > * { min-width: 0 }
+.testa { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px }
+.titolo { flex: 1 1 320px; min-width: 0 }
+.occhiello { font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-t) }
+h1 { font: 600 2.1rem/1.2 var(--font); text-wrap: balance }
+.vai { flex: 1 1 180px; max-width: 270px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 10px; padding: 11px 16px; color: inherit; text-decoration: none; border: 1.5px solid var(--line); border-radius: 18px }
+.vai:hover { border-color: var(--ink) }
+.vai b { font-weight: 600 } .vai span { grid-column: 1; font-size: .84rem; color: var(--muted) } .vai i { grid-row: 1 / 3; grid-column: 2; font-style: normal; color: var(--ink-t); font-size: 1.2rem }
+button.vai { font: inherit; text-align: left; background: none; cursor: pointer }
+
+.fascia { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); background: var(--soft); border: 1.5px solid var(--line); border-radius: 24px }
+.avanz { display: flex; align-items: center; gap: 24px; padding: 22px 26px; min-width: 0; align-self: start; position: sticky; top: 8px }
+.anello { position: relative; flex: none; width: 168px; height: 168px; display: grid; place-items: center; text-align: center }
+.anello svg { position: absolute; inset: 0; transform: rotate(-90deg) }
+.anello small { display: block; font-size: .8rem; color: var(--muted) }
+.anello b { display: block; font: 600 2rem/1.1 var(--font); font-variant-numeric: tabular-nums }
+.traccia { fill: none; stroke: var(--track) } .arco { fill: none; stroke: var(--ink); stroke-linecap: round }
+.avanz h2 { font: 600 1.45rem/1.25 var(--font); text-wrap: balance; overflow-wrap: anywhere }
+.avanz p { color: var(--muted) }
+.avanz a { color: var(--ink-t); font-weight: 600 }
+.etichetta { margin-bottom: 4px; font-size: .78rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-t) }
+.dettaglio { min-width: 0; padding: 22px 26px; border-left: 1.5px solid var(--line) }
+.dettaglio h2 { font: 600 1.45rem/1.25 var(--font) }
+.dettaglio .etichetta { color: var(--gold) }
+.dettaglio > p { color: var(--muted) }
+.dettaglio .vai-tab { display: inline-block; margin-top: 12px; color: var(--ink-t); font-weight: 600 }
+.chip { display: inline-block; padding: 3px 10px; font-size: .86rem; color: inherit; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; text-decoration: none; font-variant-numeric: tabular-nums }
+a.chip:hover, button.chip:hover { border-color: var(--ink) }
+button.chip { font: inherit; font-size: .86rem; cursor: pointer }
+.titoli { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px }
+
+.classifica { margin: 10px 0 0; padding: 0; list-style: none; display: grid; gap: 6px }
+.classifica.lunga { max-height: 560px; overflow-y: auto; padding-right: 4px; overscroll-behavior: contain }
+.riga { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; align-items: center; gap: 4px 10px; padding: 8px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 14px }
+.riga.cerca-ok { border-color: var(--ink); box-shadow: inset 4px 0 0 var(--ink) }
+.pos { font-weight: 700; font-size: .82rem; color: var(--muted); font-variant-numeric: tabular-nums; text-align: center }
+.disc { display: inline-grid; place-items: center; min-width: 30px; padding: 2px 4px; font-size: .74rem; font-weight: 700; color: #1d2b26; border-radius: 8px }
+.disc.MS { background: var(--MS) } .disc.WS { background: var(--WS) } .disc.MD { background: var(--MD) } .disc.WD { background: var(--WD) } .disc.XD { background: var(--XD) }
+.chi { min-width: 0 } .chi b { font-weight: 600; overflow-wrap: anywhere } .chi small { display: block; font-size: .8rem; color: var(--muted); overflow-wrap: anywhere }
+.perc { text-align: right; font-variant-numeric: tabular-nums } .perc b { font: 700 1.1rem/1.1 var(--font); color: var(--ink-t) } .perc small { display: block; font-size: .76rem; color: var(--muted); white-space: nowrap }
+.riga .noc { font-size: .78rem; padding: 1px 8px; margin-left: 4px; vertical-align: 1px }
+.perc small { white-space: normal; max-width: 9.5em; margin-left: auto; line-height: 1.25 }   /* fino a 7 partite */
+.sezione { margin: 14px 0 0; font-size: .78rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--muted) }
+.gruppo { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 4px; background: var(--soft); border-radius: 14px }
+.gruppo button { padding: 6px 12px; font: 600 .9rem var(--font); color: var(--muted); background: none; border: 0; border-radius: 10px; cursor: pointer }
+.gruppo button[aria-pressed="true"] { color: #2e2438; background: var(--ink-2); box-shadow: 0 1px 3px var(--shadow) }
+.gruppo button:disabled { opacity: .45; cursor: not-allowed }
+
+/* ------------------------------------------------------------- tabellone (novità 2.0) */
+.tabellone { display: grid; gap: 14px; padding: 20px 22px; background: var(--card); border: 1.5px solid var(--line); border-radius: 24px }
+.tab-testa { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 20px }
+.tab-testa h2 { font: 600 1.35rem/1.25 var(--font); overflow-wrap: anywhere }
+.tab-testa p.sotto { font-size: .88rem; color: var(--muted) }
+.tab-comandi { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px }
+.tab-legenda { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: .8rem; color: var(--muted) }
+.tab-legenda b { color: var(--gold) }
+.tab-vuoto { padding: 18px; color: var(--muted); background: var(--bg); border: 1px dashed var(--line); border-radius: 16px }
+.albero-scorri { overflow-x: auto; padding-bottom: 6px; overscroll-behavior-x: contain }
+.albero { position: relative; margin: 0 auto }
+.albero svg.linee { position: absolute; inset: 0; overflow: visible; pointer-events: none }
+.linee path { fill: none; stroke: var(--ink-2); stroke-width: 1.5 }
+.etic-turno { position: absolute; top: 0; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: nowrap }
+.box { position: absolute; display: grid; grid-template-rows: 1fr 1fr; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; font-size: .8rem; line-height: 1.15 }
+.box.statico { position: static; height: 54px }
+.box.da-giocare { border-style: dashed }
+.box.trovato { border-color: var(--ink); box-shadow: inset 3px 0 0 var(--ink) }
+.sq { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto auto; align-items: center; gap: 0 6px; min-width: 0; padding: 0 8px 0 3px }
+.sq + .sq { border-top: 1px solid var(--line) }
+.sq .ts { font-size: .66rem; font-weight: 700; color: var(--gold); text-align: center; font-variant-numeric: tabular-nums }
+.sq .nm { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.sq .nm small { font-size: .64rem; font-weight: 600; color: var(--muted); margin-left: 4px }
+.sq .el { font-size: .66rem; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--ink-t); padding: 0 4px; border: 1px solid var(--line); border-radius: 6px }
+.sq .el.prov { font-style: italic; color: var(--muted) }
+.sq .el.nuovo { color: var(--muted); border-style: dashed }
+.sq .st { display: flex; gap: 2px; font-size: .74rem; font-variant-numeric: tabular-nums; color: var(--muted) }
+.sq .st i { font-style: normal; min-width: 16px; text-align: right } .sq .st i.v { color: var(--fg); font-weight: 700 }
+.sq .st .es { font-size: .62rem; font-weight: 700; color: var(--gold); align-self: center }
+.sq .st i.tot { min-width: 14px; font-size: .86rem }                 /* partite vinte (tennistavolo) */
+.sq .ts.q { color: var(--ink-t) }                                    /* «Q», «WC», «LL» */
+.sq .ts { font-size: .62rem }
+.qualif { display: grid; gap: 14px }
+.qualif h3 { font: 600 .95rem/1.2 var(--font); color: var(--muted) }
+.sq.vince .nm { font-weight: 700 }
+.sq.vince .nm::after { content: " ●"; color: var(--ink); font-size: .6rem; vertical-align: 1px }
+.sq.perde .nm { color: var(--muted) }
+.sq.assente .nm { color: var(--muted); font-style: italic }
+.sq.trovato { background: var(--soft) }
+.turni-mobile { margin-bottom: 2px }
+.turno-lista { display: grid; gap: 8px }
+.gironi { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); gap: 14px }
+.girone { display: grid; gap: 8px; align-content: start; padding: 14px; background: var(--bg); border: 1px solid var(--line); border-radius: 18px }
+.girone h3, .tabellone h3 { font: 600 1.05rem/1.2 var(--font) }
+.girone table { width: 100%; border-collapse: collapse; font-size: .84rem; font-variant-numeric: tabular-nums }
+.girone th { text-align: right; font-size: .72rem; font-weight: 700; color: var(--muted); padding: 2px 4px; border-bottom: 1px solid var(--line) }
+.girone th:nth-child(2), .girone td:nth-child(2) { text-align: left }
+.girone td { text-align: right; padding: 4px; border-bottom: 1px solid var(--line); white-space: nowrap }
+.girone td:nth-child(2) { max-width: 0; width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.girone tr.passa td { font-weight: 700 } .girone tr.passa td:first-child { color: var(--ink-t) }
+.girone tr.trovato td { background: var(--soft) }
+.girone .giornata { font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 4px }
+
+.totali { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1.5px solid var(--line); border-radius: 22px }
+.totale { padding: 12px 18px; text-align: center; border-right: 1px solid var(--line) } .totale:last-child { border-right: 0 }
+.totale b { display: block; font: 600 1.9rem/1.2 var(--font); font-variant-numeric: tabular-nums }
+.totale span { font-size: .78rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted) }
+
+.filtri { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px }
+#cerca { flex: 1 1 240px; min-width: 0; max-width: 460px; height: 44px; padding: 0 16px; font: 500 1rem var(--font); color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 14px }
+#cerca::placeholder { color: var(--muted) }
+
+.griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 14px }
+.carta { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; width: 100%; padding: 16px; text-align: left; font: inherit; color: inherit; background: var(--card); border: 1.5px solid var(--line); border-radius: 20px; cursor: pointer }
+.carta:hover { border-color: var(--ink); box-shadow: 0 5px 14px var(--shadow) }
+.carta[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 4px 0 0 var(--ink) }
+.carta.futuro { border-style: dashed; background: var(--bg) } .carta.futuro h3, .carta.futuro .cifre b { color: var(--muted) }
+.icona { display: grid; place-items: center; width: 50px; height: 50px; font-size: 1.7rem; background: var(--bg); border: 1px solid var(--line); border-radius: 13px }
+.carta h3 { font: 600 1.15rem/1.2 var(--font); overflow-wrap: anywhere }
+.carta h3 small { display: block; font-size: .8rem; font-weight: 600; color: var(--muted) }
+.cat { display: inline-block; width: 9px; height: 9px; margin-right: 5px; border-radius: 50%; vertical-align: 1px; background: var(--ink) }
+.cat.c-mon { background: var(--c-mon) } .cat.c-fin { background: var(--c-fin) } .cat.c-dia { background: var(--c-dia) } .cat.c-pla { background: var(--c-pla) }
+.cat.c-gold { background: var(--c-gold) } .cat.c-sil { background: var(--c-sil) } .cat.c-bro { background: var(--c-bro) } .cat.c-alt { background: var(--c-alt) }
+.mini { position: relative; width: 58px; height: 58px; display: grid; place-items: center; font-size: .9rem; font-weight: 700; font-variant-numeric: tabular-nums }
+.mini svg { position: absolute; inset: 0; transform: rotate(-90deg) }
+.barra { grid-column: 1 / -1; display: flex; height: 9px; background: var(--track); border-radius: 999px; overflow: hidden }
+.barra i { display: block; height: 100% }
+.barra .MS { background: var(--MS) } .barra .WS { background: var(--WS) } .barra .MD { background: var(--MD) } .barra .WD { background: var(--WD) } .barra .XD { background: var(--XD) }
+.cifre { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px }
+.cifre div { min-width: 0; padding: 7px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 12px }
+.cifre b { display: block; font: 600 1.05rem/1.2 var(--font); color: var(--ink-t); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.cifre span { display: block; font-size: .82rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.vuoto { padding: 20px; color: var(--muted) }
+.legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .86rem; color: var(--muted) }
+.legenda span { display: inline-flex; align-items: center; gap: 6px } .legenda i { width: 10px; height: 10px; border-radius: 50%; display: inline-block }
+.nazioni h2 { font: 600 1.25rem/1.25 var(--font); margin-bottom: 8px }
+.nazioni .titoli { margin-top: 0 }
+.nota { max-width: 90ch; font-size: .86rem; color: var(--muted) }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px }
+
+/* ------------------------------------------------------------- stampa
+   Due stampe diverse:
+   - «Scarica PDF» in alto (o Ctrl+P): albo d'oro della stagione, A4 verticale (#stampa);
+   - «Stampa tabellone»: il tabellone mostrato, A4 orizzontale (#stampa-tab; la classe
+     stampa-tabellone sul body e la regola @page orizzontale le aggiunge lo script). */
+#stampa, #stampa-tab { display: none }
+@media print {
+  @page { size: A4; margin: 11mm }
+  :root:not([data-theme="x"]) { color-scheme: light !important;
+    --bg: #fff; --fg: #2e2438; --muted: #6f6479; --line: #e6dcf0; --card: #fff; --soft: #f4eefa; --ink: #9b7ccf; --ink-2: #cbb7ec; --ink-t: #7a58b3; --gold: #a8782a }
+  html, body { background: #fff !important; color: #2e2438 !important; font-size: 9pt }
+  .guscio { display: block; max-width: none; padding: 0 }
+  .guscio > :not(#stampa):not(#stampa-tab) { display: none !important }
+  #stampa { display: block; -webkit-print-color-adjust: exact; print-color-adjust: exact }
+  body.stampa-tabellone #stampa { display: none }
+  body.stampa-tabellone #stampa-tab { display: block; -webkit-print-color-adjust: exact; print-color-adjust: exact }
+  .s-occ { font-size: 8pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #7a58b3 }
+  #stampa h1, #stampa-tab h1 { font: 700 18pt/1.2 var(--font); margin: 1mm 0 2mm }
+  #stampa-tab h1 { font-size: 15pt; margin: 0 0 1mm }
+  .s-sint { font-size: 9pt; margin: 0 0 4mm; padding-bottom: 3mm; border-bottom: 1.5pt solid #9b7ccf }
+  #stampa-tab .s-sint { margin-bottom: 3mm; padding-bottom: 2mm; font-size: 8pt }
+  .s-pagina { break-after: page; page-break-after: always }
+  .s-pagina:last-child { break-after: auto; page-break-after: auto }
+  .s-pagina h2 { font: 700 10pt/1.2 var(--font); margin: 0 0 2mm; color: #7a58b3 }
+  .s-pagina .box { border-color: #d9c9f4 }
+  .s-pagina .gironi { grid-template-columns: 1fr 1fr }
+  .s-pagina .gironi.molti { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 3mm }
+  .s-pagina .girone { break-inside: avoid; page-break-inside: avoid }
+  .s-griglia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 8mm; align-items: start }
+  .s-cat { break-inside: avoid; page-break-inside: avoid; margin: 0 0 4mm }
+  .s-cat h2 { font: 700 10pt/1.2 var(--font); margin: 0; padding: 1.2mm 2mm; background: #f4eefa; border-left: 2.5pt solid #9b7ccf; color: #2e2438 }
+  .s-sub { font-size: 7pt; color: #6f6479; margin: .8mm 0 1mm 2mm }
+  .s-cat table { width: 100%; border-collapse: collapse; font-size: 7pt; line-height: 1.15; font-variant-numeric: tabular-nums }
+  .s-cat th { text-align: left; font-weight: 700; font-size: 6.6pt; color: #6f6479; padding: 0 1.5mm .6mm; border-bottom: .6pt solid #9b7ccf }
+  .s-cat td { padding: .3mm 1.5mm; border-bottom: .4pt solid #e6dcf0; vertical-align: top }
+  .s-cat .v { font-weight: 700; white-space: nowrap; color: #7a58b3 }
+  .s-cat .n { white-space: nowrap }
+  .s-nota { font-size: 7.2pt; color: #6f6479; margin-top: 2mm; padding-top: 2mm; border-top: .6pt solid #e6dcf0 }
+}
+@media (max-width: 900px) {
+  .avanz { position: static }
+  h1 { font-size: 1.6rem }
+  .fascia { grid-template-columns: minmax(0, 1fr) } .dettaglio { border-left: 0; border-top: 1.5px solid var(--line) }
+  .totali { grid-template-columns: repeat(2, minmax(0, 1fr)) } .totale:nth-child(2) { border-right: 0 } .totale:nth-child(-n+2) { border-bottom: 1px solid var(--line) }
+  .vai { max-width: none }
+}
+@media (max-width: 520px) { .girone th:last-child, .girone td:last-child { display: none } .avanz { flex-direction: column; text-align: center; padding: 18px } .dettaglio { padding: 18px } .tabellone { padding: 16px 12px } }
+</style>
+</head>
+<body>
+<div class="guscio">
+  <header class="testa">
+    <div class="titolo">
+      <p class="occhiello" id="data">PSA World Tour</p>
+      <h1>🎾 Risultati Squash · PSA World Tour</h1>
+    </div>
+    <a class="vai" href="https://www.psasquashtour.com/" target="_blank" rel="noopener"><b>Sito PSA</b><span>PSA Squash Tour, il sito ufficiale</span><i>↗</i></a>
+    <a class="vai" href="squash.html"><b>Simulazione LA28</b><span>Qualificati olimpici dal ranking PSA</span><i>›</i></a>
+    <a class="vai" href="index.html"><b>Mappa</b><span>Qualificati LA28 nel mondo</span><i>›</i></a>
+    <button class="vai" id="pdf" type="button" title="Si apre la stampa: scegli «Salva come PDF»"><b>Scarica PDF</b><span>Albo d'oro della stagione</span><i>↓</i></button>
+  </header>
+
+  <section class="fascia">
+    <div class="avanz">
+      <div class="anello" id="anello"></div>
+      <div id="sintesi"></div>
+    </div>
+    <div class="dettaglio" id="dettaglio" aria-live="polite"></div>
+  </section>
+
+  <!-- novità 2.0: tabellone ufficiale del torneo scelto (albero o elenco) -->
+  <section class="tabellone" id="tabellone" aria-label="Tabellone del torneo"></section>
+
+  <section class="totali" id="totali"></section>
+
+  <div class="filtri">
+    <input id="cerca" type="search" placeholder="Cerca un giocatore o un NOC…" autocomplete="off" aria-label="Cerca un giocatore o un NOC">
+    <div class="gruppo" id="categoria" role="group" aria-label="Filtra per categoria"></div>
+    <div class="gruppo" id="statof" role="group" aria-label="Filtra per stato del torneo"></div>
+  </div>
+  <div class="legenda">
+    <span><i style="background:var(--MS)"></i>Singolare maschile (MS)</span>
+    <span><i style="background:var(--WS)"></i>Singolare femminile (WS)</span>
+  </div>
+
+  <div class="griglia" id="griglia"></div>
+
+  <section class="nazioni" id="nazioni"></section>
+  <p class="nota" id="nota"></p>
+  <div id="stampa"></div>
+  <div id="stampa-tab"></div>
+</div>
+
+<script>
+(async function () {
+  // ---------------------------------------------------------------- strumenti
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, cls, testo) => { const e = document.createElement(tag); if (cls) e.className = cls; if (testo != null) e.textContent = testo; return e; };
+  const num = (n) => n.toLocaleString("it-IT");
+  const NS = "http://www.w3.org/2000/svg";
+  function cerchio(dim, spessore, p) {
+    const s = document.createElementNS(NS, "svg"); s.setAttribute("viewBox", `0 0 ${dim} ${dim}`); s.setAttribute("aria-hidden", "true");
+    const r = (dim - spessore) / 2, c = 2 * Math.PI * r;
+    [["traccia", 0], ["arco", Math.min(100, p)]].forEach(([cl, v]) => {
+      const o = document.createElementNS(NS, "circle");
+      o.setAttribute("class", cl); o.setAttribute("cx", dim / 2); o.setAttribute("cy", dim / 2); o.setAttribute("r", r); o.setAttribute("stroke-width", spessore);
+      if (cl === "arco") { o.setAttribute("stroke-dasharray", `${c * v / 100} ${c}`); if (!v) o.setAttribute("stroke-opacity", "0"); }
+      s.append(o);
+    });
+    return s;
+  }
+
+  // ---------------------------------------------------------------- dati
+  let dati;
+  try { dati = await fetch("squash-risultati.json?v=" + Date.now()).then((r) => { if (!r.ok) throw 0; return r.json(); }); }
+  catch (e) { $("nota").textContent = "I risultati non si caricano: ricarica la pagina (oppure l'agente squash non ha ancora pubblicato squash-risultati.json)."; return; }
+  // ELO (facoltativo): se tennistavolo-elo.json manca, la pagina funziona lo stesso, senza ELO
+  let elo = null;
+  // lo squash non ha (ancora) un ELO: le funzioni dell'ELO restano, ma senza dati non mostrano nulla
+
+  const DISC = { MS: "Singolare maschile", WS: "Singolare femminile" };
+  const ORD_DISC = Object.keys(DISC);
+  const DOPPI = new Set();   // nello squash olimpico non ci sono doppi
+  // turni di Notion: sigla nell'elenco e ordine (finale in alto, qualificazioni in fondo)
+  const TURNI = { "Round 1": ["R1", 6], "Round 2": ["R2", 5], "Round 3": ["R3", 4], "Round 4": ["R4", 3], "Final": ["F", 0], "Semi Final": ["SF", 1], "Quarter Final": ["QF", 2], "Round of 16": ["16", 3], "Round of 32": ["32", 4], "Round of 64": ["64", 5], "Round of 128": ["128", 6], "Group Stage": ["G", 7],
+    "Qualification Elimination Round": ["QE", 8], "Qualifying Round 4": ["Q4", 9], "Qualifying Round 3": ["Q3", 10], "Qualifying Round 2": ["Q2", 11], "Qualifying Round 1": ["Q1", 12], "Qualifying Group": ["QG", 13] };
+  // nomi dei turni del tabellone (sigle di tennistavolo.json) in italiano
+  const TURNO_IT = { R128: "Sessantaquattresimi", R64: "Trentaduesimi", R32: "Sedicesimi", R16: "Ottavi", QF: "Quarti", SF: "Semifinali", Final: "Finale", F: "Finale",
+    Q1: "Qualificazioni · 1° turno", Q2: "Qualificazioni · 2° turno", Q3: "Qualificazioni · 3° turno", Q4: "Qualificazioni · 4° turno",
+    QER: "Qualificazioni · turno finale" };
+  const TURNO_BREVE = { Final: "F" };
+  // categorie: ordine dei filtri, classe del pallino, incontri attesi se manca il tabellone
+  const CAT_ORD = ["Mondiali", "Tour Finals", "Diamond", "Platinum", "Gold", "Silver", "Bronze", "Copper", "Challenger", "Altro"];
+  const CAT_CLASSE = { "Mondiali": "c-mon", "Tour Finals": "c-fin", "Diamond": "c-dia", "Platinum": "c-pla", "Gold": "c-gold", "Silver": "c-sil", "Bronze": "c-bro", "Copper": "c-bro", "Challenger": "c-alt", "Altro": "c-alt" };
+  const CAT_BREVE = { "Tour Finals": "Finals" };
+  const attesi = (t) => t.attesi || ({ "Mondiali": 126, "Tour Finals": 14, "Diamond": 94, "Platinum": 62, "Gold": 46 }[t.categoria] || 46);
+
+  const TAB = dati.tabelloni || {};   // tabelloni ufficiali per nome del torneo (novità 2.0)
+  const incontri = (dati.incontri || []).map(([t, d, r, p1, n1, p2, n2, s, data]) => ({ t, d, r, p1, n1, p2, n2, s, data }));
+  const perTorneo = {};
+  incontri.forEach((m) => { (perTorneo[m.t] = perTorneo[m.t] || []).push(m); });
+  const tornei = (dati.tornei || []).map((t) => {
+    const ms = (perTorneo[t.nome] || []).slice().sort((a, b) => ORD_DISC.indexOf(a.d) - ORD_DISC.indexOf(b.d) || (TURNI[a.r] || ["", 9])[1] - (TURNI[b.r] || ["", 9])[1] || a.data.localeCompare(b.data));
+    const finali = {}; ms.filter((m) => m.r === "Final").forEach((m) => { finali[m.d] = m; });
+    const conta = {}; ms.forEach((m) => { conta[m.d] = (conta[m.d] || 0) + 1; });
+    return { ...t, ms, finali, conta, tab: TAB[t.nome] || null };
+  });
+  // Incontri giocati: quelli di Notion; per un torneo in corso (non ancora archiviato dal sito WTT, quindi
+  // non ancora in Notion) contano le caselle già giocate del tabellone, bye esclusi.
+  const caselleTutte = (tab) => Object.values((tab && tab.spec) || {}).flatMap((v) => [...v.c, ...((v.q && v.q.c) || []), ...(v.gironi || []).flatMap((g) => g.c)]);
+  const giocati = (t) => t.ms.length || caselleTutte(t.tab).filter((c) => c[7] === "F" && c[2] >= 0 && c[4] >= 0).length;
+  // vincitore della finale: da Notion, oppure dal tabellone se il torneo non è ancora archiviato
+  const campione = (t, d) => {
+    if (t.finali[d]) return t.finali[d].p1;
+    const v = t.tab && t.tab.spec && t.tab.spec[d];
+    if (!v || !v.c.length) return null;
+    const ncol = Math.max(...v.c.map((c) => c[0] + 1)), f = v.c.find((c) => c[0] === ncol - 1);
+    const i = f && f[7] === "F" ? f[f[6] === 1 ? 2 : 4] : -1;
+    return i >= 0 ? t.tab.squadre[i][0] : null;
+  };
+  const validi = tornei.filter((t) => t.stato !== "annullato");
+  const conclusi = validi.filter((t) => t.stato === "concluso");
+
+  const meseCorto = new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "short" });
+  const dataLunga = new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "long", year: "numeric" });
+  const giorno = (s) => new Date(s + "T12:00:00");
+  const periodo = (t) => {
+    if (!t.inizio) return "";
+    const a = giorno(t.inizio), b = giorno(t.fine || t.inizio);
+    return a.getMonth() === b.getMonth() ? `${a.getDate()}–${meseCorto.format(b)}` : `${meseCorto.format(a)} – ${meseCorto.format(b)}`;
+  };
+  const anno = (dati.stagioni || []).join("–") || (dati.aggiornato || "").slice(0, 4);
+  $("data").textContent = `PSA World Tour ${anno} · aggiornato al ${dataLunga.format(giorno(dati.aggiornato))}`;
+
+  const nocDi = (codice) => (codice || "").split("/").filter(Boolean);
+  const titoli = {};
+  conclusi.forEach((t) => Object.values(t.finali).forEach((m) => nocDi(m.n1).forEach((n) => { titoli[n] = (titoli[n] || 0) + 1; })));
+  const nocTutti = new Set(); incontri.forEach((m) => [...nocDi(m.n1), ...nocDi(m.n2)].forEach((n) => nocTutti.add(n)));
+  const classificaTitoli = Object.entries(titoli).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+
+  [[conclusi.length, "Tornei conclusi"], [incontri.length, "Incontri"], [nocTutti.size, "NOC in campo"], [classificaTitoli.length ? `${classificaTitoli[0][0]} ${classificaTitoli[0][1]}` : "–", "Più titoli vinti"]].forEach(([n, t]) => {
+    const d = el("div", "totale"); d.append(el("b", "", typeof n === "number" ? (n ? num(n) : "–") : n), el("span", "", t)); $("totali").append(d);
+  });
+
+  // ---------------------------------------------------------------- ELO a inizio torneo
+  // tennistavolo-elo.json: un atleta (o una coppia) per specialità, con lo storico torneo per torneo:
+  // storico = [[data, ELO dopo il torneo, id WTT del torneo], ...]. L'ELO "a inizio torneo" è
+  // l'ultimo valore PRIMA del torneo. Nessun valore prima = primo torneo nei dati (si parte da 1500).
+  // Codice di una coppia: i due codici ITTF in ordine crescente con «/», come in tennistavolo.json.
+  const eloPer = new Map();
+  (elo && elo.atleti || []).forEach((a) => eloPer.set(`${a.id_ittf}|${a.spec}`, a));
+  const MIN_TORNEI = (elo && elo.regole && elo.regole.min_tornei) || 3;
+  function eloInizio(idIttf, spec, t) {
+    if (!elo || !idIttf) return null;
+    const a = eloPer.get(`${idIttf}|${spec}`);
+    if (!a) return null;
+    const st = a.storico || [];
+    const i = t.id ? st.findIndex((e) => String(e[2]) === String(t.id)) : -1;
+    const prima = i >= 0 ? st.slice(0, i) : st.filter((e) => e[0] < (t.inizio || ""));
+    if (!prima.length) return { nuovo: true };
+    const ultimo = prima[prima.length - 1];
+    return { v: ultimo[1], tornei: prima.length, prov: prima.length < MIN_TORNEI };
+  }
+
+  // ---------------------------------------------------------------- stato della pagina
+  const ultimo = conclusi.length ? conclusi[conclusi.length - 1] : null;
+  const inCorso = [...validi].reverse().find((t) => t.stato === "in corso");   // il più recente
+  let scelto = (inCorso && (inCorso.ms.length || inCorso.tab) ? inCorso : ultimo || validi[0] || {}).nome || null;
+  let categoria = "tutte", statof = "tutti", disc = "MS";
+  let vista = "albero";          // "albero" (Draw), "qualif" (tabellone delle qualificazioni) o "elenco"
+  let turnoMobile = null;        // colonna mostrata sul cellulare (null = scelta automatica)
+  const presenti = new Set(tornei.map((t) => t.categoria));
+  const CATEGORIE = { tutte: "Tutte" };
+  CAT_ORD.filter((c) => presenti.has(c)).forEach((c) => { CATEGORIE[c] = CAT_BREVE[c] || c; });
+  const STATI = { tutti: "Tutti", concluso: "Conclusi", futuri: "Da giocare" };
+  const domanda = () => $("cerca").value.trim().toLowerCase();
+  const corrisponde = (m, q) => q && (m.p1.toLowerCase().includes(q) || m.p2.toLowerCase().includes(q) || nocDi(m.n1).some((n) => n.toLowerCase() === q) || nocDi(m.n2).some((n) => n.toLowerCase() === q));
+  const squadraTrovata = (s, q) => q && s && (s[0].toLowerCase().includes(q) || nocDi(s[1]).some((n) => n.toLowerCase() === q));
+  const trovatoNelTabellone = (t, q) => {
+    if (!q || !t.tab) return false;
+    return (t.tab.squadre || []).some((s) => squadraTrovata(s, q));
+  };
+  const cellulare = window.matchMedia("(max-width: 759px)");
+
+  function punteggio(s) {
+    const m = /^(\d+-\d+)\s*\((.*)\)$/.exec(s || "");
+    if (m) return [m[1], m[2]];
+    const r = /^(\w[\w ]*?)\s*(?:\((.*)\))?$/.exec(s || "");
+    return r ? [r[1] === "walkover" ? "w.o." : r[1] === "ritiro" ? "rit." : r[1], r[2] || ""] : [s || "", ""];
+  }
+
+  function nocChip(codice) {
+    const box = document.createDocumentFragment();
+    nocDi(codice).forEach((n) => {
+      const b = el("button", "chip noc", n); b.type = "button"; b.title = `Cerca ${n}`;
+      b.addEventListener("click", (e) => { e.stopPropagation(); cerca(n); });
+      box.append(b);
+    });
+    return box;
+  }
+
+  function riga(m, q, etichetta) {
+    const li = el("li", "riga" + (corrisponde(m, q) ? " cerca-ok" : ""));
+    const chi = el("div", "chi"), nome = el("b", "", m.p1);
+    nome.append(nocChip(m.n1)); chi.append(nome);
+    const sm = el("small", "", `b. ${m.p2}${m.n2 ? " (" + m.n2 + ")" : ""}`); chi.append(sm);
+    const [g, set] = punteggio(m.s), perc = el("div", "perc");
+    perc.append(el("b", "", g), el("small", "", set));
+    let pos;
+    if (etichetta === "disc") { pos = el("span", "pos"); pos.append(el("span", "disc " + m.d, m.d)); }
+    else pos = el("span", "pos", (TURNI[m.r] || [m.r])[0]);
+    pos.title = `${DISC[m.d]} · ${m.r}`;
+    li.append(pos, chi, perc);
+    return li;
+  }
+
+  // ---------------------------------------------------------------- fascia: anello e campioni
+  function anello(t) {
+    const box = $("anello"), testo = $("sintesi"); box.textContent = ""; testo.textContent = "";
+    const dentro = el("div");
+    if (t) {
+      const n = giocati(t), tot = attesi(t);
+      dentro.append(el("small", "", "incontri"), el("b", "", num(n)), el("small", "", "su " + num(tot)));
+      box.append(cerchio(168, 16, n / tot * 100), dentro);
+      testo.append(el("p", "etichetta", `${t.categoria} · ${t.stato}`), el("h2", "", `🎾 ${t.nome}`),
+        el("p", "", [periodo(t) + " " + (t.inizio || "").slice(0, 4), t.luogo].filter(Boolean).join(" · ")));
+      if (t.url) { const a = el("a", "", "Tabellone sul sito PSA ↗"); a.href = t.url; a.target = "_blank"; a.rel = "noopener"; const p = el("p"); p.append(a); testo.append(p); }
+    } else {
+      dentro.append(el("small", "", "tornei conclusi"), el("b", "", num(conclusi.length)), el("small", "", "su " + num(validi.length)));
+      box.append(cerchio(168, 16, validi.length ? conclusi.length / validi.length * 100 : 0), dentro);
+      testo.append(el("p", "etichetta", "Stagione " + anno), el("h2", "", `${num(incontri.length)} incontri in ${num(conclusi.length)} tornei`),
+        el("p", "", "Clicca un torneo qui sotto per vedere campioni e tabelloni."));
+    }
+  }
+
+  function linkTabellone(testo) {
+    const a = el("a", "vai-tab", testo); a.href = "#tabellone";
+    return a;
+  }
+
+  function dettaglio() {
+    const box = $("dettaglio"); box.textContent = "";
+    const t = tornei.find((x) => x.nome === scelto);
+    anello(t);
+    if (!t) {
+      box.append(el("p", "etichetta", "Campioni del torneo"), el("h2", "", "Clicca una carta qui sotto"),
+        el("p", "", "Qui compaiono i vincitori delle specialità; il tabellone completo è nella sezione sotto."));
+      return;
+    }
+    const q = domanda();
+    if (!t.ms.length) {
+      // torneo in corso o finito da poco: il sito WTT lo archivia (e l'agente lo scrive in Notion) 1-2 giorni
+      // dopo la fine; intanto i risultati si vedono nel tabellone, aggiornato ogni mattina
+      const conTab = t.tab && giocati(t) > 0;
+      box.append(el("p", "etichetta", t.stato === "annullato" ? "Torneo annullato" : t.stato === "da giocare" ? "Da giocare" : conTab ? "Risultati nel tabellone" : "In attesa dei risultati"),
+        el("h2", "", t.nome), el("p", "", t.stato === "da giocare" ? `Si gioca dal ${dataLunga.format(giorno(t.inizio))} al ${dataLunga.format(giorno(t.fine))}. I risultati arriveranno qui ogni mattina.`
+          : conTab ? `${giocati(t)} incontri già giocati (il tabellone si aggiorna ogni mattina).` : "Nessun incontro concluso per ora."));
+      const camp = ORD_DISC.map((d) => [d, campione(t, d)]).filter(([, n]) => n);
+      if (camp.length) { const ol = el("ol", "classifica"); camp.forEach(([d, n]) => { const li = el("li", "riga"), pos = el("span", "pos"); pos.append(el("span", "disc " + d, d)); const chi = el("div", "chi"); chi.append(el("b", "", n), el("small", "", "vince la finale")); li.append(pos, chi, el("span")); ol.append(li); }); box.append(ol); }
+      if (t.tab) box.append(linkTabellone("Il tabellone è qui sotto ↓"));
+      return;
+    }
+    if (q) {
+      const miei = t.ms.filter((m) => corrisponde(m, q));
+      box.append(el("p", "etichetta", `Ricerca «${$("cerca").value.trim()}»`), el("h2", "", `${miei.length} incontri in questo torneo`));
+      const ol = el("ol", "classifica"); miei.forEach((m) => ol.append(riga(m, q, "disc"))); box.append(ol);
+      if (!miei.length) box.append(el("p", "", "Nessun incontro: prova un altro torneo."));
+      return;
+    }
+    const fin = ORD_DISC.filter((d) => t.finali[d]);
+    const nSpec = new Set([...Object.keys(t.conta), ...Object.keys((t.tab && t.tab.spec) || {})]).size;
+    box.append(el("p", "etichetta", fin.length && fin.length >= nSpec ? "Campioni" : "Finali giocate"), el("h2", "", t.nome));
+    if (fin.length) { const ol = el("ol", "classifica"); fin.forEach((d) => ol.append(riga(t.finali[d], q, "disc"))); box.append(ol); }
+    else box.append(el("p", "", "Le finali non sono ancora state giocate."));
+    box.append(linkTabellone("Tabellone completo qui sotto ↓"));
+  }
+
+  // ---------------------------------------------------------------- tabellone (novità 2.0)
+  // Formato di una casella (vedi "campi_casella" in tennistavolo.json):
+  // [colonna, posizione, squadra_a, testa_a, squadra_b, testa_b, vincitore, stato, esito, set, data]
+  const L = { bw: 226, bh: 48, gap: 22, slot: 60, testa: 26 };           // misure dell'albero sullo schermo
+  const LS = { bw: 232, bh: 44, gap: 22, slot: 50, testa: 22 };          // misure in stampa (più compatte)
+  const ESITO_BREVE = { walkover: "w.o.", ritiro: "rit.", squalifica: "sq.", "non disputato": "n.d." };
+
+  const cognome = (n) => { const p = n.split(/\s+/); return p.length > 1 ? p.slice(1).join(" ") : n; };   // «Hania El Hammamy» -> «El Hammamy»
+  // Nei doppi solo i cognomi ("STOEVA / STOEVA"); nei singoli il nome intero, ma se è lungo
+  // i nomi propri diventano iniziali ("Anders ANTONSEN" -> "A. ANTONSEN"). Il nome intero resta
+  // nel suggerimento che compare passando sopra con il mouse.
+  const iniziali = (n) => { const p = n.split(/\s+/); return p.length > 1 ? p[0].charAt(0) + ". " + p.slice(1).join(" ") : n; };   // «Sivasangari Subramaniam» -> «S. Subramaniam»
+  const nomeBreve = (nome, doppio) => (doppio ? nome.split(" / ").map(cognome).join(" / ") : nome.length > 15 ? iniziali(nome) : nome);
+
+  function rigaSquadra(ctx, c, lato, largo) {
+    // lato 0 = squadra_a (colonne 2-3), lato 1 = squadra_b (colonne 4-5)
+    const idx = c[2 + lato * 2], testa = c[3 + lato * 2], s = idx >= 0 ? ctx.squadre[idx] : null;
+    const altro = c[4 - lato * 2];
+    const giocato = c[7] === "F", vince = giocato && c[6] === lato + 1, perde = giocato && c[6] && c[6] !== lato + 1;
+    const r = el("div", "sq" + (vince ? " vince" : perde ? " perde" : "") + (!s ? " assente" : "") + (squadraTrovata(s, ctx.q) ? " trovato" : ""));
+    const numero = /^\d+$/.test(testa || "");
+    const ts = el("span", "ts" + (testa && !numero ? " q" : ""), numero ? `[${testa}]` : testa || "");
+    ts.title = { Q: "Arrivato dalle qualificazioni", WC: "Wild card (invitato)", LL: "Lucky loser (ripescato dalle qualificazioni)" }[testa] || (testa ? "Testa di serie n. " + testa : "");
+    r.append(ts);
+    const nm = el("span", "nm");
+    if (s) {
+      nm.textContent = largo && !ctx.doppio ? s[0] : nomeBreve(s[0], ctx.doppio);   // riquadro largo: nome intero
+      nm.append(el("small", "", s[1]));
+    } else nm.textContent = giocato && altro >= 0 ? "bye" : "—";
+    r.append(nm);
+    // ELO a inizio torneo
+    const e = s ? eloInizio(s[2], ctx.disc, ctx.t) : null;
+    if (e && e.nuovo) { const x = el("span", "el nuovo", "—"); x.title = "Primo torneo nei dati ELO (parte da 1500)"; r.append(x); }
+    else if (e) { const x = el("span", "el" + (e.prov ? " prov" : ""), String(e.v)); x.title = `ELO a inizio torneo: ${e.v}` + (e.prov ? ` (provvisorio: ${e.tornei} ${e.tornei === 1 ? "torneo" : "tornei"} prima)` : ""); r.append(x); }
+    else r.append(el("span"));
+    // partite vinte (nel tennistavolo un incontro ha fino a 7 partite: si mostra il totale, il dettaglio
+    // delle partite è nel suggerimento che compare passando sopra con il mouse)
+    const st = el("span", "st");
+    const partite = (c[9] || "").split(" ").filter(Boolean).map((x) => x.split("-").map(Number));
+    if (partite.length) {
+      const mie = partite.filter((p) => p[lato] > p[1 - lato]).length, sue = partite.length - mie;
+      st.append(el("i", "tot" + (mie > sue || vince ? " v" : ""), String(mie)));
+    }
+    if (vince && c[8]) st.append(el("span", "es", ESITO_BREVE[c[8]] || c[8]));
+    r.append(st);
+    if (s) {
+      const dett = partite.length ? " · game " + partite.map((p) => `${p[lato]}-${p[1 - lato]}`).join(", ") : "";
+      r.title = `${testa ? "[" + testa + "] " : ""}${s[0]} (${s[1]})` + (e && !e.nuovo ? ` · ELO a inizio torneo ${e.v}` : "") + dett;
+    }
+    return r;
+  }
+
+  function scatola(ctx, c, statica) {
+    const vuota = [0, 0, -1, "", -1, "", 0, "N", "", "", ""];
+    c = c || vuota;
+    const trovato = [c[2], c[4]].some((i) => i >= 0 && squadraTrovata(ctx.squadre[i], ctx.q));
+    const b = el("div", "box" + (statica ? " statico" : "") + (c[7] !== "F" ? " da-giocare" : "") + (trovato ? " trovato" : ""));
+    b.append(rigaSquadra(ctx, c, 0, statica), rigaSquadra(ctx, c, 1, statica));
+    const quando = c[10] ? dataLunga.format(giorno(c[10])) : "";
+    b.setAttribute("aria-label", [ctx.squadre[c[2]] ? ctx.squadre[c[2]][0] : "da definire", "contro", ctx.squadre[c[4]] ? ctx.squadre[c[4]][0] : "da definire", c[9], c[8], quando].filter(Boolean).join(" "));
+    if (c[7] !== "F" && quando) b.title = "In programma il " + quando;
+    return b;
+  }
+
+  // Albero (o sotto-albero) di un tabellone a eliminazione. opz.radice = [colonna, posizione] della
+  // casella da cui partire (serve per stampare a pezzi i tabelloni grandi e per le qualificazioni);
+  // opz.da = prima colonna da disegnare (0 = primo turno); opz.stampa = misure compatte.
+  function albero(ctx, voce, opz = {}) {
+    const M = opz.stampa ? LS : L;
+    const per = new Map(voce.c.map((c) => [c[0] + "-" + c[1], c]));
+    const ncol = Math.max(voce.turni.length, ...voce.c.map((c) => c[0] + 1));
+    const [c0, p0] = opz.radice || [ncol - 1, 0];
+    const da = Math.min(opz.da || 0, c0);
+    const n0 = 2 ** (c0 - da), H = n0 * M.slot, W = (c0 - da + 1) * (M.bw + M.gap) - M.gap;
+    const box = el("div", "albero"); box.style.width = W + "px"; box.style.height = (H + M.testa) + "px";
+    const svg = document.createElementNS(NS, "svg"); svg.setAttribute("class", "linee"); svg.setAttribute("width", W); svg.setAttribute("height", H + M.testa); svg.setAttribute("aria-hidden", "true");
+    const path = document.createElementNS(NS, "path"); let d = "";
+    box.append(svg);
+    for (let col = da; col <= c0; col++) {
+      const quante = 2 ** (c0 - col), x = (col - da) * (M.bw + M.gap);
+      const et = el("span", "etic-turno", TURNO_IT[voce.turni[col]] || voce.turni[col] || ""); et.style.left = x + "px"; box.append(et);
+      for (let k = 0; k < quante; k++) {
+        const pos = p0 * quante + k, yc = M.testa + (k + 0.5) * H / quante;
+        const b = scatola(ctx, per.get(col + "-" + pos));
+        b.style.left = x + "px"; b.style.top = (yc - M.bh / 2) + "px"; b.style.width = M.bw + "px"; b.style.height = M.bh + "px";
+        box.append(b);
+        if (col > da) {   // linee verso le due caselle del turno prima
+          const y1 = M.testa + (2 * k + 0.5) * H / (2 * quante), y2 = M.testa + (2 * k + 1.5) * H / (2 * quante);
+          const xr = x - M.gap, xm = x - M.gap / 2;
+          d += `M${xr} ${y1}H${xm}V${y2}M${xr} ${y2}H${xm}M${xm} ${yc}H${x}`;
+        }
+      }
+    }
+    path.setAttribute("d", d); svg.append(path);
+    box.dataset.larghezza = W; box.dataset.altezza = H + M.testa;
+    return box;
+  }
+
+  // Sul cellulare: un turno alla volta, con i pulsanti dei turni
+  function colonnaIniziale(voce) {
+    const ncol = Math.max(voce.turni.length, ...voce.c.map((c) => c[0] + 1));
+    for (let col = 0; col < ncol; col++) {     // turno in corso: il primo con incontri in programma già definiti
+      if (voce.c.some((c) => c[0] === col && c[7] !== "F" && c[2] >= 0 && c[4] >= 0)) return col;
+    }
+    for (let col = 0; col < ncol; col++) if (voce.c.some((c) => c[0] === col && c[7] !== "F")) return Math.max(0, col - 1);
+    return 0;
+  }
+  function perTurno(ctx, voce, chiave) {
+    const ncol = Math.max(voce.turni.length, ...voce.c.map((c) => c[0] + 1));
+    if (turnoMobile == null || turnoMobile >= ncol) turnoMobile = colonnaIniziale(voce);
+    const frag = document.createDocumentFragment();
+    const g = el("div", "gruppo turni-mobile"); g.setAttribute("role", "group"); g.setAttribute("aria-label", "Turno");
+    for (let col = 0; col < ncol; col++) {
+      const sigla = voce.turni[col] || String(col + 1);
+      const b = el("button", "", TURNO_BREVE[sigla] || sigla); b.type = "button"; b.title = TURNO_IT[sigla] || sigla;
+      b.setAttribute("aria-pressed", col === turnoMobile);
+      b.addEventListener("click", () => { turnoMobile = col; disegnaTabellone(); });
+      g.append(b);
+    }
+    frag.append(g, el("p", "sezione", TURNO_IT[voce.turni[turnoMobile]] || ""));
+    const lista = el("div", "turno-lista");
+    const quante = Math.max(2 ** (ncol - 1 - turnoMobile) / (voce.radici || 1), ...voce.c.filter((c) => c[0] === turnoMobile).map((c) => c[1] + 1));
+    const per = new Map(voce.c.map((c) => [c[0] + "-" + c[1], c]));
+    for (let k = 0; k < quante; k++) lista.append(scatola(ctx, per.get(turnoMobile + "-" + k), true));
+    frag.append(lista);
+    return frag;
+  }
+
+  // WTT Finals (doppio misto) e World Cup: classifiche dei gironi (calcolate dall'agente dai risultati),
+  // incontri dei gironi e fase a eliminazione
+  function finals(ctx, voce, opz = {}) {
+    const frag = document.createDocumentFragment();
+    const gr = el("div", "gironi" + ((voce.gironi || []).length > 4 ? " molti" : ""));
+    (voce.gironi || []).forEach((g) => {
+      const box = el("div", "girone");
+      box.append(el("h3", "", g.nome.replace(/^Group/i, "Girone")));
+      const tb = el("table"), th = el("tr");
+      [["#", "Posizione"], ["Squadra", ""], ["G", "Giocati"], ["V", "Vinti"], ["P", "Persi"], ["Partite", "Partite vinte-perse"], ["Punti", "Punti fatti-subiti"]].forEach(([x, t]) => { const h = el("th", "", x); if (t) h.title = t; th.append(h); });
+      tb.append(th);
+      g.classifica.forEach((r) => {
+        const s = ctx.squadre[r[1]];
+        const passa = r.length > 9 ? r[9] === 1 : r[0] <= 2 && r[2];   // 10° campo: passato alla fase a eliminazione
+        const tr = el("tr", (passa ? "passa" : "") + (squadraTrovata(s, ctx.q) ? " trovato" : ""));
+        if (passa) tr.title = "Passato alla fase a eliminazione";
+        const e = s ? eloInizio(s[2], ctx.disc, ctx.t) : null;
+        const nome = s ? `${nomeBreve(s[0], ctx.doppio)} (${s[1]})` + (e && !e.nuovo ? ` · ${e.v}` : "") : "—";
+        [r[0], nome, r[2], r[3], r[4], `${r[5]}-${r[6]}`, `${r[7]}-${r[8]}`].forEach((v, i) => { const td = el("td", "", String(v)); if (i === 1 && s) td.title = s[0]; tr.append(td); });
+        tb.append(tr);
+      });
+      box.append(tb);
+      const giornate = [...new Set(g.c.map((c) => c[0]))].sort((a, b) => a - b);
+      giornate.forEach((gg) => {
+        // girone da 4: due incontri per giornata; girone da 3 (World Cup): un incontro per giornata
+        box.append(el("p", "giornata", g.classifica.length >= 4 ? `${gg + 1}ª giornata` : `${gg + 1}º incontro`));
+        const lista = el("div", "turno-lista");
+        g.c.filter((c) => c[0] === gg).forEach((c) => lista.append(scatola(ctx, c, true)));
+        box.append(lista);
+      });
+      gr.append(box);
+    });
+    frag.append(gr);
+    if (!(voce.gironi || []).length) frag.append(el("p", "tab-vuoto", "Gironi non disponibili."));
+    if (voce.c && voce.c.length) {
+      frag.append(el("h3", "", voce.misura <= 4 ? "Semifinali e finale" : `Fase a eliminazione · tabellone da ${voce.misura}`));
+      if (cellulare.matches && !opz.stampa) frag.append(perTurno(ctx, voce));
+      else { const sc = el("div", "albero-scorri"); sc.append(albero(ctx, voce, opz)); frag.append(sc); }
+    }
+    return frag;
+  }
+
+  // Qualificazioni: un piccolo albero per ogni posto del tabellone principale (es. 8 alberi da 8)
+  function qualificazioni(ctx, q, opz = {}) {
+    const frag = document.createDocumentFragment();
+    const ncol = Math.max(q.turni.length, ...q.c.map((c) => c[0] + 1));
+    const posti = [...new Set(q.c.filter((c) => c[0] === ncol - 1).map((c) => c[1]))].sort((a, b) => a - b);
+    if (cellulare.matches && !opz.stampa) { frag.append(perTurno(ctx, { ...q, radici: posti.length || 1 })); return frag; }
+    const box = el("div", "qualif");
+    posti.forEach((p, i) => {
+      box.append(el("h3", "", `Posto ${i + 1} nel tabellone principale`));
+      const sc = el("div", "albero-scorri"); sc.append(albero(ctx, q, { ...opz, radice: [ncol - 1, p] })); box.append(sc);
+    });
+    frag.append(box);
+    return frag;
+  }
+
+  function gruppoBottoni(voci, attivo, al_click, etichetta, disattivi = new Set()) {
+    const g = el("div", "gruppo"); g.setAttribute("role", "group"); g.setAttribute("aria-label", etichetta);
+    Object.entries(voci).forEach(([k, testo]) => {
+      const b = el("button", "", testo); b.type = "button"; b.setAttribute("aria-pressed", k === attivo);
+      if (disattivi.has(k)) { b.disabled = true; b.title = k === "qualif" ? "Tabellone delle qualificazioni non disponibile" : "Tabellone ufficiale non disponibile per questo torneo"; }
+      b.addEventListener("click", () => al_click(k)); g.append(b);
+    });
+    return g;
+  }
+
+  function disegnaTabellone() {
+    const sec = $("tabellone"); sec.textContent = "";
+    const t = tornei.find((x) => x.nome === scelto);
+    if (!t) {
+      sec.append(el("p", "etichetta", "Tabellone"), el("p", "tab-vuoto", "Scegli un torneo tra le carte qui sotto per vedere il suo tabellone."));
+      return;
+    }
+    const q = domanda();
+    const specTab = t.tab ? Object.keys(t.tab.spec || {}) : [];
+    const specOk = ORD_DISC.filter((d) => specTab.includes(d) || t.conta[d]);
+    if (specOk.length && !specOk.includes(disc)) disc = specOk[0];
+    const voce = t.tab && t.tab.spec[disc];
+    const conQ = !!(voce && voce.q && voce.q.c.length);
+    const vistaReale = !voce ? "elenco" : vista === "qualif" && !conQ ? "albero" : vista;
+
+    // intestazione: titolo, specialità, albero/elenco, stampa
+    const testa = el("div", "tab-testa"), tit = el("div");
+    tit.append(el("p", "etichetta", vistaReale === "qualif" ? "Qualificazioni" : "Tabellone"), el("h2", "", `${t.nome} · ${DISC[disc]}`),
+      el("p", "sotto", [t.categoria, periodo(t) + " " + (t.inizio || "").slice(0, 4), vistaReale === "qualif" ? `tabellone di qualificazione da ${voce.q.misura}` : voce && voce.tipo === "E" ? `tabellone da ${voce.misura}` : voce ? "gironi + eliminazione" : ""].filter(Boolean).join(" · ")));
+    const com = el("div", "tab-comandi");
+    const voci = {}; ORD_DISC.forEach((d) => { voci[d] = d === "MS" ? "Uomini" : "Donne"; });
+    const nonDisponibili = new Set(ORD_DISC.filter((d) => !specOk.includes(d)));
+    com.append(gruppoBottoni(voci, disc, (k) => { disc = k; turnoMobile = null; disegnaTabellone(); }, "Specialità", nonDisponibili));
+    com.append(gruppoBottoni({ albero: "Draw", qualif: "Qualificazioni", elenco: "Elenco" }, vistaReale, (k) => { vista = k; turnoMobile = null; disegnaTabellone(); }, "Vista", new Set([...(voce ? [] : ["albero"]), ...(conQ ? [] : ["qualif"])])));
+    if (voce) {
+      const st = el("button", "chip", "Stampa tabellone ↓ PDF"); st.type = "button"; st.title = "Si apre la stampa in A4 orizzontale: scegli «Salva come PDF»";
+      st.addEventListener("click", () => stampaTabellone(t, disc));
+      com.append(st);
+    }
+    testa.append(tit, com); sec.append(testa);
+
+    if (vistaReale === "elenco") {
+      const ms = t.ms.filter((m) => m.d === disc);
+      if (!voce && t.tab === null && t.ms.length) sec.append(el("p", "sotto", "Tabellone ufficiale non ancora disponibile: ecco l'elenco degli incontri."));
+      if (!ms.length) { sec.append(el("p", "tab-vuoto", t.stato === "da giocare" ? "Il torneo non è ancora iniziato." : voce ? "Nessun incontro ancora concluso in questa specialità: guarda il Draw." : "Nessun incontro concluso in questa specialità.")); return; }
+      const nq = ms.filter((m) => /^Qualif/.test(m.r)).length;
+      sec.append(el("p", "sezione", `${DISC[disc]} · ${ms.length} incontri conclusi` + (nq ? ` (${nq} di qualificazione)` : "")));
+      const ol = el("ol", "classifica lunga"); ms.forEach((m) => ol.append(riga(m, q, "turno"))); sec.append(ol);
+      return;
+    }
+
+    const ctx = { t, disc, doppio: DOPPI.has(disc), squadre: t.tab.squadre || [], q };
+    const leg = el("div", "tab-legenda");
+    leg.append(el("span", "", "[1] testa di serie · WC = wild card · LL = lucky loser · Q = dalle qualificazioni"), el("span", "", "numero = game vinti (dettaglio passando sopra) · ● vincitore"), el("span", "", "bye = passaggio diretto · w.o. = walkover · rit. = ritiro"), el("span", "", "bordo tratteggiato = da giocare"));
+    if (voce.tipo === "G") leg.append(el("span", "", "classifica dei gironi calcolata dai risultati: vittorie, poi differenza partite e punti; in grassetto chi è passato"));
+    if (vistaReale === "qualif") { sec.append(qualificazioni(ctx, voce.q), leg); return; }
+    if (voce.q_gironi) leg.append(el("span", "", voce.q ? "gironi di qualificazione: sono nell'Elenco; il turno finale è nella vista Qualificazioni" : "qualificazioni a gironi: sono nell'Elenco"));
+    if (voce.tipo === "G") { sec.append(finals(ctx, voce), leg); return; }
+    if (cellulare.matches) { sec.append(perTurno(ctx, voce), leg); return; }
+    const sc = el("div", "albero-scorri"); sc.append(albero(ctx, voce)); sec.append(sc, leg);
+  }
+
+  // ---------------------------------------------------------------- stampa del tabellone (A4 orizzontale)
+  function stampaTabellone(t, d) {
+    const voce = t.tab && t.tab.spec[d];
+    if (!voce) return;
+    const box = $("stampa-tab"); box.textContent = "";
+    const ctx = { t, disc: d, doppio: DOPPI.has(d), squadre: t.tab.squadre || [], q: "" };
+    const testa = () => {
+      const f = document.createDocumentFragment();
+      f.append(el("p", "s-occ", $("data").textContent), el("h1", "", `🎾 ${t.nome} · ${DISC[d]} (${d})`),
+        el("p", "s-sint", [t.categoria, periodo(t) + " " + (t.inizio || "").slice(0, 4), t.luogo, "[n] testa di serie · WC wild card · LL lucky loser · Q dalle qualificazioni", "numero = game vinti", elo ? "riquadro = ELO a inizio torneo" : ""].filter(Boolean).join(" · ")));
+      return f;
+    };
+    // spazio utile di una pagina A4 orizzontale (297 x 210 mm, margini 8 mm), in pixel, tolta
+    // l'intestazione; altMax più basso quando sotto all'albero va anche la finale
+    const LARGH = 1040, ALT = 570;
+    const pagina = (titolo, contenuto, larghezza, altezza, altMax = ALT) => {
+      const p = el("section", "s-pagina"); p.append(testa());
+      if (titolo) p.append(el("h2", "", titolo));
+      const z = Math.min(1, LARGH / larghezza, altMax / altezza);
+      contenuto.style.zoom = z;                     // rimpicciolisce per stare in una pagina
+      p.append(contenuto); box.append(p);
+    };
+    if (voce.tipo === "G" && (voce.gironi || []).length > 4) {
+      // World Cup: 16 gironi da 3. Gironi a grandezza naturale (anche su più pagine), poi la fase a eliminazione
+      const p = el("section", "s-pagina"); p.append(testa(), el("h2", "", "Gironi"));
+      const g = el("div"); g.append(finals(ctx, { ...voce, c: [] }, { stampa: true })); p.append(g); box.append(p);
+      if (voce.c.length) { const a = albero(ctx, voce, { stampa: true }); pagina("Fase a eliminazione", a, +a.dataset.larghezza, +a.dataset.altezza); }
+    } else if (voce.tipo === "G") {
+      const c = el("div"); c.append(finals(ctx, voce, { stampa: true }));
+      pagina("", c, 1040, 900);
+    } else {
+      const ncol = Math.max(voce.turni.length, ...voce.c.map((c) => c[0] + 1));
+      if (ncol >= 7) {          // tabellone da 128 (Mondiali): quattro quarti, poi quarti di finale, semifinali e finale
+        [0, 1, 2, 3].forEach((k) => {
+          const a = albero(ctx, voce, { stampa: true, radice: [ncol - 3, k] });
+          pagina(`Quarto ${k + 1} del tabellone`, a, +a.dataset.larghezza, +a.dataset.altezza);
+        });
+        const a = albero(ctx, voce, { stampa: true, da: ncol - 3 });
+        pagina("Quarti di finale, semifinali e finale", a, +a.dataset.larghezza, +a.dataset.altezza);
+      } else if (ncol >= 6) {   // tabellone da 64: due metà, una per pagina, poi la finale
+        [0, 1].forEach((meta) => {
+          const a = albero(ctx, voce, { stampa: true, radice: [ncol - 2, meta] });
+          pagina(meta ? "Parte bassa del tabellone" : "Parte alta del tabellone", a, +a.dataset.larghezza, +a.dataset.altezza, meta ? ALT - 80 : ALT);
+        });
+        const fin = voce.c.find((c) => c[0] === ncol - 1);
+        if (fin) { const f = scatola(ctx, fin, true); f.style.maxWidth = "360px"; const s = box.lastChild; s.append(el("h2", "", "Finale"), f); }
+      } else {
+        const a = albero(ctx, voce, { stampa: true });
+        pagina("", a, +a.dataset.larghezza, +a.dataset.altezza);
+      }
+    }
+    // pagina orizzontale solo per questa stampa: la regola si toglie dopo
+    const stile = el("style"); stile.id = "pagina-orizzontale"; stile.textContent = "@page { size: A4 landscape; margin: 8mm }";
+    document.head.append(stile);
+    document.body.classList.add("stampa-tabellone");
+    const titoloPagina = document.title;
+    document.title = `Tabellone ${t.nome} ${d}`;
+    const fine = () => { document.body.classList.remove("stampa-tabellone"); stile.remove(); document.title = titoloPagina; window.removeEventListener("afterprint", fine); };
+    window.addEventListener("afterprint", fine);
+    window.print();
+  }
+
+  // ---------------------------------------------------------------- carte dei tornei
+  function carta(t) {
+    const n = giocati(t), futuro = !n;
+    const tot = attesi(t);
+    const b = el("button", "carta" + (futuro ? " futuro" : "")); b.type = "button"; b.setAttribute("aria-pressed", t.nome === scelto);
+    const ic = el("span", "icona", t.stato === "annullato" ? "✖️" : futuro ? "🗓️" : ["Mondiali", "Tour Finals"].includes(t.categoria) ? "🏆" : "🎾"); ic.setAttribute("aria-hidden", "true");
+    const h = el("h3", "", t.nome), s = el("small"); s.append(el("i", "cat " + (CAT_CLASSE[t.categoria] || "")), `${t.categoria} · ${periodo(t)}`); h.prepend(s);
+    const m = el("span", "mini", futuro ? "–" : String(n)); m.prepend(cerchio(58, 6, n / tot * 100));
+    const barra = el("div", "barra");
+    ORD_DISC.forEach((d) => { if (!t.conta[d]) return; const i = el("i", d); i.style.width = (t.conta[d] / tot * 100) + "%"; i.title = `${d}: ${t.conta[d]}`; barra.append(i); });
+    const cifre = el("div", "cifre");
+    const vince = (d) => { const c = campione(t, d); return c ? cognome(c) : "–"; };
+    [[vince("MS"), "Campione"], [vince("WS"), "Campionessa"], [futuro ? t.stato : (t.luogo || "").split(",")[0] || t.stato, futuro ? "Stato" : "Sede"]].forEach(([n, l]) => {
+      const d = el("div"); d.append(el("b", "", n), el("span", "", l)); d.title = n; cifre.append(d);
+    });
+    b.append(ic, h, m, barra, cifre);
+    b.title = futuro ? t.stato : `${n} incontri su ${tot}` + (!t.ms.length ? " (dal tabellone: torneo non ancora archiviato)" : "");
+    b.addEventListener("click", () => {
+      scelto = scelto === t.nome ? null : t.nome; turnoMobile = null; tutto();
+      if (scelto && window.innerWidth < 900) $("dettaglio").scrollIntoView({ block: "center" });
+    });
+    return b;
+  }
+
+  function griglia() {
+    const q = domanda();
+    const lista = tornei
+      .filter((t) => categoria === "tutte" || t.categoria === categoria)
+      .filter((t) => statof === "tutti" || (statof === "concluso" ? t.stato === "concluso" : t.stato !== "concluso"))
+      .filter((t) => !q || t.ms.some((m) => corrisponde(m, q)) || trovatoNelTabellone(t, q));
+    const g = $("griglia"); g.textContent = "";
+    lista.forEach((t) => g.append(carta(t)));
+    if (!lista.length) g.append(el("p", "vuoto", "Nessun torneo corrisponde ai filtri."));
+  }
+
+  function nazioni() {
+    const box = $("nazioni"); box.textContent = "";
+    box.append(el("h2", "", "Titoli per NOC"));
+    const t = el("div", "titoli");
+    classificaTitoli.forEach(([n, k]) => {
+      const b = el("button", "chip", `${n} · ${k}`); b.type = "button"; b.title = `Mostra i tornei con giocatori ${n}`;
+      b.addEventListener("click", () => { cerca(n); window.scrollTo({ top: 0, behavior: "smooth" }); });
+      t.append(b);
+    });
+    if (!classificaTitoli.length) t.append(el("span", "", "Nessuna finale ancora giocata."));
+    box.append(t);
+  }
+
+  function cerca(testo) {
+    $("cerca").value = testo; $("cerca").dispatchEvent(new Event("input"));
+  }
+
+  function tutto() { dettaglio(); disegnaTabellone(); griglia(); }
+
+  function bottoni(id, voci, get, set) {
+    const box = $(id);
+    const disegna = () => { box.textContent = ""; Object.entries(voci).forEach(([k, t]) => { const b = el("button", "", t); b.type = "button"; b.setAttribute("aria-pressed", k === get()); b.addEventListener("click", () => { set(k); disegna(); griglia(); }); box.append(b); }); };
+    disegna();
+  }
+  bottoni("categoria", CATEGORIE, () => categoria, (k) => { categoria = k; });
+  bottoni("statof", STATI, () => statof, (k) => { statof = k; });
+  $("cerca").addEventListener("input", () => {
+    const q = domanda();
+    const qui = tornei.find((t) => t.nome === scelto);
+    const c = (t) => t.ms.some((m) => corrisponde(m, q)) || trovatoNelTabellone(t, q);
+    if (q && !(qui && c(qui))) {
+      const trovati = tornei.filter(c);
+      if (trovati.length) { scelto = trovati[trovati.length - 1].nome; turnoMobile = null; }
+    }
+    tutto();
+  });
+  cellulare.addEventListener("change", () => disegnaTabellone());   // passaggio telefono <-> computer
+
+  $("nota").textContent = `Risultati dei tornei del PSA World Tour (Mondiali, Tour Finals, Diamond, Platinum e Gold dal 2026, più gli altri tornei scelti a mano), letti ogni mattina dall'agente squash dal sito ufficiale PSA e salvati nel database Notion «🟠 Agente Squash» (le qualificazioni solo qui nella pagina). Il tabellone ad albero è quello ufficiale del sito PSA: stesso ordine, teste di serie tra parentesi quadre, WC = wild card, LL = lucky loser, Q = arrivato dalle qualificazioni, passaggi diretti (bye) e incontri in programma; c'è anche il tabellone delle qualificazioni, quando il torneo lo ha. Nelle caselle il numero è quello dei game vinti (il dettaglio compare passando sopra); quasi tutti gli incontri sono al meglio dei 5 game, alcuni primi turni al meglio dei 3. Nell'elenco il vincitore è scritto per primo; «b.» significa «batte». I NOC sono quelli del sito PSA: Inghilterra, Scozia e Galles restano ENG, SCO e WAL (alle Olimpiadi gareggiano come GBR). w.o. = walkover, rit. = ritiro.`;
+
+  // ---------------------------------------------------------------- stampa dell'albo d'oro (A4 verticale)
+  function stampa() {
+    const box = $("stampa"); box.textContent = "";
+    box.append(el("p", "s-occ", $("data").textContent), el("h1", "", "🎾 Albo d'oro · PSA World Tour"));
+    box.append(el("p", "s-sint", `${num(conclusi.length)} tornei conclusi su ${num(validi.length)} in calendario, ${num(incontri.length)} incontri, ${num(nocTutti.size)} NOC.` + (classificaTitoli.length ? ` Titoli: ${classificaTitoli.slice(0, 8).map(([n, k]) => n + " " + k).join(", ")}.` : "")));
+    const gr = el("div", "s-griglia");
+    tornei.filter((t) => Object.keys(t.finali).length).forEach((t) => {
+      const sec = el("section", "s-cat");
+      sec.append(el("h2", "", t.nome), el("p", "s-sub", [t.categoria, periodo(t) + " " + t.inizio.slice(0, 4), t.luogo].filter(Boolean).join(" · ")));
+      const tb = el("table"), th = el("tr");
+      ["", "Vincitore", "Finalista", "Punteggio"].forEach((x) => th.append(el("th", "", x)));
+      tb.append(th);
+      ORD_DISC.filter((d) => t.finali[d]).forEach((d) => {
+        const m = t.finali[d], tr = el("tr");
+        tr.append(el("td", "v", d), el("td", "", `${m.p1} (${m.n1})`), el("td", "", `${m.p2} (${m.n2})`), el("td", "n", m.s.replace(/^\d+-\d+\s*/, "").replace(/[()]/g, "")));
+        tb.append(tr);
+      });
+      sec.append(tb); gr.append(sec);
+    });
+    box.append(gr, el("p", "s-nota", $("nota").textContent));
+  }
+  stampa();
+  const titoloPagina = document.title;
+  window.addEventListener("beforeprint", () => { if (!document.body.classList.contains("stampa-tabellone")) document.title = "Albo d'oro squash PSA " + dati.aggiornato; });
+  window.addEventListener("afterprint", () => { if (!document.body.classList.contains("stampa-tabellone")) document.title = titoloPagina; });
+  $("pdf").addEventListener("click", () => window.print());
+
+  nazioni(); tutto();
+})();
+</script>
+</body>
+</html>

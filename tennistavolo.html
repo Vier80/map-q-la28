@@ -11,7 +11,9 @@
    Copia di badminton.html 2.0.1 (schede 36-37) adattata al tennistavolo WTT: sette categorie,
    tabellone ufficiale ad albero (anche delle qualificazioni), gironi di WTT Finals e World Cup,
    partite vinte al posto dei set, ELO tennistavolo a inizio torneo.
-   Colore: GIALLO (diverso dal sabbia della vela e dagli altri colori già usati). */
+   Colore: GIALLO (diverso dal sabbia della vela e dagli altri colori già usati).
+   Versione 1.0.1 (20/11/2026): Contender con gironi di qualificazione: il turno finale (QER) si vede
+   nella vista Qualificazioni, i gironi restano nell'Elenco. */
 :root {
   --bg: #ffffff; --fg: #3a3112; --muted: #7a6d43; --line: #f1e5b5; --card: #fffdf3; --soft: #fef7d8; --track: #f6ebbd;
   --ink: #f2c500; --ink-2: #f7dd6b; --ink-t: #8a6d00; --gold: #c0561b;
@@ -303,7 +305,8 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     "Qualification Elimination Round": ["QE", 8], "Qualifying Round 4": ["Q4", 9], "Qualifying Round 3": ["Q3", 10], "Qualifying Round 2": ["Q2", 11], "Qualifying Round 1": ["Q1", 12], "Qualifying Group": ["QG", 13] };
   // nomi dei turni del tabellone (sigle di tennistavolo.json) in italiano
   const TURNO_IT = { R128: "Sessantaquattresimi", R64: "Trentaduesimi", R32: "Sedicesimi", R16: "Ottavi", QF: "Quarti", SF: "Semifinali", Final: "Finale", F: "Finale",
-    Q1: "Qualificazioni · 1° turno", Q2: "Qualificazioni · 2° turno", Q3: "Qualificazioni · 3° turno", Q4: "Qualificazioni · 4° turno" };
+    Q1: "Qualificazioni · 1° turno", Q2: "Qualificazioni · 2° turno", Q3: "Qualificazioni · 3° turno", Q4: "Qualificazioni · 4° turno",
+    QER: "Qualificazioni · turno finale" };
   const TURNO_BREVE = { Final: "F" };
   // categorie: ordine dei filtri, classe del pallino, incontri attesi se manca il tabellone
   const CAT_ORD = ["Mondiali", "WTT Finals", "World Cup", "Smash", "Champions", "Star Contender", "Contender"];
@@ -732,7 +735,7 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
       el("span", "", "numero = partite vinte (dettaglio passando sopra) · ● vincitore"), el("span", "", "bye = passaggio diretto · w.o. = walkover · rit. = ritiro"), el("span", "", "bordo tratteggiato = da giocare"));
     if (voce.tipo === "G") leg.append(el("span", "", "classifica dei gironi calcolata dai risultati: vittorie, poi differenza partite e punti; in grassetto chi è passato"));
     if (vistaReale === "qualif") { sec.append(qualificazioni(ctx, voce.q), leg); return; }
-    if (voce.q_gironi) leg.append(el("span", "", "qualificazioni a gironi: sono nell'Elenco"));
+    if (voce.q_gironi) leg.append(el("span", "", voce.q ? "gironi di qualificazione: sono nell'Elenco; il turno finale è nella vista Qualificazioni" : "qualificazioni a gironi: sono nell'Elenco"));
     if (voce.tipo === "G") { sec.append(finals(ctx, voce), leg); return; }
     if (cellulare.matches) { sec.append(perTurno(ctx, voce), leg); return; }
     const sc = el("div", "albero-scorri"); sc.append(albero(ctx, voce)); sec.append(sc, leg);

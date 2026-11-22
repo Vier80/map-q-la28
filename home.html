@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LA28 · Homepage del progetto</title>
+<meta name="theme-color" content="#edf0f4">
+<!-- per "Aggiungi a schermata Home" sul telefono: la pagina si apre come un'app -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="LA28">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%85%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
+<style>
+/* =====================================================================================
+   home.html · versione 1.0 (22/11/2026) · homepage del progetto LA28
+   Stessa veste di qualificati.html (crema e oro, blu notte, carattere Quicksand):
+   le variabili qui sotto sono IDENTICHE a quelle di qualificati.html.
+   Per aggiungere una pagina NON serve toccare lo stile: basta una riga nell'elenco PAGINE
+   (più in basso, nella parte <script>).
+   ===================================================================================== */
+:root {
+  --sfondo: #edf0f4; --carta: #ffffff; --bordo: #e2e7ee; --bordo-campo: #cfd8e4;
+  --blu-notte: #16294d; --blu: #1f5a9c; --blu-chiaro: #eaf1f9; --blu-testata: #f3f7fb;
+  --testo: #1c2537; --testo-2: #4d5a6e; --testo-3: #7d8899;
+  --oro: #c48a2c; --oro-scuro: #a8701a; --crema: #fdf6e8;
+  --verde: #2f8a5c; --verde-bg: #e9f6ef; --verde-bordo: #bfe3cf;
+  --azzurro: #2e64c8; --azzurro-bg: #ebf1fc; --azzurro-bordo: #c3d5f3;
+  --arancio: #b8661a; --arancio-bg: #fcf1e4; --arancio-bordo: #f0d2ad;
+}
+* { box-sizing: border-box }
+html { -webkit-text-size-adjust: 100% }
+body { margin: 0; background: var(--sfondo); color: var(--testo); font: 500 15px/1.45 Quicksand, "Avenir Next", system-ui, sans-serif }
+a { color: var(--blu); text-decoration: none }
+button, input, select { font: inherit; color: inherit }
+.pagina { max-width: 1400px; margin: 0 auto; padding: 0 12px 40px }
+
+/* ---------- intestazione (come qualificati.html) ---------- */
+.testa { background: var(--carta); border-radius: 0 0 14px 14px; box-shadow: 0 1px 3px rgba(22,41,77,.06); overflow: hidden; margin-bottom: 18px }
+.testa::before { content: ""; display: block; height: 6px; background: linear-gradient(90deg, #f2b04c, var(--oro) 35%, #e8c27c) }
+.testa-su { display: flex; gap: 20px; align-items: center; justify-content: space-between; padding: 18px 12px 18px 20px;
+  background: linear-gradient(90deg, var(--crema), #fff 45%); border-bottom: 1px solid var(--bordo); flex-wrap: wrap }
+.occhiello { color: var(--oro); font-weight: 700; letter-spacing: 1.3px; font-size: 13px; display: flex; align-items: center; gap: 8px }
+.occhiello::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--oro) }
+h1 { margin: 6px 0 0; font-size: 28px; font-weight: 600; color: var(--blu-notte); letter-spacing: -.2px; position: relative; padding-bottom: 10px }
+h1::after { content: ""; position: absolute; left: 0; bottom: 0; width: 62px; height: 3px; border-radius: 2px; background: linear-gradient(90deg, var(--oro), #f0c77e) }
+.collegamenti { display: flex; gap: 10px; flex-wrap: wrap }
+.collegamento { display: flex; align-items: center; gap: 12px; padding: 9px 12px; min-width: 250px; background: #fff; border: 1px solid var(--bordo-campo);
+  border-radius: 10px; color: var(--blu-notte); transition: box-shadow .15s, border-color .15s }
+.collegamento:hover { border-color: #9fb6d6; box-shadow: 0 3px 10px rgba(31,90,156,.12) }
+.collegamento .ico { width: 32px; height: 32px; border-radius: 50%; background: var(--blu-chiaro); display: grid; place-items: center; flex: none; color: var(--blu) }
+.collegamento b { display: block; font-weight: 600; font-size: 14.5px }
+.collegamento small { display: block; color: var(--testo-2); font-size: 13px }
+.collegamento .freccia { margin-left: auto; color: var(--blu-notte); font-size: 18px; font-weight: 600 }
+
+/* ---------- i quattro numeri sotto il titolo ---------- */
+.numeri { display: grid; grid-template-columns: repeat(4, 1fr) }
+.numero { display: flex; align-items: center; justify-content: center; gap: 16px; padding: 16px 12px; border-right: 1px solid var(--bordo) }
+.numero:last-child { border-right: 0 }
+.numero .ico { width: 40px; height: 40px; border-radius: 50%; background: var(--blu-chiaro); display: grid; place-items: center; color: var(--blu); flex: none }
+.numero b { display: block; font-size: 24px; font-weight: 600; color: var(--blu-notte); font-variant-numeric: tabular-nums; line-height: 1.1 }
+.numero b small { font-size: 14px; color: var(--testo-3); font-weight: 600 }
+.numero span { display: block; color: var(--testo-2); letter-spacing: .7px; font-size: 12px; text-transform: uppercase; font-weight: 600 }
+
+/* ---------- pannello con le due schede (Tutte le pagine / Per sport) ---------- */
+.pannello { background: var(--carta); border-radius: 14px; box-shadow: 0 1px 3px rgba(22,41,77,.06); overflow: hidden }
+.schede { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 8px 12px 0; background: #f6f8fb; border-bottom: 1px solid var(--bordo) }
+.scheda { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px; border: 1px solid var(--bordo); border-bottom: 0;
+  border-radius: 8px 8px 0 0; background: var(--blu-testata); color: var(--blu-notte); font-weight: 600; font-size: 15px; cursor: pointer; position: relative; top: 1px }
+.scheda[aria-selected="true"] { background: linear-gradient(180deg, var(--crema), #fdf0d8); color: var(--oro-scuro); border-color: #ecd7b1; box-shadow: inset 0 -3px 0 var(--oro) }
+.scheda svg { width: 17px; height: 17px }
+
+.esplora { padding: 18px 20px 14px }
+.riga-titolo { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px }
+.riga-titolo h2 { margin: 0; font-size: 17px; font-weight: 600; color: var(--blu-notte) }
+.bottoni { display: flex; gap: 8px; flex-wrap: wrap }
+.bottone { display: inline-flex; align-items: center; gap: 6px; padding: 7px 11px; background: #fff; border: 1px solid var(--bordo-campo); border-radius: 8px;
+  color: var(--blu); font-weight: 600; font-size: 14px; cursor: pointer }
+.bottone:hover { background: var(--blu-chiaro) }
+.bottone svg { width: 14px; height: 14px }
+
+.filtri { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; align-items: end }
+.campo label { display: block; text-transform: uppercase; letter-spacing: 1px; color: var(--testo-2); font-size: 12px; font-weight: 600; margin-bottom: 6px }
+.campo input, .campo select { width: 100%; height: 40px; padding: 0 12px; border: 1px solid var(--bordo-campo); border-radius: 7px; background: #fff; color: var(--testo); font-size: 14.5px }
+.campo select { appearance: none; -webkit-appearance: none; padding-right: 38px;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2316294d' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center }
+.campo input::placeholder { color: var(--testo-3) }
+.campo input:focus, .campo select:focus { outline: 3px solid #d7e5f7; border-color: #8fb0dc }
+
+.rapidi { display: flex; align-items: center; gap: 8px; margin-top: 12px; flex-wrap: wrap }
+.rapidi > span { color: var(--testo-2); font-size: 14px; margin-right: 2px }
+.chip { padding: 4px 11px; border: 1px solid var(--bordo-campo); background: #fff; border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--testo-2); cursor: pointer }
+.chip[aria-pressed="true"] { background: var(--blu-chiaro); border-color: #a9c2e3; color: var(--blu) }
+.stato { display: flex; justify-content: space-between; gap: 12px; color: var(--testo-2); font-size: 14px; margin-top: 14px; flex-wrap: wrap }
+
+/* ---------- gruppi di carte, una sezione alla volta ---------- */
+.elenco-testa { display: flex; align-items: center; gap: 12px; padding: 11px 16px; background: #f7f9fc; border-top: 1px solid var(--bordo); flex-wrap: wrap }
+.elenco-testa h3 { margin: 0; font-size: 15.5px; font-weight: 600; color: var(--blu-notte) }
+.elenco-testa .etichetta { text-transform: uppercase; letter-spacing: 1px; color: var(--testo-2); font-size: 12px; font-weight: 600 }
+.contatore { border: 1px solid var(--bordo); background: #fff; border-radius: 7px; padding: 3px 10px 3px 8px; text-transform: uppercase; letter-spacing: .8px;
+  font-size: 12px; font-weight: 600; color: var(--blu-notte); border-left: 3px solid var(--c, var(--blu)) }
+.mostra { margin-left: auto; color: var(--testo-2); font-size: 14px }
+
+.griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 12px; padding: 14px 16px 18px; border-top: 1px solid var(--bordo) }
+.carta { display: flex; align-items: center; gap: 12px; padding: 12px 13px; background: #fff; border: 1px solid var(--bordo-campo);
+  border-left: 4px solid var(--c, var(--blu)); border-radius: 10px; color: var(--blu-notte); transition: box-shadow .15s, border-color .15s, transform .15s }
+.carta:hover { border-color: #9fb6d6; border-left-color: var(--c, var(--blu)); box-shadow: 0 3px 10px rgba(31,90,156,.12); transform: translateY(-1px) }
+.carta .ico { width: 40px; height: 40px; border-radius: 50%; background: var(--blu-chiaro); display: grid; place-items: center; flex: none; font-size: 20px }
+.carta .testo { min-width: 0; flex: 1 }
+.carta b { display: block; font-weight: 600; font-size: 15px; line-height: 1.25 }
+.carta small { display: block; color: var(--testo-2); font-size: 13px; line-height: 1.35; margin-top: 1px }
+.carta .file { display: flex; align-items: center; gap: 8px; margin-top: 5px; flex-wrap: wrap }
+.carta code { font: 600 11.5px/1 ui-monospace, "SF Mono", Menlo, monospace; color: var(--testo-3); background: #f4f6f9; padding: 3px 6px; border-radius: 5px }
+.carta .freccia { color: var(--blu-notte); font-size: 18px; font-weight: 600; flex: none }
+
+/* pallino che dice se la pagina risponde online (controllo automatico) */
+.online { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; color: var(--testo-3) }
+.online::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #c6ced9 }
+.online.ok { color: var(--verde) } .online.ok::before { background: var(--verde) }
+.online.manca { color: var(--arancio) } .online.manca::before { background: var(--arancio) }
+.nessuno { text-align: center; color: var(--testo-3); padding: 50px 0 }
+
+/* ---------- vista "Per sport" (come la scheda Sport Summary di qualificati.html) ---------- */
+table { width: 100%; border-collapse: collapse }
+thead th { text-align: left; text-transform: uppercase; letter-spacing: 1px; font-size: 12px; font-weight: 600; color: var(--testo-2);
+  padding: 11px 12px; background: var(--blu-testata); border-bottom: 1px solid var(--bordo); white-space: nowrap }
+tbody td { padding: 12px; border-bottom: 1px solid var(--bordo); vertical-align: middle; font-size: 14.5px }
+tbody tr:nth-child(even) td { background: #fbfcfe }
+tbody tr:hover td { background: #f4f8fd }
+.sport { color: var(--blu-notte); font-weight: 600; white-space: nowrap }
+.sport span { font-size: 18px; margin-right: 6px }
+.pillola { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; border-radius: 999px; border: 1px solid; text-transform: uppercase;
+  letter-spacing: .9px; font-size: 11.5px; font-weight: 700; line-height: 1.2; margin: 2px 4px 2px 0; white-space: nowrap }
+.pillola.simulazioni { background: var(--azzurro-bg); border-color: var(--azzurro-bordo); color: var(--azzurro) }
+.pillola.risultati { background: var(--verde-bg); border-color: var(--verde-bordo); color: var(--verde) }
+.pillola.performance { background: var(--arancio-bg); border-color: var(--arancio-bordo); color: var(--arancio) }
+.pillola:hover { filter: brightness(.96) }
+.trattino { color: var(--testo-3) }
+
+/* ---------- legenda e piede ---------- */
+.legenda { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px }
+.legenda div { background: var(--carta); border-radius: 12px; padding: 14px 16px; color: var(--testo-2); font-size: 14px; box-shadow: 0 1px 3px rgba(22,41,77,.06) }
+.legenda .pillola { margin-bottom: 10px }
+footer { color: var(--testo-3); font-size: 13px; margin-top: 16px; padding: 0 6px }
+.avviso { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); background: var(--blu-notte); color: #fff; padding: 9px 18px; border-radius: 8px;
+  font-size: 15px; opacity: 0; transition: opacity .2s; pointer-events: none }
+.avviso.su { opacity: 1 }
+
+@media (max-width: 1100px) {
+  .collegamento { min-width: 0; flex: 1 1 260px }
+  .numeri { grid-template-columns: 1fr 1fr }
+  .numero { border-bottom: 1px solid var(--bordo); justify-content: flex-start; padding-left: 24px }
+}
+@media (max-width: 760px) {
+  h1 { font-size: 24px }
+  .occhiello { font-size: 11.5px }
+  .numero { gap: 10px; padding: 12px; justify-content: flex-start }
+  .numero .ico { width: 32px; height: 32px }
+  .numero b { font-size: 20px } .numero span { font-size: 10.5px }
+  .schede { gap: 6px; padding: 6px 6px 0 }
+  .scheda { font-size: 14px; padding: 10px 6px }
+  .filtri { grid-template-columns: 1fr }
+  .griglia { grid-template-columns: 1fr; padding: 12px }
+  .legenda { grid-template-columns: 1fr }
+  thead { display: none }
+  table, tbody, tr, td { display: block; width: 100% }
+  tbody tr { padding: 10px 14px; border-bottom: 1px solid var(--bordo) }
+  tbody td { border: 0; padding: 3px 0; background: none !important }
+  td.vuota { display: none }
+}
+</style>
+</head>
+<body>
+<div class="pagina">
+
+<header class="testa">
+  <div class="testa-su">
+    <div>
+      <div class="occhiello">ROAD TO LA28 · HOMEPAGE DEL PROGETTO</div>
+      <h1>LA28 · Tutte le pagine</h1>
+    </div>
+    <!-- le tre pagine principali, sempre a un clic (come i tre collegamenti di qualificati.html) -->
+    <nav class="collegamenti">
+      <a class="collegamento" href="index.html">
+        <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6h-3a15 15 0 0 0-1.3-4 8 8 0 0 1 4.3 4ZM12 4c.8 1.1 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.9 1.9-4ZM4.3 14a8 8 0 0 1 0-4h3.4a17 17 0 0 0 0 4H4.3Zm.8 2h3a15 15 0 0 0 1.3 4 8 8 0 0 1-4.3-4Zm3-8h-3a8 8 0 0 1 4.3-4c-.6 1.2-1 2.6-1.3 4ZM12 20c-.8-1.1-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.9-1.9 4Zm2.3-6H9.7a15 15 0 0 1 0-4h4.6a15 15 0 0 1 0 4Zm.3 6c.6-1.2 1-2.6 1.3-4h3a8 8 0 0 1-4.3 4Zm1.7-6a17 17 0 0 0 0-4h3.4a8 8 0 0 1 0 4h-3.4Z"/></svg></span>
+        <span><b>Mappa dei qualificati</b><small>Qualificati LA28 nel mondo</small></span><span class="freccia">›</span>
+      </a>
+      <a class="collegamento" href="qualificati.html">
+        <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h10v2h3v3a4 4 0 0 1-4 4h-.3A5 5 0 0 1 13 14.9V17h3v2H8v-2h3v-2.1A5 5 0 0 1 8.3 12H8a4 4 0 0 1-4-4V5h3V3Zm0 4H6v1a2 2 0 0 0 1.2 1.8A5 5 0 0 1 7 8V7Zm11 0h-1v1c0 .6-.1 1.2-.2 1.8A2 2 0 0 0 18 8V7ZM7 20h10v1H7v-1Z"/></svg></span>
+        <span><b>Qualified Athletes</b><small>Elenco per tipo di quota</small></span><span class="freccia">›</span>
+      </a>
+      <a class="collegamento" href="stima.html">
+        <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h2v16h16v2H3V3Zm4 9h2v5H7v-5Zm4-4h2v9h-2V8Zm4 2h2v7h-2v-7Zm4-5h2v12h-2V5Z"/></svg></span>
+        <span><b>Stima Italia LA28</b><small>Probabilità di pass degli azzurri</small></span><span class="freccia">›</span>
+      </a>
+    </nav>
+  </div>
+  <div class="numeri" id="numeri"></div>
+</header>
+
+<section class="pannello">
+  <div class="schede" role="tablist">
+    <button class="scheda" role="tab" aria-selected="true" data-scheda="pagine">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h7v7H4V4Zm2 2v3h3V6H6Zm7-2h7v7h-7V4Zm2 2v3h3V6h-3ZM4 13h7v7H4v-7Zm2 2v3h3v-3H6Zm7-2h7v7h-7v-7Zm2 2v3h3v-3h-3Z"/></svg>Tutte le pagine</button>
+    <button class="scheda" role="tab" aria-selected="false" data-scheda="sport">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m6 15 4-5 4 3 6-7"/></svg>Per sport</button>
+  </div>
+
+  <!-- ===== vista 1: tutte le pagine, divise per sezione ===== -->
+  <div id="vista-pagine">
+    <div class="esplora">
+      <div class="riga-titolo">
+        <h2>Trova una pagina</h2>
+        <div class="bottoni">
+          <button class="bottone" id="copia"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>Copia link</button>
+          <button class="bottone" id="ricontrolla">Ricontrolla le pagine</button>
+        </div>
+      </div>
+      <div class="filtri">
+        <div class="campo"><label for="cerca">Cerca</label><input id="cerca" type="search" placeholder="Sport, pagina o parola (es. judo, ELO, tabellone…)" autocomplete="off"></div>
+        <div class="campo"><label for="f-sport">Sport</label><select id="f-sport"><option value="">Tutti gli sport</option></select></div>
+      </div>
+      <div class="rapidi" id="rapidi"><span>Sezioni</span></div>
+      <div class="stato"><span id="stato-pagine">Controllo delle pagine in corso…</span><span id="stato-dati"></span></div>
+    </div>
+    <div id="gruppi"></div>
+  </div>
+
+  <!-- ===== vista 2: una riga per sport, con le sue pagine ===== -->
+  <div id="vista-sport" hidden>
+    <div class="elenco-testa"><h3>Le pagine di ogni sport</h3><span class="mostra" id="mostra-sport"></span></div>
+    <table>
+      <thead><tr><th style="width:22%">Sport</th><th>Simulazione LA28</th><th>Risultati</th><th>Performance</th></tr></thead>
+      <tbody id="righe-sport"></tbody>
+    </table>
+  </div>
+</section>
+
+<section class="legenda">
+  <div><span class="pillola simulazioni">Simulazione</span><br>Chi si qualificherebbe oggi a LA28, applicando il regolamento CIO al ranking ufficiale.</div>
+  <div><span class="pillola risultati">Risultati</span><br>Tornei incontro per incontro, con il tabellone ufficiale ad albero.</div>
+  <div><span class="pillola performance">Performance</span><br>Indici personali (WON, ELO, PTS, FEN) calcolati dai risultati in Notion.</div>
+</section>
+<footer>Sito <a href="https://vier80.github.io/map-q-la28/">vier80.github.io/map-q-la28</a> · elenco delle pagine aggiornato al 22/11/2026 ·
+  il pallino verde vuol dire che la pagina risponde online in questo momento.</footer>
+</div>
+<div class="avviso" id="avviso"></div>
+
+<script>
+// =====================================================================================
+// 1) LE SEZIONI DELLA HOMEPAGE
+//    colore = bordo sinistro delle carte (stessi colori, già controllati per i daltonici,
+//    usati in qualificati.html: oro, blu, verde, arancione).
+// =====================================================================================
+const SEZIONI = {
+  qualificazioni: { nome: "Qualificazioni LA28", descr: "Mappa, quote, stima per l'Italia e calendario", colore: "#c48a2c" },
+  simulazioni:    { nome: "Simulazioni per sport", descr: "Chi si qualificherebbe oggi secondo il ranking", colore: "#2e64c8" },
+  risultati:      { nome: "Risultati e tabelloni", descr: "Tornei incontro per incontro", colore: "#2f8a5c" },
+  performance:    { nome: "Performance", descr: "Indici WON, ELO, PTS e FEN", colore: "#b8661a" },
+};
+
+// =====================================================================================
+// 2) L'ELENCO DELLE PAGINE  ← QUI SI AGGIUNGE UNA PAGINA NUOVA
+//    Una riga per pagina:
+//      file    = nome del file nel repository map-q-la28 (dopo # si può indicare una parte della pagina)
+//      titolo  = testo in grassetto della carta
+//      descr   = riga di spiegazione sotto il titolo
+//      sezione = una delle chiavi qui sopra (qualificazioni, simulazioni, risultati, performance)
+//      sport   = nome dello sport (vuoto "" per le pagine generali): serve alla vista "Per sport"
+//      icona   = un'emoji
+//    Esempio di riga nuova (basta copiarla, cambiarla e mettere la virgola alla fine):
+//      { file: "canoa.html", titolo: "Canoa", descr: "Sprint e slalom", sezione: "simulazioni", sport: "Canoa", icona: "🛶" },
+// =====================================================================================
+const PAGINE = [
+  // ---- qualificazioni (pagine generali)
+  { file: "index.html",       titolo: "Mappa dei qualificati",   descr: "Mappamondo per NOC, classifica dei paesi e ricerca",          sezione: "qualificazioni", sport: "", icona: "🌍" },
+  { file: "scheda.html#ITA",  titolo: "Scheda NOC · Italia",     descr: "Totali e carte per sport di un NOC (si apre sull'Italia)",    sezione: "qualificazioni", sport: "", icona: "🇮🇹" },
+  { file: "sport.html",       titolo: "Qualificati per sport",   descr: "Posti assegnati e restanti di ogni sport",                    sezione: "qualificazioni", sport: "", icona: "🏆" },
+  { file: "qualificati.html", titolo: "Qualified Athletes",      descr: "Elenco per tipo di quota: Athlete, NOC, Team",                sezione: "qualificazioni", sport: "", icona: "🎟️" },
+  { file: "stima.html",       titolo: "Stima Italia LA28",       descr: "Probabilità di pass e quote italiane per sport",              sezione: "qualificazioni", sport: "", icona: "📈" },
+  { file: "calendario.html",  titolo: "Calendario qualificazioni", descr: "Eventi che assegnano posti diretti, 2026-2028",              sezione: "qualificazioni", sport: "", icona: "📅" },
+
+  // ---- simulazioni dei qualificati, sport per sport
+  { file: "beachvolley.html",   titolo: "Beach volley",        descr: "Torneo maschile e femminile, 24 coppie",       sezione: "simulazioni", sport: "Beach volley",       icona: "🏐" },
+  { file: "ciclismo.html",      titolo: "Ciclismo",            descr: "BMX Racing, MTB e pista: 14 prove",            sezione: "simulazioni", sport: "Ciclismo",           icona: "🚴" },
+  { file: "judo.html",          titolo: "Judo",                descr: "14 categorie di peso, uomini e donne",         sezione: "simulazioni", sport: "Judo",               icona: "🥋" },
+  { file: "wrestling.html",     titolo: "Lotta",               descr: "Previsioni dei qualificati",                   sezione: "simulazioni", sport: "Lotta",              icona: "🤼" },
+  { file: "skateboarding.html", titolo: "Skateboarding",       descr: "Park e street, uomini e donne",                sezione: "simulazioni", sport: "Skateboarding",      icona: "🛹" },
+  { file: "weightlifting.html", titolo: "Sollevamento pesi",   descr: "12 categorie di peso, con il Best Lifter",     sezione: "simulazioni", sport: "Sollevamento pesi",  icona: "🏋️" },
+  { file: "squash.html",        titolo: "Squash",              descr: "Singolare maschile e femminile, ranking PSA",  sezione: "simulazioni", sport: "Squash",             icona: "🎾" },
+  { file: "taekwondo.html",     titolo: "Taekwondo",           descr: "8 categorie di peso, uomini e donne",          sezione: "simulazioni", sport: "Taekwondo",          icona: "🦶" },
+  { file: "tennis.html",        titolo: "Tennis",              descr: "Singolare e doppio, per evento e nazione",     sezione: "simulazioni", sport: "Tennis",             icona: "🎾" },
+
+  // ---- risultati e tabelloni
+  { file: "badminton.html",        titolo: "Badminton · risultati",    descr: "Tornei BWF con tabellone ufficiale",              sezione: "risultati", sport: "Badminton",    icona: "🏸" },
+  { file: "squash-risultati.html", titolo: "Squash · risultati PSA",   descr: "Mondiali, Tour Finals, Diamond, Platinum e Gold", sezione: "risultati", sport: "Squash",       icona: "🎾" },
+  { file: "tennistavolo.html",     titolo: "Tennistavolo · risultati", descr: "WTT, Mondiali e World Cup, con ELO",              sezione: "risultati", sport: "Tennistavolo", icona: "🏓" },
+
+  // ---- performance
+  { file: "badminton-performance.html",    titolo: "Badminton · performance",    descr: "Indice WON ed ELO, 5 specialità",                    sezione: "performance", sport: "Badminton",    icona: "🏸" },
+  { file: "judo-performance.html",         titolo: "Judo · performance",         descr: "Indice WON ed ELO",                                  sezione: "performance", sport: "Judo",         icona: "🥋" },
+  { file: "wrestling-performance.html",    titolo: "Lotta · performance",        descr: "Statistiche incontro per incontro e testa a testa",  sezione: "performance", sport: "Lotta",        icona: "🤼" },
+  { file: "pentathlon-performance.html",   titolo: "Pentathlon · performance",   descr: "Indice PTS",                                         sezione: "performance", sport: "Pentathlon",   icona: "🏅" },
+  { file: "scherma-performance.html",      titolo: "Scherma · performance",      descr: "Indice FEN, 6 gare individuali",                     sezione: "performance", sport: "Scherma",      icona: "🤺" },
+  { file: "tennistavolo-performance.html", titolo: "Tennistavolo · performance", descr: "Indice WON ed ELO",                                  sezione: "performance", sport: "Tennistavolo", icona: "🏓" },
+  { file: "vela-performance.html",         titolo: "Vela · performance",         descr: "Indice WON ed ELO, 10 classi olimpiche",             sezione: "performance", sport: "Vela",         icona: "⛵" },
+];
+
+// =====================================================================================
+// 3) DA QUI IN GIÙ IL CODICE CHE DISEGNA LA PAGINA (non serve modificarlo)
+// =====================================================================================
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const num = (n) => Number(n).toLocaleString("it-IT");
+// toglie maiuscole e accenti, così "perfomance" o "Pentathlòn" trovano lo stesso
+const semplice = (s) => String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+const senzaAncora = (file) => file.split("#")[0];      // "scheda.html#ITA" -> "scheda.html"
+
+let sezioneScelta = "";       // "" = tutte le sezioni
+const ONLINE = {};            // risultato del controllo: { "judo.html": "ok" | "manca" | "?" }
+
+// icone dei quattro numeri (stesse forme di qualificati.html)
+const ICONE = {
+  pagine: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h7v7H4V4Zm9 0h7v7h-7V4ZM4 13h7v7H4v-7Zm9 0h7v7h-7v-7Z"/></svg>',
+  spunta: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm-1.2 14.2-4-4 1.4-1.4 2.6 2.6 5.6-5.6 1.4 1.4-7 7Z"/></svg>',
+  coppa: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h10v2h3v3a4 4 0 0 1-4 4h-.3A5 5 0 0 1 13 14.9V17h3v2H8v-2h3v-2.1A5 5 0 0 1 8.3 12H8a4 4 0 0 1-4-4V5h3V3Zm0 4H6v1a2 2 0 0 0 1.2 1.8A5 5 0 0 1 7 8V7Zm11 0h-1v1c0 .6-.1 1.2-.2 1.8A2 2 0 0 0 18 8V7ZM7 20h10v1H7v-1Z"/></svg>',
+  atleta: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="7" r="4"/><path d="M4 21a8 8 0 0 1 16 0H4Z"/></svg>',
+};
+const sportElenco = [...new Set(PAGINE.map((p) => p.sport).filter(Boolean))].sort((a, b) => a.localeCompare(b, "it"));
+
+// ---- i quattro numeri: pagine, pagine online, sport, posti già qualificati (da qualificati.json)
+let QUALIFICATI = null;
+function disegnaNumeri() {
+  const unici = new Set(PAGINE.map((p) => senzaAncora(p.file)));
+  const controllate = [...unici].filter((f) => ONLINE[f] === "ok" || ONLINE[f] === "manca");
+  const online = [...unici].filter((f) => ONLINE[f] === "ok").length;
+  const voce = (icona, valore, testo) => `<div class="numero"><span class="ico">${ICONE[icona]}</span><div><b>${valore}</b><span>${testo}</span></div></div>`;
+  $("numeri").innerHTML =
+    voce("pagine", num(unici.size), "Pagine del progetto") +
+    voce("spunta", controllate.length ? num(online) : "…", "Pagine online ora") +
+    voce("coppa", num(sportElenco.length), "Sport con una pagina") +
+    voce("atleta", QUALIFICATI ? `${num(QUALIFICATI.posti_qualificati)} <small>/ ${num(QUALIFICATI.posti_totali)}</small>` : "—", "Posti LA28 già assegnati");
+}
+
+// ---- pulsanti delle sezioni (filtri rapidi)
+function disegnaChip() {
+  const voci = [["", "Tutte"], ...Object.entries(SEZIONI).map(([k, s]) => [k, s.nome])];
+  $("rapidi").innerHTML = "<span>Sezioni</span>" + voci.map(([k, t]) =>
+    `<button class="chip" data-chip="${k}" aria-pressed="${k === sezioneScelta}">${esc(t)}</button>`).join("");
+  $("rapidi").querySelectorAll(".chip").forEach((c) => c.onclick = () => { sezioneScelta = c.dataset.chip; disegnaChip(); disegna(); });
+}
+
+// ---- etichetta "online / da pubblicare" di una pagina
+function etichetta(file) {
+  const s = ONLINE[senzaAncora(file)];
+  if (s === "ok") return '<span class="online ok">online</span>';
+  if (s === "manca") return '<span class="online manca" title="Il sito risponde 404: il file non è nel repository oppure il sito non è stato ripubblicato">non trovata</span>';
+  return '<span class="online">…</span>';
+}
+
+// ---- vista "Tutte le pagine": una sezione alla volta, con le sue carte
+function disegna() {
+  const q = semplice($("cerca").value.trim());
+  const sport = $("f-sport").value;
+  const scelte = PAGINE.filter((p) =>
+    (!sezioneScelta || p.sezione === sezioneScelta) && (!sport || p.sport === sport) &&
+    (!q || semplice([p.titolo, p.descr, p.sport, p.file, SEZIONI[p.sezione].nome].join(" ")).includes(q)));
+  if (!scelte.length) { $("gruppi").innerHTML = '<div class="nessuno">Nessuna pagina trovata.</div>'; return; }
+  $("gruppi").innerHTML = Object.entries(SEZIONI).map(([chiave, sez]) => {
+    const lista = scelte.filter((p) => p.sezione === chiave);
+    if (!lista.length) return "";
+    return `<div class="elenco-testa">
+        <h3>${esc(sez.nome)}</h3><span class="etichetta">${esc(sez.descr)}</span>
+        <span class="mostra"><span class="contatore" style="--c:${sez.colore}">${lista.length} ${lista.length === 1 ? "pagina" : "pagine"}</span></span>
+      </div>
+      <div class="griglia">${lista.map((p) => `
+        <a class="carta" href="${esc(p.file)}" style="--c:${sez.colore}">
+          <span class="ico">${p.icona}</span>
+          <span class="testo"><b>${esc(p.titolo)}</b><small>${esc(p.descr)}</small>
+            <span class="file"><code>${esc(p.file)}</code>${etichetta(p.file)}</span></span>
+          <span class="freccia">›</span>
+        </a>`).join("")}</div>`;
+  }).join("");
+}
+
+// ---- vista "Per sport": una riga per sport, una pillola per ogni sua pagina
+function disegnaSport() {
+  const cella = (sport, sezione) => {
+    const lista = PAGINE.filter((p) => p.sport === sport && p.sezione === sezione);
+    const nomi = { simulazioni: "Simulazione", risultati: "Risultati", performance: "Performance" };
+    return lista.length
+      ? `<td>${lista.map((p) => `<a class="pillola ${sezione}" href="${esc(p.file)}">${nomi[sezione]} ›</a>`).join("")}</td>`
+      : '<td class="vuota"><span class="trattino">–</span></td>';
+  };
+  $("mostra-sport").textContent = `${sportElenco.length} sport`;
+  $("righe-sport").innerHTML = sportElenco.map((s) => {
+    const icona = PAGINE.find((p) => p.sport === s).icona;
+    return `<tr><td class="sport"><span>${icona}</span>${esc(s)}</td>${cella(s, "simulazioni")}${cella(s, "risultati")}${cella(s, "performance")}</tr>`;
+  }).join("");
+}
+
+// ---- controllo automatico: per ogni pagina chiede al sito se il file esiste (richiesta HEAD, leggerissima)
+async function controllaPagine() {
+  const unici = [...new Set(PAGINE.map((p) => senzaAncora(p.file)))];
+  if (!/^https?:$/.test(location.protocol)) {        // aperta dal computer (file://): il controllo non è possibile
+    $("stato-pagine").textContent = "Pagina aperta dal computer: il controllo online si fa solo sul sito GitHub.";
+    return;
+  }
+  unici.forEach((f) => ONLINE[f] = "?");
+  $("stato-pagine").textContent = "Controllo delle pagine in corso…";
+  disegna(); disegnaNumeri();
+  await Promise.all(unici.map(async (f) => {
+    try {
+      const r = await fetch(f, { method: "HEAD", cache: "no-store" });
+      ONLINE[f] = r.ok ? "ok" : "manca";
+    } catch (e) { ONLINE[f] = "?"; }
+  }));
+  const mancanti = unici.filter((f) => ONLINE[f] === "manca");
+  const ora = new Date();
+  $("stato-pagine").textContent = mancanti.length
+    ? `${unici.length - mancanti.length} pagine online su ${unici.length} · non trovate: ${mancanti.join(", ")}`
+    : `Tutte le ${unici.length} pagine sono online (controllo delle ${String(ora.getHours()).padStart(2, "0")}:${String(ora.getMinutes()).padStart(2, "0")}).`;
+  disegna(); disegnaNumeri();
+}
+
+// ---- legge i totali dei qualificati da qualificati.json (lo stesso file di qualificati.html)
+async function caricaQualificati() {
+  try {
+    const r = await fetch("qualificati.json", { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const dati = await r.json();
+    QUALIFICATI = dati.totali;
+    const [a, m, g] = String(dati.aggiornato).split("-");
+    $("stato-dati").textContent = `Qualificati aggiornati al ${g}/${m}/${a}`;
+  } catch (e) {
+    $("stato-dati").textContent = "";              // senza il file il numero mostra «—» e basta
+  }
+  disegnaNumeri();
+}
+
+// ---- schede in alto: "Tutte le pagine" / "Per sport"
+function mostra(quale) {
+  document.querySelectorAll(".scheda").forEach((x) => x.setAttribute("aria-selected", String(x.dataset.scheda === quale)));
+  $("vista-pagine").hidden = quale !== "pagine";
+  $("vista-sport").hidden = quale !== "sport";
+}
+document.querySelectorAll(".scheda").forEach((s) => s.addEventListener("click", () => mostra(s.dataset.scheda)));
+
+// ---- filtri, pulsanti e avvisi
+for (const s of sportElenco) $("f-sport").add(new Option(s, s));
+$("cerca").addEventListener("input", disegna);
+$("f-sport").addEventListener("change", disegna);
+function avvisa(testo) { const a = $("avviso"); a.textContent = testo; a.classList.add("su"); setTimeout(() => a.classList.remove("su"), 1800); }
+$("copia").onclick = async () => {
+  try { await navigator.clipboard.writeText(location.href.split("?")[0]); avvisa("Link copiato"); }
+  catch (e) { prompt("Copia questo link:", location.href); }
+};
+$("ricontrolla").onclick = () => controllaPagine().then(() => avvisa("Controllo fatto"));
+
+// ---- avvio
+disegnaChip(); disegnaNumeri(); disegna(); disegnaSport();
+controllaPagine();
+caricaQualificati();
+</script>
+</body>
+</html>

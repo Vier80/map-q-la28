@@ -4,20 +4,33 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Redazione LA28</title>
+<!-- web app installabile (iPhone: Condividi -> Aggiungi alla schermata Home; Mac: Safari -> File -> Aggiungi al Dock) -->
+<link rel="manifest" href="redazione-manifest.json">
+<link rel="apple-touch-icon" href="redazione-icona-180.png">
+<link rel="icon" href="redazione-icona-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Redazione">
+<meta name="theme-color" content="#a3382c">
 <!--
-  Redazione AI LA28 · web app · versione 1.1 (22/11/2026, schede 48 e 50) · configurata per il progetto Firebase «redazione-la28»
+  Redazione AI LA28 · web app · versione 1.3 (22/11/2026, schede 48, 50, 51 e 52) · configurata per il progetto Firebase «redazione-la28»
   Novità della 1.1: due uscite al giorno (8 e 20) nella stessa chat, cuore per ogni messaggio, titolo «stamattina» / «stasera».
+  Novità della 1.2: le risposte della redazione ai tuoi messaggi (campo «repliche»), la scritta «in attesa di risposta»
+  e la bolla 🎟️ del Redattore Pass (Q nuove in Athletes), anche nel pannello dei dati.
+  Novità della 1.3: web app installabile (manifest e icone) e NOTIFICHE PUSH su iPhone e Mac con Firebase Cloud
+  Messaging: pulsante «🔔 Attiva le notifiche», che salva il «numero di consegna» del dispositivo nella collezione
+  Firestore «dispositivi». Servono anche i file redazione-sw.js, redazione-manifest.json e le 3 icone redazione-icona-*.png.
   Va nel repo pubblico map-q-la28 (GitHub Pages): https://vier80.github.io/map-q-la28/redazione.html
 
   Cosa fa:
   - legge da Firebase Firestore le edizioni scritte ogni mattina dallo script redazione.py (collezione «edizioni»);
   - le mostra come una chat, con la grafica della carta crema (titolo, sottotitolo, firma):
     per ogni giorno il messaggio delle 8, quello delle 20 e le tue risposte, in ordine di orario;
-  - ti fa mettere il cuore al messaggio e rispondere (le risposte restano salvate in Firestore);
+  - ti fa mettere il cuore al messaggio e rispondere (le risposte restano salvate in Firestore):
+    la redazione ti risponde al lancio successivo (alle 8, alle 20 o con il cron-job delle risposte);
   - si entra con il proprio account Google: le REGOLE di Firestore lasciano leggere e scrivere solo te.
 
-  L'unica cosa da cambiare è il blocco FIREBASE_CONFIG qui sotto (scheda 48, passo 4).
-  Finché non lo cambi, la pagina mostra un'ANTEPRIMA con dati di esempio.
+  Già configurata: FIREBASE_CONFIG (scheda 48, passo 4) e chiave VAPID_KEY per le notifiche (scheda 52, inserita il 22/11/2026).
+  Senza FIREBASE_CONFIG la pagina mostrerebbe un'ANTEPRIMA con dati di esempio.
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -88,6 +101,7 @@
     color: #c9c9ce; line-height: 1; transition: transform .15s;
   }
   .cuore.acceso { color: var(--cuore); }
+  .attesa { text-align: right; font-size: 11px; color: var(--piccolo); margin: 3px 4px 0; }
   .cuore:active { transform: scale(1.3); }
 
   /* ---------- casella per rispondere ---------- */
@@ -127,6 +141,10 @@
   .piede { text-align: center; margin-top: 16px; font-size: 12px; color: var(--piccolo); }
   .piede button { border: 0; background: none; color: var(--piccolo); text-decoration: underline; cursor: pointer; font: inherit; }
   .nascosto { display: none !important; }
+
+  /* ---------- notifiche ---------- */
+  .notifiche { text-align: center; font-size: 13px; color: var(--grigio); margin: 0 0 12px; line-height: 1.45; }
+  .notifiche .bottone { font-size: 13px; padding: 9px 16px; }
 </style>
 </head>
 <body>
@@ -138,6 +156,8 @@
     <span class="quale" id="quale">…</span>
     <button id="dopo" aria-label="Giorno seguente">›</button>
   </nav>
+
+  <div class="notifiche nascosto" id="notifiche"></div>
 
   <article class="carta">
     <div class="fascia"></div>
@@ -176,6 +196,9 @@ const FIREBASE_CONFIG = {
   messagingSenderId: "875557376372",
   appId: "1:875557376372:web:1ce4e8593cc93a92319c21",
 };
+// Chiave pubblica per le notifiche web (NON segreta): Console Firebase -> ⚙️ Impostazioni progetto ->
+// Cloud Messaging -> Configurazione Web -> Certificati push web -> «Coppia di chiavi» (scheda 52, passo 1)
+const VAPID_KEY = "BNu0KcTSrSM136PNKzLtrMIK_XqU3ONhzQBP-KyYT6JBbHliOQfmDYZg9NorD-TI7NWyrfZOR98yccG-byUkf2w";
 const NOME = "Gualtiero";              // la firma in fondo alla carta
 const COLLEZIONE = "edizioni";         // la stessa di redazione.py
 const VERSIONE_FIREBASE = "10.14.1";   // versione delle librerie Firebase scaricate da Google
@@ -246,7 +269,7 @@ function disegna() {
                : GIORNI[d.getDay()];
   $("titolo").replaceChildren("I miei ragazzi", document.createElement("br"), quando);
   $("sotto1").textContent = `Redazione LA28 · ${GIORNI[d.getDay()]} ${d.getDate()} ${MESI[d.getMonth()]}`;
-  const conAI = messaggi.some(m => m.firma && m.firma !== "senza AI");
+  const conAI = messaggi.some(m => String(m.firma || "").startsWith("Gemini"));
   $("sotto2").textContent = conAI ? "La mia redazione AI ha letto i risultati"
                                   : "La redazione ha letto i risultati (senza AI)";
 
@@ -257,9 +280,14 @@ function disegna() {
     const t = daISO(ed.data); t.setHours(h || 0, min || 0);
     cronologia.push({ tipo: "redazione", t, m });
   }
+  const risposteDate = new Set((ed.repliche || []).map(x => x.a));   // a quali tuoi messaggi la redazione ha già risposto
   for (const r of ed.risposte || []) {
     const t = new Date(r.ora);
-    cronologia.push({ tipo: "risposta", t: isNaN(t) ? new Date(0) : t, r });
+    cronologia.push({ tipo: "risposta", t: isNaN(t) ? new Date(0) : t, r, risposta: risposteDate.has(r.ora) });
+  }
+  for (const x of ed.repliche || []) {
+    const t = new Date(x.ora);
+    cronologia.push({ tipo: "replica", t: isNaN(t) ? new Date(0) : t, x });
   }
   cronologia.sort((a, b) => a.t - b.t);
 
@@ -268,22 +296,29 @@ function disegna() {
     chat.append(el("div", "ora", `${nomeGiorno(oggiISOda(voce.t))} ${orario}`));
     if (voce.tipo === "redazione") {
       // bolla grigia a sinistra, con il cuore di QUESTO messaggio
-      const m = voce.m, uscita = m.uscita || "mattina";
-      const acceso = cuoreAcceso(ed, uscita);
+      const m = voce.m, chiave = m.chiave || m.uscita || "mattina";   // es. «sera» o «sera-pass»
+      const acceso = cuoreAcceso(ed, chiave);
       const riga = el("div", "riga");
       riga.append(el("div", "bolla grigia", m.testo || ""));
       const cuore = el("button", "cuore" + (acceso ? " acceso" : ""), "♥");
       cuore.title = acceso ? "Togli il cuore" : "Metti il cuore";
       cuore.setAttribute("aria-label", cuore.title);
-      cuore.onclick = () => servizio.cuore(ed.id, nuoviCuori(ed, uscita)).catch(erroreScrittura);
+      cuore.onclick = () => servizio.cuore(ed.id, nuoviCuori(ed, chiave)).catch(erroreScrittura);
       riga.append(cuore);
       chat.append(riga);
       chat.append(el("div", "etichetta", `Messaggio da ${m.emoji || "🤖"} ${m.autore || "Redazione"}${m.firma ? " · " + m.firma : ""}`));
+    } else if (voce.tipo === "replica") {
+      // risposta della redazione a un tuo messaggio: bolla grigia a sinistra
+      const riga = el("div", "riga");
+      riga.append(el("div", "bolla grigia", voce.x.testo || ""));
+      chat.append(riga);
+      chat.append(el("div", "etichetta", "Risposta da 🤖 Caporedattore"));
     } else {
       // tua risposta: bolla nera a destra
       const riga = el("div", "riga destra");
       riga.append(el("div", "bolla nera", voce.r.testo));
       chat.append(riga);
+      if (!voce.risposta) chat.append(el("div", "attesa", "⏳ in attesa di risposta"));
     }
   }
 
@@ -309,16 +344,16 @@ function disegna() {
 
   disegnaDati(ed);
 }
-// il campo «cuore» è un elenco per uscita, es. {mattina: true, sera: false}.
+// il campo «cuore» è un elenco per messaggio, es. {mattina: true, sera: false, "sera-pass": true}.
 // Le edizioni della versione 1.0 avevano un solo sì/no: vale per tutti i messaggi del giorno.
-function cuoreAcceso(ed, uscita) {
-  if (ed.cuore && typeof ed.cuore === "object") return !!ed.cuore[uscita];
+function cuoreAcceso(ed, chiave) {
+  if (ed.cuore && typeof ed.cuore === "object") return !!ed.cuore[chiave];
   return !!ed.cuore;
 }
-function nuoviCuori(ed, uscita) {
+function nuoviCuori(ed, chiave) {
   const cuori = (ed.cuore && typeof ed.cuore === "object") ? { ...ed.cuore }
-              : { mattina: !!ed.cuore, sera: !!ed.cuore };
-  cuori[uscita] = !cuori[uscita];
+              : Object.fromEntries((ed.messaggi || []).map(m => [m.chiave || m.uscita || "mattina", !!ed.cuore]));
+  cuori[chiave] = !cuori[chiave];
   return cuori;
 }
 function oggiISOda(d) {
@@ -333,6 +368,8 @@ function disegnaDati(ed) {
     titolo: `${m.uscita === "sera" ? "🌙 Sera" : "☀️ Mattina"} · ${m.periodo || ""}`,
     notizie: m.notizie, totale: m.notizie_totali ?? m.notizie.length,
     conteggi: m.conteggi || [], problemi: m.problemi || [] }));
+  // i pass nuovi del Redattore Pass (dalla versione 1.5 dello script)
+  const pass = (ed.messaggi || []).filter(m => (m.nuovi_pass || []).length);
   if (!gruppi.length) gruppi.push({ titolo: "", notizie: ed.notizie || [],
     totale: ed.notizie_totali ?? (ed.notizie || []).length, conteggi: ed.conteggi || [], problemi: ed.problemi || [] });
 
@@ -354,6 +391,13 @@ function disegnaDati(ed) {
     const c = g.conteggi.map(c => `${c.sport}: ${c.incontri_nuovi - (c.storici_esclusi || 0)} recenti`).join(" · ");
     const p = g.problemi.length ? ` · ⚠️ non letti: ${g.problemi.join(", ")}` : "";
     if (c || p) conti.push(`${g.titolo ? g.titolo.split(" · ")[0] + ": " : ""}${c}${p}`);
+  }
+  for (const m of pass) {
+    lista.append(el("li", "uscita", `🎟️ Nuovi pass · ${m.uscita === "sera" ? "sera" : "mattina"} · ${m.periodo || ""}`));
+    for (const a of m.nuovi_pass) {
+      const dettagli = [a.sport, a.disciplina].filter(Boolean).join(" · ");
+      lista.append(el("li", "", `${a.italiano ? "🇮🇹" : "🌍"} ${a.nome} (${a.noc}) · ${dettagli}`));
+    }
   }
   $("datiConti").textContent = conti.join("\n");
   $("datiConti").style.whiteSpace = "pre-line";
@@ -389,7 +433,9 @@ function servizioAnteprima() {
   const esempio = [
     {
       id: oggi, data: oggi, cuore: { mattina: true }, giorni_freschi: 10,
-      risposte: [{ testo: "Buongiorno, grazie!", ora: alle(oggi, 9.2) }],
+      risposte: [{ testo: "Buongiorno, grazie! Rossi ha già la Q?", ora: alle(oggi, 9.2) }],
+      repliche: [{ testo: "Non ancora: nei pass LA28 di Athletes Mario Rossi non ha la Q. Ti avviso appena arriva. (esempio)",
+                   ora: alle(oggi, 10.05), a: alle(oggi, 9.2) }],
       messaggi: [
         { uscita: "mattina", autore: "Caporedattore", emoji: "🤖", firma: "Gemini · gemini-3.5-flash-lite", ora: "08:01",
           periodo: "dalle 20:00 di ieri", notizie: notizieMattina, notizie_totali: 2,
@@ -399,6 +445,11 @@ function servizioAnteprima() {
           periodo: "dalle 8:00 di oggi", notizie: [], notizie_totali: 0,
           conteggi: [{ sport: "Badminton", incontri_nuovi: 12, storici_esclusi: 0 }], problemi: [],
           testo: "Buonasera Gualtiero, (dati di esempio)\n\nOggi nessun italiano in gara nei tornei arrivati in redazione.\n\nBuona serata!" },
+        { uscita: "sera", chiave: "sera-pass", autore: "Redattore Pass", emoji: "🎟️", firma: "Notion · Athletes", ora: "20:02",
+          periodo: "dalle 8:00 di oggi",
+          nuovi_pass: [{ nome: "Mario Rossi", noc: "ITA", sport: "Judo", disciplina: "Men's -90kg", italiano: true },
+                       { nome: "Junya Nakanishi", noc: "JPN", sport: "Archery", disciplina: "Men's Recurve Individual", italiano: false }],
+          testo: "🎟️ Nuovi pass per LA28 (dalle 8:00 di oggi): 2\n\n🇮🇹 Italia\n• Mario Rossi · Judo · Men's -90kg\n\n🌍 Dal mondo (1)\n• Junya Nakanishi (JPN) · Archery\n\nIn tutto ora 180 pass, 6 italiani. (esempio)" },
       ],
     },
     {
@@ -426,13 +477,78 @@ async function servizioFirebase() {
   const { initializeApp } = await import(`${base}/firebase-app.js`);
   const A = await import(`${base}/firebase-auth.js`);
   const F = await import(`${base}/firebase-firestore.js`);
+  // le notifiche: se il modulo non si carica, la redazione funziona lo stesso (solo senza notifiche)
+  const M = await import(`${base}/firebase-messaging.js`).catch(() => null);
 
   const app = initializeApp(FIREBASE_CONFIG);
   const auth = A.getAuth(app);
   const db = F.getFirestore(app);
   let smetti = null;          // per smettere di ascoltare Firestore quando esci
 
+  // ---------------------------------------------------------------- notifiche push
+  const iPhone = /iPhone|iPad|iPod/.test(navigator.userAgent);
+  const installata = window.matchMedia("(display-mode: standalone)").matches || navigator.standalone === true;
+
+  // un nome riconoscibile per il dispositivo, salvato insieme al suo «numero di consegna»
+  function nomeDispositivo() {
+    const ua = navigator.userAgent;
+    const tipo = /iPhone/.test(ua) ? "iPhone" : /iPad/.test(ua) ? "iPad" : /Macintosh/.test(ua) ? "Mac" : "Computer";
+    return `${tipo} · ${installata ? "app" : "browser"}`;
+  }
+  // l'id del documento: un'impronta (SHA-256) del numero di consegna, che è troppo lungo per fare da nome
+  async function impronta(testo) {
+    const hash = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(testo));
+    return [...new Uint8Array(hash)].map(b => b.toString(16).padStart(2, "0")).join("").slice(0, 40);
+  }
+  // chiede a Firebase il «numero di consegna» (token) di questo dispositivo e lo salva in Firestore
+  async function registraDispositivo(utente) {
+    const reg = await navigator.serviceWorker.register("redazione-sw.js");
+    const token = await M.getToken(M.getMessaging(app), { vapidKey: VAPID_KEY, serviceWorkerRegistration: reg });
+    if (!token) throw new Error("Firebase non ha dato il numero di consegna");
+    await F.setDoc(F.doc(db, "dispositivi", await impronta(token)),
+      { token, email: utente.email, nome: nomeDispositivo(), aggiornato: F.serverTimestamp() });
+  }
+  async function preparaNotifiche(utente) {
+    const box = $("notifiche");
+    box.classList.remove("nascosto");
+    box.replaceChildren();
+    const supportate = M && "serviceWorker" in navigator && "Notification" in window
+                       && await M.isSupported().catch(() => false);
+    if (!VAPID_KEY || VAPID_KEY.startsWith("INCOLLA")) {
+      box.textContent = "🔕 Notifiche non ancora configurate: manca la chiave VAPID (scheda 52).";
+      return;
+    }
+    if (!supportate) {
+      box.textContent = iPhone && !installata
+        ? "🔔 Per le notifiche su iPhone: tocca Condividi ↑ → «Aggiungi alla schermata Home», poi apri la Redazione dalla sua icona e torna qui."
+        : "🔕 Questo browser non supporta le notifiche push.";
+      return;
+    }
+    if (Notification.permission === "denied") {
+      box.textContent = "🔕 Notifiche bloccate: riattivale nelle impostazioni del dispositivo (Notifiche → Redazione).";
+      return;
+    }
+    const attive = "🔔 Notifiche attive su questo dispositivo: arrivano alle 8, alle 20 e quando la redazione ti risponde.";
+    if (Notification.permission === "granted") {
+      // permesso già dato: rinnovo in silenzio il numero di consegna (ogni tanto Firebase lo cambia)
+      try { await registraDispositivo(utente); box.textContent = attive; }
+      catch (e) { console.error(e); box.textContent = "⚠️ Notifiche: " + (e.code || e.message); }
+      return;
+    }
+    const b = el("button", "bottone", "🔔 Attiva le notifiche su questo dispositivo");
+    b.onclick = async () => {
+      // la richiesta di permesso deve partire SUBITO dal tocco del pulsante (regola di iPhone)
+      const permesso = await Notification.requestPermission();
+      if (permesso !== "granted") { box.textContent = "🔕 Permesso non concesso: nessuna notifica su questo dispositivo."; return; }
+      box.textContent = "Attivo le notifiche…";
+      try { await registraDispositivo(utente); box.textContent = attive; }
+      catch (e) { console.error(e); box.textContent = "⚠️ Non sono riuscito ad attivare le notifiche: " + (e.code || e.message); }
+    };
+    box.append(b);
+  }
+
   function schermataAccesso() {
+    $("notifiche").classList.add("nascosto");
     $("giorni").classList.add("nascosto");
     $("dati").classList.add("nascosto");
     const chat = $("chat");
@@ -459,6 +575,7 @@ async function servizioFirebase() {
     const esci = el("button", "", "esci");
     esci.onclick = () => A.signOut(auth);
     $("piede").replaceChildren(`Dentro come ${utente.email} · `, esci);
+    preparaNotifiche(utente);
 
     // ascolto «in diretta»: se la redazione pubblica mentre la pagina è aperta, compare subito
     const q = F.query(F.collection(db, COLLEZIONE), F.orderBy("data", "desc"), F.limit(60));
@@ -495,6 +612,8 @@ if (configurato) {
   }
 } else {
   mostraAvviso("Anteprima con dati di esempio: inserisci la configurazione Firebase (scheda 48, passo 4).");
+  $("notifiche").textContent = "🔔 Anteprima: le notifiche si attivano nella pagina online, dopo l'accesso.";
+  $("notifiche").classList.remove("nascosto");
   servizio = servizioAnteprima();
   servizio.ascolta(riceviEdizioni);
 }

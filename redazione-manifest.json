@@ -1,0 +1,16 @@
+{
+  "name": "Redazione LA28",
+  "short_name": "Redazione",
+  "description": "I messaggi della redazione LA28: risultati degli italiani e nuovi pass, alle 8 e alle 20.",
+  "lang": "it",
+  "start_url": "./redazione.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3efe6",
+  "theme_color": "#a3382c",
+  "icons": [
+    { "src": "redazione-icona-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "redazione-icona-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "redazione-icona-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

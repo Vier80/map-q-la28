@@ -1,6 +1,9 @@
 name: Aggiorna mappa LA28
 
 # Repo map-q-la28, file .github/workflows/aggiorna.yml.
+# Novità del 22/11/2026 (scheda 50): passaggio "Tasto Home" (aggiungi_home.py) subito prima della
+# pubblicazione: mette il tasto «🏠 Home» nella testata di tutte le pagine pubblicate. Non salva
+# nulla nel repository: modifica solo la copia che va su GitHub Pages.
 # Novità del 19/11/2026 (scheda 43): passaggio "Performance Tennistavolo" (aggiorna_tennistavolo_performance.py).
 # Novità del 19/11/2026 (scheda 39): passaggio "Performance Vela" (aggiorna_vela_performance.py).
 # Correzione del 18/11/2026 (scheda 37): il passaggio "Salva data.json nel repository" riprende
@@ -125,6 +128,12 @@ jobs:
           done
           echo "Non sono riuscito a salvare i file: ci riprova il prossimo lancio (ogni 15 minuti)"
           exit 1
+      - name: Tasto Home - aggiunge «🏠 Home» nella testata di tutte le pagine
+        # NOVITÀ del 22/11/2026 (scheda 50). Parte dopo il salvataggio, quindi le pagine modificate
+        # NON finiscono nel repository: il tasto c'è solo nel sito pubblicato.
+        if: steps.salva.outputs.cambiato == '1' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true     # se fallisce, il sito si pubblica comunque (senza il tasto)
+        run: python aggiungi_home.py
       - if: steps.salva.outputs.cambiato == '1' || github.event_name == 'workflow_dispatch'
         uses: actions/configure-pages@v5
       - if: steps.salva.outputs.cambiato == '1' || github.event_name == 'workflow_dispatch'

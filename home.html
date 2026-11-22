@@ -13,7 +13,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
 <style>
 /* =====================================================================================
-   home.html · versione 1.0 (22/11/2026) · homepage del progetto LA28
+   home.html · versione 1.1 (22/11/2026) · homepage del progetto LA28
+   1.1: aggiunta la pagina della redazione AI (redazione.html); descrizione della lotta corretta.
+        Il tasto «🏠 Home» nelle altre pagine lo aggiunge aggiungi_home.py (scheda 50).
    Stessa veste di qualificati.html (crema e oro, blu notte, carattere Quicksand):
    le variabili qui sotto sono IDENTICHE a quelle di qualificati.html.
    Per aggiungere una pagina NON serve toccare lo stile: basta una riga nell'elenco PAGINE
@@ -255,7 +257,7 @@ footer { color: var(--testo-3); font-size: 13px; margin-top: 16px; padding: 0 6p
 const SEZIONI = {
   qualificazioni: { nome: "Qualificazioni LA28", descr: "Mappa, quote, stima per l'Italia e calendario", colore: "#c48a2c" },
   simulazioni:    { nome: "Simulazioni per sport", descr: "Chi si qualificherebbe oggi secondo il ranking", colore: "#2e64c8" },
-  risultati:      { nome: "Risultati e tabelloni", descr: "Tornei incontro per incontro", colore: "#2f8a5c" },
+  risultati:      { nome: "Risultati e tabelloni", descr: "Tornei incontro per incontro e redazione", colore: "#2f8a5c" },
   performance:    { nome: "Performance", descr: "Indici WON, ELO, PTS e FEN", colore: "#b8661a" },
 };
 
@@ -284,7 +286,7 @@ const PAGINE = [
   { file: "beachvolley.html",   titolo: "Beach volley",        descr: "Torneo maschile e femminile, 24 coppie",       sezione: "simulazioni", sport: "Beach volley",       icona: "🏐" },
   { file: "ciclismo.html",      titolo: "Ciclismo",            descr: "BMX Racing, MTB e pista: 14 prove",            sezione: "simulazioni", sport: "Ciclismo",           icona: "🚴" },
   { file: "judo.html",          titolo: "Judo",                descr: "14 categorie di peso, uomini e donne",         sezione: "simulazioni", sport: "Judo",               icona: "🥋" },
-  { file: "wrestling.html",     titolo: "Lotta",               descr: "Previsioni dei qualificati",                   sezione: "simulazioni", sport: "Lotta",              icona: "🤼" },
+  { file: "wrestling.html",     titolo: "Lotta",               descr: "Previsioni dell'oro, modello LA28",            sezione: "simulazioni", sport: "Lotta",              icona: "🤼" },
   { file: "skateboarding.html", titolo: "Skateboarding",       descr: "Park e street, uomini e donne",                sezione: "simulazioni", sport: "Skateboarding",      icona: "🛹" },
   { file: "weightlifting.html", titolo: "Sollevamento pesi",   descr: "12 categorie di peso, con il Best Lifter",     sezione: "simulazioni", sport: "Sollevamento pesi",  icona: "🏋️" },
   { file: "squash.html",        titolo: "Squash",              descr: "Singolare maschile e femminile, ranking PSA",  sezione: "simulazioni", sport: "Squash",             icona: "🎾" },
@@ -295,6 +297,8 @@ const PAGINE = [
   { file: "badminton.html",        titolo: "Badminton · risultati",    descr: "Tornei BWF con tabellone ufficiale",              sezione: "risultati", sport: "Badminton",    icona: "🏸" },
   { file: "squash-risultati.html", titolo: "Squash · risultati PSA",   descr: "Mondiali, Tour Finals, Diamond, Platinum e Gold", sezione: "risultati", sport: "Squash",       icona: "🎾" },
   { file: "tennistavolo.html",     titolo: "Tennistavolo · risultati", descr: "WTT, Mondiali e World Cup, con ELO",              sezione: "risultati", sport: "Tennistavolo", icona: "🏓" },
+  // NOVITÀ 1.1 (22/11/2026): la redazione AI (schede 46 e 48). Senza sport: non compare nella vista "Per sport".
+  { file: "redazione.html",        titolo: "Redazione LA28",           descr: "Il giornale del mattino sugli azzurri (accesso con Google)", sezione: "risultati", sport: "", icona: "🗞️" },
 
   // ---- performance
   { file: "badminton-performance.html",    titolo: "Badminton · performance",    descr: "Indice WON ed ELO, 5 specialità",                    sezione: "performance", sport: "Badminton",    icona: "🏸" },

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redazione LA28</title>
+<!--
+  Redazione AI LA28 · web app · versione 1.0 (22/11/2026, scheda 48) · configurata per il progetto Firebase «redazione-la28»
+  Va nel repo pubblico map-q-la28 (GitHub Pages): https://vier80.github.io/map-q-la28/redazione.html
+
+  Cosa fa:
+  - legge da Firebase Firestore le edizioni scritte ogni mattina dallo script redazione.py (collezione «edizioni»);
+  - le mostra come una chat, con la grafica della carta crema (titolo, sottotitolo, firma);
+  - ti fa mettere il cuore al messaggio e rispondere (le risposte restano salvate in Firestore);
+  - si entra con il proprio account Google: le REGOLE di Firestore lasciano leggere e scrivere solo te.
+
+  L'unica cosa da cambiare è il blocco FIREBASE_CONFIG qui sotto (scheda 48, passo 4).
+  Finché non lo cambi, la pagina mostra un'ANTEPRIMA con dati di esempio.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ---------- colori presi dalla foto ---------- */
+  :root {
+    --sfondo: #fbfaf8;        /* pagina */
+    --carta: #f3efe6;         /* la carta crema */
+    --bordo: #e2dccf;
+    --rosso: #a3382c;         /* fascia in alto e seconda riga del sottotitolo */
+    --inchiostro: #1b1a18;    /* titolo */
+    --grigio: #7b7167;        /* sottotitolo e firma */
+    --bolla: #ededee;         /* messaggio della redazione */
+    --nero: #141414;          /* le tue risposte */
+    --cuore: #c0392b;
+    --piccolo: #8e8e93;       /* orari e etichette nella chat */
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--sfondo); color: var(--inchiostro);
+    font-family: "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+  }
+  .pagina { max-width: 460px; margin: 0 auto; padding: 18px 14px 40px; }
+
+  /* ---------- scelta del giorno ---------- */
+  .giorni { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .giorni button {
+    width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--bordo);
+    background: #fff; font-size: 20px; color: var(--inchiostro); cursor: pointer;
+  }
+  .giorni button:disabled { opacity: .3; cursor: default; }
+  .giorni .quale { font-family: "Lora", serif; font-style: italic; color: var(--grigio); font-size: 15px; }
+
+  /* ---------- la carta ---------- */
+  .carta {
+    background: var(--carta); border: 1px solid var(--bordo); border-radius: 22px;
+    overflow: hidden; padding: 0 0 26px; box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  }
+  .fascia { height: 9px; background: var(--rosso); }
+  h1 {
+    font-family: "Lora", serif; font-weight: 700; font-size: 34px; line-height: 1.15;
+    text-align: center; margin: 64px 24px 18px;
+  }
+  .sotto {
+    font-family: "Lora", serif; font-style: italic; font-size: 18px; line-height: 1.35;
+    text-align: center; color: var(--grigio); margin: 0 24px;
+  }
+  .sotto.rosso { color: var(--rosso); }
+
+  /* ---------- la finestra della chat ---------- */
+  .chat {
+    background: #fff; margin: 34px 14px 0; border-radius: 16px; padding: 14px 12px 10px;
+    box-shadow: 0 6px 22px rgba(0,0,0,.10), 0 1px 3px rgba(0,0,0,.06);
+  }
+  .ora { text-align: center; font-size: 11px; color: var(--piccolo); margin: 10px 0 8px; }
+  .etichetta { text-align: center; font-size: 11px; color: var(--piccolo); margin: 8px 0 4px; }
+  .riga { display: flex; align-items: flex-end; gap: 6px; margin: 2px 0; }
+  .riga.destra { justify-content: flex-end; }
+  .bolla {
+    max-width: 84%; padding: 9px 12px; border-radius: 16px; font-size: 13.5px; line-height: 1.45;
+    white-space: pre-wrap; overflow-wrap: anywhere;
+  }
+  .bolla.grigia { background: var(--bolla); border-bottom-left-radius: 5px; }
+  .bolla.nera { background: var(--nero); color: #fff; border-bottom-right-radius: 5px; }
+  .cuore {
+    border: 0; background: none; cursor: pointer; font-size: 17px; padding: 2px;
+    color: #c9c9ce; line-height: 1; transition: transform .15s;
+  }
+  .cuore.acceso { color: var(--cuore); }
+  .cuore:active { transform: scale(1.3); }
+
+  /* ---------- casella per rispondere ---------- */
+  .scrivi { display: flex; gap: 8px; margin-top: 12px; border-top: 1px solid #f0f0f2; padding-top: 10px; }
+  .scrivi input {
+    flex: 1; border: 1px solid #e3e3e8; border-radius: 20px; padding: 9px 14px;
+    font: inherit; font-size: 14px; outline: none; min-width: 0;
+  }
+  .scrivi input:focus { border-color: #b9b9c0; }
+  .scrivi button {
+    width: 38px; height: 38px; border-radius: 50%; border: 0; background: var(--nero); color: #fff;
+    font-size: 16px; cursor: pointer; flex: none;
+  }
+  .scrivi button:disabled { opacity: .35; }
+
+  /* ---------- dati usati (per controllare che l'AI non inventi) ---------- */
+  .dati { margin: 18px 14px 0; font-size: 13px; color: #3d3a36; }
+  .dati summary { cursor: pointer; color: var(--grigio); font-family: "Lora", serif; font-style: italic; font-size: 15px; }
+  .dati ul { list-style: none; padding: 0; margin: 10px 0 0; }
+  .dati li { padding: 6px 0; border-bottom: 1px dashed var(--bordo); line-height: 1.4; }
+  .dati .sport { font-weight: 600; margin-top: 10px; border: 0; }
+  .dati .conti { color: var(--grigio); font-size: 12px; margin-top: 8px; }
+
+  .firma { font-family: "Lora", serif; font-style: italic; font-size: 19px; color: var(--grigio); text-align: center; margin: 34px 0 0; }
+
+  /* ---------- avvisi, accesso ---------- */
+  .avviso {
+    background: #fff7e6; border: 1px solid #f1d9a6; color: #6b4e12; border-radius: 12px;
+    padding: 10px 12px; font-size: 13px; margin-bottom: 12px; line-height: 1.4;
+  }
+  .vuoto { text-align: center; color: var(--grigio); font-size: 14px; padding: 18px 8px; line-height: 1.5; white-space: pre-line; }
+  .bottone {
+    display: inline-flex; align-items: center; gap: 8px; border: 0; border-radius: 22px; cursor: pointer;
+    background: var(--nero); color: #fff; font: 500 14px "Inter", sans-serif; padding: 11px 20px;
+  }
+  .piede { text-align: center; margin-top: 16px; font-size: 12px; color: var(--piccolo); }
+  .piede button { border: 0; background: none; color: var(--piccolo); text-decoration: underline; cursor: pointer; font: inherit; }
+  .nascosto { display: none !important; }
+</style>
+</head>
+<body>
+<main class="pagina">
+  <div id="avviso" class="avviso nascosto"></div>
+
+  <nav class="giorni" id="giorni">
+    <button id="prima" aria-label="Giorno precedente">‹</button>
+    <span class="quale" id="quale">…</span>
+    <button id="dopo" aria-label="Giorno seguente">›</button>
+  </nav>
+
+  <article class="carta">
+    <div class="fascia"></div>
+    <h1 id="titolo">I miei ragazzi<br>stamattina</h1>
+    <p class="sotto" id="sotto1">Redazione LA28</p>
+    <p class="sotto rosso" id="sotto2">La mia redazione AI ha letto i risultati</p>
+
+    <section class="chat" id="chat">
+      <div class="vuoto">Caricamento…</div>
+    </section>
+
+    <details class="dati nascosto" id="dati">
+      <summary id="datiTitolo">I dati usati dalla redazione</summary>
+      <ul id="datiLista"></ul>
+      <div class="conti" id="datiConti"></div>
+    </details>
+
+    <p class="firma" id="firma">Gualtiero</p>
+  </article>
+
+  <div class="piede" id="piede"></div>
+</main>
+
+<script type="module">
+// =====================================================================================
+// 1) CONFIGURAZIONE: incolla qui i valori della tua web app Firebase
+//    (Console Firebase -> ⚙️ Impostazioni progetto -> Le tue app -> </> -> «firebaseConfig»).
+//    Questi valori NON sono segreti: servono solo a trovare il progetto. La sicurezza la fanno
+//    le regole di Firestore (scheda 48), che lasciano entrare solo il tuo account Google.
+// =====================================================================================
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyAr6K6l5o3hCzq2woc54Sx5XmDGKd9e8vU",
+  authDomain: "redazione-la28.firebaseapp.com",
+  projectId: "redazione-la28",
+  storageBucket: "redazione-la28.firebasestorage.app",
+  messagingSenderId: "875557376372",
+  appId: "1:875557376372:web:1ce4e8593cc93a92319c21",
+};
+const NOME = "Gualtiero";              // la firma in fondo alla carta
+const COLLEZIONE = "edizioni";         // la stessa di redazione.py
+const VERSIONE_FIREBASE = "10.14.1";   // versione delle librerie Firebase scaricate da Google
+
+// =====================================================================================
+// 2) PICCOLI AIUTANTI
+// =====================================================================================
+const $ = (id) => document.getElementById(id);
+const GIORNI = ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
+const GIORNI_BREVI = ["dom", "lun", "mar", "mer", "gio", "ven", "sab"];
+const MESI = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio",
+              "agosto", "settembre", "ottobre", "novembre", "dicembre"];
+
+// crea un elemento HTML con una classe e un testo (il testo è sempre «testo», mai HTML: niente sorprese)
+function el(tag, classe, testo) {
+  const e = document.createElement(tag);
+  if (classe) e.className = classe;
+  if (testo !== undefined) e.textContent = testo;
+  return e;
+}
+// «2026-11-22» del giorno di oggi, in ora locale
+function oggiISO(spostamento = 0) {
+  const d = new Date(); d.setDate(d.getDate() + spostamento);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+function daISO(s) { const [a, m, g] = s.split("-").map(Number); return new Date(a, m - 1, g); }
+// come chiamare un giorno: «Oggi», «Ieri» o «sab 21/11»
+function nomeGiorno(iso) {
+  if (iso === oggiISO()) return "Oggi";
+  if (iso === oggiISO(-1)) return "Ieri";
+  const d = daISO(iso);
+  return `${GIORNI_BREVI[d.getDay()]} ${d.getDate()}/${d.getMonth() + 1}`;
+}
+function mostraAvviso(testo) { $("avviso").textContent = testo; $("avviso").classList.toggle("nascosto", !testo); }
+
+// =====================================================================================
+// 3) DISEGNO DELLA PAGINA (uguale per l'anteprima e per Firebase)
+// =====================================================================================
+let edizioni = [];        // tutte le edizioni, dalla più recente
+let indice = 0;           // quale edizione si sta guardando (0 = la più recente)
+let servizio = null;      // chi legge e scrive i dati: Firebase oppure l'anteprima
+
+function disegna() {
+  const chat = $("chat");
+  chat.replaceChildren();
+  $("firma").textContent = NOME;
+  $("dati").classList.add("nascosto");
+
+  if (!edizioni.length) {
+    $("quale").textContent = "—";
+    $("prima").disabled = $("dopo").disabled = true;
+    chat.append(el("div", "vuoto", "Nessuna edizione ancora.\nLancia «Redazione AI LA28» su GitHub (Actions → Run workflow)."));
+    return;
+  }
+  const ed = edizioni[indice];
+  const d = daISO(ed.data);
+
+  // --- navigazione tra i giorni
+  $("quale").textContent = nomeGiorno(ed.data);
+  $("prima").disabled = indice >= edizioni.length - 1;     // più vecchia
+  $("dopo").disabled = indice <= 0;                         // più recente
+
+  // --- titolo e sottotitolo come nella foto
+  const quando = ed.data === oggiISO() ? "stamattina"
+               : ed.data === oggiISO(-1) ? "ieri mattina"
+               : `${GIORNI[d.getDay()]} mattina`;
+  $("titolo").replaceChildren("I miei ragazzi", document.createElement("br"), quando);
+  $("sotto1").textContent = `Redazione LA28 · ${GIORNI[d.getDay()]} ${d.getDate()} ${MESI[d.getMonth()]}`;
+  $("sotto2").textContent = ed.ai ? "La mia redazione AI ha letto i risultati"
+                                  : "La redazione ha letto i risultati (senza AI)";
+
+  // --- i messaggi della redazione (bolla grigia a sinistra, cuore accanto)
+  for (const m of ed.messaggi || []) {
+    chat.append(el("div", "ora", `${nomeGiorno(ed.data)} ${m.ora || ""}`.trim()));
+    const riga = el("div", "riga");
+    riga.append(el("div", "bolla grigia", m.testo || ""));
+    const cuore = el("button", "cuore" + (ed.cuore ? " acceso" : ""), "♥");
+    cuore.title = ed.cuore ? "Togli il cuore" : "Metti il cuore";
+    cuore.setAttribute("aria-label", cuore.title);
+    cuore.onclick = () => servizio.cuore(ed.id, !ed.cuore).catch(erroreScrittura);
+    riga.append(cuore);
+    chat.append(riga);
+    chat.append(el("div", "etichetta", `Messaggio da ${m.emoji || "🤖"} ${m.autore || "Redazione"}${m.firma ? " · " + m.firma : ""}`));
+  }
+
+  // --- le tue risposte (bolla nera a destra), in ordine di orario
+  const risposte = [...(ed.risposte || [])].sort((a, b) => String(a.ora).localeCompare(String(b.ora)));
+  for (const r of risposte) {
+    const t = new Date(r.ora);
+    const giornoRisp = isNaN(t) ? "" : nomeGiorno(oggiISOda(t));
+    const orario = isNaN(t) ? "" : `${t.getHours()}:${String(t.getMinutes()).padStart(2, "0")}`;
+    chat.append(el("div", "ora", `${giornoRisp} ${orario}`.trim()));
+    const riga = el("div", "riga destra");
+    riga.append(el("div", "bolla nera", r.testo));
+    chat.append(riga);
+  }
+
+  // --- casella per rispondere
+  const modulo = el("form", "scrivi");
+  const casella = el("input");
+  casella.placeholder = "Rispondi alla redazione…";
+  casella.maxLength = 500;
+  const invia = el("button", "", "➤");
+  invia.type = "submit";
+  invia.setAttribute("aria-label", "Invia");
+  modulo.append(casella, invia);
+  modulo.onsubmit = async (ev) => {
+    ev.preventDefault();
+    const testo = casella.value.trim();
+    if (!testo) return;
+    invia.disabled = true;
+    try { await servizio.rispondi(ed.id, testo); casella.value = ""; }
+    catch (e) { erroreScrittura(e); }
+    finally { invia.disabled = false; }
+  };
+  chat.append(modulo);
+
+  disegnaDati(ed);
+}
+function oggiISOda(d) {
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+// il pannello «I dati usati»: gli incontri da cui l'AI ha scritto il messaggio
+function disegnaDati(ed) {
+  const notizie = ed.notizie || [];
+  const totale = ed.notizie_totali ?? notizie.length;
+  $("dati").classList.remove("nascosto");
+  $("datiTitolo").textContent = `I dati usati dalla redazione (${totale} incontri con italiani)`;
+  const lista = $("datiLista");
+  lista.replaceChildren();
+  const SEGNI = { "vittoria": "✅", "sconfitta": "❌", "derby italiano": "🇮🇹" };
+  let sport = null;
+  for (const n of notizie) {
+    if (n.sport !== sport) { sport = n.sport; lista.append(el("li", "sport", sport)); }
+    const dove = [n.turno, n.prova, n.torneo].filter(Boolean).join(" · ");
+    lista.append(el("li", "", `${SEGNI[n.esito_per_l_italia] || "❔"} ${n.vincitore} (${n.noc_vincitore}) b. ${n.sconfitto} (${n.noc_sconfitto}) ${n.punteggio || ""} · ${dove}`));
+  }
+  if (!notizie.length) lista.append(el("li", "", "Nessun incontro con italiani in questa edizione."));
+  const conti = (ed.conteggi || []).map(c => `${c.sport}: ${c.incontri_nuovi} nuovi`).join(" · ");
+  const problemi = (ed.problemi || []).length ? ` · ⚠️ non letti: ${ed.problemi.join(", ")}` : "";
+  $("datiConti").textContent = `Ultime ${ed.ore_considerate ?? 24} ore · ${conti}${problemi}`;
+}
+
+function erroreScrittura(e) {
+  console.error(e);
+  mostraAvviso("Non sono riuscito a salvare: " + (e?.code || e?.message || e) + ". Controlla le regole di Firestore (scheda 48).");
+}
+
+// quando arrivano edizioni nuove, resta sullo stesso giorno se c'è ancora
+function riceviEdizioni(nuove) {
+  const giornoVisto = edizioni[indice]?.data;
+  edizioni = nuove;
+  const i = edizioni.findIndex(e => e.data === giornoVisto);
+  indice = i >= 0 ? i : 0;
+  disegna();
+}
+
+$("prima").onclick = () => { if (indice < edizioni.length - 1) { indice++; disegna(); } };
+$("dopo").onclick = () => { if (indice > 0) { indice--; disegna(); } };
+
+// =====================================================================================
+// 4) ANTEPRIMA: dati di esempio, finché FIREBASE_CONFIG non è compilato
+// =====================================================================================
+function servizioAnteprima() {
+  const ieri = oggiISO(-1);
+  const esempio = [
+    {
+      id: oggiISO(), data: oggiISO(), ai: true, cuore: false, risposte: [], ore_considerate: 24,
+      messaggi: [{ autore: "Caporedattore", emoji: "🤖", firma: "Gemini · gemini-3.5-flash-lite", ora: "08:31",
+        testo: "Buongiorno Gualtiero, (dati di esempio)\n\n🟠 Squash, China Open: Yahya Elnawasany batte Diego Elias 3-1 al primo turno.\n\n🤺 Scherma, GP Torino: Filippo Macchi vince la finale 15-11.\n\n🥋 Judo, GS Tokyo: Elios Piras si ferma in finale contro Hifumi Abe.\n\nBuona domenica!" }],
+      notizie_totali: 3, conteggi: [{ sport: "Squash", incontri_nuovi: 12 }, { sport: "Scherma", incontri_nuovi: 40 }, { sport: "Judo", incontri_nuovi: 64 }], problemi: [],
+      notizie: [
+        { sport: "Scherma", torneo: "GP Torino", turno: "Final", prova: "Men", esito_per_l_italia: "vittoria", vincitore: "MACCHI Filippo", noc_vincitore: "ITA", sconfitto: "LEE Kiefer", noc_sconfitto: "USA", punteggio: "15-11" },
+        { sport: "Squash", torneo: "China Open", turno: "Round 1", prova: "Men", esito_per_l_italia: "vittoria", vincitore: "Yahya Elnawasany", noc_vincitore: "ITA", sconfitto: "Diego Elias", noc_sconfitto: "PER", punteggio: "3-1 (5-11, 11-8, 11-7, 11-9)" },
+        { sport: "Judo", torneo: "GS Tokyo", turno: "Final", prova: "Men", esito_per_l_italia: "sconfitta", vincitore: "ABE Hifumi", noc_vincitore: "JPN", sconfitto: "PIRAS Elios", noc_sconfitto: "ITA", punteggio: "10-0" },
+      ],
+    },
+    {
+      id: ieri, data: ieri, ai: false, cuore: true, ore_considerate: 24,
+      risposte: [{ testo: "Buongiorno, grazie!", ora: new Date(daISO(ieri).getTime() + 11.4 * 3600e3).toISOString() }],
+      messaggi: [{ autore: "Caporedattore", emoji: "🤖", firma: "senza AI", ora: "08:30",
+        testo: "Buongiorno Gualtiero, la redazione LA28 di ieri.\n\nNelle ultime 24 ore nessun italiano nei database dei risultati (35 incontri nuovi in tutto).\n\nBuona giornata!" }],
+      notizie: [], notizie_totali: 0, conteggi: [{ sport: "Badminton", incontri_nuovi: 35 }], problemi: [],
+    },
+  ];
+  let ascoltatore = null;
+  const avvisa = () => ascoltatore && ascoltatore(structuredClone(esempio));
+  return {
+    ascolta(cb) { ascoltatore = cb; avvisa(); },
+    async cuore(id, valore) { esempio.find(e => e.id === id).cuore = valore; avvisa(); },
+    async rispondi(id, testo) { esempio.find(e => e.id === id).risposte.push({ testo, ora: new Date().toISOString() }); avvisa(); },
+  };
+}
+
+// =====================================================================================
+// 5) FIREBASE: accesso con Google e lettura/scrittura in Firestore
+// =====================================================================================
+async function servizioFirebase() {
+  const base = `https://www.gstatic.com/firebasejs/${VERSIONE_FIREBASE}`;
+  const { initializeApp } = await import(`${base}/firebase-app.js`);
+  const A = await import(`${base}/firebase-auth.js`);
+  const F = await import(`${base}/firebase-firestore.js`);
+
+  const app = initializeApp(FIREBASE_CONFIG);
+  const auth = A.getAuth(app);
+  const db = F.getFirestore(app);
+  let smetti = null;          // per smettere di ascoltare Firestore quando esci
+
+  function schermataAccesso() {
+    $("giorni").classList.add("nascosto");
+    $("dati").classList.add("nascosto");
+    const chat = $("chat");
+    chat.replaceChildren(el("div", "vuoto", "La redazione è riservata.\nEntra con il tuo account Google."));
+    const b = el("button", "bottone", "Entra con Google");
+    b.onclick = async () => {
+      try { await A.signInWithPopup(auth, new A.GoogleAuthProvider()); }
+      catch (e) {
+        // se il telefono blocca la finestra, si passa al cambio di pagina
+        if (e.code === "auth/popup-blocked") await A.signInWithRedirect(auth, new A.GoogleAuthProvider());
+        else if (e.code !== "auth/popup-closed-by-user") mostraAvviso("Accesso non riuscito: " + e.code + " (il dominio è tra quelli autorizzati? scheda 48)");
+      }
+    };
+    const centro = el("div", "vuoto"); centro.append(b);
+    chat.append(centro);
+    $("piede").replaceChildren();
+  }
+
+  A.onAuthStateChanged(auth, (utente) => {
+    if (smetti) { smetti(); smetti = null; }
+    if (!utente) { schermataAccesso(); return; }
+    mostraAvviso("");
+    $("giorni").classList.remove("nascosto");
+    const esci = el("button", "", "esci");
+    esci.onclick = () => A.signOut(auth);
+    $("piede").replaceChildren(`Dentro come ${utente.email} · `, esci);
+
+    // ascolto «in diretta»: se la redazione pubblica mentre la pagina è aperta, compare subito
+    const q = F.query(F.collection(db, COLLEZIONE), F.orderBy("data", "desc"), F.limit(60));
+    smetti = F.onSnapshot(q,
+      (foto) => riceviEdizioni(foto.docs.map(d => ({ id: d.id, ...d.data() }))),
+      (e) => {
+        console.error(e);
+        $("chat").replaceChildren(el("div", "vuoto",
+          e.code === "permission-denied"
+            ? `L'account ${utente.email} non è autorizzato.\nNelle regole di Firestore deve esserci questa email (scheda 48).`
+            : "Errore di lettura: " + e.code));
+      });
+  });
+
+  return {
+    ascolta() {},   // l'ascolto parte da solo dopo l'accesso
+    cuore: (id, valore) => F.updateDoc(F.doc(db, COLLEZIONE, id), { cuore: valore }),
+    rispondi: (id, testo) => F.updateDoc(F.doc(db, COLLEZIONE, id),
+      { risposte: F.arrayUnion({ testo, ora: new Date().toISOString() }) }),
+  };
+}
+
+// =====================================================================================
+// 6) AVVIO
+// =====================================================================================
+const configurato = !Object.values(FIREBASE_CONFIG).some(v => !v || v === "INCOLLA_QUI");
+if (configurato) {
+  try {
+    servizio = await servizioFirebase();
+  } catch (e) {
+    console.error(e);
+    mostraAvviso("Non riesco a caricare Firebase: controlla la connessione e il blocco FIREBASE_CONFIG.");
+  }
+} else {
+  mostraAvviso("Anteprima con dati di esempio: inserisci la configurazione Firebase (scheda 48, passo 4).");
+  servizio = servizioAnteprima();
+  servizio.ascolta(riceviEdizioni);
+}
+</script>
+</body>
+</html>

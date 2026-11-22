@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Redazione LA28</title>
 <!--
-  Redazione AI LA28 · web app · versione 1.0 (22/11/2026, scheda 48) · configurata per il progetto Firebase «redazione-la28»
+  Redazione AI LA28 · web app · versione 1.1 (22/11/2026, schede 48 e 50) · configurata per il progetto Firebase «redazione-la28»
+  Novità della 1.1: due uscite al giorno (8 e 20) nella stessa chat, cuore per ogni messaggio, titolo «stamattina» / «stasera».
   Va nel repo pubblico map-q-la28 (GitHub Pages): https://vier80.github.io/map-q-la28/redazione.html
 
   Cosa fa:
   - legge da Firebase Firestore le edizioni scritte ogni mattina dallo script redazione.py (collezione «edizioni»);
-  - le mostra come una chat, con la grafica della carta crema (titolo, sottotitolo, firma);
+  - le mostra come una chat, con la grafica della carta crema (titolo, sottotitolo, firma):
+    per ogni giorno il messaggio delle 8, quello delle 20 e le tue risposte, in ordine di orario;
   - ti fa mettere il cuore al messaggio e rispondere (le risposte restano salvate in Firestore);
   - si entra con il proprio account Google: le REGOLE di Firestore lasciano leggere e scrivere solo te.
 
@@ -108,6 +110,7 @@
   .dati li { padding: 6px 0; border-bottom: 1px dashed var(--bordo); line-height: 1.4; }
   .dati .sport { font-weight: 600; margin-top: 10px; border: 0; }
   .dati .conti { color: var(--grigio); font-size: 12px; margin-top: 8px; }
+  .dati .uscita { font-family: "Lora", serif; font-style: italic; color: var(--rosso); border: 0; margin-top: 14px; }
 
   .firma { font-family: "Lora", serif; font-style: italic; font-size: 19px; color: var(--grigio); text-align: center; margin: 34px 0 0; }
 
@@ -236,38 +239,52 @@ function disegna() {
   $("dopo").disabled = indice <= 0;                         // più recente
 
   // --- titolo e sottotitolo come nella foto
-  const quando = ed.data === oggiISO() ? "stamattina"
-               : ed.data === oggiISO(-1) ? "ieri mattina"
-               : `${GIORNI[d.getDay()]} mattina`;
+  const messaggi = [...(ed.messaggi || [])];
+  const haSera = messaggi.some(m => m.uscita === "sera");
+  const quando = ed.data === oggiISO() ? (haSera ? "stasera" : "stamattina")
+               : ed.data === oggiISO(-1) ? "ieri"
+               : GIORNI[d.getDay()];
   $("titolo").replaceChildren("I miei ragazzi", document.createElement("br"), quando);
   $("sotto1").textContent = `Redazione LA28 · ${GIORNI[d.getDay()]} ${d.getDate()} ${MESI[d.getMonth()]}`;
-  $("sotto2").textContent = ed.ai ? "La mia redazione AI ha letto i risultati"
+  const conAI = messaggi.some(m => m.firma && m.firma !== "senza AI");
+  $("sotto2").textContent = conAI ? "La mia redazione AI ha letto i risultati"
                                   : "La redazione ha letto i risultati (senza AI)";
 
-  // --- i messaggi della redazione (bolla grigia a sinistra, cuore accanto)
-  for (const m of ed.messaggi || []) {
-    chat.append(el("div", "ora", `${nomeGiorno(ed.data)} ${m.ora || ""}`.trim()));
-    const riga = el("div", "riga");
-    riga.append(el("div", "bolla grigia", m.testo || ""));
-    const cuore = el("button", "cuore" + (ed.cuore ? " acceso" : ""), "♥");
-    cuore.title = ed.cuore ? "Togli il cuore" : "Metti il cuore";
-    cuore.setAttribute("aria-label", cuore.title);
-    cuore.onclick = () => servizio.cuore(ed.id, !ed.cuore).catch(erroreScrittura);
-    riga.append(cuore);
-    chat.append(riga);
-    chat.append(el("div", "etichetta", `Messaggio da ${m.emoji || "🤖"} ${m.autore || "Redazione"}${m.firma ? " · " + m.firma : ""}`));
+  // --- una sola cronologia: messaggi della redazione (8 e 20) e tue risposte, in ordine di orario
+  const cronologia = [];
+  for (const m of messaggi) {
+    const [h, min] = String(m.ora || "00:00").split(":").map(Number);
+    const t = daISO(ed.data); t.setHours(h || 0, min || 0);
+    cronologia.push({ tipo: "redazione", t, m });
   }
-
-  // --- le tue risposte (bolla nera a destra), in ordine di orario
-  const risposte = [...(ed.risposte || [])].sort((a, b) => String(a.ora).localeCompare(String(b.ora)));
-  for (const r of risposte) {
+  for (const r of ed.risposte || []) {
     const t = new Date(r.ora);
-    const giornoRisp = isNaN(t) ? "" : nomeGiorno(oggiISOda(t));
-    const orario = isNaN(t) ? "" : `${t.getHours()}:${String(t.getMinutes()).padStart(2, "0")}`;
-    chat.append(el("div", "ora", `${giornoRisp} ${orario}`.trim()));
-    const riga = el("div", "riga destra");
-    riga.append(el("div", "bolla nera", r.testo));
-    chat.append(riga);
+    cronologia.push({ tipo: "risposta", t: isNaN(t) ? new Date(0) : t, r });
+  }
+  cronologia.sort((a, b) => a.t - b.t);
+
+  for (const voce of cronologia) {
+    const orario = `${voce.t.getHours()}:${String(voce.t.getMinutes()).padStart(2, "0")}`;
+    chat.append(el("div", "ora", `${nomeGiorno(oggiISOda(voce.t))} ${orario}`));
+    if (voce.tipo === "redazione") {
+      // bolla grigia a sinistra, con il cuore di QUESTO messaggio
+      const m = voce.m, uscita = m.uscita || "mattina";
+      const acceso = cuoreAcceso(ed, uscita);
+      const riga = el("div", "riga");
+      riga.append(el("div", "bolla grigia", m.testo || ""));
+      const cuore = el("button", "cuore" + (acceso ? " acceso" : ""), "♥");
+      cuore.title = acceso ? "Togli il cuore" : "Metti il cuore";
+      cuore.setAttribute("aria-label", cuore.title);
+      cuore.onclick = () => servizio.cuore(ed.id, nuoviCuori(ed, uscita)).catch(erroreScrittura);
+      riga.append(cuore);
+      chat.append(riga);
+      chat.append(el("div", "etichetta", `Messaggio da ${m.emoji || "🤖"} ${m.autore || "Redazione"}${m.firma ? " · " + m.firma : ""}`));
+    } else {
+      // tua risposta: bolla nera a destra
+      const riga = el("div", "riga destra");
+      riga.append(el("div", "bolla nera", voce.r.testo));
+      chat.append(riga);
+    }
   }
 
   // --- casella per rispondere
@@ -292,29 +309,54 @@ function disegna() {
 
   disegnaDati(ed);
 }
+// il campo «cuore» è un elenco per uscita, es. {mattina: true, sera: false}.
+// Le edizioni della versione 1.0 avevano un solo sì/no: vale per tutti i messaggi del giorno.
+function cuoreAcceso(ed, uscita) {
+  if (ed.cuore && typeof ed.cuore === "object") return !!ed.cuore[uscita];
+  return !!ed.cuore;
+}
+function nuoviCuori(ed, uscita) {
+  const cuori = (ed.cuore && typeof ed.cuore === "object") ? { ...ed.cuore }
+              : { mattina: !!ed.cuore, sera: !!ed.cuore };
+  cuori[uscita] = !cuori[uscita];
+  return cuori;
+}
 function oggiISOda(d) {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 }
 
-// il pannello «I dati usati»: gli incontri da cui l'AI ha scritto il messaggio
+// il pannello «I dati usati»: gli incontri da cui la redazione ha scritto, uscita per uscita
 function disegnaDati(ed) {
-  const notizie = ed.notizie || [];
-  const totale = ed.notizie_totali ?? notizie.length;
+  const SEGNI = { "vittoria": "✅", "sconfitta": "❌", "derby italiano": "🇮🇹" };
+  // dalla versione 1.4 dello script ogni messaggio ha i suoi dati; prima stavano nell'edizione
+  const gruppi = (ed.messaggi || []).filter(m => m.notizie).map(m => ({
+    titolo: `${m.uscita === "sera" ? "🌙 Sera" : "☀️ Mattina"} · ${m.periodo || ""}`,
+    notizie: m.notizie, totale: m.notizie_totali ?? m.notizie.length,
+    conteggi: m.conteggi || [], problemi: m.problemi || [] }));
+  if (!gruppi.length) gruppi.push({ titolo: "", notizie: ed.notizie || [],
+    totale: ed.notizie_totali ?? (ed.notizie || []).length, conteggi: ed.conteggi || [], problemi: ed.problemi || [] });
+
+  const totale = gruppi.reduce((a, g) => a + g.totale, 0);
   $("dati").classList.remove("nascosto");
   $("datiTitolo").textContent = `I dati usati dalla redazione (${totale} incontri con italiani)`;
   const lista = $("datiLista");
   lista.replaceChildren();
-  const SEGNI = { "vittoria": "✅", "sconfitta": "❌", "derby italiano": "🇮🇹" };
-  let sport = null;
-  for (const n of notizie) {
-    if (n.sport !== sport) { sport = n.sport; lista.append(el("li", "sport", sport)); }
-    const dove = [n.turno, n.prova, n.torneo].filter(Boolean).join(" · ");
-    lista.append(el("li", "", `${SEGNI[n.esito_per_l_italia] || "❔"} ${n.vincitore} (${n.noc_vincitore}) b. ${n.sconfitto} (${n.noc_sconfitto}) ${n.punteggio || ""} · ${dove}`));
+  const conti = [];
+  for (const g of gruppi) {
+    if (g.titolo && gruppi.length > 0) lista.append(el("li", "uscita", g.titolo));
+    let sport = null;
+    for (const n of g.notizie) {
+      if (n.sport !== sport) { sport = n.sport; lista.append(el("li", "sport", `${n.emoji || ""} ${sport}`.trim())); }
+      const dove = [n.turno, n.prova, n.torneo].filter(Boolean).join(" · ");
+      lista.append(el("li", "", `${SEGNI[n.esito_per_l_italia] || "❔"} ${n.vincitore} (${n.noc_vincitore}) b. ${n.sconfitto} (${n.noc_sconfitto}) ${n.punteggio || ""} · ${dove}`));
+    }
+    if (!g.notizie.length) lista.append(el("li", "", "Nessun incontro con italiani."));
+    const c = g.conteggi.map(c => `${c.sport}: ${c.incontri_nuovi - (c.storici_esclusi || 0)} recenti`).join(" · ");
+    const p = g.problemi.length ? ` · ⚠️ non letti: ${g.problemi.join(", ")}` : "";
+    if (c || p) conti.push(`${g.titolo ? g.titolo.split(" · ")[0] + ": " : ""}${c}${p}`);
   }
-  if (!notizie.length) lista.append(el("li", "", "Nessun incontro con italiani in questa edizione."));
-  const conti = (ed.conteggi || []).map(c => `${c.sport}: ${c.incontri_nuovi} nuovi`).join(" · ");
-  const problemi = (ed.problemi || []).length ? ` · ⚠️ non letti: ${ed.problemi.join(", ")}` : "";
-  $("datiConti").textContent = `Ultime ${ed.ore_considerate ?? 24} ore · ${conti}${problemi}`;
+  $("datiConti").textContent = conti.join("\n");
+  $("datiConti").style.whiteSpace = "pre-line";
 }
 
 function erroreScrittura(e) {
@@ -338,24 +380,32 @@ $("dopo").onclick = () => { if (indice > 0) { indice--; disegna(); } };
 // 4) ANTEPRIMA: dati di esempio, finché FIREBASE_CONFIG non è compilato
 // =====================================================================================
 function servizioAnteprima() {
-  const ieri = oggiISO(-1);
+  const oggi = oggiISO();
+  const alle = (iso, ore) => new Date(daISO(iso).getTime() + ore * 3600e3).toISOString();
+  const notizieMattina = [
+    { sport: "Scherma", emoji: "🤺", torneo: "Coppa del Mondo Plovdiv 2026", turno: "Final", prova: "fioretto maschile a squadre", esito_per_l_italia: "vittoria", vincitore: "ITALIA", noc_vincitore: "ITA", sconfitto: "FRANCIA", noc_sconfitto: "FRA", punteggio: "45-38" },
+    { sport: "Judo", emoji: "🥋", torneo: "Zagreb Grand Prix 2026", turno: "Bronze", prova: "maschile -90 kg", esito_per_l_italia: "vittoria", vincitore: "Mario Rossi", noc_vincitore: "ITA", sconfitto: "Jan Novak", noc_sconfitto: "CZE", punteggio: "1-0" },
+  ];
   const esempio = [
     {
-      id: oggiISO(), data: oggiISO(), ai: true, cuore: false, risposte: [], ore_considerate: 24,
-      messaggi: [{ autore: "Caporedattore", emoji: "🤖", firma: "Gemini · gemini-3.5-flash-lite", ora: "08:31",
-        testo: "Buongiorno Gualtiero, (dati di esempio)\n\n🟠 Squash, China Open: Yahya Elnawasany batte Diego Elias 3-1 al primo turno.\n\n🤺 Scherma, GP Torino: Filippo Macchi vince la finale 15-11.\n\n🥋 Judo, GS Tokyo: Elios Piras si ferma in finale contro Hifumi Abe.\n\nBuona domenica!" }],
-      notizie_totali: 3, conteggi: [{ sport: "Squash", incontri_nuovi: 12 }, { sport: "Scherma", incontri_nuovi: 40 }, { sport: "Judo", incontri_nuovi: 64 }], problemi: [],
-      notizie: [
-        { sport: "Scherma", torneo: "GP Torino", turno: "Final", prova: "Men", esito_per_l_italia: "vittoria", vincitore: "MACCHI Filippo", noc_vincitore: "ITA", sconfitto: "LEE Kiefer", noc_sconfitto: "USA", punteggio: "15-11" },
-        { sport: "Squash", torneo: "China Open", turno: "Round 1", prova: "Men", esito_per_l_italia: "vittoria", vincitore: "Yahya Elnawasany", noc_vincitore: "ITA", sconfitto: "Diego Elias", noc_sconfitto: "PER", punteggio: "3-1 (5-11, 11-8, 11-7, 11-9)" },
-        { sport: "Judo", torneo: "GS Tokyo", turno: "Final", prova: "Men", esito_per_l_italia: "sconfitta", vincitore: "ABE Hifumi", noc_vincitore: "JPN", sconfitto: "PIRAS Elios", noc_sconfitto: "ITA", punteggio: "10-0" },
+      id: oggi, data: oggi, cuore: { mattina: true }, giorni_freschi: 10,
+      risposte: [{ testo: "Buongiorno, grazie!", ora: alle(oggi, 9.2) }],
+      messaggi: [
+        { uscita: "mattina", autore: "Caporedattore", emoji: "🤖", firma: "Gemini · gemini-3.5-flash-lite", ora: "08:01",
+          periodo: "dalle 20:00 di ieri", notizie: notizieMattina, notizie_totali: 2,
+          conteggi: [{ sport: "Scherma", incontri_nuovi: 40, storici_esclusi: 0 }, { sport: "Judo", incontri_nuovi: 64, storici_esclusi: 0 }], problemi: [],
+          testo: "Buongiorno Gualtiero, (dati di esempio)\n\n🤺 Scherma\nCoppa del Mondo di Plovdiv: l'Italia vince la finale del fioretto maschile a squadre contro la Francia, 45-38.\n\n🥋 Judo\nZagreb Grand Prix: Mario Rossi conquista il bronzo nei -90 kg.\n\nBuona giornata!" },
+        { uscita: "sera", autore: "Caporedattore", emoji: "🤖", firma: "Gemini · gemini-3.5-flash-lite", ora: "20:02",
+          periodo: "dalle 8:00 di oggi", notizie: [], notizie_totali: 0,
+          conteggi: [{ sport: "Badminton", incontri_nuovi: 12, storici_esclusi: 0 }], problemi: [],
+          testo: "Buonasera Gualtiero, (dati di esempio)\n\nOggi nessun italiano in gara nei tornei arrivati in redazione.\n\nBuona serata!" },
       ],
     },
     {
-      id: ieri, data: ieri, ai: false, cuore: true, ore_considerate: 24,
-      risposte: [{ testo: "Buongiorno, grazie!", ora: new Date(daISO(ieri).getTime() + 11.4 * 3600e3).toISOString() }],
+      id: oggiISO(-1), data: oggiISO(-1), ai: false, cuore: true, ore_considerate: 24,
+      risposte: [],
       messaggi: [{ autore: "Caporedattore", emoji: "🤖", firma: "senza AI", ora: "08:30",
-        testo: "Buongiorno Gualtiero, la redazione LA28 di ieri.\n\nNelle ultime 24 ore nessun italiano nei database dei risultati (35 incontri nuovi in tutto).\n\nBuona giornata!" }],
+        testo: "Buongiorno Gualtiero, la redazione LA28 di ieri (versione 1.0, un solo messaggio).\n\nNessun italiano nei database dei risultati.\n\nBuona giornata!" }],
       notizie: [], notizie_totali: 0, conteggi: [{ sport: "Badminton", incontri_nuovi: 35 }], problemi: [],
     },
   ];
@@ -363,7 +413,7 @@ function servizioAnteprima() {
   const avvisa = () => ascoltatore && ascoltatore(structuredClone(esempio));
   return {
     ascolta(cb) { ascoltatore = cb; avvisa(); },
-    async cuore(id, valore) { esempio.find(e => e.id === id).cuore = valore; avvisa(); },
+    async cuore(id, cuori) { esempio.find(e => e.id === id).cuore = cuori; avvisa(); },
     async rispondi(id, testo) { esempio.find(e => e.id === id).risposte.push({ testo, ora: new Date().toISOString() }); avvisa(); },
   };
 }
@@ -425,7 +475,8 @@ async function servizioFirebase() {
 
   return {
     ascolta() {},   // l'ascolto parte da solo dopo l'accesso
-    cuore: (id, valore) => F.updateDoc(F.doc(db, COLLEZIONE, id), { cuore: valore }),
+    // si scrive l'intero elenco dei cuori (es. {mattina: true, sera: false}): le regole permettono solo «cuore» e «risposte»
+    cuore: (id, cuori) => F.updateDoc(F.doc(db, COLLEZIONE, id), { cuore: cuori }),
     rispondi: (id, testo) => F.updateDoc(F.doc(db, COLLEZIONE, id),
       { risposte: F.arrayUnion({ testo, ora: new Date().toISOString() }) }),
   };

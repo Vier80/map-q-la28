@@ -7,7 +7,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
 <style>
-/* scherma-risultati.html · versione 1.1 (23/11/2026, scheda 55): teste di serie [n] nel Draw
+/* scherma-risultati.html · versione 1.2 (23/11/2026, scheda 57): stampa del tabellone da 64 in UNA pagina,
+   con il tabellone «a specchio» (metà alta da sinistra, metà bassa da destra, finale al centro).
+   Versione 1.1 (23/11/2026, scheda 55): teste di serie [n] nel Draw
    (le calcola l'agente scherma 3.1 dal posto nel tabellone: quarto valore di ogni schermidore in "s").
    Versione 1.0 (23/11/2026, scheda 54)
    Pagina dei risultati della scherma: tabellone principale ufficiale FIE di ogni gara (vista «Draw»)
@@ -192,6 +194,15 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
   .s-pagina h2 { font: 700 10pt/1.2 var(--font); margin: 0 0 2mm; color: #3d6283 }
   .s-pagina .box { border-color: #b9cde0 }
   .s-pagina .bronzo { margin-top: 3mm }
+  /* tabellone a specchio (novità 1.2): niente ELO, per lasciare spazio a testa di serie, nome e stoccate */
+  .specchio .el { display: none }
+  .specchio .sq { grid-template-columns: 24px minmax(0, 1fr) auto auto; gap: 0 3px; padding: 0 5px 0 1px }
+  .specchio .sq .nm small { font-size: .58rem; margin-left: 3px }
+  .specchio .sq .nm.lungo { font-size: .84em; letter-spacing: -.02em }   /* nomi oltre le 11 lettere, es. BORODACHEV K. */
+  .specchio .box { font-size: .86rem }
+  .specchio .sq.vince .nm::after { content: none }   /* niente pallino: il vincitore è già in grassetto */
+  .specchio .etic-turno { font-size: .78rem }
+  .specchio .finale-specchio { position: absolute; text-align: center; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #3d6283 }
   .s-griglia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 8mm; align-items: start }
   .s-cat { break-inside: avoid; page-break-inside: avoid; margin: 0 0 4mm }
   .s-cat h2 { font: 700 10pt/1.2 var(--font); margin: 0; padding: 1.2mm 2mm; background: #eef4f9; border-left: 2.5pt solid #6f95b8; color: #1f2d3a }
@@ -514,7 +525,13 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     const nm = el("span", "nm");
     if (p) {
       if (ctx.g.tipo === "S") nm.textContent = p[0];                      // squadre: il NOC
-      else { nm.textContent = largo ? p[0] : nomeBreve(p[0]); nm.append(el("small", "", p[1])); }
+      else {
+        // stampa a specchio: solo il cognome, con l'iniziale del nome se il cognome è doppio nella gara
+        const corto = ctx.specchio ? (ctx.doppi.has(cognome(p[0])) ? iniziali(p[0]) : cognome(p[0])) : null;
+        nm.textContent = corto || (largo ? p[0] : nomeBreve(p[0]));
+        if (corto && corto.length > 11) nm.classList.add("lungo");
+        nm.append(el("small", "", p[1]));
+      }
     } else nm.textContent = tirato && altro >= 0 ? "bye" : "—";
     r.append(nm);
     // ELO a inizio gara (solo individuali)
@@ -580,6 +597,67 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     if (!ctx.g.bronzo) return null;
     const b = el("div", "bronzo"); b.append(el("h3", "", "Finale per il 3° posto"), scatola(ctx, ctx.g.bronzo, true));
     return b;
+  }
+
+  // Tabellone «a specchio» per la stampa (novità 1.2): la metà alta del tabellone va da sinistra
+  // verso il centro, la metà bassa da destra verso il centro, la finale sta in mezzo.
+  // Così le righe da impilare sono la metà (16 invece di 32 nel tabellone da 64) e tutto entra
+  // in una pagina A4 orizzontale a una grandezza leggibile.
+  //   lati = turni per lato (tabellone da 64: T64, T32, T16, quarti, semifinali = 5)
+  //   colonne totali = 2 × lati + 1 (la finale)
+  function alberoSpecchio(ctx) {
+    const g = ctx.g, M = { bw: 150, bh: 40, gap: 10, slot: 46, testa: 24 };
+    // nei riquadri: solo cognome + NOC (vedi rigaSchermidore); se nella gara due schermidori hanno lo
+    // stesso cognome (es. BORODACHEV Kirill e Anton a Plovdiv), a loro si aggiunge l'iniziale del nome
+    const conta = {};
+    g.s.forEach((p) => { const c = cognome(p[0]); conta[c] = (conta[c] || 0) + 1; });
+    ctx = { ...ctx, specchio: true, doppi: new Set(Object.keys(conta).filter((c) => conta[c] > 1)) };
+    const per = new Map(g.c.map((c) => [c[0] + "-" + c[1], c]));
+    const ncol = Math.max(g.turni.length, ...g.c.map((c) => c[0] + 1));
+    const lati = ncol - 1;
+    const H = 2 ** (lati - 1) * M.slot;                     // altezza di una colonna (16 righe nel tabellone da 64)
+    const W = (2 * lati + 1) * (M.bw + M.gap) - M.gap;
+    const extra = g.bronzo ? 120 : 0;                       // spazio sotto la finale per la finale del 3° posto
+    const box = el("div", "albero specchio"); box.style.width = W + "px"; box.style.height = (H + M.testa + extra) + "px";
+    const svg = document.createElementNS(NS, "svg"); svg.setAttribute("class", "linee"); svg.setAttribute("width", W); svg.setAttribute("height", H + M.testa + extra); svg.setAttribute("aria-hidden", "true");
+    const path = document.createElementNS(NS, "path"); let d = "";
+    box.append(svg);
+    const metti = (c, x, yc) => {
+      const b = scatola(ctx, c);
+      b.style.left = x + "px"; b.style.top = (yc - M.bh / 2) + "px"; b.style.width = M.bw + "px"; b.style.height = M.bh + "px";
+      box.append(b);
+    };
+    // i due lati: 0 = metà alta (da sinistra), 1 = metà bassa (da destra)
+    for (const lato of [0, 1]) {
+      for (let col = 0; col < lati; col++) {
+        const quante = 2 ** (lati - 1 - col);              // caselle di questo lato nella colonna
+        const x = lato ? (2 * lati - col) * (M.bw + M.gap) : col * (M.bw + M.gap);
+        const et = el("span", "etic-turno", TURNO_IT[g.turni[col]] || g.turni[col] || ""); et.style.left = x + "px"; box.append(et);
+        for (let k = 0; k < quante; k++) {
+          const pos = lato * quante + k, yc = M.testa + (k + 0.5) * H / quante;
+          metti(per.get(col + "-" + pos), x, yc);
+          if (col > 0) {   // linee verso le due caselle del turno prima (a sinistra per il lato 0, a destra per il lato 1)
+            const y1 = M.testa + (2 * k + 0.5) * H / (2 * quante), y2 = M.testa + (2 * k + 1.5) * H / (2 * quante);
+            const xp = lato ? x + M.bw + M.gap : x - M.gap;      // bordo della colonna precedente
+            const xm = lato ? x + M.bw + M.gap / 2 : x - M.gap / 2;
+            const xe = lato ? x + M.bw : x;                      // bordo di questa casella
+            d += `M${xp} ${y1}H${xm}V${y2}M${xp} ${y2}H${xm}M${xm} ${yc}H${xe}`;
+          }
+        }
+      }
+    }
+    // la finale al centro, collegata alle due semifinali
+    const xf = lati * (M.bw + M.gap), yf = M.testa + H / 2;
+    const tf = el("span", "finale-specchio", "Finale"); tf.style.left = xf + "px"; tf.style.width = M.bw + "px"; tf.style.top = (yf - M.bh / 2 - 22) + "px"; box.append(tf);
+    metti(per.get((ncol - 1) + "-0"), xf, yf);
+    d += `M${xf - M.gap} ${yf}H${xf}M${xf + M.bw} ${yf}H${xf + M.bw + M.gap}`;
+    if (g.bronzo) {
+      const tb = el("span", "finale-specchio", "Finale 3° posto"); tb.style.left = xf + "px"; tb.style.width = M.bw + "px"; tb.style.top = (yf + M.bh / 2 + 30) + "px"; box.append(tb);
+      metti(g.bronzo, xf, yf + M.bh / 2 + 52 + M.bh / 2);
+    }
+    path.setAttribute("d", d); svg.append(path);
+    box.dataset.larghezza = W; box.dataset.altezza = H + M.testa + extra;
+    return box;
   }
 
   // Sul cellulare: un turno alla volta, con i pulsanti dei turni
@@ -688,7 +766,7 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
     const testa = () => {
       const f = document.createDocumentFragment();
       f.append(el("p", "s-occ", $("data").textContent), el("h1", "", `🤺 ${t.nome} · ${nomeGara(g)}`),
-        el("p", "s-sint", [t.categoria, periodo(g) + " " + (g.inizio || "").slice(0, 4), t.luogo, `tabellone da ${g.misura}`, "[n] testa di serie", g.tipo === "I" && elo ? "riquadro = ELO a inizio gara" : ""].filter(Boolean).join(" · ")));
+        el("p", "s-sint", [t.categoria, periodo(g) + " " + (g.inizio || "").slice(0, 4), t.luogo, `tabellone da ${g.misura}`, "[n] testa di serie", g.tipo === "I" && elo && g.turni.length !== 6 ? "riquadro = ELO a inizio gara" : ""].filter(Boolean).join(" · ")));
       return f;
     };
     // spazio utile di una pagina A4 orizzontale (297 x 210 mm, margini 8 mm), in pixel, tolta l'intestazione
@@ -701,7 +779,12 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
       p.append(contenuto); box.append(p);
     };
     const ncol = Math.max(g.turni.length, ...g.c.map((c) => c[0] + 1));
-    if (ncol >= 6) {          // tabellone da 64: due metà, una per pagina, poi la finale
+    let bronzoMesso = false;
+    if (ncol === 6) {         // NOVITÀ 1.2: tabellone da 64 in UNA pagina, a specchio (finale e bronzo al centro)
+      const a = alberoSpecchio(ctx);
+      pagina("", a, +a.dataset.larghezza, +a.dataset.altezza);
+      bronzoMesso = true;
+    } else if (ncol >= 7) {   // tabellone da 128 (rari: spada agli Europei e agli Asiatici): due metà, una per pagina, poi la finale
       [0, 1].forEach((meta) => {
         const a = albero(ctx, { stampa: true, radice: [ncol - 2, meta] });
         pagina(meta ? "Parte bassa del tabellone" : "Parte alta del tabellone", a, +a.dataset.larghezza, +a.dataset.altezza, meta ? ALT - 80 : ALT);
@@ -712,7 +795,7 @@ button.chip { font: inherit; font-size: .86rem; cursor: pointer }
       const a = albero(ctx, { stampa: true });
       pagina("", a, +a.dataset.larghezza, +a.dataset.altezza, g.bronzo ? ALT - 80 : ALT);
     }
-    const br = boxBronzo(ctx); if (br) box.lastChild.append(br);
+    const br = bronzoMesso ? null : boxBronzo(ctx); if (br) box.lastChild.append(br);
     // pagina orizzontale solo per questa stampa: la regola si toglie dopo
     const stile = el("style"); stile.id = "pagina-orizzontale"; stile.textContent = "@page { size: A4 landscape; margin: 8mm }";
     document.head.append(stile);

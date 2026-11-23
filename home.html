@@ -13,7 +13,10 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Lora:ital,wght@0,700;1,500&display=swap">
 <style>
 /* =====================================================================================
-   home.html · versione 1.3 (23/11/2026) · homepage del progetto LA28
+   home.html · versione 1.5 (23/11/2026) · homepage del progetto LA28
+   1.5: icona dello squash 🟠 al posto di 🎾 (la pallina da tennis resta solo al tennis).
+   1.4: aggiunta la pagina dei risultati della scherma (scherma-risultati.html, scheda 54),
+        nella sezione «Risultati e tabelloni».
    1.3: logo LA28 in alto a SINISTRA, prima del titolo, letto dal file la28-logo.png del repository
         (se il file manca, il logo non compare e la pagina resta uguale).
    1.2: tolti i 3 collegamenti della testata (Mappa, Qualified Athletes, Stima: sono già nella
@@ -257,7 +260,7 @@ footer { color: var(--testo-3); font-size: 13px; margin-top: 16px; padding: 0 6p
   <div><span class="pillola risultati">Risultati</span><br>Tornei incontro per incontro, con il tabellone ufficiale ad albero.</div>
   <div><span class="pillola performance">Performance</span><br>Indici personali (WON, ELO, PTS, FEN) calcolati dai risultati in Notion.</div>
 </section>
-<footer>Sito <a href="https://vier80.github.io/map-q-la28/">vier80.github.io/map-q-la28</a> · elenco delle pagine aggiornato al 22/11/2026 ·
+<footer>Sito <a href="https://vier80.github.io/map-q-la28/">vier80.github.io/map-q-la28</a> · elenco delle pagine aggiornato al 23/11/2026 ·
   il pallino verde vuol dire che la pagina risponde online in questo momento.</footer>
 </div>
 <div class="avviso" id="avviso"></div>
@@ -308,14 +311,16 @@ const PAGINE = [
   { file: "wrestling.html",     titolo: "Lotta",               descr: "Previsioni dell'oro, modello LA28",            sezione: "simulazioni", sport: "Lotta",              icona: "🤼" },
   { file: "skateboarding.html", titolo: "Skateboarding",       descr: "Park e street, uomini e donne",                sezione: "simulazioni", sport: "Skateboarding",      icona: "🛹" },
   { file: "weightlifting.html", titolo: "Sollevamento pesi",   descr: "12 categorie di peso, con il Best Lifter",     sezione: "simulazioni", sport: "Sollevamento pesi",  icona: "🏋️" },
-  { file: "squash.html",        titolo: "Squash",              descr: "Singolare maschile e femminile, ranking PSA",  sezione: "simulazioni", sport: "Squash",             icona: "🎾" },
+  { file: "squash.html",        titolo: "Squash",              descr: "Singolare maschile e femminile, ranking PSA",  sezione: "simulazioni", sport: "Squash",             icona: "🟠" },
   { file: "taekwondo.html",     titolo: "Taekwondo",           descr: "8 categorie di peso, uomini e donne",          sezione: "simulazioni", sport: "Taekwondo",          icona: "🦶" },
   { file: "tennis.html",        titolo: "Tennis",              descr: "Singolare e doppio, per evento e nazione",     sezione: "simulazioni", sport: "Tennis",             icona: "🎾" },
 
   // ---- risultati e tabelloni
-  { file: "badminton.html",        titolo: "Badminton · risultati",    descr: "Tornei BWF con tabellone ufficiale",              sezione: "risultati", sport: "Badminton",    icona: "🏸" },
-  { file: "squash-risultati.html", titolo: "Squash · risultati PSA",   descr: "Mondiali, Tour Finals, Diamond, Platinum e Gold", sezione: "risultati", sport: "Squash",       icona: "🎾" },
-  { file: "tennistavolo.html",     titolo: "Tennistavolo · risultati", descr: "WTT, Mondiali e World Cup, con ELO",              sezione: "risultati", sport: "Tennistavolo", icona: "🏓" },
+  { file: "badminton.html",         titolo: "Badminton · risultati",    descr: "Tornei BWF con tabellone ufficiale",              sezione: "risultati", sport: "Badminton",    icona: "🏸" },
+  // NOVITÀ 1.4 (23/11/2026, scheda 54): risultati della scherma
+  { file: "scherma-risultati.html", titolo: "Scherma · risultati FIE",  descr: "Tabelloni FIE di Coppe del Mondo, Grand Prix e Mondiali, con ELO", sezione: "risultati", sport: "Scherma", icona: "🤺" },
+  { file: "squash-risultati.html",  titolo: "Squash · risultati PSA",   descr: "Mondiali, Tour Finals, Diamond, Platinum e Gold", sezione: "risultati", sport: "Squash",       icona: "🟠" },
+  { file: "tennistavolo.html",      titolo: "Tennistavolo · risultati", descr: "WTT, Mondiali e World Cup, con ELO",              sezione: "risultati", sport: "Tennistavolo", icona: "🏓" },
 
   // ---- performance
   { file: "badminton-performance.html",    titolo: "Badminton · performance",    descr: "Indice WON ed ELO, 5 specialità",                    sezione: "performance", sport: "Badminton",    icona: "🏸" },

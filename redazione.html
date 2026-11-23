@@ -12,13 +12,15 @@
 <meta name="apple-mobile-web-app-title" content="Redazione">
 <meta name="theme-color" content="#a3382c">
 <!--
-  Redazione AI LA28 · web app · versione 1.3 (22/11/2026, schede 48, 50, 51 e 52) · configurata per il progetto Firebase «redazione-la28»
+  Redazione AI LA28 · web app · versione 1.4 (23/11/2026, schede 48, 50, 51, 52 e 56) · configurata per il progetto Firebase «redazione-la28»
   Novità della 1.1: due uscite al giorno (8 e 20) nella stessa chat, cuore per ogni messaggio, titolo «stamattina» / «stasera».
   Novità della 1.2: le risposte della redazione ai tuoi messaggi (campo «repliche»), la scritta «in attesa di risposta»
   e la bolla 🎟️ del Redattore Pass (Q nuove in Athletes), anche nel pannello dei dati.
   Novità della 1.3: web app installabile (manifest e icone) e NOTIFICHE PUSH su iPhone e Mac con Firebase Cloud
   Messaging: pulsante «🔔 Attiva le notifiche», che salva il «numero di consegna» del dispositivo nella collezione
   Firestore «dispositivi». Servono anche i file redazione-sw.js, redazione-manifest.json e le 3 icone redazione-icona-*.png.
+  Novità della 1.4 (con redazione.py 1.7): nel pannello dei dati i piazzamenti della VELA («🥈 2° … su 56») e i
+  VINCITORI di ogni prova (bolla 🏆 del Redattore Podi). La chat non cambia: la bolla 🏆 è un messaggio come gli altri.
   Va nel repo pubblico map-q-la28 (GitHub Pages): https://vier80.github.io/map-q-la28/redazione.html
 
   Cosa fa:
@@ -289,7 +291,13 @@ function disegna() {
     const t = new Date(x.ora);
     cronologia.push({ tipo: "replica", t: isNaN(t) ? new Date(0) : t, x });
   }
-  cronologia.sort((a, b) => a.t - b.t);
+  // a parità di orario: prima il caporedattore, poi la bolla 🎟️ dei pass, poi la bolla 🏆 dei vincitori
+  const posto = v => {
+    if (v.tipo !== "redazione") return 0;
+    const k = v.m.chiave || v.m.uscita || "";
+    return k.endsWith("-pass") ? 1 : k.endsWith("-podi") ? 2 : 0;
+  };
+  cronologia.sort((a, b) => (a.t - b.t) || (posto(a) - posto(b)));
 
   for (const voce of cronologia) {
     const orario = `${voce.t.getHours()}:${String(voce.t.getMinutes()).padStart(2, "0")}`;
@@ -373,9 +381,12 @@ function disegnaDati(ed) {
   if (!gruppi.length) gruppi.push({ titolo: "", notizie: ed.notizie || [],
     totale: ed.notizie_totali ?? (ed.notizie || []).length, conteggi: ed.conteggi || [], problemi: ed.problemi || [] });
 
+  // i vincitori di ogni prova del Redattore Podi (dalla versione 1.7 dello script)
+  const podi = (ed.messaggi || []).filter(m => (m.podi || []).length);
+
   const totale = gruppi.reduce((a, g) => a + g.totale, 0);
   $("dati").classList.remove("nascosto");
-  $("datiTitolo").textContent = `I dati usati dalla redazione (${totale} incontri con italiani)`;
+  $("datiTitolo").textContent = `I dati usati dalla redazione (${totale} risultati con italiani)`;
   const lista = $("datiLista");
   lista.replaceChildren();
   const conti = [];
@@ -384,10 +395,17 @@ function disegnaDati(ed) {
     let sport = null;
     for (const n of g.notizie) {
       if (n.sport !== sport) { sport = n.sport; lista.append(el("li", "sport", `${n.emoji || ""} ${sport}`.trim())); }
+      if (n.tipo === "classifica") {
+        // vela: piazzamento di una barca italiana, es. «🥈 2° Riccardo Pianosi (ITA) su 56 · Formula Kite maschile · …»
+        const dove = [n.prova, n.torneo].filter(Boolean).join(" · ");
+        const su = n.barche ? ` su ${n.barche}` : "";
+        lista.append(el("li", "", `${medaglia(n.posizione)} ${n.posizione ? n.posizione + "°" : "?"} ${n.barca} (${n.noc})${su} · ${dove}`));
+        continue;
+      }
       const dove = [n.turno, n.prova, n.torneo].filter(Boolean).join(" · ");
-      lista.append(el("li", "", `${SEGNI[n.esito_per_l_italia] || "❔"} ${n.vincitore} (${n.noc_vincitore}) b. ${n.sconfitto} (${n.noc_sconfitto}) ${n.punteggio || ""} · ${dove}`));
+      lista.append(el("li", "", `${SEGNI[n.esito_per_l_italia] || "❔"} ${conNoc(n.vincitore, n.noc_vincitore)} b. ${conNoc(n.sconfitto, n.noc_sconfitto)} ${n.punteggio || ""} · ${dove}`));
     }
-    if (!g.notizie.length) lista.append(el("li", "", "Nessun incontro con italiani."));
+    if (!g.notizie.length) lista.append(el("li", "", "Nessun risultato con italiani."));
     const c = g.conteggi.map(c => `${c.sport}: ${c.incontri_nuovi - (c.storici_esclusi || 0)} recenti`).join(" · ");
     const p = g.problemi.length ? ` · ⚠️ non letti: ${g.problemi.join(", ")}` : "";
     if (c || p) conti.push(`${g.titolo ? g.titolo.split(" · ")[0] + ": " : ""}${c}${p}`);
@@ -399,8 +417,33 @@ function disegnaDati(ed) {
       lista.append(el("li", "", `${a.italiano ? "🇮🇹" : "🌍"} ${a.nome} (${a.noc}) · ${dettagli}`));
     }
   }
+  for (const m of podi) {
+    lista.append(el("li", "uscita", `🏆 Vincitori · ${m.uscita === "sera" ? "sera" : "mattina"} · ${m.periodo || ""}`));
+    let gruppo = null;
+    for (const p of m.podi) {
+      const chiave = `${p.sport}|${p.torneo}`;
+      if (chiave !== gruppo) { gruppo = chiave; lista.append(el("li", "sport", `${p.emoji || ""} ${p.sport} · ${p.torneo || ""}`.trim())); }
+      lista.append(el("li", "", rigaVincitore(p)));
+    }
+  }
   $("datiConti").textContent = conti.join("\n");
   $("datiConti").style.whiteSpace = "pre-line";
+}
+// 🥇 🥈 🥉 per i primi tre, 🔹 per gli altri (piazzamenti della vela)
+function medaglia(pos) { return { 1: "🥇", 2: "🥈", 3: "🥉" }[pos] || "🔹"; }
+// «Nome Cognome (NOC)»; nelle gare a squadre il nome è già la sigla: solo «ITA»
+function conNoc(nome, noc) {
+  nome = nome || "";
+  return !noc || nome.trim().toUpperCase() === noc.trim().toUpperCase() ? nome : `${nome} (${noc})`;
+}
+// una riga dei vincitori, uguale a quella scritta da redazione.py (funzione riga_vincitore)
+function rigaVincitore(p) {
+  const prova = p.prova || "prova", v = conNoc(p.vincitore, p.noc_vincitore), s = conNoc(p.sconfitto, p.noc_sconfitto);
+  let riga;
+  if (p.tipo === "classifica") riga = `🥇 ${prova}: ${v}${p.barche ? ` · ${p.barche} barche` : ""}`;
+  else if (p.da_verificare) riga = `❔ ${prova}: finale ${v} - ${s}, vincitore da verificare`;
+  else riga = `🥇 ${prova}: ${v} b. ${s}${p.punteggio ? " " + p.punteggio : ""}`;
+  return riga + (p.italiano ? " 🇮🇹" : "");
 }
 
 function erroreScrittura(e) {
@@ -442,9 +485,18 @@ function servizioAnteprima() {
           conteggi: [{ sport: "Scherma", incontri_nuovi: 40, storici_esclusi: 0 }, { sport: "Judo", incontri_nuovi: 64, storici_esclusi: 0 }], problemi: [],
           testo: "Buongiorno Gualtiero, (dati di esempio)\n\n🤺 Scherma\nCoppa del Mondo di Plovdiv: l'Italia vince la finale del fioretto maschile a squadre contro la Francia, 45-38.\n\n🥋 Judo\nZagreb Grand Prix: Mario Rossi conquista il bronzo nei -90 kg.\n\nBuona giornata!" },
         { uscita: "sera", autore: "Caporedattore", emoji: "🤖", firma: "Gemini · gemini-3.5-flash-lite", ora: "20:02",
-          periodo: "dalle 8:00 di oggi", notizie: [], notizie_totali: 0,
-          conteggi: [{ sport: "Badminton", incontri_nuovi: 12, storici_esclusi: 0 }], problemi: [],
-          testo: "Buonasera Gualtiero, (dati di esempio)\n\nOggi nessun italiano in gara nei tornei arrivati in redazione.\n\nBuona serata!" },
+          periodo: "dalle 8:00 di oggi", notizie_totali: 1,
+          notizie: [{ sport: "Vela", emoji: "⛵", tipo: "classifica", torneo: "2026 Europei Formula Kite (Akyaka)", turno: "classifica finale",
+                      prova: "Formula Kite maschile", esito_per_l_italia: "piazzamento", posizione: 2, barche: 56, barca: "Mario Rossi", noc: "ITA" }],
+          conteggi: [{ sport: "Badminton", incontri_nuovi: 12, storici_esclusi: 0 }, { sport: "Vela", incontri_nuovi: 92, storici_esclusi: 0, tipo: "classifica" }], problemi: [],
+          testo: "Buonasera Gualtiero, (dati di esempio)\n\n⛵ Vela\nAgli Europei di Formula Kite di Akyaka Mario Rossi è 2° su 56 nella classe maschile.\n\nBuona serata!" },
+        { uscita: "sera", chiave: "sera-podi", autore: "Redattore Podi", emoji: "🏆", firma: "Notion · agenti dei risultati", ora: "20:02",
+          periodo: "dalle 8:00 di oggi",
+          podi: [{ sport: "Badminton", emoji: "🏸", torneo: "China Masters", prova: "singolare maschile", vincitore: "Viktor Axelsen", noc_vincitore: "DEN",
+                   sconfitto: "Yu Qi Shi", noc_sconfitto: "CHN", punteggio: "2-0 (21-15, 21-18)", italiano: false },
+                 { sport: "Vela", emoji: "⛵", tipo: "classifica", torneo: "2026 Europei Formula Kite (Akyaka)", prova: "Formula Kite maschile",
+                   vincitore: "Maximilian Maeder", noc_vincitore: "SGP", barche: 56, italiano: false }],
+          testo: "🏆 Vincitori dei tornei (dalle 8:00 di oggi): 2 prove\n\n🏸 Badminton · China Masters\n🥇 singolare maschile: Viktor Axelsen (DEN) b. Yu Qi Shi (CHN) 2-0 (21-15, 21-18)\n\n⛵ Vela · 2026 Europei Formula Kite (Akyaka)\n🥇 Formula Kite maschile: Maximilian Maeder (SGP) · 56 barche\n\n(dati di esempio)" },
         { uscita: "sera", chiave: "sera-pass", autore: "Redattore Pass", emoji: "🎟️", firma: "Notion · Athletes", ora: "20:02",
           periodo: "dalle 8:00 di oggi",
           nuovi_pass: [{ nome: "Mario Rossi", noc: "ITA", sport: "Judo", disciplina: "Men's -90kg", italiano: true },

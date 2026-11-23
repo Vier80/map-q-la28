@@ -12,10 +12,11 @@
 <meta name="apple-mobile-web-app-title" content="Redazione">
 <meta name="theme-color" content="#a3382c">
 <!--
-  Redazione AI LA28 · web app · versione 1.5 (23/11/2026, schede 48, 50, 51, 52, 56 e 58) · configurata per il progetto Firebase «redazione-la28»
+  Redazione AI LA28 · web app · versione 1.6 (23/11/2026, schede 48, 50, 51, 52, 56 e 58) · configurata per il progetto Firebase «redazione-la28»
   Novità della 1.5: sugli schermi grandi (MacBook) la pagina si allarga. Da 760 pixel la carta è più larga e i testi
-  più grandi; da 1100 pixel la chat sta a sinistra e il pannello «I dati usati» a destra, già aperto.
-  Sull'iPhone (sotto i 760 pixel) non cambia niente.
+  più grandi. Sull'iPhone (sotto i 760 pixel) non cambia niente.
+  Novità della 1.6 (richiesta di Gualtiero): da 1100 pixel la chat è a TUTTA LARGHEZZA e i messaggi occupano fino
+  all'88% della chat; il pannello «I dati usati» torna IN FONDO alla pagina, chiuso, come sull'iPhone.
   Novità della 1.1: due uscite al giorno (8 e 20) nella stessa chat, cuore per ogni messaggio, titolo «stamattina» / «stasera».
   Novità della 1.2: le risposte della redazione ai tuoi messaggi (campo «repliche»), la scritta «in attesa di risposta»
   e la bolla 🎟️ del Redattore Pass (Q nuove in Athletes), anche nel pannello dei dati.
@@ -170,30 +171,13 @@
     .notifiche { font-size: 14px; }
   }
 
-  /* --- MacBook e schermi larghi: chat a sinistra, dati a destra --- */
+  /* --- MacBook e schermi larghi: chat a tutta larghezza, «I dati usati» in fondo (come sull'iPhone) --- */
   @media (min-width: 1100px) {
     .pagina { max-width: 1240px; }
-    /* la carta diventa una griglia a due colonne: la chat prende circa il 60% dello spazio */
-    .carta {
-      display: grid;
-      grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-      column-gap: 0;
-      overflow: visible;          /* «hidden» impedirebbe al pannello dei dati di restare fermo mentre scorri */
-    }
-    .fascia { border-radius: 22px 22px 0 0; }    /* gli angoli che prima tagliava «overflow: hidden» */
-    .carta > * { grid-column: 1 / -1; }          /* fascia, titolo, sottotitoli e firma: tutta la larghezza */
-    .carta > .chat { grid-column: 1; grid-row: 5; margin: 40px 18px 0 40px; align-self: start; }
-    .carta > .dati {
-      grid-column: 2; grid-row: 5; align-self: start;
-      margin: 40px 40px 0 18px; background: #fff; border-radius: 18px; padding: 16px 18px;
-      box-shadow: 0 6px 22px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.05);
-      /* il pannello resta visibile mentre scorri una chat lunga */
-      position: sticky; top: 18px; max-height: calc(100vh - 36px); overflow-y: auto;
-    }
-    /* senza dati da mostrare la chat si prende tutta la larghezza */
-    .carta:has(> .dati.nascosto) > .chat { grid-column: 1 / -1; margin: 40px 40px 0; }
+    .chat { margin: 40px 40px 0; padding: 20px 26px 16px; }
+    .bolla { max-width: 88%; }                   /* i messaggi usano quasi tutta la larghezza della chat */
+    .dati { margin: 26px 40px 0; }
     h1 { font-size: 52px; margin-top: 80px; }
-    .bolla { max-width: 78%; }
   }
 </style>
 </head>
@@ -290,7 +274,6 @@ function mostraAvviso(testo) { $("avviso").textContent = testo; $("avviso").clas
 let edizioni = [];        // tutte le edizioni, dalla più recente
 let indice = 0;           // quale edizione si sta guardando (0 = la più recente)
 let servizio = null;      // chi legge e scrive i dati: Firebase oppure l'anteprima
-let pannelloAperto = false;   // il pannello dei dati è già stato aperto da solo (schermi larghi)?
 
 function disegna() {
   const chat = $("chat");
@@ -434,8 +417,6 @@ function disegnaDati(ed) {
   const podi = (ed.messaggi || []).filter(m => (m.podi || []).length);
 
   const totale = gruppi.reduce((a, g) => a + g.totale, 0);
-  // sugli schermi larghi (novità 1.5) il pannello sta a destra della chat: lo apro subito, una volta sola
-  if (!pannelloAperto && window.matchMedia("(min-width: 1100px)").matches) { $("dati").open = true; pannelloAperto = true; }
   $("dati").classList.remove("nascosto");
   $("datiTitolo").textContent = `I dati usati dalla redazione (${totale} risultati con italiani)`;
   const lista = $("datiLista");

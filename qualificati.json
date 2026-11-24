@@ -1,13 +1,13 @@
 {
  "aggiornato": "2026-11-24",
  "totali": {
-  "posti_qualificati": 920,
+  "posti_qualificati": 921,
   "noc": 51,
-  "rimanenti": 10278,
+  "rimanenti": 10277,
   "posti_totali": 11198,
-  "righe": 178,
+  "righe": 179,
   "athlete_quota": 8,
-  "noc_quota": 66,
+  "noc_quota": 67,
   "team_quota": 104
  },
  "fonte_regole": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
@@ -2841,6 +2841,27 @@
    "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
    "verifica": false,
    "notion": "https://app.notion.com/p/Haniyeh-ROSTAMIYAN-2c5f48c9aad981ad97d5df3a58b10505"
+  },
+  {
+   "chiave": "3aaf48c9aad980b9b933cd67de3f1797",
+   "nome": "Ada Claudia KORKHIN",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 25m Pistol",
+    "Women's 10m Air Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Ada-Claudia-KORKHIN-3aaf48c9aad980b9b933cd67de3f1797"
   },
   {
    "chiave": "2c5f48c9aad9818f894bd1fc5e31ef7d",

@@ -1,13 +1,13 @@
 {
  "aggiornato": "2026-11-24",
  "totali": {
-  "posti_qualificati": 922,
+  "posti_qualificati": 923,
   "noc": 51,
-  "rimanenti": 10276,
+  "rimanenti": 10275,
   "posti_totali": 11198,
-  "righe": 180,
+  "righe": 181,
   "athlete_quota": 8,
-  "noc_quota": 68,
+  "noc_quota": 69,
   "team_quota": 104
  },
  "fonte_regole": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
@@ -2375,6 +2375,26 @@
    "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
    "verifica": false,
    "notion": "https://app.notion.com/p/Jon-Hermann-HEGG-2c5f48c9aad981efaef5f1464b9420b0"
+  },
+  {
+   "chiave": "422f48c9aad9807b8c8de55143255f90",
+   "nome": "Jorge GRAU POTRILLE",
+   "noc": "CUB",
+   "bandiera": "🇨🇺",
+   "paese": "Cuba",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 25m Rapid Fire Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Jorge-GRAU-POTRILLE-422f48c9aad9807b8c8de55143255f90"
   },
   {
    "chiave": "2c5f48c9aad9818fbc10f997c532e379",

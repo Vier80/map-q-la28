@@ -382,12 +382,13 @@
   },
   "Shooting": {
    "quota": 340,
-   "atleti": 38,
-   "M": 18,
+   "atleti": 39,
+   "M": 19,
    "W": 20,
    "O": 0,
-   "pass": 38,
+   "pass": 39,
    "noc": {
+    "CUB": 1,
     "IND": 3,
     "USA": 2,
     "CZE": 2,
@@ -540,11 +541,11 @@
    "O": 0,
    "pass": 12,
    "noc": {
+    "CUB": 12,
     "USA": 24,
     "THA": 12,
     "JPN": 12,
     "TUN": 12,
-    "CUB": 12,
     "EGY": 12,
     "BRA": 24,
     "CAN": 12,
@@ -583,8 +584,8 @@
   }
  },
  "totali": {
-  "atleti": 922,
-  "pass": 180,
+  "atleti": 923,
+  "pass": 181,
   "noc": 51
  },
  "noc": {
@@ -3008,6 +3009,53 @@
     }
    ]
   },
+  "CUB": {
+   "nome": "Cuba",
+   "atleti": 13,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "Jorge GRAU POTRILLE",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's 25m Rapid Fire Pistol"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's 25m Rapid Fire Pistol": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "CUB Men's 🏐",
+     "sport": "Volleyball",
+     "card": "Volleyball",
+     "discipline": [
+      "Men's Volley"
+     ],
+     "genere": {
+      "M": 12,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Volley": "M"
+     },
+     "atleti": 12,
+     "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
   "EGY": {
    "nome": "Egitto",
    "atleti": 13,
@@ -3094,33 +3142,6 @@
      },
      "gare": {
       "Women's Volley": "W"
-     },
-     "atleti": 12,
-     "squadra": true,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
-  "CUB": {
-   "nome": "Cuba",
-   "atleti": 12,
-   "pass": 1,
-   "righe": [
-    {
-     "nome": "CUB Men's 🏐",
-     "sport": "Volleyball",
-     "card": "Volleyball",
-     "discipline": [
-      "Men's Volley"
-     ],
-     "genere": {
-      "M": 12,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "Men's Volley": "M"
      },
      "atleti": 12,
      "squadra": true,

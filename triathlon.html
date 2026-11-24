@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Qualificati Triathlon LA28</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap">
+<style>
+/* Stessa veste di skateboarding.html, in sabbia e corallo (Venice Beach):
+   testata, fascia con anello e dettaglio, quattro totali, filtri, carte, regole, nazioni, stampa. */
+:root {
+  --bg: #ffffff; --fg: #3a2a22; --muted: #7a675c; --line: #f1e1d4; --card: #fffbf7; --soft: #fcf3ea; --track: #f3e4d6;
+  --ink: #e07a5f; --ink-2: #f2b8a2; --ink-t: #b9533a; --gold: #a8782a;
+  --t-m: #8a6fc4; --t-s: #c487b3; --t-g: #3f9483; --t-w: #4f86d0;
+  --men: #7da9e8; --women: #dcc466; --open: #8c96a2; --shadow: rgba(120, 70, 40, .10);
+  --font: "Quicksand", "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1c1512; --fg: #f3e8e1; --muted: #b8a297; --line: #45342b; --card: #241b17; --soft: #2b211c; --track: #3d2e26;
+  --ink: #f0957c; --ink-2: #f5c3b2; --ink-t: #f4a991; --gold: #e3c15c;
+  --t-m: #ab95e3; --t-s: #dca6cc; --t-g: #6cc0ad; --t-w: #86afe8;
+  --men: #8fb6ee; --women: #e3cd77; --open: #8592a0; --shadow: rgba(0, 0, 0, .4); color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1c1512; --fg: #f3e8e1; --muted: #b8a297; --line: #45342b; --card: #241b17; --soft: #2b211c; --track: #3d2e26;
+  --ink: #f0957c; --ink-2: #f5c3b2; --ink-t: #f4a991; --gold: #e3c15c;
+  --t-m: #ab95e3; --t-s: #dca6cc; --t-g: #6cc0ad; --t-w: #86afe8;
+  --men: #8fb6ee; --women: #e3cd77; --open: #8592a0; --shadow: rgba(0, 0, 0, .4); color-scheme: dark }
+* { box-sizing: border-box }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 500 16px/1.4 var(--font) }
+h1, h2, h3, p { margin: 0 }
+.guscio { max-width: 1320px; margin: 0 auto; display: grid; gap: 16px; padding-block: 18px 28px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)) }
+.testa { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px }
+.titolo { flex: 1 1 320px; min-width: 0 }
+.occhiello { font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-t) }
+h1 { font: 600 2.1rem/1.2 var(--font); text-wrap: balance }
+.vai { flex: 1 1 220px; max-width: 320px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 10px; padding: 11px 16px; color: inherit; text-decoration: none; border: 1.5px solid var(--line); border-radius: 18px }
+.vai:hover { border-color: var(--ink) }
+.vai b { font-weight: 600 } .vai span { grid-column: 1; font-size: .84rem; color: var(--muted) } .vai i { grid-row: 1 / 3; grid-column: 2; font-style: normal; color: var(--ink-t); font-size: 1.2rem }
+
+.fascia { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); background: var(--soft); border: 1.5px solid var(--line); border-radius: 24px }
+.avanz { display: flex; align-items: center; gap: 24px; padding: 22px 26px; min-width: 0; align-self: start; position: sticky; top: 8px }
+.anello { position: relative; flex: none; width: 168px; height: 168px; display: grid; place-items: center; text-align: center }
+.anello svg { position: absolute; inset: 0; transform: rotate(-90deg) }
+.anello small { display: block; font-size: .8rem; color: var(--muted) }
+.anello b { display: block; font: 600 2rem/1.1 var(--font); font-variant-numeric: tabular-nums }
+.traccia { fill: none; stroke: var(--track) } .arco { fill: none; stroke: var(--ink); stroke-linecap: round }
+.avanz h2 { font: 600 1.45rem/1.25 var(--font); text-wrap: balance; overflow-wrap: anywhere }
+.avanz p { color: var(--muted) }
+.etichetta { margin-bottom: 4px; font-size: .78rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-t) }
+.dettaglio { min-width: 0; padding: 22px 26px; border-left: 1.5px solid var(--line) }
+.dettaglio h2 { font: 600 1.45rem/1.25 var(--font) }
+.dettaglio .etichetta { color: var(--gold) }
+.dettaglio > p { color: var(--muted) }
+.titoli { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px }
+.titoli span, .chip { display: inline-block; padding: 3px 10px; font-size: .86rem; color: inherit; background: var(--bg); border: 1px solid var(--line); border-radius: 999px; text-decoration: none; font-variant-numeric: tabular-nums }
+a.chip:hover, button.chip:hover { border-color: var(--ink) }
+
+.classifica { margin: 10px 0 0; padding: 0; list-style: none; display: grid; gap: 6px }
+.riga { display: grid; grid-template-columns: 30px minmax(0, 1fr) auto; align-items: center; gap: 4px 10px; padding: 8px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 14px }
+.riga.cerca-ok { border-color: var(--ink); box-shadow: inset 4px 0 0 var(--ink) }
+.riga.attesa { border-style: dashed; color: var(--muted) }
+.riga.ita { background: var(--soft) }
+.pos { font-weight: 700; color: var(--muted); font-variant-numeric: tabular-nums; text-align: center }
+.chi { min-width: 0 } .chi b { font-weight: 600; overflow-wrap: anywhere } .chi small { display: block; font-size: .8rem; color: var(--muted) }
+.perc { text-align: right; font-variant-numeric: tabular-nums } .perc b { font: 700 1.1rem/1.1 var(--font); color: var(--ink-t) } .perc small { display: block; font-size: .76rem; color: var(--muted) }
+.riga .noc { font-size: .78rem; padding: 1px 8px; margin-left: 4px; vertical-align: 1px }
+.proiez { font-size: .72rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: 1px 7px; margin-left: 4px; border-radius: 999px; color: var(--t-m); border: 1px dashed var(--t-m); vertical-align: 1px }
+.sezione { margin: 14px 0 0; font-size: .78rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--muted) }
+.via { display: inline-flex; align-items: center; gap: 5px } .via i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none }
+.tipo-H { background: var(--gold) } .tipo-M { background: var(--t-m) } .tipo-S { background: var(--t-s) } .tipo-I { background: var(--ink) }
+.tipo-G { background: var(--t-g) } .tipo-W { background: var(--t-w) } .tipo-U { background: var(--open) } .tipo-R { background: transparent; border: 1.5px solid var(--open) }
+details.invitati { margin-top: 12px } details.invitati summary { cursor: pointer; font-weight: 600; color: var(--ink-t) }
+
+.totali { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 1.5px solid var(--line); border-radius: 22px }
+.totale { padding: 12px 18px; text-align: center; border-right: 1px solid var(--line) } .totale:last-child { border-right: 0 }
+.totale b { display: block; font: 600 1.9rem/1.2 var(--font); font-variant-numeric: tabular-nums }
+.totale span { font-size: .78rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted) }
+
+.filtri { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px }
+#cerca { flex: 1 1 240px; min-width: 0; max-width: 460px; height: 44px; padding: 0 16px; font: 500 1rem var(--font); color: var(--fg); background: var(--bg); border: 1.5px solid var(--line); border-radius: 14px }
+#cerca::placeholder { color: var(--muted) }
+.gruppo { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 4px; background: var(--soft); border-radius: 14px }
+.gruppo button { padding: 6px 12px; font: 600 .9rem var(--font); color: var(--muted); background: none; border: 0; border-radius: 10px; cursor: pointer }
+.gruppo button[aria-pressed="true"] { color: var(--fg); background: var(--bg); box-shadow: 0 1px 3px var(--shadow) }
+
+.griglia { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px }
+.carta { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 12px; width: 100%; padding: 16px; text-align: left; font: inherit; color: inherit; background: var(--card); border: 1.5px solid var(--line); border-radius: 20px; cursor: pointer }
+.carta:hover { border-color: var(--ink); box-shadow: 0 5px 14px var(--shadow) }
+.carta[aria-pressed="true"] { border-color: var(--ink); box-shadow: inset 4px 0 0 var(--ink) }
+.icona { display: grid; place-items: center; width: 50px; height: 50px; font-size: 1.7rem; background: var(--bg); border: 1px solid var(--line); border-radius: 13px }
+.carta h3 { font: 600 1.15rem/1.2 var(--font); overflow-wrap: anywhere }
+.carta h3 small { display: block; font-size: .8rem; font-weight: 600; color: var(--muted) }
+.dot { display: inline-block; width: 9px; height: 9px; margin-right: 5px; border-radius: 50%; vertical-align: 1px } .dot.M { background: var(--men) } .dot.F { background: var(--women) } .dot.X { background: var(--t-m) }
+.mini { position: relative; width: 58px; height: 58px; display: grid; place-items: center; font-size: .9rem; font-weight: 700; font-variant-numeric: tabular-nums }
+.mini svg { position: absolute; inset: 0; transform: rotate(-90deg) }
+.barra { grid-column: 1 / -1; display: flex; height: 9px; background: var(--track); border-radius: 999px; overflow: hidden }
+.barra i { display: block; height: 100% }
+.cifre { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px }
+.cifre div { min-width: 0; padding: 7px 12px; background: var(--bg); border: 1px solid var(--line); border-radius: 12px }
+.cifre b { display: block; font: 600 1.15rem/1.2 var(--font); color: var(--ink-t); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.cifre span { display: block; font-size: .82rem; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+.vuoto { padding: 20px; color: var(--muted) }
+.legenda { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .86rem; color: var(--muted) }
+.legenda span { display: inline-flex; align-items: center; gap: 6px } .legenda i { width: 10px; height: 10px; border-radius: 50%; display: inline-block }
+.nazioni h2, .regole h2 { font: 600 1.25rem/1.25 var(--font); margin-bottom: 8px }
+.nazioni .titoli { margin-top: 0 }
+.tabvie { width: 100%; max-width: 760px; border-collapse: collapse; font-size: .92rem; font-variant-numeric: tabular-nums }
+.tabvie th, .tabvie td { padding: 6px 10px; border-bottom: 1px solid var(--line); text-align: left }
+.tabvie th { font-size: .78rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); font-weight: 600 }
+.tabvie td.n, .tabvie th.n { text-align: right }
+.tabvie td small { color: var(--muted) }
+button.chip { font: inherit; font-size: .86rem; cursor: pointer }
+.nota { max-width: 90ch; font-size: .86rem; color: var(--muted) }
+.note-agente { max-width: 90ch; font-size: .82rem; color: var(--muted) } .note-agente summary { cursor: pointer; font-weight: 600 } .note-agente li { margin: 3px 0 }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px }
+
+button.vai { font: inherit; text-align: left; background: none; cursor: pointer }
+#stampa { display: none }
+@media print {
+  @page { size: A4; margin: 10mm }
+  :root:not([data-theme="x"]) { color-scheme: light !important }
+  html, body { background: #fff !important; color: #3a2a22 !important; font-size: 9pt }
+  .guscio { display: block; max-width: none; padding: 0 }
+  .guscio > :not(#stampa) { display: none !important }
+  #stampa { display: block; -webkit-print-color-adjust: exact; print-color-adjust: exact }
+  .s-occ { font-size: 8pt; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #b9533a }
+  #stampa h1 { font: 700 17pt/1.2 var(--font); margin: 1mm 0 2mm }
+  .s-sint { font-size: 8.6pt; margin: 0 0 1.5mm }
+  .s-leg { font-size: 7.2pt; color: #7a675c; margin: 0 0 3mm; padding-bottom: 2.5mm; border-bottom: 1.5pt solid #e07a5f }
+  .s-griglia { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 7mm; align-items: start }
+  .s-cat { break-inside: avoid; page-break-inside: avoid; margin: 0 0 3mm }
+  .s-cat h2 { font: 700 10pt/1.2 var(--font); margin: 0; padding: 1.2mm 2mm; background: #fcf3ea; border-left: 2.5pt solid #e07a5f; color: #3a2a22 }
+  .s-sub { font-size: 6.8pt; color: #7a675c; margin: .8mm 0 1mm 2mm }
+  .s-cat table { width: 100%; border-collapse: collapse; font-size: 6.7pt; line-height: 1.1; font-variant-numeric: tabular-nums }
+  .s-cat th { text-align: left; font-weight: 700; font-size: 6.3pt; color: #7a675c; padding: 0 1.2mm .5mm; border-bottom: .6pt solid #e07a5f }
+  .s-cat td { padding: .1mm 1.2mm; border-bottom: .4pt solid #f1e1d4; vertical-align: top }
+  .s-cat .n { text-align: right; white-space: nowrap }
+  .s-cat .v { text-align: center; font-weight: 700; white-space: nowrap }
+  .s-cat .v.H { color: #a8782a } .s-cat .v.M { color: #8a6fc4 } .s-cat .v.S { color: #c487b3 } .s-cat .v.I { color: #e07a5f }
+  .s-cat .v.G { color: #3f9483 } .s-cat .v.W { color: #4f86d0 } .s-cat .v.R, .s-cat .v.U { color: #8c96a2 }
+  .s-cat tr.s-riserve td { padding-top: 1.2mm; font-size: 6.3pt; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #7a675c; border-bottom: 0 }
+  .s-cat tr.s-attesa td { font-style: italic; color: #7a675c }
+  .s-staff { grid-column: 1 / -1; font-size: 7pt; margin: 0 0 2mm } .s-staff b { color: #8a6fc4 }
+  .s-nota { font-size: 6.8pt; color: #7a675c; margin-top: 1.5mm; padding-top: 1.5mm; border-top: .6pt solid #f1e1d4 }
+}
+@media (max-width: 900px) {
+  .avanz { position: static }
+  h1 { font-size: 1.6rem }
+  .fascia { grid-template-columns: minmax(0, 1fr) } .dettaglio { border-left: 0; border-top: 1.5px solid var(--line) }
+  .totali { grid-template-columns: repeat(2, minmax(0, 1fr)) } .totale:nth-child(2) { border-right: 0 } .totale:nth-child(-n+2) { border-bottom: 1px solid var(--line) }
+  .vai { max-width: none }
+}
+@media (max-width: 520px) {
+  .avanz { flex-direction: column; text-align: center; padding: 18px } .dettaglio { padding: 18px }
+  .tabvie { font-size: .82rem } .tabvie th, .tabvie td { padding: 5px 6px }
+}
+</style>
+</head>
+<body>
+<div class="guscio">
+  <header class="testa">
+    <div class="titolo">
+      <p class="occhiello" id="data">Road to LA28</p>
+      <h1>🏊‍♂️ Qualificati Triathlon LA28 · simulazione</h1>
+    </div>
+    <a class="vai" href="sport.html"><b>Per sport</b><span>Qualificati di ogni sport</span><i>›</i></a>
+    <a class="vai" href="scheda.html"><b>Per NOC</b><span>Scheda di ogni nazione</span><i>›</i></a>
+    <a class="vai" href="index.html"><b>Mappa</b><span>Qualificati nel mondo</span><i>›</i></a>
+    <button class="vai" id="pdf" type="button" title="Si apre la stampa: scegli «Salva come PDF»"><b>Scarica PDF</b><span>Uomini, donne e staffetta</span><i>↓</i></button>
+  </header>
+
+  <section class="fascia">
+    <div class="avanz">
+      <div class="anello" id="anello"></div>
+      <div id="favorito"></div>
+    </div>
+    <div class="dettaglio" id="dettaglio" aria-live="polite"></div>
+  </section>
+
+  <section class="totali" id="totali"></section>
+
+  <div class="filtri">
+    <input id="cerca" type="search" placeholder="Cerca un atleta o un NOC…" autocomplete="off" aria-label="Cerca un atleta o un NOC">
+    <div class="gruppo" id="genere" role="group" aria-label="Filtra per evento"></div>
+    <div class="gruppo" id="viaf" role="group" aria-label="Filtra per via di qualificazione"></div>
+  </div>
+  <div class="legenda">
+    <span><i class="tipo-H"></i>Paese ospitante</span>
+    <span><i class="tipo-M"></i>Mondiale staffetta mista</span>
+    <span><i class="tipo-S"></i>Ranking olimpico staffetta</span>
+    <span><i class="tipo-I"></i>Ranking olimpico individuale</span>
+    <span><i class="tipo-G"></i>Giochi continentali (New Flag)</span>
+    <span><i class="tipo-W"></i>World Triathlon Ranking (New Flag)</span>
+    <span><i class="tipo-U"></i>In attesa</span>
+    <span><i class="tipo-R"></i>Riserva</span>
+  </div>
+
+  <div class="griglia" id="griglia"></div>
+
+  <section class="regole" id="regole"></section>
+  <section class="nazioni" id="nazioni"></section>
+  <p class="nota" id="nota"></p>
+  <details class="note-agente" id="note-agente"></details>
+  <div id="stampa"></div>
+</div>
+
+<script>
+(async function () {
+  // ---------- strumenti
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, cls, testo) => { const e = document.createElement(tag); if (cls) e.className = cls; if (testo != null) e.textContent = testo; return e; };
+  const num = (n) => n.toLocaleString("it-IT");
+  const NS = "http://www.w3.org/2000/svg";
+  function cerchio(dim, spessore, p) {
+    const s = document.createElementNS(NS, "svg"); s.setAttribute("viewBox", `0 0 ${dim} ${dim}`); s.setAttribute("aria-hidden", "true");
+    const r = (dim - spessore) / 2, c = 2 * Math.PI * r;
+    [["traccia", 0], ["arco", p]].forEach(([cl, v]) => {
+      const o = document.createElementNS(NS, "circle");
+      o.setAttribute("class", cl); o.setAttribute("cx", dim / 2); o.setAttribute("cy", dim / 2); o.setAttribute("r", r); o.setAttribute("stroke-width", spessore);
+      if (cl === "arco") { o.setAttribute("stroke-dasharray", `${c * v / 100} ${c}`); if (!v) o.setAttribute("stroke-opacity", "0"); }
+      s.append(o);
+    });
+    return s;
+  }
+
+  // ---------- dati prodotti dall'agente
+  let dati;
+  try { dati = await fetch("triathlon.json?v=" + Date.now()).then((r) => { if (!r.ok) throw 0; return r.json(); }); }
+  catch (e) { $("nota").textContent = "La simulazione non si carica: ricarica la pagina."; return; }
+
+  const POSTI = dati.posti_per_genere || 55;
+  const NOMI_VIA = { H: "Paese ospitante", M: "Mondiale staffetta", S: "Ranking staffetta", I: "Ranking individuale", U: "Universality", G: "Giochi continentali", W: "World Ranking" };
+  // categorie: uomini, donne e staffetta mista
+  const cat = ["M", "F"].map((g) => {
+    const c = dati.categorie[g];
+    const qual = c.posti.filter((a) => a.noc);
+    const per = (t) => qual.filter((a) => a.tipo === t).length;
+    return { chiave: g, genere: g, nome: c.nome, posti: c.posti, qual, riserve: c.riserve, attesa: c.posti.length - qual.length,
+             staffetta: per("H") + per("M") + per("S"), individuale: per("I"), newflag: per("G") + per("W"), classificati: c.classificati_ioqr };
+  });
+  const staffe = dati.staffette || [];
+  const tutti = cat.flatMap((c) => c.qual.map((a) => ({ ...a, cat: c })));
+  const noc = new Set(tutti.map((a) => a.noc));
+  const capacita = POSTI * 2;
+
+  const fmtData = (s) => new Intl.DateTimeFormat("it-IT", { day: "numeric", month: "long", year: "numeric" }).format(new Date(s + "T12:00:00"));
+  const dataIt = fmtData(dati.aggiornato);
+  $("data").textContent = "Road to LA28 · ranking World Triathlon del " + dataIt;
+
+  [[tutti.length, "Posti assegnati"], [noc.size, "NOC in simulazione"], [staffe.length, "Squadre di staffetta"], [capacita - tutti.length, "Posti ancora in attesa"]].forEach(([n, t]) => {
+    const d = el("div", "totale"); d.append(el("b", "", n ? num(n) : "–"), el("span", "", t)); $("totali").append(d);
+  });
+
+  // ---------- stato dei filtri
+  let scelto = "M", genere = "tutti", viaf = "tutti";
+  const GENERI = { tutti: "Tutti", M: "Uomini", F: "Donne", X: "Staffetta" };
+  const VIE = { tutti: "Tutte le vie", H: "Ospitante", M: "Mondiale staff.", S: "Ranking staff.", I: "Ranking indiv.", G: "Giochi cont.", W: "World Ranking" };
+  const domanda = () => $("cerca").value.trim().toLowerCase();
+  const corrisponde = (a, q) => q && ((a.nome || "").toLowerCase().includes(q) || (a.noc || "").toLowerCase() === q || (a.codice || "").toLowerCase() === q);
+  const pt = (p) => (p == null ? "–" : Math.round(p).toLocaleString("it-IT"));
+  const genereNome = (g) => (g === "M" ? "Uomini" : g === "F" ? "Donne" : "Misto");
+
+  // ---------- anello e testo a sinistra
+  function anello(c) {
+    const box = $("anello"), testo = $("favorito"); box.textContent = ""; testo.textContent = "";
+    if (c && c.chiave === "X") {
+      const dentro = el("div"); dentro.append(el("small", "", "squadre"), el("b", "", num(staffe.length)), el("small", "", "possibili"));
+      box.append(cerchio(168, 16, 100), dentro);
+      testo.append(el("p", "etichetta", "Staffetta mista"), el("h2", "", "🏊‍♂️ Squadre di staffetta"),
+        el("p", "", "Ogni NOC con almeno 2 uomini e 2 donne qualificati, per qualunque via, può schierare una squadra (B.2)."));
+      return;
+    }
+    const n = c ? c.qual.length : tutti.length, cap = c ? POSTI : capacita;
+    const dentro = el("div"); dentro.append(el("small", "", "posti assegnati"), el("b", "", num(n)), el("small", "", "su " + num(cap)));
+    box.append(cerchio(168, 16, cap ? n / cap * 100 : 0), dentro);
+    if (c) {
+      testo.append(el("p", "etichetta", "Evento selezionato"), el("h2", "", `🏊‍♂️ ${c.nome}`),
+        el("p", "", `${c.staffetta} dalle vie della staffetta e dall'ospitante, ${c.individuale} dal ranking individuale, ${c.newflag} "New Flag". In attesa: ${c.attesa} (Universality e Giochi continentali non ancora disputati).`));
+    } else {
+      testo.append(el("p", "etichetta", "Simulazione di oggi"), el("h2", "", `${num(tutti.length)} posti a ${num(noc.size)} NOC`),
+        el("p", "", `Su ${capacita} posti totali (55 per genere). I posti vanno al NOC, non all'atleta.`));
+    }
+  }
+
+  // ---------- una riga dell'elenco
+  function riga(a, i, q) {
+    const attesa = !a.noc;
+    const li = el("li", "riga" + (corrisponde(a, q) ? " cerca-ok" : "") + (attesa ? " attesa" : "") + (a.noc === "ITA" ? " ita" : ""));
+    const chi = el("div", "chi"), nome = el("b", "", a.nome);
+    if (a.noc) { const n = el("a", "chip noc", a.noc); n.href = "scheda.html#" + a.noc; nome.append(n); }
+    if (/proiezione/i.test(a.via)) nome.append(el("span", "proiez", "proiezione"));
+    chi.append(nome);
+    const v = el("span", "via"); v.append(el("i", "tipo-" + a.tipo), el("span", "", a.via));
+    const sm = el("small"); sm.append(v);
+    if (!attesa) sm.append(document.createTextNode(` · ${a.continente || "–"}${a.nato ? " · nato/a nel " + a.nato : ""}${a.wr ? " · World Ranking n." + a.wr : ""} · ${a.stato}`));
+    else sm.append(document.createTextNode(" · " + a.nota));
+    chi.append(sm);
+    if (a.nota && !attesa) chi.title = a.nota;
+    const perc = el("div", "perc");
+    if (!attesa) perc.append(el("b", "", a.rank != null ? "n." + a.rank : "–"), el("small", "", a.rank != null ? pt(a.punti) + " punti" : "fuori IOQR"));
+    li.append(el("span", "pos", a.posto != null ? a.posto : i + 1), chi, perc);
+    return li;
+  }
+
+  // ---------- dettaglio a destra
+  function dettaglio() {
+    const box = $("dettaglio"); box.textContent = "";
+    if (scelto === "X") {
+      anello({ chiave: "X" });
+      box.append(el("p", "etichetta", "Ordinate per ranking olimpico di staffetta"), el("h2", "", "🏊‍♂️ Staffetta mista"));
+      const q = domanda(), ol = el("ol", "classifica");
+      staffe.forEach((s, i) => {
+        const li = el("li", "riga" + (corrisponde(s, q) ? " cerca-ok" : "") + (s.noc === "ITA" ? " ita" : ""));
+        const chi = el("div", "chi"), nome = el("b", "", s.paese); const n = el("a", "chip noc", s.noc); n.href = "scheda.html#" + s.noc; nome.append(n); chi.append(nome);
+        chi.append(el("small", "", `${s.uomini} uomini e ${s.donne} donne qualificati`));
+        const perc = el("div", "perc"); perc.append(el("b", "", s.rank_mroqr ? "n." + s.rank_mroqr : "–"), el("small", "", s.rank_mroqr ? pt(s.punti) + " punti" : "non classificata"));
+        li.append(el("span", "pos", i + 1), chi, perc); ol.append(li);
+      });
+      if (!staffe.length) box.append(el("p", "", "Nessuna squadra possibile."));
+      box.append(ol);
+      return;
+    }
+    const c = cat.find((x) => x.chiave === scelto);
+    anello(c);
+    if (!c) {
+      box.append(el("p", "etichetta", "Posti dell'evento"), el("h2", "", "Clicca una carta qui sotto"),
+        el("p", "", "Qui compaiono i 55 posti della simulazione, nell'ordine del regolamento, con la via di qualificazione e la posizione nel ranking olimpico individuale (IOQR)."));
+      return;
+    }
+    box.append(el("p", "etichetta", "Nell'ordine del regolamento (vie gerarchiche)"), el("h2", "", `🏊‍♂️ ${c.nome}`));
+    const q = domanda(), ol = el("ol", "classifica");
+    c.posti.forEach((a, i) => ol.append(riga(a, i, q)));
+    box.append(ol);
+    if (c.riserve.length) {
+      const d = el("details", "invitati");
+      if (q && c.riserve.some((a) => corrisponde(a, q))) d.open = true;
+      d.append(el("summary", "", `Prime riserve: entrano se un posto non viene confermato (${c.riserve.length})`));
+      const rs = el("ol", "classifica"); c.riserve.forEach((a, i) => rs.append(riga({ ...a, posto: null }, i, q))); d.append(rs);
+      box.append(d);
+    }
+  }
+
+  // ---------- carte
+  function carta(c) {
+    const b = el("button", "carta"); b.type = "button"; b.setAttribute("aria-pressed", c.chiave === scelto);
+    const ic = el("span", "icona", "🏊‍♂️"); ic.setAttribute("aria-hidden", "true");
+    if (c.chiave === "X") {
+      const m = el("span", "mini", String(staffe.length)); m.prepend(cerchio(58, 6, 100));
+      const h = el("h3", "", "Staffetta mista"), s = el("small"); s.append(el("i", "dot X"), "2 uomini + 2 donne"); h.prepend(s);
+      const cifre = el("div", "cifre");
+      const ita = staffe.find((x) => x.noc === "ITA");
+      [[String(staffe.length), "Squadre"], [ita ? "sì" : "no", "Italia"], [staffe[0] ? staffe[0].noc : "–", "Prima"]].forEach(([n, t]) => { const d = el("div"); d.append(el("b", "", n), el("span", "", t)); cifre.append(d); });
+      b.append(ic, h, m, cifre);
+    } else {
+      const m = el("span", "mini", String(c.qual.length)); m.prepend(cerchio(58, 6, c.qual.length / POSTI * 100));
+      const barra = el("div", "barra");
+      ["H", "M", "S", "I", "G", "W"].forEach((t) => {
+        const n = c.qual.filter((a) => a.tipo === t).length; if (!n) return;
+        const s = el("i", "tipo-" + t); s.style.width = (n / POSTI * 100) + "%"; s.title = `${NOMI_VIA[t]}: ${n}`; barra.append(s);
+      });
+      const cifre = el("div", "cifre");
+      [[String(c.staffetta), "Staff./osp."], [String(c.individuale), "Indiv."], [String(c.newflag), "New Flag"]].forEach(([n, t]) => {
+        const d = el("div"); d.append(el("b", "", n), el("span", "", t)); cifre.append(d);
+      });
+      const h = el("h3", "", c.nome), s = el("small"); s.append(el("i", "dot " + c.genere), `${genereNome(c.genere)} · ${c.classificati} nel ranking olimpico`); h.prepend(s);
+      b.append(ic, h, m, barra, cifre);
+      b.title = `${c.qual.length} posti assegnati su ${POSTI}`;
+    }
+    b.addEventListener("click", () => {
+      scelto = scelto === c.chiave ? null : c.chiave; dettaglio(); griglia();
+      if (scelto && window.innerWidth < 900) $("dettaglio").scrollIntoView({ block: "center" });
+    });
+    return b;
+  }
+
+  function griglia() {
+    const q = domanda();
+    const lista = [...cat, { chiave: "X", genere: "X" }]
+      .filter((c) => genere === "tutti" || c.genere === genere)
+      .filter((c) => viaf === "tutti" || (c.chiave !== "X" && c.qual.some((a) => a.tipo === viaf)))
+      .filter((c) => !q || (c.chiave === "X" ? staffe.some((s) => corrisponde(s, q)) : c.posti.some((a) => corrisponde(a, q)) || c.riserve.some((a) => corrisponde(a, q))));
+    const g = $("griglia"); g.textContent = "";
+    lista.forEach((c) => g.append(carta(c)));
+    if (!lista.length) g.append(el("p", "vuoto", "Nessun evento corrisponde alla ricerca."));
+  }
+
+  // ---------- tabella delle vie (quanti posti per via)
+  function regole() {
+    const box = $("regole"); box.textContent = "";
+    box.append(el("h2", "", "Le vie di qualificazione, nell'ordine del regolamento"));
+    const righe = [
+      ["H", "Paese ospitante (USA)", 2], ["M", "Mondiali di staffetta mista 2026 e 2027", 4], ["S", "Ranking olimpico di staffetta (8 NOC)", 16],
+      ["I", "Ranking olimpico individuale", 21], ["U", "Universality (Commissione Tripartita)", 2], ["G", "Giochi continentali «New Flag»", 5], ["W", "World Triathlon Ranking «New Flag»", 5],
+    ];
+    const t = el("table", "tabvie"), th = el("tr");
+    ["Via", "Posti", "Uomini oggi", "Donne oggi"].forEach((x, i) => th.append(el("th", i ? "n" : "", x)));
+    t.append(th);
+    righe.forEach(([k, nome, posti]) => {
+      const tr = el("tr"), td = el("td"), v = el("span", "via"); v.append(el("i", "tipo-" + k), el("span", "", nome)); td.append(v);
+      tr.append(td, el("td", "n", String(posti)));
+      cat.forEach((c) => {
+        const n = c.posti.filter((a) => a.tipo === k && a.noc).length, att = c.posti.filter((a) => a.tipo === k && !a.noc).length;
+        const cella = el("td", "n", String(n)); if (att) cella.append(el("small", "", ` +${att} in attesa`)); tr.append(cella);
+      });
+      t.append(tr);
+    });
+    box.append(t);
+    box.append(el("p", "nota", "I posti riassegnati dal ranking individuale (quando un «New Flag» non trova NOC idonei) sono contati nella riga del ranking individuale."));
+  }
+
+  // ---------- nazioni
+  function nazioni() {
+    const conta = {};
+    tutti.forEach((a) => { conta[a.noc] = conta[a.noc] || { M: 0, F: 0 }; conta[a.noc][a.cat.genere]++; });
+    const top = Object.entries(conta).sort((a, b) => (b[1].M + b[1].F) - (a[1].M + a[1].F) || a[0].localeCompare(b[0]));
+    const box = $("nazioni"); box.textContent = "";
+    box.append(el("h2", "", "Nazioni qualificate (uomini + donne)"));
+    const t = el("div", "titoli");
+    top.forEach(([n, k]) => {
+      const b = el("button", "chip", `${n} · ${k.M}+${k.F}`); b.type = "button"; b.title = `Mostra i posti ${n}`;
+      b.addEventListener("click", () => { $("cerca").value = n.toLowerCase(); $("cerca").dispatchEvent(new Event("input")); window.scrollTo({ top: 0, behavior: "smooth" }); });
+      t.append(b);
+    });
+    box.append(t);
+  }
+
+  function bottoni(id, voci, get, set) {
+    const box = $(id);
+    const disegna = () => { box.textContent = ""; Object.entries(voci).forEach(([k, t]) => { const b = el("button", "", t); b.type = "button"; b.setAttribute("aria-pressed", k === get()); b.addEventListener("click", () => { set(k); disegna(); griglia(); }); box.append(b); }); };
+    disegna();
+  }
+  bottoni("genere", GENERI, () => genere, (k) => { genere = k; });
+  bottoni("viaf", VIE, () => viaf, (k) => { viaf = k; });
+  $("cerca").addEventListener("input", () => {
+    const q = domanda();
+    const trovato = q && cat.find((c) => c.posti.some((a) => corrisponde(a, q)) || c.riserve.some((a) => corrisponde(a, q)));
+    if (trovato) scelto = trovato.chiave;
+    else if (q && staffe.some((s) => corrisponde(s, q))) scelto = "X";
+    dettaglio(); griglia();
+  });
+
+  const proiezione = !(dati.campioni_2027 && dati.campioni_2027.length);
+  $("nota").textContent = `Simulazione calcolata dall'agente triathlon applicando il sistema di qualificazione CIO per LA28 (World Triathlon, versione del 12 maggio 2026) ai ranking ufficiali di oggi, con le stesse regole usate da World Triathlon nella sua simulazione. Per genere ci sono 55 posti, assegnati al NOC: 2 al paese ospitante, 2 al campione del mondo di staffetta 2026 (Francia) e 2 a quello del 2027${proiezione ? " (oggi è una proiezione: il primo NOC del ranking di staffetta non ancora qualificato)" : ""}, 16 a 8 NOC del ranking olimpico di staffetta, 21 dal ranking olimpico individuale (al massimo 2 per NOC, 3 se ha 3 atleti tra i primi 30; i due migliori atleti dei NOC già qualificati non prendono posti in più), 2 Universality e 10 «New Flag» (Giochi continentali e World Triathlon Ranking) per i NOC non ancora qualificati in quel genere. Gli atleti devono essere nati entro il 2010 ed essere tra i primi 160 del World Triathlon Ranking. Russia e Bielorussia sono contate come gli altri NOC. Ranking di riferimento: ${fmtData(dati.cutoff)}; fino ad allora tutto è provvisorio.`;
+
+  // note tecniche dell'agente (annullamenti, avvisi) in un riquadro chiudibile
+  const na = $("note-agente");
+  if ((dati.note || []).length) {
+    na.append(el("summary", "", `Note dell'agente (${dati.note.length})`));
+    const ul = el("ul"); dati.note.forEach((n) => ul.append(el("li", "", n))); na.append(ul);
+  } else na.remove();
+
+  // ---------- vista di stampa (PDF su una pagina A4)
+  function stampa() {
+    const box = $("stampa"); box.textContent = "";
+    box.append(el("p", "s-occ", "Road to LA28 · ranking World Triathlon del " + dataIt), el("h1", "", "🏊‍♂️ Qualificati Triathlon LA28 · simulazione"));
+    box.append(el("p", "s-sint", `${num(tutti.length)} posti assegnati su ${capacita}, ${num(noc.size)} NOC, ${staffe.length} squadre di staffetta. In attesa: Universality e Giochi continentali non ancora disputati.`));
+    box.append(el("p", "s-leg", "H = ospitante · M = Mondiale staffetta · S = ranking staffetta · I = ranking individuale · G = Giochi continentali · W = World Ranking New Flag · R = riserva · Rank = ranking olimpico individuale"));
+    const gr = el("div", "s-griglia");
+    cat.forEach((c) => {
+      const sec = el("section", "s-cat");
+      sec.append(el("h2", "", c.nome), el("p", "s-sub", `${c.qual.length} posti assegnati su ${POSTI} (${c.staffetta} staffetta/ospitante, ${c.individuale} individuale, ${c.newflag} New Flag)`));
+      const tb = el("table"), th = el("tr");
+      ["#", "Atleta", "NOC", "Via", "Rank"].forEach((x, i) => th.append(el("th", i > 3 ? "n" : "", x)));
+      tb.append(th);
+      const r = (a, i) => {
+        const tr = el("tr");
+        tr.append(el("td", "n", a.posto != null ? a.posto : i + 1), el("td", "", a.nome), el("td", "", a.noc), el("td", "v " + a.tipo, a.tipo), el("td", "n", a.rank != null ? a.rank : "–"));
+        return tr;
+      };
+      c.posti.forEach((a, i) => {
+        if (a.noc) tb.append(r(a, i));
+        else { const tr = el("tr", "s-attesa"); const td = el("td", "", `${a.posto}. ${a.nome.replace("(da assegnare) ", "")}: in attesa`); td.colSpan = 5; tr.append(td); tb.append(tr); }
+      });
+      if (c.riserve.length) {
+        const tr = el("tr", "s-riserve"); const td = el("td", "", "Prime riserve"); td.colSpan = 5; tr.append(td); tb.append(tr);
+        c.riserve.forEach((a, i) => tb.append(r({ ...a, posto: null, tipo: "R" }, i)));
+      }
+      sec.append(tb); gr.append(sec);
+    });
+    const st = el("p", "s-staff"); st.append(el("b", "", "Staffetta mista: "), document.createTextNode(staffe.map((s) => s.noc).join(", ") || "nessuna"));
+    gr.prepend(st);
+    box.append(gr, el("p", "s-nota", $("nota").textContent));
+  }
+  stampa();
+  const titoloPagina = document.title;
+  window.addEventListener("beforeprint", () => { document.title = "Qualificati Triathlon LA28 - simulazione ranking " + dati.aggiornato; });
+  window.addEventListener("afterprint", () => { document.title = titoloPagina; });
+  $("pdf").addEventListener("click", () => window.print());
+
+  regole(); nazioni(); dettaglio(); griglia();
+})();
+</script>
+</body>
+</html>

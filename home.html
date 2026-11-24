@@ -13,7 +13,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Lora:ital,wght@0,700;1,500&display=swap">
 <style>
 /* =====================================================================================
-   home.html · versione 1.5 (23/11/2026) · homepage del progetto LA28
+   home.html · versione 1.6 (24/11/2026) · homepage del progetto LA28
+   1.6: aggiunta la simulazione del triathlon (triathlon.html, scheda 59), sezione «Simulazioni per sport».
    1.5: icona dello squash 🟠 al posto di 🎾 (la pallina da tennis resta solo al tennis).
    1.4: aggiunta la pagina dei risultati della scherma (scherma-risultati.html, scheda 54),
         nella sezione «Risultati e tabelloni».
@@ -260,7 +261,7 @@ footer { color: var(--testo-3); font-size: 13px; margin-top: 16px; padding: 0 6p
   <div><span class="pillola risultati">Risultati</span><br>Tornei incontro per incontro, con il tabellone ufficiale ad albero.</div>
   <div><span class="pillola performance">Performance</span><br>Indici personali (WON, ELO, PTS, FEN) calcolati dai risultati in Notion.</div>
 </section>
-<footer>Sito <a href="https://vier80.github.io/map-q-la28/">vier80.github.io/map-q-la28</a> · elenco delle pagine aggiornato al 23/11/2026 ·
+<footer>Sito <a href="https://vier80.github.io/map-q-la28/">vier80.github.io/map-q-la28</a> · elenco delle pagine aggiornato al 24/11/2026 ·
   il pallino verde vuol dire che la pagina risponde online in questo momento.</footer>
 </div>
 <div class="avviso" id="avviso"></div>
@@ -314,6 +315,8 @@ const PAGINE = [
   { file: "squash.html",        titolo: "Squash",              descr: "Singolare maschile e femminile, ranking PSA",  sezione: "simulazioni", sport: "Squash",             icona: "🟠" },
   { file: "taekwondo.html",     titolo: "Taekwondo",           descr: "8 categorie di peso, uomini e donne",          sezione: "simulazioni", sport: "Taekwondo",          icona: "🦶" },
   { file: "tennis.html",        titolo: "Tennis",              descr: "Singolare e doppio, per evento e nazione",     sezione: "simulazioni", sport: "Tennis",             icona: "🎾" },
+  // NOVITÀ 1.6 (24/11/2026, scheda 59): simulazione del triathlon
+  { file: "triathlon.html",     titolo: "Triathlon",           descr: "Individuale uomini e donne, staffetta mista",  sezione: "simulazioni", sport: "Triathlon",          icona: "🏊‍♂️" },
 
   // ---- risultati e tabelloni
   { file: "badminton.html",         titolo: "Badminton · risultati",    descr: "Tornei BWF con tabellone ufficiale",              sezione: "risultati", sport: "Badminton",    icona: "🏸" },

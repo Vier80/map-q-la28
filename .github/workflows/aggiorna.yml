@@ -1,6 +1,14 @@
 name: Aggiorna mappa LA28
 
 # Repo map-q-la28, file .github/workflows/aggiorna.yml.
+# Novità del 25/11/2026 (scheda 04):
+#   1) secondo tentativo automatico di pubblicazione: se actions/deploy-pages fallisce per
+#      QUALSIASI motivo (visti finora: "No artifacts named github-pages were found" e
+#      "Deployment failed, try again later", entrambi problemi temporanei di GitHub), il workflow
+#      aspetta 30 secondi e riprova una volta sola;
+#   2) actions aggiornate alle versioni che girano su Node.js 24 (tolto l'avviso "Node.js 20 is
+#      deprecated"): checkout v6, setup-python v6, configure-pages v6, upload-pages-artifact v5,
+#      deploy-pages v5.
 # Novità del 22/11/2026 (scheda 50): passaggio "Tasto Home" (aggiungi_home.py) subito prima della
 # pubblicazione: mette il tasto «🏠 Home» nella testata di tutte le pagine pubblicate. Non salva
 # nulla nel repository: modifica solo la copia che va su GitHub Pages.
@@ -24,10 +32,12 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.pubblica.outputs.page_url }}
+      # L'indirizzo del sito lo dà il passaggio di pubblicazione che è riuscito:
+      # il primo tentativo ("pubblica") oppure, se quello è fallito, il secondo ("pubblica2").
+      url: ${{ steps.pubblica.outputs.page_url || steps.pubblica2.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6          # NOVITÀ 25/11: era v4 (Node 20)
+      - uses: actions/setup-python@v6      # NOVITÀ 25/11: era v5 (Node 20)
         with:
           python-version: "3.12"
       - name: Leggi Notion e aggiorna data.json
@@ -80,13 +90,11 @@ jobs:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: python aggiorna_wrestling_performance.py
       - name: Performance Vela - ricalcola il WON, aggiunge l'ELO e aggiorna vela-performance.json
-        # NOVITÀ del 19/11/2026 (scheda 39)
         continue-on-error: true     # se fallisce, la mappa si aggiorna comunque
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
         run: python aggiorna_vela_performance.py
       - name: Performance Tennistavolo - ricalcola il WON, aggiunge l'ELO e aggiorna tennistavolo-performance.json
-        # NOVITÀ del 19/11/2026 (scheda 43)
         continue-on-error: true     # se fallisce, la mappa si aggiorna comunque
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
@@ -111,12 +119,11 @@ jobs:
             exit 0
           fi
           git commit -m "Aggiorna i qualificati LA28"
-          # CORREZIONE del 18/11/2026 (scheda 37): mentre questo lancio lavora, altri possono salvare
-          # file nel repository (l'agente badminton salva badminton.json, i calcoli ELO del lunedì i
-          # loro *-elo.json). Allora GitHub rifiuta il salvataggio ("rejected ... fetch first").
-          # Prima di salvare riprendo quindi le loro modifiche ("git pull --rebase"): sono file
-          # diversi dai nostri, quindi si uniscono da soli. Fino a 3 tentativi, a 10 secondi
-          # di distanza (stesso sistema dei workflow ELO).
+          # Mentre questo lancio lavora, altri possono salvare file nel repository (l'agente
+          # badminton salva badminton.json, i calcoli ELO del lunedì i loro *-elo.json). Allora
+          # GitHub rifiuta il salvataggio ("rejected ... fetch first"). Prima di salvare riprendo
+          # quindi le loro modifiche ("git pull --rebase"): sono file diversi dai nostri, quindi si
+          # uniscono da soli. Fino a 3 tentativi, a 10 secondi di distanza.
           for tentativo in 1 2 3; do
             if git pull --rebase && git push; then
               echo "cambiato=1" >> "$GITHUB_OUTPUT"
@@ -129,17 +136,45 @@ jobs:
           echo "Non sono riuscito a salvare i file: ci riprova il prossimo lancio (ogni 15 minuti)"
           exit 1
       - name: Tasto Home - aggiunge «🏠 Home» nella testata di tutte le pagine
-        # NOVITÀ del 22/11/2026 (scheda 50). Parte dopo il salvataggio, quindi le pagine modificate
-        # NON finiscono nel repository: il tasto c'è solo nel sito pubblicato.
+        # Parte dopo il salvataggio, quindi le pagine modificate NON finiscono nel repository:
+        # il tasto c'è solo nel sito pubblicato.
         if: steps.salva.outputs.cambiato == '1' || github.event_name == 'workflow_dispatch'
         continue-on-error: true     # se fallisce, il sito si pubblica comunque (senza il tasto)
         run: python aggiungi_home.py
       - if: steps.salva.outputs.cambiato == '1' || github.event_name == 'workflow_dispatch'
-        uses: actions/configure-pages@v5
-      - if: steps.salva.outputs.cambiato == '1' || github.event_name == 'workflow_dispatch'
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/configure-pages@v6         # NOVITÀ 25/11: era v5 (Node 20)
+      - name: Prepara il sito da pubblicare
+        if: steps.salva.outputs.cambiato == '1' || github.event_name == 'workflow_dispatch'
+        uses: actions/upload-pages-artifact@v5   # NOVITÀ 25/11: era v3
+        # Dalla v4 i file "nascosti" (quelli il cui nome comincia con un punto, es. .nojekyll)
+        # NON vengono pubblicati (.git e .github non lo erano neanche prima). Se un giorno una
+        # pagina ne avesse bisogno, aggiungere qui sotto la riga  include-hidden-files: true
         with:
           path: .
-      - id: pubblica
+      # ---- Pubblicazione con secondo tentativo (NOVITÀ del 25/11/2026) ----------------------
+      - name: Pubblica su GitHub Pages (1° tentativo)
+        id: pubblica
         if: steps.salva.outputs.cambiato == '1' || github.event_name == 'workflow_dispatch'
-        uses: actions/deploy-pages@v4
+        # "continue-on-error": se questo tentativo fallisce, per QUALSIASI errore, il workflow
+        # NON si ferma e passa ai due passaggi qui sotto. Se invece riesce, vengono saltati.
+        # "@v5" prende da solo l'ultima versione 5.x (oggi la 5.0.1, che controlla l'esito della
+        # pubblicazione con attese crescenti): non serve scrivere il numero preciso.
+        continue-on-error: true
+        uses: actions/deploy-pages@v5            # NOVITÀ 25/11: era v4 (Node 20)
+      - name: Primo tentativo fallito - aspetto 30 secondi
+        # "outcome" è il risultato vero del passaggio "pubblica" ('success', 'failure' o
+        # 'skipped' se non è partito). Questo passaggio parte solo se è 'failure', qualunque sia
+        # il messaggio di errore: la condizione non guarda il testo dell'errore.
+        if: steps.pubblica.outcome == 'failure'
+        run: |
+          echo "Il 1° tentativo di pubblicazione non è riuscito: il motivo è scritto nel passaggio qui sopra."
+          echo "Errori già visti: 'No artifacts named github-pages were found', 'Deployment failed, try again later'."
+          echo "Sono problemi temporanei di GitHub: aspetto 30 secondi e riprovo una volta."
+          sleep 30
+      - name: Pubblica su GitHub Pages (2° tentativo)
+        id: pubblica2
+        if: steps.pubblica.outcome == 'failure'
+        # Usa lo stesso sito già preparato sopra (non serve rifarlo). Qui NON c'è
+        # continue-on-error: se fallisce anche questo, il lancio diventa rosso e me ne accorgo.
+        # I dati sono comunque già salvati nel repository: basta un nuovo Run workflow.
+        uses: actions/deploy-pages@v5

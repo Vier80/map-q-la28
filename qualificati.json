@@ -1,13 +1,13 @@
 {
  "aggiornato": "2026-11-25",
  "totali": {
-  "posti_qualificati": 923,
+  "posti_qualificati": 924,
   "noc": 51,
-  "rimanenti": 10275,
+  "rimanenti": 10274,
   "posti_totali": 11198,
-  "righe": 181,
+  "righe": 182,
   "athlete_quota": 8,
-  "noc_quota": 69,
+  "noc_quota": 70,
   "team_quota": 104
  },
  "fonte_regole": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
@@ -2495,6 +2495,26 @@
    "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
    "verifica": false,
    "notion": "https://app.notion.com/p/Dmitrii-PIMENOV-340f48c9aad98066abc0d5cbd440dca6"
+  },
+  {
+   "chiave": "423f48c9aad9807881b0fc8d1602ee50",
+   "nome": "Gavin Raymond Leigh BARNICK",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 50m Rifle 3 Positions"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Gavin-Raymond-Leigh-BARNICK-423f48c9aad9807881b0fc8d1602ee50"
   },
   {
    "chiave": "2c5f48c9aad9819baf40c3e2af91128b",

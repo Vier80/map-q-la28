@@ -10,8 +10,8 @@
    "O": 0,
    "pass": 13,
    "noc": {
-    "IND": 3,
     "USA": 8,
+    "IND": 3,
     "CHN": 2,
     "JPN": 1,
     "KOR": 2
@@ -34,9 +34,9 @@
    "O": 0,
    "pass": 9,
    "noc": {
+    "USA": 1,
     "AUS": 1,
     "KEN": 4,
-    "USA": 1,
     "LES": 1,
     "ITA": 1,
     "SWE": 1
@@ -96,8 +96,8 @@
    "O": 0,
    "pass": 10,
    "noc": {
-    "AUS": 4,
     "USA": 2,
+    "AUS": 4,
     "MAR": 2,
     "NGR": 2,
     "BRA": 4,
@@ -141,9 +141,9 @@
    "O": 0,
    "pass": 5,
    "noc": {
+    "USA": 15,
     "AUS": 15,
     "IND": 15,
-    "USA": 15,
     "GBR": 15,
     "RSA": 15
    }
@@ -183,8 +183,8 @@
    "O": 72,
    "pass": 24,
    "noc": {
-    "AUS": 3,
     "USA": 9,
+    "AUS": 3,
     "ITA": 3,
     "NZL": 3,
     "GBR": 9,
@@ -294,8 +294,8 @@
    "O": 0,
    "pass": 6,
    "noc": {
-    "IND": 32,
     "USA": 32,
+    "IND": 32,
     "NED": 16,
     "BEL": 16
    }
@@ -382,15 +382,15 @@
   },
   "Shooting": {
    "quota": 340,
-   "atleti": 39,
-   "M": 19,
+   "atleti": 40,
+   "M": 20,
    "W": 20,
    "O": 0,
-   "pass": 39,
+   "pass": 40,
    "noc": {
+    "USA": 3,
     "CUB": 1,
     "IND": 3,
-    "USA": 2,
     "CZE": 2,
     "SRB": 1,
     "RUS": 2,
@@ -541,8 +541,8 @@
    "O": 0,
    "pass": 12,
    "noc": {
-    "CUB": 12,
     "USA": 24,
+    "CUB": 12,
     "THA": 12,
     "JPN": 12,
     "TUN": 12,
@@ -584,15 +584,15 @@
   }
  },
  "totali": {
-  "atleti": 923,
-  "pass": 181,
+  "atleti": 924,
+  "pass": 182,
   "noc": 51
  },
  "noc": {
   "USA": {
    "nome": "Stati Uniti",
-   "atleti": 344,
-   "pass": 46,
+   "atleti": 345,
+   "pass": 47,
    "righe": [
     {
      "nome": "Alexis RUIZ/Stephan HANSEN",
@@ -1310,6 +1310,26 @@
      "gare": {
       "Women's 25m Pistol": "W",
       "Women's 10m Air Pistol": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Gavin Raymond Leigh BARNICK",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's 50m Rifle 3 Positions"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's 50m Rifle 3 Positions": "M"
      },
      "atleti": 1,
      "squadra": false,

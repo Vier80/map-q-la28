@@ -17,6 +17,17 @@ script aggiunge a badminton-performance.json l'ELO di ogni atleta o coppia. Il c
 dal campo "notion" di badminton-elo.json, che è l'id della pagina di Athletes, cioè lo stesso "id"
 usato qui. Se badminton-elo.json manca o non si legge, la pagina funziona lo stesso, senza ELO.
 
+NOVITÀ del 25/11/2026 (scheda 14): INCONTRI BWF
+Se nella cartella c'è badminton.json (lo salva ogni mattina l'agente badminton, con gli incontri
+del db Notion «🏸 Agente Badminton»), lo script aggiunge a badminton-performance.json la sezione
+"bwf": tutti gli incontri (ognuno una volta sola) e tutti i giocatori e le coppie che li hanno
+giocati, anche quelli che non sono ancora in Athletes. Così la pagina mostra nella scheda gli
+incontri vinti e persi, e la ricerca trova anche chi c'è solo nei tornei BWF. Il collegamento con
+la classifica WON passa dal codice BWF: «ID BWF» di Athletes oppure, se vuoto, «id_bwf» di
+badminton-elo.json. Il codice di ogni incontro si ricava dai tabelloni di badminton.json
+(nome → codice); per i tornei senza tabellone si usa il nome. Nessuna lettura in più da Notion.
+Se badminton.json manca o non si legge, la pagina funziona lo stesso, senza elenco degli incontri.
+
 Uso:
   NOTION_TOKEN=... python aggiorna_badminton_performance.py
   python aggiorna_badminton_performance.py --da-raw raw.json    prova con dati salvati
@@ -44,6 +55,14 @@ SPECIALITA = {"🏸Men's Singles": "MS", "🏸Women's Singles": "WS", "🏸Men's
 FILE_ELO = CARTELLA / "badminton-elo.json"   # prodotto da elo_badminton.py nello stesso repository
 TOP_ELO = 10                                 # quanti nella "Classifica ELO · top 10" di ogni specialità
 
+# ---------------------------------------------------------------- INCONTRI BWF (novità del 25/11/2026)
+FILE_BWF = CARTELLA / "badminton.json"       # salvato ogni mattina dall'agente badminton
+# turno come scritto in Notion (colonna «Turno») -> sigla corta usata dalla pagina
+SIGLA_TURNO = {"Final": "F", "Semi Final": "SF", "Quarter Final": "QF", "Round of 16": "R16",
+               "Round of 32": "R32", "Round of 64": "R64", "Group Stage": "G"}
+# ordine dei turni dentro lo stesso giorno: prima i gironi, ultima la finale
+ORDINE_TURNO = {"G": 0, "R64": 1, "R32": 2, "R16": 3, "QF": 4, "SF": 5, "F": 6}
+
 
 # ---------------------------------------------------------------- NOTION
 def leggi_notion():
@@ -53,7 +72,9 @@ def leggi_notion():
         ath[pg["id"].replace("-", "")] = {
             "nome": valore(p.get("Cognome e Nome")) or "", "noc": valore(p.get("NOC")) or "",
             "disc": valore(p.get("Disciplina")) or [], "pas": valore(p.get("🎟️Pass LA28")) or "",
-            "dob": valore(p.get("DOB")) or "", "hon": valore(p.get("Honours")) or []}
+            "dob": valore(p.get("DOB")) or "", "hon": valore(p.get("Honours")) or [],
+            # codice BWF (scheda 32): solo lettura, serve a collegare gli incontri dell'agente
+            "idbwf": valore(p.get("ID BWF")) or ""}
     print(f"Athletes: {len(ath)} atleti e coppie di badminton")
     filtro = {"or": [{"property": "Disciplina", "select": {"equals": d}} for d in SPECIALITA]}
     res = []
@@ -214,6 +235,157 @@ def aggiungi_elo(dati, ath):
           f"WON collegati, {mostrati} con ELO mostrato; top {TOP_ELO} ELO in {len(top)} specialità")
 
 
+# ---------------------------------------------------------------- INCONTRI BWF (novità del 25/11/2026)
+def norma_nome(nome):
+    """Nome per i confronti: spazi doppi ridotti a uno, ' / ' uniforme, maiuscolo.
+    Serve perché il sito BWF a volte scrive 'CHEN Zhi  Ray' con due spazi."""
+    nome = re.sub(r"\s*/\s*", " / ", nome or "")
+    return re.sub(r"\s+", " ", nome).strip().upper()
+
+
+def norma_codice(codice):
+    """Codice BWF uniforme: per le coppie i due codici in ordine crescente, es. '89426/65267' -> '65267/89426'."""
+    parti = [c.strip() for c in str(codice or "").split("/") if c.strip()]
+    return "/".join(sorted(parti, key=lambda c: (len(c), c)))
+
+
+def aggiungi_incontri(dati, ath):
+    """Aggiunge a badminton-performance.json gli incontri dei tornei BWF letti dall'agente badminton,
+    per TUTTI i giocatori e le coppie che compaiono in badminton.json, anche se non sono in Athletes.
+
+    Ogni incontro è scritto una sola volta (non una volta per il vincitore e una per lo sconfitto):
+      dati["bwf"] = {
+        "aggiornato": data di badminton.json,
+        "tornei":   [[nome, categoria, inizio, fine, stato], ...],
+        "squadre":  [[nome, NOC, codice BWF, specialità, athletes, elo], ...]
+                    un giocatore (singolari) o una coppia (doppi), con il nome come sul sito BWF;
+                    athletes: 2 = nella classifica WON, 1 = in Athletes ma senza risultati WON, 0 = non in Athletes;
+                    elo: [valore, livello] se l'ELO è mostrabile, altrimenti null,
+        "incontri": [[indice torneo, data, turno, indice vincitore, indice sconfitto, punteggio], ...]
+                    turno = F, SF, QF, R16, R32, R64, G (gironi delle Finals);
+                    punteggio dal lato del vincitore, come in Notion (la pagina lo gira per le sconfitte)
+      }
+      a["sq"] = indice della sua squadra in dati["bwf"]["squadre"] (solo atleti e coppie collegati).
+    Esclusi gli incontri «non disputato» (come nell'ELO).
+    """
+    dati["bwf"] = None
+    if not FILE_BWF.exists():
+        print("AVVISO badminton.json non trovato: la scheda non mostrerà gli incontri BWF.")
+        return
+    try:
+        bwf = json.loads(FILE_BWF.read_text(encoding="utf-8"))
+        incontri, tornei = bwf["incontri"], bwf["tornei"]
+    except (OSError, ValueError, KeyError, TypeError) as e:
+        print(f"AVVISO badminton.json non leggibile ({e}): la scheda non mostrerà gli incontri BWF.")
+        return
+    tabelloni = bwf.get("tabelloni") or {}
+
+    # 1. ELO (facoltativo): codice BWF delle pagine di Athletes e valore ELO di ogni scheda
+    elo = []
+    if FILE_ELO.exists():
+        try:
+            elo = json.loads(FILE_ELO.read_text(encoding="utf-8")).get("atleti", []) or []
+        except (OSError, ValueError, TypeError, AttributeError):
+            elo = []                          # senza ELO si usa solo «ID BWF» di Athletes
+    elo_per_chiave = {(norma_codice(e.get("id_bwf")), e.get("spec")): e for e in elo if e.get("id_bwf")}
+
+    # 2. codice BWF delle pagine di Athletes: prima «ID BWF», poi «id_bwf» dell'ELO (collegato con "notion")
+    codice_pagina = {i: norma_codice(info.get("idbwf")) for i, info in ath.items() if info.get("idbwf")}
+    for e in elo:
+        if e.get("notion") in ath and e.get("notion") not in codice_pagina and e.get("id_bwf"):
+            codice_pagina[e["notion"]] = norma_codice(e["id_bwf"])
+    codici_athletes = set(codice_pagina.values())
+
+    # 3. dal nome al codice: torneo per torneo dai tabelloni ufficiali (più sicuro, perché il sito
+    #    BWF a volte cambia la grafia di un nome), poi un elenco generale per i tornei senza tabellone
+    per_torneo = {nome: {norma_nome(s[0]): norma_codice(s[2]) for s in (t.get("squadre") or [])
+                         if len(s) > 2 and s[2]} for nome, t in tabelloni.items()}
+    generale, doppi = {}, set()
+    coppie_nomi = [(n, c) for m in per_torneo.values() for n, c in m.items()]
+    coppie_nomi += [(norma_nome(e.get("nome")), norma_codice(e.get("id_bwf"))) for e in elo]
+    for n, c in coppie_nomi:
+        if not n or not c:
+            continue
+        if generale.get(n, c) != c:
+            doppi.add(n)                      # stesso nome con due codici diversi: non lo uso
+        generale.setdefault(n, c)
+    for n in doppi:
+        generale.pop(n, None)
+
+    def codice_di(torneo, nome):
+        n = norma_nome(nome)
+        return (per_torneo.get(torneo) or {}).get(n) or generale.get(n)
+
+    # 4. squadre (giocatore o coppia, per specialità) e incontri, ognuno scritto una volta
+    indice_torneo = {t["nome"]: i for i, t in enumerate(tornei)}
+    elenco_tornei = [[t["nome"], t.get("categoria", ""), t.get("inizio", ""), t.get("fine", ""), t.get("stato", "")]
+                     for t in tornei]
+    squadre, indice_sq, ultima_vista = [], {}, {}
+
+    def squadra(torneo, disc, nome, noc, data):
+        """Indice della squadra: chiave = (codice, specialità); senza codice si usa il nome."""
+        codice = codice_di(torneo, nome)
+        chiave = (codice, disc) if codice else ("nome:" + norma_nome(nome), disc)
+        nome = re.sub(r"\s+", " ", nome or "").strip()
+        if chiave not in indice_sq:
+            indice_sq[chiave] = len(squadre)
+            squadre.append([nome, noc or "", codice or "", disc, 0, None])
+        k = indice_sq[chiave]
+        if data >= ultima_vista.get(k, ""):   # nome e NOC dell'incontro più recente
+            ultima_vista[k] = data
+            squadre[k][0], squadre[k][1] = nome, noc or squadre[k][1]
+        return k
+
+    righe = []
+    for m in incontri:
+        torneo, disc, turno, p1, n1, p2, n2, score, data = (list(m) + [""] * 9)[:9]
+        if (score or "").startswith("non disputato"):
+            continue                          # incontro non giocato: escluso, come nell'ELO
+        if torneo not in indice_torneo:       # torneo non più nel calendario: lo aggiungo in fondo
+            indice_torneo[torneo] = len(elenco_tornei)
+            elenco_tornei.append([torneo, "", data, data, "concluso"])
+        v, s = squadra(torneo, disc, p1, n1, data), squadra(torneo, disc, p2, n2, data)
+        righe.append([indice_torneo[torneo], data, SIGLA_TURNO.get(turno, turno), v, s, score])
+    righe.sort(key=lambda r: (r[1], ORDINE_TURNO.get(r[2], 9)))      # ordine cronologico
+
+    # 5. collegamento con la classifica WON e stato in Athletes
+    per_codice = {}
+    for k, sq in enumerate(squadre):
+        if sq[2]:
+            per_codice.setdefault(sq[2], []).append(k)
+    collegati = 0
+    for a in dati["atleti"]:
+        codice = codice_pagina.get(a["id"])
+        if not codice or codice not in per_codice:
+            continue
+        ks = per_codice[codice]
+        k = next((k for k in ks if squadre[k][3] == a["spec"]), ks[0])   # di norma la stessa specialità
+        a["sq"] = k
+        squadre[k][4] = 2
+        collegati += 1
+    for sq in squadre:
+        if sq[4] == 0 and sq[2] in codici_athletes:
+            sq[4] = 1                         # in Athletes, ma senza risultati nei db Risultati A e B
+        e = elo_per_chiave.get((sq[2], sq[3])) if sq[2] else None
+        if e and e.get("livello") in ("stabile", "provvisorio"):
+            sq[5] = [e.get("elo"), e.get("livello")]
+
+    dati["bwf"] = {"aggiornato": bwf.get("aggiornato"), "tornei": elenco_tornei,
+                   "squadre": squadre, "incontri": righe}
+    senza = [a["nome"] for a in dati["atleti"] if "sq" not in a]
+    altri = sum(1 for sq in squadre if sq[4] < 2)
+    print(f"Incontri BWF (badminton.json del {bwf.get('aggiornato')}): {len(righe)} incontri, {len(squadre)} giocatori "
+          f"e coppie; {collegati} collegati alla classifica WON, {altri} solo BWF "
+          f"({sum(1 for sq in squadre if sq[4] == 0)} non in Athletes); "
+          f"{sum(1 for r in righe if r[2] == 'F')} finali")
+    senza_codice = sum(1 for sq in squadre if not sq[2])
+    if senza_codice:
+        print(f"  {senza_codice} giocatori o coppie senza codice BWF: riconosciuti solo dal nome")
+    if senza:
+        print(f"  {len(senza)} atleti/coppie della classifica WON senza codice BWF o senza incontri: "
+              + ", ".join(senza[:12]) + (" …" if len(senza) > 12 else ""))
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--da-raw", help="file con {ath, res} salvati, per le prove")
@@ -226,6 +398,7 @@ def main():
     oggi = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=1))).date()
     dati = aggrega(ath, res, oggi)
     aggiungi_elo(dati, ath)               # novità del 17/11/2026
+    aggiungi_incontri(dati, ath)          # novità del 25/11/2026
     (CARTELLA / "badminton-performance.json").write_text(
         json.dumps(dati, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"badminton-performance.json: {len(dati['atleti'])} atleti/coppie, {dati['n_risultati']} risultati, "

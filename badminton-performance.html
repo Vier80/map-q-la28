@@ -10,17 +10,17 @@
 /* Stessa veste di judo-performance.html, nel verde menta di badminton.html. Dati: menta; Italia: azzurro. */
 :root {
   --bg: #ffffff; --fg: #1f3a31; --muted: #5f776e; --line: #d5ece3; --card: #f9fdfb; --soft: #edf8f3; --track: #dcefe7;
-  --ink: #5fb89a; --ink-2: #a8dcc9; --ink-t: #2f8a6c; --gold: #a8782a; --ita: #2a78d6; --grid: #e3f2ec;
+  --ink: #5fb89a; --ink-2: #a8dcc9; --ink-t: #2f8a6c; --gold: #a8782a; --ita: #2a78d6; --oro-bg: #fbf2dd; --arg: #6f7d86; --arg-bg: #eef2f4; --perso: #b0574a; --grid: #e3f2ec;
   --shadow: rgba(30, 90, 70, .10);
   --font: "Quicksand", "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #121a17; --fg: #e2f2ec; --muted: #93aca2; --line: #2c3d36; --card: #18221e; --soft: #1c2823; --track: #2a3a33;
-  --ink: #7fd1b3; --ink-2: #b5e6d4; --ink-t: #9fe0c8; --gold: #e3c15c; --ita: #3987e5; --grid: #22302a;
+  --ink: #7fd1b3; --ink-2: #b5e6d4; --ink-t: #9fe0c8; --gold: #e3c15c; --ita: #3987e5; --oro-bg: #3a3221; --arg: #b9c5cc; --arg-bg: #273036; --perso: #e39a8e; --grid: #22302a;
   --shadow: rgba(0, 0, 0, .4); color-scheme: dark } }
 :root[data-theme="dark"] {
   --bg: #121a17; --fg: #e2f2ec; --muted: #93aca2; --line: #2c3d36; --card: #18221e; --soft: #1c2823; --track: #2a3a33;
-  --ink: #7fd1b3; --ink-2: #b5e6d4; --ink-t: #9fe0c8; --gold: #e3c15c; --ita: #3987e5; --grid: #22302a;
+  --ink: #7fd1b3; --ink-2: #b5e6d4; --ink-t: #9fe0c8; --gold: #e3c15c; --ita: #3987e5; --oro-bg: #3a3221; --arg: #b9c5cc; --arg-bg: #273036; --perso: #e39a8e; --grid: #22302a;
   --shadow: rgba(0, 0, 0, .4); color-scheme: dark }
 * { box-sizing: border-box }
 body { margin: 0; background: var(--bg); color: var(--fg); font: 500 16px/1.4 var(--font) }
@@ -115,13 +115,44 @@ svg .punto-st { fill: var(--ink); stroke: var(--bg); stroke-width: 1.5 }
 
 #tip { position: fixed; z-index: 10; pointer-events: none; max-width: 260px; padding: 9px 12px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 6px 20px var(--shadow); font-size: .86rem; opacity: 0; transition: opacity .1s }
 #tip b { display: block; font-weight: 600 } #tip span { color: var(--muted) }
-dialog { max-width: 560px; width: calc(100% - 32px); border: 1.5px solid var(--line); border-radius: 22px; background: var(--bg); color: var(--fg); padding: 20px 22px }
+dialog { max-width: 680px; width: calc(100% - 32px); border: 1.5px solid var(--line); border-radius: 22px; background: var(--bg); color: var(--fg); padding: 20px 22px }
 dialog::backdrop { background: rgba(10, 40, 30, .35) }
 dialog h3 { font: 600 1.35rem/1.25 var(--font) }
 dialog table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: .9rem; font-variant-numeric: tabular-nums }
 dialog td, dialog th { padding: 6px 6px; border-bottom: 1px solid var(--line); text-align: left } dialog th { font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted) }
 dialog .num { text-align: right }
 dialog .chiudi { float: right; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer }
+/* ---- Incontri BWF nella scheda (scheda 14, 25/11/2026) ---- */
+dialog h4 { margin: 18px 0 4px; font: 600 1.05rem/1.25 var(--font) }
+dialog tr.r-oro td { background: var(--oro-bg) } dialog tr.r-arg td { background: var(--arg-bg) }
+.palmares { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px }
+.chip.oro { background: var(--oro-bg); border-color: var(--gold); color: var(--fg); font-weight: 600 }
+.chip.arg { background: var(--arg-bg); border-color: var(--arg); color: var(--fg); font-weight: 600 }
+.inc-filtri { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 3px; margin: 6px 0 4px; background: var(--soft); border: 1px solid var(--line); border-radius: 999px }
+.inc-filtri button { padding: 4px 12px; background: none; border: 0; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: .86rem; color: var(--muted) }
+.inc-filtri button[aria-pressed="true"] { background: var(--ink-t); color: var(--bg) }
+.inc-torneo { margin-top: 10px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden }
+.inc-torneo.oro { border-color: var(--gold); box-shadow: inset 4px 0 0 var(--gold) }
+.inc-torneo.arg { border-color: var(--arg); box-shadow: inset 4px 0 0 var(--arg) }
+.inc-testa { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 10px; padding: 8px 12px; background: var(--soft) }
+.inc-torneo.oro .inc-testa { background: var(--oro-bg) } .inc-torneo.arg .inc-testa { background: var(--arg-bg) }
+.inc-testa b { font-weight: 600 } .inc-testa small { display: block; color: var(--muted); font-size: .8rem }
+.esito { font-size: .84rem; font-weight: 700; white-space: nowrap; color: var(--muted) }
+.esito.oro { color: var(--gold) } .esito.arg { color: var(--arg) }
+dialog table.inc { margin-top: 0; font-size: .86rem }
+dialog table.inc td { padding: 5px 8px; vertical-align: top }
+dialog table.inc tr:last-child td { border-bottom: 0 }
+dialog table.inc td.turno { width: 40px; color: var(--muted); font-weight: 700 }
+dialog table.inc tr.fin td.turno { color: var(--fg) }
+.vs { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 7px; font-size: .78rem; font-weight: 700 }
+.vs.V { background: var(--ink); color: #10231c } .vs.S { background: none; color: var(--perso); border: 1.5px solid var(--perso) }
+dialog table.inc small { color: var(--muted) }
+button.avv { padding: 0; font: inherit; font-weight: 600; color: inherit; background: none; border: 0; border-bottom: 1px dotted var(--muted); cursor: pointer; text-align: left }
+button.avv:hover { color: var(--ink-t); border-bottom-color: var(--ink-t) }
+dialog table.inc td.punti { text-align: right; white-space: nowrap }
+dialog table.inc td.punti b { font-weight: 700 }
+dialog tr.r-oro td:nth-child(3), dialog tr.r-arg td:nth-child(3) { white-space: nowrap }
+@media (max-width: 560px) { dialog table.inc td.punti { white-space: normal; text-align: right } dialog table.inc td.punti small { display: block; white-space: nowrap } dialog { padding: 16px 14px } }
 .nota { color: var(--muted); font-size: .86rem; line-height: 1.55 }
 .firma { display: flex; justify-content: flex-end; align-items: center; gap: 10px; font-size: .78rem; letter-spacing: .08em; color: var(--muted) }
 .firma img { height: 36px; width: auto; display: block }
@@ -294,6 +325,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   const tot = [[A.length, "Atleti e coppie"], [dati.n_risultati, "Risultati"], [dati.eventi.length, "Tornei"], [new Set(A.map((a) => a.noc)).size, "NOC"]];
   tot.forEach(([n, t]) => { const b = el("div", "totale"); b.append(el("b", null, n.toLocaleString("it-IT")), el("span", null, t)); $("totali").append(b); });
   A.forEach((a) => { const o = el("option"); o.value = pulito(a.nome); $("nomi").append(o); });
+  // i nomi di chi è solo nei tornei BWF si aggiungono più sotto, quando sono pronti i dati BWF
 
   // tooltip
   const tip = $("tip");
@@ -324,10 +356,153 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       if (eloV(a) != null && a.elo.st && a.elo.st.length > 1) box.append(graficoElo(a.elo.st));
       dlg.append(box);
     }
+    // palmarès BWF in alto: titoli e finali perse si vedono subito (scheda 14, 25/11/2026)
+    const inc = BWF && a.sq != null ? incDi(a.sq) : null;
+    const gruppi = inc ? torneiBwf(inc) : [];
+    palmares(dlg, gruppi);
+    // tornei dell'indice WON (db Risultati A e B): 1° = 🏆, 2° = 🥈, righe colorate
+    dlg.append(el("h4", null, "Tornei dell'indice WON"));
     const t = el("table"); t.innerHTML = "<thead><tr><th>Torneo</th><th>Anno</th><th>Ris.</th><th class='num'>Rating</th><th class='num'>WON</th></tr></thead>";
     const tb = el("tbody");
-    [...a.storia].sort((x, y) => y[4] - x[4]).forEach(([ev, anno, ris, rat, w]) => { const tr = el("tr"); [ev, anno, ris, rat ?? "—", fmt(w, 2)].forEach((v, i) => { const td = el("td", i > 2 ? "num" : null, v); tr.append(td); }); tb.append(tr); });
-    t.append(tb); dlg.append(t); dlg.showModal();
+    [...a.storia].sort((x, y) => y[4] - x[4]).forEach(([ev, anno, ris, rat, w]) => {
+      const p = posto(ris), tr = el("tr", p === 1 ? "r-oro" : p === 2 ? "r-arg" : null);
+      [ev, anno, (p === 1 ? "🏆 " : p === 2 ? "🥈 " : "") + ris, rat ?? "—", fmt(w, 2)].forEach((v, i) => { const td = el("td", i > 2 ? "num" : null, v); tr.append(td); });
+      tb.append(tr);
+    });
+    t.append(tb); dlg.append(t);
+    // incontri vinti e persi dell'agente badminton (badminton.json → badminton-performance.json)
+    if (BWF) dlg.append(incontriBwf(inc, gruppi));
+    mostraScheda(dlg);
+  }
+  // la finestra può essere già aperta (clic sul nome di un avversario): in quel caso torna solo in cima
+  function mostraScheda(dlg) { if (!dlg.open) dlg.showModal(); dlg.scrollTop = 0; }
+
+  // ---- Incontri BWF (scheda 14, 25/11/2026). Vengono dal db Notion «🏸 Agente Badminton»
+  // attraverso badminton.json; dati.bwf è null se lo script non l'ha trovato. Ogni incontro è scritto una volta:
+  // TB[i] = [nome, categoria, inizio, fine, stato]
+  // SQ[k] = [nome BWF, NOC, codice BWF, specialità, athletes (2 classifica WON, 1 Athletes senza WON, 0 no), elo [valore, livello] | null]
+  // INC[j] = [indice torneo, data, turno, indice vincitore, indice sconfitto, punteggio dal lato del vincitore]
+  // a.sq = indice della squadra dell'atleta o coppia della classifica WON
+  const BWF = dati.bwf || null, TB = BWF ? BWF.tornei : [], SQ = BWF ? BWF.squadre : [], INC = BWF ? BWF.incontri : [];
+  const perSq = SQ.map(() => []);                       // per ogni squadra, i suoi incontri
+  INC.forEach((m, j) => { if (perSq[m[3]]) perSq[m[3]].push(j); if (perSq[m[4]]) perSq[m[4]].push(j); });
+  const daSq = new Map(A.filter((a) => a.sq != null).map((a) => [a.sq, a]));   // squadra → atleta della classifica WON
+  // punteggio dal lato di chi perde: "2-1 (18-21, 21-12)" → "1-2 (21-18, 12-21)"; "walkover" resta uguale
+  const giraPunti = (s) => (s || "").replace(/(\d+)-(\d+)/g, "$2-$1");
+  // incontri di una squadra nel formato della scheda: [torneo, data, turno, "V"|"S", avversario, punteggio dal suo lato]
+  const incDi = (k) => perSq[k].map((j) => { const m = INC[j], v = m[3] === k;
+    return [m[0], m[1], m[2], v ? "V" : "S", v ? m[4] : m[3], v ? m[5] : giraPunti(m[5])]; });
+  // scheda di chi è solo nei tornei BWF (non in Athletes, o in Athletes senza risultati WON)
+  function schedaBwf(k) {
+    const sq = SQ[k], dlg = $("scheda"); dlg.innerHTML = "";
+    const ch = el("button", "chiudi", "Chiudi"); ch.onclick = () => dlg.close();
+    dlg.append(ch, el("p", "etichetta", `${NOME[sq[3]] || sq[3]} · solo tornei BWF`), el("h3", null, `${pulito(sq[0])} (${sq[1] || "—"})`));
+    dlg.append(el("p", "nota", sq[4] === 1 ? "In Athletes, ma senza risultati nei db Risultati A e B: per questo non ha l'indice WON e non è in classifica."
+      : "Nessuna pagina di Athletes con questo codice BWF (non ancora in Athletes, oppure la pagina ha il campo «ID BWF» vuoto): niente indice WON."));
+    if (ELO) { const box = el("div", "elo-box"), p = el("p");
+      if (sq[5]) p.append("ELO ", el("b", null, nf(sq[5][0])), sq[5][1] === "provvisorio" ? " provvisorio" : "");
+      else p.textContent = `ELO non ancora mostrabile: compare da ${S_PROV} incontri in almeno ${S_TORNEI} tornei`;
+      box.append(p); dlg.append(box); }
+    const inc = incDi(k), gruppi = torneiBwf(inc);
+    palmares(dlg, gruppi);
+    dlg.append(incontriBwf(inc, gruppi));
+    mostraScheda(dlg);
+  }
+  // apre la scheda giusta: classifica WON se c'è, altrimenti la scheda solo BWF
+  const apriSq = (k) => (daSq.has(k) ? scheda(daSq.get(k)) : schedaBwf(k));
+  // suggerimenti della ricerca: anche chi è solo nei tornei BWF (accanto: NOC, specialità, «solo BWF»)
+  SQ.forEach((sq, k) => { if (daSq.has(k)) return; const o = el("option"); o.value = pulito(sq[0]); o.label = `${sq[1]} · ${sq[3]} · solo BWF`; $("nomi").append(o); });
+  function palmares(dlg, gruppi) {
+    const vinti = gruppi.filter((g) => g.esito === "oro"), finali = gruppi.filter((g) => g.esito === "arg");
+    if (!vinti.length && !finali.length) return;
+    const pal = el("div", "palmares");
+    vinti.forEach((g) => { const c = el("span", "chip oro", "🏆 " + corto(nomeCorto(g.t[0]), 34)); c.title = `Vince ${g.t[0]}`; pal.append(c); });
+    finali.forEach((g) => { const c = el("span", "chip arg", "🥈 " + corto(nomeCorto(g.t[0]), 34)); c.title = `Finale persa: ${g.t[0]}`; pal.append(c); });
+    dlg.append(pal);
+  }
+  const TURNO = { F: "Finale", SF: "Semifinale", QF: "Quarti", R16: "Ottavi", R32: "Sedicesimi", R64: "Trentaduesimi", G: "Gironi" };
+  const FUORI = { SF: "Fuori in semifinale", QF: "Fuori ai quarti", R16: "Fuori agli ottavi", R32: "Fuori ai sedicesimi", R64: "Fuori ai trentaduesimi", G: "Fuori ai gironi" };
+  const ORD_T = { G: 0, R64: 1, R32: 2, R16: 3, QF: 4, SF: 5, F: 6 };
+  // nome del torneo senza sponsor: "YEOSU VICTOR Korea Open 2026" → "Korea Open 2026" (il nome intero resta nel suggerimento)
+  function nomeCorto(n) {
+    // non toglie la parola maiuscola se dopo resterebbe solo «Open 2026» (es. «YONEX US Open», «HYLO Open»)
+    const GENERICI = /^(Open|Masters|International|Championships|Badminton)$/;
+    let p = n.replace(/\s+(powered|presented) by.*$/i, "").split(/\s+/);
+    while (p.length > 2 && /^[A-Z0-9&.'-]{2,}$/.test(p[0]) && /[A-Z]/.test(p[0]) && p[0] !== "BWF" && !GENERICI.test(p[1])) p.shift();
+    if (p[0] === "BWF" && p.length > 2) p.shift();
+    return p.join(" ");
+  }
+  const giornoCorto = (dt) => dt ? new Date(dt + "T12:00:00").toLocaleDateString("it-IT", { day: "numeric", month: "short", year: "numeric" }) : "";
+  // raggruppa gli incontri per torneo e decide l'esito: "oro" = titolo, "arg" = finale persa, "fuori" = eliminato, "corso" = in corso
+  function torneiBwf(inc) {
+    const per = new Map();
+    inc.forEach((r) => { if (!per.has(r[0])) per.set(r[0], []); per.get(r[0]).push(r); });
+    const out = [];
+    per.forEach((righe, i) => {
+      righe.sort((x, y) => x[1].localeCompare(y[1]) || (ORD_T[x[2]] ?? 9) - (ORD_T[y[2]] ?? 9));
+      const t = TB[i] || ["Torneo", "", "", "", ""], fin = righe.find((r) => r[2] === "F"), ultima = righe[righe.length - 1];
+      const persa = [...righe].reverse().find((r) => r[3] === "S" && r[2] !== "G");   // nei gironi una sconfitta non elimina
+      let esito, testo;
+      if (fin && fin[3] === "V") { esito = "oro"; testo = "🏆 Vince il torneo"; }
+      else if (fin) { esito = "arg"; testo = "🥈 Finale persa"; }
+      else if (persa) { esito = "fuori"; testo = FUORI[persa[2]] || "Eliminato"; }
+      else if (t[4] === "in corso" || t[4] === "da giocare") { esito = "corso"; testo = "In corso · " + (TURNO[ultima[2]] || ultima[2]); }
+      else if (ultima[2] === "G") { esito = "fuori"; testo = FUORI.G; }
+      else { esito = "fuori"; testo = "Ultimo turno registrato: " + (TURNO[ultima[2]] || ultima[2]); }
+      out.push({ i, t, righe, esito, testo, data: ultima[1] });
+    });
+    return out.sort((x, y) => y.data.localeCompare(x.data));          // il torneo più recente in alto
+  }
+  // set vinti in grassetto, poi i set; walkover e ritiro abbreviati come in badminton.html
+  function cellaPunti(td, s) {
+    const m = /^(\d+-\d+)\s*\((.*)\)$/.exec(s || "");
+    if (m) { td.append(el("b", null, m[1]), " ", el("small", null, m[2])); return; }
+    const r = /^(walkover|ritiro|squalifica)\s*(?:\((.*)\))?$/.exec(s || "");
+    if (r) { td.append(el("b", null, { walkover: "w.o.", ritiro: "rit.", squalifica: "sq." }[r[1]])); if (r[2]) td.append(" ", el("small", null, r[2])); return; }
+    td.textContent = s || "";
+  }
+  function incontriBwf(inc, gruppi) {
+    const box = el("div");
+    box.append(el("h4", null, "Incontri nei tornei BWF"));
+    if (!inc) { box.append(el("p", "nota", "Nessun incontro BWF collegato: il campo «ID BWF» di Athletes è vuoto e l'ELO non ha abbinato la pagina, oppure non ha giocato i tornei letti dall'agente.")); return box; }
+    if (!inc.length) { box.append(el("p", "nota", "Nessun incontro nei tornei BWF letti dall'agente badminton (Super 300 e superiori, World Tour Finals, Mondiali, dal 2026).")); return box; }
+    const v = inc.filter((r) => r[3] === "V").length, s = inc.length - v;
+    const nt = gruppi.filter((g) => g.esito === "oro").length, nf2 = gruppi.filter((g) => g.esito === "arg").length;
+    box.append(el("p", "nota", `${v} ${v === 1 ? "vinto" : "vinti"} e ${s} ${s === 1 ? "perso" : "persi"} in ${gruppi.length} ${gruppi.length === 1 ? "torneo" : "tornei"} · 🏆 ${nt} ${nt === 1 ? "titolo" : "titoli"} · 🥈 ${nf2} ${nf2 === 1 ? "finale persa" : "finali perse"}`));
+    // filtri: tutti, solo vinti, solo persi, solo le finali
+    const FILTRI = [["tutti", "Tutti"], ["V", "Vinti"], ["S", "Persi"], ["F", "Finali"]];
+    let filtro = "tutti";
+    const bar = el("div", "inc-filtri"), lista = el("div");
+    bar.setAttribute("role", "group"); bar.setAttribute("aria-label", "Filtra gli incontri");
+    const disegnaLista = () => {
+      lista.innerHTML = "";
+      [...bar.children].forEach((b, k) => b.setAttribute("aria-pressed", FILTRI[k][0] === filtro));
+      gruppi.forEach((g) => {
+        const righe = g.righe.filter((r) => filtro === "tutti" || (filtro === "F" ? r[2] === "F" : r[3] === filtro));
+        if (!righe.length) return;
+        const blocco = el("div", "inc-torneo " + g.esito), testa = el("div", "inc-testa"), sx = el("div");
+        const nome = el("b", null, nomeCorto(g.t[0])); nome.title = g.t[0];
+        sx.append(nome, el("small", null, [g.t[1], giornoCorto(g.t[3] || g.data)].filter(Boolean).join(" · ")));
+        testa.append(sx, el("span", "esito " + g.esito, g.testo));
+        const tab = el("table", "inc"), corpo = el("tbody");
+        righe.forEach((r) => {
+          const [, data, turno, esito, ia, punti] = r, [avv, noc, , specAvv] = SQ[ia] || ["?", ""];
+          const tr = el("tr", turno === "F" ? "fin" : null);
+          const c1 = el("td", "turno", turno === "G" ? "Gir." : turno); c1.title = `${TURNO[turno] || turno} · ${giornoCorto(data)}`;
+          const c2 = el("td"), pill = el("span", "vs " + esito, esito === "V" ? "V" : "P"); pill.title = esito === "V" ? "Vinto" : "Perso"; c2.append(pill);
+          const nomeAvv = el("button", "avv", pulito(avv)); nomeAvv.type = "button"; nomeAvv.title = "Apri la scheda"; nomeAvv.onclick = () => apriSq(ia);
+          const c3 = el("td"); c3.append(esito === "V" ? "b. " : "perde con ", nomeAvv, " ", el("small", null, noc));
+          const c4 = el("td", "punti"); cellaPunti(c4, punti);
+          tr.append(c1, c2, c3, c4); corpo.append(tr);
+        });
+        tab.append(corpo); blocco.append(testa, tab); lista.append(blocco);
+      });
+      if (!lista.children.length) lista.append(el("p", "nota", "Nessun incontro con questo filtro."));
+    };
+    FILTRI.forEach(([k, testo]) => { const b = el("button", null, testo); b.type = "button"; b.onclick = () => { filtro = k; disegnaLista(); }; bar.append(b); });
+    box.append(bar, lista); disegnaLista();
+    box.append(el("p", "nota", "Fonte: agente badminton (db Notion «🏸 Agente Badminton»), solo tabellone principale. «b.» = batte; il punteggio è dal lato dell'atleta o della coppia; w.o. = walkover, rit. = ritiro. Clicca un avversario per aprire la sua scheda."));
+    return box;
   }
 
   // andamento dell'ELO nella scheda: un punto per torneo (st = [[data, ELO, codice torneo], ...]).
@@ -367,8 +542,13 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   }
   $("cerca").addEventListener("change", (e) => {
     const q = e.target.value.trim().toLowerCase(); if (!q) return;
-    const a = A.find((x) => pulito(x.nome).toLowerCase() === q) || A.find((x) => x.nome.toLowerCase().includes(q));
+    const norm = (t) => pulito(t).toLowerCase().replace(/\s+/g, " ");
+    const soloBwf = SQ.map((sq, k) => k).filter((k) => !daSq.has(k));          // giocatori e coppie solo BWF
+    const esattoA = A.find((x) => norm(x.nome) === q), esattoB = soloBwf.find((k) => norm(SQ[k][0]) === q);
+    const a = esattoA || (esattoB == null ? A.find((x) => x.nome.toLowerCase().includes(q)) : null);
     if (a) { stato.spec = a.spec; stato.sel = a.id; disegna(); scheda(a); return; }
+    const k = esattoB ?? soloBwf.find((k) => norm(SQ[k][0]).includes(q));
+    if (k != null) { schedaBwf(k); return; }
     const n = A.find((x) => x.noc.toLowerCase() === q);
     if (n) { stato.sel = null; $("g-noc").scrollIntoView({ behavior: "smooth" }); }
   });
@@ -563,7 +743,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       I.append(card);
     });
     if (!I.children.length) I.append(el("p", "nota", "Nessun azzurro con risultati registrati."));
-    $("nota").textContent = `Indice WON calcolato con le formule dei db Risultati A e B: rating del torneo (🏟️) × peso del piazzamento (dal 18% per l'oro all'1% oltre il 16° posto; SF vale come 3° e QF come 5°) × prestigio (Mondiali 1,5; continentali 1,25; Risultati B 0,55) × peso dell'anno (2025: 0,4; 2026: 0,6; 2027: 0,8; 2028: 1). Solo categoria senior. Nei doppi la coppia conta come un unico atleta. Nel database sono registrati di norma i giocatori arrivati almeno ai quarti; tutti i turni solo ai Mondiali e in pochi altri tornei. Tornei considerati: ${dati.eventi.join(", ")}.` + (ELO ? ` ELO: calcolato su ogni incontro del tabellone principale dei tornei BWF Super 300, 500, 750 e 1000, delle World Tour Finals (gironi compresi) e dei Mondiali, dal 2026; nei doppi l'ELO è della coppia. Tutti partono da 1500 e ogni incontro sposta il punteggio secondo la forza dell'avversario, il livello del torneo (dai Super 300 ai Mondiali) e il turno (dal 92% dei primi turni al 100% della finale). Walkover: cambia solo chi rinuncia, di poco; ritiro: conta il 20, 40 o 60% secondo il set. Dopo 70 giorni senza incontri il valore torna piano piano verso 1500. È mostrato da ${S_PROV} incontri in almeno ${S_TORNEI} tornei («provvisorio» fino a ${S_STAB} incontri), altrimenti compare «—». ELO aggiornato al ${new Date(ELO.aggiornato + "T12:00:00").toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" })}: ${ELO.mostrati.toLocaleString("it-IT")} ELO mostrati su ${ELO.giocatori.toLocaleString("it-IT")} tra atleti e coppie.` : "");
+    $("nota").textContent = `Indice WON calcolato con le formule dei db Risultati A e B: rating del torneo (🏟️) × peso del piazzamento (dal 18% per l'oro all'1% oltre il 16° posto; SF vale come 3° e QF come 5°) × prestigio (Mondiali 1,5; continentali 1,25; Risultati B 0,55) × peso dell'anno (2025: 0,4; 2026: 0,6; 2027: 0,8; 2028: 1). Solo categoria senior. Nei doppi la coppia conta come un unico atleta. Nel database sono registrati di norma i giocatori arrivati almeno ai quarti; tutti i turni solo ai Mondiali e in pochi altri tornei. Tornei considerati: ${dati.eventi.join(", ")}.` + (ELO ? ` ELO: calcolato su ogni incontro del tabellone principale dei tornei BWF Super 300, 500, 750 e 1000, delle World Tour Finals (gironi compresi) e dei Mondiali, dal 2026; nei doppi l'ELO è della coppia. Tutti partono da 1500 e ogni incontro sposta il punteggio secondo la forza dell'avversario, il livello del torneo (dai Super 300 ai Mondiali) e il turno (dal 92% dei primi turni al 100% della finale). Walkover: cambia solo chi rinuncia, di poco; ritiro: conta il 20, 40 o 60% secondo il set. Dopo 70 giorni senza incontri il valore torna piano piano verso 1500. È mostrato da ${S_PROV} incontri in almeno ${S_TORNEI} tornei («provvisorio» fino a ${S_STAB} incontri), altrimenti compare «—». ELO aggiornato al ${new Date(ELO.aggiornato + "T12:00:00").toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" })}: ${ELO.mostrati.toLocaleString("it-IT")} ELO mostrati su ${ELO.giocatori.toLocaleString("it-IT")} tra atleti e coppie.` : "") + (BWF ? " Nella scheda di ogni atleta o coppia, e anche di chi è solo nei tornei BWF (si trova con la ricerca o cliccando un avversario): gli incontri vinti e persi nei tornei BWF dell'agente badminton (Super 300 e superiori, World Tour Finals, Mondiali), con 🏆 i tornei vinti e 🥈 le finali perse; gli stessi simboli segnano 1° e 2° posto nei tornei dell'indice WON." : "");
   }
 
   disegna();

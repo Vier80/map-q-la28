@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""ELO Judo (scheda 19, sessione 2) – repo map-q-la28 – versione 2.1 del 16/11/2026
+"""ELO Judo (scheda 19, sessione 2) – repo map-q-la28 – versione 2.2 del 26/11/2026
+
+Versione 2.2 (26/11/2026, scheda 13): oltre a judo-elo.json lo script salva judo-incontri.json,
+cioè tutti gli incontri usati nell'ELO (una riga per incontro, scritta una volta sola), per l'elenco
+degli incontri vinti e persi nella scheda di ogni judoka di judo-performance.html.
+Nessuna modifica alle regole dell'ELO né alla scrittura in Notion.
 
 Versione 2.1 (16/11/2026): l'API di Notion restituisce al massimo 10.000 righe per ricerca.
 La lettura degli incontri (leggi_incontri) è divisa in 14 ricerche, una per categoria di peso
@@ -22,6 +27,9 @@ Che cosa fa
      - `ID IJF` solo dove è vuoto;
      - le righe nuove per i judoka DA CREARE;
    e salva judo-elo.json (storico, incontri e tornei per atleta) per la pagina judo-performance.html.
+6. Salva judo-incontri.json (dalla versione 2.2): l'elenco di tutti gli incontri usati nell'ELO, per la
+   scheda di ogni judoka nella stessa pagina. Lo salva anche in "Solo prova" (ma il workflow lo mette
+   nel repository solo nel lancio vero).
 
 REGOLA FONDAMENTALE (scheda 19 §5.9): nessuna operazione su Athletes elimina dati già inseriti.
 Lo script non archivia righe, non svuota campi e nelle righe esistenti scrive solo `ELO` e,
@@ -102,6 +110,11 @@ PAUSA_NOTION = 0.35          # secondi tra una scrittura e l'altra (Notion accet
 TEMPO_MAX_MINUTI = float(os.getenv("TEMPO_MAX_MINUTI", "").strip() or 165)
 
 FILE_JSON = CARTELLA / "judo-elo.json"
+FILE_INCONTRI = CARTELLA / "judo-incontri.json"   # versione 2.2: incontri per la pagina (scheda 13)
+# Sigle corte dei turni in judo-incontri.json (il file resta più piccolo); la pagina le traduce in italiano
+SIGLA_TURNO = {"Round 1": "R1", "Round of 128": "R128", "Round of 64": "R64", "Round of 32": "R32",
+               "Round of 16": "R16", "Quarter-Final": "QF", "Repechage": "REP", "Semi-Final": "SF",
+               "Bronze": "B", "Final": "F"}
 FILE_RAPPORTO = CARTELLA / "rapporto_elo.txt"
 CSV_ABBINATI = CARTELLA / "elo_abbinati.csv"
 CSV_DA_CREARE = CARTELLA / "elo_da_creare.csv"
@@ -365,7 +378,12 @@ def con_inattivita(rating, ultima, giorno):
 
 
 def calcola_elo(incontri, oggi):
-    """Calcola l'ELO di tutti i judoka. Restituisce (dizionario per ID IJF, scarti per motivo)."""
+    """Calcola l'ELO di tutti i judoka.
+
+    Restituisce (dizionario per ID IJF, scarti per motivo, modi di vittoria, incontri usati).
+    Versione 2.2: gli incontri usati sono restituiti come elenco (in ordine di calcolo), non più
+    solo come numero, perché servono anche a salva_incontri.
+    """
     scarti = Counter()
     validi = []
     for m in incontri:
@@ -434,7 +452,7 @@ def calcola_elo(incontri, oggi):
             a["livello"] = "provvisorio"
         else:
             a["livello"] = "stabile"
-    return A, scarti, modi, len(validi)
+    return A, scarti, modi, validi
 
 
 # ====================================================================== NOMI E ABBINAMENTO
@@ -668,6 +686,70 @@ def salva_json(A, esiti, tornei, oggi):
     FILE_JSON.write_text(json.dumps(dati, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
 
+def punteggio_vincitore(score, vince):
+    """Score del db ("bianco - blu") girato dal lato del vincitore: "vincitore - sconfitto".
+
+    Esempi: vince il blu (2) con "1S - I (GS)"  ->  "I - 1S (GS)"; "n.d." resta "n.d.".
+    Così la pagina sa sempre che il lato sinistro è quello di chi ha vinto e, per una sconfitta,
+    deve solo girare i due lati.
+    """
+    s = (score or "").strip()
+    if vince != 2 or " - " not in s:
+        return s
+    golden = " (GS)" if "(GS)" in s else ""
+    sinistra, destra = s.replace("(GS)", "").strip().split(" - ", 1)
+    return f"{destra.strip()} - {sinistra.strip()}{golden}"
+
+
+def salva_incontri(A, esiti, validi, oggi):
+    """judo-incontri.json: gli incontri usati nell'ELO, per la scheda del judoka (scheda 13, 26/11/2026).
+
+    Ogni incontro è scritto UNA volta sola; la pagina lo assegna al vincitore e allo sconfitto.
+    Formato (liste invece di dizionari, per un file più piccolo):
+      categorie = ["U|-60 kg", ...]                       14 categorie (U = uomini, D = donne)
+      tornei    = [[id torneo IJF, nome, tipo, primo giorno, ultimo giorno], ...]
+      judoka    = [[ID IJF, nome IJF, NOC, id Athletes (senza trattini) o null, genere, ultima categoria,
+                    ELO (solo se mostrabile, altrimenti null), livello], ...]
+      incontri  = [[indice torneo, data, turno (sigla di SIGLA_TURNO), indice categoria,
+                    indice vincitore, indice sconfitto, punteggio dal lato del vincitore], ...]
+    L'ELO dei judoka «nascosti» (meno di 10 incontri o un solo torneo, §5.7) non entra nel file.
+    """
+    categorie = [f"{'U' if g == 'Men' else 'D'}|{kg} kg" for g, pesi in PESI.items() for kg in pesi]
+    idx_cat = {c: i for i, c in enumerate(categorie)}
+    # judoka: nell'ordine del loro primo incontro (gli indici restano stabili da una settimana all'altra)
+    idx_j, judoka = {}, []
+    for m in validi:
+        for pid in (m["id1"], m["id2"]):
+            if pid in idx_j:
+                continue
+            a, e = A[pid], esiti.get(pid, {})
+            mostrabile = a["livello"] in ("stabile", "provvisorio")
+            idx_j[pid] = len(judoka)
+            judoka.append([pid, a["nome"], a["noc"], (e.get("page") or "").replace("-", "") or None,
+                           "U" if a["ultimo_gender"] == "Men" else "D", a["ultima_cat"],
+                           round(a["elo"]) if mostrabile else None, a["livello"]])
+    # tornei: primo e ultimo giorno ricavati dagli incontri
+    idx_t, tornei = {}, []
+    for m in validi:
+        if m["cid"] not in idx_t:
+            idx_t[m["cid"]] = len(tornei)
+            tornei.append([m["cid"], m.get("torneo", ""), m["tipo"], m["data"], m["data"]])
+        t = tornei[idx_t[m["cid"]]]
+        t[3], t[4] = min(t[3], m["data"]), max(t[4], m["data"])
+    # incontri: stesso ordine del calcolo ELO (data, turno, ID Univoco)
+    righe = []
+    for m in validi:
+        vinc, perd = (m["id1"], m["id2"]) if m["vince"] == 1 else (m["id2"], m["id1"])
+        chiave_cat = f"{'U' if m['gender'] == 'Men' else 'D'}|{m['cat']}"
+        righe.append([idx_t[m["cid"]], m["data"], SIGLA_TURNO.get(m["turno"], m["turno"]),
+                      idx_cat.get(chiave_cat, -1), idx_j[vinc], idx_j[perd],
+                      punteggio_vincitore(m["score"], m["vince"])])
+    dati = {"aggiornato": oggi.isoformat(), "categorie": categorie, "tornei": tornei,
+            "judoka": judoka, "incontri": righe}
+    FILE_INCONTRI.write_text(json.dumps(dati, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return len(righe), len(judoka), len(tornei)
+
+
 # ====================================================================== MAIN
 def main():
     ap = argparse.ArgumentParser()
@@ -692,8 +774,8 @@ def main():
         f"con ID IJF già compilato: {sum(1 for r in athletes if r['id_ijf'])}")
 
     # 2. calcolo
-    A, scarti, modi, n_validi = calcola_elo(incontri, oggi)
-    log(f"Incontri usati nell'ELO: {n_validi}")
+    A, scarti, modi, validi = calcola_elo(incontri, oggi)
+    log(f"Incontri usati nell'ELO: {len(validi)}")
     for motivo, n in scarti.most_common():
         log(f"  ATTENZIONE {n} incontri: {motivo}")
     log("Modo di vittoria: " + ", ".join(f"{k} {v}" for k, v in modi.most_common()))
@@ -744,6 +826,9 @@ def main():
     stampa_classifiche(A, esiti)
     salva_json(A, esiti, tornei, oggi)
     log(f"\n{FILE_JSON.name}: {len(A)} judoka")
+    n_inc, n_jud, n_tor = salva_incontri(A, esiti, validi, oggi)     # versione 2.2 (scheda 13)
+    log(f"{FILE_INCONTRI.name}: {n_inc} incontri, {n_jud} judoka, {n_tor} tornei "
+        f"({FILE_INCONTRI.stat().st_size / 1024:.0f} KB)")
 
     if solo_prova:
         log("\nProva terminata: non è stato scritto nulla su Notion.")
@@ -795,6 +880,7 @@ def main():
             log(f"  Errore nel creare {a['nome']}: {e}")
             errori += 1
     salva_json(A, esiti, tornei, oggi)           # di nuovo, con gli id delle righe appena create
+    salva_incontri(A, esiti, validi, oggi)       # anche qui, per lo stesso motivo (versione 2.2)
     log(f"Righe aggiornate: {aggiornate} · invariate: {invariate} · create: {create} · errori: {errori} · "
         f"incerti non scritti: {len(inc)} · minuti: {minuti():.0f}")
     if interrotto:

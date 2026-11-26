@@ -11,16 +11,19 @@
 :root {
   --bg: #ffffff; --fg: #3b2224; --muted: #7b6466; --line: #f0dcdc; --card: #fffafa; --soft: #fbefef; --track: #f4e4e4;
   --ink: #cf6b6e; --ink-2: #f2a9ab; --ink-t: #b04a4e; --gold: #a8782a; --ita: #2a78d6; --grid: #f1e4e4;
+  --oro-bg: #fbf2dd; --arg: #6f7d86; --arg-bg: #eef2f4; --bro: #9a5b2e; --bro-bg: #f3dfd0;
   --shadow: rgba(110, 40, 44, .10);
   --font: "Quicksand", "Nunito Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #1c1213; --fg: #f1e3e3; --muted: #b59c9e; --line: #433032; --card: #241819; --soft: #2b1d1e; --track: #3a2a2c;
   --ink: #d9686c; --ink-2: #f6c0c1; --ink-t: #f2a9ab; --gold: #e3c15c; --ita: #3987e5; --grid: #33242a;
+  --oro-bg: #3a3221; --arg: #b9c5cc; --arg-bg: #273036; --bro: #e0a274; --bro-bg: #3a2a20;
   --shadow: rgba(0, 0, 0, .4); color-scheme: dark } }
 :root[data-theme="dark"] {
   --bg: #1c1213; --fg: #f1e3e3; --muted: #b59c9e; --line: #433032; --card: #241819; --soft: #2b1d1e; --track: #3a2a2c;
   --ink: #d9686c; --ink-2: #f6c0c1; --ink-t: #f2a9ab; --gold: #e3c15c; --ita: #3987e5; --grid: #33242a;
+  --oro-bg: #3a3221; --arg: #b9c5cc; --arg-bg: #273036; --bro: #e0a274; --bro-bg: #3a2a20;
   --shadow: rgba(0, 0, 0, .4); color-scheme: dark }
 * { box-sizing: border-box }
 body { margin: 0; background: var(--bg); color: var(--fg); font: 500 16px/1.4 var(--font) }
@@ -115,13 +118,47 @@ svg .punto-st { fill: var(--ink); stroke: var(--bg); stroke-width: 1.5 }
 
 #tip { position: fixed; z-index: 10; pointer-events: none; max-width: 260px; padding: 9px 12px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 6px 20px var(--shadow); font-size: .86rem; opacity: 0; transition: opacity .1s }
 #tip b { display: block; font-weight: 600 } #tip span { color: var(--muted) }
-dialog { max-width: 560px; width: calc(100% - 32px); border: 1.5px solid var(--line); border-radius: 22px; background: var(--bg); color: var(--fg); padding: 20px 22px }
+dialog { max-width: 680px; width: calc(100% - 32px); border: 1.5px solid var(--line); border-radius: 22px; background: var(--bg); color: var(--fg); padding: 20px 22px }
 dialog::backdrop { background: rgba(30, 10, 12, .35) }
 dialog h3 { font: 600 1.35rem/1.25 var(--font) }
 dialog table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: .9rem; font-variant-numeric: tabular-nums }
 dialog td, dialog th { padding: 6px 6px; border-bottom: 1px solid var(--line); text-align: left } dialog th { font-size: .74rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted) }
 dialog .num { text-align: right }
 dialog .chiudi { float: right; background: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer }
+/* ---- Incontri IJF nella scheda (scheda 13, 26/11/2026): stessa impostazione della pagina badminton ---- */
+dialog h4 { margin: 18px 0 4px; font: 600 1.05rem/1.25 var(--font) }
+dialog tr.r-oro td { background: var(--oro-bg) } dialog tr.r-arg td { background: var(--arg-bg) } dialog tr.r-bro td { background: var(--bro-bg) }
+.palmares { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px }
+.chip.oro { background: var(--oro-bg); border-color: var(--gold); color: var(--fg); font-weight: 600 }
+.chip.arg, .chip.fin { background: var(--arg-bg); border-color: var(--arg); color: var(--fg); font-weight: 600 }
+.chip.bro { background: var(--bro-bg); border-color: var(--bro); color: var(--fg); font-weight: 600 }
+.inc-filtri { display: inline-flex; flex-wrap: wrap; gap: 2px; padding: 3px; margin: 6px 0 4px; background: var(--soft); border: 1px solid var(--line); border-radius: 999px }
+.inc-filtri button { padding: 4px 12px; background: none; border: 0; border-radius: 999px; cursor: pointer; font-weight: 600; font-size: .86rem; color: var(--muted) }
+.inc-filtri button[aria-pressed="true"] { background: var(--ink); color: #fff }
+.inc-torneo { margin-top: 10px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden }
+.inc-torneo.oro { border-color: var(--gold); box-shadow: inset 4px 0 0 var(--gold) }
+.inc-torneo.arg, .inc-torneo.fin { border-color: var(--arg); box-shadow: inset 4px 0 0 var(--arg) }
+.inc-torneo.bro { border-color: var(--bro); box-shadow: inset 4px 0 0 var(--bro) }
+.inc-testa { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 4px 10px; padding: 8px 12px; background: var(--soft) }
+.inc-torneo.oro .inc-testa { background: var(--oro-bg) } .inc-torneo.arg .inc-testa, .inc-torneo.fin .inc-testa { background: var(--arg-bg) } .inc-torneo.bro .inc-testa { background: var(--bro-bg) }
+.inc-testa b { font-weight: 600 } .inc-testa small { display: block; color: var(--muted); font-size: .8rem }
+.esito { font-size: .84rem; font-weight: 700; color: var(--muted); text-align: right }
+.esito.oro { color: var(--gold) } .esito.arg, .esito.fin { color: var(--arg) } .esito.bro { color: var(--bro) }
+dialog table.inc { margin-top: 0; font-size: .86rem }
+dialog table.inc td { padding: 5px 8px; vertical-align: top }
+dialog table.inc tr:last-child td { border-bottom: 0 }
+dialog table.inc td.turno { width: 44px; color: var(--muted); font-weight: 700; white-space: nowrap }
+dialog table.inc tr.fin td.turno { color: var(--fg) }
+.vs { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 7px; font-size: .78rem; font-weight: 700 }
+.vs.V { background: var(--ink-t); color: var(--bg) } .vs.S { background: none; color: var(--muted); border: 1.5px solid var(--muted) }
+dialog table.inc small { color: var(--muted) }
+button.avv { padding: 0; font: inherit; font-weight: 600; color: inherit; background: none; border: 0; border-bottom: 1px dotted var(--muted); cursor: pointer; text-align: left }
+button.avv:hover { color: var(--ink-t); border-bottom-color: var(--ink-t) }
+dialog table.inc td.punti { text-align: right; white-space: nowrap }
+dialog table.inc td.punti b { font-weight: 700 }
+dialog tr.r-oro td:nth-child(3), dialog tr.r-arg td:nth-child(3), dialog tr.r-bro td:nth-child(3) { white-space: nowrap }
+dialog table.inc td.vs-c { width: 34px; padding-left: 0; padding-right: 0 }
+@media (max-width: 560px) { dialog { padding: 16px 14px } dialog table.inc td { padding: 5px 5px } dialog table.inc td.turno { width: 36px } }
 .nota { color: var(--muted); font-size: .86rem; line-height: 1.55 }
 .firma { display: flex; justify-content: flex-end; align-items: center; gap: 10px; font-size: .78rem; letter-spacing: .08em; color: var(--muted) }
 .firma img { height: 36px; width: auto; display: block }
@@ -204,7 +241,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
 
   <section class="pannello">
     <h3 id="titolo-classifica">Classifica WON</h3>
-    <p class="sotto">Clicca un atleta per vedere i tornei che compongono il suo punteggio.</p>
+    <p class="sotto">Clicca un atleta per vedere i tornei che compongono il suo punteggio e i suoi incontri IJF.</p>
     <div style="overflow-x:auto"><table class="classifica" id="classifica"></table></div>
     <button class="altri" id="altri" type="button"></button>
   </section>
@@ -229,6 +266,8 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
 <dialog id="scheda"></dialog>
 
 <script id="dati-inline" type="application/json">null</script>
+<!-- come dati-inline, ma per gli incontri (judo-incontri.json): serve solo alle anteprime senza rete -->
+<script id="incontri-inline" type="application/json">null</script>
 <script>
 (async function () {
   const $ = (id) => document.getElementById(id);
@@ -238,6 +277,11 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   const sv = (tag, attrs = {}, testo) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (testo != null) e.textContent = testo; return e; };
   const cognome = (n) => { const p = n.replace(/[⁰¹²³⁴⁵⁶⁷⁸⁹ˣᵒᶜʷ⁺⛔️🧪]/g, "").trim().split(" "); const up = p.filter((w) => w.length > 1 && w === w.toUpperCase()); return (up.length ? up.join(" ") : p[p.length - 1]); };
   const pulito = (n) => n.replace(/\s*[⁰¹²³⁴⁵⁶⁷⁸⁹ˣᵒᶜʷ⁺]+.*$/, "").replace(/[⛔️🧪]/g, "").trim();
+
+  // Incontri IJF (scheda 13, 26/11/2026): judo-incontri.json si comincia a scaricare subito, in parallelo,
+  // ma la pagina non lo aspetta: lo usa quando arriva (è più grande di judo-performance.json).
+  const pIjf = fetch("judo-incontri.json?v=" + Date.now()).then((r) => (r.ok ? r.json() : Promise.reject()))
+    .catch(() => { try { return JSON.parse($("incontri-inline").textContent); } catch (e) { return null; } });
 
   let dati;
   try { dati = await fetch("judo-performance.json?v=" + Date.now()).then((r) => { if (!r.ok) throw 0; return r.json(); }); }
@@ -300,6 +344,7 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
   // scheda atleta
   function scheda(a) {
     const dlg = $("scheda"); dlg.innerHTML = "";
+    riapri = () => scheda(a);              // per ridisegnarla quando arrivano gli incontri IJF
     const ch = el("button", "chiudi", "Chiudi"); ch.onclick = () => dlg.close();
     const lista = perCat(a.genere, a.cat), pos = lista.indexOf(a) + 1;
     dlg.append(ch, el("p", "etichetta", `${a.genere === "U" ? "Uomini" : "Donne"} ${a.cat} · ${pos}° su ${lista.length}`), el("h3", null, `${a.flag} ${a.nome}`));
@@ -314,10 +359,166 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       if (eloV(a) != null && a.elo.st && a.elo.st.length > 1) box.append(graficoElo(a.elo.st));
       dlg.append(box);
     }
+    // palmarès IJF in alto: tornei vinti, finali perse e bronzi si vedono subito (scheda 13, 26/11/2026)
+    const k = juDiA.get(a.id), inc = IJF && k != null ? incDi(k) : null;
+    const gruppi = inc ? torneiIjf(inc) : [];
+    palmares(dlg, gruppi);
+    // tornei dell'indice WON (db Risultati A e B): 1° = 🏆 oro, 2° = 🥈 argento, 3° = 🥉 bronzo
+    dlg.append(el("h4", null, "Tornei dell'indice WON"));
     const t = el("table"); t.innerHTML = "<thead><tr><th>Torneo</th><th>Anno</th><th>Ris.</th><th class='num'>Rating</th><th class='num'>WON</th></tr></thead>";
     const tb = el("tbody");
-    [...a.storia].sort((x, y) => y[4] - x[4]).forEach(([ev, anno, ris, rat, w]) => { const tr = el("tr"); [ev, anno, ris, rat ?? "—", fmt(w, 2)].forEach((v, i) => { const td = el("td", i > 2 ? "num" : null, v); tr.append(td); }); tb.append(tr); });
-    t.append(tb); dlg.append(t); dlg.showModal();
+    [...a.storia].sort((x, y) => y[4] - x[4]).forEach(([ev, anno, ris, rat, w]) => {
+      const p = posto(ris), tr = el("tr", p === 1 ? "r-oro" : p === 2 ? "r-arg" : p === 3 ? "r-bro" : null);
+      [ev, anno, (p === 1 ? "🏆 " : p === 2 ? "🥈 " : p === 3 ? "🥉 " : "") + ris, rat ?? "—", fmt(w, 2)].forEach((v, i) => { const td = el("td", i > 2 ? "num" : null, v); tr.append(td); });
+      tb.append(tr);
+    });
+    t.append(tb); dlg.append(t);
+    // incontri vinti e persi dell'agente judo (judo-incontri.json); niente sezione se il file non c'è
+    if (IJF !== null) dlg.append(incontriIjf(inc, gruppi));
+    mostraScheda(dlg);
+  }
+  // la finestra può essere già aperta (clic sul nome di un avversario): in quel caso torna solo in cima
+  function mostraScheda(dlg) { if (!dlg.open) dlg.showModal(); dlg.scrollTop = 0; }
+  $("scheda").addEventListener("close", () => (riapri = null));
+
+  // ---- Incontri IJF (scheda 13, 26/11/2026). Vengono dal db Notion «🥋 Agente Judo» attraverso
+  // judo-incontri.json, che lo script ELO salva ogni lunedì. Ogni incontro è scritto una volta sola:
+  // CI = categorie ["U|-60 kg", ...]
+  // TI[i] = [id torneo IJF, nome, tipo, primo giorno, ultimo giorno]
+  // JU[k] = [ID IJF, nome IJF, NOC, id Athletes | null, genere, ultima categoria, ELO (solo se mostrabile) | null, livello]
+  // IN[j] = [indice torneo, data, turno, indice categoria, indice vincitore, indice sconfitto, punteggio dal lato del vincitore]
+  let IJF;                    // undefined = in caricamento · null = file mancante · oggetto = dati pronti
+  let riapri = null;          // funzione che ridisegna la scheda aperta (quando arrivano gli incontri)
+  let TI = [], JU = [], IN = [], CI = [], perJu = [];
+  const daJu = new Map(), juDiA = new Map();   // judoka IJF → atleta della classifica WON, e viceversa
+  function preparaIjf(d) {
+    IJF = d && d.incontri ? d : null;
+    if (!IJF) return;
+    ({ tornei: TI, judoka: JU, incontri: IN, categorie: CI } = IJF);
+    perJu = JU.map(() => []);                    // per ogni judoka, i suoi incontri
+    IN.forEach((m, j) => { perJu[m[4]].push(j); perJu[m[5]].push(j); });
+    // collegamento con la classifica WON: id della riga di Athletes (lo stesso dell'ELO)
+    const perId = new Map(A.map((a) => [a.id, a]));
+    JU.forEach((ju, k) => { const a = ju[3] && perId.get(ju[3]); if (a && !juDiA.has(a.id)) { daJu.set(k, a); juDiA.set(a.id, k); } });
+    // suggerimenti della ricerca: anche i judoka che non sono nella classifica WON
+    JU.forEach((ju, k) => { if (daJu.has(k)) return; const o = el("option"); o.value = pulito(ju[1]); o.label = `${ju[2]} · ${ju[4] === "U" ? "Uomini" : "Donne"} ${ju[5]} · solo IJF`; $("nomi").append(o); });
+  }
+  // punteggio dal lato dello sconfitto: "I 1S - 2S (GS)" → "2S - I 1S (GS)"; "n.d." resta uguale
+  function giraPunti(s) {
+    if (!s || !s.includes(" - ")) return s;
+    const gs = s.includes("(GS)") ? " (GS)" : "", [sx, dx] = s.replace("(GS)", "").trim().split(" - ");
+    return `${dx.trim()} - ${sx.trim()}${gs}`;
+  }
+  // incontri di un judoka: [torneo, data, turno, categoria, "V"|"S", avversario, punteggio dal suo lato]
+  const incDi = (k) => perJu[k].map((j) => { const m = IN[j], v = m[4] === k;
+    return [m[0], m[1], m[2], m[3], v ? "V" : "S", v ? m[5] : m[4], v ? m[6] : giraPunti(m[6])]; });
+  // apre la scheda giusta: classifica WON se c'è, altrimenti la scheda «solo tornei IJF»
+  const apriJu = (k) => (daJu.has(k) ? scheda(daJu.get(k)) : schedaIjf(k));
+  const etichettaCat = (c) => { const [g, kg] = (c || "|").split("|"); return `${g === "U" ? "Uomini" : g === "D" ? "Donne" : ""} ${kg}`.trim(); };
+  // scheda di chi ha incontri IJF ma non è nella classifica WON
+  function schedaIjf(k) {
+    const ju = JU[k], dlg = $("scheda"); dlg.innerHTML = "";
+    riapri = () => schedaIjf(k);
+    const ch = el("button", "chiudi", "Chiudi"); ch.onclick = () => dlg.close();
+    dlg.append(ch, el("p", "etichetta", `${ju[4] === "U" ? "Uomini" : "Donne"} ${ju[5]} · solo tornei IJF`), el("h3", null, `${pulito(ju[1])} (${ju[2] || "—"})`));
+    dlg.append(el("p", "nota", ju[3] ? "In Athletes, ma senza risultati nei db Risultati A e B: per questo non ha l'indice WON e non è nella classifica."
+      : "Non ancora collegato a una pagina di Athletes (judoka «incerto» da controllare nell'elenco dell'ELO): niente indice WON."));
+    const inc = incDi(k), gruppi = torneiIjf(inc), nt = new Set(inc.map((r) => r[0])).size, nv = inc.filter((r) => r[4] === "V").length;
+    if (ELO) { const box = el("div", "elo-box"), p = el("p");
+      if (ju[6] != null) p.append("ELO ", el("b", null, nf(ju[6])), `${ju[7] === "provvisorio" ? " provvisorio" : ""} · ${nv} vittorie su ${inc.length} incontri in ${nt} ${nt === 1 ? "torneo" : "tornei"}`);
+      else p.textContent = `${inc.length} incontri in ${nt} ${nt === 1 ? "torneo" : "tornei"} dal 1° gennaio 2026: l'ELO compare da 10 incontri in almeno 2 tornei`;
+      box.append(p); dlg.append(box); }
+    palmares(dlg, gruppi);
+    dlg.append(incontriIjf(inc, gruppi));
+    mostraScheda(dlg);
+  }
+  // nome del torneo più corto: senza «Individuals» finale e senza il paese dopo il trattino (il nome intero resta nel suggerimento)
+  const nomeCorto = (n) => (n || "").replace(/\s+(Individuals|Ind)$/i, "").replace(/\s+-\s+[^-]+$/, "").trim();
+  const giornoCorto = (dt) => dt ? new Date(dt + "T12:00:00").toLocaleDateString("it-IT", { day: "numeric", month: "short", year: "numeric" }) : "";
+  const TURNO = { R1: "Primo turno", R128: "Sessantaquattresimi", R64: "Trentaduesimi", R32: "Sedicesimi", R16: "Ottavi", QF: "Quarti", REP: "Ripescaggio", SF: "Semifinale", B: "Finale per il bronzo", F: "Finale" };
+  const SIGLA = { R1: "T1", REP: "Rip.", B: "Br." };   // sigla nella colonna del turno (le altre restano come sono)
+  const FUORI = { REP: "7° posto · ripescaggio perso", QF: "Fuori ai quarti", R16: "Fuori agli ottavi", R32: "Fuori ai sedicesimi", R64: "Fuori ai trentaduesimi", R128: "Fuori ai sessantaquattresimi", R1: "Fuori al primo turno" };
+  const ORD_T = { R1: 0, R128: 1, R64: 2, R32: 3, R16: 4, QF: 5, REP: 6, SF: 7, B: 8, F: 9 };   // come l'ELO (scheda 19 §5.5)
+  // raggruppa per torneo e categoria e decide l'esito:
+  // "oro" = vince la finale · "arg" = perde la finale · "bro" = vince la finale per il bronzo ·
+  // "fin" = vince la semifinale ma la finale non è registrata (forfait: l'IJF non la scrive come incontro) · "fuori" = il resto
+  function torneiIjf(inc) {
+    const per = new Map();
+    inc.forEach((r) => { const c = r[0] + "|" + r[3]; if (!per.has(c)) per.set(c, []); per.get(c).push(r); });
+    const out = [];
+    per.forEach((righe) => {
+      righe.sort((x, y) => x[1].localeCompare(y[1]) || (ORD_T[x[2]] ?? 5.5) - (ORD_T[y[2]] ?? 5.5));
+      const t = TI[righe[0][0]] || ["", "Torneo", "", "", ""], cat = CI[righe[0][3]] || "";
+      const fin = righe.find((r) => r[2] === "F"), bro = righe.find((r) => r[2] === "B"), u = righe[righe.length - 1];
+      let esito = "fuori", testo;
+      if (fin) [esito, testo] = fin[4] === "V" ? ["oro", "🏆 Vince il torneo"] : ["arg", "🥈 Finale persa"];
+      else if (bro) [esito, testo] = bro[4] === "V" ? ["bro", "🥉 Bronzo"] : ["fuori", "5° posto · finale per il bronzo persa"];
+      else if (u[2] === "SF" && u[4] === "V") [esito, testo] = ["fin", "🏅 Finalista · finale non disputata"];
+      else if (u[2] === "SF") testo = "Semifinale persa · finale per il bronzo non disputata";
+      else if (u[2] === "REP" && u[4] === "V") testo = "Vince il ripescaggio · finale per il bronzo non disputata";
+      else if (u[4] === "S") testo = FUORI[u[2]] || "Eliminato";
+      else testo = "Ultimo turno registrato: " + (TURNO[u[2]] || u[2]);
+      out.push({ t, cat, righe, esito, testo, data: u[1] });
+    });
+    return out.sort((x, y) => y.data.localeCompare(x.data));          // il torneo più recente in alto
+  }
+  function palmares(dlg, gruppi) {
+    const voci = [["oro", "🏆", "Vince"], ["arg", "🥈", "Finale persa:"], ["fin", "🏅", "Finalista, finale non disputata:"], ["bro", "🥉", "Bronzo:"]];
+    const pal = el("div", "palmares");
+    voci.forEach(([cls, ico, prima]) => gruppi.filter((g) => g.esito === cls).forEach((g) => {
+      const c = el("span", "chip " + cls, `${ico} ${nomeCorto(g.t[1])}`); c.title = `${prima} ${g.t[1]} · ${etichettaCat(g.cat)}`; pal.append(c);
+    }));
+    if (pal.children.length) dlg.append(pal);
+  }
+  // punteggio dal lato del judoka: il suo lato in grassetto; GS = golden score; n.d. = solo il vincitore registrato
+  function cellaPunti(td, s) {
+    const m = /^(.*?)\s-\s(.*?)(\s*\(GS\))?$/.exec(s || "");
+    if (!m) { const x = el("small", null, s || ""); if (s === "n.d.") x.title = "Punteggio non disponibile: l'IJF ha registrato solo il vincitore"; td.append(x); return; }
+    td.append(el("b", null, m[1]), " – ", m[2]);
+    if (m[3]) { const g = el("small", null, " GS"); g.title = "golden score"; td.append(g); }
+  }
+  function incontriIjf(inc, gruppi) {
+    const box = el("div");
+    box.append(el("h4", null, "Incontri nei tornei IJF"));
+    if (IJF === undefined) { box.append(el("p", "nota", "Incontri in caricamento…")); return box; }
+    if (!inc) { box.append(el("p", "nota", "Nessun incontro IJF dal 1° gennaio 2026 collegato a questo atleta: non ha incontri nei tornei letti dall'agente judo, oppure la sua riga di Athletes non è ancora abbinata a un ID IJF.")); return box; }
+    const v = inc.filter((r) => r[4] === "V").length, s = inc.length - v;
+    const conta = (e) => gruppi.filter((g) => g.esito === e).length, no = conta("oro"), na = conta("arg"), nb = conta("bro");
+    box.append(el("p", "nota", `${v} ${v === 1 ? "vinto" : "vinti"} e ${s} ${s === 1 ? "perso" : "persi"} in ${gruppi.length} ${gruppi.length === 1 ? "torneo" : "tornei"} · 🏆 ${no} ${no === 1 ? "titolo" : "titoli"} · 🥈 ${na} ${na === 1 ? "finale persa" : "finali perse"} · 🥉 ${nb} ${nb === 1 ? "bronzo" : "bronzi"}`));
+    // filtri: tutti, solo vinti, solo persi, solo le finali (per l'oro)
+    const FILTRI = [["tutti", "Tutti"], ["V", "Vinti"], ["S", "Persi"], ["F", "Finali"]];
+    let filtro = "tutti";
+    const bar = el("div", "inc-filtri"), lista = el("div");
+    bar.setAttribute("role", "group"); bar.setAttribute("aria-label", "Filtra gli incontri");
+    const disegnaLista = () => {
+      lista.innerHTML = "";
+      [...bar.children].forEach((b, k) => b.setAttribute("aria-pressed", FILTRI[k][0] === filtro));
+      gruppi.forEach((g) => {
+        const righe = g.righe.filter((r) => filtro === "tutti" || (filtro === "F" ? r[2] === "F" : r[4] === filtro));
+        if (!righe.length) return;
+        const blocco = el("div", "inc-torneo " + g.esito), testa = el("div", "inc-testa"), sx = el("div");
+        const nome = el("b", null, nomeCorto(g.t[1])); nome.title = g.t[1];
+        sx.append(nome, el("small", null, [g.t[2], etichettaCat(g.cat), giornoCorto(g.data)].filter(Boolean).join(" · ")));
+        testa.append(sx, el("span", "esito " + g.esito, g.testo));
+        const tab = el("table", "inc"), corpo = el("tbody");
+        righe.forEach((r) => {
+          const [, data, turno, , esito, ia, punti] = r, [, avv, noc] = JU[ia] || ["", "?", ""];
+          const tr = el("tr", turno === "F" ? "fin" : null);
+          const c1 = el("td", "turno", SIGLA[turno] || turno); c1.title = `${TURNO[turno] || turno} · ${giornoCorto(data)}`;
+          const c2 = el("td", "vs-c"), pill = el("span", "vs " + esito, esito === "V" ? "V" : "P"); pill.title = esito === "V" ? "Vinto" : "Perso"; c2.append(pill);
+          const nomeAvv = el("button", "avv", pulito(avv)); nomeAvv.type = "button"; nomeAvv.title = "Apri la scheda"; nomeAvv.onclick = () => apriJu(ia);
+          const c3 = el("td"); c3.append(esito === "V" ? "b. " : "perde con ", nomeAvv, " ", el("small", null, noc));
+          const c4 = el("td", "punti"); cellaPunti(c4, punti);
+          tr.append(c1, c2, c3, c4); corpo.append(tr);
+        });
+        tab.append(corpo); blocco.append(testa, tab); lista.append(blocco);
+      });
+      if (!lista.children.length) lista.append(el("p", "nota", "Nessun incontro con questo filtro."));
+    };
+    FILTRI.forEach(([k, testo]) => { const b = el("button", null, testo); b.type = "button"; b.onclick = () => { filtro = k; disegnaLista(); }; bar.append(b); });
+    box.append(bar, lista); disegnaLista();
+    box.append(el("p", "nota", `Fonte: agente judo (db Notion «🥋 Agente Judo»), incontri dal 1° gennaio 2026, aggiornati al ${giornoCorto(IJF.aggiornato)}. Mancano forfait e ritiri, che non sono scritti nel db: per questo una finale vinta a tavolino compare come «Finalista · finale non disputata». «b.» = batte; punteggio dal lato del judoka (I ippon, W waza-ari, Y yuko, S shido, HM hansoku-make, GS golden score; n.d. = l'IJF ha registrato solo il vincitore). Clicca un avversario per aprire la sua scheda.`));
+    return box;
   }
 
   // andamento dell'ELO nella scheda atleta: un punto per torneo (st = [[data, ELO, id torneo], ...]).
@@ -360,9 +561,17 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
     bottoni($("categorie"), ORD[stato.genere].map((c) => [c, c, String(perCat(stato.genere, c).length)]), "cat", () => (stato.tutti = false));
   }
   $("cerca").addEventListener("change", (e) => {
-    const q = e.target.value.trim().toLowerCase(); if (!q) return;
-    const a = A.find((x) => pulito(x.nome).toLowerCase() === q) || A.find((x) => x.nome.toLowerCase().includes(q));
+    const q = e.target.value.trim().toLowerCase().replace(/\s+/g, " "); if (!q) return;
+    // ordine: nome esatto nella classifica WON, nome esatto tra i «solo IJF», poi nomi che contengono
+    // tutte le parole cercate (in qualsiasi ordine: l'IJF scrive «COGNOME Nome», Athletes «Nome COGNOME»)
+    const norm = (t) => pulito(t).toLowerCase().replace(/\s+/g, " ");
+    const contiene = (t) => q.split(" ").every((w) => norm(t).includes(w));
+    const soloIjf = JU.map((_, k) => k).filter((k) => !daJu.has(k));
+    const esattoA = A.find((x) => norm(x.nome) === q), esattoJ = soloIjf.find((k) => norm(JU[k][1]) === q);
+    const a = esattoA || (esattoJ == null ? A.find((x) => contiene(x.nome)) : null);
     if (a) { stato.genere = a.genere; stato.cat = a.cat; stato.sel = a.id; disegna(); scheda(a); return; }
+    const k = esattoJ ?? soloIjf.find((k) => contiene(JU[k][1]));
+    if (k != null) { schedaIjf(k); return; }
     const n = A.find((x) => x.noc.toLowerCase() === q);
     if (n) { stato.sel = null; $("nota").scrollIntoView(); }
   });
@@ -551,11 +760,15 @@ dialog .chiudi { float: right; background: none; border: 1px solid var(--line); 
       card.onclick = () => { stato.genere = g; stato.cat = c; stato.sel = a.id; disegna(); window.scrollTo({ top: 0, behavior: "smooth" }); };
       I.append(card);
     });
-    $("nota").textContent = `Indice WON calcolato con le formule dei db Risultati A e B: rating del torneo (🏟️) × peso del piazzamento (dal 18% per l'oro all'1% oltre il 16° posto) × prestigio (Mondiali 1,5; continentali 1,25; Risultati B 0,55) × peso dell'anno (2025: 0,4; 2026: 0,6; 2027: 0,8; 2028: 1). Solo categoria senior. Nel database sono registrati di norma i primi 5 di ogni categoria (tutti i turni solo ai Mondiali): per questo il quadrante e la qualità del field usano solo i piazzamenti tra i primi 5, così ogni atleta è confrontato sulla stessa base. Tornei considerati: ${dati.eventi.join(", ")}.` + (ELO ? ` ELO: calcolato su ogni incontro IJF dal 1° gennaio 2026 (Olimpiadi, Mondiali, Grand Slam, Grand Prix, campionati e Giochi continentali; esclusi forfait e ritiri). Tutti partono da 1500 e ogni incontro sposta il punteggio secondo la forza dell'avversario, il tipo di torneo e il modo di vittoria; dopo 6 mesi senza incontri il valore torna piano piano verso 1500. È mostrato da 10 incontri in almeno 2 tornei («provvisorio» fino a 20 incontri), altrimenti compare «—». C'è un solo ELO per atleta, quindi ELO di categorie diverse non vanno confrontati. ELO aggiornato al ${new Date(ELO.aggiornato + "T12:00:00").toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" })}: ${nf(ELO.mostrati)} judoka con ELO mostrato su ${nf(ELO.judoka)}.` : "");
+    $("nota").textContent = `Indice WON calcolato con le formule dei db Risultati A e B: rating del torneo (🏟️) × peso del piazzamento (dal 18% per l'oro all'1% oltre il 16° posto) × prestigio (Mondiali 1,5; continentali 1,25; Risultati B 0,55) × peso dell'anno (2025: 0,4; 2026: 0,6; 2027: 0,8; 2028: 1). Solo categoria senior. Nel database sono registrati di norma i primi 5 di ogni categoria (tutti i turni solo ai Mondiali): per questo il quadrante e la qualità del field usano solo i piazzamenti tra i primi 5, così ogni atleta è confrontato sulla stessa base. Tornei considerati: ${dati.eventi.join(", ")}.` + (ELO ? ` ELO: calcolato su ogni incontro IJF dal 1° gennaio 2026 (Olimpiadi, Mondiali, Grand Slam, Grand Prix, campionati e Giochi continentali; esclusi forfait e ritiri). Tutti partono da 1500 e ogni incontro sposta il punteggio secondo la forza dell'avversario, il tipo di torneo e il modo di vittoria; dopo 6 mesi senza incontri il valore torna piano piano verso 1500. È mostrato da 10 incontri in almeno 2 tornei («provvisorio» fino a 20 incontri), altrimenti compare «—». C'è un solo ELO per atleta, quindi ELO di categorie diverse non vanno confrontati. ELO aggiornato al ${new Date(ELO.aggiornato + "T12:00:00").toLocaleDateString("it-IT", { day: "numeric", month: "long", year: "numeric" })}: ${nf(ELO.mostrati)} judoka con ELO mostrato su ${nf(ELO.judoka)}.` : "") + (IJF ? ` Nella scheda di ogni judoka, e anche di chi non è nella classifica WON (si trova con la ricerca o cliccando un avversario): gli incontri vinti e persi nei tornei IJF dal 1° gennaio 2026, con 🏆 i tornei vinti, 🥈 le finali perse e 🥉 i bronzi; gli stessi simboli segnano 1°, 2° e 3° posto nei tornei dell'indice WON.` : "");
   }
 
   disegna();
   let t; addEventListener("resize", () => { clearTimeout(t); t = setTimeout(disegna, 150); });
+  // arrivano gli incontri IJF: suggerimenti di ricerca, nota di metodo e, se è aperta, la scheda
+  preparaIjf(await pIjf);
+  disegna();
+  if ($("scheda").open && riapri) riapri();
 })();
 </script>
 </body>

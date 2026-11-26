@@ -382,13 +382,13 @@
   },
   "Shooting": {
    "quota": 340,
-   "atleti": 41,
+   "atleti": 43,
    "M": 21,
-   "W": 20,
+   "W": 22,
    "O": 0,
-   "pass": 41,
+   "pass": 43,
    "noc": {
-    "USA": 3,
+    "USA": 5,
     "CUB": 1,
     "PER": 1,
     "IND": 3,
@@ -585,15 +585,15 @@
   }
  },
  "totali": {
-  "atleti": 925,
-  "pass": 183,
+  "atleti": 927,
+  "pass": 185,
   "noc": 51
  },
  "noc": {
   "USA": {
    "nome": "Stati Uniti",
-   "atleti": 345,
-   "pass": 47,
+   "atleti": 347,
+   "pass": 49,
    "righe": [
     {
      "nome": "Alexis RUIZ/Stephan HANSEN",
@@ -1351,6 +1351,48 @@
      },
      "gare": {
       "Women's 50m Rifle 3 Positions": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Sagen MADDALENA",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Women's 50m Rifle 3 Positions",
+      "Women's 10m Air Rifle"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's 50m Rifle 3 Positions": "W",
+      "Women's 10m Air Rifle": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Samantha SIMONTON",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Women's Skeet"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's Skeet": "W"
      },
      "atleti": 1,
      "squadra": false,

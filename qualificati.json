@@ -1,13 +1,13 @@
 {
  "aggiornato": "2026-11-26",
  "totali": {
-  "posti_qualificati": 925,
+  "posti_qualificati": 927,
   "noc": 51,
-  "rimanenti": 10273,
+  "rimanenti": 10271,
   "posti_totali": 11198,
-  "righe": 183,
+  "righe": 185,
   "athlete_quota": 8,
-  "noc_quota": 71,
+  "noc_quota": 73,
   "team_quota": 104
  },
  "fonte_regole": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
@@ -2964,6 +2964,27 @@
    "notion": "https://app.notion.com/p/Katie-Lorraine-ZAUN-3a6f48c9aad9801cb983fce9f4a33497"
   },
   {
+   "chiave": "2c5f48c9aad9816aa99ad1efe041adf1",
+   "nome": "Sagen MADDALENA",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 50m Rifle 3 Positions",
+    "Women's 10m Air Rifle"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Sagen-MADDALENA-2c5f48c9aad9816aa99ad1efe041adf1"
+  },
+  {
    "chiave": "2c5f48c9aad981929a56ec4f83210e1c",
    "nome": "JIANG Yiting",
    "noc": "CHN",
@@ -3022,6 +3043,26 @@
    "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
    "verifica": false,
    "notion": "https://app.notion.com/p/Monika-STIBRAVA-3a7f48c9aad980f39c50d33b6e9c7e34"
+  },
+  {
+   "chiave": "2c5f48c9aad981fba752e84a55993ce8",
+   "nome": "Samantha SIMONTON",
+   "noc": "USA",
+   "bandiera": "🇺🇸",
+   "paese": "Stati Uniti",
+   "sport": "Shooting",
+   "gare": [
+    "Women's Skeet"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Samantha-SIMONTON-2c5f48c9aad981fba752e84a55993ce8"
   },
   {
    "chiave": "2c5f48c9aad981f4884ce2a4d95dd347",

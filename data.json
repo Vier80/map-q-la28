@@ -382,14 +382,15 @@
   },
   "Shooting": {
    "quota": 340,
-   "atleti": 40,
-   "M": 20,
+   "atleti": 41,
+   "M": 21,
    "W": 20,
    "O": 0,
-   "pass": 40,
+   "pass": 41,
    "noc": {
     "USA": 3,
     "CUB": 1,
+    "PER": 1,
     "IND": 3,
     "CZE": 2,
     "SRB": 1,
@@ -584,8 +585,8 @@
   }
  },
  "totali": {
-  "atleti": 924,
-  "pass": 182,
+  "atleti": 925,
+  "pass": 183,
   "noc": 51
  },
  "noc": {
@@ -4227,6 +4228,53 @@
     }
    ]
   },
+  "PER": {
+   "nome": "Perù",
+   "atleti": 2,
+   "pass": 2,
+   "righe": [
+    {
+     "nome": "Nicolas PACHECO ESPINOSA",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's Skeet"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Skeet": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Lucca MESINAS",
+     "sport": "Surfing",
+     "card": "Surfing",
+     "discipline": [
+      "Men's Surfing"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's Surfing": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
   "SVK": {
    "nome": "Slovacchia",
    "atleti": 2,
@@ -4517,33 +4565,6 @@
      "gare": {
       "Men's 10m Air Rifle": "M",
       "Men's 50m Rifle 3 Positions": "M"
-     },
-     "atleti": 1,
-     "squadra": false,
-     "ospitante": false,
-     "nota": ""
-    }
-   ]
-  },
-  "PER": {
-   "nome": "Perù",
-   "atleti": 1,
-   "pass": 1,
-   "righe": [
-    {
-     "nome": "Lucca MESINAS",
-     "sport": "Surfing",
-     "card": "Surfing",
-     "discipline": [
-      "Men's Surfing"
-     ],
-     "genere": {
-      "M": 1,
-      "W": 0,
-      "O": 0
-     },
-     "gare": {
-      "Men's Surfing": "M"
      },
      "atleti": 1,
      "squadra": false,

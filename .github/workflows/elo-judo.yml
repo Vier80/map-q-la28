@@ -4,6 +4,9 @@ name: ELO Judo
 #   - a mano: Actions -> ELO Judo -> Run workflow;
 #   - da solo alla fine di ogni lancio vero dell'agente dei risultati (repo agente-judo),
 #     quindi ogni lunedì mattina grazie a cron-job.org (scheda 19 §5.10).
+#
+# Versione 3 (26/11/2026, scheda 13): salva nel repository anche judo-incontri.json, l'elenco degli
+# incontri per la scheda di ogni judoka in judo-performance.html.
 on:
   workflow_dispatch:
     inputs:
@@ -13,7 +16,7 @@ on:
         default: true
 
 permissions:
-  contents: write          # serve per salvare judo-elo.json nel repository
+  contents: write          # serve per salvare judo-elo.json e judo-incontri.json nel repository
   actions: write           # NOVITÀ sessione 3: serve per avviare "Aggiorna mappa LA28" alla fine
 
 # due calcoli ELO contemporanei scriverebbero due volte in Athletes: il secondo aspetta il primo
@@ -50,18 +53,20 @@ jobs:
             elo_da_creare.csv
             elo_incerti.csv
             judo-elo.json
+            judo-incontri.json
           if-no-files-found: ignore
 
-      - name: Salva judo-elo.json nel repository (solo nel lancio vero)
+      - name: Salva judo-elo.json e judo-incontri.json nel repository (solo nel lancio vero)
         id: salva
-        # "always()" = anche se lo script ha avuto qualche errore di scrittura: il JSON è comunque valido
+        # "always()" = anche se lo script ha avuto qualche errore di scrittura: i JSON sono comunque validi
         if: always() && format('{0}', inputs.solo_prova) == 'false'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add judo-elo.json 2>/dev/null || true
+          git add judo-incontri.json 2>/dev/null || true     # versione 3 (scheda 13)
           if git diff --cached --quiet; then
-            echo "judo-elo.json invariato"
+            echo "judo-elo.json e judo-incontri.json invariati"
             echo "salvato=0" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -74,13 +79,14 @@ jobs:
             fi
             sleep 10
           done
-          echo "Non sono riuscito a salvare judo-elo.json"
+          echo "Non sono riuscito a salvare judo-elo.json e judo-incontri.json"
           exit 1
 
       # ------------------------------------------------------------------ NOVITÀ della sessione 3
       - name: Ripubblica subito il sito (avvia "Aggiorna mappa LA28")
-        # Solo se judo-elo.json è stato davvero salvato. La mappa rifà judo-performance.json con il
-        # nuovo ELO (aggiorna_judo_performance.py) e ripubblica GitHub Pages, compreso judo-elo.json.
+        # Solo se judo-elo.json o judo-incontri.json sono stati davvero salvati. La mappa rifà
+        # judo-performance.json con il nuovo ELO (aggiorna_judo_performance.py) e ripubblica GitHub Pages,
+        # compresi judo-elo.json e judo-incontri.json.
         # Se questo passaggio fallisce non succede nulla di grave: ci pensa il giro dei 15 minuti.
         if: always() && steps.salva.outputs.salvato == '1'
         continue-on-error: true

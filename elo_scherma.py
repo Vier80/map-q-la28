@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""ELO Scherma (scheda 26, sessione 2) – repo map-q-la28
+"""ELO Scherma (scheda 26, sessione 2) – repo map-q-la28 – versione 1.1 del 26/11/2026
+
+Versione 1.1 (26/11/2026, scheda 16): oltre a scherma-elo.json lo script salva scherma-incontri.json,
+cioè tutti gli assalti individuali del db "🤺 Agente Scherma" (una riga per assalto, scritta una volta
+sola), per l'elenco degli assalti vinti e persi nella scheda di ogni schermidore di
+scherma-performance.html. Come per il judo (elo_judo.py 2.2).
+Nel file entrano anche gli assalti con esito anomalo (MED, DNS, DNF, A, E, "Vittoria a tavolino"),
+che NON contano nell'ELO: così una finale vinta per forfait dell'avversario resta visibile.
+Nessuna modifica alle regole dell'ELO né alla scrittura in Notion.
 
 Che cosa fa
 -----------
@@ -104,6 +112,13 @@ PAUSA_NOTION = 0.35
 TEMPO_MAX_MINUTI = float(os.getenv("TEMPO_MAX_MINUTI", "").strip() or 165)
 
 FILE_JSON = CARTELLA / "scherma-elo.json"
+FILE_INCONTRI = CARTELLA / "scherma-incontri.json"   # versione 1.1: assalti per la pagina (scheda 16)
+# Sigle corte dei turni in scherma-incontri.json (il file resta più piccolo); la pagina le traduce in italiano.
+# P = tabellone preliminare, T = tabellone principale (T16 = ottavi), B = finale per il 3° posto (solo squadre)
+SIGLA_TURNO = {"Preliminare da 256": "P256", "Preliminare da 128": "P128", "Preliminare da 64": "P64",
+               "Tabellone da 128": "T128", "Tabellone da 64": "T64", "Tabellone da 32": "T32",
+               "Tabellone da 16": "T16", "Quarti di finale": "QF", "Semifinale": "SF",
+               "Finale 3° posto": "B", "Finale": "F"}
 FILE_RAPPORTO = CARTELLA / "rapporto_elo_scherma.txt"
 CSV_ABBINATI = CARTELLA / "scherma_elo_abbinati.csv"
 CSV_DA_CREARE = CARTELLA / "scherma_elo_da_creare.csv"
@@ -301,10 +316,19 @@ def gara_di(uid):
 
 
 def filtra(incontri):
-    """Tiene gli incontri utilizzabili; restituisce (validi ordinati, scarti per motivo)."""
-    scarti, validi = Counter(), []
+    """Tiene gli incontri utilizzabili.
+
+    Restituisce (validi ordinati, scarti per motivo, anomali ordinati). Versione 1.1: gli "anomali" sono
+    gli assalti con esito anomalo (MED, DNS, DNF, A, E) o "Vittoria a tavolino", ma con i dati completi
+    (ID FIE, data, arma): non entrano nell'ELO, ma vanno nell'elenco della pagina (salva_incontri).
+    """
+    scarti, validi, anomali = Counter(), [], []
     for m in incontri:
         d = scarto(m["score"])
+        completo = (m["id1"] and m["id2"] and m["id1"] != m["id2"] and m["arma"] in ARMI_EN
+                    and re.fullmatch(r"\d{4}-\d{2}-\d{2}", m["data"] or ""))
+        if completo and ("(" in m["score"] or d is None):
+            anomali.append(dict(m, gara=gara_di(m["uid"])))   # solo per la pagina (versione 1.1)
         if "(" in m["score"]:
             scarti["esito anomalo (MED, DNS, DNF...)"] += 1
         elif not m["id1"] or not m["id2"]:
@@ -324,8 +348,10 @@ def filtra(incontri):
                 scarti[f"turno non previsto (messo tra i Tabelloni da 16 e i Quarti): '{m['turno']}'"] += 1
             m = dict(m, scarto=d, gara=gara_di(m["uid"]))
             validi.append(m)
-    validi.sort(key=lambda m: (m["data"], ORDINE_TURNI.get(m["turno"], 6.5), m["uid"]))
-    return validi, scarti
+    ordine = lambda m: (m["data"], ORDINE_TURNI.get(m["turno"], 6.5), m["uid"])
+    validi.sort(key=ordine)
+    anomali.sort(key=ordine)
+    return validi, scarti, anomali
 
 
 def medie_mov(validi):
@@ -686,6 +712,56 @@ def salva_json(A, P, esiti, tornei, oggi):
     FILE_JSON.write_text(json.dumps(dati, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 
 
+def salva_incontri(P, esiti, validi, anomali, oggi):
+    """scherma-incontri.json: gli assalti individuali per la scheda dello schermidore (scheda 16, 26/11/2026).
+
+    Ogni assalto è scritto UNA volta sola; la pagina lo assegna al vincitore e allo sconfitto.
+    Formato (liste invece di dizionari, per un file più piccolo):
+      gare         = [[stagione|competitionId, nome del Torneo, Livello, arma, genere (U/D),
+                       primo giorno, ultimo giorno], ...]
+      schermidori  = [[ID FIE, nome FIE, NOC, id Athletes (senza trattini) o null, genere,
+                       arma principale, ELO dell'arma principale (solo se mostrabile, altrimenti null),
+                       livello dell'ELO], ...]
+      incontri     = [[indice gara, data, turno (sigla di SIGLA_TURNO), indice vincitore, indice sconfitto,
+                       Score dal lato del vincitore, es. "15-11" o "0-0 (MED)"], ...]
+    Ci sono gli assalti dell'ELO (validi) e quelli con esito anomalo (anomali), nello stesso ordine
+    del calcolo ELO (data, turno, ID univoco). L'ELO dei «nascosti» non entra nel file.
+    """
+    tutti = sorted(validi + anomali, key=lambda m: (m["data"], ORDINE_TURNI.get(m["turno"], 6.5), m["uid"]))
+    # schermidori: nell'ordine del loro primo assalto (gli indici restano stabili da una settimana all'altra)
+    idx_s, schermidori = {}, []
+    for m in tutti:
+        for pid, nome, noc in ((m["id1"], m["p1"], m["noc1"]), (m["id2"], m["p2"], m["noc2"])):
+            if pid in idx_s:
+                continue
+            idx_s[pid] = len(schermidori)
+            p, e = P.get(pid), esiti.get(pid, {})
+            if p:                          # schermidore con ELO: dati dell'arma principale
+                a = p["armi"][p["principale"]]
+                mostrabile = a["livello"] in ("stabile", "provvisorio")
+                schermidori.append([pid, p["nome"], p["noc"], (e.get("page") or "").replace("-", "") or None,
+                                    "U" if p["gender"] == "Men" else "D", p["principale"],
+                                    round(a["elo"]) if mostrabile else None, a["livello"]])
+            else:                          # solo assalti anomali: nessun ELO e nessun abbinamento
+                schermidori.append([pid, nome, noc, None, "U" if m["gender"] == "Men" else "D",
+                                    m["arma"], None, "nascosto"])
+    # gare: primo e ultimo giorno ricavati dagli assalti
+    idx_g, gare = {}, []
+    for m in tutti:
+        if m["gara"] not in idx_g:
+            idx_g[m["gara"]] = len(gare)
+            gare.append([m["gara"], m["torneo"], m["livello"], m["arma"],
+                         "U" if m["gender"] == "Men" else "D", m["data"], m["data"]])
+        g = gare[idx_g[m["gara"]]]
+        g[5], g[6] = min(g[5], m["data"]), max(g[6], m["data"])
+    # assalti: Player 1 è sempre il vincitore (agente FIE), quindi lo Score è già dal suo lato
+    righe = [[idx_g[m["gara"]], m["data"], SIGLA_TURNO.get(m["turno"], m["turno"]),
+              idx_s[m["id1"]], idx_s[m["id2"]], m["score"]] for m in tutti]
+    dati = {"aggiornato": oggi.isoformat(), "gare": gare, "schermidori": schermidori, "incontri": righe}
+    FILE_INCONTRI.write_text(json.dumps(dati, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return len(righe), len(anomali), len(schermidori), len(gare)
+
+
 # ====================================================================== MAIN
 def main():
     ap = argparse.ArgumentParser()
@@ -710,7 +786,7 @@ def main():
         f"{sum(1 for r in athletes if r['id_fie'])}")
 
     # 2. calcolo
-    validi, scarti = filtra(incontri)
+    validi, scarti, anomali = filtra(incontri)
     log(f"Incontri usati nell'ELO: {len(validi)}")
     for motivo, n in scarti.most_common():
         log(f"  esclusi {n}: {motivo}")
@@ -775,6 +851,9 @@ def main():
     stampa_classifiche(A)
     salva_json(A, P, esiti, tornei, oggi)
     log(f"\n{FILE_JSON.name}: {len(A)} schede (schermidore × arma), {len(tornei)} gare")
+    n_inc, n_anom, n_sch, n_gare = salva_incontri(P, esiti, validi, anomali, oggi)     # versione 1.1
+    log(f"{FILE_INCONTRI.name}: {n_inc} assalti ({n_inc - n_anom} dell'ELO + {n_anom} con esito anomalo), "
+        f"{n_sch} schermidori, {n_gare} gare ({FILE_INCONTRI.stat().st_size / 1024:.0f} KB)")
 
     if solo_prova:
         log("\nProva terminata: non è stato scritto nulla su Notion.")

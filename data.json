@@ -216,8 +216,8 @@
    "pass": 6,
    "noc": {
     "USA": 20,
-    "ITA": 10,
     "MEX": 10,
+    "ITA": 10,
     "CAN": 20
    }
   },
@@ -230,8 +230,8 @@
    "pass": 5,
    "noc": {
     "USA": 36,
-    "BRA": 18,
     "MEX": 18,
+    "BRA": 18,
     "COL": 18
    }
   },
@@ -382,14 +382,15 @@
   },
   "Shooting": {
    "quota": 340,
-   "atleti": 43,
-   "M": 21,
-   "W": 22,
+   "atleti": 45,
+   "M": 22,
+   "W": 23,
    "O": 0,
-   "pass": 43,
+   "pass": 45,
    "noc": {
     "USA": 5,
     "CUB": 1,
+    "MEX": 1,
     "PER": 1,
     "IND": 3,
     "CZE": 2,
@@ -397,6 +398,7 @@
     "RUS": 2,
     "CHN": 7,
     "JPN": 1,
+    "ARG": 1,
     "KUW": 2,
     "EGY": 1,
     "ITA": 1,
@@ -585,9 +587,9 @@
   }
  },
  "totali": {
-  "atleti": 927,
-  "pass": 185,
-  "noc": 51
+  "atleti": 929,
+  "pass": 187,
+  "noc": 52
  },
  "noc": {
   "USA": {
@@ -2153,8 +2155,8 @@
   },
   "MEX": {
    "nome": "Messico",
-   "atleti": 28,
-   "pass": 2,
+   "atleti": 29,
+   "pass": 3,
    "righe": [
     {
      "nome": "MEX Women's Flag",
@@ -2193,6 +2195,28 @@
      },
      "atleti": 18,
      "squadra": true,
+     "ospitante": false,
+     "nota": ""
+    },
+    {
+     "nome": "Alejandra ZAVALA VAZQUEZ",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Women's 10m Air Pistol",
+      "Women's 25m Pistol"
+     ],
+     "genere": {
+      "M": 0,
+      "W": 1,
+      "O": 0
+     },
+     "gare": {
+      "Women's 10m Air Pistol": "W",
+      "Women's 25m Pistol": "W"
+     },
+     "atleti": 1,
+     "squadra": false,
      "ospitante": false,
      "nota": ""
     }
@@ -4344,6 +4368,35 @@
     },
     {
      "nome": "Patrik JANY",
+     "sport": "Shooting",
+     "card": "Shooting",
+     "discipline": [
+      "Men's 50m Rifle 3 Positions",
+      "Men's 10m Air Rifle"
+     ],
+     "genere": {
+      "M": 1,
+      "W": 0,
+      "O": 0
+     },
+     "gare": {
+      "Men's 50m Rifle 3 Positions": "M",
+      "Men's 10m Air Rifle": "M"
+     },
+     "atleti": 1,
+     "squadra": false,
+     "ospitante": false,
+     "nota": ""
+    }
+   ]
+  },
+  "ARG": {
+   "nome": "Argentina",
+   "atleti": 1,
+   "pass": 1,
+   "righe": [
+    {
+     "nome": "Alexis EBERHARDT",
      "sport": "Shooting",
      "card": "Shooting",
      "discipline": [

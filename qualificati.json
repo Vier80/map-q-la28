@@ -1,13 +1,13 @@
 {
  "aggiornato": "2026-11-27",
  "totali": {
-  "posti_qualificati": 927,
-  "noc": 51,
-  "rimanenti": 10271,
+  "posti_qualificati": 929,
+  "noc": 52,
+  "rimanenti": 10269,
   "posti_totali": 11198,
-  "righe": 185,
+  "righe": 187,
   "athlete_quota": 8,
-  "noc_quota": 73,
+  "noc_quota": 75,
   "team_quota": 104
  },
  "fonte_regole": "https://www.olympics.com/ioc/documents/olympic-games/los-angeles-2028-olympic-games",
@@ -2517,6 +2517,27 @@
    "notion": "https://app.notion.com/p/Gavin-Raymond-Leigh-BARNICK-423f48c9aad9807881b0fc8d1602ee50"
   },
   {
+   "chiave": "3e3f48c9aad980f8a7f9e7ee14139624",
+   "nome": "Alexis EBERHARDT",
+   "noc": "ARG",
+   "bandiera": "🇦🇷",
+   "paese": "Argentina",
+   "sport": "Shooting",
+   "gare": [
+    "Men's 50m Rifle 3 Positions",
+    "Men's 10m Air Rifle"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Alexis-EBERHARDT-3e3f48c9aad980f8a7f9e7ee14139624"
+  },
+  {
    "chiave": "2c5f48c9aad9819baf40c3e2af91128b",
    "nome": "Patrik JANY",
    "noc": "SVK",
@@ -2717,6 +2738,27 @@
    "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
    "verifica": false,
    "notion": "https://app.notion.com/p/Veronika-MAJOR-2c5f48c9aad981e4a62eeb4a94a5e3f0"
+  },
+  {
+   "chiave": "422f48c9aad9809491adc9204034779c",
+   "nome": "Alejandra ZAVALA VAZQUEZ",
+   "noc": "MEX",
+   "bandiera": "🇲🇽",
+   "paese": "Messico",
+   "sport": "Shooting",
+   "gare": [
+    "Women's 10m Air Pistol",
+    "Women's 25m Pistol"
+   ],
+   "tipo": "NOC Quota",
+   "via": "Not specified",
+   "evento": "",
+   "posti": 1,
+   "nota": "",
+   "regola": "Posti all'NOC, tranne quelli dal ranking olimpico e di universalità che sono nominativi.",
+   "documento": "https://stillmed.olympics.com/media/Documents/Olympic-Games/LA28/SHO-LA28-Qualification-System.pdf",
+   "verifica": false,
+   "notion": "https://app.notion.com/p/Alejandra-ZAVALA-VAZQUEZ-422f48c9aad9809491adc9204034779c"
   },
   {
    "chiave": "2c5f48c9aad9815c902bf636185265a9",
